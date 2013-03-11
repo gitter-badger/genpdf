@@ -1,0 +1,69 @@
+/*
+*
+* Template MyExa
+* Inclusion des polices
+*
+*/
+/*************************************/
+/* DIN BLACK */
+@font-face {
+    font-family: 'DIN-Black';
+    src: url('font/DINBla.eot');
+}
+
+@font-face {
+    font-family: 'DIN-Black';
+    src: url('font/DINBla.woff') format('woff'), url('font/DINBla.svg#DIN-Black') format('svg');
+}
+
+/*************************************/
+/* DIN BOLD */
+
+@font-face {
+    font-family: 'DIN-Bold';
+    src: url('font/DINBol.eot');
+}
+
+@font-face {
+    font-family: 'DIN-Bold';
+    src: url('font/DINBol.woff') format('woff'), url('font/DINBol.svg#DIN-Bold') format('svg');
+}
+
+/*************************************/
+/* DIN MEDIUM */
+
+@font-face {
+    font-family: 'DIN-Medium';
+    src: url('font/DINMed.eot');
+}
+
+@font-face {
+    font-family: 'DIN-Medium';
+    src: url('font/DINMed.woff') format('woff'), url('font/DINMed.svg#DIN-Medium') format('svg');
+}
+
+/*************************************/
+/* DIN LIGHT */
+
+@font-face {
+    font-family: 'DIN-Light';
+    src: url('font/DINLig.eot');
+}
+
+@font-face {
+    font-family: 'DIN-Light';
+    src: url('font/DINLig.woff') format('woff'), url('font/DINLig.svg#DIN-Light') format('svg');
+}
+
+/*************************************/
+/* DIN REGULAR */
+
+@font-face {
+    font-family: 'DIN-Regular';
+    src: url('font/DINReg.eot');
+}
+
+@font-face {
+    font-family: 'DIN-Regular';
+    src: url('font/DINReg.woff') format('woff'), url('font/DINReg.svg#DIN-Regular') format('svg');
+}

@@ -1,0 +1,162 @@
+.bold {
+    font-family: "DIN-Bold";
+}
+.medium {
+    font-family: "DIN-Medium";
+}
+.regular {
+    font-family: "DIN-Regular";
+}
+body {
+    font-family: "DIN-Regular";
+    color: #333333;
+    font-size: 11px;
+}
+a {
+    color: #666666;
+    text-decoration: none;
+}
+#page {
+    margin: 0.5cm auto;
+    position: relative;
+}
+h1 {
+    color: #de265a;
+    margin: 0 0 0.5em 0;
+    font-family: "DIN-Bold";
+}
+h2 {
+    margin-bottom: 0.3em;
+}
+table {
+    page-break-inside: auto;
+}
+tr {
+    page-break-inside: avoid;
+    page-break-after: auto;
+}
+td.money {
+    text-align: right;
+}
+td.number {
+    text-align: center;
+}
+dl {
+    margin: 0;
+}
+dt {
+    float: left;
+    font-family: "DIN-Bold",sans-serif;
+    height: 2em;
+}
+dd {
+    text-indent: 0.5em;
+    height: 2em;
+}
+span.currency {
+    color: #666666;
+    margin-left: 0.2em;
+    font-size: 0.9em;
+    font-family: Arial,sans-serif;
+}
+#customer .details dt {
+    width: 3cm;
+    text-align: right;
+}
+#customer .details dd {
+    text-align: left;
+}
+#customer address {
+    padding: 0.4em;
+    float: right;
+    width: 8cm;
+    font-size: 1.3em;
+    line-height: 1.6em;
+    border: 0.028cm solid #cccccc;
+    border-radius: 0.5em;
+    font-family: "DIN-Medium";
+    font-style: normal;
+    color: #666666;
+}
+
+#supplier address {
+    padding: 0.4em;
+    width: 8cm;
+    font-size: 1.3em;
+    line-height: 1.6em;
+    font-family: "DIN-Medium";
+    font-style: normal;
+    color: #666666;
+}
+
+#main {
+    clear: right;
+}
+#main table {
+    width: 100%;
+    border-collapse: collapse;
+}
+#main table th {
+    padding: 0.4em 0.5em;
+    background: #de265a;
+    color: white;
+    border-right: 0.028cm solid #ffffff;
+    font-family: "DIN-Medium";
+}
+#main table th:first-child {
+    border-radius: 0.5em 0 0 0;
+}
+#main table th:last-child {
+    border-radius: 0 0.5em 0 0;
+}
+#main table tbody td {
+    border-bottom: 0.028cm solid #cccccc;
+    padding: 0.5em;
+    padding-top: 0.7em;
+}
+#main table tbody td .code {
+    color: #666666;
+    font-size: 0.8em;
+}
+#main table tbody td .tracking {
+    font-size: 0.8em;
+    margin: 0;
+}
+#main table tbody td .units {
+    color: #de265a;
+    font-family: "DIN-Medium";
+}
+#main table tbody tr:last-child td {
+    border-bottom: none;
+}
+#main table tbody tr {
+    page-break-after: avoid;
+}
+#main table tfoot td {
+    background: #cccccc;
+    padding: 0.5em;
+}
+#main table tfoot td:first-child {
+    border-radius: 0 0 0 0.5em;
+}
+#main table tfoot td:last-child {
+    border-radius: 0 0 0.5em 0;
+}
+#main table td.quantity {
+    text-align: center;
+}
+#donations {
+    margin-top: 1em;
+    padding: 0 0.6em;
+    float: left;
+    border: 0.028cm #cccccc solid;
+}
+#summary {
+    float: right;
+    width: 8cm;
+    text-align: right;
+    margin-top: 1cm;
+}
+#summary dt {
+    width: 6cm;
+}

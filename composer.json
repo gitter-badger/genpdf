@@ -1,0 +1,29 @@
+{
+    "name": "exa/genpdf",
+    "description": "PDF Generation tool",
+    "keywords": ["pdf"],
+    "homepage": "http://www.exaprint.fr",
+    "license": "None",
+    "minimum-stability": "dev",
+    "authors": [
+        {
+            "name": "Romain Bessuges",
+            "email": "romain@exaprint.fr",
+            "homepage": "http://www.exaprint.fr/"
+        }
+    ],
+    "require": {
+        "php": ">=5.3.0",
+        "slim/slim": "2.*",
+        "slim/extras": "2.*",
+        "twig/twig": "1.*",
+        "romainbessugesmeusy/php-dsn-factory": "*",
+        "romainbessugesmeusy/php-wkhtmltopdf": "*",
+        "romainbessugesmeusy/php-sql-query": "*",
+        "jdorn/sql-formatter": "*"
+    },
+
+    "autoload": {
+        "psr-0": { "Exaprint": "lib/." }
+    }
+}
