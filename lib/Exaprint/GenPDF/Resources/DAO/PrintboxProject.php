@@ -84,8 +84,10 @@ class PrintboxProject
         $db = new Database("test");
         $data = array();
         if ($r = $db->query($select)) {
+
             $data = $this->_indent($r->fetchAll(\PDO::FETCH_OBJ), "order.id");
-            foreach ($data as $orderId => &$row) {
+
+            array_walk($data, function(&$row, $orderId) use ($db, $IDLangue) {
 
                 $frais = new Select("TBL_FRAIS", [
                     "quantity"    => "Quantite",
@@ -102,19 +104,16 @@ class PrintboxProject
                 $fraisTrad
                     ->joinCondition()->eq("IDLangue", $IDLangue);
 
-
                 if ($r = $db->query($frais)) {
                     $row->order->fees = $r->fetchAll(\PDO::FETCH_OBJ);
                 }
-
-            }
+            });
         } else {
             var_dump($r);
             var_dump($db->errorCode());
             var_dump($db->errorInfo());
 
         }
-
         return $data;
     }
 
@@ -203,7 +202,6 @@ class PrintboxProject
                 $parent->$buffer = $value;
             }
         }
-
         return $results;
     }
 

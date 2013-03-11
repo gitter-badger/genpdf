@@ -15,6 +15,7 @@ class PrintboxProject implements IResource
     {
         $dao = new \Exaprint\GenPDF\Resources\DAO\PrintboxProject();
         $this->_data = $dao->fetchFromId($id);
+        return !is_null($this->_data);
     }
 
     /**
@@ -30,7 +31,7 @@ class PrintboxProject implements IResource
      */
     public function getTemplateFilename()
     {
-
+        return "resources/printbox/project.html";
     }
 
     /**

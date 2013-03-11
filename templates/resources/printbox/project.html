@@ -1,0 +1,42 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="UTF-8">
+    <title></title>
+    <!--<link rel="stylesheet" type="text/css" href="http://genpdf.exaprint.fr/static/css/reset.css"/>
+    <link rel="stylesheet" type="text/css" href="http://genpdf.exaprint.fr/static/css/fonts.css"/>
+    <link rel="stylesheet" type="text/css" href="http://genpdf.exaprint.fr/static/css/invoice.css"/>-->
+</head>
+<body>
+<div id="page">
+    <div id="customer">
+        <h1>Projet de commande Printbox</h1>
+        <dl class="details">
+            <dt>Printboxer</dt>
+            <dd>{{ pboxer.company_name }}</dd>
+            <dt>Email</dt>
+            <dd>{{ pboxer.email }}</dd>
+        </dl>
+        <address>
+            {{ pboxer.address.line1 }}<br/>
+            {% if (pboxer.address.line2 != '') %}
+            {{ pboxer.address.line2 }}<br/>
+            {% endif %}
+            {% if (pboxer.address.line3 != '') %}
+            {{ pboxer.address.line3 }}<br/>
+            {% endif %}
+            {{ pboxer.address.postcode }} {{ pboxer.address.city }}
+        </address>
+    </div>
+    <div id="main">
+        <h1>{{ order.reference }}</h1>
+
+        <h2>{{ order.id }}</h2>
+
+    </div>
+    <footer>
+
+    </footer>
+</div>
+</body>
+</html>
