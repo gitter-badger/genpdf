@@ -107,7 +107,8 @@ $app->post("/labels/tnt-express-connect", function() use ($app) {
 
 $app->get("/printbox/project/:id", function($id){
     $resource = new \Exaprint\GenPDF\Resources\PrintboxProject();
-    $resource->fetchFromID($id);
+    $data = $resource->fetchFromID($id);
+    var_dump($data);
 });
 
 $app->run();
