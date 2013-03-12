@@ -24,7 +24,6 @@ class Factory {
             case "supplierinvoice": return new SupplierInvoice();
             case "printbox-project": return new PrintboxProject();
         }
-
         return null;
     }
 }

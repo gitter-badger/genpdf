@@ -63,6 +63,7 @@ $app->get("/:name/:id.html", function ($name, $id) use ($app) {
     $resource = \Exaprint\GenPDF\Resources\Factory::createFromName($name);
 
     if ($resource && $resource->fetchFromID($id)) {
+
         $app->render(
             $resource->getTemplateFilename(),
             $resource->getData()
@@ -72,7 +73,7 @@ $app->get("/:name/:id.html", function ($name, $id) use ($app) {
     $app->status(404);
 });
 
-$app->get("/labels/tnt-express-connect", function(){
+$app->get("/labels/tnt-express-connect", function () {
     echo
     '<form method="POST">
         <textarea name="xml"></textarea>
@@ -80,21 +81,21 @@ $app->get("/labels/tnt-express-connect", function(){
     </form>';
 });
 
-$app->post("/labels/tnt-express-connect", function() use ($app) {
-
-    $r = $app->request();
-
-    $filename = "/tmp/" . uniqid("genpdf");
-
-
-    file_put_contents("$filename.xml", $r->post("xml"));
-    $cmd = "xsltproc $filename.xml > $filename.html";
-    exec ($cmd, $output, $return);
-
+$app->post("/labels/tnt-express-connect", function () use ($app) {
     $app->contentType("application/x-pdf");
+    xsltProcess($app->request()->post("xml"));
+});
+
+function xsltProcess($xml)
+{
+    $filename = "/tmp/" . uniqid("genpdf");
+    file_put_contents("$filename.xml", $xml);
+    $cmd = "xsltproc $filename.xml > $filename.html";
+    exec($cmd, $output, $return);
+
     $wkhtml = new \RBM\Wkhtmltopdf\Wkhtmltopdf();
     $return = $wkhtml->run("$filename.html", "$filename.pdf");
-    if(file_exists("$filename.pdf")){
+    if (file_exists("$filename.pdf")) {
         echo file_get_contents("$filename.pdf");
         unlink("$filename.pdf");
     } else {
@@ -103,7 +104,6 @@ $app->post("/labels/tnt-express-connect", function() use ($app) {
 
     unlink("$filename.xml");
     unlink("$filename.html");
-});
-
+}
 
 $app->run();
