@@ -9,13 +9,13 @@
 </head>
 <body>
 <div id="page">
-    <h1>Projet de commande Printbox</h1>
+    <h1>{% trans "Projet de commande Printbox" %}</h1>
     <div id="printboxer">
-        <h2>Printboxer</h2>
+        <h2>{% trans "Printboxer" %}</h2>
         <dl class="details">
-            <dt>Raison Sociale</dt>
+            <dt>{% trans "Raison Sociale" %}</dt>
             <dd>{{ pboxer.company_name }}</dd>
-            <dt>Email</dt>
+            <dt>{% trans "Email" %}</dt>
             <dd>{{ pboxer.email }}</dd>
         </dl>
         <address>
@@ -30,11 +30,11 @@
         </address>
     </div>
     <div id="client">
-        <h2>Client</h2>
+        <h2>{% trans "Client Final Printboxer" %}</h2>
         <dl class="details">
-            <dt>Raison Sociale</dt>
+            <dt>{% trans "Raison Sociale" %}</dt>
             <dd>{{ client.company_name }}</dd>
-            <dt>Email</dt>
+            <dt>{% trans "Email" %}</dt>
             <dd>{{ client.email }}</dd>
         </dl>
         <address>

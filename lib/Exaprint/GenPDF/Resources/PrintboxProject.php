@@ -31,7 +31,7 @@ class PrintboxProject implements IResource
      */
     public function getTemplateFilename()
     {
-        return "resources/printbox/project.html";
+        return "resources/printbox/project.twig";
     }
 
     /**

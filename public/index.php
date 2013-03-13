@@ -2,6 +2,10 @@
 
 require '../bootstrap.php';
 
+$app->get("/", function(){
+    echo _("hello");
+});
+
 $app->get("/:name/:id.xml", function ($name, $id) use ($app) {
     $resource = \Exaprint\GenPDF\Resources\Factory::createFromName($name);
     if ($resource && $resource->fetchFromID($id)) {
@@ -49,6 +53,8 @@ $app->get("/:name/:id.pdf", function ($name, $id) use ($app) {
 
 
     $app->status(404);
+
+    echo "Impossible de trouver la ressource de type $name #$id";
 });
 
 $app->get("/:name/:id.html", function ($name, $id) use ($app) {
@@ -64,7 +70,10 @@ $app->get("/:name/:id.html", function ($name, $id) use ($app) {
         );
         return;
     }
+
     $app->status(404);
+    echo "Impossible de trouver la ressource de type $name #$id";
+
 });
 
 $app->post("/labels/tnt-express-connect", function () use ($app) {

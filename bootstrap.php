@@ -1,6 +1,6 @@
 <?php
 
-require "../vendor/autoload.php";
+require "vendor/autoload.php";
 
 define("APPLICATION_NAME", "GenPDF");
 define("APPLICATION_EDITOR", "Exaprint");
@@ -8,8 +8,15 @@ define("APPLICATION_VERSION", "0.0.1");
 define("LIBRARY_PATH", "../library/");
 
 ini_set("display_errors", "1");
-
 error_reporting(E_ALL);
+putenv("LC_MESSAGES=fr_FR");
+setlocale(LC_MESSAGES, 'fr_FR');
+
+if (function_exists('bindtextdomain') && function_exists('textdomain')) {
+    bindtextdomain("messages", __DIR__ . "/locale");
+    textdomain("messages");
+    bind_textdomain_codeset("messages", "UTF-8");
+}
 
 date_default_timezone_set("Europe/Paris");
 
@@ -23,6 +30,7 @@ $app = new \Slim\Slim(array(
     ))
 ));
 
+
 // Prepare view
 \Slim\Extras\Views\Twig::$twigOptions = array(
     'charset' => 'utf-8',
@@ -35,11 +43,13 @@ $app = new \Slim\Slim(array(
 
 
 
-
+/** @var $twig \Slim\Extras\Views\Twig */
 $twig = $app->view(new \Slim\Extras\Views\Twig());
+/** @var $twigEnv Twig_Environment */
+$twigEnv = $twig->getEnvironment();
 
-$twig->getEnvironment()->addExtension(new Twig_Extension_Debug());
-
+$twigEnv->addExtension(new Twig_Extension_Debug());
+$twigEnv->addExtension(new Twig_Extensions_Extension_I18n());
 
 $app->get("/version", function () use ($app) {
     $app->contentType("text/plain");

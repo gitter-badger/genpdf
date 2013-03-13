@@ -4,7 +4,6 @@ namespace Exaprint\GenPDF\Resources\DAO;
 
 use RBM\ResultsCombinator\ResultsCombinator;
 use RBM\SqlQuery\Renderer\SqlServer;
-use RBM\SqlQuery\Select;
 
 class PrintboxProject
 {
@@ -53,19 +52,20 @@ class PrintboxProject
                 TBL_FRAIS.MontantHT AS [order.fees.et_amount],
                 TBL_FRAIS.MontantTVA AS [order.fees.vat_amount],
                 TBL_FRAIS_TYPE_FRAIS_TRAD.LibelleTraduit AS [order.fees.type],
-                Options.IDProduitOption AS [order.product.options.id],
-                Options.ProduitOption AS [order.product.options.label],
+                Options.IDProduitOption AS [product.options.id],
+                Options.ProduitOption AS [product.options.label],
                 CASE
                     WHEN (Options.ProduitOptionValeur IS NULL)
                     THEN CAST (Options.Valeur AS VARCHAR)
                     ELSE Options.ProduitOptionValeur
-                END AS [order.product.options.value],
-                Options.Sigle AS [order.product.options.unit]
+                END AS [product.options.value],
+                Options.Sigle AS [product.options.unit]
             FROM
                 TBL_TL_COMMANDE_PRINTBOX
             JOIN VUE_INFOS_CLIENT AS [client] ON ([client].IDClient = TBL_TL_COMMANDE_PRINTBOX.IDClient)
             JOIN TBL_COMMANDE ON (TBL_COMMANDE.IDCommande = TBL_TL_COMMANDE_PRINTBOX.IDCommande)
-            JOIN TBL_COMMANDE_LIGNE ON (TBL_COMMANDE_LIGNE.IDCommande = TBL_COMMANDE.IDCommande) CROSS APPLY dbo.f_OptionsCommande (TBL_COMMANDE.IDCommande, $IDLangue) AS Options
+            JOIN TBL_COMMANDE_LIGNE ON (TBL_COMMANDE_LIGNE.IDCommande = TBL_COMMANDE.IDCommande)
+            CROSS APPLY dbo.f_OptionsCommande (TBL_COMMANDE.IDCommande, $IDLangue) AS Options
             JOIN VUE_INFOS_CLIENT AS [pboxer] ON ([pboxer].IDClient = TBL_COMMANDE.IDClient)
             LEFT JOIN TBL_FRAIS ON (TBL_FRAIS.IDCommande = TBL_COMMANDE.IDCommande)
             JOIN TBL_PRODUIT ON (TBL_PRODUIT.IDProduit = TBL_COMMANDE_LIGNE.IDProduit)
@@ -99,6 +99,8 @@ class PrintboxProject
             if(isset($data[$IDCommande])){
                 return $data[$IDCommande];
             }
+        } else {
+
         }
         return null;
     }
