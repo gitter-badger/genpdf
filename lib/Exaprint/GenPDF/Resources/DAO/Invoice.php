@@ -19,7 +19,7 @@ class Invoice
      */
     public function getXML($IDFacture)
     {
-        $db = new Database("dev");
+        $db = new Database("test");
         if($result = $db->query("select CAST(dbo.f_XML_Facture($IDFacture) AS varchar(max))")){
             $xml = $result->fetchColumn();
             $xml = str_replace("\r\n", "", $xml);
