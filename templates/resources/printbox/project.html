@@ -9,10 +9,11 @@
 </head>
 <body>
 <div id="page">
-    <div id="customer">
-        <h1>Projet de commande Printbox</h1>
+    <h1>Projet de commande Printbox</h1>
+    <div id="printboxer">
+        <h2>Printboxer</h2>
         <dl class="details">
-            <dt>Printboxer</dt>
+            <dt>Raison Sociale</dt>
             <dd>{{ pboxer.company_name }}</dd>
             <dt>Email</dt>
             <dd>{{ pboxer.email }}</dd>
@@ -28,7 +29,26 @@
             {{ pboxer.address.postcode }} {{ pboxer.address.city }}
         </address>
     </div>
-    <div id="main">
+    <div id="client">
+        <h2>Client</h2>
+        <dl class="details">
+            <dt>Raison Sociale</dt>
+            <dd>{{ client.company_name }}</dd>
+            <dt>Email</dt>
+            <dd>{{ client.email }}</dd>
+        </dl>
+        <address>
+            {{ client.address.line1 }}<br/>
+            {% if (pboxer.address.line2 != '') %}
+            {{ client.address.line2 }}<br/>
+            {% endif %}
+            {% if (client.address.line3 != '') %}
+            {{ client.address.line3 }}<br/>
+            {% endif %}
+            {{ client.address.postcode }} {{ client.address.city }}
+        </address>
+    </div>
+    <div id="order">
         <h1>{{ order.reference }}</h1>
         <h2>{{ order.id }}</h2>
 

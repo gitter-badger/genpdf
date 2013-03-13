@@ -20,6 +20,7 @@
         "romainbessugesmeusy/php-dsn-factory": "*",
         "romainbessugesmeusy/php-wkhtmltopdf": "*",
         "romainbessugesmeusy/php-sql-query": "*",
+        "rbm/php-results-combinator": "*",
         "jdorn/sql-formatter": "*"
     },
 

@@ -2,11 +2,6 @@
 
 require '../bootstrap.php';
 
-
-$app->get("/", function () use ($app) {
-
-});
-
 $app->get("/:name/:id.xml", function ($name, $id) use ($app) {
     $resource = \Exaprint\GenPDF\Resources\Factory::createFromName($name);
     if ($resource && $resource->fetchFromID($id)) {
@@ -63,7 +58,6 @@ $app->get("/:name/:id.html", function ($name, $id) use ($app) {
     $resource = \Exaprint\GenPDF\Resources\Factory::createFromName($name);
 
     if ($resource && $resource->fetchFromID($id)) {
-
         $app->render(
             $resource->getTemplateFilename(),
             $resource->getData()
@@ -71,14 +65,6 @@ $app->get("/:name/:id.html", function ($name, $id) use ($app) {
         return;
     }
     $app->status(404);
-});
-
-$app->get("/labels/tnt-express-connect", function () {
-    echo
-    '<form method="POST">
-        <textarea name="xml"></textarea>
-        <button>Envoyer</button>
-    </form>';
 });
 
 $app->post("/labels/tnt-express-connect", function () use ($app) {
