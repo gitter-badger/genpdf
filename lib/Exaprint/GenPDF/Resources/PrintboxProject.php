@@ -15,7 +15,6 @@ class PrintboxProject implements IResource
     {
         $dao = new \Exaprint\GenPDF\Resources\DAO\PrintboxProject();
         $this->_data = $dao->fetchFromId($id);
-        $this->_data = $this->_data[$id];
         return !is_null($this->_data);
     }
 
