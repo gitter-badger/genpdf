@@ -2,7 +2,7 @@
 
 require '../bootstrap.php';
 
-$app->get("/", function(){
+$app->get("/", function () {
     echo _("hello");
 });
 
@@ -76,10 +76,17 @@ $app->get("/:name/:id.html", function ($name, $id) use ($app) {
 
 });
 
-$app->post("/labels/tnt-express-connect", function () use ($app) {
-    $app->contentType("application/x-pdf");
-    xsltProcess($app->request()->post("xml"));
+$app->post("/tnt-express-connect/:type", function ($type) use ($app) {
+    if (in_array($type, array("invoice", "label", "manifest", "connote"))) {
+        $app->contentType("application/x-pdf");
+        xsltProcess($app->request()->post("xml"));
+        return;
+    }
+    $app->contentType("text/plain");
+    $app->status(404);
+    echo "Type de document ExpressConnect introuvable : '$type'";
 });
+
 
 function xsltProcess($xml)
 {
