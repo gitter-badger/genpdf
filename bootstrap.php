@@ -8,6 +8,7 @@ define("APPLICATION_VERSION", "0.0.1");
 define("LIBRARY_PATH", "../library/");
 
 ini_set("display_errors", "1");
+ini_set('mssql.charset', 'UTF-8');
 error_reporting(E_ALL);
 putenv("LC_MESSAGES=fr_FR");
 setlocale(LC_MESSAGES, 'fr_FR');

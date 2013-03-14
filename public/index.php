@@ -15,22 +15,10 @@ $app->get("/:name/:id.xml", function ($name, $id) use ($app) {
 
 $app->get("/:name/:id.pdf", function ($name, $id) use ($app) {
 
-    deleteTemplateCache();
-
-    $resource = \Exaprint\GenPDF\Resources\Factory::createFromName($name);
-
-    if ($resource && $resource->fetchFromID($id)) {
-        $app->view()->setData(
-            $resource->getData()
-        );
-
-        $html = $app->view()->fetch(
-            $resource->getTemplateFilename()
-        );
 
         $filename = "/tmp/" . uniqid("genpdf");
-
-        file_put_contents($filename . ".html", $html);
+        $env = $app->environment();
+        $url = $env["SERVER_NAME"] . "/$name/$id.html";
 
         $wkhtml = new \RBM\Wkhtmltopdf\Wkhtmltopdf();
 
@@ -41,20 +29,12 @@ $app->get("/:name/:id.pdf", function ($name, $id) use ($app) {
         $wkhtml->setFooterSpacing(0);
         $wkhtml->setMarginBottom(40);
 
-        $wkhtml->run("$filename.html", "$filename.pdf");
+        $wkhtml->run($url, "$filename.pdf");
         $app->contentType("application/pdf");
 
         echo file_get_contents("$filename.pdf");
 
-        unlink("$filename.html");
-        unlink("$filename.pdf");
-        return;
-    }
 
-
-    $app->status(404);
-
-    echo "Impossible de trouver la ressource de type $name #$id";
 });
 
 $app->get("/:name/:id.html", function ($name, $id) use ($app) {

@@ -2,7 +2,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: genPDF\n"
 "POT-Creation-Date: 2013-03-13 20:37+0100\n"
-"PO-Revision-Date: 2013-03-13 20:38+0100\n"
+"PO-Revision-Date: 2013-03-14 16:14+0100\n"
 "Last-Translator: \n"
 "Language-Team: Exaprint <romain@exaprint.fr>\n"
 "MIME-Version: 1.0\n"
@@ -31,7 +31,7 @@ msgstr "Email"
 
 #: ../../../cache/twig_gettext_keys.php:6
 msgid "Client Final Printboxer"
-msgstr "Client Final Printboxer"
+msgstr "Client Final"
 
 #: ../../../public/index.php:6
 msgid "hello"
