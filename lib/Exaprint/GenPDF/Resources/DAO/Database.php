@@ -12,46 +12,10 @@ namespace Exaprint\GenPDF\Resources\DAO;
 
 class Database extends \PDO {
 
-    protected $_settings = [
-        "prod" => [
-            "server" => "192.168.3.1",
-            "dbname" => "Exa_Back",
-            "username" => "exa",
-            "password" => "exa%2012",
-            "port" => "1433",
-        ],
-
-        "isoprod" => [
-            "server" => "192.168.3.21",
-            "dbname" => "Exa_Back_IsoProd",
-            "username" => "exa",
-            "password" => "exa%2012",
-            "port" => "1433",
-        ],
-
-        "test" => [
-            "server" => "192.168.3.11",
-            "dbname" => "Exa_Back_Test",
-            "username" => "exa",
-            "password" => "exa%2012",
-            "port" => "1433",
-        ],
-
-        "dev" => [
-            "server" => "192.168.3.11",
-            "dbname" => "Exa_Back_Dev",
-            "username" => "exa",
-            "password" => "exa%2012",
-            "port" => "1433",
-        ],
-    ];
 
     public function __construct($env = "prod")
     {
-        $settings = (object) $this->_settings[$env];
-        $dsn = "dblib:host=$settings->server:$settings->port;dbname=$settings->dbname;charset=UTF-8";
-        parent::__construct($dsn, $settings->username, $settings->password);
-
-
+        $dsn = sprintf("dblib:host=%s:1433;dbname=%s;charset=UTF-8", DB_HOST, DB_NAME);
+        parent::__construct($dsn, DB_USER, DB_PASS);
     }
 }
