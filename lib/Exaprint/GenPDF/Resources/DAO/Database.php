@@ -13,9 +13,10 @@ namespace Exaprint\GenPDF\Resources\DAO;
 class Database extends \PDO {
 
 
+
     public function __construct($env = "prod")
     {
-        $dsn = sprintf("dblib:host=%s:1433;dbname=%s;charset=UTF-8", DB_HOST, DB_NAME);
-        parent::__construct($dsn, DB_USER, DB_PASS);
+        $dsn = sprintf("dblib:host=%s:1433;dbname=%s;charset=UTF-8", $_SERVER['DB_HOST'], $_SERVER['DB_NAME']);
+        parent::__construct($dsn, $_SERVER['DB_USER'], $_SERVER['DB_PASS']);
     }
 }

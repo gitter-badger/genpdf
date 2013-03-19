@@ -15,26 +15,33 @@ $app->get("/:name/:id.xml", function ($name, $id) use ($app) {
 
 $app->get("/:name/:id.pdf", function ($name, $id) use ($app) {
 
+    deleteTemplateCache();
 
-        $filename = "/tmp/" . uniqid("genpdf");
-        $env = $app->environment();
-        $url = $env["SERVER_NAME"] . "/$name/$id.html";
+    $resource = \Exaprint\GenPDF\Resources\Factory::createFromName($name);
+
+    if ($resource) {
 
         $wkhtml = new \RBM\Wkhtmltopdf\Wkhtmltopdf();
 
-        $wkhtml->setHeaderHtml("http://genpdf.exaprint.fr/static/assets/header.html");
+        $wkhtml->setHeaderHtml($_SERVER["SERVER_NAME"] . "/static/assets/" . $resource->getHeader());
         $wkhtml->setMarginTop(46);
 
-        $wkhtml->setFooterHtml("http://genpdf.exaprint.fr/static/assets/footer.html");
+        $wkhtml->setFooterHtml($_SERVER["SERVER_NAME"] . "/static/assets/" . $resource->getFooter());
         $wkhtml->setFooterSpacing(0);
         $wkhtml->setMarginBottom(40);
 
-        $wkhtml->run($url, "$filename.pdf");
+
+        $filename = "/tmp/{$name}_{$id}";
+
+        $wkhtml->run($_SERVER["SERVER_NAME"] . "/$name/$id.html", "$filename.pdf");
+
         $app->contentType("application/pdf");
 
         echo file_get_contents("$filename.pdf");
 
-
+        unlink("$filename.pdf");
+        return;
+    }
 });
 
 $app->get("/:name/:id.html", function ($name, $id) use ($app) {

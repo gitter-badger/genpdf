@@ -1,30 +1,20 @@
-<!DOCTYPE html>
-<html>
-<head>
-    <meta charset="UTF-8">
-    <title></title>
-    <link rel="stylesheet" type="text/css" href="http://genpdf.exaprint.fr/static/css/reset.css"/>
-    <link rel="stylesheet" type="text/css" href="http://genpdf.exaprint.fr/static/css/fonts.css"/>
-    <link rel="stylesheet" type="text/css" href="http://genpdf.exaprint.fr/static/css/invoice.css"/>
-</head>
-<body>
 <div id="page">
     <div id="supplier">
         <address>
-        <strong>{{ Customer.CompanyName }}</strong><br/>
-        {{ Customer.Adress1 }}<br/>
-        {% if (Customer.Adress2 != '') %}
-        {{ Customer.Adress2 }}<br/>
-        {% endif %}
-        {{ Customer.PostalCode }} {{ Customer.City }}<br/>
-        {{ Customer.Country }}
+            <strong>{{ Customer.CompanyName }}</strong><br/>
+            {{ Customer.Adress1 }}<br/>
+            {% if (Customer.Adress2 != '') %}
+                {{ Customer.Adress2 }}<br/>
+            {% endif %}
+            {{ Customer.PostalCode }} {{ Customer.City }}<br/>
+            {{ Customer.Country }}
         </address>
     </div>
     <div id="customer">
         <address>
-        PRINTBOX<br/>
-        ZAC FREJORGUES OUEST<br/>
-        34130 MAUGUIO
+            PRINTBOX<br/>
+            ZAC FREJORGUES OUEST<br/>
+            34130 MAUGUIO
         </address>
     </div>
     <div id="main">
@@ -48,17 +38,17 @@
 
                 {% for i, Line in SupplierInvoiceLines %}
 
-                <tr class="order">
-                    <td>
-                        <article>
-                            {{ Line.Title }}
-                        </article>
+                    <tr class="order">
+                        <td>
+                            <article>
+                                {{ Line.Title }}
+                            </article>
 
-                    </td>
-                    <td class="money">{{ Line.ETAmount|number_format(2, ',', ' ') }}
-                        <span class="currency">&euro;</span>
-                    </td>
-                </tr>
+                        </td>
+                        <td class="money">{{ Line.ETAmount|number_format(2, ',', ' ') }}
+                            <span class="currency">&euro;</span>
+                        </td>
+                    </tr>
 
                     {% set total_ht = total_ht + Line.ETAmount %}
                 {% endfor %}
@@ -74,10 +64,10 @@
                 </tr>
 
                 {% if Deduction %}
-                <tr class="order">
-                    <td>Précompte </td>
-                    <td class="money">{{ Deduction.ETAmount|number_format(2, ',', ' ') }} <span class="currency">&euro;</span></td>
-                </tr>
+                    <tr class="order">
+                        <td>Précompte </td>
+                        <td class="money">{{ Deduction.ETAmount|number_format(2, ',', ' ') }} <span class="currency">&euro;</span></td>
+                    </tr>
                 {% endif %}
 
                 <tr class="order">
@@ -90,7 +80,7 @@
     </div>
 
     {% if (VATAmount == 0) %}
-    <div><strong>TVA non applicable, art. 293B du C.G.I.</strong></div>
+        <div><strong>TVA non applicable, art. 293B du C.G.I.</strong></div>
     {% endif %}
 
     <div>Facture établie au nom et pour le compte de {{ Customer.CompanyName }}, conformément au mandat de facturation signé au profit de Printbox</div>
@@ -98,5 +88,3 @@
     <div>TVA intra de Printbox : FR32422843797</div>
 
 </div>
-</body>
-</html>

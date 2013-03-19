@@ -42,4 +42,21 @@ class PrintboxProject implements IResource
         // TODO: Implement getXml() method.
     }
 
+    /**
+     * @return string
+     */
+    public function getHeader()
+    {
+        return "header.printbox.html";
+    }
+
+    /**
+     * @return string
+     */
+    public function getFooter()
+    {
+        return "footer.printbox.html";
+    }
+
+
 }

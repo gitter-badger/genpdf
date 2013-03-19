@@ -1,0 +1,120 @@
+<div id="page">
+    <div id="customer">
+        <address>
+            <strong>{{ Customer.CompanyName }}</strong><br/>
+            {{ Customer.Adress1 }}<br/>
+            {% if (Customer.Adress2 != '') %}
+                {{ Customer.Adress2 }}<br/>
+            {% endif %}
+            {{ Customer.PostalCode }} {{ Customer.City }}<br/>
+            {{ Customer.Country }}
+        </address>
+        <h1>{{ Title }}</h1>
+        <dl class="details">
+            <dt>{% trans "Votre Code Client" %}</dt>
+            <dd>{{ Customer.CustomerCode }}</dd>
+            <dt>{% trans "Numero TVA Intracom." %}</dt>
+            <dd>{{ Customer.VATId }}</dd>
+        </dl>
+    </div>
+    <div id="main">
+
+
+        <h2>{{ Reference }}</h2>
+        <dl>
+            <dt>{% trans "Numero de facture" %}</dt>
+            <dd>{{ InvoiceNumber }}</dd>
+            <dt>{% trans "Date de facture" %}</dt>
+            <dd>{{ InvoiceDate }}</dd>
+        </dl>
+        <div id="order">
+            <table>
+                <thead>
+                <tr>
+                    <th>{% trans "Designation de ligne de facture" %}</th>
+                    <th>{% trans "Quantite" %}</th>
+                    <th>{% trans "Montant H.T." %}</th>
+                </tr>
+                </thead>
+                <tbody>
+
+                {% for i, Line in InvoiceLines %}
+
+                    <tr class="order">
+                        <td>
+                            <article>
+                                <span class="units"></span>
+                                {{ InvoiceLine[i].Title }} {{ Line.Reference }}
+                                <span class="code">
+                                {{ Line.ArticleFamily }}
+                                    {{ Line.ProductFamily }}
+                                    {{ Line.ProductFrontTitle }}
+                            </span>
+                            </article>
+                            {% if Line.Shipping %}
+                                <div class="shipping">
+                                    <ul class="tracking">
+                                        {% for i, Consignment in Line.Shipping.Consignment %}
+                                            <li>
+                                                <img src="/static/assets/box.png"/>
+                                                <span class="transporter">{{ Consignment.CarrierName }}</span>
+                                                <a href="#" class="number">
+                                                    {{ Consignment.ConsignmentNumber }}
+                                                </a>
+                                                <span class="timestamp">{{ Consignment.ShippingDate }}</span>
+                                            </li>
+                                        {% endfor %}
+                                    </ul>
+                                </div>
+                            {% endif %}
+                        </td>
+                        <td class="quantity">{{ Line.Quantity }} {{ Line.Initials }}</td>
+                        <td class="money">{{ Line.ETAmount|number_format(2, ',', ' ') }}
+                            <span class="currency">&euro;</span>
+                        </td>
+                    </tr>
+                    <!--
+                    <tr class="fee">
+                        <td>Remise commerciale 16%</td>
+                        <td class="quantity">1</td>
+                        <td class="money">&minus; 16,96<span class="currency">&euro;</span></td>
+                    <td class="money">&minus; 16,96<span class="currency">&euro;</span></td>
+                </tr>
+                -->
+                {% endfor %}
+                </tbody>
+            </table>
+        </div>
+        {% if Donations %}
+            <div id="donations">
+                <h3>{% trans "Donations" %}</h3>
+                <dl>
+                    {% for i, Donation in Donations.Donation %}
+                        <dt>{{ Donation.DonationName }}</dt>
+                        <dd>{{ Donation.ATIAmount|number_format(2, ',', ' ') }}<span class="currency">&euro;</span></dd>
+                    {% endfor %}
+                </dl>
+            </div>
+        {% endif %}
+        <div id="summary">
+            <dl>
+                {% for i, Vat in VAT.VATRates %}
+                    {% if Vat.Rate > 0 %}
+                        <dt>{% trans "Montant total soumis a la TVA " %}{{ Vat.Rate|number_format(2, ',', ' ') }} %</dt>
+                        <dd>{{ Vat.ETAmount|number_format(2, ',', ' ') }}<span class="currency">&euro;</span></dd>
+                        <dt>{% trans "Montant TVA" %}</dt>
+                        <dd>{{ Vat.VATAmount|number_format(2, ',', ' ') }}<span class="currency">&euro;</span></dd>
+                    {% else %}
+                        <dt>{% trans "Montant total non soumis a la TVA" %}</dt>
+                        <dd>{{ Vat.ETAmount|number_format(2, ',', ' ') }}<span class="currency">&euro;</span></dd>
+                    {% endif %}
+                {% endfor %}
+                <dt>{% trans "Montant TTC" %}</dt>
+                <dd><strong>{{ ATIAmount|number_format(2, ',', ' ') }}<span class="currency">&euro;</span></strong></dd>
+            </dl>
+        </div>
+    </div>
+    <footer>
+
+    </footer>
+</div>

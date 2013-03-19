@@ -45,7 +45,7 @@ class SupplierInvoice implements IResource
      */
     public function getTemplateFilename()
     {
-        return "resources/supplierinvoice.html";
+        return "resources/supplier-invoice.twig";
     }
 
     /**
@@ -54,6 +54,22 @@ class SupplierInvoice implements IResource
     public function getXml()
     {
         return $this->_xml->asXML();
+    }
+
+    /**
+     * @return string
+     */
+    public function getHeader()
+    {
+        return "header.fr.html";
+    }
+
+    /**
+     * @return string
+     */
+    public function getFooter()
+    {
+        return "footer.fr.html";
     }
 
 

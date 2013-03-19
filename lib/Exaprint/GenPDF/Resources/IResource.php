@@ -23,6 +23,16 @@ interface IResource {
     public function getData();
 
     /**
+     * @return string
+     */
+    public function getHeader();
+
+    /**
+     * @return string
+     */
+    public function getFooter();
+
+    /**
      * @return mixed
      */
     public function getTemplateFilename();
