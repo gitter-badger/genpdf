@@ -61,7 +61,7 @@ class SupplierInvoice implements IResource
      */
     public function getHeader()
     {
-        return "header.fr.html";
+        return "header.empty.html";
     }
 
     /**
@@ -69,7 +69,7 @@ class SupplierInvoice implements IResource
      */
     public function getFooter()
     {
-        return "footer.fr.html";
+        return "footer.empty.html";
     }
 
 
