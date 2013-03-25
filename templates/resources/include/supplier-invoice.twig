@@ -23,7 +23,7 @@
             <dt>Facture n° : </dt>
             <dd>{{ InvoiceNumber }}</dd>
             <dt>Date : </dt>
-            <dd>{{ InvoiceDate }}</dd>
+            <dd>{{ InvoiceDate|date('d/m/Y') }}</dd>
         </dl>
         <div id="order">
             <table>
@@ -81,11 +81,11 @@
     </div>
 
     {% if (VATAmount == 0) %}
-        <div><strong>TVA non applicable, art. 293B du C.G.I.</strong></div>
+        <div class="mentions"><strong>TVA non applicable, art. 293B du C.G.I.</strong></div>
     {% endif %}
 
-    <div>Auto-Facture établie au nom et pour le compte de {{ Customer.CompanyName }}, conformément au mandat de facturation signé au profit de Printbox</div>
+    <div class="mentions">Auto-Facture établie au nom et pour le compte de {{ Customer.CompanyName }}, conformément au mandat de facturation signé au profit de Printbox</div>
 
-    <div>TVA intra de Printbox : FR32422843797</div>
+    <div class="mentions">TVA intra de Printbox : FR32422843797</div>
 
 </div>

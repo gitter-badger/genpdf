@@ -25,7 +25,7 @@
             <dt>{% trans "Numero de facture" %}</dt>
             <dd>{{ InvoiceNumber }}</dd>
             <dt>{% trans "Date de facture" %}</dt>
-            <dd>{{ InvoiceDate }}</dd>
+            <dd>{{ InvoiceDate|date('d/m/Y') }}</dd>
         </dl>
         <div id="order">
             <table>
@@ -115,6 +115,8 @@
         </div>
     </div>
     <footer>
-
+        <div class="mentions">
+            <p>Aucun escompte n'est accordé pour paiement comptant.  En cas de retard, seront exigibles, conformément à l'article L-441-6 du Code de commerce, une indemnité calculée sur la base de trois fois le taux d'intérêt légal en vigueur ainsi qu'une indemnité forfaitaire de recouvrement de 40 €.</p>
+        </div>
     </footer>
 </div>

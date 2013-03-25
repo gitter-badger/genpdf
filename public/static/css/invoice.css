@@ -104,6 +104,10 @@
   }
 }
 
+.mentions {
+  margin-top: 1cm;
+}
+
 #donations {
   padding: 1em;
   border: @thin @light-color solid;

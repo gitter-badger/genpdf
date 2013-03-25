@@ -73,12 +73,12 @@
     <div id="order">
         <h2>Projet</h2>
         <dl>
-            <dt>N° de commande</dt>
+            <dt>N° de projet</dt>
             <dd>{{ order.id }}</dd>
             <dt>Intitulé</dt>
             <dd>{{ order.reference }}</dd>
             <dt>Date</dt>
-            <dd>{{ order.creation_date }}</dd>
+            <dd>{{ order.creation_date|date('d/m/Y') }}</dd>
         </dl>
         <table>
             <thead>
@@ -122,7 +122,7 @@
             </tr>
             {% endif %}
             <tr class="bold">
-                <td>Prestation</td>
+                <td>Prestation graphique</td>
                 <td></td>
                 <td class="money">{{ project.et_amount - order.et_amount|number_format(2, ',', ' ') }} <span class="currency">&euro;</span></td>
                 <td class="money">{{ project.vat_amount - order.vat_amount|number_format(2, ',', ' ') }} <span class="currency">&euro;</span></td>
