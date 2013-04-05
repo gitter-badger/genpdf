@@ -124,9 +124,9 @@
             <tr class="bold">
                 <td>Prestation graphique</td>
                 <td></td>
-                <td class="money">{{ project.et_amount - order.et_amount|number_format(2, ',', ' ') }} <span class="currency">&euro;</span></td>
-                <td class="money">{{ project.vat_amount - order.vat_amount|number_format(2, ',', ' ') }} <span class="currency">&euro;</span></td>
-                <td class="money">{{ project.ati_amount - order.ati_amount|number_format(2, ',', ' ') }} <span class="currency">&euro;</span></td>
+                <td class="money">{{ (project.et_amount - order.et_amount)|number_format(2, ',', ' ') }} <span class="currency">&euro;</span></td>
+                <td class="money">{{ (project.vat_amount - order.vat_amount)|number_format(2, ',', ' ') }} <span class="currency">&euro;</span></td>
+                <td class="money">{{ (project.ati_amount - order.ati_amount)|number_format(2, ',', ' ') }} <span class="currency">&euro;</span></td>
             </tr>
             <tr class="bold theme-color">
                 <td>Projet</td>
