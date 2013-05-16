@@ -76,7 +76,7 @@ $app->post("/tnt-express-connect/:type", function ($type) use ($app) {
 });
 
 $app->get("/locale", function() use ($app) {
-    \Locale\Helper::detect($app->environment());
+
 });
 
 

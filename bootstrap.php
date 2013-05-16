@@ -24,6 +24,7 @@ $app = new \Slim\Slim(array(
     ))
 ));
 
+\Locale\Helper::detect($app->environment());
 
 // Prepare view
 \Slim\Extras\Views\Twig::$twigOptions = array(
