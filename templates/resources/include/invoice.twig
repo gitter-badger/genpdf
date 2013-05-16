@@ -1,5 +1,6 @@
 <div id="page">
     <div id="customer">
+        {% block customer_address %}
         <address>
             <strong>{{ Customer.CompanyName }}</strong><br/>
             {{ Customer.Adress1 }}<br/>
@@ -9,24 +10,31 @@
             {{ Customer.PostalCode }} {{ Customer.City }}<br/>
             {{ Customer.Country }}
         </address>
+        {% endblock %}
+
         <h1>{{ Title }}</h1>
+        {% block customer_details %}
         <dl class="details">
             <dt>{% trans "Votre Code Client" %}</dt>
             <dd>{{ Customer.CustomerCode }}</dd>
             <dt>{% trans "Numero TVA Intracom." %}</dt>
             <dd>{{ Customer.VATId }}</dd>
         </dl>
+        {% endblock %}
     </div>
     <div id="main">
-
-
+        {% block invoice_reference %}
         <h2>{{ Reference }}</h2>
+        {% endblock %}
+        {% block invoice_details %}
         <dl>
             <dt>{% trans "Numero de facture" %}</dt>
             <dd>{{ InvoiceNumber }}</dd>
             <dt>{% trans "Date de facture" %}</dt>
             <dd>{{ InvoiceDate|date('d/m/Y') }}</dd>
         </dl>
+        {% endblock %}
+        {% block order %}
         <div id="order">
             <table>
                 <thead>
@@ -42,6 +50,7 @@
 
                     <tr class="order">
                         <td>
+                            {% block article %}
                             <article>
                                 <span class="units"></span>
                                 {{ InvoiceLine[i].Title }} {{ Line.Reference }}
@@ -51,6 +60,8 @@
                                     {{ Line.ProductFrontTitle }}
                             </span>
                             </article>
+                            {% endblock %}
+                            {% block shipping %}
                             {% if Line.Shipping %}
                                 <div class="shipping">
                                     <ul class="tracking">
@@ -67,6 +78,7 @@
                                     </ul>
                                 </div>
                             {% endif %}
+                            {% endblock %}
                         </td>
                         <td class="quantity">{{ Line.Quantity }} {{ Line.Initials }}</td>
                         <td class="money">{{ Line.ETAmount|number_format(2, ',', ' ') }}
@@ -85,6 +97,8 @@
                 </tbody>
             </table>
         </div>
+        {% endblock %}
+        {% block donations %}
         {% if Donations %}
             <div id="donations">
                 <h3>{% trans "Donations" %}</h3>
@@ -96,6 +110,8 @@
                 </dl>
             </div>
         {% endif %}
+        {% endblock %}
+        {% block summary %}
         <div id="summary">
             <dl>
                 {% for i, Vat in VAT.VATRates %}
@@ -113,10 +129,29 @@
                 <dd><strong>{{ ATIAmount|number_format(2, ',', ' ') }}<span class="currency">&euro;</span></strong></dd>
             </dl>
         </div>
+        {% endblock %}
+        {% if Payment %}
+        <div id="payments">
+            <h3>{% trans "Facture reglee le " %}{{ Payment.PaymentDate }}</h3>
+            <ul>
+                {% for i, PaymentMethod in Payment.PaymentMethodTranslation %}
+                    <li>
+                        {{ PaymentMethod.PaymentAmount|number_format(2, ',', ' ') }}
+                        <span class="currency">&euro;</span>
+                        ({{ PaymentMethod.PaymentMethodName }})
+                    </li>
+                {% endfor %}
+            </ul>
+        </div>
+        {% endif %}
     </div>
+    {% block footer %}
     <footer>
         <div class="mentions">
-            <p>Aucun escompte n'est accordé pour paiement comptant.  En cas de retard, seront exigibles, conformément à l'article L-441-6 du Code de commerce, une indemnité calculée sur la base de trois fois le taux d'intérêt légal en vigueur ainsi qu'une indemnité forfaitaire de recouvrement de 40 €.</p>
+            {% block mentions %}
+            {% trans "Mentions legales facture" %}
+            {% endblock %}
         </div>
     </footer>
+    {% endblock %}
 </div>

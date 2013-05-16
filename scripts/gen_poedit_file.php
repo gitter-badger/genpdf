@@ -14,8 +14,10 @@ $files = new RegexIterator($iterator, '/^.+\.twig$/i', RecursiveRegexIterator::G
 $keys = array();
 
 foreach($files as $filename => $v){
+    echo "$filename\n";
     $content = file_get_contents($filename);
     preg_match_all($pattern, $content, $matches);
+    print_r($matches[1]);
     $keys = array_merge($keys, $matches[1]);
 }
 

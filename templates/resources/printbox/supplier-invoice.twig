@@ -38,9 +38,9 @@
     </div>
     <div id="main">
         <dl>
-            <dt>Facture n° : </dt>
+            <dt>Facture n° :</dt>
             <dd>{{ InvoiceNumber }}</dd>
-            <dt>Date : </dt>
+            <dt>Date :</dt>
             <dd>{{ InvoiceDate|date('d/m/Y') }}</dd>
         </dl>
         <div id="order">
@@ -60,7 +60,7 @@
                     <tr class="order">
                         <td>
                             <article>
-                                Réalisation complète de :
+                                Prestation graphique du projet N° {{ Line.order_id }}
                             </article>
                             <p></p>
                         </td>
@@ -74,40 +74,46 @@
 
                 <tr class="order">
                     <td>Total H.T.</td>
-                    <td class="money">{{ total_ht|number_format(2, ',', ' ') }} <span class="currency">&euro;</span></td>
+                    <td class="money">{{ total_ht|number_format(2, ',', ' ') }} <span class="currency">&euro;</span>
+                    </td>
                 </tr>
 
                 <tr class="order">
-                    <td>TVA </td>
-                    <td class="money">{{ VATAmount|number_format(2, ',', ' ') }} <span class="currency">&euro;</span></td>
+                    <td>TVA</td>
+                    <td class="money">{{ VATAmount|number_format(2, ',', ' ') }} <span class="currency">&euro;</span>
+                    </td>
                 </tr>
 
                 {% if Deduction %}
                     <tr class="order">
-                        <td>Précompte </td>
-                        <td class="money">{{ Deduction.ETAmount|number_format(2, ',', ' ') }} <span class="currency">&euro;</span></td>
+                        <td>Précompte</td>
+                        <td class="money">{{ Deduction.ETAmount|number_format(2, ',', ' ') }} <span
+                                    class="currency">&euro;</span></td>
                     </tr>
                 {% endif %}
 
                 <tr class="order">
                     <td>Net à payer</td>
-                    <td class="money">{{ ATIAmount|number_format(2, ',', ' ') }} <span class="currency">&euro;</span></td>
+                    <td class="money">{{ ATIAmount|number_format(2, ',', ' ') }} <span class="currency">&euro;</span>
+                    </td>
                 </tr>
                 </tbody>
             </table>
         </div>
     </div>
     <div class="mentions">
-    {% if (VATAmount == 0) %}
-        <p><strong>TVA non applicable, art. 293B du C.G.I.</strong></p>
-    {% endif %}
+        {% if (VATAmount == 0) %}
+            <p><strong>TVA non applicable, art. 293B du C.G.I.</strong></p>
+        {% endif %}
 
-    <p>Auto-Facture établie au nom et pour le compte de {{ Customer.CompanyName }}, conformément au mandat de facturation signé au profit de Printbox</p>
+        <p>Auto-Facture établie au nom et pour le compte de {{ Customer.CompanyName }}, conformément au mandat de
+            facturation signé au profit de Printbox</p>
 
-    <p>TVA intra de Printbox : FR32422843797</p>
-        <p><strong>Paiement : par virement bancaire à 30 jours fdm.</strong><br>
+        <p>TVA intra de Printbox : FR32422843797<br/>
             Aucun escompte n'est accordé pour paiement comptant.
-            En cas de retard, seront exigibles, conformément à l'article L-441-6 du Code de commerce, une indemnité calculée sur la base de trois fois le taux d'intérêt légal en vigueur ainsi qu'une indemnité forfaitaire de recouvrement de 40 €.
+            En cas de retard, seront exigibles, conformément à l'article L-441-6 du Code de commerce, une indemnité
+            calculée sur la base de trois fois le taux d'intérêt légal en vigueur ainsi qu'une indemnité forfaitaire de
+            recouvrement de 40 €.
         </p>
     </div>
 

@@ -21,10 +21,20 @@
         "romainbessugesmeusy/php-dsn-factory": "*",
         "romainbessugesmeusy/php-wkhtmltopdf": "*",
         "romainbessugesmeusy/php-sql-query": "*",
+        "exaprint/php-dal": "*",
         "rbm/php-results-combinator": "*",
         "jdorn/sql-formatter": "*"
     },
     "autoload": {
-        "psr-0": { "Exaprint": "lib/." }
-    }
+        "psr-0": {
+            "Exaprint": "lib/.",
+            "Locale": "lib/."
+        }
+    },
+    "repositories": [
+        {
+            "type": "vcs",
+            "url": "https://github.com/exaprint/php-dal"
+        }
+    ]
 }

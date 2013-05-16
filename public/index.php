@@ -7,6 +7,7 @@ $app->get("/", function () {
 });
 
 $app->get("/:name/:id.xml", function ($name, $id) use ($app) {
+    $app->contentType('text/xml');
     $resource = \Exaprint\GenPDF\Resources\Factory::createFromName($name);
     if ($resource && $resource->fetchFromID($id)) {
         echo $resource->getXml();
@@ -72,6 +73,10 @@ $app->post("/tnt-express-connect/:type", function ($type) use ($app) {
     $app->contentType("text/plain");
     $app->status(404);
     echo "Type de document ExpressConnect introuvable : '$type'";
+});
+
+$app->get("/locale", function() use ($app) {
+    \Locale\Helper::detect($app->environment());
 });
 
 

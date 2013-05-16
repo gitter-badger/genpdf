@@ -1,8 +1,8 @@
 msgid ""
 msgstr ""
 "Project-Id-Version: GenPDF\n"
-"POT-Creation-Date: 2013-03-15 10:42+0100\n"
-"PO-Revision-Date: 2013-03-15 10:43+0100\n"
+"POT-Creation-Date: 2013-05-16 10:24+0100\n"
+"PO-Revision-Date: 2013-05-16 10:24+0100\n"
 "Last-Translator: \n"
 "Language-Team: Exaprint\n"
 "Language: it_IT\n"
@@ -63,22 +63,26 @@ msgid "Montant TTC"
 msgstr ""
 
 #: ../../../cache/twig_gettext_keys.php:14
+msgid "Mentions legales facture"
+msgstr ""
+
+#: ../../../cache/twig_gettext_keys.php:15
 msgid "Projet de commande Printbox"
 msgstr "Printbox projetto"
 
-#: ../../../cache/twig_gettext_keys.php:15
+#: ../../../cache/twig_gettext_keys.php:16
 msgid "Printboxer"
 msgstr "Printboxer"
 
-#: ../../../cache/twig_gettext_keys.php:16
+#: ../../../cache/twig_gettext_keys.php:17
 msgid "Raison Sociale"
 msgstr "Società"
 
-#: ../../../cache/twig_gettext_keys.php:17
+#: ../../../cache/twig_gettext_keys.php:18
 msgid "Email"
 msgstr "Mail"
 
-#: ../../../cache/twig_gettext_keys.php:18
+#: ../../../cache/twig_gettext_keys.php:19
 msgid "Client Final Printboxer"
 msgstr "Finalo client"
 

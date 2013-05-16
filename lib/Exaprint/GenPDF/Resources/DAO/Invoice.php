@@ -9,6 +9,8 @@
 
 namespace Exaprint\GenPDF\Resources\DAO;
 
+use Exaprint\DAL\DB;
+
 class Invoice
 {
 
@@ -19,12 +21,11 @@ class Invoice
      */
     public function getXML($IDFacture)
     {
-        $db = new Database("test");
-        if($result = $db->query("select CAST(dbo.f_XML_Facture($IDFacture) AS varchar(max))")){
+        if($result = DB::get()->query("select CAST(dbo.f_XML_Facture($IDFacture) AS varchar(max))")){
             $xml = $result->fetchColumn();
             $xml = str_replace("\r\n", "", $xml);
             return simplexml_load_string($xml);
         }
-        throw new \Exception("Impossible de récupérer le XML : " . print_r($db->errorInfo(), true));
+        throw new \Exception("Impossible de récupérer le XML : " . print_r(DB::get()->errorInfo(), true));
     }
 }

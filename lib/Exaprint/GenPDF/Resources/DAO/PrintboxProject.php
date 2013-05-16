@@ -2,6 +2,7 @@
 
 namespace Exaprint\GenPDF\Resources\DAO;
 
+use Exaprint\DAL\DB;
 use RBM\ResultsCombinator\ResultsCombinator;
 use RBM\SqlQuery\Renderer\SqlServer;
 
@@ -108,9 +109,8 @@ class PrintboxProject
             WHERE
                 (TBL_TL_COMMANDE_PRINTBOX.IDCommande = $IDCommande)";
 
-        $db   = new Database("test");
 
-        if ($r = $db->query($select)) {
+        if ($r = DB::get()->query($select)) {
             $combinator = new ResultsCombinator();
             $data = $combinator->combine(
                 $r->fetchAll(\PDO::FETCH_ASSOC),

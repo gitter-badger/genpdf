@@ -5,19 +5,12 @@ require "vendor/autoload.php";
 define("APPLICATION_NAME", "GenPDF");
 define("APPLICATION_EDITOR", "Exaprint");
 define("APPLICATION_VERSION", "0.0.1");
+define("APPLICATION_ROOT", realpath("../"));
 define("LIBRARY_PATH", "../library/");
 
 ini_set("display_errors", "1");
 ini_set('mssql.charset', 'UTF-8');
 error_reporting(E_ALL);
-putenv("LC_MESSAGES=fr_FR");
-setlocale(LC_MESSAGES, 'fr_FR');
-
-if (function_exists('bindtextdomain') && function_exists('textdomain')) {
-    bindtextdomain("messages", __DIR__ . "/locale");
-    textdomain("messages");
-    bind_textdomain_codeset("messages", "UTF-8");
-}
 
 date_default_timezone_set("Europe/Paris");
 
