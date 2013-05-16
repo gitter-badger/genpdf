@@ -18,6 +18,7 @@ class Invoice implements IResource
      * @var \SimpleXMLElement
      */
     protected $_xml;
+
     /**
      * @param $id
      * @return bool
@@ -26,8 +27,8 @@ class Invoice implements IResource
     {
         $dao = new DAO\Invoice();
         if ($xml = $dao->getXML($id)) {
-            $this->_xml = $xml;
-            $this->_data = (array) $xml;
+            $this->_xml  = $xml;
+            $this->_data = (array)$xml;
             return true;
         }
         return false;
@@ -62,7 +63,7 @@ class Invoice implements IResource
      */
     public function getHeader()
     {
-        return "header.fr.html";
+        return "header." . \Locale\Helper::$current . ".html";
     }
 
     /**
@@ -70,7 +71,7 @@ class Invoice implements IResource
      */
     public function getFooter()
     {
-        return "footer.fr.html";
+        return "footer." . \Locale\Helper::$current . ".html";
     }
 
 

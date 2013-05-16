@@ -3,7 +3,7 @@
 require '../bootstrap.php';
 
 $app->get("/", function () {
-    echo _("hello");
+    var_dump(\Exaprint\DAL\DB::get()->getDefaultEnv());
 });
 
 $app->get("/:name/:id.xml", function ($name, $id) use ($app) {
