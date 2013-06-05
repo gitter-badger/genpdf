@@ -21,6 +21,7 @@ class Factory {
         switch ($name)
         {
             case "invoice": return new Invoice();
+            case "invoice-statements": return new InvoiceStatements();
             case "supplier-invoice": return new SupplierInvoice();
             case "printbox-supplier-invoice": return new PrintboxSupplierInvoice();
             case "printbox-invoice": return new PrintboxInvoice();

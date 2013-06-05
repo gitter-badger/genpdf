@@ -21,10 +21,17 @@ class Invoice
      */
     public function getXML($IDFacture)
     {
-        if($result = DB::get()->query("select CAST(dbo.f_XML_Facture($IDFacture) AS varchar(max))")){
-            $xml = $result->fetchColumn();
-            $xml = str_replace("\r\n", "", $xml);
-            return simplexml_load_string($xml);
+        $query = "select CAST(dbo.f_XML_Facture($IDFacture) AS nvarchar(max))";
+        if ($result = DB::get()->query($query)) {
+            if (($xml = $result->fetchColumn()) !== false) {
+                $xml = str_replace("\r\n", "", $xml);
+                if ($simplexml = simplexml_load_string($xml)) {
+                    return $simplexml;
+                }
+                print_r($xml);
+                throw new \Exception("Impossible de parser le xml $xml");
+            }
+            throw new \Exception("XML vide $query");
         }
         throw new \Exception("Impossible de récupérer le XML : " . print_r(DB::get()->errorInfo(), true));
     }
