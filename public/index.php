@@ -75,6 +75,15 @@ $app->post("/tnt-express-connect/:type", function ($type) use ($app) {
     echo "Type de document ExpressConnect introuvable : '$type'";
 });
 
+$app->get("/tnt-express-connect/:type", function () use ($app) {
+    echo '
+    <form method=post>
+        <textarea name="xml" cols="30" rows="10"></textarea>
+        <input type="submit"/>
+    </form>';
+});
+
+
 $app->get("/locale", function() use ($app) {
 
 });
