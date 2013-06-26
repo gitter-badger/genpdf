@@ -6,6 +6,7 @@
     <link rel="stylesheet" type="text/css" href="/static/css/reset.css"/>
     <link rel="stylesheet" type="text/css" href="/static/css/fonts.css"/>
     <link rel="stylesheet/less" type="text/css" href="/static/less/invoice.less"/>
+    <link rel="stylesheet/less" type="text/css" href="/static/less/invoice-statements.less"/>
     <script type="text/javascript">
         less = {
             env      : "development", // or "production"
@@ -73,6 +74,11 @@
             </tr>
             </tfoot>
         </table>
+    </div>
+    <div class="invoice-page">
+    {% for i, Invoice in Invoices %}
+        {% include "resources/include/invoice.twig" with Invoice.getData() only %}
+    {% endfor %}
     </div>
 </div>
 </body>

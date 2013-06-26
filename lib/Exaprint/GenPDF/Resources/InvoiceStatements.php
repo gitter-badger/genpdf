@@ -72,12 +72,12 @@ class InvoiceStatements implements IResource
     public function getData()
     {
         return [
-            "Year"  => $this->_year,
-            "Month" => $this->_month,
-            "Lines" => $this->_lines,
+            "Year"     => $this->_year,
+            "Month"    => $this->_month,
+            "Lines"    => $this->_lines,
             "Invoices" => $this->_invoices,
-            "Sums"  => $this->_sums,
-            "Customer" => (array) $this->_customer,
+            "Sums"     => $this->_sums,
+            "Customer" => (array)$this->_customer,
         ];
     }
 

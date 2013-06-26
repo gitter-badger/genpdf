@@ -23,7 +23,8 @@
         "romainbessugesmeusy/php-sql-query": "*",
         "exaprint/php-dal": "*",
         "rbm/php-results-combinator": "*",
-        "jdorn/sql-formatter": "*"
+        "jdorn/sql-formatter": "*",
+        "myokyawhtun/PDFMerger": "*"
     },
     "autoload": {
         "psr-0": {
@@ -35,6 +36,18 @@
         {
             "type": "vcs",
             "url": "https://github.com/exaprint/php-dal"
+        },
+        {
+            "type": "package",
+            "package": {
+                "name": "myokyawhtun/PDFMerger",
+                "version": "1",
+                "source": {
+                    "url": "https://github.com/myokyawhtun/PDFMerger.git",
+                    "type": "git",
+                    "reference": "master"
+                }
+            }
         }
     ]
 }
