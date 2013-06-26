@@ -72,7 +72,7 @@
                                                 <a href="#" class="number">
                                                     {{ Consignment.ConsignmentNumber }}
                                                 </a>
-                                                <span class="timestamp">{{ Consignment.ShippingDate }}</span>
+                                                <span class="timestamp">{{ Consignment.ShippingDate|date('d/m/Y') }}</span>
                                             </li>
                                         {% endfor %}
                                     </ul>
@@ -132,7 +132,9 @@
         {% endblock %}
         {% if Payment %}
         <div id="payments">
+            {% if Payment.PaymentDate %}
             <h3>{% trans "Facture reglee le " %}{{ Payment.PaymentDate }}</h3>
+            {% endif %}
             <ul>
                 {% for i, PaymentMethod in Payment.PaymentMethodTranslation %}
                     <li>
