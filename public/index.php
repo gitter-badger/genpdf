@@ -2,8 +2,9 @@
 
 require '../bootstrap.php';
 
-
-//\RBM\Wkhtmltopdf\Wkhtmltopdf::$bin = '/usr/local/Cellar/wkhtmltopdf/0.11.0_rc1/bin/wkhtmltopdf';
+if (strpos($_SERVER['SERVER_NAME'], 'local')) {
+    \RBM\Wkhtmltopdf\Wkhtmltopdf::$bin = '/usr/local/Cellar/wkhtmltopdf/0.11.0_rc1/bin/wkhtmltopdf';
+}
 
 $app->get("/", function () {
     var_dump(\Exaprint\DAL\DB::get()->getDefaultEnv());
@@ -22,7 +23,7 @@ $app->get("/:name/:id.pdf", function ($name, $id) use ($app) {
     $app->contentType("application/pdf");
     $filename = "../cache/{$name}_{$id}.pdf";
 
-    if(file_exists($filename)){
+    if (file_exists($filename)) {
         echo file_get_contents($filename);
         return;
     }
@@ -44,7 +45,7 @@ $app->get("/:name/:id.pdf", function ($name, $id) use ($app) {
 
         $r = $wkhtml->run($_SERVER["SERVER_NAME"] . "/$name/$id.html", $filename);
 
-        if($r['return'] == '0'){
+        if ($r['return'] == '0') {
             echo file_get_contents($filename);
         } else {
             $app->contentType('text/plain');
@@ -93,7 +94,7 @@ $app->get("/tnt-express-connect/:type", function () use ($app) {
 });
 
 
-$app->get("/locale", function() use ($app) {
+$app->get("/locale", function () use ($app) {
 
 });
 
