@@ -4,6 +4,7 @@ namespace Exaprint\GenPDF\Resources;
 
 use Exaprint\DAL\DB;
 use Exaprint\DAL\Select;
+use Locale\Helper;
 use RBM\SqlQuery\Column;
 use RBM\SqlQuery\Func;
 
@@ -86,7 +87,7 @@ class InvoiceStatements implements IResource
      */
     public function getHeader()
     {
-        return "header." . \Locale\Helper::$current . ".html";
+        return Helper::$current  . "/header.html";
     }
 
     /**
@@ -94,7 +95,7 @@ class InvoiceStatements implements IResource
      */
     public function getFooter()
     {
-        return "footer." . \Locale\Helper::$current . ".html";
+        return Helper::$current  . "/footer.html";
     }
 
 

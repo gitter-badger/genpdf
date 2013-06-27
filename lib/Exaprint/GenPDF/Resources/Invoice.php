@@ -9,6 +9,8 @@
 
 namespace Exaprint\GenPDF\Resources;
 
+use Locale\Helper;
+
 class Invoice implements IResource
 {
 
@@ -63,7 +65,7 @@ class Invoice implements IResource
      */
     public function getHeader()
     {
-        return "header." . \Locale\Helper::$current . ".html";
+        return Helper::$current . "/header.html";
     }
 
     /**
@@ -71,8 +73,7 @@ class Invoice implements IResource
      */
     public function getFooter()
     {
-        return "footer." . \Locale\Helper::$current . ".html";
+        return Helper::$current . "/footer.html";
     }
-
 
 }

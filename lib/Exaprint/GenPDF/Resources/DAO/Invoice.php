@@ -28,8 +28,7 @@ class Invoice
                 if ($simplexml = simplexml_load_string($xml)) {
                     return $simplexml;
                 }
-                print_r($xml);
-                throw new \Exception("Impossible de parser le xml $xml");
+                throw new \Exception("Impossible de parser le xml $xml $query");
             }
             throw new \Exception("XML vide $query");
         }

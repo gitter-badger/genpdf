@@ -3,7 +3,7 @@
 require '../bootstrap.php';
 
 
-//\RBM\Wkhtmltopdf\Wkhtmltopdf::$bin = '/usr/local/Cellar/wkhtmltopdf/0.11.0_rc1/bin/wkhtmltopdf';
+\RBM\Wkhtmltopdf\Wkhtmltopdf::$bin = '/usr/local/Cellar/wkhtmltopdf/0.11.0_rc1/bin/wkhtmltopdf';
 
 $app->get("/", function () {
     var_dump(\Exaprint\DAL\DB::get()->getDefaultEnv());
@@ -20,10 +20,10 @@ $app->get("/:name/:id.xml", function ($name, $id) use ($app) {
 $app->get("/:name/:id.pdf", function ($name, $id) use ($app) {
 
     $app->contentType("application/pdf");
-    $filename = "../cache/{$name}_{$id}";
+    $filename = "../cache/{$name}_{$id}.pdf";
 
     if(file_exists($filename)){
-        echo file_get_contents("$filename.pdf");
+        echo file_get_contents($filename);
         return;
     }
 
@@ -42,12 +42,10 @@ $app->get("/:name/:id.pdf", function ($name, $id) use ($app) {
         $wkhtml->setFooterSpacing(0);
         $wkhtml->setMarginBottom(40);
 
-        $filename = "../cache/{$name}_{$id}";
-
-        $r = $wkhtml->run($_SERVER["SERVER_NAME"] . "/$name/$id.html", "$filename.pdf");
+        $r = $wkhtml->run($_SERVER["SERVER_NAME"] . "/$name/$id.html", $filename);
 
         if($r['return'] == '0'){
-            echo file_get_contents("$filename.pdf");
+            echo file_get_contents($filename);
         } else {
             $app->contentType('text/plain');
             $app->status(500);

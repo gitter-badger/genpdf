@@ -9,15 +9,14 @@ class PrintboxInvoice extends Invoice
         return "resources/printbox/invoice.twig";
     }
 
-
     public function getHeader()
     {
-        return "header.printbox.html";
+        return "printbox/header.html";
     }
 
     public function getFooter()
     {
-        return "footer.printbox.html";
+        return "printbox/footer.html";
     }
 
 
