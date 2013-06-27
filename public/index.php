@@ -3,7 +3,7 @@
 require '../bootstrap.php';
 
 
-\RBM\Wkhtmltopdf\Wkhtmltopdf::$bin = '/usr/local/Cellar/wkhtmltopdf/0.11.0_rc1/bin/wkhtmltopdf';
+//\RBM\Wkhtmltopdf\Wkhtmltopdf::$bin = '/usr/local/Cellar/wkhtmltopdf/0.11.0_rc1/bin/wkhtmltopdf';
 
 $app->get("/", function () {
     var_dump(\Exaprint\DAL\DB::get()->getDefaultEnv());
