@@ -1,110 +1,100 @@
 msgid ""
 msgstr ""
 "Project-Id-Version: genPDF\n"
-"POT-Creation-Date: 2013-06-27 13:00+0100\n"
-"PO-Revision-Date: 2013-06-27 16:49+0100\n"
+"POT-Creation-Date: 2013-07-02 13:35+0100\n"
+"PO-Revision-Date: 2013-07-02 13:36+0100\n"
 "Last-Translator: \n"
 "Language-Team: Exaprint <romain@exaprint.fr>\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
-"X-Generator: Poedit 1.5.5\n"
+"X-Generator: Poedit 1.5.3\n"
 "X-Poedit-KeywordsList: _;gettext;gettext_noop\n"
 "X-Poedit-Basepath: .\n"
 "X-Poedit-SearchPath-0: ./../../..\n"
 
 #: ../../../cache/twig_gettext_keys.php:2
-#: ../../../templates/cache/06/ac/2ff1333ec835fee6d6cfd3c27354.php:159
 msgid "Votre Code Client"
 msgstr "Votre Code Client"
 
 #: ../../../cache/twig_gettext_keys.php:3
-#: ../../../templates/cache/06/ac/2ff1333ec835fee6d6cfd3c27354.php:167
 msgid "Numero TVA Intracom."
 msgstr "N° TVA Intracom."
 
 #: ../../../cache/twig_gettext_keys.php:4
-#: ../../../templates/cache/06/ac/2ff1333ec835fee6d6cfd3c27354.php:194
 msgid "Numero de facture"
 msgstr "N° de facture"
 
 #: ../../../cache/twig_gettext_keys.php:5
-#: ../../../templates/cache/06/ac/2ff1333ec835fee6d6cfd3c27354.php:202
 msgid "Date de facture"
 msgstr "Date de facture"
 
 #: ../../../cache/twig_gettext_keys.php:6
-#: ../../../templates/cache/06/ac/2ff1333ec835fee6d6cfd3c27354.php:222
 msgid "Designation de ligne de facture"
 msgstr "Désignation"
 
 #: ../../../cache/twig_gettext_keys.php:7
-#: ../../../templates/cache/06/ac/2ff1333ec835fee6d6cfd3c27354.php:226
 msgid "Quantite"
 msgstr "Quantité"
 
 #: ../../../cache/twig_gettext_keys.php:8
-#: ../../../templates/cache/06/ac/2ff1333ec835fee6d6cfd3c27354.php:230
 msgid "Montant H.T."
 msgstr "Montant H.T."
 
 #: ../../../cache/twig_gettext_keys.php:9
-#: ../../../templates/cache/06/ac/2ff1333ec835fee6d6cfd3c27354.php:393
 msgid "Donations"
 msgstr "Dons"
 
 #: ../../../cache/twig_gettext_keys.php:10
-#: ../../../templates/cache/06/ac/2ff1333ec835fee6d6cfd3c27354.php:439
 msgid "Montant total soumis a la TVA "
 msgstr "Montant total soumis à la T.V.A."
 
 #: ../../../cache/twig_gettext_keys.php:11
-#: ../../../templates/cache/06/ac/2ff1333ec835fee6d6cfd3c27354.php:448
 msgid "Montant TVA"
 msgstr "Montant T.V.A."
 
 #: ../../../cache/twig_gettext_keys.php:12
-#: ../../../templates/cache/06/ac/2ff1333ec835fee6d6cfd3c27354.php:458
 msgid "Montant total non soumis a la TVA"
 msgstr "Montant total non soumis à la T.V.A."
 
 #: ../../../cache/twig_gettext_keys.php:13
-#: ../../../templates/cache/06/ac/2ff1333ec835fee6d6cfd3c27354.php:474
 msgid "Montant TTC"
 msgstr "Montant T.T.C."
 
 #: ../../../cache/twig_gettext_keys.php:14
-#: ../../../templates/cache/06/ac/2ff1333ec835fee6d6cfd3c27354.php:72
 msgid "Facture reglee le "
 msgstr "Facture reglée le : "
 
 #: ../../../cache/twig_gettext_keys.php:15
-#: ../../../templates/cache/06/ac/2ff1333ec835fee6d6cfd3c27354.php:505
 msgid "Mentions legales facture"
 msgstr ""
 "<p>Aucun escompte n'est accordé pour paiement comptant.  En cas de retard, "
 "seront exigibles, conformément à l'article L-441-6 du Code de commerce, une "
 "indemnité calculée sur la base de trois fois le taux d'intérêt légal en "
 "vigueur ainsi qu'une indemnité forfaitaire de recouvrement de 40 <span class="
-"\"currency\">&euro;</span>.</p>"
+"\"currency\">euros</span>.</p>"
 
 #: ../../../cache/twig_gettext_keys.php:16
+msgid "Dossier suivi par"
+msgstr "Dossier suivi par"
+
+#: ../../../cache/twig_gettext_keys.php:17
 msgid "Projet de commande Printbox"
 msgstr "Projet de commande Printbox"
 
-#: ../../../cache/twig_gettext_keys.php:17
+#: ../../../cache/twig_gettext_keys.php:18
 msgid "Printboxer"
 msgstr "Printboxer"
 
-#: ../../../cache/twig_gettext_keys.php:18
+#: ../../../cache/twig_gettext_keys.php:19
 msgid "Raison Sociale"
 msgstr "Raison Sociale"
 
-#: ../../../cache/twig_gettext_keys.php:19
+#: ../../../cache/twig_gettext_keys.php:20
 msgid "Email"
 msgstr "Email"
 
-#: ../../../cache/twig_gettext_keys.php:20
+#: ../../../cache/twig_gettext_keys.php:21
 msgid "Client Final Printboxer"
 msgstr "Client Final"
 

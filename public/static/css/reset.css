@@ -22,6 +22,11 @@ summary {
                                                    display: block;
     }
 
+footer {
+    clear:both;
+    margin-top:50px;
+}
+
 /*
  * Corrects `inline-block` display not defined in IE 6/7/8/9 and Firefox 3.
  */

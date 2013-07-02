@@ -65,8 +65,15 @@
                     </thead>
                     <tbody>
 
+                    {% set mMontantFraisGestion = 0 %}
                     {% for i, Line in InvoiceLines %}
+                        {% if (Line.FeeTypeID == 22) %}
+                            {% set mMontantFraisGestion = Line.ETAmount %}
+                        {% endif %}
+                    {% endfor %}
 
+                    {% for i, Line in InvoiceLines %}
+                        {% if (Line.FeeTypeID != 22) %}
                         <tr class="order">
                             <td>
                                 {% block article %}
@@ -78,6 +85,7 @@
                                             {{ Line.ProductFamily }}
                                             {{ Line.ProductFrontTitle }}
                             </span>
+                                    {% trans "Dossier suivi par"%} {{ Line.OrderCustomer }}
                                     </article>
                                 {% endblock %}
                                 {% block shipping %}
@@ -100,10 +108,17 @@
                                 {% endblock %}
                             </td>
                             <td class="quantity">{{ Line.Quantity }} {{ Line.Initials }}</td>
-                            <td class="money">{{ Line.ETAmount|number_format(2, ',', ' ') }}
+                            <td class="money">
+                                {% if((Line.FeeTypeID == 0) and (mMontantFraisGestion > 0)) %}
+                                    {{ (Line.ETAmount+mMontantFraisGestion)|number_format(2, ',', ' ') }}
+                                    {% set mMontantFraisGestion = 0 %}
+                                {% else %}
+                                    {{ Line.ETAmount|number_format(2, ',', ' ') }}
+                                {% endif %}
                                 <span class="currency">&euro;</span>
                             </td>
                         </tr>
+                        {% endif %}
                         <!--
                         <tr class="fee">
                             <td>Remise commerciale 16%</td>
@@ -154,7 +169,7 @@
         <footer>
             <div class="mentions">
                 {% block mentions %}
-                    <p>Aucun escompte n'est accordé pour paiement comptant.  En cas de retard, seront exigibles, conformément à l'article L-441-6 du Code de commerce, une indemnité calculée sur la base de trois fois le taux d'intérêt légal en vigueur ainsi qu'une indemnité forfaitaire de recouvrement de 40 €.</p>
+                    <p>Aucun escompte n'est accordé pour paiement comptant.  En cas de retard, seront exigibles, conformément à l'article L-441-6 du Code de commerce, une indemnité calculée sur la base de trois fois le taux d'intérêt légal en vigueur ainsi qu'une indemnité forfaitaire de recouvrement de 40 euros.</p>
                 {% endblock %}
             </div>
         </footer>
