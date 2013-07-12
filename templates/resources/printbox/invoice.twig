@@ -79,13 +79,19 @@
                                 {% block article %}
                                     <article>
                                         <span class="units"></span>
-                                        {{ InvoiceLine[i].Title }} {{ Line.Reference }}
+                                        {% if((Line.FeeTypeID == 0) and (Line.OrderLineID == 0)) %}
+                                        {{ Line.Title }}
+                                        {% else %}
+                                        {{ Line.Reference }}
+                                        {% endif %}
                                         <span class="code">
                                 {{ Line.ArticleFamily }}
                                             {{ Line.ProductFamily }}
                                             {{ Line.ProductFrontTitle }}
                             </span>
+                                    {% if (Line.OrderCustomer != '') %}
                                     {% trans "Dossier suivi par"%} {{ Line.OrderCustomer }}
+                                    {% endif %}
                                     </article>
                                 {% endblock %}
                                 {% block shipping %}
