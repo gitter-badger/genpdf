@@ -75,11 +75,6 @@
             </tfoot>
         </table>
     </div>
-    {% for i, Invoice in Invoices %}
-    <div class="invoice-page">
-    {% include "resources/include/invoice.twig" with Invoice.getData() only %}
-    </div>
-    {% endfor %}
 </div>
 </body>
 </html>
