@@ -98,7 +98,7 @@
       }
     }
 
-    td.quantity {
+    td.quantity, td.date {
       text-align: center;
     }
   }

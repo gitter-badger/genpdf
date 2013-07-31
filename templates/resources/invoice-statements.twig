@@ -41,9 +41,10 @@
     </div>
     <div id="main">
         <h1>Relevé de factures {{ Month }}/{{ Year }}</h1>
-        <table>
+        <table id="table">
             <thead>
             <tr>
+                <th>Numéro</th>
                 <th>Référence</th>
                 <th>Date</th>
                 <th>Montant HT</th>
@@ -54,12 +55,9 @@
             <tbody>
             {% for i, Line in Lines %}
                 <tr>
-                    <td>
-                        <!--<a href="http://www.exaprint.fr/telecharger-facture/{{ i }}.pdf">-->
-                        {{ Line.Reference }}
-                        <!--</a>-->
-                    </td>
-                    <td>{{ Line.InvoiceDate|date('d/m/Y') }}</td>
+                    <td>{{ Line.InvoiceNumber }}</td>
+                    <td>{{ Line.Reference }}</td>
+                    <td class="date">{{ Line.InvoiceDate|date('d/m/Y') }}</td>
                     <td class="money">{{ Line.ETAmount|number_format(2, ',', ' ') }}<span class="currency">&euro;</span>
                     </td>
                     <td class="money">{{ Line.VATAmount|number_format(2, ',', ' ') }}<span
@@ -71,7 +69,7 @@
             </tbody>
             <tfoot>
             <tr>
-                <td colspan="2"></td>
+                <td colspan="3"></td>
                 <td>{{ Sums.et|number_format(2, ',', ' ') }}<span class="currency">&euro;</span></td>
                 <td>{{ Sums.vat|number_format(2, ',', ' ') }}<span class="currency">&euro;</span></td>
                 <td>{{ Sums.ati|number_format(2, ',', ' ') }}<span class="currency">&euro;</span></td>
