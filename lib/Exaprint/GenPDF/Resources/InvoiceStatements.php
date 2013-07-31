@@ -4,6 +4,7 @@ namespace Exaprint\GenPDF\Resources;
 
 use Exaprint\DAL\DB;
 use Exaprint\DAL\Select;
+use Exaprint\GenPDF\Resources\DAO\Customer;
 use Locale\Helper;
 use RBM\SqlQuery\Column;
 use RBM\SqlQuery\Func;
@@ -32,7 +33,18 @@ class InvoiceStatements implements IResource
         $this->_year  = substr($yearAndMonth, 0, 4);
         $this->_month = substr($yearAndMonth, 4, 2);
 
-        $select = new Select('TBL_FACTURE', ['IDFacture']);
+        $customerDao     = new Customer();
+        $this->_customer = $customerDao->getXML($IDClient);
+
+        $select = new Select('TBL_FACTURE', [
+            'InvoiceID'     => 'IDFacture',
+            'InvoiceDate'   => 'DateFacture',
+            'ETAmount'      => 'MontantHT',
+            'ATIAmount'     => 'MontantTTC',
+            'VATAmount'     => 'MontantTVA',
+            'Reference'     => 'ReferenceFacture',
+            'InvoiceNumber' => 'NumeroFacture',
+        ]);
         $select->filter()
             ->eq('IDClient', $IDClient)
             ->eq(new Func('YEAR', [new Column('DateFacture', 'TBL_FACTURE')]), $this->_year)
@@ -41,28 +53,13 @@ class InvoiceStatements implements IResource
         $stmt = DB::get()->query($select);
 
 
-        foreach ($stmt->fetchAll(DB::FETCH_COLUMN) as $invoiceId) {
-            $invoice = new Invoice();
-            $invoice->fetchFromID($invoiceId);
-            $data = $invoice->getData();
+        foreach ($stmt->fetchAll(DB::FETCH_ASSOC) as $invoice) {
 
-            if ($data["Type"] == 1) {
-                $this->_invoices[] = $invoice;
-                $this->_lines[]    = [
-                    "Reference"   => $data["Reference"],
-                    "InvoiceDate" => $data["InvoiceDate"],
-                    "ETAmount"    => $data["ETAmount"],
-                    "VATAmount"   => $data["VATAmount"],
-                    "ATIAmount"   => $data["ATIAmount"]
-                ];
+            $this->_lines[] = $invoice;
 
-                $this->_sums['ati'] += $data["ATIAmount"];
-                $this->_sums['et'] += $data["ETAmount"];
-                $this->_sums['vat'] += $data["VATAmount"];
-            }
-
-
-            $this->_customer = $data["Customer"];
+            $this->_sums['ati'] += $invoice["ATIAmount"];
+            $this->_sums['et'] += $invoice["ETAmount"];
+            $this->_sums['vat'] += $invoice["VATAmount"];
         }
         return true;
     }
@@ -87,7 +84,7 @@ class InvoiceStatements implements IResource
      */
     public function getHeader()
     {
-        return Helper::$current  . "/header.html";
+        return Helper::$current . "/header.html";
     }
 
     /**
@@ -95,7 +92,7 @@ class InvoiceStatements implements IResource
      */
     public function getFooter()
     {
-        return Helper::$current  . "/footer.html";
+        return Helper::$current . "/footer.html";
     }
 
 

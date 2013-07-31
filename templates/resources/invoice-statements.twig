@@ -54,7 +54,11 @@
             <tbody>
             {% for i, Line in Lines %}
                 <tr>
-                    <td>{{ Line.Reference }}</td>
+                    <td>
+                        <!--<a href="http://www.exaprint.fr/telecharger-facture/{{ i }}.pdf">-->
+                        {{ Line.Reference }}
+                        <!--</a>-->
+                    </td>
                     <td>{{ Line.InvoiceDate|date('d/m/Y') }}</td>
                     <td class="money">{{ Line.ETAmount|number_format(2, ',', ' ') }}<span class="currency">&euro;</span>
                     </td>
