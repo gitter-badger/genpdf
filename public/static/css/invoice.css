@@ -1,124 +1,168 @@
-@import "common.less";
-
-#customer {
-  .details {
-    dt {
-      width: 5cm;
-      text-align: right;
-    }
-    dd {
-      text-align: left;
-    }
-  }
-  address {
-    padding: 0.4em;
-    float: right;
-    width: 8cm;
-    font-size: 1.3em;
-    line-height: 1.6em;
-    border: @thin solid @light-color;
-    border-radius: @border-radius;
-    .medium;
-    font-style: normal;
-    color: @medium-color;
-    margin-bottom: 1cm;
-  }
+.bold {
+  font-family: "DIN-Bold";
 }
-
+.medium {
+  font-family: "DIN-Medium";
+}
+.regular {
+  font-family: "DIN-Regular";
+}
+body {
+  font-family: "DIN-Regular";
+  color: #333333;
+  font-size: 11px;
+}
+a {
+  color: #666666;
+  text-decoration: none;
+}
+#page {
+  margin: 0.5cm auto;
+  position: relative;
+}
+h1 {
+  color: #de265a;
+  margin: 0 0 0.5em 0;
+  font-family: "DIN-Bold";
+}
+h2 {
+  margin-bottom: 0.6em;
+}
+table {
+  page-break-inside: auto;
+}
+tr {
+  page-break-inside: avoid;
+  page-break-after: auto;
+}
+td.money {
+  text-align: right;
+}
+td.number {
+  text-align: center;
+}
+dl {
+  margin: 0;
+}
+dt {
+  float: left;
+  font-family: "DIN-Bold";
+  height: 1.5em;
+}
+dd {
+  text-indent: 0.5em;
+  height: 1.5em;
+}
+span.currency {
+  font-family: Arial, "arial", "sans serif";
+  color: #666666;
+  margin-left: 0.2em;
+  font-size: 0.9em;
+}
+#customer .details dt {
+  width: 5cm;
+  text-align: right;
+}
+#customer .details dd {
+  text-align: left;
+}
+#customer address {
+  padding: 0.4em;
+  float: right;
+  width: 8cm;
+  font-size: 1.3em;
+  line-height: 1.6em;
+  border: 0.028cm solid #cccccc;
+  border-radius: 0.5em;
+  font-family: "DIN-Medium";
+  font-style: normal;
+  color: #666666;
+  margin-bottom: 1cm;
+}
 #main {
   clear: right;
-  table {
-    margin-top: 1cm;
-    width: 100%;
-    border-collapse: collapse;
-    th {
-      padding: 0.4em 0.5em;
-      background: @theme-color;
-      color: white;
-      border-right: @thin solid white;
-      .medium;
-    }
-
-    th:first-child {
-      border-radius: @border-radius 0 0 0;
-    }
-
-    th:last-child {
-      border-radius: 0 @border-radius 0 0;
-    }
-
-    tbody {
-      td {
-        border-bottom: @thin solid @light-color;
-        padding: 0.5em;
-        padding-top: 0.7em;
-        .code {
-          color: @medium-color;
-          font-size: 0.8em;
-        }
-        .shipping {
-          margin-top: 0.2cm;
-          h4 {
-            margin: 0;
-            display: inline;
-          }
-          .tracking {
-            font-size: 0.8em;
-            margin: 0;
-            list-style-type: none;
-            img {
-              height: 0.3cm;
-              width: 0.3cm;
-              margin-bottom: -0.1cm;
-            }
-          }
-        }
-        .units {
-          color: @theme-color;
-          .medium;
-        }
-      }
-      tr:last-child td {
-        border-bottom: none;
-      }
-      tr {
-        page-break-after: avoid;
-      }
-    }
-    tfoot {
-      td {
-        background: @light-color;
-        padding: 0.5em;
-      }
-      td:first-child {
-        border-radius: 0 0 0 @border-radius;
-      }
-      td:last-child {
-        border-radius: 0 0 @border-radius 0;
-      }
-    }
-
-    td.quantity, td.date {
-      text-align: center;
-    }
-  }
 }
-
+#main table {
+  margin-top: 1cm;
+  width: 100%;
+  border-collapse: collapse;
+}
+#main table th {
+  padding: 0.4em 0.5em;
+  background: #de265a;
+  color: white;
+  border-right: 0.028cm solid #ffffff;
+  font-family: "DIN-Medium";
+}
+#main table th:first-child {
+  border-radius: 0.5em 0 0 0;
+}
+#main table th:last-child {
+  border-radius: 0 0.5em 0 0;
+}
+#main table tbody td {
+  border-bottom: 0.028cm solid #cccccc;
+  padding: 0.5em;
+  padding-top: 0.7em;
+}
+#main table tbody td .code {
+  color: #666666;
+  font-size: 0.8em;
+}
+#main table tbody td .shipping {
+  margin-top: 0.2cm;
+}
+#main table tbody td .shipping h4 {
+  margin: 0;
+  display: inline;
+}
+#main table tbody td .shipping .tracking {
+  font-size: 0.8em;
+  margin: 0;
+  list-style-type: none;
+}
+#main table tbody td .shipping .tracking img {
+  height: 0.3cm;
+  width: 0.3cm;
+  margin-bottom: -0.1cm;
+}
+#main table tbody td .units {
+  color: #de265a;
+  font-family: "DIN-Medium";
+}
+#main table tbody tr:last-child td {
+  border-bottom: none;
+}
+#main table tbody tr {
+  page-break-after: avoid;
+}
+#main table tfoot td {
+  background: #cccccc;
+  padding: 0.5em;
+}
+#main table tfoot td:first-child {
+  border-radius: 0 0 0 0.5em;
+}
+#main table tfoot td:last-child {
+  border-radius: 0 0 0.5em 0;
+}
+#main table td.quantity,
+#main table td.date {
+  text-align: center;
+}
 .mentions {
   margin-top: 1cm;
 }
-
 #donations {
   padding: 1em;
-  border: @thin @light-color solid;
+  border: 0.028cm #cccccc solid;
 }
-
 #summary {
   float: right;
   width: 8cm;
   text-align: right;
   margin-top: 1cm;
-  dt {
-    width: 6cm;
-  }
+}
+#summary dt {
+  width: 6cm;
 }
