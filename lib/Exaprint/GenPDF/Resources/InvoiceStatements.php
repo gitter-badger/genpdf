@@ -11,13 +11,21 @@ use RBM\SqlQuery\Func;
 
 class InvoiceStatements implements IResource
 {
+    const TYPE_INVOICE = 1;
+    const TYPE_CREDIT  = 2;
+
     protected $_customer;
     protected $_invoices = [];
-    protected $_lines = [];
+    protected $_credits = [];
     protected $_month;
     protected $_year;
 
-    protected $_sums = [
+    protected $_invoicesSums = [
+        'ati' => 0,
+        'vat' => 0,
+        'et'  => 0
+    ];
+    protected $_creditsSums = [
         'ati' => 0,
         'vat' => 0,
         'et'  => 0
@@ -38,6 +46,7 @@ class InvoiceStatements implements IResource
 
         $select = new Select('TBL_FACTURE', [
             'InvoiceID'     => 'IDFacture',
+            'Type'          => 'TypeFacture',
             'InvoiceDate'   => 'DateFacture',
             'ETAmount'      => 'MontantHT',
             'ATIAmount'     => 'MontantTTC',
@@ -55,11 +64,22 @@ class InvoiceStatements implements IResource
 
         foreach ($stmt->fetchAll(DB::FETCH_ASSOC) as $invoice) {
 
-            $this->_lines[] = $invoice;
+            switch ($invoice['Type']) {
+                case self::TYPE_INVOICE :
+                    $this->_invoices[] = $invoice;
 
-            $this->_sums['ati'] += $invoice["ATIAmount"];
-            $this->_sums['et'] += $invoice["ETAmount"];
-            $this->_sums['vat'] += $invoice["VATAmount"];
+                    $this->_invoicesSums['ati'] += $invoice["ATIAmount"];
+                    $this->_invoicesSums['et'] += $invoice["ETAmount"];
+                    $this->_invoicesSums['vat'] += $invoice["VATAmount"];
+                    break;
+                case self::TYPE_CREDIT :
+
+                    $this->_credits[] = $invoice;
+
+                    $this->_creditsSums['ati'] += $invoice["ATIAmount"];
+                    $this->_creditsSums['et'] += $invoice["ETAmount"];
+                    $this->_creditsSums['vat'] += $invoice["VATAmount"];
+            }
         }
         return true;
     }
@@ -70,12 +90,13 @@ class InvoiceStatements implements IResource
     public function getData()
     {
         return [
-            "Year"     => $this->_year,
-            "Month"    => $this->_month,
-            "Lines"    => $this->_lines,
-            "Invoices" => $this->_invoices,
-            "Sums"     => $this->_sums,
-            "Customer" => (array)$this->_customer,
+            "Year"         => $this->_year,
+            "Month"        => $this->_month,
+            "Invoices"     => $this->_invoices,
+            "InvoicesSums" => $this->_invoicesSums,
+            "Credits"      => $this->_credits,
+            "CreditsSums"  => $this->_creditsSums,
+            "Customer"     => (array)$this->_customer,
         ];
     }
 

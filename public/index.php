@@ -38,7 +38,7 @@ $app->get("/:name/:id.pdf", function ($name, $id) use ($app) {
 
         $wkhtml->setHeaderHtml($_SERVER["SERVER_NAME"] . "/static/assets/" . $resource->getHeader());
         $wkhtml->setMarginTop(46);
-
+        $wkhtml->setDpi(150);
         $wkhtml->setFooterHtml($_SERVER["SERVER_NAME"] . "/static/assets/" . $resource->getFooter());
         $wkhtml->setFooterSpacing(0);
         $wkhtml->setMarginBottom(40);
@@ -98,6 +98,9 @@ $app->get("/locale", function () use ($app) {
 
 });
 
+$app->get('/static/assets/dynamic-footer', function () use ($app) {
+    echo '<html><head></head><body><div class="foot">' . $app->request()->get('string') . '</div></body></html>';
+});
 
 function xsltProcess($xml)
 {
