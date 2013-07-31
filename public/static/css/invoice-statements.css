@@ -1,0 +1,19 @@
+.invoice-page {
+  page-break-before: always;
+  page-break-after: always;
+}
+
+#main table.lines tbody td {
+  font-size: 7pt;
+  padding: 0.2em  0.6m 0 0.6em ;
+  border-bottom: none;
+  color: #777;
+}
+
+#main table.lines tbody tr:nth-child(odd) {
+  background: #faf2f5;
+}
+tfoot td {
+  text-align: right;
+  font-weight: bold;
+}
