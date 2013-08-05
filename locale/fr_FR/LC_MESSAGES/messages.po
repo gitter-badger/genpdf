@@ -1,23 +1,25 @@
 msgid ""
 msgstr ""
 "Project-Id-Version: genPDF\n"
-"POT-Creation-Date: 2013-07-02 13:35+0100\n"
-"PO-Revision-Date: 2013-07-02 13:36+0100\n"
+"POT-Creation-Date: 2013-08-05 17:36+0100\n"
+"PO-Revision-Date: 2013-08-05 17:37+0100\n"
 "Last-Translator: \n"
 "Language-Team: Exaprint <romain@exaprint.fr>\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
-"X-Generator: Poedit 1.5.3\n"
+"X-Generator: Poedit 1.5.7\n"
 "X-Poedit-KeywordsList: _;gettext;gettext_noop\n"
 "X-Poedit-Basepath: .\n"
 "X-Poedit-SearchPath-0: ./../../..\n"
 
 #: ../../../cache/twig_gettext_keys.php:2
+#: ../../../templates/cache/0d/61/b9109dfb120659b77c2525b23264.php:257
 msgid "Votre Code Client"
 msgstr "Votre Code Client"
 
 #: ../../../cache/twig_gettext_keys.php:3
+#: ../../../templates/cache/0d/61/b9109dfb120659b77c2525b23264.php:265
 msgid "Numero TVA Intracom."
 msgstr "N° TVA Intracom."
 
@@ -75,26 +77,30 @@ msgstr ""
 "\"currency\">euros</span>.</p>"
 
 #: ../../../cache/twig_gettext_keys.php:16
+msgid "Reference"
+msgstr "Référence"
+
+#: ../../../cache/twig_gettext_keys.php:17
 msgid "Dossier suivi par"
 msgstr "Dossier suivi par"
 
-#: ../../../cache/twig_gettext_keys.php:17
+#: ../../../cache/twig_gettext_keys.php:18
 msgid "Projet de commande Printbox"
 msgstr "Projet de commande Printbox"
 
-#: ../../../cache/twig_gettext_keys.php:18
+#: ../../../cache/twig_gettext_keys.php:19
 msgid "Printboxer"
 msgstr "Printboxer"
 
-#: ../../../cache/twig_gettext_keys.php:19
+#: ../../../cache/twig_gettext_keys.php:20
 msgid "Raison Sociale"
 msgstr "Raison Sociale"
 
-#: ../../../cache/twig_gettext_keys.php:20
+#: ../../../cache/twig_gettext_keys.php:21
 msgid "Email"
 msgstr "Email"
 
-#: ../../../cache/twig_gettext_keys.php:21
+#: ../../../cache/twig_gettext_keys.php:22
 msgid "Client Final Printboxer"
 msgstr "Client Final"
 

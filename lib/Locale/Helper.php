@@ -22,7 +22,7 @@ class Helper
     {
         $serverName = $env["SERVER_NAME"];
         preg_match('#\.([a-z]+)$#', $serverName, $matches);
-        $extension = $matches[1];
+        $extension = isset($matches[1]) ? $matches[1] : 'fr';
         self::$current = isset(self::$extensionMap[$extension]) ? self::$extensionMap[$extension] : self::$default;
         putenv("LC_MESSAGES=" . self::$current);
         setlocale(LC_MESSAGES, self::$current);
