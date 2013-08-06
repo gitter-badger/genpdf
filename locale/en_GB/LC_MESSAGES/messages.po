@@ -2,7 +2,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: genPDF\n"
 "POT-Creation-Date: 2013-08-06 09:13+0100\n"
-"PO-Revision-Date: 2013-08-06 09:25+0100\n"
+"PO-Revision-Date: 2013-08-06 10:36+0100\n"
 "Last-Translator: \n"
 "Language-Team: Exaprint <romain@exaprint.fr>\n"
 "MIME-Version: 1.0\n"
@@ -87,7 +87,7 @@ msgstr ""
 
 #: ../../../cache/twig_gettext_keys.php:16
 msgid "Releve de factures"
-msgstr "Invoice Extract"
+msgstr "Invoice statement - "
 
 #: ../../../cache/twig_gettext_keys.php:17
 #: ../../../templates/cache/0d/61/b9109dfb120659b77c2525b23264.php:58
