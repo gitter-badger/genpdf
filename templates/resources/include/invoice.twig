@@ -71,18 +71,9 @@
                                 {% endblock %}
                             </td>
                             <td class="quantity">{{ Line.Quantity }} {{ Line.Initials }}</td>
-                            <td class="money">{{ Line.ETAmount|number_format(2, ',', ' ') }}
-                                {% trans "currency_span" %}
+                            <td class="money">{{ Line.ETAmount|formatmoney }}
                             </td>
                         </tr>
-                        <!--
-                        <tr class="fee">
-                            <td>Remise commerciale 16%</td>
-                            <td class="quantity">1</td>
-                            <td class="money">&minus; 16,96{% trans "currency_span" %}</td>
-                    <td class="money">&minus; 16,96{% trans "currency_span" %}</td>
-                </tr>
-                -->
                     {% endfor %}
                     </tbody>
                 </table>
@@ -124,26 +115,28 @@
                 </dl>
             </div>
         {% endblock %}
-        <div id="payments">
             {% if Payment %}
+                <div id="payments">
                 {% if Payment.PaymentDate %}
                     <h3>{% trans "Facture reglee le " %}{{ Payment.PaymentDate|date('d/m/Y') }}</h3>
                 {% endif %}
                 <ul>
                     {% for i, PaymentMethod in Payment.PaymentMethodTranslation %}
                         <li>
-                            {{ PaymentMethod.PaymentAmount|number_format(2, ',', ' ') }}
-                            {% trans "currency_span" %}
+                            {{ PaymentMethod.PaymentAmount|formatmoney }}
                             ({{ PaymentMethod.PaymentMethodName }})
                         </li>
                     {% endfor %}
                 </ul>
             </div>
+    </div>
         {% elseif DirectDebitDate %}
+    <div id="payments">
             <h3>{{ Customer.PaymentMethod.PaymentMethodTranslation.PaymentMethodName}}</h3>
             <p class="payment-due-date">{% trans "Echeance de paiement" %} {{ DirectDebitDate|date('d/m/Y') }}</p>
+        </div>
         {% endif %}
-    </div>
+
     {% block footer %}
         <footer>
             <div class="mentions">

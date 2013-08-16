@@ -38,7 +38,7 @@ class Helper
         if (self::$current == "en_GB") {
             return '<span class="currency">£</span>' . number_format($value, 2, '.', ',');
         }
-        return number_format($value, 2, ',', ' ') . '&nbsp;<span class="currency">&euro;</span>';
+        return number_format(floatval($value), 2, ',', ' ') . '&nbsp;<span class="currency">&euro;</span>';
 
     }
 
