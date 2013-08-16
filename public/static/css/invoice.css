@@ -109,6 +109,9 @@ span.currency {
   color: #666666;
   font-size: 0.8em;
 }
+#main table tbody td .title {
+  color: #de265a;
+}
 #main table tbody td .shipping {
   margin-top: 0.2cm;
 }

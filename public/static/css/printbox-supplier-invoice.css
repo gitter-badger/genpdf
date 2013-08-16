@@ -17,7 +17,7 @@ a {
   text-decoration: none;
 }
 #page {
-  margin: 0.5cm auto;
+  margin: 0 auto;
   position: relative;
 }
 h1 {
@@ -109,6 +109,9 @@ span.currency {
   color: #666666;
   font-size: 0.8em;
 }
+#main table tbody td .title {
+  color: #00a1dd;
+}
 #main table tbody td .shipping {
   margin-top: 0.2cm;
 }
@@ -151,11 +154,18 @@ span.currency {
   text-align: center;
 }
 .mentions {
-  margin-top: 1cm;
+  margin-top: 5cm;
 }
 #donations {
   padding: 1em;
   border: 0.028cm #cccccc solid;
+}
+#payments {
+  clear: both;
+  border: 0.028cm #666666 solid;
+  display: inline-block;
+  padding: 0.2cm 0.5cm;
+  margin-top: 1cm;
 }
 #summary {
   float: right;

@@ -1,8 +1,8 @@
 msgid ""
 msgstr ""
 "Project-Id-Version: GenPDF\n"
-"POT-Creation-Date: 2013-08-06 10:07+0100\n"
-"PO-Revision-Date: 2013-08-06 10:07+0100\n"
+"POT-Creation-Date: 2013-08-16 15:10+0100\n"
+"PO-Revision-Date: 2013-08-16 15:36+0100\n"
 "Last-Translator: \n"
 "Language-Team: Exaprint\n"
 "Language: it_IT\n"
@@ -15,24 +15,24 @@ msgstr ""
 "X-Poedit-SearchPath-0: ./../../..\n"
 
 #: ../../../cache/twig_gettext_keys.php:2
-#: ../../../templates/cache/0d/61/b9109dfb120659b77c2525b23264.php:294
+#: ../../../templates/cache/0d/61/b9109dfb120659b77c2525b23264.php:55
 msgid "Votre Code Client"
 msgstr "Il vostro numero cliente:"
 
 #: ../../../cache/twig_gettext_keys.php:3
-#: ../../../templates/cache/0d/61/b9109dfb120659b77c2525b23264.php:302
+#: ../../../templates/cache/0d/61/b9109dfb120659b77c2525b23264.php:63
 msgid "Numero TVA Intracom."
 msgstr "La vostra partita IVA:"
 
 #: ../../../cache/twig_gettext_keys.php:4
-#: ../../../templates/cache/0d/61/b9109dfb120659b77c2525b23264.php:55
-#: ../../../templates/cache/0d/61/b9109dfb120659b77c2525b23264.php:153
+#: ../../../templates/cache/0d/61/b9109dfb120659b77c2525b23264.php:80
+#: ../../../templates/cache/0d/61/b9109dfb120659b77c2525b23264.php:181
 msgid "Numero de facture"
 msgstr "Numero:"
 
 #: ../../../cache/twig_gettext_keys.php:5
-#: ../../../templates/cache/0d/61/b9109dfb120659b77c2525b23264.php:63
-#: ../../../templates/cache/0d/61/b9109dfb120659b77c2525b23264.php:161
+#: ../../../templates/cache/0d/61/b9109dfb120659b77c2525b23264.php:88
+#: ../../../templates/cache/0d/61/b9109dfb120659b77c2525b23264.php:189
 msgid "Date de facture"
 msgstr "Data:"
 
@@ -45,8 +45,8 @@ msgid "Quantite"
 msgstr "quantità"
 
 #: ../../../cache/twig_gettext_keys.php:8
-#: ../../../templates/cache/0d/61/b9109dfb120659b77c2525b23264.php:67
-#: ../../../templates/cache/0d/61/b9109dfb120659b77c2525b23264.php:165
+#: ../../../templates/cache/0d/61/b9109dfb120659b77c2525b23264.php:92
+#: ../../../templates/cache/0d/61/b9109dfb120659b77c2525b23264.php:193
 msgid "Montant H.T."
 msgstr "Totale IVA esclusa"
 
@@ -59,8 +59,8 @@ msgid "Montant total soumis a la TVA "
 msgstr "Importo totale soggetto ad IVA "
 
 #: ../../../cache/twig_gettext_keys.php:11
-#: ../../../templates/cache/0d/61/b9109dfb120659b77c2525b23264.php:71
-#: ../../../templates/cache/0d/61/b9109dfb120659b77c2525b23264.php:169
+#: ../../../templates/cache/0d/61/b9109dfb120659b77c2525b23264.php:96
+#: ../../../templates/cache/0d/61/b9109dfb120659b77c2525b23264.php:197
 msgid "Montant TVA"
 msgstr "Totale IVA"
 
@@ -69,16 +69,24 @@ msgid "Montant total non soumis a la TVA"
 msgstr "Importo totale non soggetto ad IVA "
 
 #: ../../../cache/twig_gettext_keys.php:13
-#: ../../../templates/cache/0d/61/b9109dfb120659b77c2525b23264.php:75
-#: ../../../templates/cache/0d/61/b9109dfb120659b77c2525b23264.php:173
+#: ../../../templates/cache/0d/61/b9109dfb120659b77c2525b23264.php:100
+#: ../../../templates/cache/0d/61/b9109dfb120659b77c2525b23264.php:201
 msgid "Montant TTC"
 msgstr "Totale IVA inclusa"
 
 #: ../../../cache/twig_gettext_keys.php:14
+msgid "currency_span"
+msgstr ""
+
+#: ../../../cache/twig_gettext_keys.php:15
 msgid "Facture reglee le "
 msgstr "Fattura saldata il"
 
-#: ../../../cache/twig_gettext_keys.php:15
+#: ../../../cache/twig_gettext_keys.php:16
+msgid "Echeance de paiement"
+msgstr "Scadenza"
+
+#: ../../../cache/twig_gettext_keys.php:17
 msgid "Mentions legales facture"
 msgstr ""
 "Non viene riconosciuto nessuno sconto per il pagamento in contanti. In caso "
@@ -86,40 +94,58 @@ msgstr ""
 "penalità per il ritardo. Gli ordini preceduti da asterisco non rientrano nel "
 "calcolo dei vostri sconti Exaclub."
 
-#: ../../../cache/twig_gettext_keys.php:16
-#: ../../../templates/cache/0d/61/b9109dfb120659b77c2525b23264.php:45
-msgid "Releve de factures"
-msgstr "Riepilogo delle fatture"
+#: ../../../cache/twig_gettext_keys.php:18
+#: ../../../templates/cache/0d/61/b9109dfb120659b77c2525b23264.php:48
+msgid "Releve"
+msgstr "Riepilogo"
 
-#: ../../../cache/twig_gettext_keys.php:17
-#: ../../../templates/cache/0d/61/b9109dfb120659b77c2525b23264.php:59
-#: ../../../templates/cache/0d/61/b9109dfb120659b77c2525b23264.php:157
+#: ../../../cache/twig_gettext_keys.php:19
+#: ../../../templates/cache/0d/61/b9109dfb120659b77c2525b23264.php:73
+msgid "Factures"
+msgstr "Fatture"
+
+#: ../../../cache/twig_gettext_keys.php:20
+#: ../../../templates/cache/0d/61/b9109dfb120659b77c2525b23264.php:84
+#: ../../../templates/cache/0d/61/b9109dfb120659b77c2525b23264.php:185
 msgid "Reference"
 msgstr "Riferimento"
 
-#: ../../../cache/twig_gettext_keys.php:18
+#: ../../../cache/twig_gettext_keys.php:21
+#: ../../../templates/cache/0d/61/b9109dfb120659b77c2525b23264.php:174
+msgid "Avoirs"
+msgstr "Nota di credito"
+
+#: ../../../cache/twig_gettext_keys.php:22
+#: ../../../templates/cache/0d/61/b9109dfb120659b77c2525b23264.php:276
+msgid "Net a payer"
+msgstr "Netto da pagare"
+
+#: ../../../cache/twig_gettext_keys.php:23
 msgid "Dossier suivi par"
 msgstr ""
 
-#: ../../../cache/twig_gettext_keys.php:19
+#: ../../../cache/twig_gettext_keys.php:24
 msgid "Projet de commande Printbox"
 msgstr "Printbox projetto"
 
-#: ../../../cache/twig_gettext_keys.php:20
+#: ../../../cache/twig_gettext_keys.php:25
 msgid "Printboxer"
 msgstr "Printboxer"
 
-#: ../../../cache/twig_gettext_keys.php:21
+#: ../../../cache/twig_gettext_keys.php:26
 msgid "Raison Sociale"
 msgstr "Società"
 
-#: ../../../cache/twig_gettext_keys.php:22
+#: ../../../cache/twig_gettext_keys.php:27
 msgid "Email"
 msgstr "Mail"
 
-#: ../../../cache/twig_gettext_keys.php:23
+#: ../../../cache/twig_gettext_keys.php:28
 msgid "Client Final Printboxer"
 msgstr "Finalo client"
+
+#~ msgid "Releve de factures"
+#~ msgstr "Riepilogo delle fatture"
 
 #~ msgid "hello"
 #~ msgstr "Buongiorno"

@@ -22,7 +22,7 @@ class Helper
     {
         $serverName = $env["SERVER_NAME"];
         preg_match('#\.([a-z]+)$#', $serverName, $matches);
-        $extension = isset($matches[1]) ? $matches[1] : 'fr';
+        $extension     = isset($matches[1]) ? $matches[1] : 'fr';
         self::$current = isset(self::$extensionMap[$extension]) ? self::$extensionMap[$extension] : self::$default;
         putenv("LC_MESSAGES=" . self::$current);
         setlocale(LC_MESSAGES, self::$current);
@@ -31,5 +31,19 @@ class Helper
             textdomain("messages");
             bind_textdomain_codeset("messages", "UTF-8");
         }
+    }
+
+    public static function formatMoney($value)
+    {
+        if (self::$current == "en_GB") {
+            return '<span class="currency">£</span>' . number_format($value, 2, '.', ',');
+        }
+        return number_format($value, 2, ',', ' ') . '&nbsp;<span class="currency">&euro;</span>';
+
+    }
+
+    public static function formatDate($value)
+    {
+        return date('d/m/Y', strtotime($value));
     }
 }

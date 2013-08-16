@@ -23,7 +23,7 @@ $app->get("/:name/:id.pdf", function ($name, $id) use ($app) {
     $app->contentType("application/pdf");
     $filename = "../cache/{$name}_{$id}.pdf";
 
-    if (file_exists($filename)) {
+    if (file_exists($filename) && !isset($_GET['nocache'])) {
         echo file_get_contents($filename);
         return;
     }
@@ -37,11 +37,12 @@ $app->get("/:name/:id.pdf", function ($name, $id) use ($app) {
         $wkhtml = new \RBM\Wkhtmltopdf\Wkhtmltopdf();
 
         $wkhtml->setHeaderHtml($_SERVER["SERVER_NAME"] . "/static/assets/" . $resource->getHeader());
-        $wkhtml->setMarginTop(46);
+        $wkhtml->setMarginTop(32);
+        $wkhtml->setHeaderSpacing(-25);
         $wkhtml->setDpi(150);
         $wkhtml->setFooterHtml($_SERVER["SERVER_NAME"] . "/static/assets/" . $resource->getFooter());
         $wkhtml->setFooterSpacing(0);
-        $wkhtml->setMarginBottom(40);
+        $wkhtml->setMarginBottom(30);
 
         $r = $wkhtml->run($_SERVER["SERVER_NAME"] . "/$name/$id.html", $filename);
 

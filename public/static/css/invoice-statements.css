@@ -2,18 +2,26 @@
   page-break-before: always;
   page-break-after: always;
 }
-
+#main table.lines {
+  margin-top: 0;
+}
 #main table.lines tbody td {
-  font-size: 7pt;
-  padding: 0.2em  0.6m 0 0.6em ;
+  font-size: 6pt;
+  padding: 0.1em  0.4m 0 0.3em ;
   border-bottom: none;
   color: #777;
 }
-
+h1.date {
+  float: right;
+}
 #main table.lines tbody tr:nth-child(odd) {
   background: #faf2f5;
 }
 tfoot td {
   text-align: right;
   font-weight: bold;
+}
+#net-amount-due span {
+  color: black;
+  font-size: 1.3em;
 }

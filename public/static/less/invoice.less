@@ -56,6 +56,9 @@
           color: @medium-color;
           font-size: 0.8em;
         }
+        .title {
+          color: @theme-color;
+        }
         .shipping {
           margin-top: 0.2cm;
           h4 {
@@ -106,12 +109,20 @@
 }
 
 .mentions {
-  margin-top: 1cm;
+  margin-top: 5cm;
 }
 
 #donations {
   padding: 1em;
   border: @thin @light-color solid;
+}
+
+#payments {
+  clear: both;
+  border: @thin @medium-color solid;
+  display: inline-block;
+  padding: 0.2cm 0.5cm;
+  margin-top: 1cm;
 }
 
 #summary {

@@ -31,6 +31,8 @@ class InvoiceStatements implements IResource
         'et'  => 0
     ];
 
+    protected $_netAmountDue = 0;
+
     /**
      * @param $id
      * @return bool
@@ -53,6 +55,7 @@ class InvoiceStatements implements IResource
             'VATAmount'     => 'MontantTVA',
             'Reference'     => 'ReferenceFacture',
             'InvoiceNumber' => 'NumeroFacture',
+            'DirectDebitDate' => 'DatePrelevement',
         ]);
         $select->filter()
             ->eq('IDClient', $IDClient)
@@ -81,6 +84,10 @@ class InvoiceStatements implements IResource
                     $this->_creditsSums['vat'] += $invoice["VATAmount"];
             }
         }
+
+        $this->_netAmountDue = $this->_invoicesSums['ati'] - $this->_creditsSums['ati'];
+
+
         return true;
     }
 
@@ -97,6 +104,7 @@ class InvoiceStatements implements IResource
             "Credits"      => $this->_credits,
             "CreditsSums"  => $this->_creditsSums,
             "Customer"     => (array)$this->_customer,
+            "NetAmountDue" => $this->_netAmountDue,
         ];
     }
 

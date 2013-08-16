@@ -46,6 +46,7 @@ $twigEnv = $twig->getEnvironment();
 
 $twigEnv->addExtension(new Twig_Extension_Debug());
 $twigEnv->addExtension(new Twig_Extensions_Extension_I18n());
+$twigEnv->addExtension(new \Locale\TwigExtension());
 
 $app->get("/version", function () use ($app) {
     $app->contentType("text/plain");

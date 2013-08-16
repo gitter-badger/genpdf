@@ -22,17 +22,21 @@
                 {{ Customer.Country }}
             </address>
         {% endblock %}
-        {% block customer_details %}
-            <dl class="details">
-                <dt>{% trans "Votre Code Client" %}</dt>
-                <dd>{{ Customer.CustomerCode }}</dd>
-                <dt>{% trans "Numero TVA Intracom." %}</dt>
-                <dd>{{ Customer.VATId }}</dd>
-            </dl>
-        {% endblock %}
     </div>
     <div id="main">
-        <h1>{% trans "Releve de factures" %}{{ Month }}/{{ Year }}</h1>
+        <h1 class="date">{{ Month }}/{{ Year }}</h1>
+
+        <h1>{% trans "Releve" %}</h1>
+
+
+        <dl class="details">
+            <dt>{% trans "Votre Code Client" %}</dt>
+            <dd>{{ Customer.CustomerCode }}</dd>
+            <dt>{% trans "Numero TVA Intracom." %}</dt>
+            <dd>{{ Customer.VATId }}</dd>
+        </dl>
+
+        <h2>{% trans "Factures" %}</h2>
         <table class="lines">
             <thead>
             <tr>
@@ -54,64 +58,64 @@
                     </td>
                     <td>{{ Line.Reference }}</td>
                     <td class="date">{{ Line.InvoiceDate|date('d/m/Y') }}</td>
-                    <td class="money">{{ Line.ETAmount|number_format(2, ',', ' ') }}<span class="currency">&euro;</span>
-                    </td>
-                    <td class="money">{{ Line.VATAmount|number_format(2, ',', ' ') }}<span
-                                class="currency">&euro;</span></td>
-                    <td class="money">{{ Line.ATIAmount|number_format(2, ',', ' ') }}<span
-                                class="currency">&euro;</span></td>
+                    <td class="money">{{ Line.ETAmount|formatmoney  }}</td>
+                    <td class="money">{{ Line.VATAmount|formatmoney  }}</td>
+                    <td class="money">{{ Line.ATIAmount|formatmoney  }}</td>
                 </tr>
             {% endfor %}
             </tbody>
             <tfoot>
             <tr>
                 <td colspan="3"></td>
-                <td>{{ InvoicesSums.et|number_format(2, ',', ' ') }}<span class="currency">&euro;</span></td>
-                <td>{{ InvoicesSums.vat|number_format(2, ',', ' ') }}<span class="currency">&euro;</span></td>
-                <td>{{ InvoicesSums.ati|number_format(2, ',', ' ') }}<span class="currency">&euro;</span></td>
+                <td>{{ InvoicesSums.et|formatmoney  }}</td>
+                <td>{{ InvoicesSums.vat|formatmoney  }}</td>
+                <td>{{ InvoicesSums.ati|formatmoney  }}</td>
             </tr>
             </tfoot>
         </table>
-        <h2>Avoirs</h2>
-        <table class="lines">
-            <thead>
-            <tr>
-                <th>{% trans "Numero de facture" %}</th>
-                <th>{% trans "Reference" %}</th>
-                <th>{% trans "Date de facture" %}</th>
-                <th>{% trans "Montant H.T." %}</th>
-                <th>{% trans "Montant TVA" %}</th>
-                <th>{% trans "Montant TTC" %}</th>
-            </tr>
-            </thead>
-            <tbody>
-            {% for i, Line in Credits %}
+        {% if CreditsSums.ati > 0 %}
+            <h2>{% trans "Avoirs" %}</h2>
+            <table class="lines">
+                <thead>
                 <tr>
-                    <td>
-                        <a href="http://www.exaprint.fr/telecharger-facture/{{ Line.InvoiceID }}">
-                        {{ Line.InvoiceNumber }}
-                        </a>
-                    </td>
-                    <td>{{ Line.Reference }}</td>
-                    <td class="date">{{ Line.InvoiceDate|date('d/m/Y') }}</td>
-                    <td class="money">{{ Line.ETAmount|number_format(2, ',', ' ') }}<span class="currency">&euro;</span>
-                    </td>
-                    <td class="money">{{ Line.VATAmount|number_format(2, ',', ' ') }}<span
-                                class="currency">&euro;</span></td>
-                    <td class="money">{{ Line.ATIAmount|number_format(2, ',', ' ') }}<span
-                                class="currency">&euro;</span></td>
+                    <th>{% trans "Numero de facture" %}</th>
+                    <th>{% trans "Reference" %}</th>
+                    <th>{% trans "Date de facture" %}</th>
+                    <th>{% trans "Montant H.T." %}</th>
+                    <th>{% trans "Montant TVA" %}</th>
+                    <th>{% trans "Montant TTC" %}</th>
                 </tr>
-            {% endfor %}
-            </tbody>
-            <tfoot>
-            <tr>
-                <td colspan="3"></td>
-                <td>{{ CreditsSums.et|number_format(2, ',', ' ') }}<span class="currency">&euro;</span></td>
-                <td>{{ CreditsSums.vat|number_format(2, ',', ' ') }}<span class="currency">&euro;</span></td>
-                <td>{{ CreditsSums.ati|number_format(2, ',', ' ') }}<span class="currency">&euro;</span></td>
-            </tr>
-            </tfoot>
-        </table>
+                </thead>
+                <tbody>
+                {% for i, Line in Credits %}
+                    <tr>
+                        <td>
+                            <a href="http://www.exaprint.fr/telecharger-facture/{{ Line.InvoiceID }}">
+                                {{ Line.InvoiceNumber }}
+                            </a>
+                        </td>
+                        <td>{{ Line.Reference }}</td>
+                        <td class="date">{{ Line.InvoiceDate|date('d/m/Y') }}</td>
+                        <td class="money">{{ Line.ETAmount|formatmoney  }}</td>
+                        <td class="money">{{ Line.VATAmount|formatmoney  }}</td>
+                        <td class="money">{{ Line.ATIAmount|formatmoney  }}</td>
+                    </tr>
+                {% endfor %}
+                </tbody>
+                <tfoot>
+                <tr>
+                    <td colspan="3"></td>
+                    <td>{{ CreditsSums.et|formatmoney  }}</td>
+                    <td>{{ CreditsSums.vat|formatmoney  }}</td>
+                    <td>{{ CreditsSums.ati|formatmoney  }}</td>
+                </tr>
+                </tfoot>
+            </table>
+        {% endif %}
+        <div id="net-amount-due">
+            <h2>{% trans "Net a payer" %}</h2>
+            <p>{{ NetAmountDue|formatmoney  }}</p>
+        </div>
     </div>
 </div>
 </body>
