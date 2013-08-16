@@ -23,6 +23,9 @@ class TwigExtension extends \Twig_Extension
             new \Twig_SimpleFilter('formatmoney', function($value){
                 return Helper::formatMoney($value);
             }, ["is_safe" => ["html"]]),
+            new \Twig_SimpleFilter('formatnumber', function($value){
+                return Helper::formatNumber($value);
+            }, ["is_safe" => ["html"]]),
         ];
     }
 }

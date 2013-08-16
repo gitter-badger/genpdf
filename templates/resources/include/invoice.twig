@@ -99,7 +99,7 @@
                     {% for i, Vat in VAT.VATRates %}
                         {% if Vat.Rate > 0 %}
                             <dt>{% trans "Montant total soumis a la TVA " %}
-                                &nbsp;{{ Vat.Rate|number_format(2, ',', ' ') }} %
+                                &nbsp;{{ Vat.Rate|formatnumber }} %
                             </dt>
                             <dd>{{ Vat.ETAmount|formatmoney }}</dd>
                             <dt>{% trans "Montant TVA" %}</dt>

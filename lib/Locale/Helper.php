@@ -42,6 +42,12 @@ class Helper
 
     }
 
+    public static function formatNumber($value)
+    {
+        return (self::$current == "en_GB") ?
+            number_format(floatval($value), 2, '.', ',') : number_format(floatval($value), 2, ',', ' ');
+    }
+
     public static function formatDate($value)
     {
         return date('d/m/Y', strtotime($value));
