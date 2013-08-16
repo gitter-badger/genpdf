@@ -35,8 +35,9 @@ class Helper
 
     public static function formatMoney($value)
     {
+
         if (self::$current == "en_GB") {
-            return '<span class="currency">£</span>' . number_format($value, 2, '.', ',');
+            return '<span class="currency">£</span>' . number_format(floatval($value), 2, '.', ',');
         }
         return number_format(floatval($value), 2, ',', ' ') . '&nbsp;<span class="currency">&euro;</span>';
 
