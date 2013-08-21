@@ -21,8 +21,15 @@ class Invoice
      */
     public function getXML($IDFacture)
     {
+        $db = DB::get();
+        $db->exec('SET QUOTED_IDENTIFIER ON');
+        $db->exec('SET ANSI_WARNINGS ON');
+        $db->exec('SET ANSI_PADDING ON');
+        $db->exec('SET ANSI_NULLS ON');
+        $db->exec('SET CONCAT_NULL_YIELDS_NULL ON');
+
         $query = "select CAST(dbo.f_XML_Facture($IDFacture) AS nvarchar(max))";
-        if ($result = DB::get()->query($query)) {
+        if ($result = $db->query($query)) {
             if (($xml = $result->fetchColumn()) !== false) {
                 $xml = str_replace("\r\n", "", $xml);
                 if ($simplexml = simplexml_load_string($xml)) {
