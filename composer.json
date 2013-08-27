@@ -5,6 +5,7 @@
     "homepage": "http://www.exaprint.fr",
     "license": "None",
     "minimum-stability": "dev",
+    "version": "1.0.1",
     "authors": [
         {
             "name": "Romain Bessuges",
