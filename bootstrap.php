@@ -16,19 +16,21 @@ date_default_timezone_set("Europe/Paris");
 
 \Exaprint\DAL\DB::setDefaultEnv(\Exaprint\DAL\DB::ENV_PROD);
 $app = new \Slim\Slim(array(
+    'view' => new \Slim\Views\Twig(),
     'templates.path' => '../templates',
     'log.level' => 4,
-    'log.enabled' => true,
-    'log.writer' => new \Slim\Extras\Log\DateTimeFileWriter(array(
-        'path' => '../logs',
-        'name_format' => 'y-m-d'
-    ))
+    'log.enabled' => true
+    //'log.writer' => new \Slim\Extras\Log\DateTimeFileWriter(array(
+    //    'path' => '../logs',
+    //    'name_format' => 'y-m-d'
+    //))
 ));
 
 \Locale\Helper::detect($app->environment());
 
 // Prepare view
-\Slim\Extras\Views\Twig::$twigOptions = array(
+$twig = $app->view();
+$twig->parserOptions = array(
     'charset' => 'utf-8',
     'cache' => realpath('../templates/cache'),
     'auto_reload' => true,
@@ -36,17 +38,11 @@ $app = new \Slim\Slim(array(
     'autoescape' => true,
     'debug' => true
 );
-
-
-
-/** @var $twig \Slim\Extras\Views\Twig */
-$twig = $app->view(new \Slim\Extras\Views\Twig());
-/** @var $twigEnv Twig_Environment */
-$twigEnv = $twig->getEnvironment();
-
-$twigEnv->addExtension(new Twig_Extension_Debug());
-$twigEnv->addExtension(new Twig_Extensions_Extension_I18n());
-$twigEnv->addExtension(new \Locale\TwigExtension());
+$twig->parserExtensions = array(
+    new Twig_Extension_Debug(),
+    new Twig_Extensions_Extension_I18n(),
+    new \Locale\TwigExtension()
+);
 
 $app->get("/version", function () use ($app) {
     $app->contentType("text/plain");

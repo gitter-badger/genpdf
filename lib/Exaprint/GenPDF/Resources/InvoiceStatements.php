@@ -57,10 +57,18 @@ class InvoiceStatements implements IResource
             'InvoiceNumber' => 'NumeroFacture',
             'DirectDebitDate' => 'DatePrelevement',
         ]);
+
+        $select->leftJoin('TBL_COMMANDE', 'IDFacture')->cols([
+            'OrderReference' => 'ReferenceClient',
+            'OrderDate' => 'DateCommande'
+        ]);
+
         $select->filter()
             ->eq('IDClient', $IDClient)
             ->eq(new Func('YEAR', [new Column('DateFacture', 'TBL_FACTURE')]), $this->_year)
             ->eq(new Func('MONTH', [new Column('DateFacture', 'TBL_FACTURE')]), $this->_month);
+
+        //echo $select;
 
         $stmt = DB::get()->query($select);
 
