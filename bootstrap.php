@@ -14,7 +14,7 @@ error_reporting(E_ALL);
 
 date_default_timezone_set("Europe/Paris");
 
-\Exaprint\DAL\DB::setDefaultEnv(\Exaprint\DAL\DB::ENV_PROD);
+//\Exaprint\DAL\DB::setDefaultEnv(\Exaprint\DAL\DB::ENV_PROD);
 $app = new \Slim\Slim(array(
     'view' => new \Slim\Views\Twig(),
     'templates.path' => '../templates',
