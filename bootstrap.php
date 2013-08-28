@@ -19,11 +19,11 @@ $app = new \Slim\Slim(array(
     'view' => new \Slim\Views\Twig(),
     'templates.path' => '../templates',
     'log.level' => 4,
-    'log.enabled' => true
-    //'log.writer' => new \Slim\Extras\Log\DateTimeFileWriter(array(
-    //    'path' => '../logs',
-    //    'name_format' => 'y-m-d'
-    //))
+    'log.enabled' => true,
+    'log.writer' => new \Slim\Extras\Log\DateTimeFileWriter(array(
+        'path' => '../logs',
+        'name_format' => 'y-m-d'
+    ))
 ));
 
 \Locale\Helper::detect($app->environment());
