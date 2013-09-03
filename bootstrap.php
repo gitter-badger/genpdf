@@ -26,7 +26,20 @@ $app = new \Slim\Slim(array(
     ))
 ));
 
-\Locale\Helper::detect($app->environment());
+// locale-detector
+$localeDetector = new Menencia\LocaleDetector\LocaleDetector();
+$localeDetector->detect();
+$language = $localeDetector->getLocale();
+\Locale\Helper::$current = $language;
+
+// textdomain
+putenv("LC_MESSAGES=" . $language);
+setlocale(LC_MESSAGES, $language);
+if (function_exists('bindtextdomain') && function_exists('textdomain')) {
+    bindtextdomain("messages", APPLICATION_ROOT . "/locale");
+    textdomain("messages");
+    bind_textdomain_codeset("messages", "UTF-8");
+}
 
 // Prepare view
 $twig = $app->view();

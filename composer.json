@@ -26,7 +26,11 @@
         "exaprint/php-dal": "*",
         "rbm/php-results-combinator": "*",
         "jdorn/sql-formatter": "*",
-        "myokyawhtun/PDFMerger": "*"
+        "myokyawhtun/PDFMerger": "*",
+        "menencia/locale-detector": "*"
+    },
+    "require-dev": {
+        "phpunit/phpunit": "3.8.*@dev"
     },
     "autoload": {
         "psr-0": {
