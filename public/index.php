@@ -38,7 +38,7 @@ $app->get("/:name/:id.pdf", function ($name, $id) use ($app) {
 
         $wkhtml->setHeaderHtml($_SERVER["SERVER_NAME"] . "/static/assets/" . $resource->getHeader());
         $wkhtml->setMarginTop(32);
-        $wkhtml->setHeaderSpacing(-25);
+        $wkhtml->setHeaderSpacing(-24);
         $wkhtml->setDpi(150);
         $wkhtml->setFooterHtml($_SERVER["SERVER_NAME"] . "/static/assets/" . $resource->getFooter());
         $wkhtml->setFooterSpacing(0);
