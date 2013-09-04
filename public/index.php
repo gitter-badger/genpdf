@@ -20,8 +20,10 @@ $app->get("/:name/:id.xml", function ($name, $id) use ($app) {
 
 $app->get("/:name/:id.pdf", function ($name, $id) use ($app) {
 
+    $language = \Locale\Helper::$current;
+
     $app->contentType("application/pdf");
-    $filename = "../cache/{$name}_{$id}.pdf";
+    $filename = "../cache/{$name}_{$id}_{$language}.pdf";
 
     if (file_exists($filename) && !isset($_GET['nocache'])) {
         echo file_get_contents($filename);
