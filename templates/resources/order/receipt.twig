@@ -49,7 +49,7 @@
             <dt>{% trans "Prelevement" %}</dt>
             <dd>{% trans "30j fin de mois" %}</dd>
             <dt>{% trans "Date" %}</dt>
-            <dd>{{ date }}</dd>
+            <dd>{{ date|date('d/m/Y') }}</dd>
         </dl>
     </div>
     <hr/>

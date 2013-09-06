@@ -88,6 +88,7 @@ h1 {
 #lignes td {
   padding: 0.15cm 0 0.1cm 0;
   border-bottom: 0.028cm #cccccc solid;
+    border-top: 0.028cm #cccccc solid;
 }
 #lignes th {
   background: #00a1dd;
@@ -102,6 +103,7 @@ h1 {
 #montants td {
   padding: 0.15cm 0 0.1cm 0;
   border-bottom: 0.028cm #cccccc solid;
+  border-top: 0.028cm #cccccc solid;
 }
 #montants td:first-child {
   background: #00a1dd;
