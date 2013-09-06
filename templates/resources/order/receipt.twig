@@ -31,7 +31,7 @@
                 {{ client.address.line3 }}<br/>
             {% endif %}
             {{ client.address.postcode }} {{ client.address.city }}
-        </address>
+        </address><br />
         <dl class="details">
             <dt>{% trans "Revendeur" %}</dt>
             <dd>{{ client.code }}</dd>
@@ -85,7 +85,7 @@
                 <td class="money">{{ montantHT|formatmoney }}</td>
             </tr>
             <tr>
-                <td>Montant TVA</td>
+                <td>Montant TVA <span class="right">{{ tauxTVA }}</span></td>
                 <td class="money">{{ montantTVA|formatmoney }}</td>
             </tr>
             <tr>
