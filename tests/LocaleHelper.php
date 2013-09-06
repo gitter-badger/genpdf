@@ -56,6 +56,15 @@ class LocaleHelper extends PHPUnit_Framework_TestCase {
         $this->assertEquals('1,000.65', $format);
     }
 
+    public function testFormatStringNumberNULL() {
+
+        \Locale\Helper::$current = 'fr_FR';
+
+        $format = \Locale\Helper::formatNumber('19.600');
+
+        $this->assertEquals('19,6', $format);
+    }
+
     public function testFormatNumberNULL() {
 
         \Locale\Helper::$current = 'en_GB';
