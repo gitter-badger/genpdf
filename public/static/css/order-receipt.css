@@ -21,7 +21,7 @@ a {
   position: relative;
 }
 h1 {
-  color: #00a1dd;
+  color: #de265a;
   margin: 0 0 0.5em 0;
   font-family: "DIN-Bold";
 }
@@ -88,10 +88,9 @@ h1 {
 #lignes td {
   padding: 0.15cm 0 0.1cm 0;
   border-bottom: 0.028cm #cccccc solid;
-    border-top: 0.028cm #cccccc solid;
 }
 #lignes th {
-  background: #00a1dd;
+  background: #de265a;
   padding: 0.15cm 0 0.1cm 0;
   color: white;
 }
@@ -106,12 +105,12 @@ h1 {
   border-top: 0.028cm #cccccc solid;
 }
 #montants td:first-child {
-  background: #00a1dd;
+  background: #de265a;
   padding: 0.15cm 0 0.1cm 0;
   color: white;
 }
 #montants th {
-  background: #00a1dd;
+  background: #de265a;
   padding: 0.15cm 0 0.1cm 0;
   color: white;
 }

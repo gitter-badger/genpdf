@@ -19,6 +19,21 @@ class OrderReceipt implements IResource
     {
         $db = DB::get();
 
+        $tbl_client_adresselivraison = [
+            'client.address.title' => 'Intitule',
+            'client.address.line1' => 'AdresseLivraison1',
+            'client.address.line2' => 'AdresseLivraison2',
+            'client.address.line3' => 'AdresseLivraison3',
+            'client.address.postcode' => 'CodePostalLivraison',
+            'client.address.city' => 'VilleLivraison'
+        ];
+        $tbl_commmande_ligne = [
+            'product.id' => 'IDCommandeLigne',
+            'product.designation' => 'Libelle',
+            'product.priceHT' => 'MontantPrixAchat'
+        ];
+        $tbl_produit = ['product.reference' => 'Code'];
+
         $sql = new Select();
         $sql->cols([
             'id' => 'IDCommande',
@@ -36,22 +51,15 @@ class OrderReceipt implements IResource
             'client.company_name' => 'RaisonSociale'
         ]);
         $sql->filter()->eq('IDCommande', $id);
-        $sql->join('TBL_CLIENT_ADRESSELIVRAISON', 'IDClientAdresseLivraison', 'IDClientAdresseLivraison',
-            [
-                'client.address.title' => 'Intitule',
-                'client.address.line1' => 'AdresseLivraison1',
-                'client.address.line2' => 'AdresseLivraison2',
-                'client.address.line3' => 'AdresseLivraison3',
-                'client.address.postcode' => 'CodePostalLivraison',
-                'client.address.city' => 'VilleLivraison'
-            ]);
-        $sql->join('TBL_COMMANDE_LIGNE', 'IDCommande', 'IDCommande', [
-            'product.id' => 'IDCommandeLigne',
-            'product.designation' => 'Libelle',
-            'product.priceHT' => 'MontantPrixAchat'
-        ])->join('TBL_PRODUIT', 'IDProduit', 'IDProduit', [
-            'product.reference' => 'Code'
-        ]);
+
+        // JOINS
+        $sql->join('TBL_CLIENT_ADRESSELIVRAISON', 'IDClientAdresseLivraison', 'IDClientAdresseLivraison', $tbl_client_adresselivraison);
+        $sql->join('TBL_COMMANDE_LIGNE', 'IDCommande', 'IDCommande', $tbl_commmande_ligne)
+            ->join('TBL_PRODUIT', 'IDProduit', 'IDProduit', $tbl_produit);
+                    //->join('TBL_PRODUIT_FAMILLE_PRODUIT', 'TBL_PRODUIT_FAMILLE_PRODUIT.IDProduitFamilleProduit', 'TBL_PRODUIT.IDProduitFamilleProduit')
+                    //->join('TBL_PRODUIT_UNITE_TARIF', 'TBL_PRODUIT_UNITE_TARIF.IDProduitUniteTarif', 'TBL_PRODUIT.IDProduitUniteTarif')
+                    //->join('TBL_PRODUIT_OFFRE', 'TBL_PRODUIT_OFFRE.IDProduitOffre', 'TBL_PRODUIT.IDProduitOffre')
+                    //->join('TBL_PRODUIT_LIBELLE_FRONT_TRAD', 'TBL_PRODUIT_LIBELLE_FRONT_TRAD.IDProduit', 'TBL_PRODUIT.IDProduit', 'TBL_PRODUIT_LIBELLE_FRONT_TRAD.IDLangue', '1');
 
         if ($stmt = $db->query($sql)) {
             $combinator = new ResultsCombinator();
