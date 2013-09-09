@@ -5,6 +5,7 @@ namespace Exaprint\GenPDF\Resources;
 use Exaprint\DAL\Commande\Select;
 use Exaprint\DAL\DB;
 use RBM\ResultsCombinator\ResultsCombinator;
+use Locale\Helper;
 
 class OrderReceipt implements IResource
 {
