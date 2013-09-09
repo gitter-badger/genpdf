@@ -104,12 +104,12 @@ class OrderReceipt implements IResource
 
     public function getHeader()
     {
-        return "printbox/header.html";
+        return Helper::$current . "/header.html";
     }
 
     public function getFooter()
     {
-        return "printbox/footer.html";
+        return Helper::$current . "/footer.html";
     }
 
 
