@@ -54,13 +54,20 @@ class OrderReceipt implements IResource
         $sql->filter()->eq('IDCommande', $id);
 
         // JOINS
-        $sql->join('TBL_CLIENT_ADRESSELIVRAISON', 'IDClientAdresseLivraison', 'IDClientAdresseLivraison', $tbl_client_adresselivraison);
-        $sql->join('TBL_COMMANDE_LIGNE', 'IDCommande', 'IDCommande', $tbl_commmande_ligne)
-            ->join('TBL_PRODUIT', 'IDProduit', 'IDProduit', $tbl_produit);
-                    //->join('TBL_PRODUIT_FAMILLE_PRODUIT', 'TBL_PRODUIT_FAMILLE_PRODUIT.IDProduitFamilleProduit', 'TBL_PRODUIT.IDProduitFamilleProduit')
-                    //->join('TBL_PRODUIT_UNITE_TARIF', 'TBL_PRODUIT_UNITE_TARIF.IDProduitUniteTarif', 'TBL_PRODUIT.IDProduitUniteTarif')
-                    //->join('TBL_PRODUIT_OFFRE', 'TBL_PRODUIT_OFFRE.IDProduitOffre', 'TBL_PRODUIT.IDProduitOffre')
-                    //->join('TBL_PRODUIT_LIBELLE_FRONT_TRAD', 'TBL_PRODUIT_LIBELLE_FRONT_TRAD.IDProduit', 'TBL_PRODUIT.IDProduit', 'TBL_PRODUIT_LIBELLE_FRONT_TRAD.IDLangue', '1');
+        $sql->join('TBL_CLIENT_ADRESSELIVRAISON', 'IDClientAdresseLivraison', 'IDClientAdresseLivraison', $tbl_client_adresselivraison, null, 'LEFT');
+
+        $l1 = $sql->join('TBL_COMMANDE_LIGNE', 'IDCommande', 'IDCommande', $tbl_commmande_ligne);
+            $l2 = $l1->join('TBL_PRODUIT', 'IDProduit', 'IDProduit', $tbl_produit);
+                $l2->join('TBL_PRODUIT_FAMILLE_PRODUIT', 'IDProduitFamilleProduit', 'IDProduitFamilleProduit');
+                $l2->join('TBL_PRODUIT_UNITE_TARIF', 'IDProduitUniteTarif', 'IDProduitUniteTarif');
+                $l2->join('TBL_PRODUIT_OFFRE', 'IDProduitOffre', 'IDProduitOffre');
+                $select = \RBM\SqlQuery\Factory::select('TBL_PRODUIT_LIBELLE_FRONT_TRAD');
+                $select->joinCondition()
+                    ->equals(\RBM\SqlQuery\Helper::prepareColumn('IDProduit', 'TBL_PRODUIT_LIBELLE_FRONT_TRAD'), \RBM\SqlQuery\Helper::prepareColumn('IDProduit', 'TBL_PRODUIT'))
+                    ->equals(\RBM\SqlQuery\Helper::prepareColumn('IDLangue', 'TBL_PRODUIT_LIBELLE_FRONT_TRAD'), 1);
+                $l2->addJoin($select);
+
+        echo $sql;
 
         if ($stmt = $db->query($sql)) {
             $combinator = new ResultsCombinator();
