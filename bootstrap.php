@@ -28,8 +28,7 @@ $app = new \Slim\Slim(array(
 
 // locale-detector
 $localeDetector = new Menencia\LocaleDetector\LocaleDetector();
-$localeDetector->detect();
-$language = $localeDetector->getLocale();
+$language = $localeDetector->detect();
 \Locale\Helper::$current = $language;
 
 // textdomain

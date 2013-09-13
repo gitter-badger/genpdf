@@ -68,7 +68,14 @@
 
             <tr>
                 <td>{{ product.reference }}</td>
-                <td class="number">{{ product.designation }}</td>
+                <td>
+                    Offre : {{ designation.offer }}<br />
+                    Quantité commandée : {{ product.quantity }}<br />
+                    {% for resume in product.resume %}
+                        {{ resume }}<br />
+                    {% endfor %}
+                    Commentaire PAO : {{ CommentairePAO }}
+                </td>
                 <td class="money">{{ product.priceHT|formatmoney }}</td>
             </tr>
             <tr>
@@ -85,7 +92,7 @@
                 <td class="money">{{ montantHT|formatmoney }}</td>
             </tr>
             <tr>
-                <td>Montant TVA <span class="right">{{ tauxTVA }}</span></td>
+                <td>Montant TVA <span class="right">{{ tauxTVA|formatnumber }} %</span></td>
                 <td class="money">{{ montantTVA|formatmoney }}</td>
             </tr>
             <tr>
@@ -107,9 +114,6 @@
                 à être distribués sur la voie publique. Nous vous invitons donc à ajouter systématiquement le nom ou n° de RCS de votre entreprise (en votre qualité de revendeur,
                 vous êtes considéré comme l'imprimeur du document) ou celui de votre client en petit sur l'ensemble de vos travaux. Attention, l'absence de cette mention obligatoire
                 peut entraîner des sanctions financières et/ou pénales.</p>
-        </div>
-        <div id="sign">
-            <p><strong>L’équipe PrintBox</strong></p>
         </div>
     </div>
     <footer>
