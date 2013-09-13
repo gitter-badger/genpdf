@@ -51,6 +51,15 @@
                                         <span class="code">{{ Line.ArticleFamily }}&nbsp;{{ Line.ProductFamily }}&nbsp;{{ Line.ProductFrontTitle }}</span>
                                     </article>
                                 {% endblock %}
+                                {% block certification %}
+                                    {% if Line.Certifications %}
+                                        {% for Certification in Line.Certifications.Certification %}
+                                            <div>
+                                                {% trans "Produit certifie" %} {{ Certification.Name }}&nbsp;{{ Certification.Indication }}&nbsp;-&nbsp;{{ Certification.Number }}
+                                            </div>
+                                        {% endfor %}
+                                    {% endif %}
+                                {% endblock %}
                                 {% block shipping %}
                                     {% if Line.Shipping %}
                                         <div class="shipping">
