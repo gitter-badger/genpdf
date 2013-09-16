@@ -19,7 +19,7 @@
 <div id="page">
     <h1>{% trans "Accuse de reception de commande" %}</h1>
 
-    <div id="client">
+    <div id="delivery">
         <h2>{% trans "Livraison" %}</h2>
 
         <p>{{ delivery.recipient }}</p>
@@ -35,16 +35,24 @@
             {{ delivery.comments }}
         </blockquote>
     </div>
-    <div id="commande">
-        <h2>{% trans "Commande" %}</h2>
+    <div id="client">
+        <h2>{% trans "Revendeur" %}</h2>
         <dl class="details">
-            <dt>{% trans "Numero" %}</dt>
-            <dd>{{ number }}</dd>
-            <dt>{% trans "Prelevement" %}</dt>
-            <dd>{% trans "30j fin de mois" %}</dd>
-            <dt>{% trans "Date" %}</dt>
-            <dd>{{ date|date('d/m/Y') }}</dd>
+            <dt>{% trans "Raison Sociale" %}</dt>
+            <dd>{{ client.company_name }}</dd>
+            <dt>{% trans "Email" %}</dt>
+            <dd>{{ client.email }}</dd>
         </dl>
+        <address>
+            {{ client.address.line1 }}<br/>
+            {% if (pboxer.address.line2 != '') %}
+                {{ client.address.line2 }}<br/>
+            {% endif %}
+            {% if (client.address.line3 != '') %}
+                {{ client.address.line3 }}<br/>
+            {% endif %}
+            {{ client.address.postcode }} {{ client.address.city }}
+        </address>
     </div>
     <hr/>
     <div id="product">

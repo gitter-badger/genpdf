@@ -21,84 +21,6 @@ class OrderReceipt implements IResource
     {
         $IDLangue = 1;
 
-        /*$tbl_client_adresselivraison = [
-            'client.address.title' => 'Intitule',
-            'client.address.line1' => 'AdresseLivraison1',
-            'client.address.line2' => 'AdresseLivraison2',
-            'client.address.line3' => 'AdresseLivraison3',
-            'client.address.postcode' => 'CodePostalLivraison',
-            'client.address.city' => 'VilleLivraison'
-        ];
-        $tbl_commmande_ligne = [
-            'product.designation' => 'Libelle',
-            'product.priceHT' => 'MontantPrixAchat'
-        ];
-        $tbl_produit = [
-            'product.id' => 'IDProduit',
-            'product.famille' => 'IDProduitFamilleProduit',
-            'product.reference' => 'Code'
-        ];
-
-        $sql = new Select();
-        $sql->cols([
-            'id' => 'IDCommande',
-            'number' => 'NumeroCommande',
-            'reference' => 'ReferenceClient',
-            'date' => 'DateAjout',
-            'montantHT' => 'MontantHT',
-            'montantTVA' => 'MontantTVA',
-            'montantTTC' => 'MontantTTC'
-        ]);
-        $sql->client()->cols([
-            'client.id' => 'IDClient',
-            'client.code' => 'CodeClient',
-            'client.email' => 'MailFacturation',
-            'client.company_name' => 'RaisonSociale'
-        ]);
-        $sql->filter()->eq('IDCommande', $id);
-
-        // JOINS
-        $sql->join('TBL_CLIENT_ADRESSELIVRAISON', 'IDClientAdresseLivraison', 'IDClientAdresseLivraison', $tbl_client_adresselivraison);
-
-        $l1 = $sql->join('TBL_COMMANDE_LIGNE', 'IDCommande', 'IDCommande', $tbl_commmande_ligne, null, 'INNER');
-        $l2 = $l1->join('TBL_PRODUIT', 'IDProduit', 'IDProduit', $tbl_produit, null, 'INNER');
-        $l3 = $l2->join('TBL_PRODUIT_FAMILLE_PRODUIT', 'IDProduitFamilleProduit', 'IDProduitFamilleProduit', [], null, 'INNER');
-        $l4 = $l3->join('TBL_PRODUIT_FAMILLE_ARTICLES', 'IDProduitFamilleArticles', 'IDProduitFamilleArticles', [], null, 'INNER');
-        $select = new Select('TBL_PRODUIT_FAMILLE_ARTICLES_TRAD');
-        $select->setJoinType('LEFT OUTER');
-        $select->joinCondition()
-            ->equals(new Column('IDProduitFamilleArticles', 'TBL_PRODUIT_FAMILLE_ARTICLES_TRAD'), new Column('IDProduitFamilleArticles', 'TBL_PRODUIT_FAMILLE_ARTICLES'))
-            ->equals(new Column('IDLangue', 'TBL_PRODUIT_FAMILLE_ARTICLES_TRAD'), $IDLangue);
-        $l4->addJoin($select);
-        $select = new Select('TBL_PRODUIT_FAMILLE_PRODUIT_DESIGNATION_TRADUCTION');
-        $select->setJoinType('LEFT OUTER');
-        $select->joinCondition()
-            ->equals(new Column('IDProduitFamilleProduit', 'TBL_PRODUIT_FAMILLE_PRODUIT_DESIGNATION_TRADUCTION'), new Column('IDProduitFamilleProduit', 'TBL_PRODUIT_FAMILLE_PRODUIT'))
-            ->equals(new Column('IDLangue', 'TBL_PRODUIT_FAMILLE_PRODUIT_DESIGNATION_TRADUCTION'), $IDLangue);
-        $l3->addJoin($select);
-        $l3 = $l2->join('TBL_PRODUIT_UNITE_TARIF', 'IDProduitUniteTarif', 'IDProduitUniteTarif', [], null, 'INNER');
-        $select = new Select('TBL_PRODUIT_UNITE_TARIF_TRAD');
-        $select->setJoinType('LEFT OUTER');
-        $select->joinCondition()
-            ->equals(new Column('IDProduitUniteTarif', 'TBL_PRODUIT_UNITE_TARIF_TRAD'), new Column('IDProduitUniteTarif', 'TBL_PRODUIT_FAMILLE_PRODUIT'))
-            ->equals(new Column('IDLangue', 'TBL_PRODUIT_UNITE_TARIF_TRAD'), $IDLangue);
-        $l3->addJoin($select);
-        $l3 = $l2->join('TBL_PRODUIT_OFFRE', 'IDProduitOffre', 'IDProduitOffre', [], null, 'LEFT OUTER');
-        $select = new Select('TBL_PRODUIT_OFFRE_TRAD');
-        $select->setJoinType('LEFT OUTER');
-        $select->cols(['designation.offer' => 'LibelleTraduit']);
-        $select->joinCondition()
-            ->equals(new Column('IDProduitOffre', 'TBL_PRODUIT_OFFRE_TRAD'), new Column('IDProduitOffre', 'TBL_PRODUIT_OFFRE'))
-            ->equals(new Column('IDLangue', 'TBL_PRODUIT_OFFRE_TRAD'), $IDLangue);
-        $l3->addJoin($select);
-        $select = new Select('TBL_PRODUIT_LIBELLE_FRONT_TRAD');
-        $select->setJoinType('LEFT OUTER');
-        $select->joinCondition()
-            ->equals(new Column('IDProduit', 'TBL_PRODUIT_LIBELLE_FRONT_TRAD'), new Column('IDProduit', 'TBL_PRODUIT'))
-            ->equals(new Column('IDLangue', 'TBL_PRODUIT_LIBELLE_FRONT_TRAD'), 1);
-        $l2->addJoin($select);
-        $sql->join('TBL_DEVIS', 'IDDevis', 'IDDevis', ['unknownOptions' => 'OptionsNonReconnues'], null, 'LEFT OUTER');*/
-
         $select = "
             SELECT
                 TBL_COMMANDE.IDCommande AS [order.id],
@@ -107,9 +29,16 @@ class OrderReceipt implements IResource
                 TBL_COMMANDE.MontantHT AS [project.et_amount],
                 TBL_COMMANDE.ReferenceClient AS [order.reference],
                 TBL_COMMANDE.DateAjout AS [order.creation_date],
-                TBL_COMMANDE.MontantTTC AS [order.ati_amount],
-                TBL_COMMANDE.MontantTVA AS [order.vat_amount],
-                TBL_COMMANDE.MontantHT AS [order.et_amount],
+                TBL_COMMANDE.IDClient AS [client.id],
+                [client].RaisonSociale AS [client.company_name],
+                [client].MailFacturation AS [client.email],
+                [client].Adresse1 AS [client.address.line1],
+                [client].Adresse2 AS [client.address.line2],
+                [client].Adresse3 AS [client.address.line3],
+                [client].CodePostal AS [client.address.postcode],
+                [client].Ville AS [client.address.city],
+                [client].NomContact AS [client.contact_name],
+                [client].PrenomContact AS [client.contact_forename],
                 TBL_COMMANDE_LIGNE.Quantite AS [order.quantity],
                 TBL_COMMANDE_LIGNE.Prix AS [product.et_amount],
                 TBL_COMMANDE_LIGNE.MontantTVAPrix AS [product.vat_amount],
@@ -152,6 +81,7 @@ class OrderReceipt implements IResource
                 END AS [delivery.address.post_code]
             FROM
                 TBL_COMMANDE
+            JOIN VUE_INFOS_CLIENT AS [client] ON ([client].IDClient = TBL_COMMANDE.IDClient)
             JOIN TBL_COMMANDE_LIGNE ON (TBL_COMMANDE_LIGNE.IDCommande = TBL_COMMANDE.IDCommande)
             CROSS APPLY dbo.f_OptionsCommande (TBL_COMMANDE.IDCommande, $IDLangue) AS Options
             LEFT JOIN TBL_FRAIS ON (TBL_FRAIS.IDCommande = TBL_COMMANDE.IDCommande)
