@@ -1,8 +1,8 @@
 msgid ""
 msgstr ""
 "Project-Id-Version: genPDF\n"
-"POT-Creation-Date: 2013-09-13 14:15+0100\n"
-"PO-Revision-Date: 2013-09-13 14:15+0100\n"
+"POT-Creation-Date: 2013-09-16 16:10+0100\n"
+"PO-Revision-Date: 2013-09-16 16:57+0100\n"
 "Last-Translator: \n"
 "Language-Team: Exaprint <romain@exaprint.fr>\n"
 "MIME-Version: 1.0\n"
@@ -111,16 +111,16 @@ msgid "Net a payer"
 msgstr "Net à payer"
 
 #: ../../../cache/twig_gettext_keys.php:25
-msgid "Dossier suivi par"
-msgstr "Dossier suivi par"
+msgid "Accuse de reception de commande"
+msgstr "Accusé de réception de commande"
 
 #: ../../../cache/twig_gettext_keys.php:26
-msgid "Projet de commande Printbox"
-msgstr "Projet de commande Printbox"
+msgid "Livraison"
+msgstr "Livraison"
 
 #: ../../../cache/twig_gettext_keys.php:27
-msgid "Printboxer"
-msgstr "Printboxer"
+msgid "Revendeur"
+msgstr "Revendeur"
 
 #: ../../../cache/twig_gettext_keys.php:28
 msgid "Raison Sociale"
@@ -131,6 +131,18 @@ msgid "Email"
 msgstr "Email"
 
 #: ../../../cache/twig_gettext_keys.php:30
+msgid "Dossier suivi par"
+msgstr "Dossier suivi par"
+
+#: ../../../cache/twig_gettext_keys.php:31
+msgid "Projet de commande Printbox"
+msgstr "Projet de commande Printbox"
+
+#: ../../../cache/twig_gettext_keys.php:32
+msgid "Printboxer"
+msgstr "Printboxer"
+
+#: ../../../cache/twig_gettext_keys.php:33
 msgid "Client Final Printboxer"
 msgstr "Client Final"
 
