@@ -4,7 +4,7 @@ h1 {
   text-align: center;
   margin-bottom: 1cm;
 }
-#livraison, #commande {
+#client, #commande {
   width: 7cm;
   float: left;
   //border: 1px solid @light-color;
@@ -27,9 +27,12 @@ h1 {
   margin-right: 0.5cm;
 }
 
-#lignes {
+#order {
 
-  width: 100%;
+  table {
+    //font-size: 0.9em;
+    width: 9cm;
+  }
 
   td {
     padding: 0.15cm 0 0.1cm 0;
@@ -41,36 +44,7 @@ h1 {
     padding: 0.15cm 0 0.1cm 0;
     color: white;
   }
-}
-
-#montants {
-
-  float: right;
-  width: 10cm;
-  margin-top: 0.3cm;
-
-  td {
-    padding: 0.15cm 0 0.1cm 0;
-    border-bottom: @thin @light-color solid;
-    border-top: @thin @light-color solid;
-  }
-
-  td:first-child {
-    background: @theme-color;
-    padding: 0.15cm 0 0.1cm 0;
-    color: white;
-  }
-
-  th {
-    background: @theme-color;
-    padding: 0.15cm 0 0.1cm 0;
-    color: white;
-  }
-
-  .right {
-    float: right;
-    margin-left: 0.5cm;
-  }
+  width: auto;
 }
 
 #mentions {

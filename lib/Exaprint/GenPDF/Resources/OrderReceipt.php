@@ -17,13 +17,11 @@ class OrderReceipt implements IResource
      * @param $id
      * @return bool
      */
-    public function fetchFromID($id)
+    public function fetchFromID($IDCommande)
     {
         $IDLangue = 1;
 
-        $db = DB::get();
-
-        $tbl_client_adresselivraison = [
+        /*$tbl_client_adresselivraison = [
             'client.address.title' => 'Intitule',
             'client.address.line1' => 'AdresseLivraison1',
             'client.address.line2' => 'AdresseLivraison2',
@@ -99,90 +97,102 @@ class OrderReceipt implements IResource
             ->equals(new Column('IDProduit', 'TBL_PRODUIT_LIBELLE_FRONT_TRAD'), new Column('IDProduit', 'TBL_PRODUIT'))
             ->equals(new Column('IDLangue', 'TBL_PRODUIT_LIBELLE_FRONT_TRAD'), 1);
         $l2->addJoin($select);
-        $sql->join('TBL_DEVIS', 'IDDevis', 'IDDevis', ['unknownOptions' => 'OptionsNonReconnues'], null, 'LEFT OUTER');
+        $sql->join('TBL_DEVIS', 'IDDevis', 'IDDevis', ['unknownOptions' => 'OptionsNonReconnues'], null, 'LEFT OUTER');*/
 
-        $query2 = "SELECT
-        Case when TBL_PRODUIT_TL_OPTION_PRODUIT.IDProduitTLProduitOptionFamilleProduit IS not null then TBL_PRODUIT_OPTION_TRAD_SAISIE.LibelleTraduit else TBL_PRODUIT_OPTION_TRAD_LISTE.LibelleTraduit end as LibelleOption, tbl_produit_option_valeur_trad.LibelleTraduit as LibelleCombo, dbo.f_sConversionUniteValeurOption(%1,TBL_PRODUIT_OPTION_SAISIE.IDProduitOption,
-        CASE WHEN TBL_COMMANDE_LIGNE_TL_OPTION_PRODUIT.IDCommandeLigne IS NOT NULL THEN TBL_COMMANDE_LIGNE_TL_OPTION_PRODUIT.Valeur
-        ELSE Case when TBL_PRODUIT_TL_OPTION_PRODUIT.IDProduitTLProduitOptionFamilleProduit IS not null then TBL_PRODUIT_TL_OPTION_PRODUIT.ValeurMin end End,DEFAULT,DEFAULT,DEFAULT) AS ValeurMin, dbo.f_sConversionUniteValeurOption(%1,TBL_PRODUIT_OPTION_SAISIE.IDProduitOption,
-        CASE WHEN TBL_COMMANDE_LIGNE_TL_OPTION_PRODUIT.IDCommandeLigne IS NOT NULL THEN TBL_COMMANDE_LIGNE_TL_OPTION_PRODUIT.Valeur
-        ELSE Case when TBL_PRODUIT_TL_OPTION_PRODUIT.IDProduitTLProduitOptionFamilleProduit IS not null then TBL_PRODUIT_TL_OPTION_PRODUIT.ValeurMax end End,DEFAULT,DEFAULT,DEFAULT) AS ValeurMax,
-        Case when TBL_PRODUIT_OPTION_LISTE.Ordre is not null then TBL_PRODUIT_OPTION_LISTE.Ordre else TBL_PRODUIT_OPTION_SAISIE.Ordre end as ordre,
-        Case when TBL_PRODUIT_TL_OPTION_PRODUIT.IDProduitTLProduitOptionFamilleProduit IS null then TBL_PRODUIT_OPTION_LISTE.TypeProduitOption else TBL_PRODUIT_OPTION_SAISIE.TypeProduitOption end as Type,
-        CASE WHEN TBL_PRODUIT_OPTION_SAISIE.IDProduitOption IS NULL THEN TBL_PRODUIT_OPTION_LISTE.ParticulariteOption ELSE TBL_PRODUIT_OPTION_SAISIE.ParticulariteOption END AS ParticulariteOption,TBL_PRODUIT_OPTION_VALEUR.ValeurNumParticularite AS ValeurNumParticularite
+        $select = "
+            SELECT
+                TBL_COMMANDE.IDCommande AS [order.id],
+                TBL_COMMANDE.MontantTTC AS [project.ati_amount],
+                TBL_COMMANDE.MontantTVA AS [project.vat_amount],
+                TBL_COMMANDE.MontantHT AS [project.et_amount],
+                TBL_COMMANDE.ReferenceClient AS [order.reference],
+                TBL_COMMANDE.DateAjout AS [order.creation_date],
+                TBL_COMMANDE.MontantTTC AS [order.ati_amount],
+                TBL_COMMANDE.MontantTVA AS [order.vat_amount],
+                TBL_COMMANDE.MontantHT AS [order.et_amount],
+                TBL_COMMANDE_LIGNE.Quantite AS [order.quantity],
+                TBL_COMMANDE_LIGNE.Prix AS [product.et_amount],
+                TBL_COMMANDE_LIGNE.MontantTVAPrix AS [product.vat_amount],
+                TBL_COMMANDE_LIGNE.MontantTTCPrix AS [product.ati_amount],
+                TBL_PRODUIT_UNITE_TARIF_TRAD.SigleAffichage AS [order.unit.abbr],
+                TBL_PRODUIT_UNITE_TARIF_TRAD.LibelleTraduit AS [order.unit.label],
+                TBL_PRODUIT_LIBELLE_FRONT_TRAD.LibelleTraduit AS [product.name],
+                TBL_PRODUIT_FAMILLE_PRODUIT_DESIGNATION_TRADUCTION.LibelleTraduit AS [product.subfamily],
+                TBL_PRODUIT_FAMILLE_ARTICLES_TRAD.LibelleTraduit AS [product.family],
+                TBL_FRAIS.IDFrais AS [order.fees.id],
+                TBL_FRAIS.Quantite AS [order.fees.quantity],
+                TBL_FRAIS.MontantUnitaireHT AS [order.fees.unit_amount],
+                TBL_FRAIS.MontantTTC AS [order.fees.ati_amount],
+                TBL_FRAIS.MontantHT AS [order.fees.et_amount],
+                TBL_FRAIS.MontantTVA AS [order.fees.vat_amount],
+                TBL_FRAIS_TYPE_FRAIS_TRAD.LibelleTraduit AS [order.fees.type],
+                Options.IDProduitOption AS [product.options.id],
+                Options.ProduitOption AS [product.options.label],
+                CASE
+                    WHEN (Options.ProduitOptionValeur IS NULL)
+                    THEN CAST (Options.Valeur AS VARCHAR)
+                    ELSE Options.ProduitOptionValeur
+                END AS [product.options.value],
+                Options.Sigle AS [product.options.unit],
+                [delivery].NomDestinataire AS [delivery.recipient],
+                [delivery].NomContact AS [delivery.contact_name],
+                [delivery].AdresseLivraison1 AS [delivery.address.line1],
+                [delivery].AdresseLivraison2 AS [delivery.address.line2],
+                [delivery].AdresseLivraison3 AS [delivery.address.line3],
+                [delivery].Commentaire AS [delivery.comment],
+                CASE
+                    WHEN ([delivery].IDVille IS NULL)
+                    THEN [delivery].VilleLivraison
+                    ELSE [delivery_city].LibelleVille
+                END AS [delivery.address.city],
+                CASE
+                    WHEN ([delivery].IDVille IS NULL)
+                    THEN [delivery].CodePostalLivraison
+                    ELSE [delivery_city].CodePostal
+                END AS [delivery.address.post_code]
+            FROM
+                TBL_COMMANDE
+            JOIN TBL_COMMANDE_LIGNE ON (TBL_COMMANDE_LIGNE.IDCommande = TBL_COMMANDE.IDCommande)
+            CROSS APPLY dbo.f_OptionsCommande (TBL_COMMANDE.IDCommande, $IDLangue) AS Options
+            LEFT JOIN TBL_FRAIS ON (TBL_FRAIS.IDCommande = TBL_COMMANDE.IDCommande)
+            JOIN TBL_PRODUIT ON (TBL_PRODUIT.IDProduit = TBL_COMMANDE_LIGNE.IDProduit)
+            JOIN TBL_PRODUIT_UNITE_TARIF_TRAD ON (TBL_PRODUIT.IDProduitUniteTarif = TBL_PRODUIT_UNITE_TARIF_TRAD.IDProduitUniteTarif AND IDLangue = $IDLangue)
+            JOIN TBL_PRODUIT_LIBELLE_FRONT_TRAD ON (TBL_PRODUIT_LIBELLE_FRONT_TRAD.IDProduit = TBL_PRODUIT.IDProduit)
+            AND (TBL_PRODUIT_LIBELLE_FRONT_TRAD.IDLangue = $IDLangue)
+            JOIN TBL_PRODUIT_FAMILLE_PRODUIT ON (TBL_PRODUIT_FAMILLE_PRODUIT.IDProduitFamilleProduit = TBL_PRODUIT.IDProduitFamilleProduit)
+            JOIN TBL_PRODUIT_FAMILLE_PRODUIT_DESIGNATION_TRADUCTION ON (TBL_PRODUIT_FAMILLE_PRODUIT_DESIGNATION_TRADUCTION.IDProduitFamilleProduit = TBL_PRODUIT_FAMILLE_PRODUIT.IDProduitFamilleProduit)
+            AND (TBL_PRODUIT_FAMILLE_PRODUIT_DESIGNATION_TRADUCTION.IDLangue = $IDLangue)
+            JOIN TBL_PRODUIT_FAMILLE_ARTICLES ON (TBL_PRODUIT_FAMILLE_ARTICLES.IDProduitFamilleArticles = TBL_PRODUIT_FAMILLE_PRODUIT.IDProduitFamilleArticles)
+            JOIN TBL_PRODUIT_FAMILLE_ARTICLES_TRAD ON (TBL_PRODUIT_FAMILLE_ARTICLES_TRAD.IDProduitFamilleArticles = TBL_PRODUIT_FAMILLE_ARTICLES.IDProduitFamilleArticles)
+            AND (TBL_PRODUIT_FAMILLE_ARTICLES_TRAD.IDLangue = $IDLangue)
+            LEFT JOIN TBL_FRAIS_TYPE_FRAIS_TRAD ON (TBL_FRAIS_TYPE_FRAIS_TRAD.IDFraisTypeFrais = TBL_FRAIS.IDFraisTypeFrais)
+            AND (TBL_FRAIS_TYPE_FRAIS_TRAD.IDLangue = $IDLangue)
+            JOIN TBL_CLIENT_ADRESSELIVRAISON AS [delivery] ON (TBL_COMMANDE.IDClientAdresseLivraison = [delivery].IDClientAdresseLivraison)
+            LEFT JOIN TBL_VILLE AS [delivery_city] ON [delivery_city].IDVille = [delivery].IDVille
+            WHERE
+                (TBL_COMMANDE.IDCommande = $IDCommande)";
 
-        FROM TBL_PRODUIT_TL_OPTION_PRODUIT
-        INNER JOIN TBL_PRODUIT
-        ON ( TBL_PRODUIT.IDProduit = TBL_PRODUIT_TL_OPTION_PRODUIT.IDProduit)
-        LEFT OUTER JOIN TBL_PRODUIT_TL_PRODUIT_OPTION_FAMILLE_PRODUIT AS TBL_PRODUIT_OPTION_PRODUIT_SAISIE
-            INNER JOIN TBL_PRODUIT_OPTION AS TBL_PRODUIT_OPTION_SAISIE
-                LEFT OUTER JOIN TBL_PRODUIT_OPTION_TRAD AS TBL_PRODUIT_OPTION_TRAD_SAISIE
-                ON ( TBL_PRODUIT_OPTION_TRAD_SAISIE.IDProduitOption = TBL_PRODUIT_OPTION_SAISIE.IDProduitOption AND TBL_PRODUIT_OPTION_TRAD_SAISIE.IDLangue = %1)
-            ON ( TBL_PRODUIT_OPTION_SAISIE.IDProduitOption = TBL_PRODUIT_OPTION_PRODUIT_SAISIE.IDProduitOption )
-        ON ( TBL_PRODUIT_OPTION_PRODUIT_SAISIE.IDProduitTLProduitOptionFamilleProduit = TBL_PRODUIT_TL_OPTION_PRODUIT.IDProduitTLProduitOptionFamilleProduit AND TBL_PRODUIT_OPTION_PRODUIT_SAISIE.Actif = 1)
-        LEFT OUTER JOIN TBL_PRODUIT_TL_PRODUIT_OPTION_VALEUR_PRODUIT_OPTION_FAMILLE_PRODUIT
-            INNER JOIN TBL_PRODUIT_TL_PRODUIT_OPTION_FAMILLE_PRODUIT AS TBL_PRODUIT_OPTION_PRODUIT_LISTE
-            ON (TBL_PRODUIT_OPTION_PRODUIT_LISTE.IDProduitTLProduitOptionFamilleProduit = TBL_PRODUIT_TL_PRODUIT_OPTION_VALEUR_PRODUIT_OPTION_FAMILLE_PRODUIT.IDProduitTLProduitOptionFamilleProduit)
-            INNER JOIN TBL_PRODUIT_OPTION_VALEUR
-                INNER JOIN TBL_PRODUIT_OPTION AS TBL_PRODUIT_OPTION_LISTE
-                    LEFT OUTER JOIN TBL_PRODUIT_OPTION_TRAD AS TBL_PRODUIT_OPTION_TRAD_LISTE
-                    ON ( TBL_PRODUIT_OPTION_TRAD_LISTE.IDProduitOption = TBL_PRODUIT_OPTION_LISTE.IDProduitOption AND TBL_PRODUIT_OPTION_TRAD_LISTE.IDLangue = %1)
-                ON ( TBL_PRODUIT_OPTION_LISTE.IDProduitOption = TBL_PRODUIT_OPTION_VALEUR.IDProduitOption )
-                LEFT OUTER JOIN tbl_produit_option_valeur_trad
-                ON ( tbl_produit_option_valeur_trad.IDProduitOptionValeur = TBL_PRODUIT_OPTION_VALEUR.IDProduitOptionValeur AND tbl_produit_option_valeur_trad.IDLangue = %1)
-            ON ( TBL_PRODUIT_OPTION_VALEUR.IDProduitOptionValeur = TBL_PRODUIT_TL_PRODUIT_OPTION_VALEUR_PRODUIT_OPTION_FAMILLE_PRODUIT.IDProduitOptionValeur AND ISNULL(TBL_PRODUIT_OPTION_VALEUR.EstSans,0)=0)
-        ON ( TBL_PRODUIT_TL_PRODUIT_OPTION_VALEUR_PRODUIT_OPTION_FAMILLE_PRODUIT.IDProduitTLProduitOptionValeurProduitOptionFamilleProduit = TBL_PRODUIT_TL_OPTION_PRODUIT.IDProduitTLProduitOptionValeurProduitOptionFamilleProduit AND TBL_PRODUIT_TL_PRODUIT_OPTION_VALEUR_PRODUIT_OPTION_FAMILLE_PRODUIT.Actif = 1 )
-        LEFT OUTER JOIN TBL_COMMANDE_LIGNE_TL_OPTION_PRODUIT
-            INNER JOIN TBL_COMMANDE_LIGNE
-            ON (TBL_COMMANDE_LIGNE.IDCommandeLigne = TBL_COMMANDE_LIGNE_TL_OPTION_PRODUIT.IDCommandeLigne AND ISNULL(TBL_COMMANDE_LIGNE.EstSupp,0) = 0)
-        ON (TBL_COMMANDE_LIGNE_TL_OPTION_PRODUIT.IDProduitTLOptionProduit = TBL_PRODUIT_TL_OPTION_PRODUIT.IDProduitTLOptionProduit
-        AND (
-            (
-                %4 <= 0 AND TBL_COMMANDE_LIGNE.IDCommande IS NULL
-            )
-            OR
-            (
-                %4 > 0 AND TBL_COMMANDE_LIGNE.IDCommande = %4
-            )
-        ))
-    WHERE TBL_PRODUIT.EstSupp = 0
-        AND ( TBL_PRODUIT_TL_OPTION_PRODUIT.IDProduitTLProduitOptionFamilleProduit IS NULL OR TBL_PRODUIT_TL_OPTION_PRODUIT.IDProduitTLProduitOptionValeurProduitOptionFamilleProduit IS NULL )
-        AND ( (TBL_PRODUIT_OPTION_PRODUIT_SAISIE.IDProduitFamilleProduit = %3 AND TBL_PRODUIT_TL_OPTION_PRODUIT.IDProduitTLProduitOptionValeurProduitOptionFamilleProduit IS null)
-        OR (TBL_PRODUIT_OPTION_PRODUIT_LISTE.IDProduitFamilleProduit = %3 AND TBL_PRODUIT_TL_OPTION_PRODUIT.IDProduitTLProduitOptionFamilleProduit is null))
-        AND TBL_PRODUIT.IDProduit = %2
-    ORDER BY
-        TBL_PRODUIT_TL_OPTION_PRODUIT.IDProduit, Ordre";
+        //echo($select);
 
-        if ($stmt = $db->query($sql)) {
-
+        if ($r = DB::get()->query($select)) {
             $combinator = new ResultsCombinator();
-            //$combinator->setClass('\Exaprint\Partners\Order\Order');
-            $combinator->setIdentifier('id');
-            //$combinator->addSubClass('job', '\Exaprint\Partners\Job\Job');
-            //$combinator->addGroup('uploadSlots', 'dirname', '\Exaprint\Partners\Order\UploadSlot');
-            /** @var Order $order */
-            $data = $combinator->process($stmt->fetchAll(DB::FETCH_ASSOC));
+            $data = $combinator->combine(
+                $r->fetchAll(\PDO::FETCH_ASSOC),
+                "order.id",
+                array(
+                    "order.fees" => "id",
+                    "product.options" => "id"
+                )
+            );
 
-            $IDProduit = $data[$id]->product->id;
-            $IDProduitFamilleProduit = $data[$id]->product->famille;
-
-            $query2 = str_replace(['%1', '%2', '%3', '%4'], [$IDLangue, $IDProduit, $IDProduitFamilleProduit, $id], $query2);
-            $resume = [];
-            $result2 = $db->query($query2);
-            if ($donnees = $result2->fetchAll(DB::FETCH_ASSOC)) {
-
-                foreach($donnees as $n => $donnee) {
-                    $resume[] = $donnee['LibelleOption']." : ".$donnee['LibelleCombo'];
-                    
-                }
+            if(isset($data[$IDCommande])){
+                $this->_data = $data[$IDCommande];
+                return true;
             }
-            $data[$id]->product->resume = $resume;
+        } else {
 
-            $this->_data = $data[$id]; // hack
-            return true;
         }
-
-        return false;
+        return null;
 
     }
 

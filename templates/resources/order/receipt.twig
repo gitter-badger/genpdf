@@ -19,27 +19,21 @@
 <div id="page">
     <h1>{% trans "Accuse de reception de commande" %}</h1>
 
-    <div id="livraison">
-        <h2>{% trans "Adresse de livraison" %}</h2>
-        <address>
-            <b>{{ client.address.title }}</b><br/>
-            {{ client.address.line1 }}<br/>
-            {% if (client.address.line2 != '') %}
-                {{ client.address.line2 }}<br/>
-            {% endif %}
-            {% if (client.address.line3 != '') %}
-                {{ client.address.line3 }}<br/>
-            {% endif %}
-            {{ client.address.postcode }} {{ client.address.city }}
-        </address><br />
-        <dl class="details">
-            <dt>{% trans "Revendeur" %}</dt>
-            <dd>{{ client.code }}</dd>
-            <dt>{% trans "Contact" %}</dt>
-            <dd>{{ client.company_name }}</dd>
-            <dt>{% trans "Email" %}</dt>
-            <dd>{{ client.email }}</dd>
-        </dl>
+    <div id="client">
+        <h2>{% trans "Livraison" %}</h2>
+
+        <p>{{ delivery.recipient }}</p>
+
+        <p>{{ delivery.contact_name }}</p>
+
+        <p> {{ delivery.address.line1 }}<br/>
+            {% if delivery.address.line2 is not empty %}{{ delivery.address.line2 }}<br/>{% endif %}
+            {% if delivery.address.line3 is not empty %}{{ delivery.address.line3 }}<br/>{% endif %}
+            {{ delivery.address.post_code }}
+            {{ delivery.address.city }}</p>
+        <blockquote>
+            {{ delivery.comments }}
+        </blockquote>
     </div>
     <div id="commande">
         <h2>{% trans "Commande" %}</h2>
@@ -53,52 +47,79 @@
         </dl>
     </div>
     <hr/>
+    <div id="product">
+        <h2>Produit</h2>
+
+        <h3>{{ product.family }} {{ product.subfamily }} {{ product.name }}</h3>
+        <dl id="product-options">
+            {% for i, option in product.options %}
+                <dt>{{ option.label }}</dt>
+                <dd>{{ option.value }} <em>{{ option.unit }}</em></dd>
+            {% endfor %}
+        </dl>
+    </div>
 
     <div id="order">
-        <h2>{{ reference }}</h2>
-        <table id="lignes">
+        <h2>Projet</h2>
+        <dl>
+            <dt>N° de projet</dt>
+            <dd>{{ order.id }}</dd>
+            <dt>Intitulé</dt>
+            <dd>{{ order.reference }}</dd>
+            <dt>Date</dt>
+            <dd>{{ order.creation_date|date('d/m/Y') }}</dd>
+        </dl>
+        <table>
             <thead>
             <tr>
-                <th>Ref.</th>
-                <th>Designation</th>
-                <th>Montant HT</th>
+                <th></th>
+                <th>Quantité</th>
+                <th>H.T.</th>
+                <th>T.V.A.</th>
+                <th>T.T.C.</th>
             </tr>
             </thead>
             <tbody>
-
             <tr>
-                <td>{{ product.reference }}</td>
-                <td>
-                    Offre : {{ designation.offer }}<br />
-                    Quantité commandée : {{ product.quantity }}<br />
-                    {% for resume in product.resume %}
-                        {{ resume }}<br />
-                    {% endfor %}
-                    Commentaire PAO : {{ CommentairePAO }}
-                </td>
-                <td class="money">{{ product.priceHT|formatmoney }}</td>
+                <td>Produit</td>
+                <td class="number">{{ order.quantity }} {{ order.unit.abbr }}</td>
+                <td class="money">{{ product.et_amount|number_format(2, ',', ' ') }} <span class="currency">&euro;</span></td>
+                <td class="money">{{ product.vat_amount|number_format(2, ',', ' ') }} <span class="currency">&euro;</span></td>
+                <td class="money">{{ product.ati_amount|number_format(2, ',', ' ') }} <span class="currency">&euro;</span></td>
             </tr>
-            <tr>
-                <td>Supplement :Frais techniques</td>
+            {% set hasFees = false %}
+
+            {% for i, fee in order.fees %}
+                {% if fee.id %}
+                    {% set hasFees = true %}
+                    <tr>
+                        <td>{{ fee.type }}</td>
+                        <td class="number">{{ fee.quantity }}</td>
+                        <td class="money">{{ fee.et_amount|number_format(2, ',', ' ') }} <span class="currency">&euro;</span></td>
+                        <td class="money">{{ fee.vat_amount|number_format(2, ',', ' ') }} <span class="currency">&euro;</span></td>
+                        <td class="money">{{ fee.ati_amount|number_format(2, ',', ' ') }} <span class="currency">&euro;</span></td>
+                    </tr>
+                {% endif %}
+            {% endfor %}
+            {% if hasFees %}
+                <tr>
+                    <td><em>Sous-total</em></td>
+                    <td></td>
+                    <td class="money">{{ order.et_amount|number_format(2, ',', ' ') }} <span class="currency">&euro;</span></td>
+                    <td class="money">{{ order.vat_amount|number_format(2, ',', ' ') }} <span class="currency">&euro;</span></td>
+                    <td class="money">{{ order.ati_amount|number_format(2, ',', ' ') }} <span class="currency">&euro;</span></td>
+                </tr>
+            {% endif %}
+            <tr class="bold theme-color">
+                <td>Projet</td>
                 <td></td>
-                <td class="money">{{ 5|formatmoney }}</td>
+                <td class="money">{{ project.et_amount|number_format(2, ',', ' ') }} <span class="currency">&euro;</span></td>
+                <td class="money">{{ project.vat_amount|number_format(2, ',', ' ') }} <span class="currency">&euro;</span></td>
+                <td class="money">
+                    <strong>{{ project.ati_amount|number_format(2, ',', ' ') }} <span class="currency">&euro;</span></strong>
+                </td>
             </tr>
             </tbody>
-        </table>
-
-        <table id="montants">
-            <tr>
-                <td>Montant HT</td>
-                <td class="money">{{ montantHT|formatmoney }}</td>
-            </tr>
-            <tr>
-                <td>Montant TVA <span class="right">{{ tauxTVA|formatnumber }} %</span></td>
-                <td class="money">{{ montantTVA|formatmoney }}</td>
-            </tr>
-            <tr>
-                <td>Net à payer</td>
-                <td class="money">{{ montantTTC|formatmoney }}</td>
-            </tr>
         </table>
 
         <hr>
