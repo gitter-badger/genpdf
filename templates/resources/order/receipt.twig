@@ -91,9 +91,9 @@
             <tr>
                 <td>Produit</td>
                 <td class="number">{{ order.quantity }} {{ order.unit.abbr }}</td>
-                <td class="money">{{ product.et_amount|number_format(2, ',', ' ') }} <span class="currency">&euro;</span></td>
-                <td class="money">{{ product.vat_amount|number_format(2, ',', ' ') }} <span class="currency">&euro;</span></td>
-                <td class="money">{{ product.ati_amount|number_format(2, ',', ' ') }} <span class="currency">&euro;</span></td>
+                <td class="money">{{ product.et_amount|formatmoney }}</td>
+                <td class="money">{{ product.vat_amount|formatmoney }}</td>
+                <td class="money">{{ product.ati_amount|formatmoney }}</td>
             </tr>
             {% set hasFees = false %}
 
@@ -103,9 +103,9 @@
                     <tr>
                         <td>{{ fee.type }}</td>
                         <td class="number">{{ fee.quantity }}</td>
-                        <td class="money">{{ fee.et_amount|number_format(2, ',', ' ') }} <span class="currency">&euro;</span></td>
-                        <td class="money">{{ fee.vat_amount|number_format(2, ',', ' ') }} <span class="currency">&euro;</span></td>
-                        <td class="money">{{ fee.ati_amount|number_format(2, ',', ' ') }} <span class="currency">&euro;</span></td>
+                        <td class="money">{{ fee.et_amount|formatmoney }}</td>
+                        <td class="money">{{ fee.vat_amount|formatmoney }}</td>
+                        <td class="money">{{ fee.ati_amount|formatmoney }}</td>
                     </tr>
                 {% endif %}
             {% endfor %}
@@ -113,18 +113,18 @@
                 <tr>
                     <td><em>Sous-total</em></td>
                     <td></td>
-                    <td class="money">{{ order.et_amount|number_format(2, ',', ' ') }} <span class="currency">&euro;</span></td>
-                    <td class="money">{{ order.vat_amount|number_format(2, ',', ' ') }} <span class="currency">&euro;</span></td>
-                    <td class="money">{{ order.ati_amount|number_format(2, ',', ' ') }} <span class="currency">&euro;</span></td>
+                    <td class="money">{{ order.et_amount|formatmoney }}</td>
+                    <td class="money">{{ order.vat_amount|formatmoney }}</td>
+                    <td class="money">{{ order.ati_amount|formatmoney }}</td>
                 </tr>
             {% endif %}
             <tr class="bold theme-color">
                 <td>Projet</td>
                 <td></td>
-                <td class="money">{{ project.et_amount|number_format(2, ',', ' ') }} <span class="currency">&euro;</span></td>
-                <td class="money">{{ project.vat_amount|number_format(2, ',', ' ') }} <span class="currency">&euro;</span></td>
+                <td class="money">{{ project.et_amount|formatmoney }}</td>
+                <td class="money">{{ project.vat_amount|formatmoney }}</td>
                 <td class="money">
-                    <strong>{{ project.ati_amount|number_format(2, ',', ' ') }} <span class="currency">&euro;</span></strong>
+                    <strong>{{ project.ati_amount|formatmoney }}</strong>
                 </td>
             </tr>
             </tbody>
