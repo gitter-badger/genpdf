@@ -51,7 +51,7 @@
     </div>
     <hr/>
     <div id="product">
-        <h2>Produit</h2>
+        <h2>Commande</h2>
 
         <h3>{{ product.family }} {{ product.subfamily }} {{ product.name }}</h3>
         <dl id="product-options">
@@ -65,12 +65,14 @@
     <div id="order">
         <h2>Projet</h2>
         <dl>
-            <dt>N° de projet</dt>
+            <dt>N° de commande</dt>
             <dd>{{ order.id }}</dd>
             <dt>Intitulé</dt>
             <dd>{{ order.reference }}</dd>
             <dt>Date</dt>
             <dd>{{ order.creation_date|date('d/m/Y') }}</dd>
+            <dt>Prélèvement 30j fin de mois</dt>
+            <dd></dd>
         </dl>
         <table>
             <thead>

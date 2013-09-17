@@ -28,7 +28,7 @@ class OrderReceipt implements IResource
                 TBL_COMMANDE.MontantTVA AS [project.vat_amount],
                 TBL_COMMANDE.MontantHT AS [project.et_amount],
                 TBL_COMMANDE.ReferenceClient AS [order.reference],
-                TBL_COMMANDE.DateAjout AS [order.creation_date],
+                TBL_COMMANDE.DateCommande AS [order.creation_date],
                 TBL_COMMANDE.IDClient AS [client.id],
                 [client].RaisonSociale AS [client.company_name],
                 [client].MailFacturation AS [client.email],
@@ -103,14 +103,10 @@ class OrderReceipt implements IResource
 
         if ($r = DB::get()->query($select)) {
             $combinator = new ResultsCombinator();
-            $data = $combinator->combine(
-                $r->fetchAll(\PDO::FETCH_ASSOC),
-                "order.id",
-                array(
-                    "order.fees" => "id",
-                    "product.options" => "id"
-                )
-            );
+            $combinator->setIdentifier("order.id");
+            $combinator->addGroup("order.fees", "id");
+            $combinator->addGroup("product.options", "id");
+            $data = $combinator->process($r->fetchAll(\PDO::FETCH_ASSOC));
 
             if(isset($data[$IDCommande])){
                 $this->_data = $data[$IDCommande];
