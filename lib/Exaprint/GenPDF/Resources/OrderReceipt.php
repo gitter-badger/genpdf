@@ -32,11 +32,6 @@ class OrderReceipt implements IResource
                 TBL_COMMANDE.IDClient AS [client.id],
                 [client].RaisonSociale AS [client.company_name],
                 [client].MailFacturation AS [client.email],
-                [client].Adresse1 AS [client.address.line1],
-                [client].Adresse2 AS [client.address.line2],
-                [client].Adresse3 AS [client.address.line3],
-                [client].CodePostal AS [client.address.postcode],
-                [client].Ville AS [client.address.city],
                 [client].NomContact AS [client.contact_name],
                 [client].PrenomContact AS [client.contact_forename],
                 TBL_COMMANDE_LIGNE.Quantite AS [order.quantity],
@@ -69,6 +64,7 @@ class OrderReceipt implements IResource
                 [delivery].AdresseLivraison2 AS [delivery.address.line2],
                 [delivery].AdresseLivraison3 AS [delivery.address.line3],
                 [delivery].Commentaire AS [delivery.comment],
+                TBL_PAYS.LibellePays AS [delivery.country],
                 CASE
                     WHEN ([delivery].IDVille IS NULL)
                     THEN [delivery].VilleLivraison
@@ -99,6 +95,7 @@ class OrderReceipt implements IResource
             AND (TBL_FRAIS_TYPE_FRAIS_TRAD.IDLangue = $IDLangue)
             JOIN TBL_CLIENT_ADRESSELIVRAISON AS [delivery] ON (TBL_COMMANDE.IDClientAdresseLivraison = [delivery].IDClientAdresseLivraison)
             LEFT JOIN TBL_VILLE AS [delivery_city] ON [delivery_city].IDVille = [delivery].IDVille
+            LEFT JOIN TBL_PAYS ON TBL_PAYS.IDPays = [delivery].IDPays
             WHERE
                 (TBL_COMMANDE.IDCommande = $IDCommande)";
 

@@ -31,6 +31,9 @@
             {% if delivery.address.line3 is not empty %}{{ delivery.address.line3 }}<br/>{% endif %}
             {{ delivery.address.post_code }}
             {{ delivery.address.city }}</p>
+
+        <p>{{ delivery.country }}</p>
+
         <blockquote>
             {{ delivery.comments }}
         </blockquote>
@@ -40,19 +43,11 @@
         <dl class="details">
             <dt>{% trans "Raison Sociale" %}</dt>
             <dd>{{ client.company_name }}</dd>
+            <dt>{% trans "Contact" %}</dt>
+            <dd>{{ client.contact_forname }} {{ client.contact_name }}</dd>
             <dt>{% trans "Email" %}</dt>
             <dd>{{ client.email }}</dd>
         </dl>
-        <address>
-            {{ client.address.line1 }}<br/>
-            {% if (pboxer.address.line2 != '') %}
-                {{ client.address.line2 }}<br/>
-            {% endif %}
-            {% if (client.address.line3 != '') %}
-                {{ client.address.line3 }}<br/>
-            {% endif %}
-            {{ client.address.postcode }} {{ client.address.city }}
-        </address>
     </div>
     <hr/>
     <div id="product">
@@ -97,9 +92,15 @@
             </tr>
             {% set hasFees = false %}
 
+            {% set et_amount = 0 %}
+            {% set vat_amount = 0 %}
+            {% set ati_amount = 0 %}
             {% for i, fee in order.fees %}
                 {% if fee.id %}
                     {% set hasFees = true %}
+                    {% set et_amount = et_amount + fee.et_amount %}
+                    {% set vat_amount = vat_amount + fee.vat_amount %}
+                    {% set ati_amount = ati_amount + fee.ati_amount %}
                     <tr>
                         <td>{{ fee.type }}</td>
                         <td class="number">{{ fee.quantity }}</td>
@@ -113,9 +114,9 @@
                 <tr>
                     <td><em>Sous-total</em></td>
                     <td></td>
-                    <td class="money">{{ order.et_amount|formatmoney }}</td>
-                    <td class="money">{{ order.vat_amount|formatmoney }}</td>
-                    <td class="money">{{ order.ati_amount|formatmoney }}</td>
+                    <td class="money">{{ et_amount|formatmoney }}</td>
+                    <td class="money">{{ vat_amount|formatmoney }}</td>
+                    <td class="money">{{ ati_amount|formatmoney }}</td>
                 </tr>
             {% endif %}
             <tr class="bold theme-color">
