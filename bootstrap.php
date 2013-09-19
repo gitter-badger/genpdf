@@ -1,6 +1,7 @@
 <?php
 
 require "vendor/autoload.php";
+require "lib/Log/MyLogWriter.php";
 
 define("APPLICATION_NAME", "GenPDF");
 define("APPLICATION_EDITOR", "Exaprint");
@@ -17,14 +18,14 @@ date_default_timezone_set("Europe/Paris");
 //\Exaprint\DAL\DB::setDefaultEnv(\Exaprint\DAL\DB::ENV_PROD);
 $app = new \Slim\Slim(array(
     'view' => new \Slim\Views\Twig(),
-    'templates.path' => '../templates',
-    'log.level' => 4,
-    'log.enabled' => true,
-    'log.writer' => new \Slim\Extras\Log\DateTimeFileWriter(array(
-        'path' => '../logs',
-        'name_format' => 'y-m-d'
-    ))
+    'templates.path' => '../templates'
 ));
+
+$app->hook('slim.before', function () use ($app) {
+    $log = $app->getLog();
+    $log->setEnabled(true);
+    $log->setWriter(new \Log\MyLogWriter());
+});
 
 // locale-detector
 $localeDetector = new Menencia\LocaleDetector\LocaleDetector();
