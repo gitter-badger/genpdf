@@ -43,8 +43,8 @@ $app->get("/:name/:id.pdf", function ($name, $id) use ($app) {
         $wkhtml->setHeaderSpacing(-24);
         $wkhtml->setDpi(150);
         $wkhtml->setFooterHtml($_SERVER["SERVER_NAME"] . "/static/assets/" . $resource->getFooter());
-        $wkhtml->setFooterSpacing(0);
-        $wkhtml->setMarginBottom(30);
+        $wkhtml->setFooterSpacing(-20);
+        $wkhtml->setMarginBottom(20);
 
         $r = $wkhtml->run($_SERVER["SERVER_NAME"] . "/$name/$id.html", $filename);
 
