@@ -1,5 +1,5 @@
 {
-    "name": "exa/genpdf",
+    "name": "exaprint/genpdf",
     "description": "PDF Generation tool",
     "keywords": ["pdf"],
     "homepage": "http://www.exaprint.fr",
