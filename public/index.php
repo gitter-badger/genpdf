@@ -52,8 +52,8 @@ $app->get("/:name/:id.pdf", function ($name, $id) use ($app) {
             echo file_get_contents($filename);
         } else {
             $app->contentType('text/plain');
-            $app->status(500);
-            echo $r['cmd'];
+            $app->status(404);
+            echo "Impossible de fournir le pdf : ".$r['cmd'];
         }
     }
 });
@@ -73,7 +73,7 @@ $app->get("/:name/:id.html", function ($name, $id) use ($app) {
     }
 
     $app->status(404);
-    echo "Impossible de trouver la ressource de type $name #$id";
+    echo "Impossible de fournir le html pour $name #$id";
 
 });
 
