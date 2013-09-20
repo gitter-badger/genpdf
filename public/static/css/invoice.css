@@ -17,7 +17,7 @@ a {
   text-decoration: none;
 }
 #page {
-  margin: 0.5cm auto;
+  margin: 0 auto;
   position: relative;
 }
 h1 {
@@ -153,12 +153,27 @@ span.currency {
 #main table td.date {
   text-align: center;
 }
-.mentions {
-  margin-top: 1cm;
+.mt-5cm {
+  margin-top: 5cm;
+}
+.type {
+  text-align: center;
+  font-weight: bold;
+  margin-bottom: 1cm;
+  font-family: "DIN-Bold";
+  height: 1.5em;
+  font-size: 14px;
 }
 #donations {
   padding: 1em;
   border: 0.028cm #cccccc solid;
+}
+#payments {
+  clear: both;
+  border: 0.028cm #666666 solid;
+  display: inline-block;
+  padding: 0.2cm 0.5cm;
+  margin-top: 1cm;
 }
 #summary {
   float: right;

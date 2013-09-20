@@ -1,3 +1,6 @@
+{% extends "resources/invoice.twig" %}
+
+{% block page %}
 <div id="page">
     <div id="customer">
         {% block customer_address %}
@@ -148,6 +151,8 @@
 
     {% block footer %}
         <footer>
+            <div class="mt-5cm"></div>
+            {% block type %}{% endblock %}
             <div class="mentions">
                 {% block mentions %}
                     {% trans "Mentions legales facture" %}
@@ -156,3 +161,4 @@
         </footer>
     {% endblock %}
 </div>
+{% endblock %}

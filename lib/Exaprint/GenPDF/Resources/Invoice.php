@@ -49,7 +49,13 @@ class Invoice implements IResource
      */
     public function getTemplateFilename()
     {
-        return "resources/invoice.twig";
+        $filename = "resources/";
+        if (\Locale\Helper::$current == 'it_IT') {
+            $filename .= "countries/invoice.it.twig";
+        } else {
+            $filename .= "include/invoice.twig";
+        }
+        return $filename;
     }
 
     /**
