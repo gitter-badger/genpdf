@@ -53,7 +53,7 @@ $app->get("/:name/:id.pdf", function ($name, $id) use ($app) {
         } else {
             $app->contentType('text/plain');
             $app->status(404);
-            echo "Impossible de fournir le pdf : ".$r['cmd'];
+            echo "Impossible de fournir la ressource : ".$r['cmd'];
         }
     }
 });
@@ -73,7 +73,7 @@ $app->get("/:name/:id.html", function ($name, $id) use ($app) {
     }
 
     $app->status(404);
-    echo "Impossible de fournir le html pour $name #$id";
+    echo "Impossible de fournir la ressource de type $name #$id";
 
 });
 
