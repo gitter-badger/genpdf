@@ -44,7 +44,7 @@ $app->get("/:name/:id.pdf", function ($name, $id) use ($app) {
         $wkhtml->setDpi(150);
         $wkhtml->setFooterHtml($_SERVER["SERVER_NAME"] . "/static/assets/" . $resource->getFooter());
         $wkhtml->setFooterSpacing(-20);
-        $wkhtml->setMarginBottom(20);
+        $wkhtml->setMarginBottom(10);
 
         $r = $wkhtml->run($_SERVER["SERVER_NAME"] . "/$name/$id.html", $filename);
 
