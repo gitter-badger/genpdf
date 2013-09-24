@@ -21,21 +21,20 @@ class PartnersOrder implements IResource
     {
         $IDLangue = 1;
 
-        //$select = new \Exaprint\DAL\Client\Select();
-
-        $string = file_get_contents("http://local.api.partners.exaprint.fr/orders/$IDCommandePartenaire");
+        $string = file_get_contents($_SERVER['url_api_partners']."/orders/$IDCommandePartenaire");
         $json_a = json_decode($string, true);
 
         $this->_data = $json_a[$IDCommandePartenaire];
 
-        // Reading data
+        // Converting XML data
         $this->_data['data'] = simplexml_load_string($this->_data['data']);
 
         $id = $this->_data['data']->material;
-        $option = $this->_data['data']->option;
-        $string = file_get_contents("http://local.api.stickers.exaprint.fr/materials/$id/options.json");
+        $string = file_get_contents($_SERVER['url_api_stickers']."/materials/$id/options.json");
 
-        $qupport = '';
+        // Reading support
+        $support = '';
+        $option = $this->_data['data']->option;
         $supports = json_decode($string, true);
         foreach ($supports as $n => $s) {
             if ($s['id'] == $option) {
