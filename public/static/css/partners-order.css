@@ -1,0 +1,106 @@
+.bold {
+  font-family: "DIN-Bold";
+}
+.medium {
+  font-family: "DIN-Medium";
+}
+.regular {
+  font-family: "DIN-Regular";
+}
+body {
+  font-family: "DIN-Regular";
+  color: #333333;
+  font-size: 11px;
+}
+a {
+  color: #666666;
+  text-decoration: none;
+}
+#page {
+  margin: 0 auto;
+  position: relative;
+}
+h1 {
+  color: #de265a;
+  margin: 0 0 0.5em 0;
+  font-family: "DIN-Bold";
+}
+h2 {
+  margin-bottom: 0.6em;
+}
+table {
+  page-break-inside: auto;
+}
+tr {
+  page-break-inside: avoid;
+  page-break-after: auto;
+}
+td.money {
+  text-align: right;
+}
+td.number {
+  text-align: center;
+}
+dl {
+  margin: 0;
+}
+dt {
+  float: left;
+  font-family: "DIN-Bold";
+  height: 1.5em;
+}
+dd {
+  text-indent: 0.5em;
+  height: 1.5em;
+}
+span.currency {
+  font-family: Arial, "arial", "sans serif";
+  color: #666666;
+  margin-left: 0.2em;
+  font-size: 0.9em;
+}
+h1 {
+  text-align: center;
+  margin-bottom: 1cm;
+}
+#blank,
+#client {
+  width: 7cm;
+  float: left;
+  padding: 0 0.5cm 0.5cm 0.5cm;
+}
+#client {
+  margin-left: 0.5cm;
+  padding: 0;
+}
+#description {
+  float: left;
+  width: 7cm;
+  height: 10cm;
+  background: #cccccc;
+  border-radius: 0.5em;
+  padding: 0 0.5cm;
+  margin-right: 0.5cm;
+}
+#orders {
+  width: auto;
+}
+#orders table {
+  width: 9cm;
+}
+#orders td {
+  padding: 0.15cm 0 0.1cm 0;
+  border-bottom: 0.028cm #cccccc solid;
+}
+#orders th {
+  background: #de265a;
+  padding: 0.15cm 0 0.1cm 0;
+  color: white;
+}
+#mentions {
+  margin-top: 1cm;
+}
+hr {
+  clear: both;
+  visibility: hidden;
+}

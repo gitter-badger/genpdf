@@ -132,7 +132,7 @@ class OrderReceipt implements IResource
      */
     public function getTemplateFilename()
     {
-        return "resources/order/receipt.twig";
+        return "resources/order-receipt.twig";
     }
 
     /**
