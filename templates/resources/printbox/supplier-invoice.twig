@@ -38,7 +38,6 @@
     <div id="customer">
         <address>
             EXAPRINT<br/>
-            Service Printbox<br/>
             ZAC FREJORGUES OUEST<br/>
             34130 MAUGUIO
         </address>
@@ -114,8 +113,11 @@
             <p><strong>TVA non applicable, art. 293B du C.G.I.</strong></p>
         {% endif %}
 
-        <p>Auto-Facture établie au nom et pour le compte de {{ Customer.CompanyName }}, conformément au mandat de
-            facturation signé au profit de Printbox</p>
+        <div class="mentions">
+            Auto-Facture établie au nom et pour le compte de {{ Customer.CompanyName }}, conformément au mandat de facturation signé au profit de Printbox.
+            Attention, si votre dossier administratif n'est pas en règle, le virement automatique de votre prestation graphique sera bloqué.
+            Vous pouvez contactez comptabilite@printbox.fr pour toute précision.
+        </div>
 
         <p>TVA intra de Printbox : FR32422843797<br/>
             Aucun escompte n'est accordé pour paiement comptant.

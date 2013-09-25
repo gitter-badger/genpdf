@@ -80,18 +80,20 @@
                                     <article>
                                         <span class="units"></span>
                                         {% if((Line.FeeTypeID == 0) and (Line.OrderLineID == 0)) %}
-                                        {{ Line.Title }}
+                                            {{ Line.Title }}
                                         {% else %}
-                                        {{ Line.Reference }}
+                                            {{ Line.Reference }}
                                         {% endif %}
                                         <span class="code">
-                                {{ Line.ArticleFamily }}
+                                            {{ Line.ArticleFamily }}
                                             {{ Line.ProductFamily }}
                                             {{ Line.ProductFrontTitle }}
-                            </span>
-                                    {% if (Line.OrderCustomer != '') %}
-                                    {% trans "Dossier suivi par"%} {{ Line.OrderCustomer }}
-                                    {% endif %}
+                                        </span>
+                                        {% if (Line.OrderCustomer != '') %}
+                                            <div>
+                                            {% trans "Dossier suivi par"%} {{ Line.OrderCustomer }}
+                                            </div>
+                                        {% endif %}
                                     </article>
                                 {% endblock %}
                                 {% block certification %}
