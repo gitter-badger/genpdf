@@ -14,36 +14,41 @@ class PartnersOrder implements IResource
 
 
     /**
-     * @param $id
+     * @param $IDCommandePartenaire
+     * @internal param $id
      * @return bool
      */
     public function fetchFromID($IDCommandePartenaire)
     {
         $IDLangue = 1;
 
-        $string = file_get_contents($_SERVER['url_api_partners']."/orders/$IDCommandePartenaire");
-        $json_a = json_decode($string, true);
+        try {
 
-        $this->_data = $json_a[$IDCommandePartenaire];
+            $string = file_get_contents($_SERVER['url_api_partners']."/orders/$IDCommandePartenaire");
+            $json_a = json_decode($string, true);
 
-        // Converting XML data
-        $this->_data['data'] = simplexml_load_string($this->_data['data']);
+            $this->_data = $json_a[$IDCommandePartenaire];
 
-        $id = $this->_data['data']->material;
-        $string = file_get_contents($_SERVER['url_api_stickers']."/materials/$id/options.json");
+            // Converting XML data
+            $this->_data['data'] = simplexml_load_string($this->_data['data']);
 
-        // Reading support
-        $support = '';
-        $option = $this->_data['data']->option;
-        $supports = json_decode($string, true);
-        foreach ($supports as $n => $s) {
-            if ($s['id'] == $option) {
-                $support = $s['name'];
+            $id = $this->_data['data']->material;
+            $string = file_get_contents($_SERVER['url_api_stickers']."/materials/$id/options.json");
+
+            // Reading support
+            $support = '';
+            $option = $this->_data['data']->option;
+            $supports = json_decode($string, true);
+            foreach ($supports as $n => $s) {
+                if ($s['id'] == $option) {
+                    $support = $s['name'];
+                }
             }
-        }
-        $this->_data['support'] = $support;
+            $this->_data['support'] = $support;
 
-        //var_dump($this->_data);
+        } catch (\Exception $e) {
+            return false;
+        }
 
         return true;
 
