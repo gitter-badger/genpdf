@@ -62,6 +62,15 @@
 
             <dt>Prix d'achat</dt>
             <dd>{{ purchase_price|formatmoney }}</dd>
+
+            <dt>BAT numérique</dt>
+            <dd>
+                {% if data.online_proof == '1' %}
+                    Oui
+                {% else %}
+                    Non
+                {% endif %}
+            </dd>
         </dl>
     </div>
 
