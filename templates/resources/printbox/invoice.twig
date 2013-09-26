@@ -78,6 +78,11 @@
                             <td>
                                 {% block article %}
                                     <article>
+                                        {% if (Line.OrderLineID > 0) %}
+                                            <div>
+                                            {% trans "Conception et fabrication de : " %}
+                                            </div>
+                                        {% endif %}
                                         <span class="units"></span>
                                         {% if((Line.FeeTypeID == 0) and (Line.OrderLineID == 0)) %}
                                             {{ Line.Title }}
@@ -89,6 +94,11 @@
                                             {{ Line.ProductFamily }}
                                             {{ Line.ProductFrontTitle }}
                                         </span>
+                                        {% if (Line.OrderLineID > 0) %}
+                                            <div>
+                                                {% trans "Tous droits reserves" %}
+                                            </div>
+                                        {% endif %}
                                         {% if (Line.OrderCustomer != '') %}
                                             <div>
                                             {% trans "Dossier suivi par"%} {{ Line.OrderCustomer }}
