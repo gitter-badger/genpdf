@@ -57,8 +57,10 @@
             <dt>Poids</dt>
             <dd>{{ weight|formatnumber }} g.</dd>
 
-            <dt>{{ LibelleTraduit }}</dt>
-            <dd>{{ Valeur|formatnumber }} cm.</dd>
+            {% for option in options %}
+                <dt>{{ option.label }}</dt>
+                <dd>{{ option.value|formatnumber }} {{ option.unit }}</dd>
+            {% endfor %}
 
             <dt>Prix d'achat</dt>
             <dd>{{ purchase_price|formatmoney }}</dd>
