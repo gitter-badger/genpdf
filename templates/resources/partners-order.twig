@@ -27,11 +27,20 @@
         <h2>{% trans "Client" %}</h2>
         <dl class="details">
             <dt>{% trans "Raison Sociale" %}</dt>
-            <dd>{{ customer.contact.company }}</dd>
+            <dd>{{ customer.company }}</dd>
             <dt>{% trans "Contact" %}</dt>
-            <dd>{{ customer.contact.forname }} {{ customer.contact.name }}</dd>
+            <dd>{{ customer.forname }} {{ customer.name }}</dd>
             <dt>{% trans "Email" %}</dt>
-            <dd>{{ customer.contact.email }}</dd>
+            <dd>{{ customer.email }}</dd>
+
+            <br/>
+            <address>
+                {% if customer.address.line1 %}{{ customer.address.line1 }}<br/>{% endif %}
+                {% if customer.address.line2 %}{{ customer.address.line2 }}<br/>{% endif %}
+                {% if customer.address.line3 %}{{ customer.address.line3 }}<br/>{% endif %}
+                {{ customer.address.post_code }} {{ customer.address.city }}<br />
+                {{ customer.address.country }}
+            </address>
         </dl>
     </div>
 
@@ -49,30 +58,26 @@
         <h2>Descriptif</h2>
 
         <dl class="details">
-            {% for model in data.models.model %}
-                <dt>{{ model.attributes.name }}</dt>
-                <dd>{{ model.attributes.quantity }} ex. ({{ model.attributes.dirname }})</dd>
-            {% endfor %}
-
-            <dt>Poids</dt>
-            <dd>{{ weight|formatnumber }} g.</dd>
-
             {% for option in options %}
                 <dt>{{ option.label }}</dt>
                 <dd>{{ option.value|formatnumber }} {{ option.unit }}</dd>
             {% endfor %}
 
+            <dt>Poids</dt>
+            <dd>{{ weight|formatnumber }} g.</dd>
+
+            {% for model in data.models.model %}
+                <dt>{{ model.attributes.name }}</dt>
+                <dd>{{ model.attributes.quantity }} ex. ({{ model.attributes.dirname }})</dd>
+            {% endfor %}
+
+            {% if data.online_proof == '1' %}
+            <dt>Montant BAT</dt>
+            <dd>{{ poof_price|formatmoney }}</dd>
+            {% endif %}
+
             <dt>Prix d'achat</dt>
             <dd>{{ purchase_price|formatmoney }}</dd>
-
-            <dt>BAT numérique</dt>
-            <dd>
-                {% if data.online_proof == '1' %}
-                    Oui
-                {% else %}
-                    Non
-                {% endif %}
-            </dd>
         </dl>
     </div>
 
@@ -115,17 +120,13 @@
     <hr>
 
     <div id="mentions">
-        <p>Si une de ces indications ne vous parait pas correcte, merci de nous le signaler le plus rapidement possible à l'adresse suivante : commande@exaprint.fr
-            Les commandes sont validées par le pôle Administrations des Ventes jusqu'à18H chaque jour ouvré. Après cet horaire elles sont enregistrées le jour ouvré suivant.
-            Notre délai catalogue court à compter de la réception de votre règlement et de votre fichier ou à compter de la validation de votre bon à tirer si vous avez opté
-            pour cette option. Si une anomalie fichier vous est notifiée par le pôle PAO, le délai courra à compter de la date du déblocage de votre fichier.
+        <p>Prix incluant 1 point de livraison en France métropolitaine uniquement, sauf autrement mentionné.
+            Nos délais sont établis en jours ouvrés et hors transport.</p
 
-        <p>Pour suivre l'avancée de votre commande, vous pouvez vous connecter sur notre site extranet onglet « suivi ».
-            Nos conditions générales de vente sont consultables en ligne à l’adresse : www.exaprint.fr
-            Important : La loi de Juillet 1881 oblige la présence du nom du prestataire technique ou de l'annonceur sur tous les documents destinés
-            à être distribués sur la voie publique. Nous vous invitons donc à ajouter systématiquement le nom ou n° de RCS de votre entreprise (en votre qualité de revendeur,
-            vous êtes considéré comme l'imprimeur du document) ou celui de votre client en petit sur l'ensemble de vos travaux. Attention, l'absence de cette mention obligatoire
-            peut entraîner des sanctions financières et/ou pénales.</p>
+        <p>Nos prix s'entendent pour la fourniture de fichiers numériques strictement conformes à notre cahier des charges.
+            En cas de fourniture de fichiers non conformes, un délai supplémentaire pourra être appliqué.
+            Toutes nos cartes imprimées en offset sont protégées par l'application d'un vernis acrylique satiné.
+            Devis valable pendant 3 mois jusqu'au 27/12/2013, hors promotions en cours à la date de la demande de votre devis.</p>
     </div>
 
     <footer>
