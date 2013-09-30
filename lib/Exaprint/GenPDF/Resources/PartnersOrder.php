@@ -22,9 +22,11 @@ class PartnersOrder implements IResource
     {
         $IDLangue = 1;
 
+        $curl = new \Curl();
+
         try {
 
-            $string = file_get_contents($_SERVER['url_api_partners']."/orders/$IDCommandePartenaire");
+            $string = $curl->get($_SERVER['url_api_partners']."/orders/$IDCommandePartenaire");
             $json_a = json_decode($string, true);
 
             $this->_data = $json_a[$IDCommandePartenaire];
@@ -33,7 +35,7 @@ class PartnersOrder implements IResource
             $this->_data['data'] = simplexml_load_string($this->_data['data']);
 
             $id = $this->_data['data']->material;
-            $string = file_get_contents($_SERVER['url_api_stickers']."/materials/$id/options.json");
+            $string = $curl->get($_SERVER['url_api_stickers']."/materials/$id/options.json");
 
             // Reading support
             $support = '';
