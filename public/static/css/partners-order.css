@@ -63,6 +63,9 @@ h1 {
   text-align: center;
   margin-bottom: 1cm;
 }
+.reference {
+  font-size: 2em;
+}
 #blank,
 #client {
   width: 7cm;
