@@ -48,7 +48,7 @@
 
     <p>A Mauguio, le {{ "now"|date("m/d/Y") }}.</p>
 
-    <p>Devis partenaire N : {{ id }}</p>
+    <p>Devis N° {{ id|formatnumber }}</p>
 
     <p>{{ reference }}</p>
 
@@ -64,11 +64,11 @@
             {% endfor %}
 
             <dt>Poids</dt>
-            <dd>{{ weight|formatnumber }} g.</dd>
+            <dd>{{ (weight/1000)|formatnumber }} Kg</dd>
 
             {% for model in data.models.model %}
                 <dt>{{ model.attributes.name }}</dt>
-                <dd>{{ model.attributes.quantity }} ex. ({{ model.attributes.dirname }})</dd>
+                <dd>{{ model.attributes.quantity }} Ex. ({{ model.attributes.dirname }})</dd>
             {% endfor %}
 
             {% if data.online_proof == '1' %}
