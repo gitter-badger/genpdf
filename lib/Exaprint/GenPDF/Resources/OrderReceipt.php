@@ -151,7 +151,7 @@ class OrderReceipt implements IResource
 
     public function getFooter()
     {
-        return Helper::$current . "/footer.html";
+        return Helper::$current . "/footer.svg";
     }
 
 

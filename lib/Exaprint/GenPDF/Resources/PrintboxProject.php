@@ -2,6 +2,8 @@
 
 namespace Exaprint\GenPDF\Resources;
 
+use Locale\Helper;
+
 class PrintboxProject implements IResource
 {
     protected $_data;
@@ -31,7 +33,7 @@ class PrintboxProject implements IResource
      */
     public function getTemplateFilename()
     {
-        return "resources/printbox/project.twig";
+        return "resources/printbox-project.twig";
     }
 
     /**
@@ -50,7 +52,7 @@ class PrintboxProject implements IResource
 
     public function getFooter()
     {
-        return "printbox/footer.html";
+        return Helper::$current . "/footer.svg";
     }
 
 

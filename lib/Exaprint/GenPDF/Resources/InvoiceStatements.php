@@ -113,6 +113,7 @@ class InvoiceStatements implements IResource
             "CreditsSums"  => $this->_creditsSums,
             "Customer"     => (array)$this->_customer,
             "NetAmountDue" => $this->_netAmountDue,
+            "Footer"       => $this->getFooter(),
         ];
     }
 
@@ -129,7 +130,7 @@ class InvoiceStatements implements IResource
      */
     public function getFooter()
     {
-        return Helper::$current . "/footer.html";
+        return Helper::$current . "/footer.svg";
     }
 
 

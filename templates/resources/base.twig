@@ -1,0 +1,15 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <meta charset="UTF-8">
+        {% block links %}{% endblock %}
+    </head>
+    <body>
+        <div id="page">
+            {% block page %}{% endblock %}
+            {% if Footer %}
+                <img src="/static/assets/{{ Footer }}" alt="footer" style="width:100%;" />
+            {% endif %}
+        </div>
+    </body>
+</html>

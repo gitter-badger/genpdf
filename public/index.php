@@ -63,9 +63,11 @@ $app->get("/:name/:id.html", function ($name, $id) use ($app) {
     $resource = \Exaprint\GenPDF\Resources\Factory::createFromName($name);
 
     if ($resource && $resource->fetchFromID($id)) {
+        $data = $resource->getData();
+        $data['Footer'] = $resource->getFooter();
         $app->render(
             $resource->getTemplateFilename(),
-            $resource->getData()
+            $data
         );
         return;
     }

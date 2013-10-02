@@ -1,15 +1,13 @@
-<!DOCTYPE html>
-<html>
-<head>
-    <meta charset="UTF-8">
-    <title></title>
+{% extends "resources/base.twig" %}
+
+{% block links %}
     <link rel="stylesheet" type="text/css" href="/static/css/reset.css"/>
     <link rel="stylesheet" type="text/css" href="/static/css/fonts.css"/>
     <link rel="stylesheet" type="text/css" href="/static/css/invoice.css"/>
     <link rel="stylesheet" type="text/css" href="/static/css/invoice-statements.css"/>
-</head>
-<body>
-<div id="page">
+{% endblock %}
+
+{% block page %}
     <div id="customer">
         {% block customer_address %}
             <address>
@@ -121,7 +119,4 @@
             <p>{{ NetAmountDue|formatmoney  }}</p>
         </div>
     </div>
-    <div><img src="/static/assets/fr_FR/footer.svg" alt="footer" style="width:100%;" /></div>
-</div>
-</body>
-</html>
+{% endblock %}
