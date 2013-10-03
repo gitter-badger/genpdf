@@ -1,3 +1,6 @@
+@import "common";
+@import "printbox";
+
 .bold {
   font-family: "DIN-Bold";
 }
@@ -21,7 +24,7 @@ a {
   position: relative;
 }
 h1 {
-  color: #00a1dd;
+  color: @theme-color;
   margin: 0 0 0.5em 0;
   font-family: "DIN-Bold";
 }
@@ -89,7 +92,7 @@ span.currency {
 }
 #main table th {
   padding: 0.4em 0.5em;
-  background: #00a1dd;
+  background: @theme-color;
   color: white;
   border-right: 0.028cm solid #ffffff;
   font-family: "DIN-Medium";
@@ -110,7 +113,7 @@ span.currency {
   font-size: 0.8em;
 }
 #main table tbody td .title {
-  color: #00a1dd;
+  color: @theme-color;
 }
 #main table tbody td .shipping {
   margin-top: 0.2cm;
@@ -130,7 +133,7 @@ span.currency {
   margin-bottom: -0.1cm;
 }
 #main table tbody td .units {
-  color: #00a1dd;
+  color: @theme-color;
   font-family: "DIN-Medium";
 }
 #main table tbody tr:last-child td {
