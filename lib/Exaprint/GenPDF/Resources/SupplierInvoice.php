@@ -69,7 +69,7 @@ class SupplierInvoice implements IResource
      */
     public function getFooter()
     {
-        return false;
+        return "footer.empty.html";
     }
 
 

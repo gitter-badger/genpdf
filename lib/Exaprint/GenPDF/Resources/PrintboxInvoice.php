@@ -18,7 +18,7 @@ class PrintboxInvoice extends Invoice
 
     public function getFooter()
     {
-        return Helper::$current . "/footer.svg";
+        return Helper::$current . "/footer.html";
     }
 
 

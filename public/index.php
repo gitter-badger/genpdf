@@ -40,9 +40,10 @@ $app->get("/:name/:id.pdf", function ($name, $id) use ($app) {
 
         $wkhtml->setHeaderHtml($_SERVER["SERVER_NAME"] . "/static/assets/" . $resource->getHeader());
         $wkhtml->setMarginTop(32);
-        $wkhtml->setHeaderSpacing(-24);
-        $wkhtml->setDpi(150);
-        $wkhtml->setMarginBottom(10);
+        $wkhtml->setHeaderSpacing(5);
+        $wkhtml->setFooterHtml($_SERVER["SERVER_NAME"] . "/static/assets/" . $resource->getFooter());
+        $wkhtml->setFooterSpacing(5);
+        $wkhtml->setMarginBottom(32);
 
         $r = $wkhtml->run($_SERVER["SERVER_NAME"] . "/$name/$id.html", $filename);
 
@@ -63,11 +64,9 @@ $app->get("/:name/:id.html", function ($name, $id) use ($app) {
     $resource = \Exaprint\GenPDF\Resources\Factory::createFromName($name);
 
     if ($resource && $resource->fetchFromID($id)) {
-        $data = $resource->getData();
-        $data['Footer'] = $resource->getFooter();
         $app->render(
             $resource->getTemplateFilename(),
-            $data
+            $resource->getData()
         );
         return;
     }

@@ -79,7 +79,7 @@ class Invoice implements IResource
      */
     public function getFooter()
     {
-        return Helper::$current . "/footer.svg";
+        return Helper::$current . "/footer.html";
     }
 
 }

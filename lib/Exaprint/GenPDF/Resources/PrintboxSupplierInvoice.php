@@ -22,7 +22,7 @@ class PrintboxSupplierInvoice extends SupplierInvoice
      */
     public function getFooter()
     {
-        return false;
+        return "footer.empty.html";
     }
 
 
