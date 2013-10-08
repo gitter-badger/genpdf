@@ -90,17 +90,8 @@
                 <td class="money">{{ product.vat_amount|formatmoney }}</td>
                 <td class="money">{{ product.ati_amount|formatmoney }}</td>
             </tr>
-            {% set hasFees = false %}
-
-            {% set et_amount = 0 %}
-            {% set vat_amount = 0 %}
-            {% set ati_amount = 0 %}
             {% for i, fee in order.fees %}
                 {% if fee.id %}
-                    {% set hasFees = true %}
-                    {% set et_amount = et_amount + fee.et_amount %}
-                    {% set vat_amount = vat_amount + fee.vat_amount %}
-                    {% set ati_amount = ati_amount + fee.ati_amount %}
                     <tr>
                         <td>{{ fee.type }}</td>
                         <td class="number">{{ fee.quantity }}</td>
@@ -110,15 +101,6 @@
                     </tr>
                 {% endif %}
             {% endfor %}
-            {% if hasFees %}
-                <tr>
-                    <td><em>Sous-total</em></td>
-                    <td></td>
-                    <td class="money">{{ et_amount|formatmoney }}</td>
-                    <td class="money">{{ vat_amount|formatmoney }}</td>
-                    <td class="money">{{ ati_amount|formatmoney }}</td>
-                </tr>
-            {% endif %}
             <tr class="bold theme-color">
                 <td>Total</td>
                 <td></td>
