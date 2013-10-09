@@ -37,14 +37,23 @@
         </blockquote>
     </div>
     <div id="client">
-        <h2>{% trans "Revendeur" %}</h2>
+        <h2>{% trans "Client" %}</h2>
         <dl class="details">
             <dt>{% trans "Raison Sociale" %}</dt>
             <dd>{{ client.company_name }}</dd>
             <dt>{% trans "Contact" %}</dt>
-            <dd>{{ client.contact_forname }} {{ client.contact_name }}</dd>
-            <dt>{% trans "Email" %}</dt>
-            <dd>{{ client.email }}</dd>
+            <dd>
+                {% if client.civility == 1 %}
+                    {% trans "Mr" %}
+                {% elseif client.civility == 2 %}
+                    {% trans "Mme" %}
+                {% elseif client.civility == 3 %}
+                    {% trans "Mlle" %}
+                {% elseif client.activity != 0 %}
+                    {{ client.civility }}
+                {% endif %}
+                {{ client.contact_forname }} {{ client.contact_name }}
+            </dd>
         </dl>
     </div>
     <hr/>
@@ -65,20 +74,21 @@
         <dl>
             <dt>N° de commande</dt>
             <dd>{{ order.id }}</dd>
-            <dt>Intitulé</dt>
+            <dt>Référence</dt>
             <dd>{{ order.reference }}</dd>
             <dt>Date</dt>
             <dd>{{ order.creation_date|date('d/m/Y') }}</dd>
-            <dt>Prélèvement 30j fin de mois</dt>
+            <dt>{{ order.regulation }}</dt>
             <dd></dd>
         </dl>
+
         <table>
             <thead>
             <tr>
                 <th></th>
                 <th>Quantité</th>
                 <th>H.T.</th>
-                <th>T.V.A.</th>
+                <th>T.V.A. <small>{{ project.tva|formatnumber }}%</small></th>
                 <th>T.T.C.</th>
             </tr>
             </thead>
@@ -113,9 +123,14 @@
             </tbody>
         </table>
 
+        <dl>
+            <dt>Solde</dt>
+            <dd>{{ order.balance|formatmoney }}</dd>
+        </dl>
+
         <hr>
         <div id="mentions">
-            <p>Si une de ces indications ne vous parait pas correcte, merci de nous le signaler le plus rapidement possible à l'adresse suivante : commande@exaprint.fr
+            <p>Si une de ces indications ne vous parait pas correcte, merci de nous le signaler le plus rapidement possible à l'adresse suivante : <a href="commande@exaprint.fr">commande@exaprint.fr</a>
                 Les commandes sont validées par le pôle Administrations des Ventes jusqu'à18H chaque jour ouvré. Après cet horaire elles sont enregistrées le jour ouvré suivant.
                 Notre délai catalogue court à compter de la réception de votre règlement et de votre fichier ou à compter de la validation de votre bon à tirer si vous avez opté
                 pour cette option. Si une anomalie fichier vous est notifiée par le pôle PAO, le délai courra à compter de la date du déblocage de votre fichier.
