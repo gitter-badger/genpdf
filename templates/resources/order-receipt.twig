@@ -85,10 +85,23 @@
         <dl>
             <dt>{% trans "Numero de commande" %}</dt>
             <dd>{{ order.id }}</dd>
-            <dt>{% trans "Reference" %}</dt>
+
+            {% if order.devis_id %}
+                <dt>{% trans "Numero de devis" %}</dt>
+                <dd>{{ order.devis_id }}</dd>
+            {% endif %}
+
+            <dt>{% trans "Reference commande" %}</dt>
             <dd>{{ order.reference }}</dd>
+
+            {% if order.devis_id %}
+                <dt>{% trans "Reference devis" %}</dt>
+                <dd>{{ order.devis_reference }}</dd>
+            {% endif %}
+
             <dt>{% trans "Date" %}</dt>
             <dd>{{ order.creation_date|date('d/m/Y') }}</dd>
+
             <dt>{% trans "Mode de reglement" %}</dt>
             <dd>{{ order.regulation }}</dd>
         </dl>
