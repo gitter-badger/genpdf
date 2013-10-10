@@ -40,6 +40,9 @@ class OrderReceipt implements IResource
                 [contact].NomContact AS [client.contact_name],
                 [contact].PrenomContact AS [client.contact_forename],
                 [contact].CiviliteContact AS [client.civility],
+                TBL_DEVIS.IDUtilisateurAgent AS [agent.id],
+                [agent].NomUtilisateur AS [agent.name],
+                [agent].PrenomUtilisateur AS [agent.forename],
                 TBL_COMMANDE_LIGNE.Quantite AS [order.quantity],
                 TBL_COMMANDE_LIGNE.Prix AS [product.et_amount],
                 TBL_COMMANDE_LIGNE.MontantTVAPrix AS [product.vat_amount],
@@ -105,6 +108,7 @@ class OrderReceipt implements IResource
             LEFT JOIN TBL_PAYS ON TBL_PAYS.IDPays = [delivery].IDPays
             JOIN TBL_MODEREGLEMENT_TRAD AS [regulation] ON (TBL_COMMANDE.IDModeReglement = [regulation].IDModeReglement AND [regulation].IDLangue = $IDLangue)
             LEFT JOIN TBL_DEVIS ON (TBL_COMMANDE.IDDevis = TBL_DEVIS.IDDevis)
+            LEFT JOIN TBL_UTILISATEUR as [agent] ON (TBL_DEVIS.IDUtilisateurAgent = [agent].IDUtilisateur)
             WHERE
                 (TBL_COMMANDE.IDCommande = $IDCommande)";
 

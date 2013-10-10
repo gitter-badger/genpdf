@@ -104,6 +104,11 @@
 
             <dt>{% trans "Mode de reglement" %}</dt>
             <dd>{{ order.regulation }}</dd>
+
+            {% if agent.id %}
+                <dt>{% trans "Responsable du dossier" %}</dt>
+                <dd>{{ agent.forename }} {{ agent.name }}</dd>
+            {% endif %}
         </dl>
 
         <table>
