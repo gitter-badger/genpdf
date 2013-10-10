@@ -43,6 +43,8 @@
             <dd>{{ client.company_name }}</dd>
             <dt>{% trans "Contact" %}</dt>
             <dd>
+                {% set fullname = [client.contact_forename, ' ', client.contact_name]|join %}
+
                 {% if client.civility == 1 %}
                     {% trans "Mr" %}
                 {% elseif client.civility == 2 %}
@@ -52,8 +54,15 @@
                 {% elseif client.activity != 0 %}
                     {{ client.civility }}
                 {% endif %}
-                {{ client.contact_forname }} {{ client.contact_name }}
+
+                {% if client.contact_forename|capitalize not in client.contact_name|capitalize %}
+                    {{ fullname }}
+                {% else %}
+                    {{ client.contact_name }}
+                {% endif %}
             </dd>
+            <dt>{% trans "Numero TVA" %}</dt>
+            <dd>{{ client.id_tva }}</dd>
         </dl>
     </div>
     <hr/>
@@ -78,8 +87,8 @@
             <dd>{{ order.reference }}</dd>
             <dt>Date</dt>
             <dd>{{ order.creation_date|date('d/m/Y') }}</dd>
-            <dt>{{ order.regulation }}</dt>
-            <dd></dd>
+            <dt>Mode de réglement</dt>
+            <dd>{{ order.regulation }}</dd>
         </dl>
 
         <table>

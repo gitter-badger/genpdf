@@ -34,8 +34,9 @@ class OrderReceipt implements IResource
                 TBL_COMMANDE.Solde AS [order.balance],
                 TBL_COMMANDE.IDClient AS [client.id],
                 [client].RaisonSociale AS [client.company_name],
-                [client].NomContact AS [client.contact_name],
-                [client].PrenomContact AS [client.contact_forename],
+                [client].IdTva AS [client.id_tva],
+                [contact].NomContact AS [client.contact_name],
+                [contact].PrenomContact AS [client.contact_forename],
                 [contact].CiviliteContact AS [client.civility],
                 TBL_COMMANDE_LIGNE.Quantite AS [order.quantity],
                 TBL_COMMANDE_LIGNE.Prix AS [product.et_amount],
@@ -80,8 +81,8 @@ class OrderReceipt implements IResource
                 END AS [delivery.address.post_code]
             FROM
                 TBL_COMMANDE
-            JOIN VUE_INFOS_CLIENT AS [client] ON ([client].IDClient = TBL_COMMANDE.IDClient)
-            JOIN TBL_CLIENT_CONTACT AS [contact] ON ([contact].IDClient = TBL_COMMANDE.IDClient)
+            JOIN TBL_CLIENT AS [client] ON ([client].IDClient = TBL_COMMANDE.IDClient)
+            JOIN TBL_CLIENT_CONTACT AS [contact] ON ([contact].IDClient = TBL_COMMANDE.IDClient AND ISNULL([contact].ContactPrincipal, 0) = 1)
             JOIN TBL_COMMANDE_LIGNE ON (TBL_COMMANDE_LIGNE.IDCommande = TBL_COMMANDE.IDCommande)
             CROSS APPLY dbo.f_OptionsCommande (TBL_COMMANDE.IDCommande, $IDLangue) AS Options
             LEFT JOIN TBL_FRAIS ON (TBL_FRAIS.IDCommande = TBL_COMMANDE.IDCommande)
