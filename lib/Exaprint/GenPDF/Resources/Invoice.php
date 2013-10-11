@@ -53,7 +53,7 @@ class Invoice implements IResource
         if (\Locale\Helper::$current == 'it_IT') {
             $filename .= "countries/invoice.it.twig";
         } else {
-            $filename .= "include/invoice.twig";
+            $filename .= "invoice.twig";
         }
         return $filename;
     }
@@ -79,7 +79,7 @@ class Invoice implements IResource
      */
     public function getFooter()
     {
-        return Helper::$current . "/footer.html";
+        return Helper::$current . "/footer.svg";
     }
 
 }

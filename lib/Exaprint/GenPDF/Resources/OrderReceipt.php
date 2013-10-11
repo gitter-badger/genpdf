@@ -24,16 +24,25 @@ class OrderReceipt implements IResource
         $select = "
             SELECT
                 TBL_COMMANDE.IDCommande AS [order.id],
+                TBL_COMMANDE.TauxTVA AS [project.tva],
                 TBL_COMMANDE.MontantTTC AS [project.ati_amount],
                 TBL_COMMANDE.MontantTVA AS [project.vat_amount],
                 TBL_COMMANDE.MontantHT AS [project.et_amount],
                 TBL_COMMANDE.ReferenceClient AS [order.reference],
                 TBL_COMMANDE.DateCommande AS [order.creation_date],
+                TBL_DEVIS.IDDevis AS [order.devis_id],
+                TBL_DEVIS.Intitule AS [order.devis_reference],
+                [regulation].LibelleTraduit AS [order.regulation],
+                TBL_COMMANDE.Solde AS [order.balance],
                 TBL_COMMANDE.IDClient AS [client.id],
                 [client].RaisonSociale AS [client.company_name],
-                [client].MailFacturation AS [client.email],
-                [client].NomContact AS [client.contact_name],
-                [client].PrenomContact AS [client.contact_forename],
+                [client].IdTva AS [client.id_tva],
+                [contact].NomContact AS [client.contact_name],
+                [contact].PrenomContact AS [client.contact_forename],
+                [contact].CiviliteContact AS [client.civility],
+                TBL_DEVIS.IDUtilisateurAgent AS [agent.id],
+                [agent].NomUtilisateur AS [agent.name],
+                [agent].PrenomUtilisateur AS [agent.forename],
                 TBL_COMMANDE_LIGNE.Quantite AS [order.quantity],
                 TBL_COMMANDE_LIGNE.Prix AS [product.et_amount],
                 TBL_COMMANDE_LIGNE.MontantTVAPrix AS [product.vat_amount],
@@ -77,7 +86,8 @@ class OrderReceipt implements IResource
                 END AS [delivery.address.post_code]
             FROM
                 TBL_COMMANDE
-            JOIN VUE_INFOS_CLIENT AS [client] ON ([client].IDClient = TBL_COMMANDE.IDClient)
+            JOIN TBL_CLIENT AS [client] ON ([client].IDClient = TBL_COMMANDE.IDClient)
+            JOIN TBL_CLIENT_CONTACT AS [contact] ON ([contact].IDClient = TBL_COMMANDE.IDClient AND ISNULL([contact].ContactPrincipal, 0) = 1)
             JOIN TBL_COMMANDE_LIGNE ON (TBL_COMMANDE_LIGNE.IDCommande = TBL_COMMANDE.IDCommande)
             CROSS APPLY dbo.f_OptionsCommande (TBL_COMMANDE.IDCommande, $IDLangue) AS Options
             LEFT JOIN TBL_FRAIS ON (TBL_FRAIS.IDCommande = TBL_COMMANDE.IDCommande)
@@ -96,6 +106,9 @@ class OrderReceipt implements IResource
             JOIN TBL_CLIENT_ADRESSELIVRAISON AS [delivery] ON (TBL_COMMANDE.IDClientAdresseLivraison = [delivery].IDClientAdresseLivraison)
             LEFT JOIN TBL_VILLE AS [delivery_city] ON [delivery_city].IDVille = [delivery].IDVille
             LEFT JOIN TBL_PAYS ON TBL_PAYS.IDPays = [delivery].IDPays
+            JOIN TBL_MODEREGLEMENT_TRAD AS [regulation] ON (TBL_COMMANDE.IDModeReglement = [regulation].IDModeReglement AND [regulation].IDLangue = $IDLangue)
+            LEFT JOIN TBL_DEVIS ON (TBL_COMMANDE.IDDevis = TBL_DEVIS.IDDevis)
+            LEFT JOIN TBL_UTILISATEUR as [agent] ON (TBL_DEVIS.IDUtilisateurAgent = [agent].IDUtilisateur)
             WHERE
                 (TBL_COMMANDE.IDCommande = $IDCommande)";
 
@@ -132,7 +145,7 @@ class OrderReceipt implements IResource
      */
     public function getTemplateFilename()
     {
-        return "resources/order/receipt.twig";
+        return "resources/order-receipt.twig";
     }
 
     /**
@@ -151,7 +164,7 @@ class OrderReceipt implements IResource
 
     public function getFooter()
     {
-        return Helper::$current . "/footer.html";
+        return Helper::$current . "/footer.svg";
     }
 
 

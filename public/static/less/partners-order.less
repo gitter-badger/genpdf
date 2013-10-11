@@ -4,7 +4,10 @@ h1 {
   text-align: center;
   margin-bottom: 1cm;
 }
-#delivery, #client {
+.reference {
+  font-size: 2em;
+}
+#blank, #client {
   width: 7cm;
   float: left;
   //border: 1px solid @light-color;
@@ -17,7 +20,7 @@ h1 {
   padding: 0;
 }
 
-#product {
+#description {
   float: left;
   width: 7cm;
   height: 10cm;
@@ -27,12 +30,11 @@ h1 {
   margin-right: 0.5cm;
 }
 
-#order {
+#orders {
 
   table {
     //font-size: 0.9em;
     width: 9cm;
-    margin: 1cm 0;
   }
 
   td {
@@ -44,8 +46,6 @@ h1 {
     background: @theme-color;
     padding: 0.15cm 0 0.1cm 0;
     color: white;
-    vertical-align: top;
-    text-align: right;
   }
   width: auto;
 }
@@ -57,8 +57,4 @@ h1 {
 hr {
   clear: both;
   visibility: hidden;
-}
-
-a {
- border-bottom: 1px solid #999;
 }

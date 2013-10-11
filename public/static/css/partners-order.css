@@ -63,7 +63,10 @@ h1 {
   text-align: center;
   margin-bottom: 1cm;
 }
-#delivery,
+.reference {
+  font-size: 2em;
+}
+#blank,
 #client {
   width: 7cm;
   float: left;
@@ -73,7 +76,7 @@ h1 {
   margin-left: 0.5cm;
   padding: 0;
 }
-#product {
+#description {
   float: left;
   width: 7cm;
   height: 10cm;
@@ -82,23 +85,20 @@ h1 {
   padding: 0 0.5cm;
   margin-right: 0.5cm;
 }
-#order {
+#orders {
   width: auto;
 }
-#order table {
+#orders table {
   width: 9cm;
-  margin: 1cm 0;
 }
-#order td {
+#orders td {
   padding: 0.15cm 0 0.1cm 0;
   border-bottom: 0.028cm #cccccc solid;
 }
-#order th {
+#orders th {
   background: #de265a;
   padding: 0.15cm 0 0.1cm 0;
   color: white;
-  vertical-align: top;
-  text-align: right;
 }
 #mentions {
   margin-top: 1cm;
@@ -106,7 +106,4 @@ h1 {
 hr {
   clear: both;
   visibility: hidden;
-}
-a {
-  border-bottom: 1px solid #999;
 }

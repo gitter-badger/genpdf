@@ -26,6 +26,7 @@ class Factory {
             case "printbox-supplier-invoice": return new PrintboxSupplierInvoice();
             case "printbox-invoice": return new PrintboxInvoice();
             case "printbox-project": return new PrintboxProject();
+            case "partners-order": return new PartnersOrder();
             case "order-receipt": return new OrderReceipt();
         }
         return null;

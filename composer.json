@@ -25,6 +25,7 @@
         "exaprint/php-dal": "*",
         "rbm/php-results-combinator": "*",
         "jdorn/sql-formatter": "*",
+        "shuber/curl": "*",
         "myokyawhtun/PDFMerger": "*",
         "menencia/locale-detector": "*"
     },

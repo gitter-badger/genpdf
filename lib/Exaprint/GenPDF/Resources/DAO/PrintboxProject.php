@@ -112,14 +112,10 @@ class PrintboxProject
 
         if ($r = DB::get()->query($select)) {
             $combinator = new ResultsCombinator();
-            $data = $combinator->combine(
-                $r->fetchAll(\PDO::FETCH_ASSOC),
-                "order.id",
-                array(
-                    "order.fees" => "id",
-                    "product.options" => "id"
-                )
-            );
+            $combinator->setIdentifier('order.id');
+            $combinator->addGroup('order.fees', 'id');
+            $combinator->addGroup('product.options', 'id');
+            $data = $combinator->process($r->fetchAll(\PDO::FETCH_ASSOC));
 
             if(isset($data[$IDCommande])){
                 return $data[$IDCommande];
