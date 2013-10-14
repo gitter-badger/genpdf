@@ -23,7 +23,18 @@ $app->get("/:name/:id.pdf", function ($name, $id) use ($app) {
     $language = \Locale\Helper::$current;
 
     $app->contentType("application/pdf");
-    $filename = "../cache/{$name}_{$id}_{$language}.pdf";
+
+    // Organiser le cache
+    if ($name == 'invoice-statements') {
+        // classer par mois AAAAMMM
+        $infos = explode('-', $id);
+        $ref = $infos[1];
+    } else {
+        // classer par 1000
+        $ref = (floor($id / 1000) + 1) * 1000;
+    }
+
+    $filename = "../cache/{$name}/{$ref}/{$name}_{$id}_{$language}.pdf";
 
     if (file_exists($filename) && !isset($_GET['nocache'])) {
         echo file_get_contents($filename);
@@ -52,7 +63,7 @@ $app->get("/:name/:id.pdf", function ($name, $id) use ($app) {
         } else {
             $app->contentType('text/plain');
             $app->status(404);
-            echo "Impossible de fournir la ressource : ".$r['cmd'];
+            echo "Impossible de fournir la ressource : " . $r['cmd'];
         }
     }
 });
