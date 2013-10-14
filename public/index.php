@@ -28,14 +28,24 @@ $app->get("/:name/:id.pdf", function ($name, $id) use ($app) {
     if ($name == 'invoice-statements') {
         // classer par mois AAAAMMM
         $infos = explode('-', $id);
-        $ref = $infos[1];
+        $subfolder = $infos[1];
     } else {
         // classer par 1000
-        $ref = (floor($id / 1000) + 1) * 1000;
+        $subfolder = (floor($id / 1000) + 1) * 1000;
     }
 
-    $filename = "../cache/{$name}/{$ref}/{$name}_{$id}_{$language}.pdf";
+    // Création de dossier
+    if (!is_file("../cache/{$name}")) {
+        mkdir("../cache/{$name}", 0777);
+    }
+    if (!is_file("../cache/{$name}/{$subfolder}")) {
+        mkdir("../cache/{$name}/{$subfolder}", 0777);
+    }
 
+    // Chemin final
+    $filename = "../cache/{$name}/{$subfolder}/{$name}_{$id}_{$language}.pdf";
+
+    // Si un cache existe, le
     if (file_exists($filename) && !isset($_GET['nocache'])) {
         echo file_get_contents($filename);
         return;
