@@ -34,14 +34,6 @@ $app->get("/:name/:id.pdf", function ($name, $id) use ($app) {
         $subfolder = (floor($id / 1000) + 1) * 1000;
     }
 
-    // Création de dossier
-    if (!is_file("../cache/{$name}")) {
-        mkdir("../cache/{$name}", 0777);
-    }
-    if (!is_file("../cache/{$name}/{$subfolder}")) {
-        mkdir("../cache/{$name}/{$subfolder}", 0777);
-    }
-
     // Chemin final
     $filename = "../cache/{$name}/{$subfolder}/{$name}_{$id}_{$language}.pdf";
 
@@ -52,6 +44,14 @@ $app->get("/:name/:id.pdf", function ($name, $id) use ($app) {
     }
 
     deleteTemplateCache();
+
+    // Création de dossier
+    if (!file_exists("../cache/{$name}")) {
+        mkdir("../cache/{$name}", 0777);
+    }
+    if (!file_exists("../cache/{$name}/{$subfolder}")) {
+        mkdir("../cache/{$name}/{$subfolder}", 0777);
+    }
 
     $resource = \Exaprint\GenPDF\Resources\Factory::createFromName($name);
 
