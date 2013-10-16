@@ -25,17 +25,24 @@
             {{ Customer.PostalCode }} {{ Customer.City }}<br/>
             {{ Customer.Country }}
         </address>
-        <div>Code Client : {{ Customer.CustomerCode }}</div>
-        {% if (Customer.Siret != '') %}
-            <div>{{ Customer.Siret }}</div>
-        {% endif %}
-        {% if (Customer.VATId != '') %}
-            <div>{{ Customer.VATId }}</div>
-        {% endif %}
+        <br/>
+        <dl>
+            <dt>Code Client :</dt>
+            <dd>{{ Customer.CustomerCode }}</dd>
+            {% if (Customer.Siret != '') %}
+                <dt>N° siren :</dt>
+                <dd>{{ Customer.Siret }}</dd>
+            {% endif %}
+            {% if (Customer.VATId != '') %}
+                <dt>N° MDA :</dt>
+                <dd>{{ Customer.VATId }}</dd>
+            {% endif %}
+        </dl>
     </div>
     <div id="customer">
         <address>
             EXAPRINT<br/>
+            Service Printbox<br/>
             ZAC FREJORGUES OUEST<br/>
             34130 MAUGUIO
         </address>
@@ -64,14 +71,11 @@
                     <tr class="order">
                         <td>
                             <article>
-                                <!--Prestation graphique du projet N° {{ Line.order_id }}-->
                                 {{ Line.Title }}
                             </article>
                             <p></p>
                         </td>
-                        <td class="money">{{ Line.ETAmount|number_format(2, ',', ' ') }}
-                            <span class="currency">&euro;</span>
-                        </td>
+                        <td class="money">{{ Line.ETAmount|formatmoney }}</td>
                     </tr>
 
                     {% set total_ht = total_ht + Line.ETAmount %}
@@ -79,28 +83,24 @@
 
                 <tr class="order">
                     <td>Total H.T.</td>
-                    <td class="money">{{ total_ht|number_format(2, ',', ' ') }} <span class="currency">&euro;</span>
-                    </td>
+                    <td class="money">{{ total_ht|formatmoney }}</td>
                 </tr>
 
                 <tr class="order">
                     <td>TVA</td>
-                    <td class="money">{{ VATAmount|number_format(2, ',', ' ') }} <span class="currency">&euro;</span>
-                    </td>
+                    <td class="money">{{ VATAmount|formatmoney }}</td>
                 </tr>
 
                 {% if Deduction %}
                     <tr class="order">
                         <td>Précompte</td>
-                        <td class="money">{{ Deduction.ETAmount|number_format(2, ',', ' ') }} <span
-                                    class="currency">&euro;</span></td>
+                        <td class="money">{{ Deduction.ETAmount|formatmoney }}</td>
                     </tr>
                 {% endif %}
 
                 <tr class="order">
                     <td>Net à payer</td>
-                    <td class="money">{{ ATIAmount|number_format(2, ',', ' ') }} <span class="currency">&euro;</span>
-                    </td>
+                    <td class="money">{{ ATIAmount|formatmoney }}</td>
                 </tr>
                 </tbody>
             </table>
