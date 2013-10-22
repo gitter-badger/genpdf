@@ -28,6 +28,7 @@ class Factory {
             case "printbox-project": return new PrintboxProject();
             case "partners-order": return new PartnersOrder();
             case "order-receipt": return new OrderReceipt();
+            case "mandate": return new Mandate();
         }
         return null;
     }

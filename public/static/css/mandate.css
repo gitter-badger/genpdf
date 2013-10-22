@@ -1,0 +1,151 @@
+.bold {
+  font-family: "DIN-Bold";
+}
+.medium {
+  font-family: "DIN-Medium";
+}
+.regular {
+  font-family: "DIN-Regular";
+}
+body {
+  font-family: "DIN-Regular";
+  color: #333333;
+  font-size: 11px;
+}
+a {
+  color: #666666;
+  text-decoration: none;
+}
+#page {
+  margin: 0 auto;
+  position: relative;
+}
+h1 {
+  color: #de265a;
+  margin: 0 0 0.5em 0;
+  font-family: "DIN-Bold";
+}
+h2 {
+  margin-bottom: 0.6em;
+}
+table {
+  page-break-inside: auto;
+}
+tr {
+  page-break-inside: avoid;
+  page-break-after: auto;
+}
+td.money {
+  text-align: right;
+}
+td.number {
+  text-align: center;
+}
+dl {
+  margin: 0;
+}
+dt {
+  float: left;
+  font-family: "DIN-Bold";
+  height: 1.5em;
+}
+dd {
+  text-indent: 0.5em;
+  height: 1.5em;
+}
+span.currency {
+  font-family: Arial, "arial", "sans serif";
+  color: #666666;
+  margin-left: 0.2em;
+  font-size: 0.9em;
+}
+.mandate {
+  width: 816px;
+  border: 2px solid #000;
+}
+table {
+  width: 812px;
+  border-collapse: collapse;
+}
+table td {
+  vertical-align: top;
+  padding: 0 3px;
+}
+.inline {
+  display: inline;
+  line-height: 20px;
+}
+.block {
+  display: inline-block;
+  vertical-align: middle;
+  box-sizing: border-box;
+  height: 16px;
+  margin: 3px 0;
+  border-bottom: 1px solid #fff;
+}
+.rect {
+  display: inline-block;
+  vertical-align: middle;
+  box-sizing: border-box;
+  border: 1px solid #d67e46;
+  border-right: none;
+  width: 18px;
+  height: 20px;
+  margin: 3px 0;
+  text-align: center;
+}
+.rect.final {
+  border-right: 1px solid #d67e46;
+}
+.signature {
+  display: inline-block;
+  box-sizing: border-box;
+  border: 1px solid #d67e46;
+  height: 60px;
+  margin: 3px 0;
+  width: 300px;
+  margin-left: 100px;
+  font-weight: bold;
+  color: #994b2e;
+}
+.main-text {
+  font-size: 10px;
+}
+.requires {
+  color: #000;
+  text-align: right;
+}
+.blue {
+  color: #307099;
+}
+.orange {
+  font-weight: bold;
+  color: #994b2e;
+}
+.blank {
+  border-bottom-color: #999;
+  font-weight: bold;
+  text-transform: uppercase;
+  color: #307099;
+}
+.w50 {
+  width: 50px;
+}
+.w100 {
+  width: 100px;
+}
+.w200 {
+  width: 200px;
+}
+.w250 {
+  width: 250px;
+}
+.w300 {
+  width: 300px;
+}
+.w400 {
+  width: 400px;
+}
+.ml100 {
+  margin-left: 100px;
+}
