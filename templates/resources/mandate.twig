@@ -102,15 +102,15 @@
         {% set iban = Customer.IBAN ~ "" %}
 
         <div class="block w100">IBAN</div><!--
-        --><div class="rect blue">{{ iban|slice(0, 1) }}</div><!--
-        --><div class="rect blue">{{ iban|slice(1, 1) }}</div><!--
-        --><div class="rect blue">{{ iban|slice(2, 1) }}</div><!--
-        --><div class="rect blue final">{{ iban|slice(3, 1) }}</div>
+        --><div class="rect">{{ iban|slice(0, 1) }}</div><!--
+        --><div class="rect">{{ iban|slice(1, 1) }}</div><!--
+        --><div class="rect">{{ iban|slice(2, 1) }}</div><!--
+        --><div class="rect final">{{ iban|slice(3, 1) }}</div>
 
-        <div class="rect blue">{{ iban|slice(4, 1) }}</div><!--
-        --><div class="rect blue">{{ iban|slice(5, 1) }}</div><!--
-        --><div class="rect blue">{{ iban|slice(6, 1) }}</div><!--
-        --><div class="rect blue final">{{ iban|slice(7, 1) }}</div>
+        <div class="rect">{{ iban|slice(4, 1) }}</div><!--
+        --><div class="rect">{{ iban|slice(5, 1) }}</div><!--
+        --><div class="rect">{{ iban|slice(6, 1) }}</div><!--
+        --><div class="rect final">{{ iban|slice(7, 1) }}</div>
 
         <div class="rect">{{ iban|slice(8, 1) }}</div><!--
         --><div class="rect">{{ iban|slice(9, 1) }}</div><!--
@@ -172,7 +172,7 @@
                     <div class="signature">Signature :</div>
                 </td>
                 <td class="second">
-                    <div class="block w100">Paiement :</div>
+                    <div class="block w50">Paiement :</div>
 
                     <div class="rect blue final">&nbsp;</div>
                     <div class="block w100">Récurrent/Répétitif</div>
@@ -182,7 +182,7 @@
 
                     <br />
 
-                    <div class="block w100">Le :</div><!--
+                    <div class="block w50">Le :</div><!--
                     --><div class="rect">2</div><!--
                     --><div class="rect">0</div><!--
                     --><div class="rect">1</div><!--
