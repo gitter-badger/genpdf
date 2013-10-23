@@ -65,7 +65,7 @@ class Mandate implements IResource
      */
     public function getHeader()
     {
-        return Helper::$current . "/header.html";
+        return "footer.empty.html";
     }
 
     /**
@@ -73,7 +73,7 @@ class Mandate implements IResource
      */
     public function getFooter()
     {
-        return Helper::$current . "/footer.html";
+        return "footer.empty.html";
     }
 
 }
