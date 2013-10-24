@@ -20,12 +20,14 @@
         <table>
             <tr>
                 <td class="sepa center w100">
-                    {{ "SEPA Direct Debit Mandate"|trans }}
+                    {% trans "Mandat de prelevement SEPA" %}<br />
                     <img src="/static/assets/logos/sepa.jpeg" width="100px" />
                 </td>
                 <td class="main-text">
-                    <div class="bottom-space">{% trans "Terms Of Service 1" %}</div>
-                    <div>{% trans "Terms Of Service 2" %}</div>
+                    <div class="bottom-space">
+                        {{ ("En signant ce formulaire"|trans)|replace({'{NOM DU CREANCIER}': Company.Name}) }}
+                    </div>
+                    <div>{% trans "Vous beneficiez dun droit" %}</div>
                 </td>
                 <td class="logo w100">
                     <img src="/static/assets/logos/exaprint.png" width="100px" />
@@ -35,40 +37,40 @@
         <table>
             <tr>
                 <td>
-                    <div class="inline">Référence unique du mandat :</div>
+                    <div class="inline">{% trans "Reference unique du mandat" %} :</div>
                     <div class="inline">{{ Customer.VATId }}</div>
 
                     <br />
 
-                    <div class="inline orange">Débiteur :</div>
+                    <div class="inline orange">{% trans "Debiteur" %} :</div>
 
                     <br />
 
-                    <div class="block w100">Votre Nom</div><!--
+                    <div class="block w100">{% trans "Votre Nom" %}</div><!--
                     --><div class="block blank w300">{{ Customer.CompanyName }}</div>
 
                     <br />
 
-                    <div class="block w100">Votre Adresse</div><!--
+                    <div class="block w100">{% trans "Votre Adresse" %}</div><!--
                     --><div class="block blank w300">{{ Customer.Adress1 }}</div><br />
                     <div class="block blank w300 ml100"></div><br />
                     <div class="block blank w300 ml100"></div>
 
                     <br />
 
-                    <div class="block w100">Code postal</div><!--
+                    <div class="block w100">{% trans "Code postal" %}</div><!--
                     --><div class="block blank w50">{{ Customer.PostalCode }}</div><!--
-                    --><div class="block center w50">Ville</div><!--
+                    --><div class="block center w50">{% trans "Ville" %}</div><!--
                     --><div class="block blank w200">{{ Customer.City }}</div>
 
                     <br />
 
-                    <div class="block w100">Pays</div><!--
+                    <div class="block w100">{% trans "Pays" %}</div><!--
                     --><div class="block blank w300">{{ Customer.Country }}</div>
 
                     <br />
 
-                    <div class="block w100">SIRET</div>
+                    <div class="block w100">{% trans "SIRET" %}</div>
                     {% set siret = Customer.Siret ~ "" %}
                     <div class="block blue"><!--
                     --><div class="rect">{{ siret|slice(0, 1) }}</div><!--
@@ -89,7 +91,7 @@
 
                     <br />
 
-                    <div class="block w100">Banque</div><!--
+                    <div class="block w100">{% trans "Banque" %}</div><!--
                     --><div class="block blank blue w300">
                         {{ Customer.BankName }}
                         {% if Customer.BankCity %}
@@ -98,12 +100,12 @@
                     </div>
                 </td>
                 <td class="second">
-                    <div class="inline">Identifiant créancier SEPA :</div>
+                    <div class="inline">{% trans "Identifiant creancier SEPA" %} :</div>
                     <div class="inline">{{ Company.SepaId }}</div>
 
                     <br />
 
-                    <div class="inline orange">Créancier :</div>
+                    <div class="inline orange">{% trans "Creancier" %} :</div>
 
                     <br />
 
@@ -132,7 +134,7 @@
 
             {% set iban = Customer.IBAN ~ "" %}
 
-            <div class="block w100">IBAN</div><!--
+            <div class="block w100">{% trans "IBAN" %}</div><!--
             --><div class="rect">{{ iban|slice(0, 1) }}</div><!--
             --><div class="rect">{{ iban|slice(1, 1) }}</div><!--
             --><div class="rect">{{ iban|slice(2, 1) }}</div><!--
@@ -182,7 +184,7 @@
 
                     {% set bic = Customer.BIC ~ "" %}
 
-                        <div class="block w100">BIC</div><!--
+                        <div class="block w100">{% trans "BIC" %}</div><!--
                         --><div class="rect">{{ bic|slice(0, 1) }}</div><!--
                         --><div class="rect">{{ bic|slice(1, 1) }}</div><!--
                         --><div class="rect">{{ bic|slice(2, 1) }}</div><!--
@@ -197,24 +199,24 @@
 
                     </div>
 
-                    <div class="block w100">A :</div><!--
+                    <div class="block w100">{% trans "A" %} :</div><!--
                     --><div class="block blank w300">{{ Customer.City }}</div>
 
                     <br />
 
-                    <div class="signature">Signature  du gérant :</div>
+                    <div class="signature">{% trans "Signature du gerant" %} :</div>
                 </td>
                 <td class="second">
-                    <div class="block">Paiement :</div>
+                    <div class="block">{% trans "Paiement" %} :</div>
 
                     <div class="rect final">X</div>
-                    <div class="block">Récurrent/Répétitif</div>
+                    <div class="block">{% trans "Recurrent/Repetitif" %}</div>
 
                     <br />
 
                     {% set date = "now"|date("dmY") %}
 
-                    <div class="block">Le :</div>
+                    <div class="block">{% trans "Le" %} :</div>
                     <div class="rect">{{ date|slice(0, 1) }}</div><!--
                     --><div class="rect">{{ date|slice(1, 1) }}</div><!--
                     --><div class="rect">{{ date|slice(2, 1) }}</div><!--
@@ -226,15 +228,15 @@
 
                     <br />
 
-                    <div>Note : Vos droits concernant le présent mandat sont expliqués dans un document que vous pouvez obtenir auprès de votre banque.</div>
+                    <div>{% trans "Note" %}</div>
 
                     <br />
 
-                    <div>Important : Joindre également un relevé d'identité bancaire (R.I.B), postal (R.I.P) ou de Caisse d'Epargne (R.I.C.E)</div>
+                    <div>{% trans "Important" %}</div>
 
                     <br /><br />
 
-                    <div class="requires">Veuillez compléter tous les champs du mandat.</div>
+                    <div class="requires">{% trans "Veuillez completer tous les champs du mandat." %}</div>
                 </td>
             </tr>
         </table>
