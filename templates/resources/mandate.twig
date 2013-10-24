@@ -21,14 +21,16 @@
             <tr>
                 <td class="sepa center w100">
                     {% trans "Mandat de prevelevement SEPA" %}
+                    <img src="/static/assets/logos/sepa.jpeg" width="100px" />
                 </td>
                 <td class="main-text">
-                    <div class="bottom-space">En signant ce formulaire de mandat, vous autorisez (A) <span class="inline blue">{{ Company.Name }}</span></div>
-                    <div class="bottom-space">à envoyer des instructions à votre banque pour débiter votre compte, et (B)  votre banque à débiter votre compte conformément aux instructions de <span class="inline blue">{{ Company.Name }}</span></div>
-                    <div>Vous bénéficiez du droit d'être remboursépar votre banque suivant les conditions décrites dans la convention que vous avez passée avec elle. Une demande de remboursement doit être présentée dans les 8 semaines suivant la date de débit de votre compte pour un prélévement autorisé.</div>
+                    <div class="bottom-space">En signant ce formulaire de mandat, vous autorisez :</div>
+                    <div class="bottom-space">(A) {{ Company.Name }} à envoyer des instructions à votre banque pour débiter votre compte, et</div>
+                    <div class="bottom-space">(B) votre banque à débiter votre compte conformément aux instructions de {{ Company.Name }}</div>
+                    <div>Vous bénéficiez du droit d'être remboursé par votre banque suivant les conditions décrites dans la convention que vous avez passée avec elle. Une demande de remboursement doit être présentée dans les 8 semaines suivant la date de débit de votre compte pour un prélévement autorisé.</div>
                 </td>
                 <td class="logo w100">
-                    Nom/logo du créancier
+                    <img src="/static/assets/logos/exaprint.png" width="100px" />
                 </td>
             </tr>
         </table>
@@ -36,7 +38,7 @@
             <tr>
                 <td>
                     <div class="inline">Référence unique du mandat :</div>
-                    <div class="inline blue">{{ Customer.VATId }}</div>
+                    <div class="inline">{{ Customer.VATId }}</div>
 
                     <br />
 
@@ -65,10 +67,41 @@
 
                     <div class="block w100">Pays</div><!--
                     --><div class="block blank w300">{{ Customer.Country }}</div>
+
+                    <br />
+
+                    <div class="block w100">SIRET</div>
+                    {% set siret = Customer.Siret ~ "" %}
+                    <div class="block blue"><!--
+                    --><div class="rect">{{ siret|slice(0, 1) }}</div><!--
+                    --><div class="rect">{{ siret|slice(1, 1) }}</div><!--
+                    --><div class="rect">{{ siret|slice(2, 1) }}</div><!--
+                    --><div class="rect">{{ siret|slice(3, 1) }}</div><!--
+                    --><div class="rect">{{ siret|slice(4, 1) }}</div><!--
+                    --><div class="rect">{{ siret|slice(5, 1) }}</div><!--
+                    --><div class="rect">{{ siret|slice(6, 1) }}</div><!--
+                    --><div class="rect">{{ siret|slice(7, 1) }}</div><!--
+                    --><div class="rect">{{ siret|slice(8, 1) }}</div><!--
+                    --><div class="rect">{{ siret|slice(9, 1) }}</div><!--
+                    --><div class="rect">{{ siret|slice(10, 1) }}</div><!--
+                    --><div class="rect">{{ siret|slice(11, 1) }}</div><!--
+                    --><div class="rect">{{ siret|slice(12, 1) }}</div><!--
+                    --><div class="rect final">{{ siret|slice(13, 1) }}</div>
+                    </div>
+
+                    <br />
+
+                    <div class="block w100">Banque</div><!--
+                    --><div class="block blank blue w300">
+                        {{ Customer.BankName }}
+                        {% if Customer.BankCity %}
+                             ({{ Customer.BankCity }})
+                        {% endif %}
+                    </div>
                 </td>
                 <td class="second">
                     <div class="inline">Identifiant créancier SEPA :</div>
-                    <div class="inline blue">{{ Company.SepaId }}</div>
+                    <div class="inline">{{ Company.SepaId }}</div>
 
                     <br />
 
@@ -76,125 +109,130 @@
 
                     <br />
 
-                    <div class="block blue w100">{{ Company.Name }}</div>
+                    <div class="block w100">{{ Company.Name }}</div>
 
                     <br />
 
-                    <div class="block blue w300">{{ Company.Adress1 }}</div><br /><!--
-                    --><div class="block blue w300">{{ Company.Adress2 }}</div><br /><!--
-                    --><div class="block blue w300">{{ Company.Adress3 }}</div>
+                    <div class="block w300">{{ Company.Adress1 }}</div><br /><!--
+                    --><div class="block w300">{{ Company.Adress2 }}</div><br /><!--
+                    --><div class="block w300">{{ Company.Adress3 }}</div>
 
                     <br />
 
-                    <div class="block blue w100">{{ Company.PostalCode }}</div><!--
+                    <div class="block w100">{{ Company.PostalCode }}</div><!--
                     --><div class="block w50"></div><!--
-                    --><div class="block blue center w50">{{ Company.City }}</div>
+                    --><div class="block center w50">{{ Company.City }}</div>
 
                     <br />
 
-                    <div class="block blue w200">{{ Company.Country }}</div>
+                    <div class="block w200">{{ Company.Country }}</div>
                 </td>
             </tr>
         </table>
 
-        <br />
+        <div class="blue">
 
-        {% set iban = Customer.IBAN ~ "" %}
+            {% set iban = Customer.IBAN ~ "" %}
 
-        <div class="block w100">IBAN</div><!--
-        --><div class="rect">{{ iban|slice(0, 1) }}</div><!--
-        --><div class="rect">{{ iban|slice(1, 1) }}</div><!--
-        --><div class="rect">{{ iban|slice(2, 1) }}</div><!--
-        --><div class="rect final">{{ iban|slice(3, 1) }}</div>
+            <div class="block w100">IBAN</div><!--
+            --><div class="rect">{{ iban|slice(0, 1) }}</div><!--
+            --><div class="rect">{{ iban|slice(1, 1) }}</div><!--
+            --><div class="rect">{{ iban|slice(2, 1) }}</div><!--
+            --><div class="rect final">{{ iban|slice(3, 1) }}</div>
 
-        <div class="rect">{{ iban|slice(4, 1) }}</div><!--
-        --><div class="rect">{{ iban|slice(5, 1) }}</div><!--
-        --><div class="rect">{{ iban|slice(6, 1) }}</div><!--
-        --><div class="rect final">{{ iban|slice(7, 1) }}</div>
+            <div class="rect">{{ iban|slice(4, 1) }}</div><!--
+            --><div class="rect">{{ iban|slice(5, 1) }}</div><!--
+            --><div class="rect">{{ iban|slice(6, 1) }}</div><!--
+            --><div class="rect final">{{ iban|slice(7, 1) }}</div>
 
-        <div class="rect">{{ iban|slice(8, 1) }}</div><!--
-        --><div class="rect">{{ iban|slice(9, 1) }}</div><!--
-        --><div class="rect">{{ iban|slice(10, 1) }}</div><!--
-        --><div class="rect final">{{ iban|slice(11, 1) }}</div>
+            <div class="rect">{{ iban|slice(8, 1) }}</div><!--
+            --><div class="rect">{{ iban|slice(9, 1) }}</div><!--
+            --><div class="rect">{{ iban|slice(10, 1) }}</div><!--
+            --><div class="rect final">{{ iban|slice(11, 1) }}</div>
 
-        <div class="rect">{{ iban|slice(12, 1) }}</div><!--
-        --><div class="rect">{{ iban|slice(13, 1) }}</div><!--
-        --><div class="rect">{{ iban|slice(14, 1) }}</div><!--
-        --><div class="rect final">{{ iban|slice(15, 1) }}</div>
+            <div class="rect">{{ iban|slice(12, 1) }}</div><!--
+            --><div class="rect">{{ iban|slice(13, 1) }}</div><!--
+            --><div class="rect">{{ iban|slice(14, 1) }}</div><!--
+            --><div class="rect final">{{ iban|slice(15, 1) }}</div>
 
-        <div class="rect">{{ iban|slice(16, 1) }}</div><!--
-        --><div class="rect">{{ iban|slice(17, 1) }}</div><!--
-        --><div class="rect">{{ iban|slice(18, 1) }}</div><!--
-        --><div class="rect final">{{ iban|slice(19, 1) }}</div>
+            <div class="rect">{{ iban|slice(16, 1) }}</div><!--
+            --><div class="rect">{{ iban|slice(17, 1) }}</div><!--
+            --><div class="rect">{{ iban|slice(18, 1) }}</div><!--
+            --><div class="rect final">{{ iban|slice(19, 1) }}</div>
 
-        <div class="rect">{{ iban|slice(20, 1) }}</div><!--
-        --><div class="rect">{{ iban|slice(21, 1) }}</div><!--
-        --><div class="rect">{{ iban|slice(22, 1) }}</div><!--
-        --><div class="rect final">{{ iban|slice(23, 1) }}</div>
+            <div class="rect">{{ iban|slice(20, 1) }}</div><!--
+            --><div class="rect">{{ iban|slice(21, 1) }}</div><!--
+            --><div class="rect">{{ iban|slice(22, 1) }}</div><!--
+            --><div class="rect final">{{ iban|slice(23, 1) }}</div>
 
-        <div class="rect">{{ iban|slice(24, 1) }}</div><!--
-        --><div class="rect">{{ iban|slice(25, 1) }}</div><!--
-        --><div class="rect">{{ iban|slice(26, 1) }}</div><!--
-        --><div class="rect final">{{ iban|slice(27, 1) }}</div>
+            <div class="rect">{{ iban|slice(24, 1) }}</div><!--
+            --><div class="rect">{{ iban|slice(25, 1) }}</div><!--
+            --><div class="rect">{{ iban|slice(26, 1) }}</div><!--
+            --><div class="rect final">{{ iban|slice(27, 1) }}</div>
 
-        <div class="rect">{{ iban|slice(28, 1) }}</div><!--
-        --><div class="rect">{{ iban|slice(29, 1) }}</div><!--
-        --><div class="rect final">{{ iban|slice(30, 1) }}</div>
+            <div class="rect">{{ iban|slice(28, 1) }}</div><!--
+            --><div class="rect">{{ iban|slice(29, 1) }}</div><!--
+            --><div class="rect final">{{ iban|slice(30, 1) }}</div>
 
-        <br />
+        </div>
 
         <table>
             <tr>
                 <td>
 
+                    <div class="blue">
+
                     {% set bic = Customer.BIC ~ "" %}
 
-                    <div class="block w100">BIC</div><!--
-                    --><div class="rect">{{ bic|slice(0, 1) }}</div><!--
-                    --><div class="rect">{{ bic|slice(1, 1) }}</div><!--
-                    --><div class="rect">{{ bic|slice(2, 1) }}</div><!--
-                    --><div class="rect">{{ bic|slice(3, 1) }}</div><!--
-                    --><div class="rect">{{ bic|slice(4, 1) }}</div><!--
-                    --><div class="rect">{{ bic|slice(5, 1) }}</div><!--
-                    --><div class="rect">{{ bic|slice(6, 1) }}</div><!--
-                    --><div class="rect">{{ bic|slice(7, 1) }}</div><!--
-                    --><div class="rect">{{ bic|slice(8, 1) }}</div><!--
-                    --><div class="rect">{{ bic|slice(9, 1) }}</div><!--
-                    --><div class="rect final">{{ bic|slice(10, 1) }}</div>
+                        <div class="block w100">BIC</div><!--
+                        --><div class="rect">{{ bic|slice(0, 1) }}</div><!--
+                        --><div class="rect">{{ bic|slice(1, 1) }}</div><!--
+                        --><div class="rect">{{ bic|slice(2, 1) }}</div><!--
+                        --><div class="rect">{{ bic|slice(3, 1) }}</div><!--
+                        --><div class="rect">{{ bic|slice(4, 1) }}</div><!--
+                        --><div class="rect">{{ bic|slice(5, 1) }}</div><!--
+                        --><div class="rect">{{ bic|slice(6, 1) }}</div><!--
+                        --><div class="rect">{{ bic|slice(7, 1) }}</div><!--
+                        --><div class="rect">{{ bic|slice(8, 1) }}</div><!--
+                        --><div class="rect">{{ bic|slice(9, 1) }}</div><!--
+                        --><div class="rect final">{{ bic|slice(10, 1) }}</div>
 
-                    <br />
+                    </div>
 
                     <div class="block w100">A :</div><!--
-                    --><div class="block blank w300">{{ Customer.Country }}</div>
+                    --><div class="block blank w300">{{ Customer.City }}</div>
 
                     <br />
 
-                    <div class="signature">Signature :</div>
+                    <div class="signature">Signature  du gérant :</div>
                 </td>
                 <td class="second">
                     <div class="block">Paiement :</div>
 
-                    <div class="rect blue final">&nbsp;</div>
+                    <div class="rect final">X</div>
                     <div class="block">Récurrent/Répétitif</div>
 
-                    <div class="rect blue final">X</div>
-                    <div class="block">Ponctuel</div>
-
                     <br />
+
+                    {% set date = "now"|date("dmY") %}
 
                     <div class="block">Le :</div>
-                    <div class="rect">2</div><!--
-                    --><div class="rect">0</div><!--
-                    --><div class="rect">1</div><!--
-                    --><div class="rect">3</div><!--
-                    --><div class="rect">1</div><!--
-                    --><div class="rect">0</div><!--
-                    --><div class="rect">0</div><!--
-                    --><div class="rect final">8</div>
+                    <div class="rect">{{ date|slice(0, 1) }}</div><!--
+                    --><div class="rect">{{ date|slice(1, 1) }}</div><!--
+                    --><div class="rect">{{ date|slice(2, 1) }}</div><!--
+                    --><div class="rect">{{ date|slice(3, 1) }}</div><!--
+                    --><div class="rect">{{ date|slice(4, 1) }}</div><!--
+                    --><div class="rect">{{ date|slice(5, 1) }}</div><!--
+                    --><div class="rect">{{ date|slice(6, 1) }}</div><!--
+                    --><div class="rect final">{{ date|slice(7, 1) }}</div>
 
                     <br />
 
-                    Note : Vos droits concernant le présent mandat sont expliqués dans un document que vous pouvez obtenir auprès de votre banque.
+                    <div>Note : Vos droits concernant le présent mandat sont expliqués dans un document que vous pouvez obtenir auprès de votre banque.</div>
+
+                    <br />
+
+                    <div>Important : Joindre également un relevé d'identité bancaire (R.I.B), postal (R.I.P) ou de Caisse d'Epargne (R.I.C.E)</div>
 
                     <br /><br />
 
