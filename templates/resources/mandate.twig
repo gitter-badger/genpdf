@@ -130,11 +130,10 @@
             </tr>
         </table>
 
-        <div class="blue">
+        {% set iban = Customer.IBAN ~ "" %}
 
-            {% set iban = Customer.IBAN ~ "" %}
-
-            <div class="block w100">{% trans "IBAN" %}</div><!--
+        <div class="block w100">{% trans "IBAN" %}</div><!--
+        --><div class="block blue"><!--
             --><div class="rect">{{ iban|slice(0, 1) }}</div><!--
             --><div class="rect">{{ iban|slice(1, 1) }}</div><!--
             --><div class="rect">{{ iban|slice(2, 1) }}</div><!--
@@ -173,18 +172,16 @@
             <div class="rect">{{ iban|slice(28, 1) }}</div><!--
             --><div class="rect">{{ iban|slice(29, 1) }}</div><!--
             --><div class="rect final">{{ iban|slice(30, 1) }}</div>
-
         </div>
 
         <table>
             <tr>
                 <td>
 
-                    <div class="blue">
-
                     {% set bic = Customer.BIC ~ "" %}
 
-                        <div class="block w100">{% trans "BIC" %}</div><!--
+                    <div class="block w100">{% trans "BIC" %}</div><!--
+                    --><div class="block blue"><!--
                         --><div class="rect">{{ bic|slice(0, 1) }}</div><!--
                         --><div class="rect">{{ bic|slice(1, 1) }}</div><!--
                         --><div class="rect">{{ bic|slice(2, 1) }}</div><!--
@@ -196,8 +193,9 @@
                         --><div class="rect">{{ bic|slice(8, 1) }}</div><!--
                         --><div class="rect">{{ bic|slice(9, 1) }}</div><!--
                         --><div class="rect final">{{ bic|slice(10, 1) }}</div>
-
                     </div>
+
+                    <br />
 
                     <div class="block w100">{% trans "A" %} :</div><!--
                     --><div class="block blank w300">{{ Customer.City }}</div>
@@ -228,13 +226,9 @@
 
                     <br />
 
-                    <div>{% trans "Note" %}</div>
+                    <div class="bottom-space">{% trans "Note" %}</div>
 
-                    <br />
-
-                    <div>{% trans "Important" %}</div>
-
-                    <br /><br />
+                    <div class="bottom-space">{% trans "Important" %}</div>
 
                     <div class="requires">{% trans "Veuillez completer tous les champs du mandat." %}</div>
                 </td>
