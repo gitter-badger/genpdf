@@ -20,14 +20,12 @@
         <table>
             <tr>
                 <td class="sepa center w100">
-                    {% trans "Mandat de prevelevement SEPA" %}
+                    {{ "SEPA Direct Debit Mandate"|trans }}
                     <img src="/static/assets/logos/sepa.jpeg" width="100px" />
                 </td>
                 <td class="main-text">
-                    <div class="bottom-space">En signant ce formulaire de mandat, vous autorisez :</div>
-                    <div class="bottom-space">(A) {{ Company.Name }} à envoyer des instructions à votre banque pour débiter votre compte, et</div>
-                    <div class="bottom-space">(B) votre banque à débiter votre compte conformément aux instructions de {{ Company.Name }}</div>
-                    <div>Vous bénéficiez du droit d'être remboursé par votre banque suivant les conditions décrites dans la convention que vous avez passée avec elle. Une demande de remboursement doit être présentée dans les 8 semaines suivant la date de débit de votre compte pour un prélévement autorisé.</div>
+                    <div class="bottom-space">{% trans "Terms Of Service 1" %}</div>
+                    <div>{% trans "Terms Of Service 2" %}</div>
                 </td>
                 <td class="logo w100">
                     <img src="/static/assets/logos/exaprint.png" width="100px" />
