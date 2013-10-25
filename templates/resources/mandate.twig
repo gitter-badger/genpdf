@@ -207,22 +207,26 @@
                 <td class="second">
                     <div class="block">{% trans "Paiement" %} :</div>
 
-                    <div class="rect final">X</div>
-                    <div class="block">{% trans "Recurrent/Repetitif" %}</div>
+                    <div class="block">
+                        <div class="rect final">X</div>
+                        <div class="block">{% trans "Recurrent/Repetitif" %}</div>
+                    </div>
 
                     <br />
 
                     {% set date = "now"|date("dmY") %}
 
                     <div class="block">{% trans "Le" %} :</div>
-                    <div class="rect">{{ date|slice(0, 1) }}</div><!--
-                    --><div class="rect">{{ date|slice(1, 1) }}</div><!--
-                    --><div class="rect">{{ date|slice(2, 1) }}</div><!--
-                    --><div class="rect">{{ date|slice(3, 1) }}</div><!--
-                    --><div class="rect">{{ date|slice(4, 1) }}</div><!--
-                    --><div class="rect">{{ date|slice(5, 1) }}</div><!--
-                    --><div class="rect">{{ date|slice(6, 1) }}</div><!--
-                    --><div class="rect final">{{ date|slice(7, 1) }}</div>
+                    <div class="block">
+                        <div class="rect">{{ date|slice(0, 1) }}</div><!--
+                        --><div class="rect">{{ date|slice(1, 1) }}</div><!--
+                        --><div class="rect">{{ date|slice(2, 1) }}</div><!--
+                        --><div class="rect">{{ date|slice(3, 1) }}</div><!--
+                        --><div class="rect">{{ date|slice(4, 1) }}</div><!--
+                        --><div class="rect">{{ date|slice(5, 1) }}</div><!--
+                        --><div class="rect">{{ date|slice(6, 1) }}</div><!--
+                        --><div class="rect final">{{ date|slice(7, 1) }}</div>
+                    </div>
 
                     <br />
 
