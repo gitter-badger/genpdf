@@ -27,8 +27,11 @@ class Mandate implements IResource
      */
     public function fetchFromID($id)
     {
+        $id = explode('-', $id);
+        $IDClient = $id[0];
+
         $dao = new DAO\Mandate();
-        if ($xml = $dao->getXML($id)) {
+        if ($xml = $dao->getXML($IDClient)) {
             $this->_xml  = $xml;
             $this->_data = (array)$xml;
             return true;
