@@ -38,7 +38,7 @@
             <tr>
                 <td>
                     <div class="inline">{% trans "Reference unique du mandat" %} :</div>
-                    <div class="inline">{{ Customer.VATId }}</div>
+                    <div class="inline">{{ Customer.MandateReference }}</div>
 
                     <br />
 
@@ -209,8 +209,9 @@
 
                     <div class="block">
                         <div class="rect final">X</div>
-                        <div class="block">{% trans "Recurrent/Repetitif" %}</div>
                     </div>
+
+                    <div class="block">{% trans "Recurrent/Repetitif" %}</div>
 
                     <br />
 
