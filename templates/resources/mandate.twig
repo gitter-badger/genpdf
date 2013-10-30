@@ -70,6 +70,7 @@
 
                     <br />
 
+                    {% block siret %}
                     <div class="block w100">{% trans "SIRET" %}</div>
                     {% set siret = Customer.Siret ~ "" %}
                     <div class="block blue"><!--
@@ -90,6 +91,7 @@
                     </div>
 
                     <br />
+                    {% endblock %}
 
                     <div class="block w100">{% trans "Banque" %}</div><!--
                     --><div class="block blank blue w300">
@@ -126,6 +128,17 @@
                     <br />
 
                     <div class="block w200">{{ Company.Country }}</div>
+
+                    <br />
+
+                    {% if Company.Siren %}
+                    {% block siren %}
+                    <div class="block w200">
+                        {% trans "Siren" %}
+                        {{ Company.Siren }}
+                    </div>
+                    {% endblock %}
+                    {% endif %}
                 </td>
             </tr>
         </table>
@@ -233,7 +246,9 @@
 
                     <div class="bottom-space">{% trans "Note" %}</div>
 
+                    {% block important %}
                     <div class="bottom-space">{% trans "Important" %}</div>
+                    {% endblock %}
 
                     <div class="requires">{% trans "Veuillez completer tous les champs du mandat." %}</div>
                 </td>

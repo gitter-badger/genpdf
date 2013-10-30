@@ -52,7 +52,13 @@ class Mandate implements IResource
      */
     public function getTemplateFilename()
     {
-        return "resources/mandate.twig";
+        $filename = "resources/";
+        if (\Locale\Helper::$current == 'pt_PT') {
+            $filename .= "countries/mandate.pt.twig";
+        } else {
+            $filename .= "mandate.twig";
+        }
+        return $filename;
     }
 
     /**
