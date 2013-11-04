@@ -13,12 +13,12 @@ class PrintboxInvoice extends Invoice
 
     public function getHeader()
     {
-        return "printbox/header.html";
+        return $this->_imageFolder . "printbox/header.html";
     }
 
     public function getFooter()
     {
-        return Helper::$current . "/footer.html";
+        return $this->_imageFolder . Helper::$current . "/footer.html";
     }
 
 

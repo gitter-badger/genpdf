@@ -9,7 +9,7 @@ use Locale\Helper;
 use RBM\SqlQuery\Column;
 use RBM\SqlQuery\Func;
 
-class InvoiceStatements implements IResource
+class InvoiceStatements extends Resource implements IResource
 {
     const TYPE_INVOICE = 1;
     const TYPE_CREDIT  = 2;
@@ -122,7 +122,7 @@ class InvoiceStatements implements IResource
      */
     public function getHeader()
     {
-        return Helper::$current . "/header.html";
+        return $this->_imageFolder . Helper::$current . "/header.html";
     }
 
     /**
@@ -130,7 +130,7 @@ class InvoiceStatements implements IResource
      */
     public function getFooter()
     {
-        return Helper::$current . "/footer.html";
+        return $this->_imageFolder . Helper::$current . "/footer.html";
     }
 
 

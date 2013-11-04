@@ -2,6 +2,8 @@
 
 namespace Exaprint\GenPDF\Resources;
 
+use Exaprint\DAL\DB;
+
 class PrintboxSupplierInvoice extends SupplierInvoice
 {
     public function getTemplateFilename()
@@ -14,7 +16,15 @@ class PrintboxSupplierInvoice extends SupplierInvoice
      */
     public function getHeader()
     {
-        return "header.empty.html";
+        $db = DB::get();
+        $query = "select * from [Sc_Front].[EXP_CLIENT_PREFERENCES] where [IDClient]='" . $this->_id . "'";
+        if ($result = $db->query($query)) {
+            $data = $result->fetch();
+            if ($data && $data->Logo) {
+                return "/mnt/nfs/Prod/Exapass/data_exapass/" . $data->Logo;
+            }
+        }
+        return $this->_imageFolder . "header.empty.html";
     }
 
     /**
@@ -22,7 +32,7 @@ class PrintboxSupplierInvoice extends SupplierInvoice
      */
     public function getFooter()
     {
-        return "footer.empty.html";
+        return $_SERVER["SERVER_NAME"] . "/static/assets/" . "footer.empty.html";
     }
 
 

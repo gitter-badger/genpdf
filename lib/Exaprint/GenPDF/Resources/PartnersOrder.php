@@ -8,7 +8,7 @@ use RBM\ResultsCombinator\ResultsCombinator;
 use Locale\Helper;
 use RBM\SqlQuery\Column;
 
-class PartnersOrder implements IResource
+class PartnersOrder extends Resource implements IResource
 {
     protected $_data;
 
@@ -83,12 +83,12 @@ class PartnersOrder implements IResource
 
     public function getHeader()
     {
-        return Helper::$current . "/header.html";
+        return $this->_imageFolder . Helper::$current . "/header.html";
     }
 
     public function getFooter()
     {
-        return Helper::$current . "/footer.html";
+        return $this->_imageFolder . Helper::$current . "/footer.html";
     }
 
 

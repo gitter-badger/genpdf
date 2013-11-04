@@ -4,7 +4,7 @@ namespace Exaprint\GenPDF\Resources;
 
 use Locale\Helper;
 
-class PrintboxProject implements IResource
+class PrintboxProject extends Resource implements IResource
 {
     protected $_data;
 
@@ -47,12 +47,12 @@ class PrintboxProject implements IResource
 
     public function getHeader()
     {
-        return "printbox/header.html";
+        return $this->_imageFolder . "printbox/header.html";
     }
 
     public function getFooter()
     {
-        return Helper::$current . "/footer.html";
+        return $this->_imageFolder . Helper::$current . "/footer.html";
     }
 
 

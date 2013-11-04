@@ -8,7 +8,7 @@
  */
 namespace Exaprint\GenPDF\Resources;
 
-class SupplierInvoice implements IResource
+class SupplierInvoice extends Resource implements IResource
 {
 
     protected $_data;
@@ -17,12 +17,20 @@ class SupplierInvoice implements IResource
      * @var \SimpleXMLElement
      */
     protected $_xml;
+
+    /**
+     * IDClient registered
+     * @var
+     */
+    protected $_id;
+
     /**
      * @param $id
      * @return bool
      */
     public function fetchFromID($id)
     {
+        $this->_id = $id;
         $dao = new DAO\SupplierInvoice();
         if ($xml = $dao->getXML($id)) {
             $this->_xml = $xml;
@@ -61,7 +69,7 @@ class SupplierInvoice implements IResource
      */
     public function getHeader()
     {
-        return "header.empty.html";
+        return $this->_imageFolder . "header.empty.html";
     }
 
     /**
@@ -69,7 +77,7 @@ class SupplierInvoice implements IResource
      */
     public function getFooter()
     {
-        return "footer.empty.html";
+        return $this->_imageFolder . "footer.empty.html";
     }
 
 
