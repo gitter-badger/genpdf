@@ -32,7 +32,7 @@ class PrintboxSupplierInvoice extends SupplierInvoice
      */
     public function getFooter()
     {
-        return $_SERVER["SERVER_NAME"] . "/static/assets/" . "footer.empty.html";
+        return $this->_imageFolder . "footer.empty.html";
     }
 
 

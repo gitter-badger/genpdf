@@ -13,7 +13,7 @@ class Resource {
 
     protected $_imageFolder;
 
-    function __construtor() {
+    function __construct() {
         $this->_imageFolder = $_SERVER["SERVER_NAME"] . "/static/assets/";
     }
 
