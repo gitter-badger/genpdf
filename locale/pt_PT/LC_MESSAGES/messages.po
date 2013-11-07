@@ -1,8 +1,8 @@
 msgid ""
 msgstr ""
 "Project-Id-Version: genPDF\n"
-"POT-Creation-Date: 2013-10-30 09:12+0100\n"
-"PO-Revision-Date: 2013-10-30 09:21+0100\n"
+"POT-Creation-Date: 2013-11-07 11:57+0100\n"
+"PO-Revision-Date: 2013-11-07 11:57+0100\n"
 "Last-Translator: \n"
 "Language-Team: Exaprint <romain@exaprint.fr>\n"
 "MIME-Version: 1.0\n"
@@ -168,179 +168,183 @@ msgid "Creancier"
 msgstr "Credor"
 
 #: ../../../cache/twig_gettext_keys.php:38
+msgid "Siren"
+msgstr ""
+
+#: ../../../cache/twig_gettext_keys.php:39
 msgid "IBAN"
 msgstr "IBAN"
 
-#: ../../../cache/twig_gettext_keys.php:39
+#: ../../../cache/twig_gettext_keys.php:40
 msgid "BIC"
 msgstr "BIC"
 
-#: ../../../cache/twig_gettext_keys.php:40
+#: ../../../cache/twig_gettext_keys.php:41
 msgid "A"
 msgstr "A"
 
-#: ../../../cache/twig_gettext_keys.php:41
+#: ../../../cache/twig_gettext_keys.php:42
 msgid "Signature du gerant"
 msgstr "Assinatura"
 
-#: ../../../cache/twig_gettext_keys.php:42
+#: ../../../cache/twig_gettext_keys.php:43
 msgid "Paiement"
 msgstr "Pagamento"
 
-#: ../../../cache/twig_gettext_keys.php:43
+#: ../../../cache/twig_gettext_keys.php:44
 msgid "Recurrent/Repetitif"
 msgstr "Recorrente"
 
-#: ../../../cache/twig_gettext_keys.php:44
+#: ../../../cache/twig_gettext_keys.php:45
 msgid "Le"
 msgstr "O"
 
-#: ../../../cache/twig_gettext_keys.php:45
+#: ../../../cache/twig_gettext_keys.php:46
 msgid "Note"
 msgstr ""
 "Nota: Os seus direitos, referentes à autorização acima referida, são "
 "explicados em declaração que pode obter no seu Banco."
 
-#: ../../../cache/twig_gettext_keys.php:46
+#: ../../../cache/twig_gettext_keys.php:47
 msgid "Important"
 msgstr ""
 
-#: ../../../cache/twig_gettext_keys.php:47
+#: ../../../cache/twig_gettext_keys.php:48
 msgid "Veuillez completer tous les champs du mandat."
 msgstr "Preencha por favor todos os campos assinalados."
 
-#: ../../../cache/twig_gettext_keys.php:48
+#: ../../../cache/twig_gettext_keys.php:49
 #, fuzzy
 msgid "Accuse de reception de commande"
 msgstr "Referência"
 
-#: ../../../cache/twig_gettext_keys.php:49
+#: ../../../cache/twig_gettext_keys.php:50
 msgid "Livraison"
 msgstr ""
 
-#: ../../../cache/twig_gettext_keys.php:50
+#: ../../../cache/twig_gettext_keys.php:51
 msgid "Client"
 msgstr ""
 
-#: ../../../cache/twig_gettext_keys.php:51
+#: ../../../cache/twig_gettext_keys.php:52
 msgid "Raison Sociale"
 msgstr "Raison Sociale"
 
-#: ../../../cache/twig_gettext_keys.php:52
+#: ../../../cache/twig_gettext_keys.php:53
 msgid "Contact"
 msgstr ""
 
-#: ../../../cache/twig_gettext_keys.php:53
+#: ../../../cache/twig_gettext_keys.php:54
 msgid "Mr"
 msgstr ""
 
-#: ../../../cache/twig_gettext_keys.php:54
+#: ../../../cache/twig_gettext_keys.php:55
 msgid "Mme"
 msgstr ""
 
-#: ../../../cache/twig_gettext_keys.php:55
+#: ../../../cache/twig_gettext_keys.php:56
 msgid "Mlle"
 msgstr ""
 
-#: ../../../cache/twig_gettext_keys.php:56
+#: ../../../cache/twig_gettext_keys.php:57
 #, fuzzy
 msgid "Numero TVA"
 msgstr "N° TVA Intracom."
 
-#: ../../../cache/twig_gettext_keys.php:57
+#: ../../../cache/twig_gettext_keys.php:58
 #, fuzzy
 msgid "Produit"
 msgstr "Produit certifié"
 
-#: ../../../cache/twig_gettext_keys.php:58
+#: ../../../cache/twig_gettext_keys.php:59
 msgid "Commande"
 msgstr ""
 
-#: ../../../cache/twig_gettext_keys.php:59
+#: ../../../cache/twig_gettext_keys.php:60
 #, fuzzy
 msgid "Numero de commande"
 msgstr "Date de facture"
 
-#: ../../../cache/twig_gettext_keys.php:60
+#: ../../../cache/twig_gettext_keys.php:61
 #, fuzzy
 msgid "Numero de devis"
 msgstr "N° de facture"
 
-#: ../../../cache/twig_gettext_keys.php:61
+#: ../../../cache/twig_gettext_keys.php:62
 #, fuzzy
 msgid "Reference commande"
 msgstr "Referência"
 
-#: ../../../cache/twig_gettext_keys.php:62
+#: ../../../cache/twig_gettext_keys.php:63
 #, fuzzy
 msgid "Reference devis"
 msgstr "Referência"
 
-#: ../../../cache/twig_gettext_keys.php:63
+#: ../../../cache/twig_gettext_keys.php:64
 msgid "Date"
 msgstr ""
 
-#: ../../../cache/twig_gettext_keys.php:64
+#: ../../../cache/twig_gettext_keys.php:65
 msgid "Mode de reglement"
 msgstr "Meio de pagamento"
 
-#: ../../../cache/twig_gettext_keys.php:65
+#: ../../../cache/twig_gettext_keys.php:66
 msgid "Responsable du dossier"
 msgstr ""
 
-#: ../../../cache/twig_gettext_keys.php:66
+#: ../../../cache/twig_gettext_keys.php:67
 msgid "HT"
 msgstr ""
 
-#: ../../../cache/twig_gettext_keys.php:67
+#: ../../../cache/twig_gettext_keys.php:68
 msgid "TVA"
 msgstr ""
 
-#: ../../../cache/twig_gettext_keys.php:68
+#: ../../../cache/twig_gettext_keys.php:69
 msgid "TTC"
 msgstr ""
 
-#: ../../../cache/twig_gettext_keys.php:69
+#: ../../../cache/twig_gettext_keys.php:70
 msgid "Total"
 msgstr ""
 
-#: ../../../cache/twig_gettext_keys.php:70
+#: ../../../cache/twig_gettext_keys.php:71
 msgid "Solde"
 msgstr ""
 
-#: ../../../cache/twig_gettext_keys.php:71
+#: ../../../cache/twig_gettext_keys.php:72
 msgid "Devis des commandes partenaires"
 msgstr ""
 
-#: ../../../cache/twig_gettext_keys.php:72
+#: ../../../cache/twig_gettext_keys.php:73
 msgid "Email"
 msgstr "Email"
 
-#: ../../../cache/twig_gettext_keys.php:73
+#: ../../../cache/twig_gettext_keys.php:74
 msgid "Conception et fabrication de : "
 msgstr ""
 
-#: ../../../cache/twig_gettext_keys.php:74
+#: ../../../cache/twig_gettext_keys.php:75
 msgid "Tous droits reserves"
 msgstr ""
 
-#: ../../../cache/twig_gettext_keys.php:75
+#: ../../../cache/twig_gettext_keys.php:76
 msgid "Dossier suivi par"
 msgstr ""
 
-#: ../../../cache/twig_gettext_keys.php:76
+#: ../../../cache/twig_gettext_keys.php:77
 msgid "Projet de commande Printbox"
 msgstr "Projet de commande Printbox"
 
-#: ../../../cache/twig_gettext_keys.php:77
+#: ../../../cache/twig_gettext_keys.php:78
 msgid "Printboxer"
 msgstr "Printboxer"
 
-#: ../../../cache/twig_gettext_keys.php:78
+#: ../../../cache/twig_gettext_keys.php:79
 msgid "Client Final Printboxer"
 msgstr "Client Final"
 
-#: ../../../cache/twig_gettext_keys.php:79
+#: ../../../cache/twig_gettext_keys.php:80
 msgid "En signant ce formulaire"
 msgstr ""
 "Ao subscrever esta autorização, está a autorizar (A) (NOME DO CREDOR) a "
