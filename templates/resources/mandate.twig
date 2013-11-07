@@ -131,11 +131,11 @@
 
                     <br />
 
-                    {% if Company.Siren %}
+                    {% if Company.IdentificationNumber %}
                     {% block siren %}
                     <div class="block w200">
                         {% trans "Siren" %}
-                        {{ Company.Siren }}
+                        {{ Company.IdentificationNumber }}
                     </div>
                     {% endblock %}
                     {% endif %}
