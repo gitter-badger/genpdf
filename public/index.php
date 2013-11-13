@@ -59,10 +59,10 @@ $app->get("/:name/:id.pdf", function ($name, $id) use ($app) {
 
         $wkhtml = new \RBM\Wkhtmltopdf\Wkhtmltopdf();
 
-        $wkhtml->setHeaderHtml($_SERVER["SERVER_NAME"] . "/static/assets/" . $resource->getHeader());
+        $wkhtml->setHeaderHtml($resource->getHeader());
         $wkhtml->setMarginTop(50);
         $wkhtml->setHeaderSpacing(5);
-        $wkhtml->setFooterHtml($_SERVER["SERVER_NAME"] . "/static/assets/" . $resource->getFooter());
+        $wkhtml->setFooterHtml($resource->getFooter());
         $wkhtml->setFooterSpacing(5);
         $wkhtml->setMarginBottom(45);
 

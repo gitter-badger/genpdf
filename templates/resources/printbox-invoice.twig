@@ -50,7 +50,8 @@
                 <dd>{{ InvoiceDate|date('d/m/Y') }}</dd>
             </dl>
         {% endblock %}
-        {% block order %}
+
+        {% set printboxer = '' %}
             <div id="order">
                 <table>
                     <thead>
@@ -70,6 +71,11 @@
                     {% endfor %}
 
                     {% for i, Line in InvoiceLines %}
+
+                        {% if (printboxer == '' and Line.OrderCustomer != '') %}
+                            {% set printboxer = Line.OrderCustomer %}
+                        {% endif %}
+
                         {% if (Line.FeeTypeID != 22) %}
                         <tr class="order">
                             <td>
@@ -155,7 +161,7 @@
                     </tbody>
                 </table>
             </div>
-        {% endblock %}
+
         {% block donations %}
             {% if Donations %}
                 <div id="donations">
@@ -191,9 +197,16 @@
     </div>
     {% block footer %}
         <footer>
+            <div class="mt-5cm"></div>
             <div class="mentions">
                 {% block mentions %}
-                    <p>Aucun escompte n'est accordé pour paiement comptant.  En cas de retard, seront exigibles, conformément à l'article L-441-6 du Code de commerce, une indemnité calculée sur la base de trois fois le taux d'intérêt légal en vigueur ainsi qu'une indemnité forfaitaire de recouvrement de 40 euros.</p>
+                    <p>Aucun escompte n'est accordé pour paiement comptant. En cas de retard, seront exigibles, conformément à
+                        l'article L-441-6 du Code de commerce, une indemnité calculée sur la base de trois fois le taux d'intérêt
+                        légal en vigueur ainsi qu'une indemnité forfaitaire de recouvrement de 40 euros.</p>
+                    {% if (printboxer != '') %}
+                    <p>Tous droits réservés. L'utilisation des marges et de la création graphique est limitée à ce produit
+                        sauf accord express entre {{ Customer.CompanyName }} et {{ printboxer }}.</p>
+                    {% endif %}
                 {% endblock %}
             </div>
         </footer>
