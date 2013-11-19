@@ -64,7 +64,7 @@ $app->get("/:name/:id.pdf", function ($name, $id) use ($app) {
         $wkhtml->setHeaderSpacing(5);
         $wkhtml->setFooterHtml($resource->getFooter());
         $wkhtml->setFooterSpacing(5);
-        $wkhtml->setMarginBottom(45);
+        $wkhtml->setMarginBottom(49);
 
         $r = $wkhtml->run($_SERVER["SERVER_NAME"] . "/$name/$id.html", $filename);
 
