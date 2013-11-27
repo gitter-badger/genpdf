@@ -35,7 +35,13 @@ $app->get("/:name/:id.pdf", function ($name, $id) use ($app) {
     }
 
     // Chemin final
-    $filename = "../cache/{$name}/{$subfolder}/{$name}_{$id}_{$language}.pdf";
+    $filename = "../cache/{$name}/{$subfolder}/{$name}_{$id}";
+
+    if ($name != 'mandate') {
+        $filename .= "_{$language}";
+    }
+
+    $filename .= ".pdf";
 
     // Si un cache existe, le
     if (file_exists($filename) && !isset($_GET['nocache'])) {

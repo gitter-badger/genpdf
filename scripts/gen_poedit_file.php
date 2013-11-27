@@ -1,7 +1,7 @@
 <?php
 
 $cacheFilename = __DIR__ . "/../cache/twig_gettext_keys.php";
-$pattern = '#\{% ?trans "(.*)"#';
+$patterns = ['#\{% ?trans "(.*)"#', '#"(.*)"\|trans#'];
 
 if (file_exists($cacheFilename)) {
     unlink($cacheFilename);
@@ -13,12 +13,14 @@ $iterator = new RecursiveIteratorIterator($directory);
 $files = new RegexIterator($iterator, '/^.+\.twig$/i', RecursiveRegexIterator::GET_MATCH);
 $keys = array();
 
-foreach($files as $filename => $v){
-    echo "$filename\n";
-    $content = file_get_contents($filename);
-    preg_match_all($pattern, $content, $matches);
-    print_r($matches[1]);
-    $keys = array_merge($keys, $matches[1]);
+foreach ($patterns as $i => $pattern) {
+    foreach($files as $filename => $v){
+        echo "$filename\n";
+        $content = file_get_contents($filename);
+        preg_match_all($pattern, $content, $matches);
+        print_r($matches[1]);
+        $keys = array_merge($keys, $matches[1]);
+    }
 }
 
 $keys = array_unique($keys);

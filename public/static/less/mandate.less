@@ -1,0 +1,139 @@
+@import "./common";
+
+@height: 16px;
+@lineheight: 20px;
+
+.mandate {
+  width: 21cm;
+  border: 0.1cm solid #000;
+  padding: 0.2cm;
+  box-sizing: border-box;
+  font-family: Arial;
+}
+
+.sepa {
+  font-weight: bold;
+}
+
+.center {
+  text-align: center;
+}
+
+.bottom-space {
+  margin-bottom: 0.1cm;
+}
+
+table {
+  width: 20.4cm;
+  border-collapse: collapse;
+}
+
+table td {
+  width: 10cm;
+  vertical-align: top;
+}
+
+table td.second {
+  padding-left: 0.4cm;
+}
+
+.inline {
+  display: inline;
+  line-height: @lineheight;
+}
+
+.block {
+  display: inline-block;
+  vertical-align: middle;
+  box-sizing: border-box;
+  border-bottom: 1px solid #fff;
+  height: @height;
+  margin: 3px 0;
+}
+
+.rect {
+  display: inline-block;
+  vertical-align: middle;
+  box-sizing: border-box;
+  border: 1px solid #d67e46;
+  border-right: none;
+  width: 12px;
+  height: 12px;
+  margin-bottom: 10px;
+  padding: 3px;
+  text-align: center;
+}
+
+.rect.final {
+  border-right: 1px solid #d67e46;
+}
+
+.signature {
+  display: inline-block;
+  box-sizing: border-box;
+  border: 1px solid #d67e46;
+  height: 60px;
+  margin: 3px 0;
+  .w300;
+  .ml100;
+  .orange
+}
+
+.main-text {
+  font-size: 9px;
+}
+
+.requires {
+  color: #000;
+  text-align: right;
+  font-weight: bold;
+}
+
+.logo {
+  font-weight: bold;
+  .blue;
+  text-transform: uppercase;
+  text-align: center;
+}
+
+.blue {
+  color: #357cbc;
+}
+
+.orange {
+  color: #d67e46;
+  font-weight: bold;
+}
+
+.blank {
+  border-bottom-color: #999;
+  text-transform: uppercase;
+}
+
+.w50 {
+  width: 50px;
+}
+
+.w100 {
+  width: 100px;
+}
+
+.w200 {
+  width: 200px;
+}
+
+.w250 {
+  width: 250px;
+}
+
+.w300 {
+  width: 300px;
+}
+
+.w400 {
+  width: 400px;
+}
+
+.ml100 {
+  margin-left: 100px;
+}
