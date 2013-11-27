@@ -11,7 +11,7 @@ namespace Exaprint\GenPDF\Resources;
 
 use Locale\Helper;
 
-class Mandate implements IResource
+class Mandate extends Resource implements IResource
 {
 
     protected $_data;
@@ -74,7 +74,7 @@ class Mandate implements IResource
      */
     public function getHeader()
     {
-        return "footer.empty.html";
+        return $this->_imageFolder . "header.empty.html";
     }
 
     /**
@@ -82,7 +82,7 @@ class Mandate implements IResource
      */
     public function getFooter()
     {
-        return "footer.empty.html";
+        return $this->_imageFolder . "footer.empty.html";
     }
 
 }
