@@ -1,8 +1,8 @@
 msgid ""
 msgstr ""
 "Project-Id-Version: genPDF\n"
-"POT-Creation-Date: 2013-11-07 11:56+0100\n"
-"PO-Revision-Date: 2013-11-07 11:57+0100\n"
+"POT-Creation-Date: 2013-12-09 15:28+0100\n"
+"PO-Revision-Date: 2013-12-09 15:28+0100\n"
 "Last-Translator: \n"
 "Language-Team: Exaprint <romain@exaprint.fr>\n"
 "MIME-Version: 1.0\n"
@@ -80,7 +80,8 @@ msgid "Quantite"
 msgstr "Cantitad"
 
 #: ../../../cache/twig_gettext_keys.php:18
-msgid "Produit certifie"
+#, fuzzy
+msgid "Commande certifiee"
 msgstr "Producto certificado"
 
 #: ../../../cache/twig_gettext_keys.php:19
@@ -336,18 +337,22 @@ msgid "Dossier suivi par"
 msgstr ""
 
 #: ../../../cache/twig_gettext_keys.php:77
+msgid "Produit certifie"
+msgstr "Producto certificado"
+
+#: ../../../cache/twig_gettext_keys.php:78
 msgid "Projet de commande Printbox"
 msgstr "Projet de commande Printbox"
 
-#: ../../../cache/twig_gettext_keys.php:78
+#: ../../../cache/twig_gettext_keys.php:79
 msgid "Printboxer"
 msgstr "Printboxer"
 
-#: ../../../cache/twig_gettext_keys.php:79
+#: ../../../cache/twig_gettext_keys.php:80
 msgid "Client Final Printboxer"
 msgstr "Client Final"
 
-#: ../../../cache/twig_gettext_keys.php:80
+#: ../../../cache/twig_gettext_keys.php:81
 msgid "En signant ce formulaire"
 msgstr ""
 "Al firmar este formulario de domiciliación, usted autoriza a (A) {NOM DU "
