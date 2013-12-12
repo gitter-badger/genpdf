@@ -1,0 +1,144 @@
+{% extends "resources/base.twig" %}
+
+{% block links %}
+    <link rel="stylesheet" type="text/css" href="/static/css/reset.css"/>
+    <link rel="stylesheet" type="text/css" href="/static/css/fonts.css"/>
+    <link rel="stylesheet/less" type="text/css" href="/static/less/printbox-project.less"/>
+    <script type="text/javascript">
+        less = {
+            env: "development", // or "production"
+            async: false,       // load imports async
+            fileAsync: false   // load imports async when in a page under
+        };
+    </script>
+    <script src="/static/js/less-1.3.3.min.js" type="text/javascript"></script>
+{% endblock %}
+
+{% block page %}
+    <h1>{% trans "Printbox RC" %}</h1>
+
+    <div id="printboxer">
+        <h2>{% trans "Printboxer" %}</h2>
+        <dl class="details">
+            <dt>{% trans "Raison Sociale" %}</dt>
+            <dd>{{ pboxer.company_name }}</dd>
+            <dt>{% trans "Email" %}</dt>
+            <dd>{{ pboxer.email }}</dd>
+        </dl>
+        <address>
+            {{ pboxer.address.line1 }}<br/>
+            {% if (pboxer.address.line2 != '') %}
+                {{ pboxer.address.line2 }}<br/>
+            {% endif %}
+            {% if (pboxer.address.line3 != '') %}
+                {{ pboxer.address.line3 }}<br/>
+            {% endif %}
+            {{ pboxer.address.postcode }} {{ pboxer.address.city }}
+        </address>
+    </div>
+    <div id="client">
+        <h2>{% trans "Client Final Printboxer" %}</h2>
+        <dl class="details">
+            <dt>{% trans "Raison Sociale" %}</dt>
+            <dd>{{ client.company_name }}</dd>
+            <dt>{% trans "Email" %}</dt>
+            <dd>{{ client.email }}</dd>
+        </dl>
+        <address>
+            {{ client.address.line1 }}<br/>
+            {% if (pboxer.address.line2 != '') %}
+                {{ client.address.line2 }}<br/>
+            {% endif %}
+            {% if (client.address.line3 != '') %}
+                {{ client.address.line3 }}<br/>
+            {% endif %}
+            {{ client.address.postcode }} {{ client.address.city }}
+        </address>
+    </div>
+    <hr/>
+    <div id="product">
+        <h2>Produit</h2>
+
+        <h3>{{ product.family }} {{ product.subfamily }} {{ product.name }}</h3>
+        <dl id="product-options">
+            {% for i, option in product.options %}
+                <dt>{{ option.label }}</dt>
+                <dd>{{ option.value }} <em>{{ option.unit }}</em></dd>
+            {% endfor %}
+        </dl>
+    </div>
+
+    <div id="order">
+        <h2>Projet</h2>
+        <dl>
+            <dt>N° de projet</dt>
+            <dd>{{ order.id }}</dd>
+            <dt>Intitulé</dt>
+            <dd>{{ order.reference }}</dd>
+            <dt>Date</dt>
+            <dd>{{ order.creation_date|date('d/m/Y') }}</dd>
+        </dl>
+        <table>
+            <thead>
+            <tr>
+                <th></th>
+                <th>Quantité</th>
+                <th>H.T.</th>
+                <th>T.V.A.</th>
+                <th>T.T.C.</th>
+            </tr>
+            </thead>
+            <tbody>
+            <tr>
+                <td>Produit</td>
+                <td class="number">{{ order.quantity }} {{ order.unit.abbr }}</td>
+                <td class="money">{{ product.et_amount|number_format(2, ',', ' ') }} <span class="currency">&euro;</span></td>
+                <td class="money">{{ product.vat_amount|number_format(2, ',', ' ') }} <span class="currency">&euro;</span></td>
+                <td class="money">{{ product.ati_amount|number_format(2, ',', ' ') }} <span class="currency">&euro;</span></td>
+            </tr>
+            {% for i, fee in order.fees %}
+                {% if fee.id %}
+                <tr>
+                    <td>{{ fee.type }}</td>
+                    <td class="number">{{ fee.quantity }}</td>
+                    <td class="money">{{ fee.et_amount|number_format(2, ',', ' ') }} <span class="currency">&euro;</span></td>
+                    <td class="money">{{ fee.vat_amount|number_format(2, ',', ' ') }} <span class="currency">&euro;</span></td>
+                    <td class="money">{{ fee.ati_amount|number_format(2, ',', ' ') }} <span class="currency">&euro;</span></td>
+                </tr>
+                {% endif %}
+            {% endfor %}
+            <tr class="bold theme-color">
+                <td>Projet</td>
+                <td></td>
+                <td class="money">{{ project.et_amount|number_format(2, ',', ' ') }} <span class="currency">&euro;</span></td>
+                <td class="money">{{ project.vat_amount|number_format(2, ',', ' ') }} <span class="currency">&euro;</span></td>
+                <td class="money">
+                    <strong>{{ project.ati_amount|number_format(2, ',', ' ') }} <span class="currency">&euro;</span></strong>
+                </td>
+            </tr>
+            </tbody>
+        </table>
+
+        <div id="delivery">
+            <h2>Livraison</h2>
+
+            <p>{{ delivery.recipient }}</p>
+
+            <p>{{ delivery.contact_name }}</p>
+
+            <p> {{ delivery.address.line1 }}<br/>
+                {% if delivery.address.line2 is not empty %}{{ delivery.address.line2 }}<br/>{% endif %}
+                {% if delivery.address.line3 is not empty %}{{ delivery.address.line3 }}<br/>{% endif %}
+                {{ delivery.address.post_code }}
+                {{ delivery.address.city }}</p>
+            <blockquote>
+                {{ delivery.comments }}
+            </blockquote>
+
+        </div>
+        <hr>
+        <div id="mentions">
+            <p>Le  délai de fabrication court à compter de la réception de votre règlement et de vos fichiers conformes ou à compter de la validation de votre bon à tirer si vous avez opté pour cette option.</p>
+        </div>
+    </div>
+{% endblock %}

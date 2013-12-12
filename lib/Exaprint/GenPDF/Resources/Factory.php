@@ -29,6 +29,7 @@ class Factory {
             case "partners-order": return new PartnersOrder();
             case "order-receipt": return new OrderReceipt();
             case "mandate": return new Mandate();
+            case "printbox-rc": return new PrintboxRC();
         }
         return null;
     }
