@@ -36,8 +36,11 @@
             <dl>
                 <dt>{% trans "Votre Code Client" %}</dt>
                 <dd>{{ Customer.CustomerCode }}</dd>
-                <dt>{% trans "Numero TVA Intracom." %}</dt>
-                <dd>{{ Customer.VATId }}</dd>
+
+                {% block tva %}
+                    <dt>{% trans "Numero TVA Intracom." %}</dt>
+                    <dd>{{ Customer.VATId }}</dd>
+                {% endblock %}
 
                 <dt>{% trans "Numero de facture" %}</dt>
                 <dd>{{ InvoiceNumber }}</dd>

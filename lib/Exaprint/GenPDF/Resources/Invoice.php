@@ -52,6 +52,8 @@ class Invoice extends Resource implements IResource
         $filename = "resources/";
         if (\Locale\Helper::$current == 'it_IT') {
             $filename .= "countries/invoice.it.twig";
+        } else if (\Locale\Helper::$current == 'es_ES') {
+                $filename .= "countries/invoice.es.twig";
         } else {
             $filename .= "invoice.twig";
         }

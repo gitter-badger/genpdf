@@ -1,0 +1,6 @@
+{% extends "resources/invoice.twig" %}
+
+{% block tva %}
+    <dt>{% trans "SIRET" %}</dt>
+    <dd>{{ Customer.Siret }}</dd>
+{% endblock %}
