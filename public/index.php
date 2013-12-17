@@ -44,7 +44,7 @@ $app->get("/:name/:id.pdf", function ($name, $id) use ($app) {
     $filename .= ".pdf";
 
     // Si un cache existe, le
-    if (file_exists($filename) && !isset($_GET['nocache'])) {
+    if (file_exists($filename) && !isset($_GET['nocache']) && $name != 'mandate') {
         echo file_get_contents($filename);
         return;
     }
