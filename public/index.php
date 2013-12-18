@@ -37,7 +37,7 @@ $app->get("/:name/:id.pdf", function ($name, $id) use ($app) {
     // Chemin final
     $filename = "../cache/{$name}/{$subfolder}/{$name}_{$id}";
 
-    if ($name != 'mandate') {
+    if ($name != 'mandate' && $name != 'printbox-rc') {
         $filename .= "_{$language}";
     }
 
