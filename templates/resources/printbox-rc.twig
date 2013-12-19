@@ -91,29 +91,48 @@
             <tbody>
             <tr>
                 <td>Produit</td>
+                {% set productHT = project.et_amount %}
+                {% set productTVA = project.vat_amount %}
+                {% set productTTC = project.ati_amount %}
+                {% for i, fee in order.fees %}
+                    {% if fee.type != 'Frais de gestion Printbox' %}
+                        {% set productHT = productHT - fee.et_amount %}
+                        {% set productTVA = productTVA - fee.vat_amount %}
+                        {% set productTTC = productTTC - fee.ati_amount %}
+                    {% endif %}
+                {% endfor %}
                 <td class="number">{{ order.quantity }} {{ order.unit.abbr }}</td>
-                <td class="money">{{ product.et_amount|number_format(2, ',', ' ') }} <span class="currency">&euro;</span></td>
-                <td class="money">{{ product.vat_amount|number_format(2, ',', ' ') }} <span class="currency">&euro;</span></td>
-                <td class="money">{{ product.ati_amount|number_format(2, ',', ' ') }} <span class="currency">&euro;</span></td>
+                <td class="money">{{ productHT|number_format(2, ',', ' ') }}
+                    <span class="currency">&euro;</span></td>
+                <td class="money">{{ productTVA|number_format(2, ',', ' ') }}
+                    <span class="currency">&euro;</span></td>
+                <td class="money">{{ productTTC|number_format(2, ',', ' ') }}
+                    <span class="currency">&euro;</span></td>
             </tr>
             {% for i, fee in order.fees %}
-                {% if fee.id %}
-                <tr>
-                    <td>{{ fee.type }}</td>
-                    <td class="number">{{ fee.quantity }}</td>
-                    <td class="money">{{ fee.et_amount|number_format(2, ',', ' ') }} <span class="currency">&euro;</span></td>
-                    <td class="money">{{ fee.vat_amount|number_format(2, ',', ' ') }} <span class="currency">&euro;</span></td>
-                    <td class="money">{{ fee.ati_amount|number_format(2, ',', ' ') }} <span class="currency">&euro;</span></td>
-                </tr>
+                {% if fee.type != 'Frais de gestion Printbox' %}
+                    <tr>
+                        <td>{{ fee.type }}</td>
+                        <td class="number">{{ fee.quantity }}</td>
+                        <td class="money">{{ fee.et_amount|number_format(2, ',', ' ') }} <span
+                                    class="currency">&euro;</span></td>
+                        <td class="money">{{ fee.vat_amount|number_format(2, ',', ' ') }} <span
+                                    class="currency">&euro;</span></td>
+                        <td class="money">{{ fee.ati_amount|number_format(2, ',', ' ') }} <span
+                                    class="currency">&euro;</span></td>
+                    </tr>
                 {% endif %}
             {% endfor %}
             <tr class="bold theme-color">
                 <td>Projet</td>
                 <td></td>
-                <td class="money">{{ project.et_amount|number_format(2, ',', ' ') }} <span class="currency">&euro;</span></td>
-                <td class="money">{{ project.vat_amount|number_format(2, ',', ' ') }} <span class="currency">&euro;</span></td>
+                <td class="money">{{ project.et_amount|number_format(2, ',', ' ') }} <span
+                            class="currency">&euro;</span></td>
+                <td class="money">{{ project.vat_amount|number_format(2, ',', ' ') }} <span
+                            class="currency">&euro;</span></td>
                 <td class="money">
-                    <strong>{{ project.ati_amount|number_format(2, ',', ' ') }} <span class="currency">&euro;</span></strong>
+                    <strong>{{ project.ati_amount|number_format(2, ',', ' ') }} <span
+                                class="currency">&euro;</span></strong>
                 </td>
             </tr>
             </tbody>
@@ -138,7 +157,8 @@
         </div>
         <hr>
         <div id="mentions">
-            <p>Le  délai de fabrication court à compter de la réception de votre règlement et de vos fichiers conformes ou à compter de la validation de votre bon à tirer si vous avez opté pour cette option.</p>
+            <p>Le délai de fabrication court à compter de la réception de votre règlement et de vos fichiers conformes
+                ou à compter de la validation de votre bon à tirer si vous avez opté pour cette option.</p>
         </div>
     </div>
 {% endblock %}

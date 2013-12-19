@@ -15,7 +15,7 @@ class PrintboxRC extends Resource implements IResource
      */
     public function fetchFromID($id)
     {
-        $dao = new DAO\PrintboxProject();
+        $dao = new DAO\PrintboxRC();
         $this->_data = $dao->fetchFromId($id);
         return !is_null($this->_data);
     }
