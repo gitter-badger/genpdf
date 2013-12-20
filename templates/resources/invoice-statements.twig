@@ -39,10 +39,10 @@
             <thead>
             <tr>
                 <th>{% trans "Numero de facture" %}</th>
+                <th>{% trans "Date de facture" %}</th>
                 <th>{% trans "Reference" %}</th>
                 <th>{% trans "Reference de commande" %}</th>
-                <th>{% trans "Date de facture" %}</th>
-                <th>{% trans "Date de commande" %}</th>
+                <th>{% trans "Mode de paiement" %}</th>
                 <th>{% trans "Montant H.T." %}</th>
                 <th>{% trans "Montant TVA" %}</th>
                 <th>{% trans "Montant TTC" %}</th>
@@ -56,10 +56,10 @@
                             {{ Line.InvoiceNumber }}
                         </a>
                     </td>
+                    <td class="date">{{ Line.InvoiceDate|date('d/m/Y') }}</td>
                     <td>{{ Line.Reference }}</td>
                     <td>{{ Line.OrderReference }}</td>
-                    <td class="date">{{ Line.InvoiceDate|date('d/m/Y') }}</td>
-                    <td class="date">{{ Line.OrderDate|date('d/m/Y') }}</td>
+                    <td>{{ Line.payment }}</td>
                     <td class="money">{{ Line.ETAmount|formatmoney  }}</td>
                     <td class="money">{{ Line.VATAmount|formatmoney  }}</td>
                     <td class="money">{{ Line.ATIAmount|formatmoney  }}</td>
