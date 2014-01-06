@@ -71,8 +71,8 @@
                     <br />
 
                     {% block siret %}
-                    <div class="block w100">{% trans "SIRET" %}</div>
-                    {% set siret = Customer.Siret ~ "" %}
+                    <div class="block w100">P.IVA</div>
+                    {% set siret = Customer.VATId ~ "" %}
                     <div class="block blue"><!--
                     --><div class="rect">{{ siret|slice(0, 1) }}</div><!--
                     --><div class="rect">{{ siret|slice(1, 1) }}</div><!--
