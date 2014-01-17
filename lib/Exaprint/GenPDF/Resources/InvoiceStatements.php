@@ -8,6 +8,7 @@ use Exaprint\GenPDF\Resources\DAO\Customer;
 use Locale\Helper;
 use RBM\SqlQuery\Column;
 use RBM\SqlQuery\Func;
+use RBM\SqlQuery\Table;
 
 class InvoiceStatements extends Resource implements IResource
 {
@@ -58,9 +59,18 @@ class InvoiceStatements extends Resource implements IResource
             'DirectDebitDate' => 'DatePrelevement',
         ]);
 
-        $select->leftJoin('TBL_COMMANDE', 'IDFacture')->cols([
+        $commande = $select->leftJoin('TBL_COMMANDE', 'IDFacture')->cols([
             'OrderReference' => 'ReferenceClient',
-            'OrderDate' => 'DateCommande'
+            'OrderDate' => 'DateCommande',
+            'IDModeReglement' => 'IDModeReglement'
+        ]);
+
+        $payment = $commande->leftJoin('TBL_MODEREGLEMENT_TRAD');
+        $payment->joinCondition()
+            ->eq('IDModeReglement', new Column('IDModeReglement', new Table('TBL_COMMANDE')))
+            ->eq('IDLANGUE', 1);
+        $payment->cols([
+            'payment' => 'LibelleTraduit'
         ]);
 
         $select->filter()
