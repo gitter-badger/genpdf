@@ -65,12 +65,14 @@ $app->get("/:name/:id.pdf", function ($name, $id) use ($app) {
 
         $wkhtml = new \RBM\Wkhtmltopdf\Wkhtmltopdf();
 
-        $wkhtml->setHeaderHtml($resource->getHeader());
-        $wkhtml->setMarginTop(50);
-        $wkhtml->setHeaderSpacing(5);
-        $wkhtml->setFooterHtml($resource->getFooter());
-        $wkhtml->setFooterSpacing(5);
-        $wkhtml->setMarginBottom(49);
+        if (!is_array($resource->getData())) {
+            $wkhtml->setHeaderHtml($resource->getHeader());
+            $wkhtml->setMarginTop(50);
+            $wkhtml->setHeaderSpacing(5);
+            $wkhtml->setFooterHtml($resource->getFooter());
+            $wkhtml->setFooterSpacing(5);
+            $wkhtml->setMarginBottom(49);
+        }
 
         $r = $wkhtml->run($_SERVER["SERVER_NAME"] . "/$name/$id.html", $filename);
 
@@ -91,19 +93,10 @@ $app->get("/:name/:id.html", function ($name, $id) use ($app) {
     $resource = \Exaprint\GenPDF\Resources\Factory::createFromName($name);
 
     if ($resource && $resource->fetchFromID($id)) {
-        if (is_array($resource->getData())) {
-            foreach($resource->getData() as $data) {
-                $app->render(
-                    $resource->getTemplateFilename(),
-                    $data
-                );
-            }
-        } else {
-            $app->render(
-                $resource->getTemplateFilename(),
-                $resource->getData()
-            );
-        }
+        $app->render(
+            $resource->getTemplateFilename(),
+            $resource->getData()
+        );
         return;
     }
 

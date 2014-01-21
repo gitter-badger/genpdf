@@ -54,10 +54,13 @@ class InvoiceZip extends Resource implements IResource
         foreach ($stmt->fetchAll(DB::FETCH_ASSOC) as $invoice) {
             $dao = new DAO\Invoice();
             if ($xml = $dao->getXML($invoice['IDFacture'])) {
-                $this->_xml[]  = $xml;
-                $this->_data[] = (array)$xml;
+                $xmlA[]  = $xml;
+                $dataA[] = (array)$xml;
             }
         }
+
+        $this->_xml["invoices"]  = $xmlA;
+        $this->_data["invoices"] = $dataA;
 
         return true;
     }
