@@ -91,10 +91,19 @@ $app->get("/:name/:id.html", function ($name, $id) use ($app) {
     $resource = \Exaprint\GenPDF\Resources\Factory::createFromName($name);
 
     if ($resource && $resource->fetchFromID($id)) {
-        $app->render(
-            $resource->getTemplateFilename(),
-            $resource->getData()
-        );
+        if (is_array($resource->getData())) {
+            foreach($resource->getData() as $data) {
+                $app->render(
+                    $resource->getTemplateFilename(),
+                    $data
+                );
+            }
+        } else {
+            $app->render(
+                $resource->getTemplateFilename(),
+                $resource->getData()
+            );
+        }
         return;
     }
 
