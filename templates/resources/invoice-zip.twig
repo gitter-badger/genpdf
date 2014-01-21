@@ -19,33 +19,34 @@
     <div id="customer">
         {% block customer_address %}
             <address>
-                <strong>{{ Customer.CompanyName }}</strong><br/>
-                {{ Customer.Adress1 }}<br/>
-                {% if (Customer.Adress2 != '') %}
-                    {{ Customer.Adress2 }}<br/>
+                <strong>{{ invoices[0].Customer.CompanyName }}</strong><br/>
+                {{ invoices[0].Customer.Adress1 }}<br/>
+                {% if (invoices[0].Customer.Adress2 != '') %}
+                    {{ invoices[0].Customer.Adress2 }}<br/>
                 {% endif %}
-                {{ Customer.PostalCode }} {{ Customer.City }}<br/>
-                {{ Customer.Country }}
+                {{ invoices[0].Customer.PostalCode }} {{ invoices[0].Customer.City }}<br/>
+                {{ invoices[0].Customer.Country }}
             </address>
         {% endblock %}
 
         <h1>{{ Title }}</h1>
     </div>
-    <div id="main">
+    <div id="main" class="invoice">
+    {% for a, inv in invoices %}
         {% block invoice_details %}
             <dl>
                 <dt>{% trans "Votre Code Client" %}</dt>
-                <dd>{{ Customer.CustomerCode }}</dd>
+                <dd>{{ inv.Customer.CustomerCode }}</dd>
 
                 {% block tva %}
                     <dt>{% trans "Numero TVA Intracom." %}</dt>
-                    <dd>{{ Customer.VATId }}</dd>
+                    <dd>{{ inv.Customer.VATId }}</dd>
                 {% endblock %}
 
                 <dt>{% trans "Numero de facture" %}</dt>
-                <dd>{{ InvoiceNumber }}</dd>
+                <dd>{{ inv.InvoiceNumber }}</dd>
                 <dt>{% trans "Date de facture" %}</dt>
-                <dd>{{ InvoiceDate|date('d/m/Y') }}</dd>
+                <dd>{{ inv.InvoiceDate|date('d/m/Y') }}</dd>
             </dl>
         {% endblock %}
         {% block order %}
@@ -60,7 +61,7 @@
                     </thead>
                     <tbody>
 
-                    {% for i, Line in InvoiceLines %}
+                    {% for i, Line in inv.InvoiceLines %}
 
                         <tr class="order">
                             <td>
@@ -109,11 +110,11 @@
             </div>
         {% endblock %}
         {% block donations %}
-            {% if Donations %}
+            {% if inv.Donations %}
                 <div id="donations">
                     <h3>{% trans "Donations" %}</h3>
                     <dl>
-                        {% for i, Donation in Donations.Donation %}
+                        {% for i, Donation in inv.Donations.Donation %}
                             <dt>{{ Donation.DonationName }}</dt>
                             <dd>{{ Donation.ATIAmount|formatmoney }}
                             </dd>
@@ -125,46 +126,49 @@
         {% block summary %}
             <div id="summary">
                 <dl>
-                    {% for i, Vat in VAT.VATRates %}
-                        {% if Vat.Rate > 0 %}
+                    {% for i, Vat in inv.VAT.VATRates %}
+                        {% if inv.Vat.Rate > 0 %}
                             <dt>{% trans "Montant total soumis a la TVA " %}
-                                &nbsp;{{ Vat.Rate|formatnumber }} %
+                                &nbsp;{{ inv.Vat.Rate|formatnumber }} %
                             </dt>
-                            <dd>{{ Vat.ETAmount|formatmoney }}</dd>
+                            <dd>{{ inv.Vat.ETAmount|formatmoney }}</dd>
                             <dt>{% trans "Montant TVA" %}</dt>
-                            <dd>{{ Vat.VATAmount|formatmoney }}</dd>
+                            <dd>{{ inv.Vat.VATAmount|formatmoney }}</dd>
                         {% else %}
                             <dt>{% trans "Montant total non soumis a la TVA" %}</dt>
-                            <dd>{{ Vat.ETAmount|formatmoney }}</dd>
+                            <dd>{{ inv.Vat.ETAmount|formatmoney }}</dd>
                         {% endif %}
                     {% endfor %}
                     <dt>{% trans "Montant TTC" %}</dt>
-                    <dd><strong>{{ ATIAmount|formatmoney }}</strong>
+                    <dd><strong>{{ inv.ATIAmount|formatmoney }}</strong>
                     </dd>
                 </dl>
             </div>
         {% endblock %}
-            {% if Payment %}
-                <div id="payments">
-                {% if Payment.PaymentDate %}
-                    <h3>{% trans "Facture reglee le " %}{{ Payment.PaymentDate|date('d/m/Y') }}</h3>
-                {% endif %}
+
+        {% if Payment %}
+            <div id="payments">
+            {% if inv.Payment.PaymentDate %}
+                <h3>{% trans "Facture reglee le " %}{{ inv.Payment.PaymentDate|date('d/m/Y') }}</h3>
+            {% endif %}
                 <ul>
-                    {% for i, PaymentMethod in Payment.PaymentMethodTranslation %}
-                        <li>
-                            {{ PaymentMethod.PaymentAmount|formatmoney }}
-                            ({{ PaymentMethod.PaymentMethodName }})
-                        </li>
-                    {% endfor %}
+                {% for i, PaymentMethod in inv.Payment.PaymentMethodTranslation %}
+                    <li>
+                        {{ PaymentMethod.PaymentAmount|formatmoney }}
+                        ({{ PaymentMethod.PaymentMethodName }})
+                    </li>
+                {% endfor %}
                 </ul>
             </div>
-    </div>
-        {% elseif DirectDebitDate %}
-    <div id="payments">
-            <h3>{{ Customer.PaymentMethod.PaymentMethodTranslation.PaymentMethodName}}</h3>
-            <p class="payment-due-date">{% trans "Echeance de paiement" %} {{ DirectDebitDate|date('d/m/Y') }}</p>
-        </div>
+        {% elseif inv.DirectDebitDate %}
+            <div id="payments">
+                <h3>{{ inv.Customer.PaymentMethod.PaymentMethodTranslation.PaymentMethodName}}</h3>
+                <p class="payment-due-date">{% trans "Echeance de paiement" %} {{ inv.DirectDebitDate|date('d/m/Y') }}</p>
+            </div>
         {% endif %}
+
+    {% endfor %}
+    </div>
 
     {% block footer %}
         <footer>
