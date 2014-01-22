@@ -33,6 +33,7 @@
     </div>
     <div id="main" class="invoice">
     {% for a, inv in invoices %}
+        <div class="break_page"></div>
         {% block invoice_details %}
             <dl>
                 <dt>{% trans "Votre Code Client" %}</dt>
@@ -169,6 +170,8 @@
 
     {% endfor %}
     </div>
+
+    <div class="break_page"></div>
 
     {% block footer %}
         <footer>
