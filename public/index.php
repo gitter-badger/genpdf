@@ -65,7 +65,9 @@ $app->get("/:name/:id.pdf", function ($name, $id) use ($app) {
 
         $wkhtml = new \RBM\Wkhtmltopdf\Wkhtmltopdf();
 
-        if (!is_array($resource->getData())) {
+        $data = $resource->getData();
+
+        if (!isset($data['invoices'])) {
             $wkhtml->setHeaderHtml($resource->getHeader());
             $wkhtml->setMarginTop(50);
             $wkhtml->setHeaderSpacing(5);
