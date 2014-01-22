@@ -23,6 +23,10 @@
 {% endblock %}
 
 {% block page %}
+    <div>
+        <img src="{{ header }}" alt="header">
+    </div>
+
     <div id="customer">
         {% block customer_address %}
             <address>
@@ -38,9 +42,12 @@
 
         <h1>{{ Title }}</h1>
     </div>
+
     <div id="main" class="invoice">
     {% for a, inv in invoices %}
+
         <div class="page-breaker"></div>
+
         {% block invoice_details %}
             <dl>
                 <dt>{% trans "Votre Code Client" %}</dt>
@@ -57,6 +64,7 @@
                 <dd>{{ inv.InvoiceDate|date('d/m/Y') }}</dd>
             </dl>
         {% endblock %}
+
         {% block order %}
             <div id="order">
                 <table>
@@ -117,6 +125,7 @@
                 </table>
             </div>
         {% endblock %}
+
         {% block donations %}
             {% if inv.Donations %}
                 <div id="donations">
@@ -131,6 +140,7 @@
                 </div>
             {% endif %}
         {% endblock %}
+
         {% block summary %}
             <div id="summary">
                 <dl>
@@ -191,4 +201,8 @@
             </div>
         </footer>
     {% endblock %}
+
+    <div>
+        <img src="{{ footer }}" alt="footer">
+    </div>
 {% endblock %}
