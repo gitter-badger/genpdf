@@ -34,10 +34,10 @@ class InvoiceZip extends Resource implements IResource
     public function fetchFromID($id)
     {
         list ($IDClient, $yearAndMonth) = explode('-', $id);
-        $this->_year  = substr($yearAndMonth, 0, 4);
+        $this->_year = substr($yearAndMonth, 0, 4);
         $this->_month = substr($yearAndMonth, 4, 2);
 
-        $customerDao     = new Customer();
+        $customerDao = new Customer();
         $this->_customer = $customerDao->getXML($IDClient);
 
         $select = new Select('TBL_FACTURE', [
@@ -54,13 +54,17 @@ class InvoiceZip extends Resource implements IResource
         foreach ($stmt->fetchAll(DB::FETCH_ASSOC) as $invoice) {
             $dao = new DAO\Invoice();
             if ($xml = $dao->getXML($invoice['IDFacture'])) {
-                $xmlA[]  = $xml;
                 $dataA[] = (array)$xml;
             }
         }
 
-        $this->_xml["invoices"]  = $xmlA;
-        $this->_data["invoices"] = $dataA;
+        $this->_data = [
+            "invoices" => $dataA,
+            "header" => '/static/assets/' . Helper::$current . '/header.png',
+            "footer" => '/static/assets/' . Helper::$current . '/footer.png',
+        ];
+
+        $this->_xml = (array)$this->_data;
 
         return true;
     }
