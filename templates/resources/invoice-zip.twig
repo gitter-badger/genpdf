@@ -24,7 +24,7 @@
 
 {% block page %}
     <div>
-        <img src="{{ header }}" alt="header">
+        <img src="{{ header }}" alt="header" width="100%">
     </div>
 
     <div id="customer">
@@ -164,7 +164,7 @@
             </div>
         {% endblock %}
 
-        {% if Payment %}
+        {% if inv.Payment %}
             <div id="payments">
             {% if inv.Payment.PaymentDate %}
                 <h3>{% trans "Facture reglee le " %}{{ inv.Payment.PaymentDate|date('d/m/Y') }}</h3>
@@ -203,6 +203,6 @@
     {% endblock %}
 
     <div>
-        <img src="{{ footer }}" alt="footer">
+        <img src="{{ footer }}" alt="footer" width="100%">
     </div>
 {% endblock %}
