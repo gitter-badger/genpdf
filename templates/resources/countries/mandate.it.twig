@@ -1,0 +1,24 @@
+{% extends "resources/mandate.twig" %}
+
+{% block siret %}
+<div class="block w100">{% trans "P.IVA" %}</div>
+{% set VATId = Customer.VATId ~ "" %}
+<div class="block blue"><!--
+--><div class="rect">{{ VATId|slice(0, 1) }}</div><!--
+--><div class="rect">{{ VATId|slice(1, 1) }}</div><!--
+--><div class="rect">{{ VATId|slice(2, 1) }}</div><!--
+--><div class="rect">{{ VATId|slice(3, 1) }}</div><!--
+--><div class="rect">{{ VATId|slice(4, 1) }}</div><!--
+--><div class="rect">{{ VATId|slice(5, 1) }}</div><!--
+--><div class="rect">{{ VATId|slice(6, 1) }}</div><!--
+--><div class="rect">{{ VATId|slice(7, 1) }}</div><!--
+--><div class="rect">{{ VATId|slice(8, 1) }}</div><!--
+--><div class="rect">{{ VATId|slice(9, 1) }}</div><!--
+--><div class="rect">{{ VATId|slice(10, 1) }}</div><!--
+--><div class="rect">{{ VATId|slice(11, 1) }}</div><!--
+--><div class="rect">{{ VATId|slice(12, 1) }}</div><!--
+--><div class="rect final">{{ VATId|slice(13, 1) }}</div>
+</div>
+
+<br />
+{% endblock %}

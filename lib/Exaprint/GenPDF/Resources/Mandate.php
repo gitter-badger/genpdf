@@ -55,6 +55,8 @@ class Mandate extends Resource implements IResource
         $filename = "resources/";
         if (\Locale\Helper::$current == 'pt_PT') {
             $filename .= "countries/mandate.pt.twig";
+        } else if (\Locale\Helper::$current == 'it_IT') {
+            $filename .= "countries/mandate.it.twig";
         } else {
             $filename .= "mandate.twig";
         }
