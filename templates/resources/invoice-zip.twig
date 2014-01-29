@@ -23,186 +23,208 @@
 {% endblock %}
 
 {% block page %}
-    <div>
-        <img src="{{ header }}" alt="header" width="100%">
-    </div>
 
-    <div id="customer">
-        {% block customer_address %}
-            <address>
-                <strong>{{ invoices[0].Customer.CompanyName }}</strong><br/>
-                {{ invoices[0].Customer.Adress1 }}<br/>
-                {% if (invoices[0].Customer.Adress2 != '') %}
-                    {{ invoices[0].Customer.Adress2 }}<br/>
-                {% endif %}
-                {{ invoices[0].Customer.PostalCode }} {{ invoices[0].Customer.City }}<br/>
-                {{ invoices[0].Customer.Country }}
-            </address>
-        {% endblock %}
-
-        <h1>{{ Title }}</h1>
-    </div>
-
-    <div id="main" class="invoice">
     {% for a, inv in invoices %}
+    <div class="invoice">
 
-        <div class="page-breaker"></div>
+        <div style="text-align: right; font-size: 26px;">
+            <span style="font-size: 36px;">EXAPRINT</span> <span>100% revendeurs</span><br />
+            L'imprimerie réservée aux pros des arts graphiques<br />
+        </div>
 
-        {% block invoice_details %}
-            <dl>
-                <dt>{% trans "Votre Code Client" %}</dt>
-                <dd>{{ inv.Customer.CustomerCode }}</dd>
+        <div id="customer">
+            {% block customer_address %}
+                <address>
+                    <strong>{{ inv.Customer.CompanyName }}</strong><br/>
+                    {{ inv.Customer.Adress1 }}<br/>
+                    {% if (inv.Customer.Adress2 != '') %}
+                        {{ inv.Customer.Adress2 }}<br/>
+                    {% endif %}
+                    {{ inv.Customer.PostalCode }} {{ inv.Customer.City }}<br/>
+                    {{ inv.Customer.Country }}
+                </address>
+            {% endblock %}
 
-                {% block tva %}
-                    <dt>{% trans "Numero TVA Intracom." %}</dt>
-                    <dd>{{ inv.Customer.VATId }}</dd>
-                {% endblock %}
+            <h1>{{ Title }}</h1>
+        </div>
 
-                <dt>{% trans "Numero de facture" %}</dt>
-                <dd>{{ inv.InvoiceNumber }}</dd>
-                <dt>{% trans "Date de facture" %}</dt>
-                <dd>{{ inv.InvoiceDate|date('d/m/Y') }}</dd>
-            </dl>
-        {% endblock %}
+        <div id="main">
 
-        {% block order %}
-            <div id="order">
-                <table>
-                    <thead>
-                    <tr>
-                        <th>{% trans "Designation de ligne de facture" %}</th>
-                        <th>{% trans "Quantite" %}</th>
-                        <th>{% trans "Montant H.T." %}</th>
-                    </tr>
-                    </thead>
-                    <tbody>
+            {% block invoice_details %}
+                <dl>
+                    <dt>{% trans "Votre Code Client" %}</dt>
+                    <dd>{{ inv.Customer.CustomerCode }}</dd>
 
-                    {% for i, Line in inv.InvoiceLines %}
+                    {% block tva %}
+                        <dt>{% trans "Numero TVA Intracom." %}</dt>
+                        <dd>{{ inv.Customer.VATId }}</dd>
+                    {% endblock %}
 
-                        <tr class="order">
-                            <td>
-                                {% block article %}
-                                    <article>
-                                        {{ Line.Reference }}
-                                        <span class="title">{{ Line.Title }}</span>
-                                        <span class="code">{{ Line.ArticleFamily }}&nbsp;{{ Line.ProductFamily }}&nbsp;{{ Line.ProductFrontTitle }}</span>
-                                    </article>
-                                {% endblock %}
-                                {% block certification %}
-                                    {% if Line.Certifications %}
-                                        {% for Certification in Line.Certifications.Certification %}
-                                            <div>
-                                                {% trans "Commande certifiee" %} {{ Certification.Name }}&nbsp;{{ Certification.Indication }}&nbsp;-&nbsp;{{ Certification.Number }}
-                                            </div>
-                                        {% endfor %}
-                                    {% endif %}
-                                {% endblock %}
-                                {% block shipping %}
-                                    {% if Line.Shipping %}
-                                        <div class="shipping">
-                                            <ul class="tracking">
-                                                {% for i, Consignment in Line.Shipping.Consignment %}
-                                                    <li>
-                                                        <img src="/static/assets/box.png"/>
-                                                        <span class="transporter">{{ Consignment.CarrierName }}</span>
-                                                        <a href="#" class="number">
-                                                            {{ Consignment.ConsignmentNumber }}
-                                                        </a>
-                                                        <span class="timestamp">{{ Consignment.ShippingDate|date('d/m/Y') }}</span>
-                                                    </li>
-                                                {% endfor %}
-                                            </ul>
-                                        </div>
-                                    {% endif %}
-                                {% endblock %}
-                            </td>
-                            <td class="quantity">{{ Line.Quantity }} {{ Line.Initials }}</td>
-                            <td class="money">{{ Line.ETAmount|formatmoney }}
-                            </td>
+                    <dt>{% trans "Numero de facture" %}</dt>
+                    <dd>{{ inv.InvoiceNumber }}</dd>
+                    <dt>{% trans "Date de facture" %}</dt>
+                    <dd>{{ inv.InvoiceDate|date('d/m/Y') }}</dd>
+                </dl>
+            {% endblock %}
+
+            {% block order %}
+                <div id="order">
+                    <table>
+                        <thead>
+                        <tr>
+                            <th>{% trans "Designation de ligne de facture" %}</th>
+                            <th>{% trans "Quantite" %}</th>
+                            <th>{% trans "Montant H.T." %}</th>
                         </tr>
-                    {% endfor %}
-                    </tbody>
-                </table>
-            </div>
-        {% endblock %}
+                        </thead>
+                        <tbody>
 
-        {% block donations %}
-            {% if inv.Donations %}
-                <div id="donations">
-                    <h3>{% trans "Donations" %}</h3>
-                    <dl>
-                        {% for i, Donation in inv.Donations.Donation %}
-                            <dt>{{ Donation.DonationName }}</dt>
-                            <dd>{{ Donation.ATIAmount|formatmoney }}
-                            </dd>
+                        {% for i, Line in inv.InvoiceLines %}
+
+                            <tr class="order">
+                                <td>
+                                    {% block article %}
+                                        <article>
+                                            {{ Line.Reference }}
+                                            <span class="title">{{ Line.Title }}</span>
+                                            <span class="code">{{ Line.ArticleFamily }}&nbsp;{{ Line.ProductFamily }}&nbsp;{{ Line.ProductFrontTitle }}</span>
+                                        </article>
+                                    {% endblock %}
+                                    {% block certification %}
+                                        {% if Line.Certifications %}
+                                            {% for Certification in Line.Certifications.Certification %}
+                                                <div>
+                                                    {% trans "Commande certifiee" %} {{ Certification.Name }}&nbsp;{{ Certification.Indication }}&nbsp;-&nbsp;{{ Certification.Number }}
+                                                </div>
+                                            {% endfor %}
+                                        {% endif %}
+                                    {% endblock %}
+                                    {% block shipping %}
+                                        {% if Line.Shipping %}
+                                            <div class="shipping">
+                                                <ul class="tracking">
+                                                    {% for i, Consignment in Line.Shipping.Consignment %}
+                                                        <li>
+                                                            <img src="/static/assets/box.png"/>
+                                                            <span class="transporter">{{ Consignment.CarrierName }}</span>
+                                                            <a href="#" class="number">
+                                                                {{ Consignment.ConsignmentNumber }}
+                                                            </a>
+                                                            <span class="timestamp">{{ Consignment.ShippingDate|date('d/m/Y') }}</span>
+                                                        </li>
+                                                    {% endfor %}
+                                                </ul>
+                                            </div>
+                                        {% endif %}
+                                    {% endblock %}
+                                </td>
+                                <td class="quantity">{{ Line.Quantity }} {{ Line.Initials }}</td>
+                                <td class="money">{{ Line.ETAmount|formatmoney }}
+                                </td>
+                            </tr>
                         {% endfor %}
+                        </tbody>
+                    </table>
+                </div>
+            {% endblock %}
+
+            {% block donations %}
+                {% if inv.Donations %}
+                    <div id="donations">
+                        <h3>{% trans "Donations" %}</h3>
+                        <dl>
+                            {% for i, Donation in inv.Donations.Donation %}
+                                <dt>{{ Donation.DonationName }}</dt>
+                                <dd>{{ Donation.ATIAmount|formatmoney }}
+                                </dd>
+                            {% endfor %}
+                        </dl>
+                    </div>
+                {% endif %}
+            {% endblock %}
+
+            {% block summary %}
+                <div id="summary">
+                    <dl>
+                        {% for i, Vat in inv.VAT.VATRates %}
+                            {% if inv.Vat.Rate > 0 %}
+                                <dt>{% trans "Montant total soumis a la TVA " %}
+                                    &nbsp;{{ inv.Vat.Rate|formatnumber }} %
+                                </dt>
+                                <dd>{{ inv.Vat.ETAmount|formatmoney }}</dd>
+                                <dt>{% trans "Montant TVA" %}</dt>
+                                <dd>{{ inv.Vat.VATAmount|formatmoney }}</dd>
+                            {% else %}
+                                <dt>{% trans "Montant total non soumis a la TVA" %}</dt>
+                                <dd>{{ inv.Vat.ETAmount|formatmoney }}</dd>
+                            {% endif %}
+                        {% endfor %}
+                        <dt>{% trans "Montant TTC" %}</dt>
+                        <dd><strong>{{ inv.ATIAmount|formatmoney }}</strong>
+                        </dd>
                     </dl>
                 </div>
-            {% endif %}
-        {% endblock %}
+            {% endblock %}
 
-        {% block summary %}
-            <div id="summary">
-                <dl>
-                    {% for i, Vat in inv.VAT.VATRates %}
-                        {% if inv.Vat.Rate > 0 %}
-                            <dt>{% trans "Montant total soumis a la TVA " %}
-                                &nbsp;{{ inv.Vat.Rate|formatnumber }} %
-                            </dt>
-                            <dd>{{ inv.Vat.ETAmount|formatmoney }}</dd>
-                            <dt>{% trans "Montant TVA" %}</dt>
-                            <dd>{{ inv.Vat.VATAmount|formatmoney }}</dd>
-                        {% else %}
-                            <dt>{% trans "Montant total non soumis a la TVA" %}</dt>
-                            <dd>{{ inv.Vat.ETAmount|formatmoney }}</dd>
-                        {% endif %}
+            {% if inv.Payment %}
+                <div id="payments">
+                {% if inv.Payment.PaymentDate %}
+                    <h3>{% trans "Facture reglee le " %}{{ inv.Payment.PaymentDate|date('d/m/Y') }}</h3>
+                {% endif %}
+                    <ul>
+                    {% for i, PaymentMethod in inv.Payment.PaymentMethodTranslation %}
+                        <li>
+                            {{ PaymentMethod.PaymentAmount|formatmoney }}
+                            ({{ PaymentMethod.PaymentMethodName }})
+                        </li>
                     {% endfor %}
-                    <dt>{% trans "Montant TTC" %}</dt>
-                    <dd><strong>{{ inv.ATIAmount|formatmoney }}</strong>
-                    </dd>
-                </dl>
-            </div>
+                    </ul>
+                </div>
+            {% elseif inv.DirectDebitDate %}
+                <div id="payments">
+                    <h3>{{ inv.Customer.PaymentMethod.PaymentMethodTranslation.PaymentMethodName}}</h3>
+                    <p class="payment-due-date">{% trans "Echeance de paiement" %} {{ inv.DirectDebitDate|date('d/m/Y') }}</p>
+                </div>
+            {% endif %}
+
+        </div>
+
+        {% block footer %}
+            <footer>
+                <div class="mt-5cm"></div>
+                {% block type %}{% endblock %}
+                <div class="mentions">
+                    {% block mentions %}
+                        {% trans "Mentions legales facture" %}
+                    {% endblock %}
+                </div>
+            </footer>
         {% endblock %}
 
-        {% if inv.Payment %}
-            <div id="payments">
-            {% if inv.Payment.PaymentDate %}
-                <h3>{% trans "Facture reglee le " %}{{ inv.Payment.PaymentDate|date('d/m/Y') }}</h3>
-            {% endif %}
-                <ul>
-                {% for i, PaymentMethod in inv.Payment.PaymentMethodTranslation %}
-                    <li>
-                        {{ PaymentMethod.PaymentAmount|formatmoney }}
-                        ({{ PaymentMethod.PaymentMethodName }})
-                    </li>
-                {% endfor %}
-                </ul>
-            </div>
-        {% elseif inv.DirectDebitDate %}
-            <div id="payments">
-                <h3>{{ inv.Customer.PaymentMethod.PaymentMethodTranslation.PaymentMethodName}}</h3>
-                <p class="payment-due-date">{% trans "Echeance de paiement" %} {{ inv.DirectDebitDate|date('d/m/Y') }}</p>
-            </div>
-        {% endif %}
+        <div style="text-align: right; font-size: 26px;">
+            <table>
+                <tr>
+                    <td>
+                        <span style="font-size: 36px;">EXAPRINT</span> <span>100% revendeurs</span><br />
+                        L'imprimerie réservée aux pros des arts graphiques<br />
+                    </td>
+                    <td>
+                        Accueil téléphonique de 8h30 à 18h30 : 04 67 22 36 55<br />
+                        ZAC de Fréjorgues Ouest - Rue Charles Nungesser<br />
+                        34135 Mauguio / Montpellier - www.exaprint.fr<br />
+                    </td>
+                </tr>
+            </table><br />
+            PEFC 10-32-2667 / Cette entreprise a fait certifier sa chaîne de contrôle / pefc-france.org<br /><br />
+            SAS au capital de 40000€ |
+            Siret 42284379700032 |
+            N°TVA FR32422843797 |
+            CODE APE 1812Z
+        </div>
 
-    {% endfor %}
     </div>
 
     <div class="page-breaker"></div>
+    {% endfor %}
 
-    {% block footer %}
-        <footer>
-            <div class="mt-5cm"></div>
-            {% block type %}{% endblock %}
-            <div class="mentions">
-                {% block mentions %}
-                    {% trans "Mentions legales facture" %}
-                {% endblock %}
-            </div>
-        </footer>
-    {% endblock %}
-
-    <div>
-        <img src="{{ footer }}" alt="footer" width="100%">
-    </div>
 {% endblock %}
