@@ -25,7 +25,7 @@
 {% block page %}
 
     {% for a, inv in invoices %}
-    <div class="invoice">
+        <div class="invoice" style="height: 26cm; position: relative;">
 
         <div style="text-align: right; font-size: 20px; margin-bottom: 1cm;">
             <span style="font-size: 24px;">EXAPRINT</span> <span>100% revendeurs</span><br />
@@ -189,39 +189,40 @@
 
         </div>
 
-        {% block footer %}
-            <footer>
-                <div class="mt-5cm"></div>
-                {% block type %}{% endblock %}
-                <div class="mentions">
-                    {% block mentions %}
-                        {% trans "Mentions legales facture" %}
-                    {% endblock %}
-                </div>
-            </footer>
-        {% endblock %}
+        <div style="text-align: center; font-size: 12px; color: #999999; position: absolute; bottom: 0; width: 100%;">
+            {% block footer %}
+                <footer>
+                    {% block type %}{% endblock %}
+                    <div class="mentions">
+                        {% block mentions %}
+                            {% trans "Mentions legales facture" %}
+                        {% endblock %}
+                    </div>
+                </footer>
+            {% endblock %}
 
-        <div style="text-align: center; font-size: 12px; margin-top: 2cm; color: #999999;">
-            <table style="margin: auto">
-                <tr>
-                    <td>
-                        <span style="font-size: 14px;">EXAPRINT</span> <span>100% revendeurs</span><br />
-                        <small>L'imprimerie réservée aux pros des arts graphiques</small>
-                    </td>
-                    <td>
-                        Accueil téléphonique de 8h30 à 18h30 : 04 67 22 36 55<br />
-                        ZAC de Fréjorgues Ouest - Rue Charles Nungesser<br />
-                        34135 Mauguio / Montpellier - www.exaprint.fr
-                    </td>
-                </tr>
-            </table><br />
+            <div style="margin: auto;">
+                <table style="margin: auto">
+                    <tr>
+                        <td>
+                            <span style="font-size: 14px;">EXAPRINT</span> <span>100% revendeurs</span><br />
+                            <small>L'imprimerie réservée aux pros des arts graphiques</small>
+                        </td>
+                        <td>
+                            Accueil téléphonique de 8h30 à 18h30 : 04 67 22 36 55<br />
+                            ZAC de Fréjorgues Ouest - Rue Charles Nungesser<br />
+                            34135 Mauguio / Montpellier - www.exaprint.fr
+                        </td>
+                    </tr>
+                </table><br />
 
-            <small>PEFC 10-32-2667 / Cette entreprise a fait certifier sa chaîne de contrôle / pefc-france.org</small><br /><br />
+                <small>PEFC 10-32-2667 / Cette entreprise a fait certifier sa chaîne de contrôle / pefc-france.org</small><br /><br />
 
-            SAS au capital de 40000€ |
-            Siret 42284379700032 |
-            N°TVA FR32422843797 |
-            CODE APE 1812Z
+                SAS au capital de 40000€ |
+                Siret 42284379700032 |
+                N°TVA FR32422843797 |
+                CODE APE 1812Z
+            </div>
         </div>
 
     </div>
