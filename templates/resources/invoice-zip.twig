@@ -27,7 +27,7 @@
     {% for a, inv in invoices %}
         <div class="invoice" style="height: 26cm; position: relative;">
 
-        <div style="text-align: right; font-size: 20px; margin-bottom: 1cm;">
+        <div style="text-align: right; font-size: 20px; margin-bottom: 1cm; color: #999999;">
             <span style="font-size: 24px;">EXAPRINT</span> <span>100% revendeurs</span><br />
             <small>L'imprimerie réservée aux pros des arts graphiques</small>
         </div>
@@ -193,7 +193,7 @@
             {% block footer %}
                 <footer>
                     {% block type %}{% endblock %}
-                    <div class="mentions">
+                    <div class="mentions" style="text-align: left;">
                         {% block mentions %}
                             {% trans "Mentions legales facture" %}
                         {% endblock %}
