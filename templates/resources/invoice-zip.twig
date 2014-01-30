@@ -4,7 +4,7 @@
     <title></title>
     <link rel="stylesheet" type="text/css" href="/static/css/reset.css"/>
     <link rel="stylesheet" type="text/css" href="/static/css/fonts.css"/>
-    <link rel="stylesheet/less" type="text/css" href="/static/less/invoice.less"/>
+    <link rel="stylesheet/less" type="text/css" href="/static/less/invoice-zip.less"/>
     <script type="text/javascript">
         less = {
             env: "development", // or "production"
@@ -25,11 +25,11 @@
 {% block page %}
 
     {% for a, inv in invoices %}
-        <div class="invoice" style="height: 26cm; position: relative;">
+        <div class="invoice" style="height: 27cm; position: relative;">
 
         <div style="text-align: right; font-size: 20px; margin-bottom: 1cm; color: #999999;">
-            <span style="font-size: 24px;">EXAPRINT</span> <span>100% revendeurs</span><br />
-            <small>L'imprimerie réservée aux pros des arts graphiques</small>
+            <span style="font-size: 24px;">EXAPRINT</span><br />
+            <small>Des idées à revendre !</small>
         </div>
 
         <div id="customer">
@@ -193,7 +193,7 @@
             {% block footer %}
                 <footer>
                     {% block type %}{% endblock %}
-                    <div class="mentions" style="text-align: left;">
+                    <div class="mentions" style="text-align: left; color: #999999;">
                         {% block mentions %}
                             {% trans "Mentions legales facture" %}
                         {% endblock %}
@@ -201,14 +201,14 @@
                 </footer>
             {% endblock %}
 
-            <div style="margin: auto;">
+            <div style="margin-top: 1cm; margin: auto;">
                 <table style="margin: auto">
                     <tr>
-                        <td>
-                            <span style="font-size: 14px;">EXAPRINT</span> <span>100% revendeurs</span><br />
-                            <small>L'imprimerie réservée aux pros des arts graphiques</small>
+                        <td style="padding-right: 1cm;">
+                            <span style="font-size: 14px;">EXAPRINT</span><br />
+                            <small>Des idées à revendre !</small>
                         </td>
-                        <td>
+                        <td style="padding-left: 1cm;">
                             Accueil téléphonique de 8h30 à 18h30 : 04 67 22 36 55<br />
                             ZAC de Fréjorgues Ouest - Rue Charles Nungesser<br />
                             34135 Mauguio / Montpellier - www.exaprint.fr
