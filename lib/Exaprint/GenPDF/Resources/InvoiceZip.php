@@ -91,6 +91,9 @@ class InvoiceZip extends Resource implements IResource
             case "en_GB":
                 $filename .= "countries/invoice-zip.en.twig";
                 break;
+            case "it_IT":
+                $filename .= "countries/invoice-zip.it.twig";
+                break;
             default:
                 $filename .= "invoice-zip.twig";
                 break;
