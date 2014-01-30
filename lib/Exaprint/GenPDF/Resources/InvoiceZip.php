@@ -82,7 +82,18 @@ class InvoiceZip extends Resource implements IResource
      */
     public function getTemplateFilename()
     {
-        return "resources/invoice-zip.twig";
+        $filename = "resources/";
+
+        switch(\Locale\Helper::$current) {
+            case "fr_FR":
+                $filename .= "countries/invoice-zip.fr.twig";
+                break;
+            default:
+                $filename .= "invoice-zip.twig";
+                break;
+        }
+
+        return $filename;
     }
 
     /**

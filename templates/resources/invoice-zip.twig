@@ -27,10 +27,7 @@
     {% for a, inv in invoices %}
         <div class="invoice" style="height: 26cm; position: relative;">
 
-        <div style="text-align: right; font-size: 20px; margin-bottom: 1cm; color: #999999;">
-            <span style="font-size: 24px;">EXAPRINT</span><br />
-            <small>Des idées à revendre !</small>
-        </div>
+        {% block header %}{% endblock %}
 
         <div id="customer">
             {% block customer_address %}
@@ -190,7 +187,7 @@
         </div>
 
         <div style="text-align: center; font-size: 12px; color: #999999; position: absolute; bottom: 0; width: 100%;">
-            {% block footer %}
+            {% block mentions_wrapper %}
                 <footer>
                     {% block type %}{% endblock %}
                     <div class="mentions" style="text-align: left; color: #999999;">
@@ -201,28 +198,8 @@
                 </footer>
             {% endblock %}
 
-            <div style="padding-top: 1cm; margin: auto;">
-                <table style="margin: auto">
-                    <tr>
-                        <td style="padding-right: 1cm;">
-                            <span style="font-size: 14px;">EXAPRINT</span><br />
-                            <small>Des idées à revendre !</small>
-                        </td>
-                        <td style="padding-left: 1cm;">
-                            Accueil téléphonique de 8h30 à 18h30 : 04 67 22 36 55<br />
-                            ZAC de Fréjorgues Ouest - Rue Charles Nungesser<br />
-                            34135 Mauguio / Montpellier - www.exaprint.fr
-                        </td>
-                    </tr>
-                </table><br />
+            {% block footer %}{% endblock %}
 
-                <small>PEFC 10-32-2667 / Cette entreprise a fait certifier sa chaîne de contrôle / pefc-france.org</small><br /><br />
-
-                SAS au capital de 40000€ |
-                Siret 42284379700032 |
-                N°TVA FR32422843797 |
-                CODE APE 1812Z
-            </div>
         </div>
 
     </div>
