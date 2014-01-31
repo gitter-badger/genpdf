@@ -186,11 +186,11 @@
 
         </div>
 
-        <div style="text-align: center; font-size: 12px; color: #999999; position: absolute; bottom: 0; width: 100%;">
             {% block mentions_wrapper %}
                 <footer>
+                    <div class="mt-5cm"></div>
                     {% block type %}{% endblock %}
-                    <div class="mentions" style="text-align: left; color: #999999;">
+                    <div class="mentions">
                         {% block mentions %}
                             {% trans "Mentions legales facture" %}
                         {% endblock %}
@@ -198,9 +198,9 @@
                 </footer>
             {% endblock %}
 
-            {% block footer %}{% endblock %}
-
-        </div>
+            <div style="text-align: center; font-size: 12px; color: #999999; position: absolute; bottom: 0; width: 100%;">
+                {% block footer %}{% endblock %}
+            </div>
 
     </div>
 

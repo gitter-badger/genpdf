@@ -153,6 +153,9 @@ span.currency {
 #main table td.date {
   text-align: center;
 }
+.mt-5cm {
+  margin-top: 5cm;
+}
 .type {
   text-align: center;
   font-weight: bold;
