@@ -68,4 +68,16 @@ class Color
         $color->name = $name;
         return $color;
     }
+
+    public function toArray()
+    {
+        $arr = [];
+
+        if($this->col1 > -1) $arr[] = $this->col1;
+        if($this->col2 > -1) $arr[] = $this->col2;
+        if($this->col3 > -1) $arr[] = $this->col3;
+        if($this->col4 > -1) $arr[] = $this->col4;
+
+        return $arr;
+    }
 } 

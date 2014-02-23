@@ -9,6 +9,9 @@
 namespace Exaprint\GenPDF\FicheDeFabrication\Amalgame;
 
 
+use Exaprint\TCPDF\Position;
+
 interface ICellule {
 
-} 
+    public function draw(Position $position, \TCPDF $pdf, $cellSize, array $commande);
+}

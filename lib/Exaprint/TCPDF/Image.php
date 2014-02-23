@@ -58,5 +58,4 @@ class Image implements Element
         );
     }
 
-
 }

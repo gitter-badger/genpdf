@@ -10,6 +10,7 @@ namespace Exaprint\GenPDF\FicheDeFabrication;
 
 
 use Exaprint\GenPDF\FicheDeFabrication\Amalgame\Commande;
+use Exaprint\GenPDF\FicheDeFabrication\Amalgame\Layout;
 use Exaprint\GenPDF\FicheDeFabrication\Amalgame\Planche;
 use Monolog\Handler\RotatingFileHandler;
 use Monolog\Logger;
@@ -17,10 +18,11 @@ use Monolog\Logger;
 class Amalgame
 {
 
+    public static $wPage= 210;
+    public static $hPage = 297;
+    public static $gouttiere = 4;
     public static $marge = 5;
     public static $hSouche = 8;
-    public static $width = 200;
-    public static $height = 284;
 
     protected static $commandePositions = [
         ['x' => 5, 'y' => 8],
@@ -34,11 +36,10 @@ class Amalgame
     protected $planche;
     protected $commandes = [];
     protected $currentCommandePosition = 1;
+    protected $layout;
 
     public function __construct($planche)
     {
-        $this->logger = new Logger('ff', [new RotatingFileHandler('/var/tmp/fiche-de-fab.log')]);
-
         $this->planche = $planche;
 
         $this->pdf = new \TCPDF(
@@ -50,6 +51,8 @@ class Amalgame
             false
         );
 
+        $this->layout = new Layout();
+
         $this->pdf->SetFont('bagc-reg');
         $this->pdf->SetMargins(0, 0, 0, true);
         $this->pdf->setPrintHeader(false);
@@ -57,12 +60,14 @@ class Amalgame
         $this->pdf->SetAutoPageBreak(false);
         $this->newPage();
 
-        $planchePdf = new Planche($this->pdf, $planche);
+        $planchePdf = new Planche($this->pdf, $planche, $this->layout);
         $planchePdf->draw();
 
         foreach ($this->planche['commandes'] as $commande) {
             $this->commande($commande);
         }
+
+        var_dump($this->planche);
     }
 
     protected function newPage()
@@ -74,22 +79,23 @@ class Amalgame
 
     protected function souche()
     {
-        $this->pdf->Rect(self::$marge, 0, 200, self::$hSouche);
+
+        $this->pdf->Rect(0, 0, $this->layout->pageWidth, $this->layout->soucheHeight, '', ['ALL' => false]);
     }
 
     protected function commande($commande)
     {
-        if ($this->currentCommandePosition < count(self::$commandePositions) - 1) {
+        if ($this->currentCommandePosition < 3) {
             $this->currentCommandePosition++;
         } else {
             $this->currentCommandePosition = 0;
             $this->newPage();
         }
 
-        $x = self::$commandePositions[$this->currentCommandePosition]['x'];
-        $y = self::$commandePositions[$this->currentCommandePosition]['y'];
+        $x = $this->layout->xBloc($this->currentCommandePosition);
+        $y = $this->layout->yBloc($this->currentCommandePosition);
 
-        $commande          = new Commande($commande, $this->pdf, $x, $y);
+        $commande          = new Commande($commande, $this->pdf, $x, $y, $this->layout);
         $this->commandes[] = $commande;
     }
 } 

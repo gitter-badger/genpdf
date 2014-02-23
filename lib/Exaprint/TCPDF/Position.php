@@ -9,7 +9,8 @@
 namespace Exaprint\TCPDF;
 
 
-class Position implements DrawingContext {
+class Position implements DrawingContext
+{
 
     public $x;
 
@@ -35,5 +36,10 @@ class Position implements DrawingContext {
         $this->previousPosition->apply($pdf);
     }
 
+    public function add(Position $position)
+    {
+        $this->x += $position->x;
+        $this->y += $position->y;
+    }
 
 }

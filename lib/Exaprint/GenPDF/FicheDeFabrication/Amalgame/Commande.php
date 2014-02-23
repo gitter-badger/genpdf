@@ -9,6 +9,7 @@
 namespace Exaprint\GenPDF\FicheDeFabrication\Amalgame;
 
 
+use Exaprint\GenPDF\Resources\PartnersOrder;
 use Exaprint\TCPDF\Cell;
 use Exaprint\TCPDF\CellHeightRatio;
 use Exaprint\TCPDF\Color;
@@ -31,46 +32,17 @@ class Commande
 
     public $y;
 
-    public static $width = 100;
-
-    public static $height = 142;
-
-    public static $wIds = 32;
-    public static $hIds = 10;
-    public static $wQuantite = 28;
-
-    public static $hVisuels = 69;
-    public static $gCellSize = 9;
-    public static $gRowCount = 7;
-    public static $gColCount = 3;
-    public static $wCodeBarre = 40;
-    public static $hCodeBarre = 16;
-    public static $pCodeBarre = 2;
-    // W x H code postal
-    public static $wCodePostal = 19;
-    public static $hCodePostal = 9;
-    // W x H code pays
-    public static $wCodePays = 9;
-    public static $hCodePays = 9;
-
-    public static $cellules = [
-        ['BatPapier', 'Justificatif', 'Retirage'],
-        ['SousTraitance'],
-        [],
-        [],
-        [],
-        [],
-        [],
-    ];
-
     protected $commande;
 
-    function __construct($commande, \TCPDF $pdf, $x, $y)
+    protected $layout;
+
+    function __construct($commande, \TCPDF $pdf, $x, $y, Layout $layout)
     {
         $this->pdf      = $pdf;
         $this->x        = $x;
         $this->y        = $y;
         $this->commande = $commande;
+        $this->layout   = $layout;
 
         $this->border();
         $this->ids();
@@ -100,16 +72,16 @@ class Commande
         $this->pdf->Rect(
             $this->_x(),
             $this->_y(),
-            self::$width,
-            self::$height
+            $this->layout->wBloc(),
+            $this->layout->hBloc()
         );
     }
 
     protected function ids()
     {
 
-        $w                = self::$wIds;
-        $idCommandeHeight = 7;
+        $w                = $this->layout->cEnteteIdsWidth;
+        $idCommandeHeight = $this->layout->cIdCommandeHeight;
 
         $idCommande                  = new Cell();
         $idCommande->font            = new Font('bagc-bold', 20);
@@ -133,7 +105,7 @@ class Commande
         $idPlanche->ignoreMinHeight = true;
         $idPlanche->align           = Cell::ALIGN_CENTER;
         $idPlanche->vAlign          = Cell::VALIGN_TOP;
-        $idPlanche->height          = self::$hIds - $idCommandeHeight;
+        $idPlanche->height          = $this->layout->cEnteteHeight - $idCommandeHeight;
         $idPlanche->width           = $w;
         $idPlanche->text            = $this->formatIdPlanche();
         $idPlanche->fill            = true;
@@ -159,13 +131,13 @@ class Commande
     protected function quantite()
     {
         $q                  = new Cell();
-        $q->width           = self::$wQuantite;
+        $q->width           = $this->layout->cEnteteQuantiteWidth;
         $q->font            = new Font('bagc-bold', 28);
         $q->fillColor       = new FillColor(Color::cmyk(100, 100, 0, 0));
         $q->textColor       = new TextColor(Color::greyscale(255));
         $q->text            = $this->formatQuantite();
-        $q->position        = new Position($this->_x(self::$width - $q->width), $this->_y());
-        $q->height          = self::$hIds;
+        $q->position        = new Position($this->_x($this->layout->wBloc() - $q->width), $this->_y());
+        $q->height          = $this->layout->cEnteteHeight;
         $q->align           = Cell::ALIGN_CENTER;
         $q->ignoreMinHeight = true;
         $q->vAlign          = Cell::VALIGN_BOTTOM;
@@ -176,35 +148,33 @@ class Commande
     protected function formats()
     {
         $times                    = '×';
-        $ouvert                   = $this->commande['Formats']['Ouvert'];
+        ;
         $cOuvert                  = new Cell();
         $cOuvert->textColor       = new TextColor(Color::greyscale(0));
-        $cOuvert->position        = new Position($this->_x(self::$wIds), $this->_y());
-        $cOuvert->text            = $ouvert['Largeur'] . $times . $ouvert['Longueur'];
+        $cOuvert->position        = new Position($this->_x($this->layout->cEnteteIdsWidth), $this->_y());
+        $cOuvert->text            = $this->commande['LargeurOuvert'] . $times . $this->commande['LargeurOuvert'];
         $cOuvert->font            = new Font('bagc-bold', 28);
         $cOuvert->ignoreMinHeight = true;
         $cOuvert->border          = Cell::BORDER_NO_BORDER;
-        $cOuvert->height          = self::$hIds;
-        $cOuvert->width           = self::$width - self::$wQuantite - self::$wIds;
+        $cOuvert->height          = $this->layout->cEnteteHeight;
+        $cOuvert->width           = $this->layout->wBloc() - $this->layout->cEnteteQuantiteWidth - $this->layout->cEnteteIdsWidth;
         $cOuvert->align           = Cell::ALIGN_CENTER;
         $cOuvert->vAlign          = Cell::VALIGN_BOTTOM;
 
-        if (isset($this->commande['Formats']['Ferme'])) {
-
-            $ferme = $this->commande['Formats']['Ferme'];
+        if ($this->commande['LongueurFerme']) {
 
             $cOuvert->font   = new Font('bagc-bold', 18);
             $cOuvert->height = 6;
 
             $cFerme                  = new Cell();
             $cFerme->textColor       = new TextColor(Color::greyscale(0));
-            $cFerme->position        = new Position($this->_x(self::$wIds), $this->_y(6));
-            $cFerme->text            = $ferme['Largeur'] . $times . $ferme['Longueur'];
+            $cFerme->position        = new Position($this->_x($this->layout->cEnteteIdsWidth), $this->_y(6));
+            $cFerme->text            = $this->commande['LargeurFerme'] . $times . $this->commande['LongueurFerme'];
             $cFerme->font            = new Font('bagc-mediumital', 12);
             $cFerme->ignoreMinHeight = true;
             $cFerme->border          = Cell::BORDER_NO_BORDER;
             $cFerme->height          = 4;
-            $cFerme->width           = self::$width - self::$wQuantite - self::$wIds;
+            $cFerme->width           = $this->layout->wBloc() - $this->layout->cEnteteQuantiteWidth - $this->layout->cEnteteIdsWidth;
             $cFerme->align           = Cell::ALIGN_CENTER;
             $cFerme->vAlign          = Cell::VALIGN_BOTTOM;
 
@@ -272,15 +242,15 @@ class Commande
 
     protected function visuels()
     {
-
+        // todo replace by ImageInContainer
         if (count($this->commande['Visuels']) == 1) {
 
             $this->placeImage(
                 $this->commande['Visuels'][0],
                 $this->_x(),
-                $this->_y(self::$hIds),
-                self::$width,
-                self::$hVisuels
+                $this->_y($this->layout->cEnteteHeight),
+                $this->layout->wBloc(),
+                $this->layout->cVisuelsHeight
             );
 
         } else {
@@ -288,25 +258,25 @@ class Commande
             $this->placeImage(
                 $this->commande['Visuels'][0],
                 $this->_x(),
-                $this->_y(self::$hIds),
-                self::$width / 2,
-                self::$hVisuels
+                $this->_y($this->layout->cEnteteHeight),
+                $this->layout->wBloc() / 2,
+                $this->layout->cVisuelsHeight
             );
 
             $this->placeImage(
                 $this->commande['Visuels'][1],
-                $this->_x(self::$width / 2),
-                $this->_y(self::$hIds),
-                self::$width / 2,
-                self::$hVisuels
+                $this->_x($this->layout->wBloc() / 2),
+                $this->_y($this->layout->cEnteteHeight),
+                $this->layout->wBloc() / 2,
+                $this->layout->cVisuelsHeight
             );
         }
 
         $this->pdf->Rect(
             $this->_x(),
-            $this->_y(self::$hIds),
-            self::$width,
-            self::$hVisuels
+            $this->_y($this->layout->cEnteteHeight),
+            $this->layout->wBloc(),
+            $this->layout->cVisuelsHeight
         );
 
     }
@@ -316,12 +286,12 @@ class Commande
         $paddingTop         = 1;
         $c                  = new MultiCell();
         $c->x               = $this->_x();
-        $c->y               = $this->_y(self::$hIds + self::$hVisuels + $paddingTop);
+        $c->y               = $this->_y($this->layout->cEnteteHeight + $this->layout->cVisuelsHeight + $paddingTop);
         $c->cellHeightRatio = new CellHeightRatio(0.9);
-        $c->width           = self::$width - self::$gCellSize * self::$gColCount;
+        $c->width           = $this->layout->wBloc() - $this->layout->cellule() * $this->layout->cGrilleColCount;
         $c->text            = $this->commande['ReferenceClient'];
         $c->textColor       = new TextColor(Color::greyscale(0));
-        $c->font            = new Font('bagc-medium', 14);
+        $c->font            = new Font('bagc-medium', 11);
         $c->draw($this->pdf);
     }
 
@@ -330,10 +300,10 @@ class Commande
 
         $c                  = new MultiCell();
         $c->x               = $this->_x();
-        $c->y               = $this->_y(self::$hIds + self::$hVisuels + 10);
+        $c->y               = $this->_y($this->layout->cEnteteHeight + $this->layout->cVisuelsHeight + 5);
         $c->cellHeightRatio = new CellHeightRatio(0.9);
-        $c->width           = self::$width - self::$gCellSize * self::$gColCount;
-        $c->text            = $this->commande['CommentairePao'];
+        $c->width           = $this->layout->wBloc() - $this->layout->cellule() * $this->layout->cGrilleColCount;
+        $c->text            = $this->commande['CommentairePAO'];
         $c->textColor       = new TextColor(Color::greyscale(0));
         $c->font            = new Font('bagc-light', 11);
         $c->draw($this->pdf);
@@ -344,10 +314,10 @@ class Commande
         $this->pdf->write1DBarcode(
             $this->commande['IDCommande'],
             'C39',
-            $this->_x(self::$pCodeBarre),
-            $this->_y(self::$height - self::$hCodeBarre - self::$pCodeBarre),
-            self::$wCodeBarre,
-            self::$hCodeBarre,
+            $this->_x($this->layout->cCodeBarreMargin),
+            $this->_y($this->layout->hBloc() - $this->layout->cCodeBarreHeight - $this->layout->cCodeBarreMargin),
+            $this->layout->cCodeBarreWidth,
+            $this->layout->cCodeBarreHeight,
             0.4,
             '',
             'N'
@@ -361,41 +331,67 @@ class Commande
 
     protected function livraison()
     {
-        //Code Postal
-        $c            = new Cell();
-        $c->text      = $this->commande['CodePostalLivraison'];
-        $c->textColor = new TextColor(Color::greyscale(0));
-        $c->font      = new Font('bagc-light', 18);
-        $c->border    = true;
-        $c->height    = self::$hCodePostal;
-        $c->align     = Cell::ALIGN_RIGHT;
-        $c->width     = self::$wCodePostal;
-        $c->position  = new Position(
-            $this->_x(self::$width - self::$gCellSize * self::$gColCount - self::$wCodePays - self::$wCodePostal),
-            $this->_y(self::$height - self::$hCodePostal)
-        );
-        $c->draw($this->pdf);
+        $x = $this->layout->wBloc() - $this->layout->cellule() * $this->layout->cGrilleColCount;
+
 
         //Code Pays
         $c            = new Cell();
-        $c->text      = $this->commande['CodePaysLivraison'];
+        $c->text      = $this->commande['CodePays'];
         $c->textColor = new TextColor(Color::greyscale(0));
         $c->font      = new Font('bagc-bold', 18);
         $c->border    = true;
-        $c->height    = self::$hCodePostal;
+        $c->height    = $this->layout->cLivraisonCodePostalHeight;
         $c->align     = Cell::ALIGN_CENTER;
-        $c->width     = self::$wCodePays;
+        $c->width     = $this->layout->cLivraisonCodePaysWidth;
         $c->position  = new Position(
-            $this->_x(self::$width - self::$gCellSize * self::$gColCount - self::$wCodePays),
-            $this->_y(self::$height - self::$hCodePays)
+            $this->_x($x - $this->layout->cLivraisonCodePaysWidth),
+            $this->_y($this->layout->hBloc() - $this->layout->cLivraisonCodePaysHeight)
         );
         $c->draw($this->pdf);
+
+        //Code Postal
+        $c            = new Cell();
+        $c->text      = $this->commande['CodePostal'];
+        $c->textColor = new TextColor(Color::greyscale(0));
+        $c->font      = new Font('bagc-light', 18);
+        $c->border    = true;
+        $c->height    = $this->layout->cLivraisonCodePostalHeight;
+        $c->align     = Cell::ALIGN_RIGHT;
+        $c->width     = $this->layout->cLivraisonCodePostalWidth;
+        $c->position  = new Position(
+            $this->_x($x - $this->layout->cLivraisonCodePaysWidth - $this->layout->cLivraisonCodePostalWidth),
+            $this->_y($this->layout->hBloc() - $this->layout->cLivraisonCodePostalHeight)
+        );
+        $c->draw($this->pdf);
+
+        $c            = new Cell();
+        $c->text      = $this->commande['DateExpedition'];
+        $c->font      = new Font('bagc-bold', $this->layout->cExpeditionDateFontSize);
+        $c->border    = true;
+        $c->fill      = true;
+        $c->fillColor = new FillColor(Color::greyscale(255));
+        $c->align     = Cell::ALIGN_CENTER;
+        $c->vAlign    = Cell::VALIGN_CENTER;
+        $c->textColor = new TextColor(Color::cmyk(0, 100, 100, 0));
+        $c->position  = new Position(
+            $this->_x($x - $this->layout->cExpeditionDateWidth),
+            $this->_y($this->layout->hBloc() - $this->layout->cLivraisonCodePostalHeight - $this->layout->cExpeditionDateHeight)
+        );
+        $c->width     = $this->layout->cExpeditionDateWidth;
+        $c->height    = $this->layout->cExpeditionDateHeight;
+
+        if ($this->commande['EstImperatif']) {
+            $c->textColor->color = Color::cmyk(0, 0, 100, 0);
+            $c->fillColor->color = Color::cmyk(0, 100, 100, 0);
+        }
+        $c->draw($this->pdf);
+
     }
 
     protected function grille()
     {
-        for ($i = 0; $i < self::$gRowCount; $i++) {
-            for ($j = 0; $j < self::$gColCount; $j++) {
+        for ($i = 0; $i < $this->layout->grilleRowCount(); $i++) {
+            for ($j = 0; $j < $this->layout->grilleColCount(); $j++) {
                 $this->cellule($i, $j);
             }
         }
@@ -403,24 +399,24 @@ class Commande
 
     protected function cellule($i, $j)
     {
-        $offsetX = self::$width - self::$gCellSize * self::$gColCount;
-        $offsetY = self::$height - self::$gCellSize * self::$gRowCount;
-        $p       = new Position($this->_x($offsetX + $j * self::$gCellSize), $this->_y($offsetY + $i * self::$gCellSize));
+        $offsetX = $this->layout->wBloc() - $this->layout->cellule() * $this->layout->grilleColCount();
+        $offsetY = $this->layout->hBloc() - $this->layout->cellule() * $this->layout->grilleRowCount();
+        $p       = new Position($this->_x($offsetX + $j * $this->layout->cellule()), $this->_y($offsetY + $i * $this->layout->cellule()));
 
-        if (isset(self::$cellules[$i][$j])) {
-            $class = '\Exaprint\GenPDF\FicheDeFabrication\Amalgame\Cellule\\' . self::$cellules[$i][$j];
+        if ($class = $this->layout->cGrilleCellules[$i][$j]) {
+            $class = '\Exaprint\GenPDF\FicheDeFabrication\Amalgame\Cellule\\' . $class;
             if (class_exists($class)) {
                 $ref     = new \ReflectionClass($class);
                 $cellule = $ref->newInstance();
                 $cellule->draw(
                     $p,
                     $this->pdf,
-                    self::$gCellSize,
+                    $this->layout->cellule(),
                     $this->commande
                 );
             }
         } else {
-            $this->pdf->Rect($p->x, $p->y, self::$gCellSize, self::$gCellSize);
+            $this->pdf->Rect($p->x, $p->y, $this->layout->cellule(), $this->layout->cellule());
         }
     }
 }

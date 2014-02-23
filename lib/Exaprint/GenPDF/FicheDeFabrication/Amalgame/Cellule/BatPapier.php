@@ -19,7 +19,7 @@ use Exaprint\TCPDF\TextColor;
 
 class BatPapier implements ICellule
 {
-//85,10,100,0
+
     public function draw(Position $position, \TCPDF $pdf, $cellSize, array $commande){
         if(isset($commande['BatPapier']) && $commande['BatPapier']){
             $cell = new Cell();
