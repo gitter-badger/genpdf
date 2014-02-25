@@ -21,7 +21,7 @@ class BatPapier implements ICellule
 {
 
     public function draw(Position $position, \TCPDF $pdf, $cellSize, array $commande){
-        if(isset($commande['BatPapier']) && $commande['BatPapier']){
+        if(isset($commande['BAT']) && $commande['BAT']){
             $cell = new Cell();
             $cell->position = $position;
             $cell->fillColor = new FillColor(Color::cmyk(85, 10, 100, 0));

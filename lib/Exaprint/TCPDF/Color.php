@@ -25,6 +25,21 @@ class Color
         return $color;
     }
 
+    public static function black()
+    {
+        return self::greyscale(0);
+    }
+
+    public static function white()
+    {
+        return self::greyscale(255);
+    }
+
+    public static function red()
+    {
+        return self::cmyk(0, 100, 100, 0);
+    }
+
     /**
      * @param $c
      * @param $m
@@ -73,10 +88,10 @@ class Color
     {
         $arr = [];
 
-        if($this->col1 > -1) $arr[] = $this->col1;
-        if($this->col2 > -1) $arr[] = $this->col2;
-        if($this->col3 > -1) $arr[] = $this->col3;
-        if($this->col4 > -1) $arr[] = $this->col4;
+        if ($this->col1 > -1) $arr[] = $this->col1;
+        if ($this->col2 > -1) $arr[] = $this->col2;
+        if ($this->col3 > -1) $arr[] = $this->col3;
+        if ($this->col4 > -1) $arr[] = $this->col4;
 
         return $arr;
     }

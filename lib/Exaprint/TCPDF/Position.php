@@ -36,10 +36,14 @@ class Position implements DrawingContext
         $this->previousPosition->apply($pdf);
     }
 
+    /**
+     * @param Position $position
+     * @return Position
+     */
     public function add(Position $position)
     {
-        $this->x += $position->x;
-        $this->y += $position->y;
+        return new Position($this->x + $position->x, $this->y + $position->y);
     }
+
 
 }

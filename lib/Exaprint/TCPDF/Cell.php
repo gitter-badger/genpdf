@@ -46,6 +46,8 @@ class Cell implements Element
     /** @var  CellPadding */
     public $cellPadding;
 
+    public $lineStyle;
+
     public $width;
 
     public $height = 0;

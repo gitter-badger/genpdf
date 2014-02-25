@@ -1,0 +1,1329 @@
+msgid ""
+msgstr ""
+"Project-Id-Version: genPDF-fichefab\n"
+"POT-Creation-Date: 2014-01-06 15:24+0100\n"
+"PO-Revision-Date: 2014-01-06 15:24+0100\n"
+"Last-Translator: \n"
+"Language-Team: Exaprint <romain@exaprint.fr>\n"
+"MIME-Version: 1.0\n"
+"Content-Type: text/plain; charset=UTF-8\n"
+"Content-Transfer-Encoding: 8bit\n"
+"Language: pt_PT\n"
+
+msgid "valeur_142"
+msgstr "350g Mate Condat Perigord"
+
+msgid "valeur_143"
+msgstr "350g Cyclus Print"
+
+msgid "valeur_145"
+msgstr "250g Autocolante"
+
+msgid "valeur_146"
+msgstr "280g Autocolante"
+
+msgid "valeur_147"
+msgstr "500µ PVC branco"
+
+msgid "valeur_148"
+msgstr "PVC transparente"
+
+msgid "valeur_149"
+msgstr "Curious Translucents 230g"
+
+msgid "valeur_150"
+msgstr "Conqueror CX 22 Diamante Reciclado"
+
+msgid "valeur_151"
+msgstr "Rives Design Extra Branco"
+
+msgid "valeur_152"
+msgstr "Rives Vergé Branco Glaciar"
+
+msgid "valeur_153"
+msgstr "Cromolux Ouro"
+
+msgid "valeur_154"
+msgstr "Cromolux Prata"
+
+msgid "valeur_155"
+msgstr "Cromolux Cromo"
+
+msgid "valeur_209"
+msgstr "300g Couché Brilho"
+
+msgid "valeur_222"
+msgstr "80g Cyclus Offset"
+
+msgid "valeur_223"
+msgstr "90g Offset"
+
+msgid "valeur_224"
+msgstr "115 Cyclus Print"
+
+msgid "valeur_225"
+msgstr "135g Couché Brilho"
+
+msgid "valeur_226"
+msgstr "140g Cyclus Offset"
+
+msgid "valeur_227"
+msgstr "170g Couché Brilho"
+
+msgid "valeur_228"
+msgstr "170g Couché Mate"
+
+msgid "valeur_229"
+msgstr "250g Cyclus Print"
+
+msgid "valeur_234"
+msgstr "80g Cyclus Office"
+
+msgid "valeur_235"
+msgstr "90g Offset Reciclado"
+
+msgid "valeur_236"
+msgstr "90g Offset laser"
+
+msgid "valeur_237"
+msgstr "100g Opale"
+
+msgid "valeur_279"
+msgstr "folha 150g couché brilho + cartão compact 18/10"
+
+msgid "valeur_280"
+msgstr "folha 150g couché mate + cartão compact 18/10"
+
+msgid "valeur_292"
+msgstr "Tecido poliéster 270g Anti-fogo M!"
+
+msgid "valeur_301"
+msgstr "Alumínio"
+
+msgid "valeur_302"
+msgstr "tecido 210g M1 reciclável"
+
+msgid "valeur_303"
+msgstr "180g encapsulado"
+
+msgid "valeur_304"
+msgstr "180g plastificação 75 micron acetinado"
+
+msgid "valeur_305"
+msgstr "Rives Tradition Extra Branco"
+
+msgid "valeur_306"
+msgstr "couché brilho 150 gr + cartão 15/10º "
+
+msgid "valeur_308"
+msgstr "80 gr couché acetinado com verso"
+
+msgid "valeur_311"
+msgstr "Vinil branco"
+
+msgid "valeur_312"
+msgstr "Vinil transparente"
+
+msgid "valeur_316"
+msgstr "Vinil oracal 235g transparente"
+
+msgid "valeur_317"
+msgstr "Vinil oracal 235g transparente"
+
+msgid "valeur_360"
+msgstr "90g Offset reciclado Era pure"
+
+msgid "valeur_361"
+msgstr "90 Kraft"
+
+msgid "valeur_413"
+msgstr "130g Cyclus Print"
+
+msgid "valeur_419"
+msgstr "135g Semi-mate"
+
+msgid "valeur_420"
+msgstr "120g Anti-fogo M1"
+
+msgid "valeur_421"
+msgstr "120g Mat REH"
+
+msgid "valeur_422"
+msgstr "placa de vidro acrílico 5mm"
+
+msgid "valeur_426"
+msgstr "Placa de alumínio anodizado"
+
+msgid "valeur_427"
+msgstr "Placa de alumínio brilhante"
+
+msgid "valeur_428"
+msgstr "Quadro de tela"
+
+msgid "valeur_431"
+msgstr "Akylux espessura 3,5mm"
+
+msgid "valeur_436"
+msgstr "Dibond espessura 3mm"
+
+msgid "valeur_474"
+msgstr "80g offset branco reposicionável"
+
+msgid "valeur_478"
+msgstr "80g offset amarelo reposicionável"
+
+msgid "valeur_481"
+msgstr "Polipropileno 8/10º branco"
+
+msgid "valeur_482"
+msgstr "Polipropileno 8/10º transparente"
+
+msgid "valeur_507"
+msgstr "115g Tela bloqueada Anti-fogo M1"
+
+msgid "valeur_508"
+msgstr "250g Acetinado Anti-fogo M1"
+
+msgid "valeur_509"
+msgstr "200g Acetinado"
+
+msgid "valeur_510"
+msgstr "200g Acetinado Encapsulado"
+
+msgid "valeur_499"
+msgstr "80g Offset Laser"
+
+msgid "valeur_502"
+msgstr "380g Couché Mate"
+
+msgid "valeur_543"
+msgstr "250g Couché brilho"
+
+msgid "valeur_544"
+msgstr "550g Lona PVC"
+
+msgid "valeur_545"
+msgstr "550g Lona PVC M1"
+
+msgid "valeur_562"
+msgstr "100µ Vinil Transparente para tranfser"
+
+msgid "valeur_569"
+msgstr "Autocolante resina"
+
+msgid "valeur_570"
+msgstr "172µ Autocolante Avery 62µ + Suporte 110µ"
+
+msgid "valeur_571"
+msgstr "60g Celibio Biodegradável Branco"
+
+msgid "valeur_572"
+msgstr "17g Guata natural reciclada"
+
+msgid "valeur_574"
+msgstr "60g Celibio Biodegradável Cor"
+
+msgid "valeur_581"
+msgstr "120g Offset FSC"
+
+msgid "valeur_589"
+msgstr "120g Offset Laser"
+
+msgid "valeur_592"
+msgstr "Iman"
+
+msgid "valeur_593"
+msgstr "200g Sintético"
+
+msgid "valeur_594"
+msgstr "Fita 2 cm tecido autocolante"
+
+msgid "valeur_595"
+msgstr "Copo de plástico 33cl Branco Translúcido"
+
+msgid "valeur_596"
+msgstr "115g Semi-mate"
+
+msgid "valeur_598"
+msgstr "100g Kraft Castanho"
+
+msgid "valeur_599"
+msgstr "100g Kraft Branco"
+
+msgid "valeur_600"
+msgstr "110g Kraft Castanho"
+
+msgid "valeur_601"
+msgstr "110g Kraft Branco"
+
+msgid "valeur_602"
+msgstr "120g Kraft Castanho"
+
+msgid "valeur_603"
+msgstr "120g Kraft Branco"
+
+msgid "valeur_607"
+msgstr "140g Tecido Stretch anti-fogo M1"
+
+msgid "valeur_608"
+msgstr "117g malha bloqueada anti-fogo M1"
+
+msgid "valeur_609"
+msgstr "260g Lona Poliester Anti-fogo M1"
+
+msgid "valeur_648"
+msgstr "200g Couché Brilho"
+
+msgid "valeur_649"
+msgstr "Polipropileno 8/10° Opaline"
+
+msgid "valeur_656"
+msgstr "250g Eco Reciclado"
+
+msgid "valeur_658"
+msgstr "115g Couché Brilho"
+
+msgid "valeur_659"
+msgstr "150g Couché Brilho"
+
+msgid "valeur_660"
+msgstr "150g Semi-mate"
+
+msgid "valeur_664"
+msgstr "90g Couché Brilho"
+
+msgid "valeur_665"
+msgstr "90g Semi-mate"
+
+msgid "valeur_666"
+msgstr "80g Offset"
+
+msgid "valeur_668"
+msgstr "120g Offset branco"
+
+msgid "valeur_669"
+msgstr "90g Offset Fluo Verde"
+
+msgid "valeur_670"
+msgstr "90g Offset Fluo Amarelo"
+
+msgid "valeur_671"
+msgstr "90g Offset Fluo Laranja"
+
+msgid "valeur_672"
+msgstr "115g Offset Verso Azul"
+
+msgid "valeur_673"
+msgstr "350g Couché Brilho"
+
+msgid "valeur_674"
+msgstr "100g Branco Extremo"
+
+msgid "valeur_675"
+msgstr "120g Branco Extremo"
+
+msgid "valeur_554"
+msgstr "150µ One Way Vision Microperfurado"
+
+msgid "valeur_555"
+msgstr "250µ Vinilo Branco SolGraphic"
+
+msgid "valeur_617"
+msgstr "Duplo - CB Branco 80g / CF Branco 170g"
+
+msgid "valeur_618"
+msgstr "Duplo - CB Branco 62g / CF Amarelo 62g"
+
+msgid "valeur_619"
+msgstr "Triplo -  CB Branco 80g / CFB Branco 60g / CF Branco 170g"
+
+msgid "valeur_620"
+msgstr "Triplo -  CB Branco 62g / CFB Rosa 62g / CF Amarelo 62g"
+
+msgid "valeur_677"
+msgstr "480g Invercote 280g + Condat silk 200g"
+
+msgid "valeur_735"
+msgstr "450g Synaps OM"
+
+msgid "valeur_831"
+msgstr "Vinil translúcido"
+
+msgid "valeur_835"
+msgstr "100% Couché Brilho reciclado"
+
+msgid "valeur_836"
+msgstr "750 PVC Branco"
+
+msgid "valeur_837"
+msgstr "175g Manager "
+
+msgid "valeur_930"
+msgstr "300g Semi-mate"
+
+msgid "valeur_932"
+msgstr "250g Couché Mate"
+
+msgid "valeur_933"
+msgstr "170g Cyclus Print"
+
+msgid "valeur_934"
+msgstr "300g Offset Branco"
+
+msgid "valeur_935"
+msgstr "135g Couché Brilho - Certificado PEFC"
+
+msgid "valeur_937"
+msgstr "300g Semi-mate"
+
+msgid "valeur_939"
+msgstr "150g Couché Reciclado"
+
+msgid "valeur_940"
+msgstr "160g Cyclus Offset"
+
+msgid "valeur_941"
+msgstr "200g Semi-mate"
+
+msgid "valeur_942"
+msgstr "60g Autocopiativo - folha 1"
+
+msgid "valeur_943"
+msgstr "170g Couché Reciclado"
+
+msgid "valeur_944"
+msgstr "90g Couché Reciclado"
+
+msgid "valeur_945"
+msgstr "250g Semi-mate"
+
+msgid "valeur_947"
+msgstr "80g Autocopiativo-folha 1"
+
+msgid "valeur_948"
+msgstr "300g Cyclus Print"
+
+msgid "valeur_949"
+msgstr "90g Cyclus Print"
+
+msgid "valeur_950"
+msgstr "100g Semi-mate"
+
+msgid "valeur_951"
+msgstr "140g Offset"
+
+msgid "valeur_952"
+msgstr "150g Offset"
+
+msgid "valeur_953"
+msgstr "250g Semi-mate"
+
+msgid "valeur_954"
+msgstr "100g Offset"
+
+msgid "valeur_956"
+msgstr "270g Cyclus Offset"
+
+msgid "valeur_958"
+msgstr "135g Offset"
+
+msgid "valeur_965"
+msgstr "100g Couché Brilho"
+
+msgid "valeur_973"
+msgstr "120g Mate REH Verso Azul"
+
+msgid "valeur_976"
+msgstr "120g Semi-mate"
+
+msgid "valeur_979"
+msgstr "200g Offset Reciclado"
+
+msgid "valeur_985"
+msgstr "115g Offset Reciclado"
+
+msgid "valeur_1000"
+msgstr "690g Kapatex"
+
+msgid "valeur_1002"
+msgstr "170g Acetinado"
+
+msgid "valeur_1004"
+msgstr "110g Kraft Vermelho"
+
+msgid "valeur_1005"
+msgstr "110g Kraft Preto"
+
+msgid "valeur_1020"
+msgstr "130g Kraft Arme"
+
+msgid "valeur_1022"
+msgstr "350g offset"
+
+msgid "valeur_1025"
+msgstr "80g Semi-Mate"
+
+msgid "valeur_1029"
+msgstr "100 g Offset reciclado"
+
+msgid "valeur_1031"
+msgstr "160g Offset Reciclado"
+
+msgid "valeur_1041"
+msgstr "80g couché brilho"
+
+msgid "valeur_1045"
+msgstr "200g mate"
+
+msgid "valeur_1047"
+msgstr "90g Extra Strong Laser"
+
+msgid "valeur_1050"
+msgstr "100g Offset"
+
+msgid "valeur_1052"
+msgstr "80g Cyclus Print"
+
+msgid "valeur_1054"
+msgstr "100g Couché Brilho PEFSC"
+
+msgid "valeur_1055"
+msgstr "120g Couché Brilho PEFC"
+
+msgid "valeur_1056"
+msgstr "115g Couché Brilho PEFC"
+
+msgid "valeur_1060"
+msgstr "170g Offset"
+
+msgid "valeur_1062"
+msgstr "110g Offset Reciclado"
+
+msgid "valeur_1064"
+msgstr "200g Offset"
+
+msgid "valeur_1067"
+msgstr "250g Offset"
+
+msgid "valeur_1068"
+msgstr "225g Couché Semi-Mate"
+
+msgid "valeur_1074"
+msgstr "100g Couché Brilho"
+
+msgid "valeur_1075"
+msgstr "150g Cyclus Print"
+
+msgid "valeur_1076"
+msgstr "90g Opale"
+
+msgid "valeur_1080"
+msgstr "160g Offset"
+
+msgid "valeur_1085"
+msgstr "90g Offset Reciclado"
+
+msgid "valeur_1086"
+msgstr "115g REH VERSO AZUL"
+
+msgid "valeur_1087"
+msgstr "200g Cyclus Print"
+
+msgid "valeur_1126"
+msgstr "250 Offset Reciclado"
+
+msgid "valeur_1130"
+msgstr "160g Couché Semi-Mate"
+
+msgid "valeur_1134"
+msgstr "250g Mate Anti-fogo M1"
+
+msgid "valeur_1137"
+msgstr "260g Tela Polyester anti-fogo M1"
+
+msgid "valeur_1139"
+msgstr "130g acetinado"
+
+msgid "valeur_1141"
+msgstr "300g acetinado"
+
+msgid "valeur_1159"
+msgstr "130g Mate Branco M1"
+
+msgid "valeur_1164"
+msgstr "80g Opale"
+
+msgid "valeur_1179"
+msgstr "290g Fedrigoni Sirio Cor Lampone"
+
+msgid "valeur_1180"
+msgstr "290g Fedrigoni Sirio Cor Preta"
+
+msgid "valeur_1108"
+msgstr "690g Kapatex liso"
+
+msgid "valeur_1109"
+msgstr "300g Offset Reciclado"
+
+msgid "valeur_1115"
+msgstr "115g Offset"
+
+msgid "valeur_1185"
+msgstr "350g Metalizado dourado"
+
+msgid "valeur_1186"
+msgstr "350g Metalizado Prata"
+
+msgid "valeur_1189"
+msgstr "300g Fedrigoni Sírio Pearl Dourado"
+
+msgid "valeur_1190"
+msgstr "300g Fedrigoni Sirio Pearl Platino"
+
+msgid "valeur_1191"
+msgstr "120g Offset Velin Branco Superior"
+
+msgid "valeur_1192"
+msgstr "175µ PET transparente brilho"
+
+msgid "valeur_1197"
+msgstr "100g Velin branco"
+
+msgid "valeur_1198"
+msgstr "300g Invercote Cartão couché 1 face"
+
+msgid "valeur_1203"
+msgstr "90g Kraft Branco"
+
+msgid "valeur_1204"
+msgstr "135g Mate verso azul"
+
+msgid "valeur_1205"
+msgstr "120g amarelo flurescente"
+
+msgid "valeur_1206"
+msgstr "150g Backlit Satin Branco"
+
+msgid "valeur_1207"
+msgstr "210µ Photo Brilho Branco"
+
+msgid "valeur_1208"
+msgstr "150µ Film Backlit Polyester"
+
+msgid "valeur_1209"
+msgstr "100µ Vinil Branco Promo"
+
+msgid "valeur_1210"
+msgstr "100µ Vinil Branco Colocação fácil"
+
+msgid "valeur_1211"
+msgstr "80µ Vinil Branco Latex Ecol."
+
+msgid "valeur_1212"
+msgstr "150µ Vinil branco QuickMount extraível"
+
+msgid "valeur_1214"
+msgstr "72µ Vinil Covering Coulé"
+
+msgid "valeur_1215"
+msgstr "450g Lona ECO"
+
+msgid "valeur_1216"
+msgstr "260g Tecido Capotoile Eco."
+
+msgid "valeur_1217"
+msgstr "260g Tecido Capotoile Eco. Anti-fogo M1"
+
+msgid "valeur_1218"
+msgstr "Forex 4 mm"
+
+msgid "valeur_1219"
+msgstr "170µ One Way Micro-Perfurado para interior"
+
+msgid "valeur_1220"
+msgstr "300µ Film Polipropileno Magnet SticK"
+
+msgid "valeur_1224"
+msgstr "300g Cyclus Print"
+
+msgid "valeur_1227"
+msgstr "250g couché brilho"
+
+msgid "valeur_1228"
+msgstr "350g Semi-mate"
+
+msgid "valeur_1237"
+msgstr "150 mate"
+
+msgid "valeur_1242"
+msgstr "270 gr offset"
+
+msgid "valeur_1243"
+msgstr "135g Couché Mate"
+
+msgid "valeur_1244"
+msgstr "115 Couché Mate"
+
+msgid "valeur_1248"
+msgstr "170g offset reciclado"
+
+msgid "valeur_1396"
+msgstr "100g Kraft Vermelho"
+
+msgid "valeur_1397"
+msgstr "120g Kraft vermelho"
+
+msgid "valeur_1398"
+msgstr "100g Kraft Preto"
+
+msgid "valeur_1399"
+msgstr "120g Kraft Preto"
+
+msgid "valeur_1402"
+msgstr "80g Offset Azul"
+
+msgid "valeur_1403"
+msgstr "80g Offset Amarelo"
+
+msgid "valeur_1404"
+msgstr "80g Offset Verde"
+
+msgid "valeur_1405"
+msgstr "Triplo - CB Branco 80g / CFB Rosa 80g / CF Amarelo 80g"
+
+msgid "valeur_1406"
+msgstr "Duplo - CB Branco 80g / CF Amarelo 80g"
+
+msgid "valeur_1408"
+msgstr "170g Autocopiativo"
+
+msgid "valeur_1418"
+msgstr "110 g offset"
+
+msgid "valeur_1419"
+msgstr "IMAN VEICULO"
+
+msgid "valeur_1434"
+msgstr "UK 120g Premium Smooth"
+
+msgid "valeur_1439"
+msgstr "280g M1 Acetinado"
+
+msgid "valeur_1441"
+msgstr "150g Couché Mate"
+
+msgid "valeur_1445"
+msgstr "172µ Autocolante Aslan translúcido 62µ + Suporte 110µ"
+
+msgid "valeur_1446"
+msgstr "172µ Autocolante Aslan fluor 62µ + Suporte 110µ"
+
+msgid "valeur_1447"
+msgstr "172µ Autocolante Aslan depoli 62µ + Suporte 110µ"
+
+msgid "valeur_1448"
+msgstr "85 offset"
+
+msgid "valeur_1485"
+msgstr "250 SOL"
+
+msgid "valeur_1487"
+msgstr "UK 135gsm Trisolv postart paper"
+
+msgid "valeur_1489"
+msgstr "UK 440gsm Banner vinil"
+
+msgid "valeur_1491"
+msgstr "250 DM"
+
+msgid "valeur_1492"
+msgstr "UK 234gsm Poliester Lightblock"
+
+msgid "valeur_1495"
+msgstr "80g Autocolante Papel Couché Brilho Permantente"
+
+msgid "valeur_1496"
+msgstr "80g 80g Autocolante Papel Couché Brilho Lavável"
+
+msgid "valeur_1497"
+msgstr "80g Autocolante Papel Perolado com Relevo"
+
+msgid "valeur_1498"
+msgstr "80g Autocolante Papel Aspeto Natureza"
+
+msgid "valeur_1499"
+msgstr "46g Autocolante Polipropileno Metalizado Prata"
+
+msgid "valeur_1500"
+msgstr "58g Autocolante Polipropileno Branco Brilho"
+
+msgid "valeur_1501"
+msgstr "54g Autocolante Polipropileno Transparente Brilho"
+
+msgid "valeur_1505"
+msgstr "80g Autocolante Papel Amarelo Flurescente"
+
+msgid "valeur_1508"
+msgstr "82g Autocolante Politileno Branco Mate"
+
+msgid "valeur_1509"
+msgstr "80g Autocolante Papel Couché Gloss Permanente"
+
+msgid "valeur_1510"
+msgstr "70g Autocolante Papel Kraft Castanho"
+
+msgid "valeur_1511"
+msgstr "92g Autocolante Politileno Branco Brilho"
+
+msgid "valeur_1512"
+msgstr "80g Autocolante Papel Velin Térmico"
+
+msgid "valeur_1513"
+msgstr "86g Autocolante Politileno Transparente"
+
+msgid "valeur_1514"
+msgstr "80g Autocolante Papel Couché Brilho Extra Forte"
+
+msgid "valeur_1515"
+msgstr "73g Autocolante Papel Velin"
+
+msgid "valeur_1516"
+msgstr "52g Autocolante Sitético Transparente Clear to Clear"
+
+msgid "valeur_1517"
+msgstr "70g Autocolante Papel Velin térmico"
+
+msgid "valeur_1518"
+msgstr "80g Autocolante Papel Verde flurescente"
+
+msgid "valeur_1519"
+msgstr "80g Autocolante Papel Laranja flurescente"
+
+msgid "valeur_1520"
+msgstr "80g Autocolante Papel Vermelho flurescente"
+
+msgid "valeur_1527"
+msgstr "80gr. Cartão autocolante"
+
+msgid "valeur_1528"
+msgstr "IT 180g TNT"
+
+msgid "valeur_1529"
+msgstr "172µ Autocolante Aslan fluorescente Amarelo 62µ + Suporte 110µ"
+
+msgid "valeur_1530"
+msgstr "172µ Autocolante Aslan fluorescente Laranja 62µ + Suporte 110µ"
+
+msgid "valeur_1535"
+msgstr "75g Papel Office Branco"
+
+msgid "valeur_1276"
+msgstr "90 g Cyclus Office"
+
+msgid "valeur_1279"
+msgstr "400g semi-mate"
+
+msgid "valeur_1288"
+msgstr "350g Cartão Couché"
+
+msgid "valeur_1289"
+msgstr "160 Offset Laser"
+
+msgid "valeur_1295"
+msgstr "90 g offset velin branco"
+
+msgid "valeur_1329"
+msgstr "Autocolante em gota de resina com cola Ultra Forte"
+
+msgid "valeur_1331"
+msgstr "250g Capa Azul Acetinada"
+
+msgid "valeur_1332"
+msgstr "250g Capa Verde Acetinada"
+
+msgid "valeur_1333"
+msgstr "250g Capa Laranja Acetinada"
+
+msgid "valeur_1334"
+msgstr "250g Capa Cor-de-rosa Acetinada"
+
+msgid "valeur_1335"
+msgstr "250g Capa Vermelha Acetinada "
+
+msgid "valeur_1338"
+msgstr "90g Couché Mate"
+
+msgid "valeur_1340"
+msgstr "250g Capa Amarela Acetinada"
+
+msgid "valeur_1345"
+msgstr "90g Cyclus Offset"
+
+msgid "valeur_1346"
+msgstr "100g cyclus print"
+
+msgid "valeur_1348"
+msgstr "350 Cyclus Offset"
+
+msgid "valeur_1350"
+msgstr "100µ Vinil Transparente"
+
+msgid "valeur_1353"
+msgstr "170g Yupo Tako"
+
+msgid "valeur_1357"
+msgstr "135g encapsulado brilho"
+
+msgid "valeur_1359"
+msgstr "140g Polypropileno Acetinado"
+
+msgid "valeur_1360"
+msgstr "100g mate"
+
+msgid "valeur_1251"
+msgstr "140g cyclus print"
+
+msgid "valeur_1252"
+msgstr "250g Bristol branco"
+
+msgid "valeur_1254"
+msgstr "300g MATE"
+
+msgid "valeur_1258"
+msgstr "80g branco"
+
+msgid "valeur_1384"
+msgstr "60µ autocolante irrompível branco + contracolado sobre compacto"
+
+msgid "valeur_1552"
+msgstr "250g Couché Brilho"
+
+msgid "valeur_1554"
+msgstr "350g lona microperfurada"
+
+msgid "valeur_1555"
+msgstr "650g Lona PVC M1"
+
+msgid "valeur_1562"
+msgstr "150g Cyclus Print"
+
+msgid "valeur_1541"
+msgstr "110 g Tecido à prova de fogo M2"
+
+msgid "valeur_1548"
+msgstr "110g offset"
+
+msgid "valeur_1589"
+msgstr "Curious Translucents 230g"
+
+msgid "valeur_1596"
+msgstr "Tivek Amarelo Fluorescente"
+
+msgid "valeur_1597"
+msgstr "250 CYCLUS PRINT"
+
+msgid "valeur_1601"
+msgstr "300g Texturado Madeira"
+
+msgid "valeur_1603"
+msgstr "250g Chromolux Branco"
+
+msgid "valeur_1265"
+msgstr "Kibox 10 mm"
+
+msgid "valeur_1271"
+msgstr "190g Offset"
+
+msgid "valeur_1619"
+msgstr "Autocolante vinil opaco branco"
+
+msgid "valeur_1620"
+msgstr "Autocolante vinil transparente"
+
+msgid "valeur_1655"
+msgstr "135 Cyclus Print"
+
+msgid "valeur_1613"
+msgstr "Branco"
+
+msgid "valeur_1615"
+msgstr "Especial chão"
+
+msgid "valeur_800"
+msgstr "Acetinado"
+
+msgid "valeur_1181"
+msgstr "Mate Soft touch"
+
+msgid "valeur_551"
+msgstr "UV Brilho"
+
+msgid "valeur_552"
+msgstr "UV Acetinado"
+
+msgid "valeur_1106"
+msgstr "Acetinado UVI"
+
+msgid "valeur_1182"
+msgstr "Mate Soft touch"
+
+msgid "valeur_1362"
+msgstr "Quadr. HD"
+
+msgid "valeur_1616"
+msgstr "Branco"
+
+msgid "valeur_542"
+msgstr "1 cor Pantone"
+
+msgid "valeur_804"
+msgstr "2 cores"
+
+msgid "valeur_1196"
+msgstr "Quadr. + branco"
+
+msgid "valeur_974"
+msgstr "Mate"
+
+msgid "valeur_975"
+msgstr "Mate"
+
+msgid "valeur_1183"
+msgstr "Verniz UV seletivo 3D"
+
+msgid "valeur_1590"
+msgstr "Ouro glitter"
+
+msgid "valeur_1591"
+msgstr "Prata glitter"
+
+msgid "valeur_1592"
+msgstr "Ouro glitter"
+
+msgid "valeur_1593"
+msgstr "Prata glitter"
+
+msgid "valeur_1184"
+msgstr "Verniz UV seletivo 3D"
+
+msgid "valeur_1250"
+msgstr "Carte reto vetorial"
+
+msgid "valeur_553"
+msgstr "Cortante vetorial"
+
+msgid "valeur_523"
+msgstr "Forma original: cortante a criar"
+
+msgid "valeur_524"
+msgstr "Forma original: cortante a criar"
+
+msgid "valeur_611"
+msgstr "Uma"
+
+msgid "valeur_769"
+msgstr "2 perfurações pasta"
+
+msgid "valeur_770"
+msgstr "4 perfurações pasta"
+
+msgid "valeur_1631"
+msgstr "1 perfuração de 10 mm"
+
+msgid "valeur_1272"
+msgstr "1 furo de 3 mm"
+
+msgid "valeur_815"
+msgstr "1 gancho de suspensão"
+
+msgid "valeur_1120"
+msgstr "1 perfuração de 6mm"
+
+msgid "valeur_1576"
+msgstr "1 perfuração de 5 mm"
+
+msgid "valeur_1577"
+msgstr "1 perfuração obal de de 16x3 mm"
+
+msgid "valeur_642"
+msgstr "Ouro a quente"
+
+msgid "valeur_643"
+msgstr "Prata a quente"
+
+msgid "valeur_676"
+msgstr "Digital / Offset"
+
+msgid "valeur_1623"
+msgstr "Tipografia"
+
+msgid "valeur_533"
+msgstr "5 vincos paralelos (6 laudas)"
+
+msgid "valeur_534"
+msgstr "6 vincos paralelos (7 laudas)"
+
+msgid "valeur_535"
+msgstr "X vincos em cruz: cortante existente"
+
+msgid "valeur_536"
+msgstr "X vincos em cruz: cortante a criar"
+
+msgid "valeur_241"
+msgstr "três em portfólio"
+
+msgid "valeur_242"
+msgstr "três em acordeão"
+
+msgid "valeur_243"
+msgstr "três envolventes"
+
+msgid "valeur_244"
+msgstr "quatro vincos paralelos"
+
+msgid "valeur_202"
+msgstr "um central (2 laudas)"
+
+msgid "valeur_203"
+msgstr "um vinco descentrado (2 laudas)"
+
+msgid "valeur_204"
+msgstr "dois envolventes (3 laudas)"
+
+msgid "valeur_205"
+msgstr "dois em acordeão (3 laudas)"
+
+msgid "valeur_206"
+msgstr "dois em janela"
+
+msgid "valeur_207"
+msgstr "uma"
+
+msgid "valeur_208"
+msgstr "dois paralelos"
+
+msgid "valeur_255"
+msgstr "três"
+
+msgid "valeur_526"
+msgstr "4 pré-cortados paralelos"
+
+msgid "valeur_527"
+msgstr "5 pré-cortados paralelos"
+
+msgid "valeur_529"
+msgstr "X pré-cortados cruzados: cortante a criar"
+
+msgid "valeur_530"
+msgstr "X pré-cortados cruzados: cortante existente"
+
+msgid "valeur_1551"
+msgstr "perpendiculares"
+
+msgid "valeur_1581"
+msgstr "1 pré-cortado"
+
+msgid "valeur_1264"
+msgstr "6 dobras acordeão + 2 dobras envolventes"
+
+msgid "valeur_1536"
+msgstr "Multi-plis plano"
+
+msgid "valeur_825"
+msgstr "6 dobrs acordeão + 1 cruz"
+
+msgid "valeur_503"
+msgstr "3 dobras acordeão (4 laudas)"
+
+msgid "valeur_504"
+msgstr "3 dobras acordeão + 1 dobra em cruz (8 laudas)"
+
+msgid "valeur_511"
+msgstr "2 dobras acordeão + 1 dobra em cruz (6 laudas)"
+
+msgid "valeur_484"
+msgstr "três em portfólio (4 laudas)"
+
+msgid "valeur_485"
+msgstr "uma dobra descentrada(2 laudas)"
+
+msgid "valeur_486"
+msgstr "seis acordeão (7 laudas)"
+
+msgid "valeur_487"
+msgstr "quatro acordeão + um em cruz"
+
+msgid "valeur_488"
+msgstr "quatro acordeão + 2 envolventes"
+
+msgid "valeur_489"
+msgstr "cinco acordeão + um em cruz"
+
+msgid "valeur_490"
+msgstr "cinco acordeão + 2 envolventes"
+
+msgid "valeur_491"
+msgstr "dois económicos (4 laudas)"
+
+msgid "valeur_492"
+msgstr "dois em cruz (8 páginas)"
+
+msgid "valeur_493"
+msgstr "três cruzados (16 páginas)"
+
+msgid "valeur_450"
+msgstr "dois acordeão"
+
+msgid "valeur_451"
+msgstr "dois janela"
+
+msgid "valeur_258"
+msgstr "quatro"
+
+msgid "valeur_259"
+msgstr "cinco"
+
+msgid "valeur_248"
+msgstr "Um"
+
+msgid "valeur_252"
+msgstr "dois envolventes"
+
+msgid "valeur_254"
+msgstr "três"
+
+msgid "valeur_563"
+msgstr "1 dobra + 2 dobras acordeão (6 laudas)"
+
+msgid "valeur_564"
+msgstr "1 dobra + 2 dobras envolventes (6 laudas)"
+
+msgid "valeur_565"
+msgstr "1 dobra + 3 dobras acordeão (8 laudas)"
+
+msgid "valeur_566"
+msgstr "1 dobra + 2 dobras acordeão (8 laudas)"
+
+msgid "valeur_567"
+msgstr "1 dobra + 2 dobras acordeão (9 laudas)"
+
+msgid "valeur_568"
+msgstr "3 dobras acordeão + 2 dobras envolventes (12 laudas)"
+
+msgid "valeur_560"
+msgstr "Buda"
+
+msgid "valeur_260"
+msgstr "molde de vinco simples sem ranhura"
+
+msgid "valeur_261"
+msgstr "molde de vinco simples com ranhura cartão comercial vertical"
+
+msgid "valeur_262"
+msgstr "molde de vinco simples com ranhura cartão comercial horizontal"
+
+msgid "valeur_263"
+msgstr "molde vinco duplo sem ranhura"
+
+msgid "valeur_264"
+msgstr "molde vinco duplo com ranhura cartão comercial vertical"
+
+msgid "valeur_265"
+msgstr "molde vinco duplo com ranhura cartão comercial horizontal"
+
+msgid "valeur_267"
+msgstr "Vinco simples com aba abaixo + lado sem ranhura"
+
+msgid "valeur_268"
+msgstr "Vinco simples com aba abaixo + lado cartão comercial vertical"
+
+msgid "valeur_269"
+msgstr "Vinco simples com aba abaixo + lado cartão comercial horizontal"
+
+msgid "valeur_270"
+msgstr "Vinco duplo com aba abaixo + lado sem ranhura"
+
+msgid "valeur_271"
+msgstr "Vinco duplo aba abaixo + lado cartão comercial vertical"
+
+msgid "valeur_272"
+msgstr "Vinco duplo aba abaixo + lado com ranhura cartão comercial vertical"
+
+msgid "valeur_273"
+msgstr "Vinco simples com aba central abaixo"
+
+msgid "valeur_274"
+msgstr "Vinco simples aba central abaixo, cartão comercial vertical"
+
+msgid "valeur_275"
+msgstr "Vinco simples aba central abaixo com ranhura cartão comercial horizontal"
+
+msgid "valeur_276"
+msgstr "vinco duplo com aba central abaixo"
+
+msgid "valeur_277"
+msgstr "Vinco duplo com aba central abaixo cartão comercial vertical"
+
+msgid "valeur_278"
+msgstr "Vinco duplo aba central abaixo com ranhura cartão comercial horizontal"
+
+msgid "valeur_329"
+msgstr "Com forma original"
+
+msgid "valeur_496"
+msgstr "Porta-contas"
+
+msgid "valeur_497"
+msgstr "Porta-guardanapos"
+
+msgid "valeur_498"
+msgstr "Envelope CD"
+
+msgid "valeur_512"
+msgstr "Estrela"
+
+msgid "valeur_513"
+msgstr "Círculo"
+
+msgid "valeur_514"
+msgstr "Nuvem"
+
+msgid "valeur_515"
+msgstr "Coração"
+
+msgid "valeur_516"
+msgstr "Trava"
+
+msgid "valeur_517"
+msgstr "Bolha"
+
+msgid "valeur_518"
+msgstr "Molde de bolo"
+
+msgid "valeur_519"
+msgstr "Forma original: cortante a criar"
+
+msgid "valeur_522"
+msgstr "Cantos arredondados"
+
+msgid "valeur_1392"
+msgstr "Gargantilha para garrafa"
+
+msgid "valeur_1393"
+msgstr "PLV de mesa 10 x 15 x 7,2 cm"
+
+msgid "valeur_1394"
+msgstr "PLV de mesa 15 x 13 x 13 cm"
+
+msgid "valeur_621"
+msgstr "Lado curto"
+
+msgid "valeur_733"
+msgstr "Selada"
+
+msgid "valeur_734"
+msgstr "Não selada"
+
+msgid "valeur_771"
+msgstr "lado grande"
+

@@ -31,7 +31,7 @@ class Rainage implements ICellule
             $cell->font = new Font('bagc-bold', 16, new TextColor(Color::greyscale(0)));
             $cell->align = Cell::ALIGN_CENTER;
             $cell->vAlign = Cell::VALIGN_CENTER;
-            $cell->text = $commande['Rainage'];
+            $cell->text = _('valeur_' . $commande['Rainage']);
             $cell->draw($pdf);
         } else {
             $cell = new Cell();

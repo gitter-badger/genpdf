@@ -357,3 +357,2873 @@ msgstr ""
 
 #~ msgid "hello"
 #~ msgstr "Bonjour"
+
+
+#FICHE DE FAB
+
+msgid "activite_production_1"
+msgstr "Offset"
+
+msgid "activite_production_2"
+msgstr "Digital"
+
+msgid "activite_production_3"
+msgstr "Trade"
+
+msgid "activite_production_4"
+msgstr "Screen printing"
+
+msgid "activite_production_5"
+msgstr "Flexography"
+
+msgid "activite_production_6"
+msgstr "Service"
+
+msgid "valeur_142"
+msgstr "350gsm Silk Coated"
+
+msgid "valeur_143"
+msgstr "350gsm Cyclus Print"
+
+msgid "valeur_145"
+msgstr "250gsm - Adhesive 170gsm + Support 80gsm"
+
+msgid "valeur_146"
+msgstr "280gsm -  Adhesive 80gsm + Support 200gsm"
+
+msgid "valeur_147"
+msgstr "500µ White PVC"
+
+msgid "valeur_148"
+msgstr "550µ Transparent PVC "
+
+msgid "valeur_149"
+msgstr "230gsm Curious Translucent"
+
+msgid "valeur_150"
+msgstr "320gsm Conqueror CX22 Diamond White Recycled"
+
+msgid "valeur_151"
+msgstr "250gsm Rives Tradition Bright White"
+
+msgid "valeur_152"
+msgstr "300gsm Rives Laid Glacier White"
+
+msgid "valeur_153"
+msgstr "250gsm Chromolux Gold"
+
+msgid "valeur_154"
+msgstr "250gsm Chromolux Silver"
+
+msgid "valeur_155"
+msgstr "250gsm Chromolux Chrome"
+
+msgid "valeur_222"
+msgstr "80gsm Cyclus Offset"
+
+msgid "valeur_223"
+msgstr "90gsm Uncoated"
+
+msgid "valeur_224"
+msgstr "115gsm Cyclus Print"
+
+msgid "valeur_225"
+msgstr "135gsm Gloss Coated"
+
+msgid "valeur_226"
+msgstr "140gsm Cyclus Offset"
+
+msgid "valeur_227"
+msgstr "170gsm Gloss Coated"
+
+msgid "valeur_228"
+msgstr "170gsm Silk Coated"
+
+msgid "valeur_229"
+msgstr "250gsm Coated Recycled"
+
+msgid "valeur_234"
+msgstr "80gsm Cyclus Office"
+
+msgid "valeur_235"
+msgstr "90gsm Premium Smooth Recycled"
+
+msgid "valeur_236"
+msgstr "90gsm Offset Laser"
+
+msgid "valeur_237"
+msgstr "100gsm premium smooth"
+
+msgid "valeur_209"
+msgstr "300gsm Gloss Coated"
+
+msgid "valeur_279"
+msgstr "150gsm Coated + 1800µ Carton Board"
+
+msgid "valeur_311"
+msgstr "100µ White Vinyl"
+
+msgid "valeur_312"
+msgstr "100µ Transparent Vinyl"
+
+msgid "valeur_316"
+msgstr "235gsm White Oracal Vinyl"
+
+msgid "valeur_317"
+msgstr "235gsm Oracal Transparent Vinyl"
+
+msgid "valeur_292"
+msgstr "250gsm Polyester Fabric - Fire retardent M1"
+
+msgid "valeur_301"
+msgstr "Aluminium"
+
+msgid "valeur_302"
+msgstr "270gsm Polyester Fabric M1"
+
+msgid "valeur_303"
+msgstr "180gsm Encapsulated"
+
+msgid "valeur_304"
+msgstr "180gsm laminated 75µ Satin"
+
+msgid "valeur_305"
+msgstr "250gsm Rives Tradition Bright White"
+
+msgid "valeur_308"
+msgstr "80gsm Adhesive Satin with Slitting "
+
+msgid "valeur_360"
+msgstr "90g Offset Erapure Recycled"
+
+msgid "valeur_361"
+msgstr "90g Brown Kraft"
+
+msgid "valeur_419"
+msgstr "135gsm Silk Coated"
+
+msgid "valeur_420"
+msgstr "120gsm Matt fire-retardent M1"
+
+msgid "valeur_421"
+msgstr "120gsm Matt Water resistant"
+
+msgid "valeur_422"
+msgstr "Acrylic glass 5mm"
+
+msgid "valeur_426"
+msgstr "Anodised Aluminium 2mm"
+
+msgid "valeur_427"
+msgstr "2mm Gloss Aluminium "
+
+msgid "valeur_428"
+msgstr "Canvas prints"
+
+msgid "valeur_431"
+msgstr "Akylux 3,5mm"
+
+msgid "valeur_474"
+msgstr "80gsm White Repositionable Offset "
+
+msgid "valeur_478"
+msgstr "80gsm Yellow Repositionable Offset "
+
+msgid "valeur_481"
+msgstr "1800µ Polypropylene"
+
+msgid "valeur_436"
+msgstr "Dibond 3mm"
+
+msgid "valeur_413"
+msgstr "130gsm Cyclus Print"
+
+msgid "valeur_499"
+msgstr "80gsm Offset Laser"
+
+msgid "valeur_502"
+msgstr "380gsm Silk coated"
+
+msgid "valeur_508"
+msgstr "250gsm Satin - Fire retardent M1"
+
+msgid "valeur_509"
+msgstr "200gsm satin"
+
+msgid "valeur_510"
+msgstr "200gsm Encapsulated Satin "
+
+msgid "valeur_543"
+msgstr "250gsm Gloss UV Coated"
+
+msgid "valeur_544"
+msgstr "550gsm PVC Banner"
+
+msgid "valeur_545"
+msgstr "420gsm PVC Banner - Fire retardent M1"
+
+msgid "valeur_554"
+msgstr "150µ One Way Vision Microperforated"
+
+msgid "valeur_562"
+msgstr "100µ Transparent Vinyl for tranfser"
+
+msgid "valeur_569"
+msgstr "Doming"
+
+msgid "valeur_570"
+msgstr "172µ Avery Adhesive 62µ + Support 110µ"
+
+msgid "valeur_571"
+msgstr "60gsm Celibio white biodegradable "
+
+msgid "valeur_572"
+msgstr "17gsm natural recycled "
+
+msgid "valeur_574"
+msgstr "60g Celibio Biodegradable (Colour)"
+
+msgid "valeur_581"
+msgstr "120gsm Uncoated Paper"
+
+msgid "valeur_589"
+msgstr "120gsm Offset Laser"
+
+msgid "valeur_592"
+msgstr "Magnet"
+
+msgid "valeur_593"
+msgstr "Synthetic 200gsm"
+
+msgid "valeur_594"
+msgstr "20mm polyester fabric"
+
+msgid "valeur_595"
+msgstr "33cl White translucent Cup"
+
+msgid "valeur_596"
+msgstr "115gsm Silk Coated"
+
+msgid "valeur_598"
+msgstr "100gsm Brown Kraft"
+
+msgid "valeur_599"
+msgstr "100gsm White Kraft"
+
+msgid "valeur_600"
+msgstr "110gsm Brown Kraft"
+
+msgid "valeur_601"
+msgstr "110gsm White Kraft"
+
+msgid "valeur_602"
+msgstr "120gsm Brown Kraft"
+
+msgid "valeur_603"
+msgstr "120gsm White Kraft"
+
+msgid "valeur_607"
+msgstr "140gsm Stretch Fabric - Fire retardent M1"
+
+msgid "valeur_608"
+msgstr "117gsm blocked link - Fire retardent M1"
+
+msgid "valeur_648"
+msgstr "200gsm Gloss Coated"
+
+msgid "valeur_649"
+msgstr ""
+
+msgid "valeur_656"
+msgstr "250gsm Eco Recycled "
+
+msgid "valeur_658"
+msgstr "115gsm Gloss Coated"
+
+msgid "valeur_659"
+msgstr "150gsm Gloss Coated"
+
+msgid "valeur_660"
+msgstr "150gsm Silk Coated"
+
+msgid "valeur_664"
+msgstr "90gsm Gloss Coated"
+
+msgid "valeur_665"
+msgstr "90gsm Silk Coated"
+
+msgid "valeur_666"
+msgstr "80gsm Uncoated"
+
+msgid "valeur_668"
+msgstr "120gsm White uncoated"
+
+msgid "valeur_669"
+msgstr "90gsm Uncoated Fluorescent Green"
+
+msgid "valeur_670"
+msgstr "90gsm Uncoated Fluorescent Yellow"
+
+msgid "valeur_671"
+msgstr "90gsm Uncoated Fluorescent Orange"
+
+msgid "valeur_672"
+msgstr "115gsm Offset Blue Back"
+
+msgid "valeur_673"
+msgstr "350gsm Gloss Coated"
+
+msgid "valeur_831"
+msgstr "Frosted Vinyl "
+
+msgid "valeur_835"
+msgstr "100gsm Gloss Coated Recycled"
+
+msgid "valeur_836"
+msgstr "750 White PVC"
+
+msgid "valeur_837"
+msgstr "175g Manager"
+
+msgid "valeur_930"
+msgstr "300gsm Silk Coated"
+
+msgid "valeur_932"
+msgstr "250gsm Silk Coated"
+
+msgid "valeur_933"
+msgstr "170gsm Cyclus Print"
+
+msgid "valeur_934"
+msgstr "300gsm White uncoated"
+
+msgid "valeur_935"
+msgstr " "
+
+msgid "valeur_937"
+msgstr "300gsm Silk Coated"
+
+msgid "valeur_939"
+msgstr "150gsm Coated Recycled"
+
+msgid "valeur_940"
+msgstr "160gsm Cyclus Offset"
+
+msgid "valeur_941"
+msgstr "200gsm Silk Coated"
+
+msgid "valeur_942"
+msgstr "60gsm NCR Paper - Top sheet"
+
+msgid "valeur_943"
+msgstr "170gsm Coated Recycled"
+
+msgid "valeur_944"
+msgstr "90gsm Coated Recycled"
+
+msgid "valeur_945"
+msgstr "250gsm Silk Coated"
+
+msgid "valeur_947"
+msgstr "80gsm NCR Paper - Top Sheet"
+
+msgid "valeur_948"
+msgstr "300gsm Cyclus Print"
+
+msgid "valeur_949"
+msgstr "90gsm Cyclus Print"
+
+msgid "valeur_950"
+msgstr "100gsm Silk Coated"
+
+msgid "valeur_951"
+msgstr "140gsm Uncoated"
+
+msgid "valeur_952"
+msgstr "150gsm Uncoated"
+
+msgid "valeur_953"
+msgstr "250gsm Silk Coated"
+
+msgid "valeur_954"
+msgstr "100gsm Uncoated"
+
+msgid "valeur_956"
+msgstr "270gsm Cyclus Offset"
+
+msgid "valeur_958"
+msgstr "135gsm Uncoated"
+
+msgid "valeur_965"
+msgstr "100gsm Gloss Coated"
+
+msgid "valeur_973"
+msgstr "120gsm Matt Water resistant Blue Back"
+
+msgid "valeur_976"
+msgstr "120gsm Silk Coated"
+
+msgid "valeur_979"
+msgstr "200gsm Offset Recycled"
+
+msgid "valeur_985"
+msgstr "115gsm Offset Recycled"
+
+msgid "valeur_1000"
+msgstr "690g Kapatex"
+
+msgid "valeur_1002"
+msgstr "170gsm satin"
+
+msgid "valeur_1004"
+msgstr "110gsm Red Kraft"
+
+msgid "valeur_1005"
+msgstr "110gsm Black Kraft"
+
+msgid "valeur_1020"
+msgstr "130gsm Reinforced Kraft"
+
+msgid "valeur_1022"
+msgstr "350gsm Uncoated"
+
+msgid "valeur_1025"
+msgstr "80gsm Silk"
+
+msgid "valeur_1029"
+msgstr "100gsm Recycled Offset"
+
+msgid "valeur_1031"
+msgstr "160gsm Recycled Offset"
+
+msgid "valeur_1041"
+msgstr "80gsm gloss coated"
+
+msgid "valeur_1045"
+msgstr "200gsm matt"
+
+msgid "valeur_1047"
+msgstr "90gsm Extra Strong Laser"
+
+msgid "valeur_1050"
+msgstr "100gsm Uncoated"
+
+msgid "valeur_1052"
+msgstr "80gsm Cyclus Print"
+
+msgid "valeur_1054"
+msgstr " "
+
+msgid "valeur_1055"
+msgstr " "
+
+msgid "valeur_1056"
+msgstr " "
+
+msgid "valeur_1060"
+msgstr "170gsm Uncoated"
+
+msgid "valeur_1062"
+msgstr "110gsm Recycled Offset"
+
+msgid "valeur_1064"
+msgstr "200gsm Uncoated"
+
+msgid "valeur_1067"
+msgstr "250gsm Uncoated"
+
+msgid "valeur_1068"
+msgstr "225gsm Silk Coated"
+
+msgid "valeur_1074"
+msgstr "100gsm Gloss Coated"
+
+msgid "valeur_1075"
+msgstr "150gsm Cyclus Print"
+
+msgid "valeur_1076"
+msgstr "90gsm Premium Smooth"
+
+msgid "valeur_1080"
+msgstr "160gsm Uncoated"
+
+msgid "valeur_1085"
+msgstr "90gsm Recycled Offset"
+
+msgid "valeur_1086"
+msgstr "115g WATER RESISTANT - BLUE BACK"
+
+msgid "valeur_1087"
+msgstr "200gsm Cyclus Print"
+
+msgid "valeur_617"
+msgstr "Duplicate: 80gsm Top  White / 170gsm Bottom White"
+
+msgid "valeur_618"
+msgstr "Duplicate - 60gsm White / 60gsm Yellow"
+
+msgid "valeur_619"
+msgstr "Triplicate - 80gsm Top White / 60gsm Middle White / 170gsm Bottom White"
+
+msgid "valeur_620"
+msgstr "Triplicate - 60gsm White / 60gsm Pink / 60gsm Yellow"
+
+msgid "valeur_677"
+msgstr "480gsm invercote 280gsm + Silk Coated 200gsm"
+
+msgid "valeur_735"
+msgstr " "
+
+msgid "valeur_797"
+msgstr "No"
+
+msgid "valeur_1126"
+msgstr "250gsm uncoated recycled"
+
+msgid "valeur_1130"
+msgstr "160gsm Silk Coated"
+
+msgid "valeur_1134"
+msgstr "250gsm Matt fire-retardent M1"
+
+msgid "valeur_1137"
+msgstr "260g Polyester Fabric - fire retardent M1"
+
+msgid "valeur_1139"
+msgstr "130gsm silk"
+
+msgid "valeur_1141"
+msgstr "300gsm satin"
+
+msgid "valeur_1159"
+msgstr "130g White Matt M1"
+
+msgid "valeur_1164"
+msgstr "80gsm Premium Smooth"
+
+msgid "valeur_1179"
+msgstr "290gsm Fedrigoni Sirio Color Lampone"
+
+msgid "valeur_1180"
+msgstr "290gsm Fedrigoni Sirio Color Nero"
+
+msgid "valeur_1197"
+msgstr "100gsm white velin"
+
+msgid "valeur_1198"
+msgstr "300gsm Invercote Card - single side coated"
+
+msgid "valeur_1203"
+msgstr "90gsm White Kraft"
+
+msgid "valeur_1204"
+msgstr "135gsm Matt Blue Back"
+
+msgid "valeur_1205"
+msgstr "120gsm Fluorescent Yellow "
+
+msgid "valeur_1206"
+msgstr "150gsm Backlit White Satin "
+
+msgid "valeur_1207"
+msgstr "210µ Photo White Gloss"
+
+msgid "valeur_1208"
+msgstr "Backlit polyester 150µ"
+
+msgid "valeur_1209"
+msgstr " "
+
+msgid "valeur_1210"
+msgstr "100µ White Vinyl - easy application "
+
+msgid "valeur_1211"
+msgstr "80µ Eco Latex White Vinyl"
+
+msgid "valeur_1212"
+msgstr "150µ White removable QuickMount vinyl"
+
+msgid "valeur_1215"
+msgstr "450gsm Large format Eco banners"
+
+msgid "valeur_1216"
+msgstr "260gsm fabric capoToile® Eco Banner"
+
+msgid "valeur_1217"
+msgstr "260gsm fabric capoToile® Eco Banner - Fire retardent M1"
+
+msgid "valeur_1218"
+msgstr "Forex 4mm"
+
+msgid "valeur_1219"
+msgstr "170µ One Way Microperforated (inside use)"
+
+msgid "valeur_1220"
+msgstr "300µ Polypropylene Film Magnet SticK"
+
+msgid "valeur_1224"
+msgstr "300 Cyclus Print"
+
+msgid "valeur_1227"
+msgstr "250 gloss coated"
+
+msgid "valeur_1228"
+msgstr "350gsm Silk"
+
+msgid "valeur_1237"
+msgstr "150gsm matt"
+
+msgid "valeur_1242"
+msgstr "270gsm uncoated"
+
+msgid "valeur_1243"
+msgstr "135 Matt Coated"
+
+msgid "valeur_1244"
+msgstr "115 Matt Coated"
+
+msgid "valeur_1248"
+msgstr "170gsm uncoated recycled"
+
+msgid "valeur_1108"
+msgstr "Smooth 690g Kapatex"
+
+msgid "valeur_1109"
+msgstr "300gsm Recycled Offset"
+
+msgid "valeur_1115"
+msgstr "115gsm uncoated"
+
+msgid "valeur_1185"
+msgstr "350gsm Metallic Gold"
+
+msgid "valeur_1186"
+msgstr "350gsm Metallic Silver"
+
+msgid "valeur_1189"
+msgstr "300gsm Fedrigoni Sirio Pearl Aurum"
+
+msgid "valeur_1190"
+msgstr "300gsm Fedrigoni Sirio Pearl Platinium"
+
+msgid "valeur_1191"
+msgstr "120gsm Offset Velin Superior White"
+
+msgid "valeur_1192"
+msgstr "175µ PET gloss transparent"
+
+msgid "valeur_1276"
+msgstr "90gsm Cyclus Office"
+
+msgid "valeur_1279"
+msgstr "400gsm Silk"
+
+msgid "valeur_1288"
+msgstr "350gsm Coated "
+
+msgid "valeur_1289"
+msgstr "160 Offset Laser"
+
+msgid "valeur_1295"
+msgstr " "
+
+msgid "valeur_1329"
+msgstr "Doming with ultra strong adhesive"
+
+msgid "valeur_1331"
+msgstr "250gsm Blue Satin Folder"
+
+msgid "valeur_1332"
+msgstr "250gsm Green Satin File "
+
+msgid "valeur_1333"
+msgstr "250gsm Orange Satin Folder"
+
+msgid "valeur_1334"
+msgstr "250gsm Pink Satin Folder"
+
+msgid "valeur_1335"
+msgstr "250gsm Red Satin Folder"
+
+msgid "valeur_1338"
+msgstr "90gsm Silk Coated"
+
+msgid "valeur_1340"
+msgstr "250gsm Yellow Satin Folder"
+
+msgid "valeur_1345"
+msgstr "90gsm Cyclus Offset"
+
+msgid "valeur_1346"
+msgstr "100gsm cyclus print"
+
+msgid "valeur_1348"
+msgstr "350 Cyclus Offset"
+
+msgid "valeur_1350"
+msgstr "100µ Transparent vinyl"
+
+msgid "valeur_1353"
+msgstr "170g Yupo Tako"
+
+msgid "valeur_1357"
+msgstr "135gsm Gloss encapsulated"
+
+msgid "valeur_1359"
+msgstr "140gsm Satin Polypropylene "
+
+msgid "valeur_1360"
+msgstr "100gsm silk"
+
+msgid "valeur_1396"
+msgstr "100gsm Red Kraft"
+
+msgid "valeur_1397"
+msgstr "120gsm Red Kraft"
+
+msgid "valeur_1398"
+msgstr "100gsm Black Kraft"
+
+msgid "valeur_1399"
+msgstr "120gsm Black Kraft"
+
+msgid "valeur_1402"
+msgstr "80gsm Offset Blue"
+
+msgid "valeur_1403"
+msgstr "80gsm Offset Yellow"
+
+msgid "valeur_1404"
+msgstr "80gsm Offset Green"
+
+msgid "valeur_1405"
+msgstr "Triplicate: 60gsm Top White / 60gsm Middle Pink / 60gsm Bottom Yellow"
+
+msgid "valeur_1406"
+msgstr "Duplicate: 80gsm Top White / 80gsm Bottom Yellow"
+
+msgid "valeur_1408"
+msgstr "170gsm NCR paper"
+
+msgid "valeur_1418"
+msgstr "110gsm uncoated"
+
+msgid "valeur_1419"
+msgstr "Car magnet"
+
+msgid "valeur_1434"
+msgstr "120gsm Premium Smooth"
+
+msgid "valeur_1439"
+msgstr "280g Satin M1"
+
+msgid "valeur_1441"
+msgstr "150gsm Silk Coated"
+
+msgid "valeur_1448"
+msgstr "85 offset"
+
+msgid "valeur_1487"
+msgstr "135gsm Trisolv postart paper"
+
+msgid "valeur_1489"
+msgstr "440gsm Banner vinyl"
+
+msgid "valeur_1492"
+msgstr "234gsm Polyester Lightblock"
+
+msgid "valeur_1495"
+msgstr "80g Permanent gloss coated paper "
+
+msgid "valeur_1496"
+msgstr "80g Removable gloss coated paper"
+
+msgid "valeur_1497"
+msgstr "90g Embossed pearlescent paper"
+
+msgid "valeur_1498"
+msgstr "95g Uncoated paper"
+
+msgid "valeur_1499"
+msgstr "46g Polypropylene silver gloss metallic"
+
+msgid "valeur_1500"
+msgstr "58g Polypropylene gloss white"
+
+msgid "valeur_1501"
+msgstr "54g Polypropylene gloss transparent"
+
+msgid "valeur_1505"
+msgstr "80gsm Adhesive paper Fluorescent Yellow"
+
+msgid "valeur_1508"
+msgstr "82g PE Matt white"
+
+msgid "valeur_1509"
+msgstr "80g Permanent gloss coated"
+
+msgid "valeur_1510"
+msgstr "70g Kraft brown paper"
+
+msgid "valeur_1511"
+msgstr "92g PE gloss white"
+
+msgid "valeur_1513"
+msgstr "86g PE transparent "
+
+msgid "valeur_1518"
+msgstr "80gsm Adhesive paper Fluorescent Green"
+
+msgid "valeur_1519"
+msgstr "80gsm Adhesive paper Fluorescent Orange"
+
+msgid "valeur_1520"
+msgstr "80gsm Adhesive paper Fluorescent Red"
+
+msgid "valeur_1251"
+msgstr "140gsm Cyclus Print"
+
+msgid "valeur_1252"
+msgstr "250gsm White Bristol"
+
+msgid "valeur_1254"
+msgstr "300gsm SILK"
+
+msgid "valeur_1258"
+msgstr "80gsm manager white"
+
+msgid "valeur_1384"
+msgstr "60µ untearable white adhesive + Pasted-glued on compact"
+
+msgid "valeur_1552"
+msgstr "250gsm Gloss Coated"
+
+msgid "valeur_1554"
+msgstr "350gsm microperforated banner "
+
+msgid "valeur_1555"
+msgstr "650gsm PVC Fire retardant banner"
+
+msgid "valeur_1574"
+msgstr "400gsm Silk Coated (55x85mm)"
+
+msgid "valeur_1537"
+msgstr "430gsm Polyester Lightblock"
+
+msgid "valeur_1540"
+msgstr "200µ white floor vinyl "
+
+msgid "valeur_1596"
+msgstr "105gsm Tivek fluorescent yellow"
+
+msgid "valeur_1265"
+msgstr "Kibox 10mm"
+
+msgid "valeur_1271"
+msgstr "190gsm uncoated"
+
+msgid "valeur_1622"
+msgstr "600gsm Gmund White"
+
+msgid "valeur_1613"
+msgstr "White"
+
+msgid "valeur_1614"
+msgstr "Dry erasing "
+
+msgid "valeur_800"
+msgstr "Silk"
+
+msgid "valeur_1181"
+msgstr "Matt Soft Touch"
+
+msgid "valeur_551"
+msgstr "Gloss UV"
+
+msgid "valeur_552"
+msgstr "Satin UV "
+
+msgid "valeur_184"
+msgstr "No"
+
+msgid "valeur_185"
+msgstr "Matt"
+
+msgid "valeur_186"
+msgstr "Gloss"
+
+msgid "valeur_187"
+msgstr "No"
+
+msgid "valeur_188"
+msgstr "Matt"
+
+msgid "valeur_189"
+msgstr "Gloss"
+
+msgid "valeur_1182"
+msgstr "Matt Soft Touch"
+
+msgid "valeur_1106"
+msgstr "UV Satin"
+
+msgid "valeur_798"
+msgstr "No"
+
+msgid "valeur_1362"
+msgstr "4 colour HD"
+
+msgid "valeur_1616"
+msgstr "White"
+
+msgid "valeur_376"
+msgstr "Black"
+
+msgid "valeur_318"
+msgstr "1 colour"
+
+msgid "valeur_319"
+msgstr "2 colours"
+
+msgid "valeur_320"
+msgstr "3 colours"
+
+msgid "valeur_321"
+msgstr "4 colours"
+
+msgid "valeur_322"
+msgstr "4 colour + white "
+
+msgid "valeur_323"
+msgstr "5 colours"
+
+msgid "valeur_180"
+msgstr "4 colour"
+
+msgid "valeur_181"
+msgstr "4 colour"
+
+msgid "valeur_238"
+msgstr "Black"
+
+msgid "valeur_233"
+msgstr "No"
+
+msgid "valeur_804"
+msgstr "2 colours"
+
+msgid "valeur_1196"
+msgstr "4 colour + white"
+
+msgid "valeur_542"
+msgstr "1 colour"
+
+msgid "valeur_974"
+msgstr "Silk Coated"
+
+msgid "valeur_194"
+msgstr "No"
+
+msgid "valeur_195"
+msgstr "Clear varnish"
+
+msgid "valeur_281"
+msgstr "Matt varnish"
+
+msgid "valeur_282"
+msgstr "Gloss varnish"
+
+msgid "valeur_283"
+msgstr "Matt varnish"
+
+msgid "valeur_284"
+msgstr "Gloss varnish"
+
+msgid "valeur_196"
+msgstr "No"
+
+msgid "valeur_197"
+msgstr "Clear varnish"
+
+msgid "valeur_975"
+msgstr "Silk Coated"
+
+msgid "valeur_1183"
+msgstr "3D Spot UV Varnish"
+
+msgid "valeur_198"
+msgstr "No"
+
+msgid "valeur_199"
+msgstr "Included"
+
+msgid "valeur_200"
+msgstr "No"
+
+msgid "valeur_201"
+msgstr "Included"
+
+msgid "valeur_1184"
+msgstr "3D Spot UV Varnish"
+
+msgid "valeur_1250"
+msgstr "Kiss-cut to shape"
+
+msgid "valeur_214"
+msgstr "Maximo "
+
+msgid "valeur_215"
+msgstr "Memo"
+
+msgid "valeur_216"
+msgstr "Duo"
+
+msgid "valeur_217"
+msgstr "Pano"
+
+msgid "valeur_218"
+msgstr "Trio"
+
+msgid "valeur_219"
+msgstr "Quatro"
+
+msgid "valeur_220"
+msgstr "Exo"
+
+msgid "valeur_221"
+msgstr "Octo"
+
+msgid "valeur_553"
+msgstr "To the vector file"
+
+msgid "valeur_550"
+msgstr "No"
+
+msgid "valeur_523"
+msgstr "Bespoke shape: new cutting tool"
+
+msgid "valeur_524"
+msgstr "Bespoke shape: new cutting tool"
+
+msgid "valeur_611"
+msgstr "A 4mm drilled hole"
+
+msgid "valeur_432"
+msgstr "2 hole-punches of 4mm"
+
+msgid "valeur_433"
+msgstr "2 hole-punches of 4mm + eyelet"
+
+msgid "valeur_434"
+msgstr "4 holes (1 on each corner)"
+
+msgid "valeur_435"
+msgstr "4 holes + eyelet (1 on each corner)"
+
+msgid "valeur_190"
+msgstr "No"
+
+msgid "valeur_286"
+msgstr "1 4mm hole-punch + eyelet"
+
+msgid "valeur_287"
+msgstr "2 4mm hole-punches + eyelets"
+
+msgid "valeur_1272"
+msgstr "1 hole-punch of 3mm"
+
+msgid "valeur_1576"
+msgstr "5mm drilled hole"
+
+msgid "valeur_815"
+msgstr "1 suspension hook "
+
+msgid "valeur_1120"
+msgstr "A 6mm drilled hole"
+
+msgid "valeur_769"
+msgstr "2 ring binder"
+
+msgid "valeur_770"
+msgstr "4 ring binder"
+
+msgid "valeur_642"
+msgstr "Gold foil blocked"
+
+msgid "valeur_643"
+msgstr "Silver foil blocked"
+
+msgid "valeur_165"
+msgstr "No"
+
+msgid "valeur_166"
+msgstr "Cold foiled Gold"
+
+msgid "valeur_167"
+msgstr "Cold foiled Silver"
+
+msgid "valeur_192"
+msgstr "Offset"
+
+msgid "valeur_193"
+msgstr "Digital "
+
+msgid "valeur_414"
+msgstr "Flexography"
+
+msgid "valeur_415"
+msgstr "E-SERVICE"
+
+msgid "valeur_417"
+msgstr "Dye Sublimation"
+
+msgid "valeur_418"
+msgstr "Rotary Press"
+
+msgid "valeur_676"
+msgstr "Digital / Offset"
+
+msgid "valeur_353"
+msgstr "Silkscreen printing "
+
+msgid "valeur_1623"
+msgstr "Letterpress"
+
+msgid "valeur_754"
+msgstr "No"
+
+msgid "valeur_533"
+msgstr "5 parallel perforations (6 flaps)"
+
+msgid "valeur_534"
+msgstr "6 parallel perforations (7 flaps)"
+
+msgid "valeur_535"
+msgstr "X crossed creasings: existing tool "
+
+msgid "valeur_536"
+msgstr "X crossed creasings: new cutting tool"
+
+msgid "valeur_241"
+msgstr "3 creases (4 panels)"
+
+msgid "valeur_242"
+msgstr "3 concertina creases (4 panels)"
+
+msgid "valeur_243"
+msgstr "3 roll fold creases (4 panels)"
+
+msgid "valeur_244"
+msgstr "4 parallel creases (5 panels)"
+
+msgid "valeur_202"
+msgstr "1 central creasing (2 panels)"
+
+msgid "valeur_203"
+msgstr "1 off-centered crease (2 panels)"
+
+msgid "valeur_204"
+msgstr "2 roll fold creases (3 panels)"
+
+msgid "valeur_205"
+msgstr "2 concertina creases (3 panels)"
+
+msgid "valeur_206"
+msgstr "2 gate fold creases (3 panels)"
+
+msgid "valeur_246"
+msgstr "No"
+
+msgid "valeur_255"
+msgstr "3 parallel perforations"
+
+msgid "valeur_249"
+msgstr "No"
+
+msgid "valeur_207"
+msgstr "1 perforation"
+
+msgid "valeur_208"
+msgstr "2 parallel perforations"
+
+msgid "valeur_526"
+msgstr "4 parallel perforations"
+
+msgid "valeur_527"
+msgstr "5 parallel perforations"
+
+msgid "valeur_529"
+msgstr "X perforations: new cutting tool"
+
+msgid "valeur_530"
+msgstr "X perforations: existing tool"
+
+msgid "valeur_1581"
+msgstr "1 perforated line"
+
+msgid "valeur_210"
+msgstr "No"
+
+msgid "valeur_211"
+msgstr "Included"
+
+msgid "valeur_248"
+msgstr "4pp"
+
+msgid "valeur_258"
+msgstr "10pp concertina fold"
+
+msgid "valeur_259"
+msgstr "12pp concertina fold"
+
+msgid "valeur_252"
+msgstr "6pp roll fold"
+
+msgid "valeur_254"
+msgstr "8pp roll fold"
+
+msgid "valeur_245"
+msgstr "No"
+
+msgid "valeur_563"
+msgstr "1 fold + 2 concertina folds (12pp)"
+
+msgid "valeur_564"
+msgstr "1 fold + 2 rolled folds (12pp)"
+
+msgid "valeur_565"
+msgstr "1 fold + 3 concertina folds (16pp)"
+
+msgid "valeur_566"
+msgstr "1 fold + 3 rolled folds (16pp)"
+
+msgid "valeur_567"
+msgstr "2 concertina folds + 2 rolled folds"
+
+msgid "valeur_568"
+msgstr "3 concertina folds + 2 rolled folds"
+
+msgid "valeur_503"
+msgstr "8pp concertina fold"
+
+msgid "valeur_504"
+msgstr "3 concertina folds + 1 crossed fold "
+
+msgid "valeur_450"
+msgstr "6pp concertina"
+
+msgid "valeur_451"
+msgstr "6pp gate fold"
+
+msgid "valeur_511"
+msgstr "2 concertina folds + 1 crossed fold (12pp)"
+
+msgid "valeur_484"
+msgstr "8pp gate fold"
+
+msgid "valeur_485"
+msgstr "4pp off centred fold"
+
+msgid "valeur_486"
+msgstr "14pp concertina folds"
+
+msgid "valeur_487"
+msgstr "4 concertina folds + 1 crossed fold "
+
+msgid "valeur_488"
+msgstr "4 concertina folds + 2 roll folds "
+
+msgid "valeur_489"
+msgstr "5 concertina folds + 1 cross fold"
+
+msgid "valeur_490"
+msgstr "5 concertina folds + 2 roll folds"
+
+msgid "valeur_491"
+msgstr "8pp"
+
+msgid "valeur_492"
+msgstr "2 crossed folds (8 pages)"
+
+msgid "valeur_493"
+msgstr "3 crossed folds (16 pages)"
+
+msgid "valeur_1264"
+msgstr "6 concertina folds + 2 roll folds"
+
+msgid "valeur_825"
+msgstr "6 concertina folds + 1 cross fold"
+
+msgid "valeur_1536"
+msgstr "multi folded map"
+
+msgid "valeur_1392"
+msgstr "Bottle label"
+
+msgid "valeur_1393"
+msgstr "Showcards 100 x 150 x 72mm"
+
+msgid "valeur_1394"
+msgstr "Showcards 150 x 130 x 130mm"
+
+msgid "valeur_496"
+msgstr "Bill presenter"
+
+msgid "valeur_497"
+msgstr "Napkin rings"
+
+msgid "valeur_498"
+msgstr "CD Walet"
+
+msgid "valeur_512"
+msgstr "Star "
+
+msgid "valeur_513"
+msgstr "Circle"
+
+msgid "valeur_514"
+msgstr "Cloud"
+
+msgid "valeur_515"
+msgstr "Heart "
+
+msgid "valeur_516"
+msgstr "Door hanger"
+
+msgid "valeur_517"
+msgstr "Bubble"
+
+msgid "valeur_518"
+msgstr "Cutting forms"
+
+msgid "valeur_519"
+msgstr "Bespoke shape: new cutting tool"
+
+msgid "valeur_522"
+msgstr "Round corners"
+
+msgid "valeur_560"
+msgstr "Buddha"
+
+msgid "valeur_309"
+msgstr "No"
+
+msgid "valeur_329"
+msgstr "Existing tool "
+
+msgid "valeur_260"
+msgstr "4pp non capacity folder"
+
+msgid "valeur_261"
+msgstr "4pp non capacity folder with portrait b/card slits"
+
+msgid "valeur_262"
+msgstr "4pp non capacity folder with landscape b/card slits"
+
+msgid "valeur_263"
+msgstr "4pp capacity folder - no slits"
+
+msgid "valeur_264"
+msgstr "4pp capacity folder with portrait b/card slits"
+
+msgid "valeur_265"
+msgstr "4pp capacity folder with landscape b/card slits"
+
+msgid "valeur_267"
+msgstr "6pp non capacity folder - no slits"
+
+msgid "valeur_268"
+msgstr "6pp non capacity folder with portrait b/card slits"
+
+msgid "valeur_269"
+msgstr "6pp non capacity folder with landscape b/card slits"
+
+msgid "valeur_270"
+msgstr "6pp capacity folder - no slits"
+
+msgid "valeur_271"
+msgstr "6pp capacity folder with portrait b/card slits"
+
+msgid "valeur_272"
+msgstr "6pp capacity folder with landscape b/card slits"
+
+msgid "valeur_273"
+msgstr "6pp non capacity folder - no slits"
+
+msgid "valeur_274"
+msgstr "6pp non capacity folder with portrait b/card slits"
+
+msgid "valeur_275"
+msgstr "6pp non capacity folder with landscape b/card slits"
+
+msgid "valeur_276"
+msgstr "6pp capacity folder - no slits"
+
+msgid "valeur_277"
+msgstr "6pp capacity folder with portrait b/card slits"
+
+msgid "valeur_278"
+msgstr "6pp capacity folder with landscape b/card slits"
+
+msgid "valeur_470"
+msgstr "Heading"
+
+msgid "valeur_471"
+msgstr "Footer"
+
+msgid "valeur_472"
+msgstr "To the right "
+
+msgid "valeur_473"
+msgstr "To the left "
+
+msgid "valeur_621"
+msgstr "Short edge"
+
+msgid "valeur_771"
+msgstr "Long edge "
+
+msgid "valeur_744"
+msgstr "No"
+
+msgid "valeur_733"
+msgstr "Sealed"
+
+msgid "valeur_734"
+msgstr "Not sealed"
+
+
+
+#FICHE DE FAB
+
+msgid "activite_production_1"
+msgstr "Offset"
+
+msgid "activite_production_2"
+msgstr "Digital"
+
+msgid "activite_production_3"
+msgstr "Trade"
+
+msgid "activite_production_4"
+msgstr "Screen printing"
+
+msgid "activite_production_5"
+msgstr "Flexography"
+
+msgid "activite_production_6"
+msgstr "Service"
+
+msgid "valeur_142"
+msgstr "350gsm Silk Coated"
+
+msgid "valeur_143"
+msgstr "350gsm Cyclus Print"
+
+msgid "valeur_145"
+msgstr "250gsm - Adhesive 170gsm + Support 80gsm"
+
+msgid "valeur_146"
+msgstr "280gsm -  Adhesive 80gsm + Support 200gsm"
+
+msgid "valeur_147"
+msgstr "500µ White PVC"
+
+msgid "valeur_148"
+msgstr "550µ Transparent PVC "
+
+msgid "valeur_149"
+msgstr "230gsm Curious Translucent"
+
+msgid "valeur_150"
+msgstr "320gsm Conqueror CX22 Diamond White Recycled"
+
+msgid "valeur_151"
+msgstr "250gsm Rives Tradition Bright White"
+
+msgid "valeur_152"
+msgstr "300gsm Rives Laid Glacier White"
+
+msgid "valeur_153"
+msgstr "250gsm Chromolux Gold"
+
+msgid "valeur_154"
+msgstr "250gsm Chromolux Silver"
+
+msgid "valeur_155"
+msgstr "250gsm Chromolux Chrome"
+
+msgid "valeur_222"
+msgstr "80gsm Cyclus Offset"
+
+msgid "valeur_223"
+msgstr "90gsm Uncoated"
+
+msgid "valeur_224"
+msgstr "115gsm Cyclus Print"
+
+msgid "valeur_225"
+msgstr "135gsm Gloss Coated"
+
+msgid "valeur_226"
+msgstr "140gsm Cyclus Offset"
+
+msgid "valeur_227"
+msgstr "170gsm Gloss Coated"
+
+msgid "valeur_228"
+msgstr "170gsm Silk Coated"
+
+msgid "valeur_229"
+msgstr "250gsm Coated Recycled"
+
+msgid "valeur_234"
+msgstr "80gsm Cyclus Office"
+
+msgid "valeur_235"
+msgstr "90gsm Premium Smooth Recycled"
+
+msgid "valeur_236"
+msgstr "90gsm Offset Laser"
+
+msgid "valeur_237"
+msgstr "100gsm premium smooth"
+
+msgid "valeur_209"
+msgstr "300gsm Gloss Coated"
+
+msgid "valeur_279"
+msgstr "150gsm Coated + 1800µ Carton Board"
+
+msgid "valeur_311"
+msgstr "100µ White Vinyl"
+
+msgid "valeur_312"
+msgstr "100µ Transparent Vinyl"
+
+msgid "valeur_316"
+msgstr "235gsm White Oracal Vinyl"
+
+msgid "valeur_317"
+msgstr "235gsm Oracal Transparent Vinyl"
+
+msgid "valeur_292"
+msgstr "250gsm Polyester Fabric - Fire retardent M1"
+
+msgid "valeur_301"
+msgstr "Aluminium"
+
+msgid "valeur_302"
+msgstr "270gsm Polyester Fabric M1"
+
+msgid "valeur_303"
+msgstr "180gsm Encapsulated"
+
+msgid "valeur_304"
+msgstr "180gsm laminated 75µ Satin"
+
+msgid "valeur_305"
+msgstr "250gsm Rives Tradition Bright White"
+
+msgid "valeur_308"
+msgstr "80gsm Adhesive Satin with Slitting "
+
+msgid "valeur_360"
+msgstr "90g Offset Erapure Recycled"
+
+msgid "valeur_361"
+msgstr "90g Brown Kraft"
+
+msgid "valeur_419"
+msgstr "135gsm Silk Coated"
+
+msgid "valeur_420"
+msgstr "120gsm Matt fire-retardent M1"
+
+msgid "valeur_421"
+msgstr "120gsm Matt Water resistant"
+
+msgid "valeur_422"
+msgstr "Acrylic glass 5mm"
+
+msgid "valeur_426"
+msgstr "Anodised Aluminium 2mm"
+
+msgid "valeur_427"
+msgstr "2mm Gloss Aluminium "
+
+msgid "valeur_428"
+msgstr "Canvas prints"
+
+msgid "valeur_431"
+msgstr "Akylux 3,5mm"
+
+msgid "valeur_474"
+msgstr "80gsm White Repositionable Offset "
+
+msgid "valeur_478"
+msgstr "80gsm Yellow Repositionable Offset "
+
+msgid "valeur_481"
+msgstr "1800µ Polypropylene"
+
+msgid "valeur_436"
+msgstr "Dibond 3mm"
+
+msgid "valeur_413"
+msgstr "130gsm Cyclus Print"
+
+msgid "valeur_499"
+msgstr "80gsm Offset Laser"
+
+msgid "valeur_502"
+msgstr "380gsm Silk coated"
+
+msgid "valeur_508"
+msgstr "250gsm Satin - Fire retardent M1"
+
+msgid "valeur_509"
+msgstr "200gsm satin"
+
+msgid "valeur_510"
+msgstr "200gsm Encapsulated Satin "
+
+msgid "valeur_543"
+msgstr "250gsm Gloss UV Coated"
+
+msgid "valeur_544"
+msgstr "550gsm PVC Banner"
+
+msgid "valeur_545"
+msgstr "420gsm PVC Banner - Fire retardent M1"
+
+msgid "valeur_554"
+msgstr "150µ One Way Vision Microperforated"
+
+msgid "valeur_562"
+msgstr "100µ Transparent Vinyl for tranfser"
+
+msgid "valeur_569"
+msgstr "Doming"
+
+msgid "valeur_570"
+msgstr "172µ Avery Adhesive 62µ + Support 110µ"
+
+msgid "valeur_571"
+msgstr "60gsm Celibio white biodegradable "
+
+msgid "valeur_572"
+msgstr "17gsm natural recycled "
+
+msgid "valeur_574"
+msgstr "60g Celibio Biodegradable (Colour)"
+
+msgid "valeur_581"
+msgstr "120gsm Uncoated Paper"
+
+msgid "valeur_589"
+msgstr "120gsm Offset Laser"
+
+msgid "valeur_592"
+msgstr "Magnet"
+
+msgid "valeur_593"
+msgstr "Synthetic 200gsm"
+
+msgid "valeur_594"
+msgstr "20mm polyester fabric"
+
+msgid "valeur_595"
+msgstr "33cl White translucent Cup"
+
+msgid "valeur_596"
+msgstr "115gsm Silk Coated"
+
+msgid "valeur_598"
+msgstr "100gsm Brown Kraft"
+
+msgid "valeur_599"
+msgstr "100gsm White Kraft"
+
+msgid "valeur_600"
+msgstr "110gsm Brown Kraft"
+
+msgid "valeur_601"
+msgstr "110gsm White Kraft"
+
+msgid "valeur_602"
+msgstr "120gsm Brown Kraft"
+
+msgid "valeur_603"
+msgstr "120gsm White Kraft"
+
+msgid "valeur_607"
+msgstr "140gsm Stretch Fabric - Fire retardent M1"
+
+msgid "valeur_608"
+msgstr "117gsm blocked link - Fire retardent M1"
+
+msgid "valeur_648"
+msgstr "200gsm Gloss Coated"
+
+msgid "valeur_649"
+msgstr ""
+
+msgid "valeur_656"
+msgstr "250gsm Eco Recycled "
+
+msgid "valeur_658"
+msgstr "115gsm Gloss Coated"
+
+msgid "valeur_659"
+msgstr "150gsm Gloss Coated"
+
+msgid "valeur_660"
+msgstr "150gsm Silk Coated"
+
+msgid "valeur_664"
+msgstr "90gsm Gloss Coated"
+
+msgid "valeur_665"
+msgstr "90gsm Silk Coated"
+
+msgid "valeur_666"
+msgstr "80gsm Uncoated"
+
+msgid "valeur_668"
+msgstr "120gsm White uncoated"
+
+msgid "valeur_669"
+msgstr "90gsm Uncoated Fluorescent Green"
+
+msgid "valeur_670"
+msgstr "90gsm Uncoated Fluorescent Yellow"
+
+msgid "valeur_671"
+msgstr "90gsm Uncoated Fluorescent Orange"
+
+msgid "valeur_672"
+msgstr "115gsm Offset Blue Back"
+
+msgid "valeur_673"
+msgstr "350gsm Gloss Coated"
+
+msgid "valeur_831"
+msgstr "Frosted Vinyl "
+
+msgid "valeur_835"
+msgstr "100gsm Gloss Coated Recycled"
+
+msgid "valeur_836"
+msgstr "750 White PVC"
+
+msgid "valeur_837"
+msgstr "175g Manager"
+
+msgid "valeur_930"
+msgstr "300gsm Silk Coated"
+
+msgid "valeur_932"
+msgstr "250gsm Silk Coated"
+
+msgid "valeur_933"
+msgstr "170gsm Cyclus Print"
+
+msgid "valeur_934"
+msgstr "300gsm White uncoated"
+
+msgid "valeur_935"
+msgstr " "
+
+msgid "valeur_937"
+msgstr "300gsm Silk Coated"
+
+msgid "valeur_939"
+msgstr "150gsm Coated Recycled"
+
+msgid "valeur_940"
+msgstr "160gsm Cyclus Offset"
+
+msgid "valeur_941"
+msgstr "200gsm Silk Coated"
+
+msgid "valeur_942"
+msgstr "60gsm NCR Paper - Top sheet"
+
+msgid "valeur_943"
+msgstr "170gsm Coated Recycled"
+
+msgid "valeur_944"
+msgstr "90gsm Coated Recycled"
+
+msgid "valeur_945"
+msgstr "250gsm Silk Coated"
+
+msgid "valeur_947"
+msgstr "80gsm NCR Paper - Top Sheet"
+
+msgid "valeur_948"
+msgstr "300gsm Cyclus Print"
+
+msgid "valeur_949"
+msgstr "90gsm Cyclus Print"
+
+msgid "valeur_950"
+msgstr "100gsm Silk Coated"
+
+msgid "valeur_951"
+msgstr "140gsm Uncoated"
+
+msgid "valeur_952"
+msgstr "150gsm Uncoated"
+
+msgid "valeur_953"
+msgstr "250gsm Silk Coated"
+
+msgid "valeur_954"
+msgstr "100gsm Uncoated"
+
+msgid "valeur_956"
+msgstr "270gsm Cyclus Offset"
+
+msgid "valeur_958"
+msgstr "135gsm Uncoated"
+
+msgid "valeur_965"
+msgstr "100gsm Gloss Coated"
+
+msgid "valeur_973"
+msgstr "120gsm Matt Water resistant Blue Back"
+
+msgid "valeur_976"
+msgstr "120gsm Silk Coated"
+
+msgid "valeur_979"
+msgstr "200gsm Offset Recycled"
+
+msgid "valeur_985"
+msgstr "115gsm Offset Recycled"
+
+msgid "valeur_1000"
+msgstr "690g Kapatex"
+
+msgid "valeur_1002"
+msgstr "170gsm satin"
+
+msgid "valeur_1004"
+msgstr "110gsm Red Kraft"
+
+msgid "valeur_1005"
+msgstr "110gsm Black Kraft"
+
+msgid "valeur_1020"
+msgstr "130gsm Reinforced Kraft"
+
+msgid "valeur_1022"
+msgstr "350gsm Uncoated"
+
+msgid "valeur_1025"
+msgstr "80gsm Silk"
+
+msgid "valeur_1029"
+msgstr "100gsm Recycled Offset"
+
+msgid "valeur_1031"
+msgstr "160gsm Recycled Offset"
+
+msgid "valeur_1041"
+msgstr "80gsm gloss coated"
+
+msgid "valeur_1045"
+msgstr "200gsm matt"
+
+msgid "valeur_1047"
+msgstr "90gsm Extra Strong Laser"
+
+msgid "valeur_1050"
+msgstr "100gsm Uncoated"
+
+msgid "valeur_1052"
+msgstr "80gsm Cyclus Print"
+
+msgid "valeur_1054"
+msgstr " "
+
+msgid "valeur_1055"
+msgstr " "
+
+msgid "valeur_1056"
+msgstr " "
+
+msgid "valeur_1060"
+msgstr "170gsm Uncoated"
+
+msgid "valeur_1062"
+msgstr "110gsm Recycled Offset"
+
+msgid "valeur_1064"
+msgstr "200gsm Uncoated"
+
+msgid "valeur_1067"
+msgstr "250gsm Uncoated"
+
+msgid "valeur_1068"
+msgstr "225gsm Silk Coated"
+
+msgid "valeur_1074"
+msgstr "100gsm Gloss Coated"
+
+msgid "valeur_1075"
+msgstr "150gsm Cyclus Print"
+
+msgid "valeur_1076"
+msgstr "90gsm Premium Smooth"
+
+msgid "valeur_1080"
+msgstr "160gsm Uncoated"
+
+msgid "valeur_1085"
+msgstr "90gsm Recycled Offset"
+
+msgid "valeur_1086"
+msgstr "115g WATER RESISTANT - BLUE BACK"
+
+msgid "valeur_1087"
+msgstr "200gsm Cyclus Print"
+
+msgid "valeur_617"
+msgstr "Duplicate: 80gsm Top  White / 170gsm Bottom White"
+
+msgid "valeur_618"
+msgstr "Duplicate - 60gsm White / 60gsm Yellow"
+
+msgid "valeur_619"
+msgstr "Triplicate - 80gsm Top White / 60gsm Middle White / 170gsm Bottom White"
+
+msgid "valeur_620"
+msgstr "Triplicate - 60gsm White / 60gsm Pink / 60gsm Yellow"
+
+msgid "valeur_677"
+msgstr "480gsm invercote 280gsm + Silk Coated 200gsm"
+
+msgid "valeur_735"
+msgstr " "
+
+msgid "valeur_797"
+msgstr "No"
+
+msgid "valeur_1126"
+msgstr "250gsm uncoated recycled"
+
+msgid "valeur_1130"
+msgstr "160gsm Silk Coated"
+
+msgid "valeur_1134"
+msgstr "250gsm Matt fire-retardent M1"
+
+msgid "valeur_1137"
+msgstr "260g Polyester Fabric - fire retardent M1"
+
+msgid "valeur_1139"
+msgstr "130gsm silk"
+
+msgid "valeur_1141"
+msgstr "300gsm satin"
+
+msgid "valeur_1159"
+msgstr "130g White Matt M1"
+
+msgid "valeur_1164"
+msgstr "80gsm Premium Smooth"
+
+msgid "valeur_1179"
+msgstr "290gsm Fedrigoni Sirio Color Lampone"
+
+msgid "valeur_1180"
+msgstr "290gsm Fedrigoni Sirio Color Nero"
+
+msgid "valeur_1197"
+msgstr "100gsm white velin"
+
+msgid "valeur_1198"
+msgstr "300gsm Invercote Card - single side coated"
+
+msgid "valeur_1203"
+msgstr "90gsm White Kraft"
+
+msgid "valeur_1204"
+msgstr "135gsm Matt Blue Back"
+
+msgid "valeur_1205"
+msgstr "120gsm Fluorescent Yellow "
+
+msgid "valeur_1206"
+msgstr "150gsm Backlit White Satin "
+
+msgid "valeur_1207"
+msgstr "210µ Photo White Gloss"
+
+msgid "valeur_1208"
+msgstr "Backlit polyester 150µ"
+
+msgid "valeur_1209"
+msgstr " "
+
+msgid "valeur_1210"
+msgstr "100µ White Vinyl - easy application "
+
+msgid "valeur_1211"
+msgstr "80µ Eco Latex White Vinyl"
+
+msgid "valeur_1212"
+msgstr "150µ White removable QuickMount vinyl"
+
+msgid "valeur_1215"
+msgstr "450gsm Large format Eco banners"
+
+msgid "valeur_1216"
+msgstr "260gsm fabric capoToile® Eco Banner"
+
+msgid "valeur_1217"
+msgstr "260gsm fabric capoToile® Eco Banner - Fire retardent M1"
+
+msgid "valeur_1218"
+msgstr "Forex 4mm"
+
+msgid "valeur_1219"
+msgstr "170µ One Way Microperforated (inside use)"
+
+msgid "valeur_1220"
+msgstr "300µ Polypropylene Film Magnet SticK"
+
+msgid "valeur_1224"
+msgstr "300 Cyclus Print"
+
+msgid "valeur_1227"
+msgstr "250 gloss coated"
+
+msgid "valeur_1228"
+msgstr "350gsm Silk"
+
+msgid "valeur_1237"
+msgstr "150gsm matt"
+
+msgid "valeur_1242"
+msgstr "270gsm uncoated"
+
+msgid "valeur_1243"
+msgstr "135 Matt Coated"
+
+msgid "valeur_1244"
+msgstr "115 Matt Coated"
+
+msgid "valeur_1248"
+msgstr "170gsm uncoated recycled"
+
+msgid "valeur_1108"
+msgstr "Smooth 690g Kapatex"
+
+msgid "valeur_1109"
+msgstr "300gsm Recycled Offset"
+
+msgid "valeur_1115"
+msgstr "115gsm uncoated"
+
+msgid "valeur_1185"
+msgstr "350gsm Metallic Gold"
+
+msgid "valeur_1186"
+msgstr "350gsm Metallic Silver"
+
+msgid "valeur_1189"
+msgstr "300gsm Fedrigoni Sirio Pearl Aurum"
+
+msgid "valeur_1190"
+msgstr "300gsm Fedrigoni Sirio Pearl Platinium"
+
+msgid "valeur_1191"
+msgstr "120gsm Offset Velin Superior White"
+
+msgid "valeur_1192"
+msgstr "175µ PET gloss transparent"
+
+msgid "valeur_1276"
+msgstr "90gsm Cyclus Office"
+
+msgid "valeur_1279"
+msgstr "400gsm Silk"
+
+msgid "valeur_1288"
+msgstr "350gsm Coated "
+
+msgid "valeur_1289"
+msgstr "160 Offset Laser"
+
+msgid "valeur_1295"
+msgstr " "
+
+msgid "valeur_1329"
+msgstr "Doming with ultra strong adhesive"
+
+msgid "valeur_1331"
+msgstr "250gsm Blue Satin Folder"
+
+msgid "valeur_1332"
+msgstr "250gsm Green Satin File "
+
+msgid "valeur_1333"
+msgstr "250gsm Orange Satin Folder"
+
+msgid "valeur_1334"
+msgstr "250gsm Pink Satin Folder"
+
+msgid "valeur_1335"
+msgstr "250gsm Red Satin Folder"
+
+msgid "valeur_1338"
+msgstr "90gsm Silk Coated"
+
+msgid "valeur_1340"
+msgstr "250gsm Yellow Satin Folder"
+
+msgid "valeur_1345"
+msgstr "90gsm Cyclus Offset"
+
+msgid "valeur_1346"
+msgstr "100gsm cyclus print"
+
+msgid "valeur_1348"
+msgstr "350 Cyclus Offset"
+
+msgid "valeur_1350"
+msgstr "100µ Transparent vinyl"
+
+msgid "valeur_1353"
+msgstr "170g Yupo Tako"
+
+msgid "valeur_1357"
+msgstr "135gsm Gloss encapsulated"
+
+msgid "valeur_1359"
+msgstr "140gsm Satin Polypropylene "
+
+msgid "valeur_1360"
+msgstr "100gsm silk"
+
+msgid "valeur_1396"
+msgstr "100gsm Red Kraft"
+
+msgid "valeur_1397"
+msgstr "120gsm Red Kraft"
+
+msgid "valeur_1398"
+msgstr "100gsm Black Kraft"
+
+msgid "valeur_1399"
+msgstr "120gsm Black Kraft"
+
+msgid "valeur_1402"
+msgstr "80gsm Offset Blue"
+
+msgid "valeur_1403"
+msgstr "80gsm Offset Yellow"
+
+msgid "valeur_1404"
+msgstr "80gsm Offset Green"
+
+msgid "valeur_1405"
+msgstr "Triplicate: 60gsm Top White / 60gsm Middle Pink / 60gsm Bottom Yellow"
+
+msgid "valeur_1406"
+msgstr "Duplicate: 80gsm Top White / 80gsm Bottom Yellow"
+
+msgid "valeur_1408"
+msgstr "170gsm NCR paper"
+
+msgid "valeur_1418"
+msgstr "110gsm uncoated"
+
+msgid "valeur_1419"
+msgstr "Car magnet"
+
+msgid "valeur_1434"
+msgstr "120gsm Premium Smooth"
+
+msgid "valeur_1439"
+msgstr "280g Satin M1"
+
+msgid "valeur_1441"
+msgstr "150gsm Silk Coated"
+
+msgid "valeur_1448"
+msgstr "85 offset"
+
+msgid "valeur_1487"
+msgstr "135gsm Trisolv postart paper"
+
+msgid "valeur_1489"
+msgstr "440gsm Banner vinyl"
+
+msgid "valeur_1492"
+msgstr "234gsm Polyester Lightblock"
+
+msgid "valeur_1495"
+msgstr "80g Permanent gloss coated paper "
+
+msgid "valeur_1496"
+msgstr "80g Removable gloss coated paper"
+
+msgid "valeur_1497"
+msgstr "90g Embossed pearlescent paper"
+
+msgid "valeur_1498"
+msgstr "95g Uncoated paper"
+
+msgid "valeur_1499"
+msgstr "46g Polypropylene silver gloss metallic"
+
+msgid "valeur_1500"
+msgstr "58g Polypropylene gloss white"
+
+msgid "valeur_1501"
+msgstr "54g Polypropylene gloss transparent"
+
+msgid "valeur_1505"
+msgstr "80gsm Adhesive paper Fluorescent Yellow"
+
+msgid "valeur_1508"
+msgstr "82g PE Matt white"
+
+msgid "valeur_1509"
+msgstr "80g Permanent gloss coated"
+
+msgid "valeur_1510"
+msgstr "70g Kraft brown paper"
+
+msgid "valeur_1511"
+msgstr "92g PE gloss white"
+
+msgid "valeur_1513"
+msgstr "86g PE transparent "
+
+msgid "valeur_1518"
+msgstr "80gsm Adhesive paper Fluorescent Green"
+
+msgid "valeur_1519"
+msgstr "80gsm Adhesive paper Fluorescent Orange"
+
+msgid "valeur_1520"
+msgstr "80gsm Adhesive paper Fluorescent Red"
+
+msgid "valeur_1251"
+msgstr "140gsm Cyclus Print"
+
+msgid "valeur_1252"
+msgstr "250gsm White Bristol"
+
+msgid "valeur_1254"
+msgstr "300gsm SILK"
+
+msgid "valeur_1258"
+msgstr "80gsm manager white"
+
+msgid "valeur_1384"
+msgstr "60µ untearable white adhesive + Pasted-glued on compact"
+
+msgid "valeur_1552"
+msgstr "250gsm Gloss Coated"
+
+msgid "valeur_1554"
+msgstr "350gsm microperforated banner "
+
+msgid "valeur_1555"
+msgstr "650gsm PVC Fire retardant banner"
+
+msgid "valeur_1574"
+msgstr "400gsm Silk Coated (55x85mm)"
+
+msgid "valeur_1537"
+msgstr "430gsm Polyester Lightblock"
+
+msgid "valeur_1540"
+msgstr "200µ white floor vinyl "
+
+msgid "valeur_1596"
+msgstr "105gsm Tivek fluorescent yellow"
+
+msgid "valeur_1265"
+msgstr "Kibox 10mm"
+
+msgid "valeur_1271"
+msgstr "190gsm uncoated"
+
+msgid "valeur_1622"
+msgstr "600gsm Gmund White"
+
+msgid "valeur_1613"
+msgstr "White"
+
+msgid "valeur_1614"
+msgstr "Dry erasing "
+
+msgid "valeur_800"
+msgstr "Silk"
+
+msgid "valeur_1181"
+msgstr "Matt Soft Touch"
+
+msgid "valeur_551"
+msgstr "Gloss UV"
+
+msgid "valeur_552"
+msgstr "Satin UV "
+
+msgid "valeur_184"
+msgstr "No"
+
+msgid "valeur_185"
+msgstr "Matt"
+
+msgid "valeur_186"
+msgstr "Gloss"
+
+msgid "valeur_187"
+msgstr "No"
+
+msgid "valeur_188"
+msgstr "Matt"
+
+msgid "valeur_189"
+msgstr "Gloss"
+
+msgid "valeur_1182"
+msgstr "Matt Soft Touch"
+
+msgid "valeur_1106"
+msgstr "UV Satin"
+
+msgid "valeur_798"
+msgstr "No"
+
+msgid "valeur_1362"
+msgstr "4 colour HD"
+
+msgid "valeur_1616"
+msgstr "White"
+
+msgid "valeur_376"
+msgstr "Black"
+
+msgid "valeur_318"
+msgstr "1 colour"
+
+msgid "valeur_319"
+msgstr "2 colours"
+
+msgid "valeur_320"
+msgstr "3 colours"
+
+msgid "valeur_321"
+msgstr "4 colours"
+
+msgid "valeur_322"
+msgstr "4 colour + white "
+
+msgid "valeur_323"
+msgstr "5 colours"
+
+msgid "valeur_180"
+msgstr "4 colour"
+
+msgid "valeur_181"
+msgstr "4 colour"
+
+msgid "valeur_238"
+msgstr "Black"
+
+msgid "valeur_233"
+msgstr "No"
+
+msgid "valeur_804"
+msgstr "2 colours"
+
+msgid "valeur_1196"
+msgstr "4 colour + white"
+
+msgid "valeur_542"
+msgstr "1 colour"
+
+msgid "valeur_974"
+msgstr "Silk Coated"
+
+msgid "valeur_194"
+msgstr "No"
+
+msgid "valeur_195"
+msgstr "Clear varnish"
+
+msgid "valeur_281"
+msgstr "Matt varnish"
+
+msgid "valeur_282"
+msgstr "Gloss varnish"
+
+msgid "valeur_283"
+msgstr "Matt varnish"
+
+msgid "valeur_284"
+msgstr "Gloss varnish"
+
+msgid "valeur_196"
+msgstr "No"
+
+msgid "valeur_197"
+msgstr "Clear varnish"
+
+msgid "valeur_975"
+msgstr "Silk Coated"
+
+msgid "valeur_1183"
+msgstr "3D Spot UV Varnish"
+
+msgid "valeur_198"
+msgstr "No"
+
+msgid "valeur_199"
+msgstr "Included"
+
+msgid "valeur_200"
+msgstr "No"
+
+msgid "valeur_201"
+msgstr "Included"
+
+msgid "valeur_1184"
+msgstr "3D Spot UV Varnish"
+
+msgid "valeur_1250"
+msgstr "Kiss-cut to shape"
+
+msgid "valeur_214"
+msgstr "Maximo "
+
+msgid "valeur_215"
+msgstr "Memo"
+
+msgid "valeur_216"
+msgstr "Duo"
+
+msgid "valeur_217"
+msgstr "Pano"
+
+msgid "valeur_218"
+msgstr "Trio"
+
+msgid "valeur_219"
+msgstr "Quatro"
+
+msgid "valeur_220"
+msgstr "Exo"
+
+msgid "valeur_221"
+msgstr "Octo"
+
+msgid "valeur_553"
+msgstr "To the vector file"
+
+msgid "valeur_550"
+msgstr "No"
+
+msgid "valeur_523"
+msgstr "Bespoke shape: new cutting tool"
+
+msgid "valeur_524"
+msgstr "Bespoke shape: new cutting tool"
+
+msgid "valeur_611"
+msgstr "A 4mm drilled hole"
+
+msgid "valeur_432"
+msgstr "2 hole-punches of 4mm"
+
+msgid "valeur_433"
+msgstr "2 hole-punches of 4mm + eyelet"
+
+msgid "valeur_434"
+msgstr "4 holes (1 on each corner)"
+
+msgid "valeur_435"
+msgstr "4 holes + eyelet (1 on each corner)"
+
+msgid "valeur_190"
+msgstr "No"
+
+msgid "valeur_286"
+msgstr "1 4mm hole-punch + eyelet"
+
+msgid "valeur_287"
+msgstr "2 4mm hole-punches + eyelets"
+
+msgid "valeur_1272"
+msgstr "1 hole-punch of 3mm"
+
+msgid "valeur_1576"
+msgstr "5mm drilled hole"
+
+msgid "valeur_815"
+msgstr "1 suspension hook "
+
+msgid "valeur_1120"
+msgstr "A 6mm drilled hole"
+
+msgid "valeur_769"
+msgstr "2 ring binder"
+
+msgid "valeur_770"
+msgstr "4 ring binder"
+
+msgid "valeur_642"
+msgstr "Gold foil blocked"
+
+msgid "valeur_643"
+msgstr "Silver foil blocked"
+
+msgid "valeur_165"
+msgstr "No"
+
+msgid "valeur_166"
+msgstr "Cold foiled Gold"
+
+msgid "valeur_167"
+msgstr "Cold foiled Silver"
+
+msgid "valeur_192"
+msgstr "Offset"
+
+msgid "valeur_193"
+msgstr "Digital "
+
+msgid "valeur_414"
+msgstr "Flexography"
+
+msgid "valeur_415"
+msgstr "E-SERVICE"
+
+msgid "valeur_417"
+msgstr "Dye Sublimation"
+
+msgid "valeur_418"
+msgstr "Rotary Press"
+
+msgid "valeur_676"
+msgstr "Digital / Offset"
+
+msgid "valeur_353"
+msgstr "Silkscreen printing "
+
+msgid "valeur_1623"
+msgstr "Letterpress"
+
+msgid "valeur_754"
+msgstr "No"
+
+msgid "valeur_533"
+msgstr "5 parallel perforations (6 flaps)"
+
+msgid "valeur_534"
+msgstr "6 parallel perforations (7 flaps)"
+
+msgid "valeur_535"
+msgstr "X crossed creasings: existing tool "
+
+msgid "valeur_536"
+msgstr "X crossed creasings: new cutting tool"
+
+msgid "valeur_241"
+msgstr "3 creases (4 panels)"
+
+msgid "valeur_242"
+msgstr "3 concertina creases (4 panels)"
+
+msgid "valeur_243"
+msgstr "3 roll fold creases (4 panels)"
+
+msgid "valeur_244"
+msgstr "4 parallel creases (5 panels)"
+
+msgid "valeur_202"
+msgstr "1 central creasing (2 panels)"
+
+msgid "valeur_203"
+msgstr "1 off-centered crease (2 panels)"
+
+msgid "valeur_204"
+msgstr "2 roll fold creases (3 panels)"
+
+msgid "valeur_205"
+msgstr "2 concertina creases (3 panels)"
+
+msgid "valeur_206"
+msgstr "2 gate fold creases (3 panels)"
+
+msgid "valeur_246"
+msgstr "No"
+
+msgid "valeur_255"
+msgstr "3 parallel perforations"
+
+msgid "valeur_249"
+msgstr "No"
+
+msgid "valeur_207"
+msgstr "1 perforation"
+
+msgid "valeur_208"
+msgstr "2 parallel perforations"
+
+msgid "valeur_526"
+msgstr "4 parallel perforations"
+
+msgid "valeur_527"
+msgstr "5 parallel perforations"
+
+msgid "valeur_529"
+msgstr "X perforations: new cutting tool"
+
+msgid "valeur_530"
+msgstr "X perforations: existing tool"
+
+msgid "valeur_1581"
+msgstr "1 perforated line"
+
+msgid "valeur_210"
+msgstr "No"
+
+msgid "valeur_211"
+msgstr "Included"
+
+msgid "valeur_248"
+msgstr "4pp"
+
+msgid "valeur_258"
+msgstr "10pp concertina fold"
+
+msgid "valeur_259"
+msgstr "12pp concertina fold"
+
+msgid "valeur_252"
+msgstr "6pp roll fold"
+
+msgid "valeur_254"
+msgstr "8pp roll fold"
+
+msgid "valeur_245"
+msgstr "No"
+
+msgid "valeur_563"
+msgstr "1 fold + 2 concertina folds (12pp)"
+
+msgid "valeur_564"
+msgstr "1 fold + 2 rolled folds (12pp)"
+
+msgid "valeur_565"
+msgstr "1 fold + 3 concertina folds (16pp)"
+
+msgid "valeur_566"
+msgstr "1 fold + 3 rolled folds (16pp)"
+
+msgid "valeur_567"
+msgstr "2 concertina folds + 2 rolled folds"
+
+msgid "valeur_568"
+msgstr "3 concertina folds + 2 rolled folds"
+
+msgid "valeur_503"
+msgstr "8pp concertina fold"
+
+msgid "valeur_504"
+msgstr "3 concertina folds + 1 crossed fold "
+
+msgid "valeur_450"
+msgstr "6pp concertina"
+
+msgid "valeur_451"
+msgstr "6pp gate fold"
+
+msgid "valeur_511"
+msgstr "2 concertina folds + 1 crossed fold (12pp)"
+
+msgid "valeur_484"
+msgstr "8pp gate fold"
+
+msgid "valeur_485"
+msgstr "4pp off centred fold"
+
+msgid "valeur_486"
+msgstr "14pp concertina folds"
+
+msgid "valeur_487"
+msgstr "4 concertina folds + 1 crossed fold "
+
+msgid "valeur_488"
+msgstr "4 concertina folds + 2 roll folds "
+
+msgid "valeur_489"
+msgstr "5 concertina folds + 1 cross fold"
+
+msgid "valeur_490"
+msgstr "5 concertina folds + 2 roll folds"
+
+msgid "valeur_491"
+msgstr "8pp"
+
+msgid "valeur_492"
+msgstr "2 crossed folds (8 pages)"
+
+msgid "valeur_493"
+msgstr "3 crossed folds (16 pages)"
+
+msgid "valeur_1264"
+msgstr "6 concertina folds + 2 roll folds"
+
+msgid "valeur_825"
+msgstr "6 concertina folds + 1 cross fold"
+
+msgid "valeur_1536"
+msgstr "multi folded map"
+
+msgid "valeur_1392"
+msgstr "Bottle label"
+
+msgid "valeur_1393"
+msgstr "Showcards 100 x 150 x 72mm"
+
+msgid "valeur_1394"
+msgstr "Showcards 150 x 130 x 130mm"
+
+msgid "valeur_496"
+msgstr "Bill presenter"
+
+msgid "valeur_497"
+msgstr "Napkin rings"
+
+msgid "valeur_498"
+msgstr "CD Walet"
+
+msgid "valeur_512"
+msgstr "Star "
+
+msgid "valeur_513"
+msgstr "Circle"
+
+msgid "valeur_514"
+msgstr "Cloud"
+
+msgid "valeur_515"
+msgstr "Heart "
+
+msgid "valeur_516"
+msgstr "Door hanger"
+
+msgid "valeur_517"
+msgstr "Bubble"
+
+msgid "valeur_518"
+msgstr "Cutting forms"
+
+msgid "valeur_519"
+msgstr "Bespoke shape: new cutting tool"
+
+msgid "valeur_522"
+msgstr "Round corners"
+
+msgid "valeur_560"
+msgstr "Buddha"
+
+msgid "valeur_309"
+msgstr "No"
+
+msgid "valeur_329"
+msgstr "Existing tool "
+
+msgid "valeur_260"
+msgstr "4pp non capacity folder"
+
+msgid "valeur_261"
+msgstr "4pp non capacity folder with portrait b/card slits"
+
+msgid "valeur_262"
+msgstr "4pp non capacity folder with landscape b/card slits"
+
+msgid "valeur_263"
+msgstr "4pp capacity folder - no slits"
+
+msgid "valeur_264"
+msgstr "4pp capacity folder with portrait b/card slits"
+
+msgid "valeur_265"
+msgstr "4pp capacity folder with landscape b/card slits"
+
+msgid "valeur_267"
+msgstr "6pp non capacity folder - no slits"
+
+msgid "valeur_268"
+msgstr "6pp non capacity folder with portrait b/card slits"
+
+msgid "valeur_269"
+msgstr "6pp non capacity folder with landscape b/card slits"
+
+msgid "valeur_270"
+msgstr "6pp capacity folder - no slits"
+
+msgid "valeur_271"
+msgstr "6pp capacity folder with portrait b/card slits"
+
+msgid "valeur_272"
+msgstr "6pp capacity folder with landscape b/card slits"
+
+msgid "valeur_273"
+msgstr "6pp non capacity folder - no slits"
+
+msgid "valeur_274"
+msgstr "6pp non capacity folder with portrait b/card slits"
+
+msgid "valeur_275"
+msgstr "6pp non capacity folder with landscape b/card slits"
+
+msgid "valeur_276"
+msgstr "6pp capacity folder - no slits"
+
+msgid "valeur_277"
+msgstr "6pp capacity folder with portrait b/card slits"
+
+msgid "valeur_278"
+msgstr "6pp capacity folder with landscape b/card slits"
+
+msgid "valeur_470"
+msgstr "Heading"
+
+msgid "valeur_471"
+msgstr "Footer"
+
+msgid "valeur_472"
+msgstr "To the right "
+
+msgid "valeur_473"
+msgstr "To the left "
+
+msgid "valeur_621"
+msgstr "Short edge"
+
+msgid "valeur_771"
+msgstr "Long edge "
+
+msgid "valeur_744"
+msgstr "No"
+
+msgid "valeur_733"
+msgstr "Sealed"
+
+msgid "valeur_734"
+msgstr "Not sealed"
+

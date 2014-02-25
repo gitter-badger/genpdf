@@ -12,13 +12,14 @@ SELECT
   , c.EstModeleCouleur
   , c.IDCommandePrincipale
   , cl.Quantite
+  , cl.Justificatif
   , cl.BAT
   , cl.BATNumerique
   , cl.CodeServiceTNT
   , cl.EstImperatif
   , cl.IdTypeImperatif
   , client.IDSociete
-  , p.Code
+  , p.Code                                                   AS CodeProduit
   , ISNULL(v.CodePostal, a.CodePostalLivraison)              AS CodePostal
   , ISNULL(vp.CodePays, ap.CodePays)                         AS CodePays
   , dbo.f_nIDProduitOptionValeurProduit(p.IDProduit, 80, 1)  AS NbCouleursRecto

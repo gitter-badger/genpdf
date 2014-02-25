@@ -11,6 +11,7 @@ namespace Exaprint\TCPDF;
 
 class FillColor implements DrawingContext {
 
+    /** @var  Color */
     public $color;
 
     function __construct($color)

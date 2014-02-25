@@ -13,9 +13,11 @@ use Exaprint\GenPDF\Resources\PartnersOrder;
 use Exaprint\TCPDF\Cell;
 use Exaprint\TCPDF\CellHeightRatio;
 use Exaprint\TCPDF\Color;
+use Exaprint\TCPDF\Dimensions;
 use Exaprint\TCPDF\FillColor;
 use Exaprint\TCPDF\Font;
 use Exaprint\TCPDF\Image;
+use Exaprint\TCPDF\ImageInContainer;
 use Exaprint\TCPDF\MultiCell;
 use Exaprint\TCPDF\Position;
 use Exaprint\TCPDF\TextColor;
@@ -44,14 +46,15 @@ class Commande
         $this->commande = $commande;
         $this->layout   = $layout;
 
+        $this->visuels();
         $this->border();
         $this->ids();
         $this->commentairePao();
-        $this->visuels();
         $this->formats();
         $this->quantite();
         $this->grille();
         $this->livraison();
+        $this->codeProduit();
         $this->referenceClient();
         $this->transporteur();
         $this->codeBarre();
@@ -147,8 +150,7 @@ class Commande
 
     protected function formats()
     {
-        $times                    = '×';
-        ;
+        $times = '×';;
         $cOuvert                  = new Cell();
         $cOuvert->textColor       = new TextColor(Color::greyscale(0));
         $cOuvert->position        = new Position($this->_x($this->layout->cEnteteIdsWidth), $this->_y());
@@ -242,34 +244,39 @@ class Commande
 
     protected function visuels()
     {
-        // todo replace by ImageInContainer
-        if (count($this->commande['Visuels']) == 1) {
+        if (count($this->commande['Visuels']) == 0) return;
 
-            $this->placeImage(
-                $this->commande['Visuels'][0],
-                $this->_x(),
-                $this->_y($this->layout->cEnteteHeight),
-                $this->layout->wBloc(),
-                $this->layout->cVisuelsHeight
+        if (count($this->commande['Visuels']) == 1 || is_null($this->commande['NbCouleursVerso'])) {
+            $recto             = $this->commande['Visuels'][0];
+            $image             = new ImageInContainer(
+                $recto['href'],
+                new Dimensions($recto['width'], $recto['height']),
+                new Dimensions($this->layout->wBloc(), $this->layout->cVisuelsHeight),
+                new Position($this->_x(), $this->_y($this->layout->cEnteteHeight))
             );
+            $image->autoRotate = true;
+            $image->draw($this->pdf);
 
         } else {
-
-            $this->placeImage(
-                $this->commande['Visuels'][0],
-                $this->_x(),
-                $this->_y($this->layout->cEnteteHeight),
-                $this->layout->wBloc() / 2,
-                $this->layout->cVisuelsHeight
+            $recto             = $this->commande['Visuels'][0];
+            $image             = new ImageInContainer(
+                $recto['href'],
+                new Dimensions($recto['width'], $recto['height']),
+                new Dimensions($this->layout->wBloc() / 2, $this->layout->cVisuelsHeight),
+                new Position($this->_x(), $this->_y($this->layout->cEnteteHeight))
             );
+            $image->autoRotate = true;
+            $image->draw($this->pdf);
 
-            $this->placeImage(
-                $this->commande['Visuels'][1],
-                $this->_x($this->layout->wBloc() / 2),
-                $this->_y($this->layout->cEnteteHeight),
-                $this->layout->wBloc() / 2,
-                $this->layout->cVisuelsHeight
+            $recto             = $this->commande['Visuels'][1];
+            $image             = new ImageInContainer(
+                $recto['href'],
+                new Dimensions($recto['width'], $recto['height']),
+                new Dimensions($this->layout->wBloc() / 2, $this->layout->cVisuelsHeight),
+                new Position($this->_x($this->layout->wBloc() / 2), $this->_y($this->layout->cEnteteHeight))
             );
+            $image->autoRotate = true;
+            $image->draw($this->pdf);
         }
 
         $this->pdf->Rect(
@@ -281,12 +288,26 @@ class Commande
 
     }
 
-    protected function referenceClient()
+    protected function codeProduit()
     {
         $paddingTop         = 1;
         $c                  = new MultiCell();
         $c->x               = $this->_x();
         $c->y               = $this->_y($this->layout->cEnteteHeight + $this->layout->cVisuelsHeight + $paddingTop);
+        $c->cellHeightRatio = new CellHeightRatio(0.9);
+        $c->width           = $this->layout->wBloc() - $this->layout->cellule() * $this->layout->cGrilleColCount;
+        $c->text            = $this->commande['CodeProduit'];
+        $c->textColor       = new TextColor(Color::greyscale(0));
+        $c->font            = new Font('bagc-medium', 11, new TextColor(Color::cmyk(100, 75, 0, 0)));
+        $c->draw($this->pdf);
+    }
+
+    protected function referenceClient()
+    {
+        $paddingTop         = 1;
+        $c                  = new MultiCell();
+        $c->x               = $this->_x();
+        $c->y               = $this->_y($this->layout->cEnteteHeight + $this->layout->cVisuelsHeight + $paddingTop + $this->layout->cCodeProduitHeight);
         $c->cellHeightRatio = new CellHeightRatio(0.9);
         $c->width           = $this->layout->wBloc() - $this->layout->cellule() * $this->layout->cGrilleColCount;
         $c->text            = $this->commande['ReferenceClient'];
@@ -300,7 +321,7 @@ class Commande
 
         $c                  = new MultiCell();
         $c->x               = $this->_x();
-        $c->y               = $this->_y($this->layout->cEnteteHeight + $this->layout->cVisuelsHeight + 5);
+        $c->y               = $this->_y($this->layout->cEnteteHeight + $this->layout->cVisuelsHeight + 5 + $this->layout->cCodeProduitHeight);
         $c->cellHeightRatio = new CellHeightRatio(0.9);
         $c->width           = $this->layout->wBloc() - $this->layout->cellule() * $this->layout->cGrilleColCount;
         $c->text            = $this->commande['CommentairePAO'];

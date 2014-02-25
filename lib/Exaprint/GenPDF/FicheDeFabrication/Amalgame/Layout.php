@@ -21,7 +21,7 @@ class Layout
      * PLANCHE pXXX
      */
     public $pEnteteHeight = 16;
-    public $pEnteteIdPlancheWidth = 50;
+    public $pEnteteIdPlancheWidth = 40;
     public $pEnteteExpeSansFaconnageWidth = 30;
     public $pEnteteExpeAvecFaconnageWidth = 30;
     public $pEnteteImperatifsWidth = 20;
@@ -53,7 +53,7 @@ class Layout
     public $cCodeBarreWidth = 36;
     public $cCodeBarreHeight = 16;
     public $cCodeBarreMargin = 2;
-
+    public $cCodeProduitHeight = 8;
     public $cLivraisonCodePostalWidth = 19;
     public $cLivraisonCodePostalHeight = 9;
 

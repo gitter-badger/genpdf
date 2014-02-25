@@ -20,7 +20,7 @@ use Exaprint\TCPDF\TextColor;
 class Retirage implements ICellule
 {
     public function draw(Position $position, \TCPDF $pdf, $cellSize, array $commande){
-        if(isset($commande['Retirage']) && $commande['Retirage']){
+        if(isset($commande['IDCommandePrincipale']) && $commande['IDCommandePrincipale']){
             $cell = new Cell();
             $cell->position = $position;
             $cell->fillColor = new FillColor(Color::cmyk(0, 100, 100, 0));

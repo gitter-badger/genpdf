@@ -19,27 +19,28 @@ use Exaprint\TCPDF\TextColor;
 
 class Pliage implements ICellule
 {
-    public function draw(Position $position, \TCPDF $pdf, $cellSize, array $commande){
-        if(isset($commande['Pliage']) && $commande['Pliage']){
-            $cell = new Cell();
-            $cell->position = $position;
+    public function draw(Position $position, \TCPDF $pdf, $cellSize, array $commande)
+    {
+        if (isset($commande['Pliage']) && $commande['Pliage']) {
+            $cell            = new Cell();
+            $cell->position  = $position;
             $cell->fillColor = new FillColor(Color::greyscale(255));
-            $cell->fill = true;
-            $cell->width = $cellSize;
-            $cell->height = $cellSize;
-            $cell->border = true;
-            $cell->font = new Font('bagc-bold', 16, new TextColor(Color::greyscale(0)));
-            $cell->align = Cell::ALIGN_CENTER;
-            $cell->vAlign = Cell::VALIGN_CENTER;
-            $cell->text = $commande['Pliage'];
+            $cell->fill      = true;
+            $cell->width     = $cellSize;
+            $cell->height    = $cellSize;
+            $cell->border    = true;
+            $cell->font      = new Font('bagc-bold', 16, new TextColor(Color::greyscale(0)));
+            $cell->align     = Cell::ALIGN_CENTER;
+            $cell->vAlign    = Cell::VALIGN_CENTER;
+            $cell->text      = _('valeur_' . $commande['Pliage']);
             $cell->draw($pdf);
         } else {
-            $cell = new Cell();
+            $cell           = new Cell();
             $cell->position = $position;
-            $cell->fill = false;
-            $cell->width = $cellSize;
-            $cell->height = $cellSize;
-            $cell->border = true;
+            $cell->fill     = false;
+            $cell->width    = $cellSize;
+            $cell->height   = $cellSize;
+            $cell->border   = true;
             $cell->draw($pdf);
         }
     }

@@ -40,6 +40,7 @@ class Amalgame
 
     public function __construct($planche)
     {
+
         $this->planche = $planche;
 
         $this->pdf = new \TCPDF(
