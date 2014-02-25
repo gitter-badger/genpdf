@@ -1,0 +1,35 @@
+{% extends "resources/base.twig" %}
+
+{% block links %}
+    <link rel="stylesheet" type="text/css" href="/static/css/reset.css"/>
+    <link rel="stylesheet" type="text/css" href="/static/css/fonts.css"/>
+    <link rel="stylesheet" type="text/css" href="/static/css/invoice.css"/>
+    <link rel="stylesheet" type="text/css" href="/static/css/masterprint-quote.css"/>
+{% endblock %}
+
+{% block page %}
+    <h1>Demande de devis N°{{ NumeroDevis }}</h1>
+    <p>Envoyée le {{ DateHeure|date('d/m/Y \à H\hi') }}</p>
+
+    <table class="reponses">
+        <thead>
+        <tr>
+            <th>Quantité</th>
+            <th>Prix H.T.</th>
+        </tr>
+        </thead>
+        <tbody>
+        {% for reponse in Reponses %}
+            <tr>
+                <td>{{ reponse.Quantite }} ex.</td>
+                <td>{{ reponse.PrixVente|number_format(2, ',', ' ') }} €</td>
+            </tr>
+        {% endfor %}
+        </tbody>
+    </table>
+    <div class="details">
+        {% autoescape false %}
+        {{ DescriptionHTML }}
+        {% endautoescape %}
+    </div>
+{% endblock %}
