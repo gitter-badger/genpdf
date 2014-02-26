@@ -10,6 +10,21 @@ $app->get("/", function () {
     var_dump(\Exaprint\DAL\DB::get()->getDefaultEnv());
 });
 
+$app->get('/fiche-de-fab/:IDPlanche', function ($IDPlanche) use ($app) {
+    $p = \Exaprint\GenPDF\FicheDeFabrication\DAL::getPlanche($IDPlanche);
+    if ($ff = \Exaprint\GenPDF\FicheDeFabrication\Factory::createFicheDeFabrication($p)) {
+
+        if ($app->request->get('norender')) {
+            header('Content-Type: text/html');
+            ob_end_flush();
+        } else {
+            ob_end_clean();
+            header('Content-Type: application/x-pdf');
+            $ff->pdf->Output();
+        }
+    }
+});
+
 $app->get("/:name/:id.xml", function ($name, $id) use ($app) {
     $app->contentType('text/xml');
     $resource = \Exaprint\GenPDF\Resources\Factory::createFromName($name);
@@ -27,7 +42,7 @@ $app->get("/:name/:id.pdf", function ($name, $id) use ($app) {
     // Organiser le cache
     if ($name == 'invoice-statements') {
         // classer par mois AAAAMMM
-        $infos = explode('-', $id);
+        $infos     = explode('-', $id);
         $subfolder = $infos[1];
     } else {
         // classer par 1000

@@ -2,7 +2,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: genPDF\n"
 "POT-Creation-Date: 2014-01-06 15:24+0100\n"
-"PO-Revision-Date: 2014-02-24 17:32+0100\n"
+"PO-Revision-Date: 2014-02-26 11:41+0100\n"
 "Last-Translator: \n"
 "Language-Team: Exaprint <romain@exaprint.fr>\n"
 "MIME-Version: 1.0\n"
@@ -1704,7 +1704,7 @@ msgstr "xRC"
 
 # X rainages croisés : outil à créer
 msgid "valeur_536"
-msgstr "+xRC"
+msgstr "*xRC"
 
 # 3 rainages portefeuille (4 volets)
 msgid "valeur_241"
@@ -2047,6 +2047,16 @@ msgstr "Scellée"
 
 msgid "valeur_734"
 msgstr "Non scellée"
+
+msgid "bascule_1"
+msgstr "in8"
+
+msgid "bascule_2"
+msgstr "in12"
+
+# Retiration ou RV8coul
+msgid "bascule_3"
+msgstr "retir"
 
 #~ msgid "Date de commande"
 #~ msgstr "Date de la commande"

@@ -14,11 +14,16 @@ class Factory
 
     public static function createFicheDeFabrication($planche)
     {
-        switch ($planche['IDProduitActiviteProduction']){
+        if(!$planche){
+            throw new \Exception('Planche is null');
+        }
+        switch ($planche['IDProduitActiviteProduction']) {
             case 1:
             case 2:
                 return new Amalgame($planche);
+            default:
+                var_dump($planche);
+                return null;
         }
-        return null;
     }
 } 

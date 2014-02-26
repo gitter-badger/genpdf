@@ -19,28 +19,40 @@ use Exaprint\TCPDF\TextColor;
 
 class Rainage implements ICellule
 {
-    public function draw(Position $position, \TCPDF $pdf, $cellSize, array $commande){
-        if(isset($commande['Rainage']) && $commande['Rainage']){
-            $cell = new Cell();
-            $cell->position = $position;
-            $cell->fillColor = new FillColor(Color::greyscale(255));
-            $cell->fill = true;
-            $cell->width = $cellSize;
-            $cell->height = $cellSize;
-            $cell->border = true;
-            $cell->font = new Font('bagc-bold', 16, new TextColor(Color::greyscale(0)));
-            $cell->align = Cell::ALIGN_CENTER;
-            $cell->vAlign = Cell::VALIGN_CENTER;
-            $cell->text = _('valeur_' . $commande['Rainage']);
-            $cell->draw($pdf);
-        } else {
-            $cell = new Cell();
-            $cell->position = $position;
-            $cell->fill = false;
-            $cell->width = $cellSize;
-            $cell->height = $cellSize;
-            $cell->border = true;
-            $cell->draw($pdf);
+    public function draw(Position $position, \TCPDF $pdf, $cellSize, array $commande)
+    {
+        $cell           = new Cell();
+        $cell->position = $position;
+        $cell->fill     = false;
+        $cell->width    = $cellSize;
+        $cell->height   = $cellSize;
+        $cell->border   = true;
+        $cell->draw($pdf);
+
+        if (isset($commande['Rainage']) && ($rainage = $commande['Rainage'])) {
+            $v = explode('+', _('valeur_' . $rainage));
+
+            $cTxt           = new Cell();
+            $cTxt->position = $position;
+            $cTxt->fill     = false;
+            $cTxt->border   = 0;
+            $cTxt->text     = $v[0];
+            $cTxt->font     = new Font('bagc-bold', 14, new TextColor(Color::greyscale(0)));
+            $cTxt->width    = $cellSize;
+
+            if (count($v) > 1) {
+                $cTxt->vAlign = Cell::VALIGN_BOTTOM;
+                $cTxt->height = $cellSize / 2;
+                $cTxt->draw($pdf);
+                $cTxt->position = $position->add(new Position(0, $cellSize / 2));
+                $cTxt->vAlign = Cell::VALIGN_TOP;
+                $cTxt->text     = $v[1];
+                $cTxt->draw($pdf);
+            } else {
+                $cTxt->font->size = 16;
+                $cTxt->height = $cellSize;
+                $cTxt->draw($pdf);
+            }
         }
     }
 }

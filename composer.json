@@ -22,6 +22,7 @@
         "romainbessugesmeusy/php-dsn-factory": "*",
         "romainbessugesmeusy/php-wkhtmltopdf": "*",
         "romainbessugesmeusy/php-sql-query": "*",
+        "rbm/tagged-cache": "dev-master",
         "exaprint/php-dal": "*",
         "rbm/php-results-combinator": "*",
         "jdorn/sql-formatter": "*",

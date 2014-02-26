@@ -11,6 +11,8 @@ SELECT
   , c.ImpressionEnlEtat
   , c.EstModeleCouleur
   , c.IDCommandePrincipale
+  , c.IDClientAdresseLivraison
+  , c.IDClient
   , cl.Quantite
   , cl.Justificatif
   , cl.BAT
@@ -18,6 +20,7 @@ SELECT
   , cl.CodeServiceTNT
   , cl.EstImperatif
   , cl.IdTypeImperatif
+  , cl.NbPorteCarte
   , client.IDSociete
   , p.Code                                                   AS CodeProduit
   , ISNULL(v.CodePostal, a.CodePostalLivraison)              AS CodePostal

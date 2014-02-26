@@ -16,6 +16,7 @@ class Layout
     public $pageHeight = 297;
     public $soucheHeight = 12;
     public $marge = 5;
+    public $pied = 12;
     public $gouttiere = 4;
     /*
      * PLANCHE pXXX
@@ -48,7 +49,7 @@ class Layout
     public $cEnteteHeight = 10;
     public $cEnteteQuantiteWidth = 28;
 
-    public $cVisuelsHeight = 66;
+    public $cVisuelsHeight = 65;
     public $cGrilleColCount = 3;
     public $cCodeBarreWidth = 36;
     public $cCodeBarreHeight = 16;
@@ -68,11 +69,11 @@ class Layout
 
     public $cGrilleCellules = [
         ['BatPapier', 'Justificatif', 'Retirage'],
-        ['SousTraitance', '', ''],
+        ['SousTraitance', 'Groupage', ''],
         ['', '', ''],
         ['', '', ''],
-        ['Pliage', 'Rainage', ''],
-        ['', '', 'Societe']
+        ['Pliage', 'Rainage', 'Perforation'],
+        ['', 'PorteCarte', 'Societe']
     ];
 
 
@@ -134,7 +135,7 @@ class Layout
 
     public function hBloc()
     {
-        return ($this->pageHeight - $this->soucheHeight - $this->marge - $this->gouttiere) / 2;
+        return ($this->pageHeight - $this->soucheHeight - $this->pied- $this->gouttiere) / 2;
     }
 
 } 

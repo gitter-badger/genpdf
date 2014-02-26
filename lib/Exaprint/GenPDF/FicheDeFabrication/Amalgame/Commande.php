@@ -154,7 +154,7 @@ class Commande
         $cOuvert                  = new Cell();
         $cOuvert->textColor       = new TextColor(Color::greyscale(0));
         $cOuvert->position        = new Position($this->_x($this->layout->cEnteteIdsWidth), $this->_y());
-        $cOuvert->text            = $this->commande['LargeurOuvert'] . $times . $this->commande['LargeurOuvert'];
+        $cOuvert->text            = $this->commande['LargeurOuvert'] . $times . $this->commande['LongueurOuvert'];
         $cOuvert->font            = new Font('bagc-bold', 28);
         $cOuvert->ignoreMinHeight = true;
         $cOuvert->border          = Cell::BORDER_NO_BORDER;

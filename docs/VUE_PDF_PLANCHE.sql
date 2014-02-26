@@ -45,5 +45,5 @@ CREATE VIEW dbo.VUE_PDF_PLANCHE AS
     , p.EstSousTraitance
     , p.IDProduitActiviteProduction
   FROM TBL_PLANCHE p
-    JOIN TBL_PLANCHE_FORMAT pf ON pf.IDPlancheFormat = p.IDProduitPlancheFormat
+    LEFT JOIN TBL_PLANCHE_FORMAT pf ON pf.IDPlancheFormat = p.IDProduitPlancheFormat
 

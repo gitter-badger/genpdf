@@ -2,7 +2,7 @@
 
 require '../vendor/autoload.php';
 require '/Users/admin/Sites/env.php';
-
+/*
 $queries = [
     "SELECT
         'activite_production_' as label,

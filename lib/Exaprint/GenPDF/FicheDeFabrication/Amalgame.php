@@ -12,13 +12,18 @@ namespace Exaprint\GenPDF\FicheDeFabrication;
 use Exaprint\GenPDF\FicheDeFabrication\Amalgame\Commande;
 use Exaprint\GenPDF\FicheDeFabrication\Amalgame\Layout;
 use Exaprint\GenPDF\FicheDeFabrication\Amalgame\Planche;
+use Exaprint\TCPDF\Cell;
+use Exaprint\TCPDF\Color;
+use Exaprint\TCPDF\Font;
+use Exaprint\TCPDF\Position;
+use Exaprint\TCPDF\TextColor;
 use Monolog\Handler\RotatingFileHandler;
 use Monolog\Logger;
 
 class Amalgame
 {
 
-    public static $wPage= 210;
+    public static $wPage = 210;
     public static $hPage = 297;
     public static $gouttiere = 4;
     public static $marge = 5;
@@ -37,6 +42,7 @@ class Amalgame
     protected $commandes = [];
     protected $currentCommandePosition = 1;
     protected $layout;
+    protected $pageNumber = 0;
 
     public function __construct($planche)
     {
@@ -76,6 +82,17 @@ class Amalgame
         $this->pdf->AddPage();
         $this->souche();
 
+        $this->pageNumber++;
+
+        $cell           = new Cell();
+        $cell->text     = $this->pageNumber;
+        $cell->font     = new Font('bagc-bold', 14, new TextColor(Color::black()));
+        $cell->position = new Position($this->layout->pageWidth - $this->layout->marge - 20, $this->layout->pageHeight - 10);
+        $cell->width    = 20;
+        $cell->height   = 10;
+        $cell->vAlign   = Cell::VALIGN_TOP;
+        $cell->align    = Cell::ALIGN_CENTER;
+        $cell->draw($this->pdf);
     }
 
     protected function souche()
