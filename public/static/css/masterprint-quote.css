@@ -35,3 +35,7 @@ dd {
     text-align: right;
     font-size: 1.2em;
 }
+
+.mentions {
+    margin-top: 1em;
+}
