@@ -65,13 +65,7 @@ $app->get("/:name/:id.pdf", function ($name, $id) use ($app) {
 
         $wkhtml = new \RBM\Wkhtmltopdf\Wkhtmltopdf();
 
-        if ($name == 'invoice-zip') {
-            // Do nothing
-        }
-        else if ($language = 'fr_FR') {
-            // special config for fr
-
-        } else {
+        if ($name != 'invoice-zip') {
             $wkhtml->setHeaderHtml($resource->getHeader());
             $wkhtml->setMarginTop(50);
             $wkhtml->setHeaderSpacing(5);
