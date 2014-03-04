@@ -59,7 +59,12 @@ class DAL
     {
         $alphabet = "ABCDEFGHIJKLMNOPQRSTUVWXYZ";
 
-        $stmt = DB::get()->prepare('SELECT * FROM dbo.VUE_PDF_COMMANDE WHERE IDPlanche = :IDPlanche');
+        $stmt = DB::get()->prepare('
+            SELECT *
+            FROM dbo.VUE_PDF_COMMANDE
+            WHERE IDPlanche = :IDPlanche
+            ORDER BY Pliage DESC, Rainage DESC, Decoupe DESC, DecoupeALaForme DESC, Perforation DESC
+        ');
         $stmt->execute(['IDPlanche' => $IDPlanche]);
         $groupages = [];
         $commandes = [];

@@ -46,10 +46,10 @@ class Commande
         $this->commande = $commande;
         $this->layout   = $layout;
 
-        $this->visuels();
+        //$this->visuels();
         $this->border();
         $this->ids();
-        $this->commentairePao();
+        $this->commentaires();
         $this->formats();
         $this->quantite();
         $this->grille();
@@ -316,7 +316,7 @@ class Commande
         $c->draw($this->pdf);
     }
 
-    protected function commentairePao()
+    protected function commentaires()
     {
 
         $c                  = new MultiCell();
@@ -324,7 +324,7 @@ class Commande
         $c->y               = $this->_y($this->layout->cEnteteHeight + $this->layout->cVisuelsHeight + 5 + $this->layout->cCodeProduitHeight);
         $c->cellHeightRatio = new CellHeightRatio(0.9);
         $c->width           = $this->layout->wBloc() - $this->layout->cellule() * $this->layout->cGrilleColCount;
-        $c->text            = $this->commande['CommentairePAO'];
+        $c->text            = $this->commande['CommentairePAO'] . "\n" .$this->commande['CommentaireAtelier'];
         $c->textColor       = new TextColor(Color::greyscale(0));
         $c->font            = new Font('bagc-light', 11);
         $c->draw($this->pdf);

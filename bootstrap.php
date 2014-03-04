@@ -29,14 +29,12 @@ $app->hook('slim.before', function () use ($app) {
     $log->setEnabled(true);
     $log->setWriter(new \Log\MyLogWriter());
 });
-/*
+
 // locale-detector
 $localeDetector = new Menencia\LocaleDetector\LocaleDetector();
 $language = $localeDetector->detect();
 \Locale\Helper::$current = $language;
-*/
 
-$language = 'fr-FR';
 
 // textdomain
 putenv("LC_MESSAGES=" . $language);

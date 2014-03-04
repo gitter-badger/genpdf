@@ -22,6 +22,7 @@ SELECT
   , cl.IdTypeImperatif
   , cl.NbPorteCarte
   , client.IDSociete
+  , f.CommentaireAtelier                                     AS CommentaireAtelier
   , p.Code                                                   AS CodeProduit
   , ISNULL(v.CodePostal, a.CodePostalLivraison)              AS CodePostal
   , ISNULL(vp.CodePays, ap.CodePays)                         AS CodePays
@@ -47,4 +48,5 @@ FROM
   LEFT JOIN TBL_VILLE v ON v.IDVille = a.IDVille
   LEFT JOIN TBL_PAYS vp ON vp.IDPays = v.IDPaysVille
   LEFT JOIN TBL_PAYS ap ON ap.IDPays = a.IDPays
+  LEFT JOIN TBL_FQUALITE f ON f.IDCommande = c.IDCommandePrincipale AND f.CommentaireAtelier IS NOT NULL
   JOIN TBL_CLIENT client ON client.IDClient = c.IDClient
