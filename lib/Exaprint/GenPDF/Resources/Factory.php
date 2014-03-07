@@ -31,6 +31,7 @@ class Factory {
             case "mandate": return new Mandate();
             case "printbox-rc": return new PrintboxRC();
             case "masterprint-quote": return new MasterprintQuote();
+            case "invoice-zip": return new InvoiceZip();
         }
         return null;
     }
