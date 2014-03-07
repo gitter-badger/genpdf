@@ -1,8 +1,8 @@
 msgid ""
 msgstr ""
 "Project-Id-Version: genPDF\n"
-"POT-Creation-Date: 2014-01-06 15:24+0100\n"
-"PO-Revision-Date: 2014-01-20 11:16+0100\n"
+"POT-Creation-Date: 2014-03-07 10:53+0100\n"
+"PO-Revision-Date: 2014-03-07 10:54+0100\n"
 "Last-Translator: \n"
 "Language-Team: Exaprint <romain@exaprint.fr>\n"
 "MIME-Version: 1.0\n"
@@ -18,94 +18,98 @@ msgid "SIRET"
 msgstr "SIRET"
 
 #: ../../../cache/twig_gettext_keys.php:3
+msgid "P.IVA"
+msgstr "P.IVA"
+
+#: ../../../cache/twig_gettext_keys.php:4
 msgid "Releve"
 msgstr "Relevé"
 
-#: ../../../cache/twig_gettext_keys.php:4
+#: ../../../cache/twig_gettext_keys.php:5
 msgid "Votre Code Client"
 msgstr "Votre Code Client"
 
-#: ../../../cache/twig_gettext_keys.php:5
+#: ../../../cache/twig_gettext_keys.php:6
 msgid "Numero TVA Intracom."
 msgstr "Votre n° de TVA"
 
-#: ../../../cache/twig_gettext_keys.php:6
+#: ../../../cache/twig_gettext_keys.php:7
 msgid "Factures"
 msgstr "Factures"
 
-#: ../../../cache/twig_gettext_keys.php:7
+#: ../../../cache/twig_gettext_keys.php:8
 msgid "Numero de facture"
 msgstr "Numéro"
 
-#: ../../../cache/twig_gettext_keys.php:8
+#: ../../../cache/twig_gettext_keys.php:9
 msgid "Date de facture"
 msgstr "Date"
 
-#: ../../../cache/twig_gettext_keys.php:9
+#: ../../../cache/twig_gettext_keys.php:10
 msgid "Reference"
 msgstr "Référence"
 
-#: ../../../cache/twig_gettext_keys.php:10
+#: ../../../cache/twig_gettext_keys.php:11
 msgid "Reference de commande"
 msgstr "Référence de la commande"
 
-#: ../../../cache/twig_gettext_keys.php:11
+#: ../../../cache/twig_gettext_keys.php:12
 msgid "Mode de paiement"
 msgstr "Mode de règlement"
 
-#: ../../../cache/twig_gettext_keys.php:12
+#: ../../../cache/twig_gettext_keys.php:13
 msgid "Montant H.T."
 msgstr "Montant H.T."
 
-#: ../../../cache/twig_gettext_keys.php:13
+#: ../../../cache/twig_gettext_keys.php:14
 msgid "Montant TVA"
 msgstr "Montant T.V.A."
 
-#: ../../../cache/twig_gettext_keys.php:14
+#: ../../../cache/twig_gettext_keys.php:15
 msgid "Montant TTC"
 msgstr "Montant T.T.C."
 
-#: ../../../cache/twig_gettext_keys.php:15
+#: ../../../cache/twig_gettext_keys.php:16
 msgid "Avoirs"
 msgstr "Avoirs"
 
-#: ../../../cache/twig_gettext_keys.php:16
+#: ../../../cache/twig_gettext_keys.php:17
 msgid "Net a payer"
 msgstr "Net à payer"
 
-#: ../../../cache/twig_gettext_keys.php:17
+#: ../../../cache/twig_gettext_keys.php:18
 msgid "Designation de ligne de facture"
 msgstr "Désignation"
 
-#: ../../../cache/twig_gettext_keys.php:18
+#: ../../../cache/twig_gettext_keys.php:19
 msgid "Quantite"
 msgstr "Quantité"
 
-#: ../../../cache/twig_gettext_keys.php:19
+#: ../../../cache/twig_gettext_keys.php:20
 msgid "Commande certifiee"
 msgstr "Commande certifiée"
 
-#: ../../../cache/twig_gettext_keys.php:20
+#: ../../../cache/twig_gettext_keys.php:21
 msgid "Donations"
 msgstr "Dons"
 
-#: ../../../cache/twig_gettext_keys.php:21
+#: ../../../cache/twig_gettext_keys.php:22
 msgid "Montant total soumis a la TVA "
 msgstr "Montant total soumis à la T.V.A."
 
-#: ../../../cache/twig_gettext_keys.php:22
+#: ../../../cache/twig_gettext_keys.php:23
 msgid "Montant total non soumis a la TVA"
 msgstr "Montant total non soumis à la T.V.A."
 
-#: ../../../cache/twig_gettext_keys.php:23
+#: ../../../cache/twig_gettext_keys.php:24
 msgid "Facture reglee le "
 msgstr "Facture reglée le : "
 
-#: ../../../cache/twig_gettext_keys.php:24
+#: ../../../cache/twig_gettext_keys.php:25
 msgid "Echeance de paiement"
 msgstr "Échéance de paiement"
 
-#: ../../../cache/twig_gettext_keys.php:25
+#: ../../../cache/twig_gettext_keys.php:26
 msgid "Mentions legales facture"
 msgstr ""
 "<p>Aucun escompte n'est accordé pour paiement comptant.  En cas de retard, "
@@ -114,11 +118,11 @@ msgstr ""
 "vigueur ainsi qu'une indemnité forfaitaire de recouvrement de 40 <span class="
 "\"currency\">euros</span>.</p>"
 
-#: ../../../cache/twig_gettext_keys.php:26
+#: ../../../cache/twig_gettext_keys.php:27
 msgid "Mandat de prelevement SEPA"
 msgstr "Mandat de prélévement SEPA"
 
-#: ../../../cache/twig_gettext_keys.php:27
+#: ../../../cache/twig_gettext_keys.php:28
 msgid "Vous beneficiez dun droit"
 msgstr ""
 "Vous bénéficiez d’un droit  à remboursement par votre banque selon les "
@@ -126,37 +130,33 @@ msgstr ""
 "Toute demande de remboursement doit être présentée dans les 8 semaines "
 "suivant la date de débit de votre compte pour un prélèvement autorisé."
 
-#: ../../../cache/twig_gettext_keys.php:28
+#: ../../../cache/twig_gettext_keys.php:29
 msgid "Reference unique du mandat"
 msgstr "Reference unique du mandat"
 
-#: ../../../cache/twig_gettext_keys.php:29
+#: ../../../cache/twig_gettext_keys.php:30
 msgid "Debiteur"
 msgstr "Débiteur"
 
-#: ../../../cache/twig_gettext_keys.php:30
+#: ../../../cache/twig_gettext_keys.php:31
 msgid "Votre Nom"
 msgstr "Votre nom"
 
-#: ../../../cache/twig_gettext_keys.php:31
+#: ../../../cache/twig_gettext_keys.php:32
 msgid "Votre Adresse"
 msgstr "Votre adresse"
 
-#: ../../../cache/twig_gettext_keys.php:32
+#: ../../../cache/twig_gettext_keys.php:33
 msgid "Code postal"
 msgstr "Code postal"
 
-#: ../../../cache/twig_gettext_keys.php:33
+#: ../../../cache/twig_gettext_keys.php:34
 msgid "Ville"
 msgstr "Ville"
 
-#: ../../../cache/twig_gettext_keys.php:34
+#: ../../../cache/twig_gettext_keys.php:35
 msgid "Pays"
 msgstr "Pays"
-
-#: ../../../cache/twig_gettext_keys.php:35
-msgid "P.IVA"
-msgstr "P.IVA"
 
 #: ../../../cache/twig_gettext_keys.php:36
 msgid "Banque"
@@ -240,7 +240,7 @@ msgstr "Contact"
 
 #: ../../../cache/twig_gettext_keys.php:55
 msgid "Mr"
-msgstr "Mr"
+msgstr "M"
 
 #: ../../../cache/twig_gettext_keys.php:56
 msgid "Mme"
@@ -357,6 +357,21 @@ msgstr ""
 "envoyer des instructions à votre banque pour débiter votre compte, et (B) "
 "votre banque à débiter votre compte conformément aux instructions  de {NOM "
 "DU CREANCIER}."
+
+#: ../../../cache/twig_gettext_keys.php:84
+msgid "Conditions generales"
+msgstr ""
+"Si une de ces indications ne vous parait pas correcte, merci de nous le "
+"signaler le plus rapidement possible à l'adresse suivante : %link%. Les "
+"commandes sont validées par le pôle Administrations des Ventes jusqu'à18H "
+"chaque jour ouvré. Après cet horaire elles sont enregistrées le jour ouvré "
+"suivant. Notre délai catalogue court à compter de la réception de votre "
+"règlement et de votre fichier ou à compter de la validation de votre bon à "
+"tirer si vous avez opté pour cette option. Si une anomalie fichier vous est "
+"notifiée par le pôle PAO, le délai courra à compter de la date du déblocage "
+"de votre fichier. Pour suivre l'avancée de votre commande, vous pouvez vous "
+"connecter sur notre site extranet onglet « suivi ». Nos conditions générales "
+"de vente sont consultables en ligne à l’adresse : www.exaprint.fr"
 
 #~ msgid "Date de commande"
 #~ msgstr "Date de la commande"
