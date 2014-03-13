@@ -46,7 +46,7 @@ class Commande
         $this->commande = $commande;
         $this->layout   = $layout;
 
-        //$this->visuels();
+        $this->visuels();
         $this->border();
         $this->ids();
         $this->commentaires();
