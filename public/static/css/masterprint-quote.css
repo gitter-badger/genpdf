@@ -1,0 +1,41 @@
+dt {
+    display: inline-block;
+    float: none;
+    width: 150px;
+    height: auto;
+}
+
+dd {
+    height: auto;
+    display: inline-block;
+}
+
+.details {
+    width: 8cm;
+    background: #EFEFEF;
+    border-radius: 0.5cm;
+    padding: 0.5cm;
+}
+
+.reponses {
+    float: right;
+    width: 6cm;
+}
+
+.reponses th {
+    font-family: "DIN-Bold";
+    color: white;
+    background: #de265a;
+    font-size: 1.2em;
+}
+
+.reponses td {
+    padding: 0.2cm;
+    border-bottom: 1px solid #CCC;
+    text-align: right;
+    font-size: 1.2em;
+}
+
+.mentions {
+    margin-top: 1em;
+}

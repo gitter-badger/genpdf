@@ -1,0 +1,145 @@
+@import "./common";
+
+#customer {
+  .details {
+    dt {
+      width: 5cm;
+      text-align: right;
+    }
+    dd {
+      text-align: left;
+    }
+  }
+
+  address {
+    padding: 0.4em;
+    float: right;
+    width: 8cm;
+    font-size: 1.3em;
+    line-height: 1.6em;
+    border: @thin solid @light-color;
+    border-radius: @border-radius;
+    .medium;
+    font-style: normal;
+    color: @medium-color;
+    margin-bottom: 1cm;
+  }
+}
+#main {
+  clear: right;
+  table {
+    margin-top: 1cm;
+    width: 100%;
+    border-collapse: collapse;
+    th {
+      padding: 0.4em 0.5em;
+      background: @theme-color;
+      color: white;
+      border-right: @thin solid white;
+      .medium;
+    }
+
+    th:first-child {
+      border-radius: @border-radius 0 0 0;
+    }
+
+    th:last-child {
+      border-radius: 0 @border-radius 0 0;
+    }
+
+    tbody {
+      td {
+        border-bottom: @thin solid @light-color;
+        padding: 0.5em;
+        padding-top: 0.7em;
+        .code {
+          color: @medium-color;
+          font-size: 0.8em;
+        }
+        .title {
+          color: @theme-color;
+        }
+        .shipping {
+          margin-top: 0.2cm;
+          h4 {
+            margin: 0;
+            display: inline;
+          }
+          .tracking {
+            font-size: 0.8em;
+            margin: 0;
+            list-style-type: none;
+            img {
+              height: 0.3cm;
+              width: 0.3cm;
+              margin-bottom: -0.1cm;
+            }
+          }
+        }
+        .units {
+          color: @theme-color;
+          .medium;
+        }
+      }
+      tr:last-child td {
+        border-bottom: none;
+      }
+      tr {
+        page-break-after: avoid;
+      }
+    }
+
+    tfoot {
+      td {
+        background: @light-color;
+        padding: 0.5em;
+      }
+      td:first-child {
+        border-radius: 0 0 0 @border-radius;
+      }
+      td:last-child {
+        border-radius: 0 0 @border-radius 0;
+      }
+    }
+
+    td.quantity, td.date {
+      text-align: center;
+    }
+  }
+}
+
+.mt-5cm {
+  margin-top: 5cm;
+}
+
+.type {
+  text-align: center;
+  font-weight: bold;
+  margin-bottom: 1cm;
+  font-family: "DIN-Bold";
+  height: 1.5em;
+  font-size: 14px;
+}
+
+#donations {
+  padding: 1em;
+  border: @thin @light-color solid;
+}
+
+#payments {
+  clear: both;
+  border: @thin @medium-color solid;
+  display: inline-block;
+  padding: 0.2cm 0.5cm;
+  margin-top: 1cm;
+}
+
+#summary {
+  float: right;
+  width: 8cm;
+  text-align: right;
+  margin-top: 1cm;
+  dt {
+    width: 6cm;
+  }
+}
