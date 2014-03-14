@@ -12,6 +12,12 @@ $app->get("/", function () {
 
 $app->get('/fiche-de-fab/:IDPlanche', function ($IDPlanche) use ($app) {
     $p = \Exaprint\GenPDF\FicheDeFabrication\DAL::getPlanche($IDPlanche);
+
+    if (is_null($p)) {
+        $app->status(404);
+        return;
+    }
+
     if ($ff = \Exaprint\GenPDF\FicheDeFabrication\Factory::createFicheDeFabrication($p)) {
 
         if ($app->request->get('norender')) {
