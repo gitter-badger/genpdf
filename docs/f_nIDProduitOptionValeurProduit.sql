@@ -1,9 +1,9 @@
-DROP FUNCTION dbo.f_nIDProduitOptionValeurProduit;
 CREATE FUNCTION dbo.f_nIDProduitOptionValeurProduit(@IDProduit INT, @IDProduitOption INT, @RetourneNulSiValeurSans INT)
   RETURNS INT
 AS
   BEGIN
     DECLARE @return INT;
+    BEGIN
     SELECT
       @return = pov.IDProduitOptionValeur
     FROM
@@ -24,6 +24,7 @@ AS
       AND pov.IDProduitOption = @IDProduitOption
       AND (
         @RetourneNulSiValeurSans = 0 OR ISNULL(EstSans, 0) = 0
-      )
+      );
+      END;
     RETURN @return;
   END;

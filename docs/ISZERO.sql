@@ -1,5 +1,3 @@
-DROP FUNCTION ISZERO;
-
 CREATE FUNCTION ISZERO(
   @Number       FLOAT,
   @IsZeroNumber FLOAT
