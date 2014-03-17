@@ -18,6 +18,20 @@ $app->get('/fiche-de-fab/:IDPlanche', function ($IDPlanche) use ($app) {
         return;
     }
 
+    $cacheSubFolder = round($IDPlanche / 100) * 100;
+    $cachePath = '../cache/fiche-de-fab/' . $cacheSubFolder;
+
+    if(!file_exists($cachePath)){
+        mkdir($cachePath, 0777);
+    }
+
+    $cacheFilename = $cachePath . '/' . $IDPlanche. '.pdf';
+
+    if(file_exists($cacheFilename) && is_null($app->request->get('norender'))){
+        header('Content-Type: application/x-pdf');
+        echo file_get_contents($cacheFilename);
+    }
+
     if ($ff = \Exaprint\GenPDF\FicheDeFabrication\Factory::createFicheDeFabrication($p)) {
 
         if ($app->request->get('norender')) {
@@ -26,7 +40,7 @@ $app->get('/fiche-de-fab/:IDPlanche', function ($IDPlanche) use ($app) {
         } else {
             ob_end_clean();
             header('Content-Type: application/x-pdf');
-            $ff->pdf->Output();
+            $ff->pdf->Output($cacheFilename, 'FI');
         }
     }
 });
