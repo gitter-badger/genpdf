@@ -86,7 +86,7 @@ class DAL
             $i++;
         }
 
-        $i = 0;//todo remplacer par un for()
+        $i = 0; //todo remplacer par un for()
         foreach ($groupages as $cle => $groupage) {
             if (count($groupage) > 1) {
                 foreach ($groupage as $index) {
@@ -119,12 +119,11 @@ class DAL
         $fichiers = [];
         foreach ($json as $fichier) {
             if ($fichier['type'] == 'normalized' && $fichier['ext'] == 'jpg') {
-                $fichier['href'] = 'http://fileserver.exaprint.fr' . $fichier['href'];
-                $fichiers[]      = $fichier;
+                $fichiers[$fichier['href']] = $fichier;
             }
         }
 
-        return $fichiers;
+        return array_values($fichiers);
     }
 
 } 
