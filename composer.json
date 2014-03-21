@@ -22,12 +22,15 @@
         "romainbessugesmeusy/php-dsn-factory": "*",
         "romainbessugesmeusy/php-wkhtmltopdf": "*",
         "romainbessugesmeusy/php-sql-query": "*",
+        "rbm/tagged-cache": "dev-master",
         "exaprint/php-dal": "*",
         "rbm/php-results-combinator": "*",
         "jdorn/sql-formatter": "*",
         "shuber/curl": "*",
         "myokyawhtun/PDFMerger": "*",
-        "menencia/locale-detector": "*"
+        "menencia/locale-detector": "*",
+        "tecnick.com/tcpdf": "dev-master",
+        "monolog/monolog": "1.7.*@dev"
     },
     "require-dev": {
         "phpunit/phpunit": "3.8.*@dev"

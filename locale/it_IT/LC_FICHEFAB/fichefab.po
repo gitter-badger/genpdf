@@ -1,0 +1,1305 @@
+msgid ""
+msgstr ""
+"Project-Id-Version: genPDF-fichefab\n"
+"POT-Creation-Date: 2014-01-06 15:24+0100\n"
+"PO-Revision-Date: 2014-01-06 15:24+0100\n"
+"Last-Translator: \n"
+"Language-Team: Exaprint <romain@exaprint.fr>\n"
+"MIME-Version: 1.0\n"
+"Content-Type: text/plain; charset=UTF-8\n"
+"Content-Transfer-Encoding: 8bit\n"
+"Language: it_IT\n"
+
+msgid "activite_production_1"
+msgstr "Offset"
+
+msgid "activite_production_2"
+msgstr "Digitale"
+
+msgid "activite_production_3"
+msgstr "Negoce"
+
+msgid "activite_production_4"
+msgstr "Serigrafia"
+
+msgid "activite_production_5"
+msgstr "Flessografia"
+
+msgid "activite_production_6"
+msgstr "Servizio"
+
+msgid "valeur_142"
+msgstr "350g opaca Condat Périgord"
+
+msgid "valeur_143"
+msgstr "350g Cyclus Print"
+
+msgid "valeur_145"
+msgstr "250g Adesiva 170g + Support 80g"
+
+msgid "valeur_146"
+msgstr "280g Adesiva 80g + Supporto 200g"
+
+msgid "valeur_147"
+msgstr "500µ PVC Bianco"
+
+msgid "valeur_148"
+msgstr "550µ PVC trasparente"
+
+msgid "valeur_149"
+msgstr "285g Curious Translucents"
+
+msgid "valeur_150"
+msgstr "320g Conqueror CX 22 Diamant riciclata"
+
+msgid "valeur_151"
+msgstr "250g Rives Design Extra Bianco"
+
+msgid "valeur_152"
+msgstr "300g Rives Laid Brilliant White"
+
+msgid "valeur_153"
+msgstr "250g Chromolux Oro"
+
+msgid "valeur_154"
+msgstr "250g Chromolux Argento"
+
+msgid "valeur_155"
+msgstr "250g Chromolux Chrome"
+
+msgid "valeur_209"
+msgstr "300g patinata lucida"
+
+msgid "valeur_222"
+msgstr "80g Cyclus Offset"
+
+msgid "valeur_223"
+msgstr "90g Offset"
+
+msgid "valeur_224"
+msgstr "115g Cyclus Print"
+
+msgid "valeur_225"
+msgstr "135g patinata lucida"
+
+msgid "valeur_226"
+msgstr "140g Cyclus Offset"
+
+msgid "valeur_227"
+msgstr "170g patinata lucida"
+
+msgid "valeur_228"
+msgstr "170g patinata opaca"
+
+msgid "valeur_229"
+msgstr "250g Patinata Riciclata"
+
+msgid "valeur_234"
+msgstr "80g Cyclus Office"
+
+msgid "valeur_235"
+msgstr "90g Opale riciclata"
+
+msgid "valeur_236"
+msgstr "90g Offset Laser"
+
+msgid "valeur_237"
+msgstr "100g Opale"
+
+msgid "valeur_279"
+msgstr "150g patinata lucida + Cartone compatto 18/10 "
+
+msgid "valeur_280"
+msgstr "150g patinata opaca + Cartone compatto 18/10 "
+
+msgid "valeur_292"
+msgstr "250g Tessuto Poliestere ignifugo M1"
+
+msgid "valeur_301"
+msgstr "Alluminio"
+
+msgid "valeur_302"
+msgstr "210g tessuto ignifugo M1"
+
+msgid "valeur_303"
+msgstr "180g incapsulato"
+
+msgid "valeur_304"
+msgstr "180g plastificato 75 µ satinato"
+
+msgid "valeur_305"
+msgstr "250g Rives Tradition Extra Blanc"
+
+msgid "valeur_306"
+msgstr "150g patinata lucida + Cartone compatto 15/10"
+
+msgid "valeur_308"
+msgstr "80g Adhésif Satin avec Refente"
+
+msgid "valeur_311"
+msgstr "100µ Vinile bianco"
+
+msgid "valeur_312"
+msgstr "100µ vinile trasparente"
+
+msgid "valeur_316"
+msgstr "235g Vinile Oracal Bianco"
+
+msgid "valeur_317"
+msgstr "235g Vinile Oracal Trasparente"
+
+msgid "valeur_360"
+msgstr "90g Offset riciclata Erapure"
+
+msgid "valeur_361"
+msgstr "90g Kraft"
+
+msgid "valeur_413"
+msgstr "130g Cyclus Print"
+
+msgid "valeur_419"
+msgstr "135g Semi Opaca"
+
+msgid "valeur_420"
+msgstr "120g Opaco Ignifugo M1"
+
+msgid "valeur_421"
+msgstr "120g Opaco REH"
+
+msgid "valeur_422"
+msgstr "Vetro Acrilico 5 mm"
+
+msgid "valeur_426"
+msgstr "Alluminio anodizzato 2 mm"
+
+msgid "valeur_427"
+msgstr "Alluminio Lucido 2 mm"
+
+msgid "valeur_428"
+msgstr "Tela del pittore"
+
+msgid "valeur_431"
+msgstr "Akylux 3,5 mm"
+
+msgid "valeur_436"
+msgstr "Dibond 3 mm"
+
+msgid "valeur_474"
+msgstr "80g Offset Riposizionabile Bianco"
+
+msgid "valeur_478"
+msgstr "80g Offset Riposizionabile Giallo"
+
+msgid "valeur_481"
+msgstr "Polipropilene 8/10° Bianco"
+
+msgid "valeur_482"
+msgstr "Polipropilene 8/10° Trasparente"
+
+msgid "valeur_507"
+msgstr "tessuto 115g ignifugo M1"
+
+msgid "valeur_508"
+msgstr "250g satinata Ignifuga M1"
+
+msgid "valeur_509"
+msgstr "200g Satinata"
+
+msgid "valeur_510"
+msgstr "200g Satin Encapsulé"
+
+msgid "valeur_499"
+msgstr "80g Offset Laser"
+
+msgid "valeur_502"
+msgstr "380g Patinata Opaca"
+
+msgid "valeur_543"
+msgstr "250g Patinata Lucida"
+
+msgid "valeur_544"
+msgstr "550g Banner PVC"
+
+msgid "valeur_545"
+msgstr "420g Banner PVC M1"
+
+msgid "valeur_562"
+msgstr "100µ Vinile Trasparente per tranfsert"
+
+msgid "valeur_569"
+msgstr "Doming"
+
+msgid "valeur_570"
+msgstr "172µ Adhésif Avery 62µ + Support 110µ"
+
+msgid "valeur_571"
+msgstr "60g Celibio Biodegradabile Bianca"
+
+msgid "valeur_572"
+msgstr "17g Ouate nature recyclée"
+
+msgid "valeur_574"
+msgstr "60g Celibio Biodégradable Couleur"
+
+msgid "valeur_581"
+msgstr "120g Carta Offset"
+
+msgid "valeur_589"
+msgstr "120g Offset Laser"
+
+msgid "valeur_592"
+msgstr "Magnete"
+
+msgid "valeur_593"
+msgstr "200g Sintetico"
+
+msgid "valeur_594"
+msgstr "Nastro 2 cm tessuto poliestere"
+
+msgid "valeur_595"
+msgstr "Bicchiere 33cl Bianco traslucido"
+
+msgid "valeur_596"
+msgstr "115g Semi opaca"
+
+msgid "valeur_598"
+msgstr "100g Kraft Marrone"
+
+msgid "valeur_599"
+msgstr "100g Kraft Bianco"
+
+msgid "valeur_600"
+msgstr "110g Kraft Marrone"
+
+msgid "valeur_601"
+msgstr "110g Kraft Bianco"
+
+msgid "valeur_602"
+msgstr "120g Kraft Marrone"
+
+msgid "valeur_603"
+msgstr "120g Kraft Bianco"
+
+msgid "valeur_607"
+msgstr "140g Tessuto Stretch ignifugo M1"
+
+msgid "valeur_608"
+msgstr "117g Maille bloquée Ignifugé M1"
+
+msgid "valeur_609"
+msgstr "260g tessuto ignifugo M1"
+
+msgid "valeur_648"
+msgstr "200g Patinata Lucida"
+
+msgid "valeur_649"
+msgstr "Polipropilene 8/10° Opaline"
+
+msgid "valeur_656"
+msgstr "250g Eco Riciclata"
+
+msgid "valeur_658"
+msgstr "115g Patinata Lucida"
+
+msgid "valeur_659"
+msgstr "150g patinata lucida"
+
+msgid "valeur_660"
+msgstr "150g semi-opaca"
+
+msgid "valeur_664"
+msgstr "90g Patinata Lucida"
+
+msgid "valeur_665"
+msgstr "90g Semi Opaco"
+
+msgid "valeur_666"
+msgstr "80g Offset"
+
+msgid "valeur_668"
+msgstr "120g Offset bianco"
+
+msgid "valeur_669"
+msgstr "90g Offset Verde Fosforescente"
+
+msgid "valeur_670"
+msgstr "90g Offset Giallo Fosforescente"
+
+msgid "valeur_671"
+msgstr "90g Offset Arancione Fosforescente"
+
+msgid "valeur_672"
+msgstr "115g Offset Dorso Blu"
+
+msgid "valeur_673"
+msgstr "350 Patinata Lucida"
+
+msgid "valeur_674"
+msgstr "100g Offset Velin Blanc Iceberg"
+
+msgid "valeur_675"
+msgstr "120g Offset Velin Blanc"
+
+msgid "valeur_554"
+msgstr "150µ One Way Vision Microperforato"
+
+msgid "valeur_555"
+msgstr "250µ Vinyle Blanc SolGraphic"
+
+msgid "valeur_617"
+msgstr "Dupli - CB Blanc 80g / CF Blanc 170g"
+
+msgid "valeur_618"
+msgstr "Dupli - CB bianco 62g / CF giallo 62g"
+
+msgid "valeur_619"
+msgstr "Tripli - CB Blanc 80g / CFB Blanc 60g / CF Blanc 170g"
+
+msgid "valeur_620"
+msgstr "Tripli - CB bianco 62g / CFB rosa 62g / CF giallo 62g"
+
+msgid "valeur_677"
+msgstr "480g Invercote 280g + Condat silk 200 g"
+
+msgid "valeur_735"
+msgstr "450g Synaps OM"
+
+msgid "valeur_831"
+msgstr "Vinyle dépoli"
+
+msgid "valeur_835"
+msgstr "100g Patinata Lucida Reciclata"
+
+msgid "valeur_836"
+msgstr "750 PVC Bianco"
+
+msgid "valeur_837"
+msgstr "175g Manager "
+
+msgid "valeur_930"
+msgstr "300g Semi Opaca"
+
+msgid "valeur_932"
+msgstr "250g Patinata Opaca"
+
+msgid "valeur_933"
+msgstr "170g Cyclus Print"
+
+msgid "valeur_934"
+msgstr "300g Offset Bianco"
+
+msgid "valeur_935"
+msgstr "135g Patinata Lucida - P"
+
+msgid "valeur_937"
+msgstr "300g Semi Opaca"
+
+msgid "valeur_939"
+msgstr "150g patinata riciclata"
+
+msgid "valeur_940"
+msgstr "160g Cyclus Offset"
+
+msgid "valeur_941"
+msgstr "200g Semi Opaca"
+
+msgid "valeur_942"
+msgstr "60g autocopiante - foglietto 1"
+
+msgid "valeur_943"
+msgstr "170g Patinata Reciclata"
+
+msgid "valeur_944"
+msgstr "90g Patinata Reciclata"
+
+msgid "valeur_945"
+msgstr "250g Semi Opaca"
+
+msgid "valeur_947"
+msgstr "80g autocopiante - foglietto 1"
+
+msgid "valeur_948"
+msgstr "300g Cyclus Print"
+
+msgid "valeur_949"
+msgstr "90g Cyclus Print"
+
+msgid "valeur_950"
+msgstr "100g Semi Opaca"
+
+msgid "valeur_951"
+msgstr "140g Offset"
+
+msgid "valeur_952"
+msgstr "150g Offset"
+
+msgid "valeur_953"
+msgstr "250g Semi Opaca"
+
+msgid "valeur_954"
+msgstr "100g Offset"
+
+msgid "valeur_956"
+msgstr "270g Cyclus Offset"
+
+msgid "valeur_958"
+msgstr "135g Offset"
+
+msgid "valeur_965"
+msgstr "100g Patinata Lucida"
+
+msgid "valeur_973"
+msgstr "120g Mat REH Dos Bleu"
+
+msgid "valeur_976"
+msgstr "120g Semi Opaca"
+
+msgid "valeur_979"
+msgstr "200g Offset Reciclato"
+
+msgid "valeur_985"
+msgstr "115g Offset Reciclato"
+
+msgid "valeur_1000"
+msgstr "690g Kapatex"
+
+msgid "valeur_1002"
+msgstr "170g Satinata"
+
+msgid "valeur_1004"
+msgstr "110g Kraft rosso"
+
+msgid "valeur_1005"
+msgstr "110g Kraft nero"
+
+msgid "valeur_1020"
+msgstr "130g Kraft Armé"
+
+msgid "valeur_1022"
+msgstr "350g offset"
+
+msgid "valeur_1025"
+msgstr "80g semi opaca"
+
+msgid "valeur_1029"
+msgstr "100g Offset riciclata"
+
+msgid "valeur_1031"
+msgstr "160g Offset riciclata"
+
+msgid "valeur_1041"
+msgstr "80g patinata lucida"
+
+msgid "valeur_1045"
+msgstr "200g opaca"
+
+msgid "valeur_1047"
+msgstr "90g Extra Strong Laser"
+
+msgid "valeur_1050"
+msgstr "100g offset"
+
+msgid "valeur_1052"
+msgstr "80g cyclus print"
+
+msgid "valeur_1054"
+msgstr "100g patinata lucida PEFC "
+
+msgid "valeur_1055"
+msgstr "120g patinata lucida P"
+
+msgid "valeur_1056"
+msgstr "115g patinata lucida PEFC"
+
+msgid "valeur_1060"
+msgstr "170g offset"
+
+msgid "valeur_1062"
+msgstr "110g Offset riciclata"
+
+msgid "valeur_1064"
+msgstr "200g Offset"
+
+msgid "valeur_1067"
+msgstr "250 offset"
+
+msgid "valeur_1068"
+msgstr "225g patinata semi-opaca"
+
+msgid "valeur_1074"
+msgstr "100g patinata lucida"
+
+msgid "valeur_1075"
+msgstr "150g Cyclus Print"
+
+msgid "valeur_1076"
+msgstr "90g opale"
+
+msgid "valeur_1080"
+msgstr "160g Offset"
+
+msgid "valeur_1085"
+msgstr "90g Offset riciclata"
+
+msgid "valeur_1086"
+msgstr "115g REH DOS BLEU"
+
+msgid "valeur_1087"
+msgstr "200g Cyclus Print"
+
+msgid "valeur_1126"
+msgstr "250g offset riciclata"
+
+msgid "valeur_1130"
+msgstr "160g patinata semi opaca"
+
+msgid "valeur_1134"
+msgstr "250g opaca ignifuga M1"
+
+msgid "valeur_1137"
+msgstr "260g tessuto poliestere ignifugo M1"
+
+msgid "valeur_1139"
+msgstr "130g satinata"
+
+msgid "valeur_1141"
+msgstr "300g satinata"
+
+msgid "valeur_1159"
+msgstr "130g bianca opaca M1"
+
+msgid "valeur_1164"
+msgstr "80g opale"
+
+msgid "valeur_1179"
+msgstr "290g Fedrigoni Sirio Color Lampone"
+
+msgid "valeur_1180"
+msgstr "290g Fedrigoni Sirio Color Nero"
+
+msgid "valeur_1108"
+msgstr "690g Kapatex liscio"
+
+msgid "valeur_1109"
+msgstr "300g Offset riciclata"
+
+msgid "valeur_1115"
+msgstr "115g offset"
+
+msgid "valeur_1185"
+msgstr "350g Metallizzata Oro"
+
+msgid "valeur_1186"
+msgstr "350g Metallizzata Argent"
+
+msgid "valeur_1189"
+msgstr "300g Fedrigoni Sirio Pearl Aurum"
+
+msgid "valeur_1190"
+msgstr "300g Fedrigoni Sirio Pearl Platinium"
+
+msgid "valeur_1191"
+msgstr "120g Offset Velin Blanc Supérieur"
+
+msgid "valeur_1192"
+msgstr "175µ PET trasparente lucida"
+
+msgid "valeur_1197"
+msgstr "100 g velin blanc"
+
+msgid "valeur_1198"
+msgstr "300g Inverkote Carta patinata 1 lato"
+
+msgid "valeur_1203"
+msgstr "90g Kraft bianca"
+
+msgid "valeur_1204"
+msgstr "135g opaca dorso blu"
+
+msgid "valeur_1205"
+msgstr "120g giallo fluo"
+
+msgid "valeur_1206"
+msgstr "150g Backlit satinata bianca"
+
+msgid "valeur_1207"
+msgstr "210µ Photo lucida bianca"
+
+msgid "valeur_1208"
+msgstr "150µ Film Backlit Poliestere  "
+
+msgid "valeur_1209"
+msgstr "100µ Vinile bianco promo"
+
+msgid "valeur_1210"
+msgstr "100µ PVC adesivo bianco Easy Apply"
+
+msgid "valeur_1211"
+msgstr "80µ PVC adesivo bianco Latex Eco"
+
+msgid "valeur_1212"
+msgstr "150µ Vinile bianco QuickMount rimovibile"
+
+msgid "valeur_1214"
+msgstr "72µ PVC adesivo coprente"
+
+msgid "valeur_1215"
+msgstr "450g Banner SOLLECO"
+
+msgid "valeur_1216"
+msgstr "260g Tessuto Capotoile Ecolo"
+
+msgid "valeur_1217"
+msgstr "260g Tessuto Eco Ignifugo M1"
+
+msgid "valeur_1218"
+msgstr "Forex 4 mm"
+
+msgid "valeur_1219"
+msgstr "170µ One Way Micro forata per interni"
+
+msgid "valeur_1220"
+msgstr "300µ Film polipropilene Magnet Stick"
+
+msgid "valeur_1224"
+msgstr "300 Cyclus Print"
+
+msgid "valeur_1227"
+msgstr "250g patinata lucida"
+
+msgid "valeur_1228"
+msgstr "350g semi opaca"
+
+msgid "valeur_1237"
+msgstr "150g Opaca"
+
+msgid "valeur_1242"
+msgstr "270g offset"
+
+msgid "valeur_1243"
+msgstr "135g patinata opaca"
+
+msgid "valeur_1244"
+msgstr "115g patinata opaca"
+
+msgid "valeur_1248"
+msgstr "170g offset riciclata"
+
+msgid "valeur_1396"
+msgstr "100g Kraft Rossa"
+
+msgid "valeur_1397"
+msgstr "120g Kraft Rosso"
+
+msgid "valeur_1398"
+msgstr "100g Kraft Nero"
+
+msgid "valeur_1399"
+msgstr "120g Kraft Nero"
+
+msgid "valeur_1402"
+msgstr "80g Offset Blu"
+
+msgid "valeur_1403"
+msgstr "80g Offset Giallo"
+
+msgid "valeur_1404"
+msgstr "80g Offset Verde"
+
+msgid "valeur_1405"
+msgstr "Triplice - CB Bianco 80g / CFB Rosa 80g / CF Giallo 80g"
+
+msgid "valeur_1406"
+msgstr "Duplice - CB Bianco 80g / CF Giallo 80g"
+
+msgid "valeur_1408"
+msgstr "170g Autocopiante"
+
+msgid "valeur_1418"
+msgstr "110g offset"
+
+msgid "valeur_1419"
+msgstr "Magnete per Veicoli"
+
+msgid "valeur_1439"
+msgstr "280g Satinato M1"
+
+msgid "valeur_1441"
+msgstr "150g patinata opaca"
+
+msgid "valeur_1448"
+msgstr "85 Offset"
+
+msgid "valeur_1495"
+msgstr "80g Adesivo carta permanente patinata lucida"
+
+msgid "valeur_1496"
+msgstr "80g Adesivo carta removibile patinata lucida"
+
+msgid "valeur_1497"
+msgstr "90g Adesivo carta perlata e goffrata"
+
+msgid "valeur_1498"
+msgstr "95g Adesivo carta effetto naturale"
+
+msgid "valeur_1499"
+msgstr "46g Adesivo Polipropilene argento metallizzato"
+
+msgid "valeur_1500"
+msgstr "58g Adesivo Polipropilene bianco lucido"
+
+msgid "valeur_1501"
+msgstr "54g Adesivo Polipropilene trasparente lucido"
+
+msgid "valeur_1505"
+msgstr "80g Adesivo carta giallo fluorescente"
+
+msgid "valeur_1508"
+msgstr "82g Adesivo Polipropilene bianco opaco"
+
+msgid "valeur_1509"
+msgstr "80g Adesivo carta permanente patinata lucida"
+
+msgid "valeur_1510"
+msgstr "70g Adesivo carta Kraft marrone"
+
+msgid "valeur_1511"
+msgstr "92g Adesivo Polipropilene bianco lucido"
+
+msgid "valeur_1512"
+msgstr "80g Adesivo carta velina termica"
+
+msgid "valeur_1513"
+msgstr "86g Adesivo Polipropilene trasparente"
+
+msgid "valeur_1514"
+msgstr "92g Adesivo carta patinata lucida extra forte"
+
+msgid "valeur_1515"
+msgstr ""
+
+msgid "valeur_1518"
+msgstr "80g Adesivo carta verde Fluorescente"
+
+msgid "valeur_1519"
+msgstr "80g Adeisvo carta Arancione fluorescente"
+
+msgid "valeur_1520"
+msgstr "80g Adesivo carta rosso Fluo"
+
+msgid "valeur_1527"
+msgstr "80g carta adesiva"
+
+msgid "valeur_1528"
+msgstr "180g TNT"
+
+msgid "valeur_1276"
+msgstr "90g Cyclus Office"
+
+msgid "valeur_1279"
+msgstr "400g semi-opaca"
+
+msgid "valeur_1288"
+msgstr "350g patinata"
+
+msgid "valeur_1289"
+msgstr "160g Offset Laser"
+
+msgid "valeur_1329"
+msgstr "Etichette resinate con colla ultra forte"
+
+msgid "valeur_1331"
+msgstr "250g Dossier satinato blu"
+
+msgid "valeur_1332"
+msgstr "250g Dossier Satinato verde"
+
+msgid "valeur_1333"
+msgstr "250g Dossier Satinato Arancione"
+
+msgid "valeur_1334"
+msgstr "250g Dossier Satinato Rosa"
+
+msgid "valeur_1335"
+msgstr "250g Dossier Satinato rosso"
+
+msgid "valeur_1338"
+msgstr "90g Patinata opaca"
+
+msgid "valeur_1340"
+msgstr "250 Dossier Satinato Giallo"
+
+msgid "valeur_1345"
+msgstr "90g Cyclus Offset"
+
+msgid "valeur_1346"
+msgstr "100g Cyclus Print"
+
+msgid "valeur_1348"
+msgstr "350g Cyclus Offset"
+
+msgid "valeur_1350"
+msgstr "100µ PVC Trasparente"
+
+msgid "valeur_1353"
+msgstr "170g Yupo Tako"
+
+msgid "valeur_1359"
+msgstr "140g Polipropilene Satinato"
+
+msgid "valeur_1360"
+msgstr "100g opaco"
+
+msgid "valeur_1251"
+msgstr "140g cyclus print"
+
+msgid "valeur_1252"
+msgstr "250g Bristol Bianco"
+
+msgid "valeur_1254"
+msgstr "300g opaca"
+
+msgid "valeur_1552"
+msgstr "250g Patinata Lucida"
+
+msgid "valeur_1554"
+msgstr "350g Banner Microperforato"
+
+msgid "valeur_1562"
+msgstr "150g Cyclus Print"
+
+msgid "valeur_1548"
+msgstr "110g offset"
+
+msgid "valeur_1596"
+msgstr "105g Tivek Giallo Fluo"
+
+msgid "valeur_1597"
+msgstr "250 Cyclus Print"
+
+msgid "valeur_1601"
+msgstr "300g Bianco Effetto Legno"
+
+msgid "valeur_1603"
+msgstr "250 Chromolux Bianco"
+
+msgid "valeur_1271"
+msgstr "190g offset"
+
+msgid "valeur_1619"
+msgstr "PVC adesivo bianco opaco "
+
+msgid "valeur_1620"
+msgstr "PVC adesivo trasparente"
+
+msgid "valeur_1622"
+msgstr "600g Gmund Bianco"
+
+msgid "valeur_1632"
+msgstr "155g tessuto in poliestere"
+
+msgid "valeur_1653"
+msgstr "Alupanel 3,5 mm"
+
+msgid "valeur_1655"
+msgstr "135 Cyclus Print"
+
+msgid "valeur_1714"
+msgstr "PVC bianco 19 mm"
+
+msgid "valeur_1715"
+msgstr "PVC nero 19 mm"
+
+msgid "valeur_1613"
+msgstr "Bianco"
+
+msgid "valeur_1614"
+msgstr "Applicabile a secco"
+
+msgid "valeur_1615"
+msgstr "Speciale calpestabile "
+
+msgid "valeur_800"
+msgstr "Raso"
+
+msgid "valeur_1181"
+msgstr "Opaca Soft Touch"
+
+msgid "valeur_551"
+msgstr "Lucida UV"
+
+msgid "valeur_552"
+msgstr "Satinata UV"
+
+msgid "valeur_1106"
+msgstr "UV satinato"
+
+msgid "valeur_1182"
+msgstr "Opaca Soft Touch"
+
+msgid "valeur_1362"
+msgstr "Quadricromia HD"
+
+msgid "valeur_1616"
+msgstr "Bianco"
+
+msgid "valeur_542"
+msgstr "1 colore"
+
+msgid "valeur_804"
+msgstr "2 colori"
+
+msgid "valeur_1196"
+msgstr "Quadricromia + bianco"
+
+msgid "valeur_974"
+msgstr "Opaca"
+
+msgid "valeur_975"
+msgstr "Opaca"
+
+msgid "valeur_1183"
+msgstr "Vernice UV selettiva 3D"
+
+msgid "valeur_1590"
+msgstr "Paillette Oro"
+
+msgid "valeur_1591"
+msgstr "Paillette Argento"
+
+msgid "valeur_1592"
+msgstr "Paillette Oro"
+
+msgid "valeur_1593"
+msgstr "Paillette Argento"
+
+msgid "valeur_1184"
+msgstr "Vernice UV selettiva 3D"
+
+msgid "valeur_1250"
+msgstr "Taglio dritto vettoriale"
+
+msgid "valeur_1617"
+msgstr "Mezzotaglio vettoriale"
+
+msgid "valeur_553"
+msgstr "Taglio vettoriale"
+
+msgid "valeur_523"
+msgstr "Formato personalizzato: fustella esistente"
+
+msgid "valeur_524"
+msgstr "Formato personalizzato: fustella da creare"
+
+msgid "valeur_611"
+msgstr "1 perforazione di 4 mm"
+
+msgid "valeur_769"
+msgstr "2 anelli metallici dossier"
+
+msgid "valeur_770"
+msgstr "4 anelli metallici dossier"
+
+msgid "valeur_1631"
+msgstr "1 perforazione di 10 mm"
+
+msgid "valeur_1272"
+msgstr "1 peforazione di 3 mm"
+
+msgid "valeur_815"
+msgstr "1 gancio di sospensione"
+
+msgid "valeur_1120"
+msgstr "1 foro da 6 mm"
+
+msgid "valeur_1576"
+msgstr "1 perforazione da 5 mm"
+
+msgid "valeur_1577"
+msgstr "1 perforazione di 16x3 mm"
+
+msgid "valeur_642"
+msgstr "Oro a caldo"
+
+msgid "valeur_643"
+msgstr "Argento a caldo"
+
+msgid "valeur_676"
+msgstr "Digitale / Offset"
+
+msgid "valeur_1623"
+msgstr "Tipografia"
+
+msgid "valeur_1658"
+msgstr "7 cordonature parallele (8 ante)"
+
+msgid "valeur_533"
+msgstr "5 cordonature parallele (6 ante)"
+
+msgid "valeur_534"
+msgstr "6 cordonature parallele (7 ante)"
+
+msgid "valeur_535"
+msgstr "X rainages croisés : outil existant"
+
+msgid "valeur_536"
+msgstr "X rainages croisés : outil à créer"
+
+msgid "valeur_241"
+msgstr "3 cordonature portafoglio (4 ante)"
+
+msgid "valeur_242"
+msgstr "3 cordonature fisarmonica (4 ante)"
+
+msgid "valeur_243"
+msgstr "3 cordonature avvolte (4 ante)"
+
+msgid "valeur_244"
+msgstr "4 cordonature parallele (5 ante)"
+
+msgid "valeur_202"
+msgstr "1 cordonatura centrale (2 ante)"
+
+msgid "valeur_203"
+msgstr "1 piega decentrata"
+
+msgid "valeur_204"
+msgstr "2 cordonature avvolta (3 ante)"
+
+msgid "valeur_205"
+msgstr "2 cordonature fisarmonica (3 ante)"
+
+msgid "valeur_206"
+msgstr "2 cordonature finestra (3 volets)"
+
+msgid "valeur_207"
+msgstr "1 pretaglio"
+
+msgid "valeur_208"
+msgstr "2 pretagli paralleli"
+
+msgid "valeur_255"
+msgstr "3 pretagli paralleli"
+
+msgid "valeur_526"
+msgstr "4 pretagli paralleli"
+
+msgid "valeur_527"
+msgstr "5 pretagli paralleli"
+
+msgid "valeur_529"
+msgstr "X pretaglio: fustella da creare"
+
+msgid "valeur_530"
+msgstr "X pretaglio: strumento esistente"
+
+msgid "valeur_1551"
+msgstr "perpendicolare"
+
+msgid "valeur_1581"
+msgstr "1 pretaglio"
+
+msgid "valeur_1264"
+msgstr "6 pieghe a fisarmonica + 2 pieghe avvolte"
+
+msgid "valeur_825"
+msgstr "6 pieghe fisarmonica + 1 a croce"
+
+msgid "valeur_1657"
+msgstr "7 pieghe a fisarmonica (8 ante)"
+
+msgid "valeur_503"
+msgstr "3 pieghe fisarmonica (4 ante)"
+
+msgid "valeur_504"
+msgstr "3 pieghe fisarmonica + 1 piega a croce (8 ante)"
+
+msgid "valeur_511"
+msgstr "2 pieghe fisermonica + 1 piega a croce (6 ante)"
+
+msgid "valeur_484"
+msgstr "3 pieghe a portafoglio (4 ante)"
+
+msgid "valeur_485"
+msgstr "1 piega decentrata (2 ante)"
+
+msgid "valeur_486"
+msgstr "6 pieghe fisermonica (7 ante)"
+
+msgid "valeur_487"
+msgstr "4 pieghe fisarmonica + 1 piega a croce"
+
+msgid "valeur_488"
+msgstr "4 pieghe fisarmonica + 2 pieghe avvolte"
+
+msgid "valeur_489"
+msgstr "5 pieghe fisarmonica + 1 piega a croce"
+
+msgid "valeur_490"
+msgstr "5 pieghe fisarmonica + 2 pieghe avvolte"
+
+msgid "valeur_491"
+msgstr "2 pieghe economiche (4 ante)"
+
+msgid "valeur_492"
+msgstr "2 pieghe a croce (8 pagine)"
+
+msgid "valeur_493"
+msgstr "3 pieghe a croce (16 pagine)"
+
+msgid "valeur_450"
+msgstr "2 pieghe fisarmonica (3 ante)"
+
+msgid "valeur_451"
+msgstr "2 pieghe finestra (3 ante)"
+
+msgid "valeur_258"
+msgstr "4 pieghe a fisarmonica (5 ante)"
+
+msgid "valeur_259"
+msgstr "5 pieghe a fisarmonica (6 ante)"
+
+msgid "valeur_248"
+msgstr "1 piega centrale (2 ante)"
+
+msgid "valeur_252"
+msgstr "2 pieghe avvolte (3 ante)"
+
+msgid "valeur_254"
+msgstr "3 pieghe avvolte (4 ante)"
+
+msgid "valeur_563"
+msgstr "1 piega + 2 pieghe fisermonica (6 ante)"
+
+msgid "valeur_564"
+msgstr "1 piega + 2 pieghe avvolte (6 ante)"
+
+msgid "valeur_565"
+msgstr "1 piega + 3 pieghe fisermonica (8 ante)"
+
+msgid "valeur_566"
+msgstr "1 piega + 3 pieghe avvolte (8 ante)"
+
+msgid "valeur_567"
+msgstr "2 pieghe fisarmonica + 2 pieghe avvolte (9 ante)"
+
+msgid "valeur_568"
+msgstr "3 pieghe fisermonica + 2 pieghe avvolte (12 ante)"
+
+msgid "valeur_560"
+msgstr "Bouddha"
+
+msgid "valeur_260"
+msgstr "Cartellina 2 ante - cordonatura semplice - senza intaglio "
+
+msgid "valeur_261"
+msgstr "Cartellina 2 ante - cordonatura semplice - intagli verticali "
+
+msgid "valeur_262"
+msgstr "Cartellina 2 ante - cordonatura semplice - intagli orizzontali"
+
+msgid "valeur_263"
+msgstr "Cartellina 2 ante - cordonatura doppia - senza intaglio"
+
+msgid "valeur_264"
+msgstr "Cartelline 2 ante - doppia cordonatura - intagli verticali"
+
+msgid "valeur_265"
+msgstr "Cartellina 2 ante - doppia cordonatura - intagli orizzontali "
+
+msgid "valeur_267"
+msgstr "Cartellina 3 ante - cordonatura semplice - laterale - senza intaglio"
+
+msgid "valeur_268"
+msgstr "Cartellina 3 ante - cordonatura semplice - laterale - intagli verticali"
+
+msgid "valeur_269"
+msgstr "Cartellina 3 ante - cordonatura semplice - laterale - intagli orizzontali"
+
+msgid "valeur_270"
+msgstr "Cartellina 3 ante - doppia cordonatura - laterale - senza intaglio"
+
+msgid "valeur_271"
+msgstr "Cartellina 3 ante - doppia cordonatura - laterale - intagli verticali"
+
+msgid "valeur_272"
+msgstr "Cartellina 3 ante - doppia cordonatura - laterale - intagli orizzontali"
+
+msgid "valeur_273"
+msgstr "Cartellina 3 ante - cordonatura semplice - centrale - senza intaglio"
+
+msgid "valeur_274"
+msgstr "Cartellina 3 ante - cordonatura semplice - centrale - intagli verticali"
+
+msgid "valeur_275"
+msgstr "Cartellina 3 ante - cordonatura semplice - centrale - intagli orizzontali"
+
+msgid "valeur_276"
+msgstr "Cartellina 3 ante - doppia cordonatura - centrale - senza intagli "
+
+msgid "valeur_277"
+msgstr "Cartellina 3 ante - cordonatura doppia - centrale - intagli verticali"
+
+msgid "valeur_278"
+msgstr "Chemise 3 volets - Double Rainage - Central - Encoches horizontales"
+
+msgid "valeur_329"
+msgstr "Formato personalizzato: fustella esistente"
+
+msgid "valeur_496"
+msgstr "Porta conto"
+
+msgid "valeur_497"
+msgstr "Fascette portatovaglioli"
+
+msgid "valeur_498"
+msgstr "Custodia CD"
+
+msgid "valeur_512"
+msgstr "Stella"
+
+msgid "valeur_513"
+msgstr "Rotondo"
+
+msgid "valeur_514"
+msgstr "Nuvola"
+
+msgid "valeur_515"
+msgstr "Cuore"
+
+msgid "valeur_516"
+msgstr "Pancarte de porte"
+
+msgid "valeur_517"
+msgstr "Fumetto"
+
+msgid "valeur_518"
+msgstr "Moule à gâteau"
+
+msgid "valeur_519"
+msgstr "Formato personalizzato: fustella da creare"
+
+msgid "valeur_522"
+msgstr "Angoli arrotondati"
+
+msgid "valeur_1392"
+msgstr "Collarino per bottiglie"
+
+msgid "valeur_1393"
+msgstr "Segnaposto da tavola 10 x 15 x 7,2 cm"
+
+msgid "valeur_1394"
+msgstr "Segnaposto da tavola 15 x 13 x 13 cm"
+
+msgid "valeur_621"
+msgstr "Lato corto"
+
+msgid "valeur_733"
+msgstr "sigillata"
+
+msgid "valeur_734"
+msgstr "non sigillata"
+
+msgid "valeur_771"
+msgstr "lato corto"
+
