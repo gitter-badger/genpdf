@@ -2,7 +2,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: genPDF\n"
 "POT-Creation-Date: 2014-03-21 12:35+0100\n"
-"PO-Revision-Date: 2014-03-21 15:35+0100\n"
+"PO-Revision-Date: 2014-03-21 15:40+0100\n"
 "Last-Translator: \n"
 "Language-Team: Exaprint <romain@exaprint.fr>\n"
 "Language: pt_PT\n"
@@ -2346,11 +2346,11 @@ msgstr "Dons"
 
 #: ../../../cache/twig_gettext_keys.php:22
 msgid "Montant total soumis a la TVA "
-msgstr "Valor total não submetido a IVA"
+msgstr "Valor total submetido a IVA"
 
 #: ../../../cache/twig_gettext_keys.php:23
 msgid "Montant total non soumis a la TVA"
-msgstr "Montant total non soumis à la T.V.A."
+msgstr "Valor total não submetido a IVA"
 
 #: ../../../cache/twig_gettext_keys.php:24
 msgid "Facture reglee le "
