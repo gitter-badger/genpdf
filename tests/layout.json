@@ -1,0 +1,72 @@
+{
+    "pageWidth":                     210,
+    "pageHeight":                    297,
+    "soucheHeight":                  12,
+    "marge":                         5,
+    "gouttiere":                     4,
+    "pEnteteHeight":                 16,
+    "pEnteteIdPlancheWidth":         50,
+    "pEnteteExpeSansFaconnageWidth": 30,
+    "pEnteteExpeAvecFaconnageWidth": 30,
+    "pEnteteImperatifsWidth":        20,
+    "pEnteteNbCommandesWidth":       20,
+    "pRangHeight":                   10,
+    "pRangGroupeWidth":              30,
+    "pCodeBarreWidth":               30,
+    "pCodeBarreMargin":              2,
+    "pObservationsWidth":            100,
+    "pObservationsHeight":           20,
+    "pRangs":                        [
+        "support",
+        "impression",
+        "pelliculage",
+        "vernis",
+        "vernisSelectif",
+        "faconnage"
+    ],
+    "cEnteteIdsWidth":               32,
+    "cEnteteHeight":                 10,
+    "cEnteteQuantiteWidth":          28,
+    "cVisuelsHeight":                66,
+    "cGrilleColCount":               3,
+    "cCodeBarreWidth":               36,
+    "cCodeBarreHeight":              16,
+    "cCodeBarreMargin":              2,
+    "cLivraisonCodePostalWidth":     19,
+    "cLivraisonCodePostalHeight":    9,
+    "cLivraisonCodePaysWidth":       9,
+    "cLivraisonCodePaysHeight":      9,
+    "cIdCommandeHeight":             7,
+    "cGrilleCellules":               [
+        [
+            "BatPapier",
+            "Justificatif",
+            "Retirage"
+        ],
+        [
+            "SousTraitance",
+            "",
+            ""
+        ],
+        [
+            "",
+            "",
+            ""
+        ],
+        [
+            "",
+            "",
+            ""
+        ],
+        [
+            "",
+            "",
+            ""
+        ],
+        [
+            "",
+            "",
+            ""
+        ]
+    ]
+}

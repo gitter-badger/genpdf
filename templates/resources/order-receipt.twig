@@ -117,7 +117,9 @@
                 <th></th>
                 <th>{% trans "Quantite" %}</th>
                 <th>{% trans "HT" %}</th>
-                <th>{% trans "TVA" %} <small>{{ project.tva|formatnumber }}%</small></th>
+                <th>{% trans "TVA" %}
+                    <small>{{ project.tva|formatnumber }}%</small>
+                </th>
                 <th>{% trans "TTC" %}</th>
             </tr>
             </thead>
@@ -159,12 +161,7 @@
 
         <hr>
         <div id="mentions">
-            <p>Si une de ces indications ne vous parait pas correcte, merci de nous le signaler le plus rapidement possible à l'adresse suivante : <a href="commande@exaprint.fr">commande@exaprint.fr</a>
-                Les commandes sont validées par le pôle Administrations des Ventes jusqu'à18H chaque jour ouvré. Après cet horaire elles sont enregistrées le jour ouvré suivant.
-                Notre délai catalogue court à compter de la réception de votre règlement et de votre fichier ou à compter de la validation de votre bon à tirer si vous avez opté
-                pour cette option. Si une anomalie fichier vous est notifiée par le pôle PAO, le délai courra à compter de la date du déblocage de votre fichier. Pour suivre l'avancée
-                de votre commande, vous pouvez vous connecter sur notre site extranet onglet « suivi ». Nos conditions générales de vente sont consultables en ligne à l’adresse : www.exaprint.fr
-            </p>
+            <p>{{ ("Conditions generales"|trans)|replace({'%link%': '<a href="commande@exaprint.fr">commande@exaprint.fr</a>'}) }}</p>
         </div>
     </div>
 {% endblock %}

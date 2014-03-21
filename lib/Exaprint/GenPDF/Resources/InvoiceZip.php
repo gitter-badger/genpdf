@@ -50,7 +50,7 @@ class InvoiceZip extends Resource implements IResource
             ->eq(new Func('MONTH', [new Column('DateFacture', 'TBL_FACTURE')]), $this->_month);
 
         $stmt = DB::get()->query($select);
-
+        $dataA = [];
         foreach ($stmt->fetchAll(DB::FETCH_ASSOC) as $invoice) {
             $dao = new DAO\Invoice();
             if ($xml = $dao->getXML($invoice['IDFacture'])) {

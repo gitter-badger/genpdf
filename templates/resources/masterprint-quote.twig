@@ -1,0 +1,44 @@
+{% extends "resources/base.twig" %}
+
+{% block links %}
+    <link rel="stylesheet" type="text/css" href="/static/css/reset.css"/>
+    <link rel="stylesheet" type="text/css" href="/static/css/fonts.css"/>
+    <link rel="stylesheet" type="text/css" href="/static/css/invoice.css"/>
+    <link rel="stylesheet" type="text/css" href="/static/css/masterprint-quote.css"/>
+{% endblock %}
+
+{% block page %}
+    <h1>Demande de devis N°{{ NumeroDevis }}</h1>
+    <p>Envoyée le {{ DateHeure|date('d/m/Y \à H\hi') }}</p>
+
+    <table class="reponses">
+        <thead>
+        <tr>
+            <th>Quantité</th>
+            <th>Prix H.T.</th>
+        </tr>
+        </thead>
+        <tbody>
+        {% for reponse in Reponses %}
+            <tr>
+                <td>{{ reponse.Quantite }} ex.</td>
+                <td>{{ reponse.PrixVente|number_format(2, ',', ' ') }} €</td>
+            </tr>
+        {% endfor %}
+        </tbody>
+    </table>
+    <div class="details">
+        {% autoescape false %}
+        {{ DescriptionHTML }}
+        {% endautoescape %}
+    </div>
+    <div class="mentions">
+        &nbsp;<br/>
+        &nbsp;<br/>
+        Prix incluant 1 point de livraison en France métropolitaine uniquement, sauf autrement mentionné. <br/>
+        Nos délais sont établis en jours ouvrés et hors transport.<br/>
+        Nos prix s'entendent pour la fourniture de fichiers numériques strictement conformes à notre cahier des charges.<br/>
+        En cas de fourniture de fichiers non conformes, un délai supplémentaire pourra être appliqué.<br/>
+        Devis valable pendant 3 mois jusqu'au 25/05/2014, hors promotions en cours à la date de la demande de votre devis.<br/>
+    </div>
+{% endblock %}
