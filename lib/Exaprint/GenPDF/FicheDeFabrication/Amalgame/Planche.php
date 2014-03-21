@@ -115,16 +115,16 @@ class Planche
                 [
                     "image" => $this->getImpressionRectoVerso(),
                     "width" => 16,
-                ],
+                ],/*
                 [
                     "value" => _('bascule_' . $this->planche['Bascule']),
                     "valueFont" => new Font('bagc-light', 26, new TextColor(Color::black())),
                     "width" => 16,
-                ],
+                ],*/
                 [
                     "value"     => _('valeur_' . $this->planche['Support']),
                     "valueFont" => new Font('bagc-light', 26, new TextColor(Color::black())),
-                    "width"     => 92,
+                    "width"     => 108,
                     "fillColor" => new FillColor(Color::cmyk(0, 0, 75, 0)),
                 ]
             ],
@@ -610,6 +610,9 @@ class Planche
             'Justificatif' => [],
             'Commentaires' => [],
             'Retirage'     => [],
+            'Rainage' => [],
+            'Pliage' => [],
+            'PEFC' => []
         ];
         foreach ($this->planche['commandes'] as $i => $commande) {
             $page     = (int)ceil(($i + 3) / 4);
