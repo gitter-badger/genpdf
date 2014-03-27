@@ -120,10 +120,11 @@ class DAL
         foreach ($json as $fichier) {
             if ($fichier['type'] == 'normalized' && $fichier['ext'] == 'jpg') {
                 $fichiers[]      = $fichier;
+                $fichiers[$fichier['href']] = $fichier;
             }
         }
 
-        return $fichiers;
+        return array_values($fichiers);
     }
 
 } 

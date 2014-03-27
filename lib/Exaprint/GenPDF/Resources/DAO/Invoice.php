@@ -31,13 +31,8 @@ class Invoice
         $db->exec('SET NUMERIC_ROUNDABORT OFF');
         $db->exec('SET QUOTED_IDENTIFIER ON');
 
-        $query = "select LEN(CAST(dbo.f_XML_Facture($IDFacture) AS nvarchar(max)))";
-        if ($result = $db->query($query)) {
-            if (($length = $result->fetchColumn()) !== false) {
-                $txt = "SET TEXTSIZE " . ($length*2);
-                $db->exec($txt);
-            }
-        }
+        $txt = "SET TEXTSIZE 2147483647";
+        $db->exec($txt);
 
         $query = "select CAST(dbo.f_XML_Facture($IDFacture) AS nvarchar(max))";
         if ($result = $db->query($query)) {
