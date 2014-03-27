@@ -35,6 +35,7 @@ class Image implements Element
 
     public function draw(\TCPDF $pdf)
     {
+        try {
         $pdf->Image(
             $this->file,
             $this->x,
@@ -56,6 +57,9 @@ class Image implements Element
             $this->alt,
             $this->altImgs
         );
+        } catch (\ErrorException $exc){
+
+        }
     }
 
 }

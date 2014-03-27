@@ -39,6 +39,7 @@ SELECT
   , dbo.f_nIDProduitOptionValeurProduit(p.IDProduit, 104, 1) AS Pliage
   , dbo.f_nIDProduitOptionValeurProduit(p.IDProduit, 105, 1) AS DecoupeALaForme
   , dbo.f_nIDProduitOptionValeurProduit(p.IDProduit, 147, 1) AS Encollage
+  , dbo.f_bCommandeCertifiee(1) AS EstCertifieePEFC
 FROM
   TBL_COMMANDE c
   JOIN TBL_COMMANDE_LIGNE cl ON cl.IDCommande = c.IDCommande

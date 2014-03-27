@@ -2,7 +2,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: genPDF\n"
 "POT-Creation-Date: 2014-01-06 15:24+0100\n"
-"PO-Revision-Date: 2014-03-13 11:07+0100\n"
+"PO-Revision-Date: 2014-03-27 15:24+0100\n"
 "Last-Translator: \n"
 "Language-Team: Exaprint <romain@exaprint.fr>\n"
 "MIME-Version: 1.0\n"
@@ -1584,20 +1584,25 @@ msgstr "Forme originale : outil existant"
 msgid "valeur_524"
 msgstr "Forme originale : outil à créer"
 
+# 1 perforation de 4 mm
 msgid "valeur_611"
-msgstr "1 perforation de 4 mm"
+msgstr "1×4mm"
 
+# 2 perforations de 4 mm
 msgid "valeur_432"
-msgstr "2 perforations de 4 mm"
+msgstr "2×4mm"
 
+# 2 perforations + œillets
 msgid "valeur_433"
-msgstr "2 perforations de 4 mm + oeillets"
+msgstr "2×4+œ"
 
+# 4 perforations (à chaque angle)
 msgid "valeur_434"
-msgstr "4 perforations (à chaque angle)"
+msgstr "4×◻"
 
+# 4 perforations + oeillets (à chaque angle)
 msgid "valeur_435"
-msgstr "4 perforations + oeillets (à chaque angle)"
+msgstr "4×◻+œ"
 
 msgid "valeur_190"
 msgstr "Sans"
