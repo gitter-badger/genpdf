@@ -46,11 +46,11 @@
                 {% set fullname = [client.contact_forename, ' ', client.contact_name]|join %}
 
                 {% if client.civility == 1 %}
-                    {% trans "Mr" %}
+                    {% trans "Mlle" %}
                 {% elseif client.civility == 2 %}
                     {% trans "Mme" %}
                 {% elseif client.civility == 3 %}
-                    {% trans "Mlle" %}
+                    {% trans "Mr" %}
                 {% elseif client.activity != 0 %}
                     {{ client.civility }}
                 {% endif %}
