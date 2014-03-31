@@ -19,8 +19,6 @@ class OrderReceipt extends Resource implements IResource
      */
     public function fetchFromID($IDCommande)
     {
-        $IDLangue = 1;
-
         $select = "
             SELECT
                 TBL_COMMANDE.IDCommande AS [order.id],
@@ -89,24 +87,24 @@ class OrderReceipt extends Resource implements IResource
             JOIN TBL_CLIENT AS [client] ON ([client].IDClient = TBL_COMMANDE.IDClient)
             JOIN TBL_CLIENT_CONTACT AS [contact] ON ([contact].IDClient = TBL_COMMANDE.IDClient AND ISNULL([contact].ContactPrincipal, 0) = 1)
             JOIN TBL_COMMANDE_LIGNE ON (TBL_COMMANDE_LIGNE.IDCommande = TBL_COMMANDE.IDCommande)
-            CROSS APPLY dbo.f_OptionsCommande (TBL_COMMANDE.IDCommande, $IDLangue) AS Options
+            CROSS APPLY dbo.f_OptionsCommande (TBL_COMMANDE.IDCommande, client.IDLangueMailing) AS Options
             LEFT JOIN TBL_FRAIS ON (TBL_FRAIS.IDCommande = TBL_COMMANDE.IDCommande)
             JOIN TBL_PRODUIT ON (TBL_PRODUIT.IDProduit = TBL_COMMANDE_LIGNE.IDProduit)
-            JOIN TBL_PRODUIT_UNITE_TARIF_TRAD ON (TBL_PRODUIT.IDProduitUniteTarif = TBL_PRODUIT_UNITE_TARIF_TRAD.IDProduitUniteTarif AND IDLangue = $IDLangue)
+            JOIN TBL_PRODUIT_UNITE_TARIF_TRAD ON (TBL_PRODUIT.IDProduitUniteTarif = TBL_PRODUIT_UNITE_TARIF_TRAD.IDProduitUniteTarif AND IDLangue = client.IDLangueMailing)
             JOIN TBL_PRODUIT_LIBELLE_FRONT_TRAD ON (TBL_PRODUIT_LIBELLE_FRONT_TRAD.IDProduit = TBL_PRODUIT.IDProduit)
-            AND (TBL_PRODUIT_LIBELLE_FRONT_TRAD.IDLangue = $IDLangue)
+            AND (TBL_PRODUIT_LIBELLE_FRONT_TRAD.IDLangue = client.IDLangueMailing)
             JOIN TBL_PRODUIT_FAMILLE_PRODUIT ON (TBL_PRODUIT_FAMILLE_PRODUIT.IDProduitFamilleProduit = TBL_PRODUIT.IDProduitFamilleProduit)
             JOIN TBL_PRODUIT_FAMILLE_PRODUIT_DESIGNATION_TRADUCTION ON (TBL_PRODUIT_FAMILLE_PRODUIT_DESIGNATION_TRADUCTION.IDProduitFamilleProduit = TBL_PRODUIT_FAMILLE_PRODUIT.IDProduitFamilleProduit)
-            AND (TBL_PRODUIT_FAMILLE_PRODUIT_DESIGNATION_TRADUCTION.IDLangue = $IDLangue)
+            AND (TBL_PRODUIT_FAMILLE_PRODUIT_DESIGNATION_TRADUCTION.IDLangue = client.IDLangueMailing)
             JOIN TBL_PRODUIT_FAMILLE_ARTICLES ON (TBL_PRODUIT_FAMILLE_ARTICLES.IDProduitFamilleArticles = TBL_PRODUIT_FAMILLE_PRODUIT.IDProduitFamilleArticles)
             JOIN TBL_PRODUIT_FAMILLE_ARTICLES_TRAD ON (TBL_PRODUIT_FAMILLE_ARTICLES_TRAD.IDProduitFamilleArticles = TBL_PRODUIT_FAMILLE_ARTICLES.IDProduitFamilleArticles)
-            AND (TBL_PRODUIT_FAMILLE_ARTICLES_TRAD.IDLangue = $IDLangue)
+            AND (TBL_PRODUIT_FAMILLE_ARTICLES_TRAD.IDLangue = client.IDLangueMailing)
             LEFT JOIN TBL_FRAIS_TYPE_FRAIS_TRAD ON (TBL_FRAIS_TYPE_FRAIS_TRAD.IDFraisTypeFrais = TBL_FRAIS.IDFraisTypeFrais)
-            AND (TBL_FRAIS_TYPE_FRAIS_TRAD.IDLangue = $IDLangue)
+            AND (TBL_FRAIS_TYPE_FRAIS_TRAD.IDLangue = client.IDLangueMailing)
             JOIN TBL_CLIENT_ADRESSELIVRAISON AS [delivery] ON (TBL_COMMANDE.IDClientAdresseLivraison = [delivery].IDClientAdresseLivraison)
             LEFT JOIN TBL_VILLE AS [delivery_city] ON [delivery_city].IDVille = [delivery].IDVille
             LEFT JOIN TBL_PAYS ON TBL_PAYS.IDPays = [delivery].IDPays
-            JOIN TBL_MODEREGLEMENT_TRAD AS [regulation] ON (TBL_COMMANDE.IDModeReglement = [regulation].IDModeReglement AND [regulation].IDLangue = $IDLangue)
+            JOIN TBL_MODEREGLEMENT_TRAD AS [regulation] ON (TBL_COMMANDE.IDModeReglement = [regulation].IDModeReglement AND [regulation].IDLangue = client.IDLangueMailing)
             LEFT JOIN TBL_DEVIS ON (TBL_COMMANDE.IDDevis = TBL_DEVIS.IDDevis)
             LEFT JOIN TBL_UTILISATEUR as [agent] ON (TBL_DEVIS.IDUtilisateurAgent = [agent].IDUtilisateur)
             WHERE
