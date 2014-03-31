@@ -87,7 +87,7 @@
                                             </div>
                                         {% endif %}
                                         <span class="units"></span>
-                                        {% if((Line.FeeTypeID == 0) and (Line.OrderLineID == 0)) %}
+                                        {% if((Line.FeeTypeID == 0) and (Line.OrderLineID == 0) and (Line.Title != '')) %}
                                             {{ Line.Title }}
                                         {% else %}
                                             {{ Line.Reference }}
