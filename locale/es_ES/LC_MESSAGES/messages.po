@@ -1,8 +1,8 @@
 msgid ""
 msgstr ""
 "Project-Id-Version: genPDF\n"
-"POT-Creation-Date: 2014-03-21 12:26+0100\n"
-"PO-Revision-Date: 2014-03-21 12:31+0100\n"
+"POT-Creation-Date: 2014-04-01 10:48+0100\n"
+"PO-Revision-Date: 2014-04-01 10:49+0100\n"
 "Last-Translator: \n"
 "Language-Team: Exaprint <romain@exaprint.fr>\n"
 "Language: es_ES\n"
@@ -2327,39 +2327,43 @@ msgid "Net a payer"
 msgstr "Neto a pagar"
 
 #: ../../../cache/twig_gettext_keys.php:18
+msgid "Type"
+msgstr "Tipo"
+
+#: ../../../cache/twig_gettext_keys.php:19
 msgid "Designation de ligne de facture"
 msgstr "Descripción"
 
-#: ../../../cache/twig_gettext_keys.php:19
+#: ../../../cache/twig_gettext_keys.php:20
 msgid "Quantite"
 msgstr "Cantitad"
 
-#: ../../../cache/twig_gettext_keys.php:20
+#: ../../../cache/twig_gettext_keys.php:21
 #, fuzzy
 msgid "Commande certifiee"
 msgstr "Producto certificado"
 
-#: ../../../cache/twig_gettext_keys.php:21
+#: ../../../cache/twig_gettext_keys.php:22
 msgid "Donations"
 msgstr "Dons"
 
-#: ../../../cache/twig_gettext_keys.php:22
+#: ../../../cache/twig_gettext_keys.php:23
 msgid "Montant total soumis a la TVA "
 msgstr "Total sometido a IVA"
 
-#: ../../../cache/twig_gettext_keys.php:23
+#: ../../../cache/twig_gettext_keys.php:24
 msgid "Montant total non soumis a la TVA"
 msgstr "Total no sometido a IVA"
 
-#: ../../../cache/twig_gettext_keys.php:24
+#: ../../../cache/twig_gettext_keys.php:25
 msgid "Facture reglee le "
 msgstr "Facture reglée le : "
 
-#: ../../../cache/twig_gettext_keys.php:25
+#: ../../../cache/twig_gettext_keys.php:26
 msgid "Echeance de paiement"
 msgstr "Fecha de vencimiento"
 
-#: ../../../cache/twig_gettext_keys.php:26
+#: ../../../cache/twig_gettext_keys.php:27
 msgid "Mentions legales facture"
 msgstr ""
 "<p>No se aplicará ningún descuento por pago anticipado. En caso de impagado "
@@ -2367,11 +2371,11 @@ msgstr ""
 "3 veces la tasa legal.</p><p>Los pedidos siguientes no cuentan en el cálculo "
 "de su cuenta ExaClub.</p>"
 
-#: ../../../cache/twig_gettext_keys.php:27
+#: ../../../cache/twig_gettext_keys.php:28
 msgid "Mandat de prelevement SEPA"
 msgstr "Solicitud de domiciliación SEPA"
 
-#: ../../../cache/twig_gettext_keys.php:28
+#: ../../../cache/twig_gettext_keys.php:29
 msgid "Vous beneficiez dun droit"
 msgstr ""
 "Usted tiene derecho a un reembolso por parte de su banco según las "
@@ -2379,228 +2383,232 @@ msgstr ""
 "hacerse dentro de las 8 semanas siguientes a la fecha de débito en su cuenta "
 "con domiciliación autorizada."
 
-#: ../../../cache/twig_gettext_keys.php:29
+#: ../../../cache/twig_gettext_keys.php:30
 msgid "Reference unique du mandat"
 msgstr "Referencia de autorizado"
 
-#: ../../../cache/twig_gettext_keys.php:30
+#: ../../../cache/twig_gettext_keys.php:31
 msgid "Debiteur"
 msgstr "Deudor"
 
-#: ../../../cache/twig_gettext_keys.php:31
+#: ../../../cache/twig_gettext_keys.php:32
 msgid "Votre Nom"
 msgstr "Su nombre"
 
-#: ../../../cache/twig_gettext_keys.php:32
+#: ../../../cache/twig_gettext_keys.php:33
 msgid "Votre Adresse"
 msgstr "Su dirección"
 
-#: ../../../cache/twig_gettext_keys.php:33
+#: ../../../cache/twig_gettext_keys.php:34
 msgid "Code postal"
 msgstr "Código Postal"
 
-#: ../../../cache/twig_gettext_keys.php:34
+#: ../../../cache/twig_gettext_keys.php:35
 msgid "Ville"
 msgstr "Ciudad"
 
-#: ../../../cache/twig_gettext_keys.php:35
+#: ../../../cache/twig_gettext_keys.php:36
 msgid "Pays"
 msgstr "País"
 
-#: ../../../cache/twig_gettext_keys.php:36
+#: ../../../cache/twig_gettext_keys.php:37
 msgid "Banque"
 msgstr "Banco"
 
-#: ../../../cache/twig_gettext_keys.php:37
+#: ../../../cache/twig_gettext_keys.php:38
 msgid "Identifiant creancier SEPA"
 msgstr "Código de identificador de acreedor"
 
-#: ../../../cache/twig_gettext_keys.php:38
+#: ../../../cache/twig_gettext_keys.php:39
 msgid "Creancier"
 msgstr "Acreedor"
 
-#: ../../../cache/twig_gettext_keys.php:39
+#: ../../../cache/twig_gettext_keys.php:40
 msgid "Siren"
 msgstr "Sire"
 
-#: ../../../cache/twig_gettext_keys.php:40
+#: ../../../cache/twig_gettext_keys.php:41
 msgid "IBAN"
 msgstr "IBAN"
 
-#: ../../../cache/twig_gettext_keys.php:41
+#: ../../../cache/twig_gettext_keys.php:42
 msgid "BIC"
 msgstr "BIC"
 
-#: ../../../cache/twig_gettext_keys.php:42
+#: ../../../cache/twig_gettext_keys.php:43
 msgid "A"
 msgstr "A"
 
-#: ../../../cache/twig_gettext_keys.php:43
+#: ../../../cache/twig_gettext_keys.php:44
 msgid "Signature du gerant"
 msgstr "Firma del gerente"
 
-#: ../../../cache/twig_gettext_keys.php:44
+#: ../../../cache/twig_gettext_keys.php:45
 msgid "Paiement"
 msgstr "Pago"
 
-#: ../../../cache/twig_gettext_keys.php:45
+#: ../../../cache/twig_gettext_keys.php:46
 msgid "Recurrent/Repetitif"
 msgstr "Recurente / Repetitivo"
 
-#: ../../../cache/twig_gettext_keys.php:46
+#: ../../../cache/twig_gettext_keys.php:47
 msgid "Le"
 msgstr "El"
 
-#: ../../../cache/twig_gettext_keys.php:47
+#: ../../../cache/twig_gettext_keys.php:48
 msgid "Note"
 msgstr ""
 "Nota: Sus derechos sobre esta solicitud se explican en un documento que se "
 "puede obtener de su banco."
 
-#: ../../../cache/twig_gettext_keys.php:48
+#: ../../../cache/twig_gettext_keys.php:49
 msgid "Important"
 msgstr ""
 "Importante: Indique igualmente los datos bancarios, o postales o de Banco de "
 "España."
 
-#: ../../../cache/twig_gettext_keys.php:49
+#: ../../../cache/twig_gettext_keys.php:50
 msgid "Veuillez completer tous les champs du mandat."
 msgstr "Complete todos los campos de la solicitud."
 
-#: ../../../cache/twig_gettext_keys.php:50
+#: ../../../cache/twig_gettext_keys.php:51
 msgid "Accuse de reception de commande"
 msgstr "Acuse de recepción del pedido"
 
-#: ../../../cache/twig_gettext_keys.php:51
+#: ../../../cache/twig_gettext_keys.php:52
 msgid "Livraison"
 msgstr "Entrega"
 
-#: ../../../cache/twig_gettext_keys.php:52
+#: ../../../cache/twig_gettext_keys.php:53
 msgid "Client"
 msgstr "Cliente"
 
-#: ../../../cache/twig_gettext_keys.php:53
+#: ../../../cache/twig_gettext_keys.php:54
 msgid "Raison Sociale"
 msgstr "Razón social"
 
-#: ../../../cache/twig_gettext_keys.php:54
+#: ../../../cache/twig_gettext_keys.php:55
 msgid "Contact"
 msgstr "Contacto"
 
-#: ../../../cache/twig_gettext_keys.php:55
-msgid "Mr"
-msgstr "Sr."
-
 #: ../../../cache/twig_gettext_keys.php:56
-msgid "Mme"
-msgstr "Srta."
-
-#: ../../../cache/twig_gettext_keys.php:57
 msgid "Mlle"
 msgstr "Sra."
 
+#: ../../../cache/twig_gettext_keys.php:57
+msgid "Mme"
+msgstr "Srta."
+
 #: ../../../cache/twig_gettext_keys.php:58
+msgid "Mr"
+msgstr "Sr."
+
+#: ../../../cache/twig_gettext_keys.php:59
+msgid "Ms"
+msgstr ""
+
+#: ../../../cache/twig_gettext_keys.php:60
 msgid "Numero TVA"
 msgstr "IVA"
 
-#: ../../../cache/twig_gettext_keys.php:59
+#: ../../../cache/twig_gettext_keys.php:61
 msgid "Produit"
 msgstr "Producto"
 
-#: ../../../cache/twig_gettext_keys.php:60
+#: ../../../cache/twig_gettext_keys.php:62
 msgid "Commande"
 msgstr "Pedido"
 
-#: ../../../cache/twig_gettext_keys.php:61
+#: ../../../cache/twig_gettext_keys.php:63
 msgid "Numero de commande"
 msgstr "Nº de pedido"
 
-#: ../../../cache/twig_gettext_keys.php:62
+#: ../../../cache/twig_gettext_keys.php:64
 msgid "Numero de devis"
 msgstr "Nº de presupuesto"
 
-#: ../../../cache/twig_gettext_keys.php:63
+#: ../../../cache/twig_gettext_keys.php:65
 msgid "Reference commande"
 msgstr "Referencia de pedido"
 
-#: ../../../cache/twig_gettext_keys.php:64
+#: ../../../cache/twig_gettext_keys.php:66
 msgid "Reference devis"
 msgstr "Referencia de presupuesto"
 
-#: ../../../cache/twig_gettext_keys.php:65
+#: ../../../cache/twig_gettext_keys.php:67
 msgid "Date"
 msgstr "Fecha"
 
-#: ../../../cache/twig_gettext_keys.php:66
+#: ../../../cache/twig_gettext_keys.php:68
 msgid "Mode de reglement"
 msgstr "Modo de pago"
 
-#: ../../../cache/twig_gettext_keys.php:67
+#: ../../../cache/twig_gettext_keys.php:69
 msgid "Responsable du dossier"
 msgstr "Responsable de la cuenta"
 
-#: ../../../cache/twig_gettext_keys.php:68
+#: ../../../cache/twig_gettext_keys.php:70
 msgid "HT"
 msgstr "Iva no incluído"
 
-#: ../../../cache/twig_gettext_keys.php:69
+#: ../../../cache/twig_gettext_keys.php:71
 msgid "TVA"
 msgstr "IVA"
 
-#: ../../../cache/twig_gettext_keys.php:70
+#: ../../../cache/twig_gettext_keys.php:72
 msgid "TTC"
 msgstr "Total Iva incluído"
 
-#: ../../../cache/twig_gettext_keys.php:71
+#: ../../../cache/twig_gettext_keys.php:73
 msgid "Total"
 msgstr "Total"
 
-#: ../../../cache/twig_gettext_keys.php:72
+#: ../../../cache/twig_gettext_keys.php:74
 msgid "Solde"
 msgstr "Saldo restante"
 
-#: ../../../cache/twig_gettext_keys.php:73
+#: ../../../cache/twig_gettext_keys.php:75
 msgid "Devis des commandes partenaires"
 msgstr ""
 
-#: ../../../cache/twig_gettext_keys.php:74
+#: ../../../cache/twig_gettext_keys.php:76
 msgid "Email"
 msgstr "Email"
 
-#: ../../../cache/twig_gettext_keys.php:75
+#: ../../../cache/twig_gettext_keys.php:77
 msgid "Conception et fabrication de : "
 msgstr ""
 
-#: ../../../cache/twig_gettext_keys.php:76
+#: ../../../cache/twig_gettext_keys.php:78
 msgid "Tous droits reserves"
 msgstr ""
 
-#: ../../../cache/twig_gettext_keys.php:77
+#: ../../../cache/twig_gettext_keys.php:79
 msgid "Dossier suivi par"
 msgstr ""
 
-#: ../../../cache/twig_gettext_keys.php:78
+#: ../../../cache/twig_gettext_keys.php:80
 msgid "Produit certifie"
 msgstr "Producto certificado"
 
-#: ../../../cache/twig_gettext_keys.php:79
+#: ../../../cache/twig_gettext_keys.php:81
 msgid "Projet de commande Printbox"
 msgstr "Projet de commande Printbox"
 
-#: ../../../cache/twig_gettext_keys.php:80
+#: ../../../cache/twig_gettext_keys.php:82
 msgid "Printboxer"
 msgstr "Printboxer"
 
-#: ../../../cache/twig_gettext_keys.php:81
+#: ../../../cache/twig_gettext_keys.php:83
 msgid "Client Final Printboxer"
 msgstr "Client Final"
 
-#: ../../../cache/twig_gettext_keys.php:82
+#: ../../../cache/twig_gettext_keys.php:84
 #, fuzzy
 msgid "Accuse de reception de commande Printbox"
 msgstr "Referencia"
 
-#: ../../../cache/twig_gettext_keys.php:83
+#: ../../../cache/twig_gettext_keys.php:85
 msgid "En signant ce formulaire"
 msgstr ""
 "Al firmar este formulario de domiciliación, usted autoriza a (A) {NOM DU "
@@ -2608,7 +2616,7 @@ msgstr ""
 "su banco para liquidar de su cuenta de acuerdo con la orden de {NOM DU "
 "CREANCIER}."
 
-#: ../../../cache/twig_gettext_keys.php:84
+#: ../../../cache/twig_gettext_keys.php:86
 msgid "Conditions generales"
 msgstr ""
 "Si alguno de estas indicaciones, no es correcta para usted, notifíquenoslo "
@@ -2628,16 +2636,12 @@ msgstr ""
 #: ../../../lib/Exaprint/GenPDF/FicheDeFabrication/Amalgame/Cellule/Rainage.php:33
 #: ../../../lib/Exaprint/GenPDF/FicheDeFabrication/Amalgame/Planche.php:125
 #: ../../../lib/Exaprint/GenPDF/FicheDeFabrication/Amalgame/Planche.php:187
-#: ../../../lib/Exaprint/GenPDF/FicheDeFabrication/Amalgame/Planche.php:436
-#: ../../../lib/Exaprint/GenPDF/FicheDeFabrication/Amalgame/Planche.php:449
-#: ../../../lib/Exaprint/GenPDF/FicheDeFabrication/Amalgame/Planche.php:462
+#: ../../../lib/Exaprint/GenPDF/FicheDeFabrication/Amalgame/Planche.php:452
+#: ../../../lib/Exaprint/GenPDF/FicheDeFabrication/Amalgame/Planche.php:465
+#: ../../../lib/Exaprint/GenPDF/FicheDeFabrication/Amalgame/Planche.php:478
 #, fuzzy
 msgid "valeur_"
 msgstr "350gr mate Condat Perigord"
-
-#: ../../../lib/Exaprint/GenPDF/FicheDeFabrication/Amalgame/Planche.php:120
-msgid "bascule_"
-msgstr ""
 
 #, fuzzy
 #~ msgid "Date de commande"
