@@ -51,6 +51,8 @@
                     {% trans "Mme" %}
                 {% elseif client.civility == 3 %}
                     {% trans "Mr" %}
+                {% elseif client.civility == 4 %}
+                    {% trans "Ms" %}
                 {% elseif client.activity != 0 %}
                     {{ client.civility }}
                 {% endif %}
