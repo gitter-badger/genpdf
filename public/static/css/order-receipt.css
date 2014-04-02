@@ -80,7 +80,7 @@ h1 {
 #product {
   float: left;
   width: 7cm;
-  height: 10cm;
+  min-height: 9cm;
   background: #cccccc;
   border-radius: 0.5em;
   padding: 0 0.5cm;
