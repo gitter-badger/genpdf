@@ -1,8 +1,8 @@
 msgid ""
 msgstr ""
 "Project-Id-Version: genPDF\n"
-"POT-Creation-Date: 2014-04-01 10:50+0100\n"
-"PO-Revision-Date: 2014-04-02 10:00+0100\n"
+"POT-Creation-Date: 2014-04-02 16:10+0100\n"
+"PO-Revision-Date: 2014-04-02 16:11+0100\n"
 "Last-Translator: \n"
 "Language-Team: Exaprint <romain@exaprint.fr>\n"
 "Language: pt_PT\n"
@@ -2470,148 +2470,146 @@ msgid "Veuillez completer tous les champs du mandat."
 msgstr "Preencha por favor todos os campos assinalados."
 
 #: ../../../cache/twig_gettext_keys.php:51
-msgid "Accuse de reception de commande"
-msgstr "Aviso de receção do pedido"
+msgid "merci de votre commande"
+msgstr "Obrigado pelo seu pedido"
 
 #: ../../../cache/twig_gettext_keys.php:52
+#, fuzzy
+msgid "accuse de reception de commande"
+msgstr "Aviso de receção do pedido"
+
+#: ../../../cache/twig_gettext_keys.php:53
 msgid "Livraison"
 msgstr "Entrega"
 
-#: ../../../cache/twig_gettext_keys.php:53
+#: ../../../cache/twig_gettext_keys.php:54
 msgid "Client"
 msgstr "Cliente"
 
-#: ../../../cache/twig_gettext_keys.php:54
+#: ../../../cache/twig_gettext_keys.php:55
 msgid "Raison Sociale"
 msgstr "Razão social"
 
-#: ../../../cache/twig_gettext_keys.php:55
+#: ../../../cache/twig_gettext_keys.php:56
 msgid "Contact"
 msgstr "Contacto"
 
-#: ../../../cache/twig_gettext_keys.php:56
+#: ../../../cache/twig_gettext_keys.php:57
 msgid "Mlle"
 msgstr "-"
 
-#: ../../../cache/twig_gettext_keys.php:57
+#: ../../../cache/twig_gettext_keys.php:58
 msgid "Mme"
 msgstr "Sra."
 
-#: ../../../cache/twig_gettext_keys.php:58
+#: ../../../cache/twig_gettext_keys.php:59
 msgid "Mr"
 msgstr "Sr."
 
-#: ../../../cache/twig_gettext_keys.php:59
+#: ../../../cache/twig_gettext_keys.php:60
 msgid "Ms"
 msgstr ""
 
-#: ../../../cache/twig_gettext_keys.php:60
+#: ../../../cache/twig_gettext_keys.php:61
 msgid "Numero TVA"
 msgstr "Nº de IVA"
 
-#: ../../../cache/twig_gettext_keys.php:61
+#: ../../../cache/twig_gettext_keys.php:62
 msgid "Produit"
 msgstr "Produto"
 
-#: ../../../cache/twig_gettext_keys.php:62
+#: ../../../cache/twig_gettext_keys.php:63
 msgid "Commande"
 msgstr "Pedido"
 
-#: ../../../cache/twig_gettext_keys.php:63
+#: ../../../cache/twig_gettext_keys.php:64
 msgid "Numero de commande"
 msgstr "Nº de pedido"
 
-#: ../../../cache/twig_gettext_keys.php:64
+#: ../../../cache/twig_gettext_keys.php:65
 msgid "Numero de devis"
 msgstr "Nº de orçamento"
 
-#: ../../../cache/twig_gettext_keys.php:65
+#: ../../../cache/twig_gettext_keys.php:66
 msgid "Reference commande"
 msgstr "Referência do pedido"
 
-#: ../../../cache/twig_gettext_keys.php:66
+#: ../../../cache/twig_gettext_keys.php:67
 msgid "Reference devis"
 msgstr "Referência do orçamento"
 
-#: ../../../cache/twig_gettext_keys.php:67
+#: ../../../cache/twig_gettext_keys.php:68
 msgid "Date"
 msgstr "Data"
 
-#: ../../../cache/twig_gettext_keys.php:68
+#: ../../../cache/twig_gettext_keys.php:69
 msgid "Mode de reglement"
 msgstr "Modo de pagamento"
 
-#: ../../../cache/twig_gettext_keys.php:69
+#: ../../../cache/twig_gettext_keys.php:70
 msgid "Responsable du dossier"
 msgstr "Responsável da conta"
 
-#: ../../../cache/twig_gettext_keys.php:70
+#: ../../../cache/twig_gettext_keys.php:71
 msgid "HT"
 msgstr "IVA não incluído"
 
-#: ../../../cache/twig_gettext_keys.php:71
+#: ../../../cache/twig_gettext_keys.php:72
 msgid "TVA"
 msgstr "IVA"
 
-#: ../../../cache/twig_gettext_keys.php:72
+#: ../../../cache/twig_gettext_keys.php:73
 msgid "TTC"
 msgstr "Total IVA incluído"
 
-#: ../../../cache/twig_gettext_keys.php:73
+#: ../../../cache/twig_gettext_keys.php:74
 msgid "Total"
 msgstr "Total"
 
-#: ../../../cache/twig_gettext_keys.php:74
+#: ../../../cache/twig_gettext_keys.php:75
 msgid "Solde"
 msgstr "Saldo pendente"
 
-#: ../../../cache/twig_gettext_keys.php:75
+#: ../../../cache/twig_gettext_keys.php:76
 msgid "Devis des commandes partenaires"
 msgstr ""
 
-#: ../../../cache/twig_gettext_keys.php:76
+#: ../../../cache/twig_gettext_keys.php:77
 msgid "Email"
 msgstr "Email"
 
-#: ../../../cache/twig_gettext_keys.php:77
+#: ../../../cache/twig_gettext_keys.php:78
 msgid "Conception et fabrication de : "
 msgstr ""
 
-#: ../../../cache/twig_gettext_keys.php:78
+#: ../../../cache/twig_gettext_keys.php:79
 msgid "Tous droits reserves"
 msgstr ""
 
-#: ../../../cache/twig_gettext_keys.php:79
+#: ../../../cache/twig_gettext_keys.php:80
 msgid "Dossier suivi par"
 msgstr ""
 
-#: ../../../cache/twig_gettext_keys.php:80
+#: ../../../cache/twig_gettext_keys.php:81
 msgid "Produit certifie"
 msgstr "Produit certifié"
 
-#: ../../../cache/twig_gettext_keys.php:81
+#: ../../../cache/twig_gettext_keys.php:82
 msgid "Projet de commande Printbox"
 msgstr "Projet de commande Printbox"
 
-#: ../../../cache/twig_gettext_keys.php:82
+#: ../../../cache/twig_gettext_keys.php:83
 msgid "Printboxer"
 msgstr "Printboxer"
 
-#: ../../../cache/twig_gettext_keys.php:83
+#: ../../../cache/twig_gettext_keys.php:84
 msgid "Client Final Printboxer"
 msgstr "Client Final"
 
-#: ../../../cache/twig_gettext_keys.php:84
+#: ../../../cache/twig_gettext_keys.php:85
 #, fuzzy
 msgid "Accuse de reception de commande Printbox"
 msgstr "Aviso de receção do pedido"
-
-#: ../../../cache/twig_gettext_keys.php:85
-msgid "En signant ce formulaire"
-msgstr ""
-"Ao subscrever esta autorização, está a autorizar (A) (NOME DO CREDOR) a "
-"enviar instruções ao seu Banco para debitar a sua conta e (B) o seu Banco a "
-"debitar a sua conta, de acordo com as instruções de (NOME DO CREDOR)"
 
 #: ../../../cache/twig_gettext_keys.php:86
 msgid "Conditions generales"
@@ -2627,6 +2625,13 @@ msgstr ""
 "fazer o seguimento do seu pedido, deve iniciar sessão na nossa página e "
 "escolher a opção \"seguimento\". As nossas condições gerais de venda estão "
 "disponíveis em: %link2%"
+
+#: ../../../cache/twig_gettext_keys.php:87
+msgid "En signant ce formulaire"
+msgstr ""
+"Ao subscrever esta autorização, está a autorizar (A) (NOME DO CREDOR) a "
+"enviar instruções ao seu Banco para debitar a sua conta e (B) o seu Banco a "
+"debitar a sua conta, de acordo com as instruções de (NOME DO CREDOR)"
 
 # FICHE DE FAB
 #: ../../../lib/Exaprint/GenPDF/FicheDeFabrication/Amalgame/Cellule/Perforation.php:35
