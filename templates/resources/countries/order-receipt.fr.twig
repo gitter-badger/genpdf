@@ -4,5 +4,5 @@
     <p>{{ ("Conditions generales"|trans)|replace({
         '%link1%': '<a href="commande@exaprint.fr">commande@exaprint.fr</a>',
         '%link2%': '<a href="http://www.exaprint.fr/page/conditions-generales-de-vente">http://www.exaprint.fr/page/conditions-generales-de-vente</a>'
-    }) }}</p>
+    })|raw }}</p>
 {% endblock %}
