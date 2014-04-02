@@ -163,7 +163,7 @@
 
         <hr>
         <div id="mentions">
-            <p>{{ ("Conditions generales"|trans)|replace({'%link%': '<a href="commande@exaprint.fr">commande@exaprint.fr</a>'}) }}</p>
+            {% block mentions %}{% endblock %}
         </div>
     </div>
 {% endblock %}
