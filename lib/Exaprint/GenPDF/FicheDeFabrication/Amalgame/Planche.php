@@ -65,11 +65,13 @@ class Planche
                 [
                     "label" => "Expé SANS façonnage",
                     "value" => $this->planche['ExpeSansFaconnage'],
+                    "valueFont" => new Font('bagc-bold', 36, new TextColor(Color::cmyk(0, 100, 75, 0))),
                     "width" => $this->layout->pEnteteExpeSansFaconnageWidth
                 ],
                 [
                     "label" => "Expé AVEC façonnage",
                     "value" => $this->planche['ExpeAvecFaconnage'],
+                    "valueFont" => new Font('bagc-bold', 36, new TextColor(Color::cmyk(0, 100, 75, 0))),
                     "width" => $this->layout->pEnteteExpeAvecFaconnageWidth
                 ],
                 [
@@ -143,7 +145,7 @@ class Planche
                 [
                     "value"     => $this->getPelliculage(),
                     "width"     => 78,
-                    "valueFont" => new Font('bagc-light', 30, new TextColor(Color::black())),
+                    "valueFont" => new Font('bagc-light', 30, new TextColor(Color::white())),
                     "fillColor" => new FillColor(Color::cmyk(0, 100, 80, 0)),
                 ],
 

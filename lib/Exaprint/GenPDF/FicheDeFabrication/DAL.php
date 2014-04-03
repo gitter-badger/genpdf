@@ -119,7 +119,6 @@ class DAL
         $fichiers = [];
         foreach ($json as $fichier) {
             if ($fichier['type'] == 'normalized' && $fichier['ext'] == 'jpg') {
-                $fichiers[]      = $fichier;
                 $fichiers[$fichier['href']] = $fichier;
             }
         }
