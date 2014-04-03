@@ -1,5 +1,22 @@
 {% extends "resources/mandate.twig" %}
 
+{% block custom_fields_1 %}
+    <div class="block w100">{% trans "Representant legal" %}</div><!--
+    --><div class="block blank w300"></div>
+
+    <br />
+    <div class="block w100">{% trans "Code fiscal" %}</div><!--
+    --><div class="block blank w300"></div>
+
+    <br />
+
+    <div class="block w100">{% trans "Votre Adresse" %}</div><!--
+    --><div class="block blank w300">{{ Customer.Adress1 }}</div><br />
+    <div class="block blank w300 ml100">{{ Customer.Adress2 }}</div><br />
+
+    <br />
+{% endblock %}
+
 {% block siret %}
 <div class="block w100">{% trans "P.IVA" %}</div>
 {% set VATId = Customer.VATId ~ "" %}

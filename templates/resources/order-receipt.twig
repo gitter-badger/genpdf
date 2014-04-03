@@ -15,7 +15,8 @@
 {% endblock %}
 
 {% block page %}
-    <h1>{% trans "Accuse de reception de commande" %}</h1>
+    <h1>{% trans "merci de votre commande" %}</h1>
+    <div id="subtitle">{% trans "accuse de reception de commande" %}</div>
 
     <div id="delivery">
         <h2>{% trans "Livraison" %}</h2>
@@ -163,7 +164,7 @@
 
         <hr>
         <div id="mentions">
-            <p>{{ ("Conditions generales"|trans)|replace({'%link%': '<a href="commande@exaprint.fr">commande@exaprint.fr</a>'}) }}</p>
+            {% block mentions %}{% endblock %}
         </div>
     </div>
 {% endblock %}
