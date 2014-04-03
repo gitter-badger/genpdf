@@ -51,12 +51,16 @@
 
                     <br />
 
-                    <div class="block w100">{% trans "Votre Adresse" %}</div><!--
-                    --><div class="block blank w300">{{ Customer.Adress1 }}</div><br />
-                    <div class="block blank w300 ml100"></div><br />
-                    <div class="block blank w300 ml100"></div>
+                    {% block custom_fields_1 %}
 
-                    <br />
+                        <div class="block w100">{% trans "Votre Adresse" %}</div><!--
+                        --><div class="block blank w300">{{ Customer.Adress1 }}</div><br />
+                        <div class="block blank w300 ml100">{{ Customer.Adress2 }}</div><br />
+                        <div class="block blank w300 ml100">{{ Customer.Adress3 }}</div>
+
+                        <br />
+
+                    {% endblock %}
 
                     <div class="block w100">{% trans "Code postal" %}</div><!--
                     --><div class="block blank w50">{{ Customer.PostalCode }}</div><!--
