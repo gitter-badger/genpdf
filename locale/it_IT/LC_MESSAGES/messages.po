@@ -1,8 +1,8 @@
 msgid ""
 msgstr ""
 "Project-Id-Version: GenPDF\n"
-"POT-Creation-Date: 2014-04-01 10:50+0100\n"
-"PO-Revision-Date: 2014-04-01 10:50+0100\n"
+"POT-Creation-Date: 2014-04-03 09:58+0100\n"
+"PO-Revision-Date: 2014-04-03 09:59+0100\n"
 "Last-Translator: \n"
 "Language-Team: Exaprint\n"
 "Language: it_IT\n"
@@ -2491,155 +2491,151 @@ msgid "Veuillez completer tous les champs du mandat."
 msgstr "Vogliate compilare tutti i campi del modulo."
 
 #: ../../../cache/twig_gettext_keys.php:51
-msgid "Accuse de reception de commande"
-msgstr "Conferma ricezione ordine"
+msgid "merci de votre commande"
+msgstr "Grazie per il suo ordine"
 
 #: ../../../cache/twig_gettext_keys.php:52
+msgid "accuse de reception de commande"
+msgstr "In allegato trova la conferma di ricezione ordine"
+
+#: ../../../cache/twig_gettext_keys.php:53
 msgid "Livraison"
 msgstr "Consegna"
 
-#: ../../../cache/twig_gettext_keys.php:53
+#: ../../../cache/twig_gettext_keys.php:54
 msgid "Client"
 msgstr "Cliente"
 
-#: ../../../cache/twig_gettext_keys.php:54
+#: ../../../cache/twig_gettext_keys.php:55
 msgid "Raison Sociale"
 msgstr "Ragione Sociale"
 
-#: ../../../cache/twig_gettext_keys.php:55
+#: ../../../cache/twig_gettext_keys.php:56
 msgid "Contact"
 msgstr "Riferimento"
 
-#: ../../../cache/twig_gettext_keys.php:56
+#: ../../../cache/twig_gettext_keys.php:57
 msgid "Mlle"
 msgstr "Sig.na"
 
-#: ../../../cache/twig_gettext_keys.php:57
+#: ../../../cache/twig_gettext_keys.php:58
 msgid "Mme"
 msgstr "Sig.ra"
 
-#: ../../../cache/twig_gettext_keys.php:58
+#: ../../../cache/twig_gettext_keys.php:59
 msgid "Mr"
 msgstr "Sig."
 
-#: ../../../cache/twig_gettext_keys.php:59
+#: ../../../cache/twig_gettext_keys.php:60
 msgid "Ms"
 msgstr ""
 
-#: ../../../cache/twig_gettext_keys.php:60
+#: ../../../cache/twig_gettext_keys.php:61
 msgid "Numero TVA"
 msgstr "Numero P.IVA"
 
-#: ../../../cache/twig_gettext_keys.php:61
+#: ../../../cache/twig_gettext_keys.php:62
 msgid "Produit"
 msgstr "Prodotto"
 
-#: ../../../cache/twig_gettext_keys.php:62
+#: ../../../cache/twig_gettext_keys.php:63
 msgid "Commande"
 msgstr "Ordine"
 
-#: ../../../cache/twig_gettext_keys.php:63
+#: ../../../cache/twig_gettext_keys.php:64
 msgid "Numero de commande"
 msgstr "N° ordine"
 
-#: ../../../cache/twig_gettext_keys.php:64
+#: ../../../cache/twig_gettext_keys.php:65
 msgid "Numero de devis"
 msgstr "N° preventivo"
 
-#: ../../../cache/twig_gettext_keys.php:65
+#: ../../../cache/twig_gettext_keys.php:66
 msgid "Reference commande"
 msgstr "Riferimento ordine"
 
-#: ../../../cache/twig_gettext_keys.php:66
+#: ../../../cache/twig_gettext_keys.php:67
 msgid "Reference devis"
 msgstr "Riferimento preventivo"
 
-#: ../../../cache/twig_gettext_keys.php:67
+#: ../../../cache/twig_gettext_keys.php:68
 msgid "Date"
 msgstr "Data"
 
-#: ../../../cache/twig_gettext_keys.php:68
+#: ../../../cache/twig_gettext_keys.php:69
 msgid "Mode de reglement"
 msgstr "Modalità di pagamento"
 
-#: ../../../cache/twig_gettext_keys.php:69
+#: ../../../cache/twig_gettext_keys.php:70
 msgid "Responsable du dossier"
 msgstr "Responsabile del lavoro"
 
-#: ../../../cache/twig_gettext_keys.php:70
+#: ../../../cache/twig_gettext_keys.php:71
 msgid "HT"
 msgstr "Imponibile"
 
-#: ../../../cache/twig_gettext_keys.php:71
+#: ../../../cache/twig_gettext_keys.php:72
 msgid "TVA"
 msgstr "IVA"
 
-#: ../../../cache/twig_gettext_keys.php:72
+#: ../../../cache/twig_gettext_keys.php:73
 msgid "TTC"
 msgstr "Totale IVA inclusa"
 
-#: ../../../cache/twig_gettext_keys.php:73
+#: ../../../cache/twig_gettext_keys.php:74
 msgid "Total"
 msgstr "Totale"
 
-#: ../../../cache/twig_gettext_keys.php:74
+#: ../../../cache/twig_gettext_keys.php:75
 msgid "Solde"
 msgstr "Residuo da pagare"
 
-#: ../../../cache/twig_gettext_keys.php:75
+#: ../../../cache/twig_gettext_keys.php:76
 msgid "Devis des commandes partenaires"
 msgstr ""
 
-#: ../../../cache/twig_gettext_keys.php:76
+#: ../../../cache/twig_gettext_keys.php:77
 msgid "Email"
 msgstr "Mail"
 
-#: ../../../cache/twig_gettext_keys.php:77
+#: ../../../cache/twig_gettext_keys.php:78
 msgid "Conception et fabrication de : "
 msgstr ""
 
-#: ../../../cache/twig_gettext_keys.php:78
+#: ../../../cache/twig_gettext_keys.php:79
 msgid "Tous droits reserves"
 msgstr ""
 
-#: ../../../cache/twig_gettext_keys.php:79
+#: ../../../cache/twig_gettext_keys.php:80
 msgid "Dossier suivi par"
 msgstr ""
 
-#: ../../../cache/twig_gettext_keys.php:80
+#: ../../../cache/twig_gettext_keys.php:81
 msgid "Produit certifie"
 msgstr "Prodotto certificato"
 
-#: ../../../cache/twig_gettext_keys.php:81
+#: ../../../cache/twig_gettext_keys.php:82
 msgid "Projet de commande Printbox"
 msgstr "Printbox projetto"
 
-#: ../../../cache/twig_gettext_keys.php:82
+#: ../../../cache/twig_gettext_keys.php:83
 msgid "Printboxer"
 msgstr "Printboxer"
 
-#: ../../../cache/twig_gettext_keys.php:83
+#: ../../../cache/twig_gettext_keys.php:84
 msgid "Client Final Printboxer"
 msgstr "Finalo client"
 
-#: ../../../cache/twig_gettext_keys.php:84
+#: ../../../cache/twig_gettext_keys.php:85
 #, fuzzy
 msgid "Accuse de reception de commande Printbox"
 msgstr "Riferimento"
-
-#: ../../../cache/twig_gettext_keys.php:85
-msgid "En signant ce formulaire"
-msgstr ""
-"Firmando questo modulo, autorizzate (A) {NOM DU CREANCIER} a inviare "
-"istruzioni alla vostra banca per l'addebito sul vostro conto, (B) la vostra "
-"banca ad eseguire l'addebito secondo le disposizioni impartite dal {NOM DU "
-"CREANCIER}."
 
 #: ../../../cache/twig_gettext_keys.php:86
 msgid "Conditions generales"
 msgstr ""
 "Se una di queste indicazioni non vi risulta corretta, vi preghiamo di "
-"comunicarcelo il prima possibile al seguente indirizzo: %link%. Gli ordini "
+"comunicarcelo il prima possibile al seguente indirizzo: %link1%. Gli ordini "
 "vengono convalidati dall’ufficio Amministrativo entro le 18.00h di ogni "
 "giorno lavorativo. Oltre quest’orario, gli ordini verranno registrati il "
 "giorno seguente. La tempistica si calcola dal momento in cui riceviamo il "
@@ -2649,7 +2645,15 @@ msgstr ""
 "tempi si conteranno a partire dallo sblocco dei vostri file. Potete "
 "monitorare lo status del vostro ordine connettendovi sul vostro account "
 "nella sezione ORDINI, I VOSTRI ORDINI, DETTAGLIO DEL VOSTRO ORDINE. "
-"Troverete le nostre condizioni di vendita all’indirizzo: www.exaprint.it"
+"Troverete le nostre condizioni di vendita all’indirizzo: %link2%"
+
+#: ../../../cache/twig_gettext_keys.php:87
+msgid "En signant ce formulaire"
+msgstr ""
+"Firmando questo modulo, autorizzate (A) {NOM DU CREANCIER} a inviare "
+"istruzioni alla vostra banca per l'addebito sul vostro conto, (B) la vostra "
+"banca ad eseguire l'addebito secondo le disposizioni impartite dal {NOM DU "
+"CREANCIER}."
 
 #: ../../../lib/Exaprint/GenPDF/FicheDeFabrication/Amalgame/Cellule/Perforation.php:35
 #: ../../../lib/Exaprint/GenPDF/FicheDeFabrication/Amalgame/Cellule/Pliage.php:34
@@ -2662,6 +2666,10 @@ msgstr ""
 #, fuzzy
 msgid "valeur_"
 msgstr "350g opaca Condat Périgord"
+
+#, fuzzy
+#~ msgid "Code fiscal"
+#~ msgstr "Codice postale"
 
 #, fuzzy
 #~ msgid "Date de commande"

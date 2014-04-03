@@ -145,7 +145,21 @@ class OrderReceipt extends Resource implements IResource
      */
     public function getTemplateFilename()
     {
-        return "resources/order-receipt.twig";
+        $filename = "resources/";
+        if (\Locale\Helper::$current == 'en_GB') {
+            $filename .= "countries/order-receipt.en.twig";
+        } else if (\Locale\Helper::$current == 'es_ES') {
+            $filename .= "countries/order-receipt.es.twig";
+        } else if (\Locale\Helper::$current == 'fr_FR') {
+            $filename .= "countries/order-receipt.fr.twig";
+        } else if (\Locale\Helper::$current == 'it_IT') {
+            $filename .= "countries/order-receipt.it.twig";
+        } else if (\Locale\Helper::$current == 'pt_PT') {
+            $filename .= "countries/order-receipt.pt.twig";
+        } else {
+            $filename .= "invoice.twig";
+        }
+        return $filename;
     }
 
     /**
