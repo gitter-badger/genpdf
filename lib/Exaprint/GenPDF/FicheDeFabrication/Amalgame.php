@@ -43,6 +43,7 @@ class Amalgame
     protected $currentCommandePosition = 1;
     protected $layout;
     protected $pageNumber = 0;
+    protected $_pageCount;
 
     public function __construct($planche)
     {
@@ -85,7 +86,7 @@ class Amalgame
         $this->pageNumber++;
 
         $cell           = new Cell();
-        $cell->text     = $this->pageNumber;
+        $cell->text     = $this->pageNumber . '/' . $this->getPageCount();
         $cell->font     = new Font('bagc-bold', 14, new TextColor(Color::black()));
         $cell->position = new Position($this->layout->pageWidth - $this->layout->marge - 20, $this->layout->pageHeight - 10);
         $cell->width    = 20;
@@ -95,6 +96,13 @@ class Amalgame
         $cell->draw($this->pdf);
     }
 
+    protected function getPageCount()
+    {
+        if(!isset($this->_pageCount))
+            $this->_pageCount = ceil((count($this->planche['commandes']) + 2) / 4);
+
+        return $this->_pageCount;
+    }
     protected function souche()
     {
 

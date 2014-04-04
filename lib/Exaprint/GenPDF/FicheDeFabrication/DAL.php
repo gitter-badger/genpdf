@@ -86,7 +86,7 @@ class DAL
             $i++;
         }
 
-        $i = 0;//todo remplacer par un for()
+        $i = 0; //todo remplacer par un for()
         foreach ($groupages as $cle => $groupage) {
             if (count($groupage) > 1) {
                 foreach ($groupage as $index) {
@@ -118,7 +118,10 @@ class DAL
         $json     = json_decode($raw, true);
         $fichiers = [];
         foreach ($json as $fichier) {
-            if ($fichier['type'] == 'normalized' && $fichier['ext'] == 'jpg') {
+            if ($fichier['type'] == 'normalized'
+                && $fichier['ext'] == 'jpg'
+                && strpos($fichier["filename"], 'outil') === false
+            ) {
                 $fichiers[$fichier['href']] = $fichier;
             }
         }

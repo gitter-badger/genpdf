@@ -81,8 +81,10 @@ class Planche
                     "valueFont" => new Font('bagc-bold', 36, new TextColor(Color::cmyk(0, 100, 75, 0))),
                 ],
                 [
-                    "value" => $this->planche['EstSousTraitance'],
-                    "width" => 20
+                    "value" => ($this->planche['EstSousTraitance']) ? 'ST' : null,
+                    "width" => 20,
+                    "valueFont" => new Font('bagc-bold', 36, new TextColor(Color::white())),
+                    "fillColor" => new FillColor(Color::cmyk(0, 50, 80, 0))
                 ],
                 [
                     "callback" => 'codeBarre',
@@ -117,16 +119,16 @@ class Planche
                 [
                     "image" => $this->getImpressionRectoVerso(),
                     "width" => 16,
-                ], /*
+                ],
                 [
                     "value" => _('bascule_' . $this->planche['Bascule']),
                     "valueFont" => new Font('bagc-light', 26, new TextColor(Color::black())),
                     "width" => 16,
-                ],*/
+                ],
                 [
                     "value"     => _('valeur_' . $this->planche['Support']),
                     "valueFont" => new Font('bagc-light', 26, new TextColor(Color::black())),
-                    "width"     => 108,
+                    "width"     => 92,
                     "fillColor" => new FillColor(Color::cmyk(0, 0, 75, 0)),
                 ]
             ],
@@ -476,10 +478,10 @@ class Planche
     {
         if (is_null($this->planche['VernisSelectifRecto'])) return null;
 
-        $txt = _('valeur_' . $this->planche['VernisSelectifRecto']);
+        $txt = _('valeur_' . $this->planche['VernisSelectifRecto']) . ' R°';
 
         if ($this->planche['VernisSelectifVerso']) {
-            $txt .= ' RV';
+            $txt .= 'V°';
         }
 
         return $txt;
