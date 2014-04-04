@@ -160,7 +160,7 @@ class Planche
                 [
                     "value"     => $this->getVernis(),
                     "width"     => 78,
-                    "valueFont" => new Font('bagc-light', 30, new TextColor(Color::black()))
+                    "valueFont" => new Font('bagc-light', 30, new TextColor(Color::white()))
                 ],
             ]
         ];
