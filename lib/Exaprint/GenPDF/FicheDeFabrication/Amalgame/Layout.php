@@ -71,7 +71,7 @@ class Layout
         ['BatPapier', 'Justificatif', 'Retirage'],
         ['SousTraitance', 'Groupage', ''],
         ['', '', ''],
-        ['Predecoupe', '', ''],
+        ['Predecoupe', 'CoinsRonds', ''],
         ['Pliage', 'Rainage', 'Perforation'],
         ['', 'PorteCarte', 'Societe']
     ];
