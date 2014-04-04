@@ -2,7 +2,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: genPDF\n"
 "POT-Creation-Date: 2014-04-01 10:52+0100\n"
-"PO-Revision-Date: 2014-04-04 10:37+0100\n"
+"PO-Revision-Date: 2014-04-04 14:19+0100\n"
 "Last-Translator: \n"
 "Language-Team: Exaprint <romain@exaprint.fr>\n"
 "Language: fr_FR\n"
@@ -2675,13 +2675,15 @@ msgid "valeur_"
 msgstr "350g Mat Condat Périgord "
 
 msgid "bascule_1"
-msgstr "in8 "
+msgstr " "
 
 msgid "bascule_2"
+msgstr "in8"
+
+msgid "bascule_3"
 msgstr "in12"
 
-# Retiration ou RV8coul
-msgid "bascule_3"
+msgid "bascule_4"
 msgstr "retir"
 
 #~ msgid "Date de commande"
