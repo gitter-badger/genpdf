@@ -63,16 +63,16 @@ class Planche
                     "width" => $this->layout->pEnteteIdPlancheWidth
                 ],
                 [
-                    "label" => "Expé SANS façonnage",
-                    "value" => $this->planche['ExpeSansFaconnage'],
+                    "label"     => "Expé SANS façonnage",
+                    "value"     => $this->planche['ExpeSansFaconnage'],
                     "valueFont" => new Font('bagc-bold', 36, new TextColor(Color::cmyk(0, 100, 75, 0))),
-                    "width" => $this->layout->pEnteteExpeSansFaconnageWidth
+                    "width"     => $this->layout->pEnteteExpeSansFaconnageWidth
                 ],
                 [
-                    "label" => "Expé AVEC façonnage",
-                    "value" => $this->planche['ExpeAvecFaconnage'],
+                    "label"     => "Expé AVEC façonnage",
+                    "value"     => $this->planche['ExpeAvecFaconnage'],
                     "valueFont" => new Font('bagc-bold', 36, new TextColor(Color::cmyk(0, 100, 75, 0))),
-                    "width" => $this->layout->pEnteteExpeAvecFaconnageWidth
+                    "width"     => $this->layout->pEnteteExpeAvecFaconnageWidth
                 ],
                 [
                     "label"     => "Impératifs",
@@ -258,7 +258,7 @@ class Planche
         $startY = $y;
         $startX = $this->layout->marge;
 
-        $i      = 1;
+        $i = 1;
         foreach ($this->getIndicationsCommandes() as $type => $pages) {
             if (count($pages)) {
                 $cell           = new Cell();
@@ -281,7 +281,6 @@ class Planche
                 );
                 $x += 7;
             }
-
 
 
             if (count($pages)) {
@@ -597,6 +596,15 @@ class Planche
             );
             $position = $position->add(new Position(30 + $margin, 0));
         }
+        if ($this->planche['Predecoupe']) {
+            $this->tagFaconnage(
+                $position->add($pMargin),
+                new Dimensions(40, $dimensions->height - $margin * 2),
+                'Prédécoupe',
+                Color::cmyk(0, 30, 10, 80)
+            );
+            $position = $position->add(new Position(30 + $margin, 0));
+        }
     }
 
     protected function tagFaconnage(Position $position, Dimensions $dimensions, $txt, Color $color)
@@ -620,6 +628,8 @@ class Planche
         $cell->fill     = false;
         $cell->draw($this->pdf);
     }
+
+
 
     protected function getIndicationsCommandes()
     {
@@ -648,6 +658,7 @@ class Planche
                 'Pliage'               => 'Pliage',
                 'Rainage'              => 'Rainage',
                 'Perforation'          => 'Perfo',
+                'Predecoupe'           => 'Pré-déc',
                 'EstImperatif'         => 'IMPÉ',
                 'IDCommandePrincipale' => 'Ret',
             ];

@@ -2,7 +2,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: genPDF\n"
 "POT-Creation-Date: 2014-04-01 10:52+0100\n"
-"PO-Revision-Date: 2014-04-02 09:59+0100\n"
+"PO-Revision-Date: 2014-04-04 09:46+0100\n"
 "Last-Translator: \n"
 "Language-Team: Exaprint <romain@exaprint.fr>\n"
 "Language: fr_FR\n"
@@ -1891,33 +1891,40 @@ msgstr "|||"
 msgid "valeur_249"
 msgstr "Sans"
 
+# 1 prédécoupe
 #: ../../../cache/fiche-fab-keys.php:465
 msgid "valeur_207"
-msgstr "1 prédécoupe"
+msgstr "1…"
 
+# 2 prédécoupes parallèles
 #: ../../../cache/fiche-fab-keys.php:466
 msgid "valeur_208"
-msgstr "2 prédécoupes parallèles"
+msgstr "2…"
 
+# 4 prédécoupes parallèles
 #: ../../../cache/fiche-fab-keys.php:467
 msgid "valeur_526"
-msgstr "4 prédécoupes parallèles"
+msgstr "4…"
 
+# 5 prédécoupes parallèles
 #: ../../../cache/fiche-fab-keys.php:468
 msgid "valeur_527"
-msgstr "5 prédécoupes parallèles"
+msgstr "5…"
 
+# X prédécoupes : outil à créer
 #: ../../../cache/fiche-fab-keys.php:469
 msgid "valeur_529"
-msgstr "X prédécoupes : outil à créer"
+msgstr "X…N"
 
+# X Prédécoupes - Outil existant
 #: ../../../cache/fiche-fab-keys.php:470
 msgid "valeur_530"
-msgstr "X prédécoupes : outil existant"
+msgstr "X…E"
 
+# 1 prédécoupe
 #: ../../../cache/fiche-fab-keys.php:471
 msgid "valeur_1581"
-msgstr "1 prédécoupe"
+msgstr "1…"
 
 # Perpendiculaire
 #: ../../../cache/fiche-fab-keys.php:472

@@ -71,7 +71,7 @@ class Layout
         ['BatPapier', 'Justificatif', 'Retirage'],
         ['SousTraitance', 'Groupage', ''],
         ['', '', ''],
-        ['', '', ''],
+        ['Predecoupe', '', ''],
         ['Pliage', 'Rainage', 'Perforation'],
         ['', 'PorteCarte', 'Societe']
     ];
@@ -135,7 +135,7 @@ class Layout
 
     public function hBloc()
     {
-        return ($this->pageHeight - $this->soucheHeight - $this->pied- $this->gouttiere) / 2;
+        return ($this->pageHeight - $this->soucheHeight - $this->pied - $this->gouttiere) / 2;
     }
 
 } 
