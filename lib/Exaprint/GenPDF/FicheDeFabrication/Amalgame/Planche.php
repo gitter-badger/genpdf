@@ -649,8 +649,13 @@ class Planche
             $position = (int)(($i + 2) % 4);
 
             if (trim($commande['CommentairePAO']) != '') {
-                if (!isset($result['CommentairePAO'][$page])) $result['Com. PAO'][$page] = [];
+                if (!isset($result['Com. PAO'][$page])) $result['Com. PAO'][$page] = [];
                 $result['Com. PAO'][$page][$position] = ['IDCommande' => $commande['IDCommande']];
+            }
+
+            if (strpos($commande['CodeProduit'], 'CCOMF') === 0 || strpos($commande['CodeProduit'], 'CCOMDF')) {
+                if (!isset($result['Kit Fidélité'][$page])) $result['Kit Fidélité'][$page] = [];
+                $result['Kit Fidélité'][$page][$position] = ['IDCommande' => $commande['IDCommande']];
             }
 
             $tests = [
