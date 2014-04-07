@@ -294,9 +294,9 @@ class Planche
                 }
                 $i++;
             }
-
-
         }
+
+        $this->drawObservationsTechniques();
     }
 
     public function drawIndicationCommandesPage(
@@ -680,5 +680,18 @@ class Planche
         }
 
         return $result;
+    }
+
+    protected function drawObservationsTechniques()
+    {
+        $cell = new MultiCell();
+        $cell->text = $this->planche['ObservationsTechnique'];
+        $cell->width = 75;
+        $cell->height = 48;
+        $cell->border = 1;
+        $cell->font = new Font('bagc-light', 11, new TextColor(Color::black()));
+        $cell->x = 130;
+        $cell->y = 97;
+        $cell->draw($this->pdf);
     }
 }
