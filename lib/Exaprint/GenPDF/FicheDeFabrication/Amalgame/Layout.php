@@ -73,7 +73,7 @@ class Layout
         ['', '', ''],
         ['Predecoupe', 'CoinsRonds', ''],
         ['Pliage', 'Rainage', 'Perforation'],
-        ['', 'PorteCarte', 'Societe']
+        ['KitFidelite', 'PorteCarte', 'Societe']
     ];
 
 
