@@ -15,30 +15,32 @@ use Exaprint\TCPDF\Color;
 use Exaprint\TCPDF\FillColor;
 use Exaprint\TCPDF\Font;
 use Exaprint\TCPDF\Position;
+use Exaprint\TCPDF\Text;
 use Exaprint\TCPDF\TextColor;
 
-class PorteCarte implements ICellule
+class DecoupeALaForme implements ICellule
 {
     public function draw(Position $position, \TCPDF $pdf, $cellSize, array $commande)
     {
-        if (isset($commande['NbPorteCarte']) && $commande['NbPorteCarte']) {
+
+        if (isset($commande['DecoupeALaForme']) && ($decoupe = $commande['DecoupeALaForme'])) {
             $cell           = new Cell();
             $cell->position = $position;
             $cell->fill     = false;
             $cell->width    = $cellSize;
             $cell->height   = $cellSize;
             $cell->border   = true;
-            $cell->align    = Cell::ALIGN_CENTER;
-            $cell->vAlign   = Cell::VALIGN_CENTER;
-            $cell->font     = new Font('bagc-bold', 28, new TextColor(Color::greyscale(190)));
-            $cell->text     = 'PC';
             $cell->draw($pdf);
 
-            $cell->font = new Font('bagc-bold', 16, new TextColor(Color::greyscale(0)));
-            $cell->text = $commande['NbPorteCarte'];
-            $cell->draw($pdf);
-
-
+            $cTxt           = new Cell();
+            $cTxt->position = $position;
+            $cTxt->fill     = false;
+            $cTxt->border   = 0;
+            $cTxt->text     = $decoupe;
+            $cTxt->font     = new Font('bagc-bold', 16, new TextColor(Color::greyscale(0)));
+            $cTxt->width    = $cellSize;
+            $cTxt->height   = $cellSize;
+            $cTxt->draw($pdf);
         } else {
             Helper::drawEmptyCell($position, $pdf, $cellSize);
         }

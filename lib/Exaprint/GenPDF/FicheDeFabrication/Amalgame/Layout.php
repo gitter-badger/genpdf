@@ -62,6 +62,7 @@ class Layout
     public $cLivraisonCodePaysHeight = 9;
 
     public $cExpeditionDateWidth = 16;
+    public $cTransporteurWidth = 12;
     public $cExpeditionDateHeight = 10;
     public $cExpeditionDateFontSize = 20;
 
@@ -71,7 +72,7 @@ class Layout
         ['BatPapier', 'Justificatif', 'Retirage'],
         ['SousTraitance', 'Groupage', ''],
         ['', '', ''],
-        ['Predecoupe', 'CoinsRonds', ''],
+        ['Predecoupe', 'CoinsRonds', 'DecoupeALaForme'],
         ['Pliage', 'Rainage', 'Perforation'],
         ['KitFidelite', 'PorteCarte', 'Societe']
     ];

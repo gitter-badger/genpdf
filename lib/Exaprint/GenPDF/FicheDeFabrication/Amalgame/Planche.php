@@ -17,6 +17,7 @@ use Exaprint\TCPDF\Dimensions;
 use Exaprint\TCPDF\FillColor;
 use Exaprint\TCPDF\Font;
 use Exaprint\TCPDF\Image;
+use Exaprint\TCPDF\LineStyle;
 use Exaprint\TCPDF\MultiCell;
 use Exaprint\TCPDF\Position;
 use Exaprint\TCPDF\Rect;
@@ -81,8 +82,9 @@ class Planche
                     "valueFont" => new Font('bagc-bold', 36, new TextColor(Color::cmyk(0, 100, 75, 0))),
                 ],
                 [
-                    "value" => ($this->planche['EstSousTraitance']) ? 'ST' : null,
-                    "width" => 20,
+                    "label"     => "Sous-traitance",
+                    "value"     => ($this->planche['EstSousTraitance']) ? 'ST' : null,
+                    "width"     => 20,
                     "valueFont" => new Font('bagc-bold', 36, new TextColor(Color::white())),
                     "fillColor" => new FillColor(Color::cmyk(0, 50, 80, 0))
                 ],
@@ -121,9 +123,10 @@ class Planche
                     "width" => 16,
                 ],
                 [
-                    "value" => _('bascule_' . $this->planche['Bascule']),
+                    "label"     => 'Bascule',
+                    "value"     => ($this->planche['Bascule'] == 1) ? null : _('bascule_' . $this->planche['Bascule']),
                     "valueFont" => new Font('bagc-light', 26, new TextColor(Color::black())),
-                    "width" => 16,
+                    "width"     => 16,
                 ],
                 [
                     "value"     => _('valeur_' . $this->planche['Support']),
@@ -206,8 +209,29 @@ class Planche
                 ],
                 [
                     "callback" => "faconnage",
-                    "width"    => 178
-                ]
+                    "width"    => 142
+                ],
+                [
+                    "value"     => $this->countPortesCarte(),
+                    "label"     => "P-C",
+                    "width"     => 12,
+                    "valueFont" => new Font('bagc-bold', 23, new TextColor(Color::black())),
+                    "fillColor" => new FillColor(Color::cmyk(0, 50, 75, 0)),
+                ],
+                [
+                    "value"     => $this->countJustificatifs(),
+                    "label"     => "Justifs",
+                    "width"     => 12,
+                    "valueFont" => new Font('bagc-bold', 23, new TextColor(Color::black())),
+                    "fillColor" => new FillColor(Color::cmyk(50, 75, 0, 0)),
+                ],
+                [
+                    "value"     => $this->countKitFidelite(),
+                    "label"     => "Kits fidélité",
+                    "width"     => 12,
+                    "valueFont" => new Font('bagc-bold', 23, new TextColor(Color::black())),
+                    "fillColor" => new FillColor(Color::cmyk(0, 75, 50, 0)),
+                ],
             ]
         ];
 
@@ -387,15 +411,22 @@ class Planche
         $cell->fillColor       = $fillColor;
         $cell->draw($this->pdf);
 
+
+        if (!$value) {
+            $lineStyle        = new LineStyle();
+            $lineStyle->color = Color::greyscale(200);
+            $lineStyle->width = 0.2;
+            $lineStyle->apply($this->pdf);
+            $this->pdf->Line($p->x, $p->y, $d->width + $p->x, $d->height + $p->y);
+            $this->pdf->Line($d->width + $p->x, $p->y, $p->x, $d->height + $p->y);
+            $lineStyle->revert($this->pdf);
+        }
+
         if ($label) {
             $labelText = new Text($p->x, $p->y, $label, $labelFont);
             $labelText->draw($this->pdf);
         }
 
-        if (!$value) {
-            $this->pdf->Line($p->x, $p->y, $d->width + $p->x, $d->height + $p->y);
-            $this->pdf->Line($d->width + $p->x, $p->y, $p->x, $d->height + $p->y);
-        }
     }
 
 
@@ -632,7 +663,6 @@ class Planche
     }
 
 
-
     protected function getIndicationsCommandes()
     {
         $result = [
@@ -684,14 +714,46 @@ class Planche
 
     protected function drawObservationsTechniques()
     {
-        $cell = new MultiCell();
-        $cell->text = $this->planche['ObservationsTechnique'];
-        $cell->width = 75;
+        $cell         = new MultiCell();
+        $cell->text   = $this->planche['ObservationsTechnique'];
+        $cell->width  = 75;
         $cell->height = 48;
         $cell->border = 1;
-        $cell->font = new Font('bagc-light', 11, new TextColor(Color::black()));
-        $cell->x = 130;
-        $cell->y = 97;
+        $cell->font   = new Font('bagc-light', 11, new TextColor(Color::black()));
+        $cell->x      = 130;
+        $cell->y      = 97;
         $cell->draw($this->pdf);
+    }
+
+
+    protected function countPortesCarte()
+    {
+        $nbPortesCarte = 0;
+        foreach ($this->planche['commandes'] as $commande) {
+            $nbPortesCarte += $commande['NbPorteCarte'];
+        }
+        return $nbPortesCarte;
+    }
+
+    protected function countJustificatifs()
+    {
+        $justificatifs = 0;
+        foreach ($this->planche['commandes'] as $commande) {
+            if ($commande['Justificatif']) {
+                $justificatifs++;
+            }
+        }
+        return $justificatifs;
+    }
+
+    protected function countKitFidelite()
+    {
+        $kf = 0;
+        foreach ($this->planche['commandes'] as $commande) {
+            if (strpos($commande['CodeProduit'], 'CCOMF') === 0 || strpos($commande['CodeProduit'], 'CCOMDF')) {
+                $kf++;
+            }
+        }
+        return $kf;
     }
 }

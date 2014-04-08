@@ -34,13 +34,7 @@ class SousTraitance implements ICellule
             $cell->text = 'ST';
             $cell->draw($pdf);
         } else {
-            $cell = new Cell();
-            $cell->position = $position;
-            $cell->fill = false;
-            $cell->width = $cellSize;
-            $cell->height = $cellSize;
-            $cell->border = true;
-            $cell->draw($pdf);
+            Helper::drawEmptyCell($position, $pdf, $cellSize);
         }
     }
 } 

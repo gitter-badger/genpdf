@@ -56,13 +56,7 @@ class CoinsRonds implements ICellule {
                 $txt->draw($pdf);
                 break;
             default:
-                $cell = new Cell();
-                $cell->position = $position;
-                $cell->fill = false;
-                $cell->width = $cellSize;
-                $cell->height = $cellSize;
-                $cell->border = true;
-                $cell->draw($pdf);
+                Helper::drawEmptyCell($position, $pdf, $cellSize);
         }
     }
 

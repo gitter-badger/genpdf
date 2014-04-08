@@ -13,6 +13,8 @@ SELECT
   , c.IDCommandePrincipale
   , c.IDClientAdresseLivraison
   , c.IDClient
+  , c.IDTransporteur
+  , t.CodeTransporteur
   , cl.Quantite
   , cl.Justificatif
   , cl.BAT
@@ -39,7 +41,6 @@ SELECT
   , dbo.f_nIDProduitOptionValeurProduit(p.IDProduit, 104, 1) AS Pliage
   , dbo.f_nIDProduitOptionValeurProduit(p.IDProduit, 105, 1) AS DecoupeALaForme
   , dbo.f_nIDProduitOptionValeurProduit(p.IDProduit, 147, 1) AS Encollage
-  , dbo.f_bCommandeCertifiee(1) AS EstCertifieePEFC
 FROM
   TBL_COMMANDE c
   JOIN TBL_COMMANDE_LIGNE cl ON cl.IDCommande = c.IDCommande
@@ -51,3 +52,4 @@ FROM
   LEFT JOIN TBL_PAYS ap ON ap.IDPays = a.IDPays
   LEFT JOIN TBL_FQUALITE f ON f.IDCommande = c.IDCommandePrincipale AND f.CommentaireAtelier IS NOT NULL
   JOIN TBL_CLIENT client ON client.IDClient = c.IDClient
+  LEFT JOIN TBL_TRANSPORTEUR t ON t.IDTransporteur = c.IDTransporteur
