@@ -407,7 +407,8 @@ class Commande
 
         if ($this->commande['EstImperatif']) {
             $c->textColor->color = Color::cmyk(0, 0, 100, 0);
-            $c->fillColor->color = Color::cmyk(0, 100, 100, 0);
+            $c->fill = true;
+            $c->fillColor = new FillColor(Color::cmyk(0, 100, 100, 0));
         }
         $c->draw($this->pdf);
     }
