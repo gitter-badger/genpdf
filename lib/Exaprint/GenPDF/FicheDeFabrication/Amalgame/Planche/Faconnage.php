@@ -45,6 +45,7 @@ class Faconnage
         if($planche['Decoupe']) $message[] = _('valeur_' . $planche['Decoupe']);
         if($planche['Rainage']) $message[] = _('valeur_' . $planche['Rainage']);
         if($planche['Predecoupe']) $message[] = _('valeur_' . $planche['Predecoupe']);
+        if($planche['DecoupeALaForme']) $message[] = _('valeur_' . $planche['DecoupeALaForme']);
 
         return implode(' - ', $message);
 
