@@ -21,7 +21,7 @@ class KitFidelite implements ICellule
 {
     public function draw(Position $position, \TCPDF $pdf, $cellSize, array $commande)
     {
-        if (strpos($commande['CodeProduit'], 'CCOMF') === 0 || strpos($commande['CodeProduit'], 'CCOMDF')) {
+        if (strpos($commande['CodeProduit'], 'CCOMF') === 0 || strpos($commande['CodeProduit'], 'CCOMDF') === 0) {
             $cell           = new Cell();
             $cell->position = $position;
             $cell->fill     = false;

@@ -33,6 +33,7 @@ class Layout
     public $pCodeBarreMargin = 2;
     public $pObservationsWidth = 100;
     public $pObservationsHeight = 20;
+    public $pRowMargin = 0;
     public $pRangs = [
         "support",
         "impression",

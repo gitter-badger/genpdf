@@ -2,7 +2,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: genPDF\n"
 "POT-Creation-Date: 2014-04-01 10:52+0100\n"
-"PO-Revision-Date: 2014-04-04 14:19+0100\n"
+"PO-Revision-Date: 2014-04-11 11:04+0100\n"
 "Last-Translator: \n"
 "Language-Team: Exaprint <romain@exaprint.fr>\n"
 "Language: fr_FR\n"
@@ -2686,35 +2686,75 @@ msgstr "in12"
 msgid "bascule_4"
 msgstr "retir"
 
-#~ msgid "Date de commande"
-#~ msgstr "Date de la commande"
+# planche_action
+msgid "action_planche_9"
+msgstr "Routage"
 
-#~ msgid "SEPA Direct Debit Mandate"
-#~ msgstr "Mandat de prélèvement SEPA"
+msgid "action_planche_8"
+msgstr "Rainage"
 
-#~ msgid "Terms Of Service 1"
-#~ msgstr ""
-#~ "En signant ce formulaire de mandat, vous autorisez (A) {NOM DU CREANCIER} "
-#~ "à envoyer des instructions à votre banque pour débiter votre compte, et "
-#~ "(B) votre banque à débiter votre compte conformément aux instructions  de "
-#~ "{NOM DU CREANCIER}."
+msgid "action_planche_7"
+msgstr "Pliage"
 
-#~ msgid "Terms Of Service 2"
-#~ msgstr ""
-#~ "Vous bénéficiez d’un droit  à remboursement par votre banque selon les "
-#~ "conditions décrites dans la convention que vous avez  passée avec elle. "
-#~ "Toute demande de remboursement doit être présentée dans les 8 semaines "
-#~ "suivant la date de débit de votre compte."
+msgid "action_planche_6"
+msgstr "Pelliculage"
 
-#~ msgid "Revendeur"
-#~ msgstr "Revendeur"
+msgid "action_planche_5"
+msgstr "Découpe outil"
 
-#, fuzzy
-#~ msgid "currency_span"
-#~ msgstr "<span class=\"currency\">&euro;</span>"
+msgid "action_planche_4"
+msgstr "Encre à gratter"
 
-#~ msgid "Releve de factures"
-#~ msgstr "Relevé de factures"
+msgid "action_planche_3"
+msgstr "Vernis sélectif UV verso"
 
-#~ msgid "hello"
-#~ msgstr "Bonjour"
+msgid "action_planche_24"
+msgstr "Découpe laser"
+
+msgid "action_planche_23"
+msgstr "Collage"
+
+msgid "action_planche_22"
+msgstr "Encollage"
+
+msgid "action_planche_21"
+msgstr "Façonnage"
+
+msgid "action_planche_20"
+msgstr "Impression Verso"
+
+msgid "action_planche_2"
+msgstr "Vernis sélectif UV recto"
+
+msgid "action_planche_19"
+msgstr "Impression Recto "
+
+msgid "action_planche_18"
+msgstr "Support"
+
+msgid "action_planche_17"
+msgstr "Dorure"
+
+msgid "action_planche_16"
+msgstr "Predecoupe"
+
+msgid "action_planche_15"
+msgstr "Vernis verso"
+
+msgid "action_planche_14"
+msgstr "Vernis recto"
+
+msgid "action_planche_13"
+msgstr "Pelliculage verso"
+
+msgid "action_planche_12"
+msgstr "Pelliculage recto"
+
+msgid "action_planche_11"
+msgstr "Perforation"
+
+msgid "action_planche_10"
+msgstr "Stockage"
+
+msgid "action_planche_1"
+msgstr "Finition (collange, contre-collage)"

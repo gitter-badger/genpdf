@@ -40,6 +40,12 @@ class Color
         return self::cmyk(0, 100, 100, 0);
     }
 
+
+    public static function blue()
+    {
+        return self::cmyk(100, 100, 0, 0);
+    }
+
     /**
      * @param $c
      * @param $m

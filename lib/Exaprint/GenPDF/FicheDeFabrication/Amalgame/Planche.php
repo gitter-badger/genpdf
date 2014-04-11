@@ -56,7 +56,7 @@ class Planche
         $mediumWhite = new Font('bagc-medium', 28, new TextColor(Color::white()));
 
         $lignes[0] = [
-            "height" => 18,
+            "height" => 17,
             "blocs"  => [
                 [
                     "label" => "N° Planche",
@@ -107,12 +107,14 @@ class Planche
                     "value"     => $this->formatNbFeuilles(),
                     "width"     => 30,
                     "valueFont" => new Font('bagc-bold', 36, new TextColor(Color::white())),
-                    "fillColor" => new FillColor(Color::black()),
+                    "fillColor" => new FillColor(Color::cmyk(100, 100, 0, 0)),
+                    "vAlign"    => Cell::VALIGN_CENTER,
                 ],
                 [
                     "value"     => $this->getFormat(),
                     "valueFont" => $lightBlack,
                     "width"     => 30,
+                    "vAlign"    => Cell::VALIGN_CENTER,
                 ],
                 [
                     "callback" => "couleurs",
@@ -133,18 +135,19 @@ class Planche
                     "valueFont" => new Font('bagc-light', 26, new TextColor(Color::black())),
                     "width"     => 92,
                     "fillColor" => new FillColor(Color::cmyk(0, 0, 75, 0)),
+                    "vAlign"    => Cell::VALIGN_CENTER,
                 ]
             ],
 
         ];
 
         $lignes[2] = [
-            "height" => 12,
+            "height" => 11,
             "blocs"  => [
                 [
                     "value"     => "PELL",
                     "width"     => 22,
-                    "fillColor" => new FillColor(Color::black()),
+                    "fillColor" => new FillColor(Color::greyscale(60)),
                     "valueFont" => $mediumWhite
                 ],
                 [
@@ -157,54 +160,43 @@ class Planche
                 [
                     "value"     => "VERN",
                     "width"     => 22,
-                    "fillColor" => new FillColor(Color::black()),
+                    "fillColor" => new FillColor(Color::greyscale(60)),
                     "valueFont" => $mediumWhite
                 ],
                 [
                     "value"     => $this->getVernis(),
-                    "width"     => 78,
-                    "valueFont" => new Font('bagc-light', 30, new TextColor(Color::white()))
-                ],
-            ]
-        ];
-
-        $lignes[3] = [
-            "height" => "12",
-            "blocs"  => [
-
-                [
-                    "value"     => "UV",
-                    "width"     => 22,
-                    "fillColor" => new FillColor(Color::black()),
-                    "valueFont" => $mediumWhite
-                ],
-                [
-                    "value"     => $this->getVernisUV(),
-                    "width"     => 78,
-                    "valueFont" => new Font('bagc-light', 30, new TextColor(Color::black())),
-                    "fillColor" => new FillColor(Color::cmyk(40, 80, 0, 0)),
-                ],
-                [
-                    "value"     => "DOR",
-                    "width"     => 22,
-                    "fillColor" => new FillColor(Color::black()),
-                    "valueFont" => $mediumWhite
-                ],
-                [
-                    "value"     => ($this->planche['DorureRecto']) ? _('valeur_' . $this->planche['DorureRecto']) : null,
                     "width"     => 78,
                     "valueFont" => new Font('bagc-light', 30, new TextColor(Color::black()))
                 ],
             ]
         ];
 
+        $lignes[3] = [
+            "height" => "11",
+            "blocs"  => [
+
+                [
+                    "value"     => "UV",
+                    "width"     => 22,
+                    "fillColor" => new FillColor(Color::greyscale(60)),
+                    "valueFont" => $mediumWhite
+                ],
+                [
+                    "value"     => $this->getVernisUV(),
+                    "width"     => 78,
+                    "valueFont" => new Font('bagc-light', 30, new TextColor(Color::white())),
+                    "fillColor" => new FillColor(Color::cmyk(40, 80, 0, 0)),
+                ],
+            ]
+        ];
+/*
         $lignes[4] = [
-            "height" => 12,
+            "height" => 11,
             "blocs"  => [
                 [
                     "value"     => "FAÇO",
                     "width"     => 22,
-                    "fillColor" => new FillColor(Color::black()),
+                    "fillColor" => new FillColor(Color::greyscale(60)),
                     "valueFont" => $mediumWhite
                 ],
                 [
@@ -233,7 +225,7 @@ class Planche
                     "fillColor" => new FillColor(Color::cmyk(0, 75, 50, 0)),
                 ],
             ]
-        ];
+        ];*/
 
         return $lignes;
     }
@@ -248,7 +240,8 @@ class Planche
             "width"     => 0,
             "valueFont" => new Font('bagc-bold', 36, new TextColor(Color::black())),
             "labelFont" => new Font('bagc-light', 10, new TextColor(Color::greyscale(40))),
-            "fillColor" => new FillColor(Color::white())
+            "fillColor" => new FillColor(Color::white()),
+            "vAlign"    => Cell::VALIGN_BOTTOM,
         ];
         foreach ($this->getBlocs() as $ligne) {
             $x = $this->layout->marge;
@@ -272,15 +265,23 @@ class Planche
                         $bloc['value'],
                         $bloc['valueFont'],
                         $bloc['labelFont'],
-                        $bloc['fillColor']
+                        $bloc['fillColor'],
+                        $bloc['vAlign']
                     );
                 }
 
                 $x += $bloc['width'];
             }
-            $y += $ligne['height'] + 3;
+            $y += $ligne['height'] + $this->layout->pRowMargin;
         }
 
+
+        $this->drawIndicationsCommandes($y);
+        $this->drawObservationsTechniques();
+    }
+
+    public function drawIndicationsCommandes($y)
+    {
         $startY = $y;
         $startX = $this->layout->marge;
 
@@ -291,13 +292,13 @@ class Planche
                 $cell->border   = 1;
                 $cell->position = new Position($startX, $y);
                 $cell->text     = $type;
-                $cell->width    = 22;
+                $cell->width    = 18;
                 $cell->height   = 12;
 
                 $cell->font = new Font('bagc-medium', 12, new TextColor(Color::black()));
                 $cell->draw($this->pdf);
             }
-            $x = $startX + 24;
+            $x = $startX + 19;
             foreach ($pages as $numeroDePage => $details) {
                 $this->drawIndicationCommandesPage(
                     new Position($x, $y),
@@ -310,7 +311,7 @@ class Planche
 
 
             if (count($pages)) {
-                if ($i % 4 == 0) {
+                if ($i % 5 == 0) {
                     $y = $startY;
                     $startX += 65;
                 } else {
@@ -319,8 +320,6 @@ class Planche
                 $i++;
             }
         }
-
-        $this->drawObservationsTechniques();
     }
 
     public function drawIndicationCommandesPage(
@@ -391,25 +390,10 @@ class Planche
         $image->draw($this->pdf);
     }
 
-    public function cell(Position $p, Dimensions $d, $label, $value, $valueFont, $labelFont, $fillColor)
+    public function cell(Position $p, Dimensions $d, $label, $value, $valueFont, $labelFont, $fillColor, $vAlign = Cell::VALIGN_BOTTOM)
     {
         if (is_numeric($value) && $value == 0)
             $value = '';
-
-
-        $cell                  = new Cell();
-        $cell->position        = $p;
-        $cell->width           = $d->width;
-        $cell->height          = $d->height;
-        $cell->text            = $value;
-        $cell->align           = Cell::ALIGN_CENTER;
-        $cell->vAlign          = ($label) ? Cell::VALIGN_BOTTOM : Cell::VALIGN_CENTER;
-        $cell->ignoreMinHeight = true;
-        $cell->font            = $valueFont;
-        $cell->fill            = ($value);
-        $cell->border          = true;
-        $cell->fillColor       = $fillColor;
-        $cell->draw($this->pdf);
 
 
         if (!$value) {
@@ -421,6 +405,21 @@ class Planche
             $this->pdf->Line($d->width + $p->x, $p->y, $p->x, $d->height + $p->y);
             $lineStyle->revert($this->pdf);
         }
+
+        $cell                  = new Cell();
+        $cell->position        = $p;
+        $cell->width           = $d->width;
+        $cell->height          = $d->height;
+        $cell->text            = $value;
+        $cell->align           = Cell::ALIGN_CENTER;
+        $cell->vAlign          = $vAlign;
+        $cell->ignoreMinHeight = true;
+        $cell->font            = $valueFont;
+        $cell->fill            = ($value);
+        $cell->border          = true;
+        $cell->fillColor       = $fillColor;
+        $cell->draw($this->pdf);
+
 
         if ($label) {
             $labelText = new Text($p->x, $p->y, $label, $labelFont);
@@ -513,6 +512,10 @@ class Planche
 
         if ($this->planche['VernisSelectifVerso']) {
             $txt .= 'V°';
+        }
+
+        if($this->planche['NomAtelierSousTraitance'] && in_array(22, $this->planche['ActionsSousTraitance'])){
+            $txt .= ' ' . $this->planche['NomAtelierSousTraitance'];
         }
 
         return $txt;
@@ -691,13 +694,13 @@ class Planche
             $tests = [
                 'BAT'                  => 'BAT',
                 'Justificatif'         => 'Jus',
-                'NbPorteCarte'         => 'PC',
+                'NbPorteCarte'         => 'Porte-cartes',
                 'Pliage'               => 'Pliage',
                 'Rainage'              => 'Rainage',
                 'Perforation'          => 'Perfo',
                 'Predecoupe'           => 'Pré-déc',
-                'EstImperatif'         => 'IMPÉ',
-                'IDCommandePrincipale' => 'Ret',
+                'EstImperatif'         => 'Impératif',
+                'IDCommandePrincipale' => 'Retirage',
             ];
 
             foreach ($tests as $col => $label) {
@@ -715,7 +718,7 @@ class Planche
     protected function drawObservationsTechniques()
     {
         $cell         = new MultiCell();
-        $cell->text   = $this->planche['ObservationsTechnique'];
+        $cell->text   = trim($this->planche['ObservationsTechnique'], "\n");
         $cell->width  = 75;
         $cell->height = 48;
         $cell->border = 1;

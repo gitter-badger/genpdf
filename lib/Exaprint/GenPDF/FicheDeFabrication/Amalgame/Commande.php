@@ -10,6 +10,7 @@ namespace Exaprint\GenPDF\FicheDeFabrication\Amalgame;
 
 
 use Exaprint\GenPDF\FicheDeFabrication\Amalgame\Cellule\Helper;
+use Exaprint\GenPDF\FicheDeFabrication\Formatter;
 use Exaprint\GenPDF\Resources\PartnersOrder;
 use Exaprint\TCPDF\Cell;
 use Exaprint\TCPDF\CellHeightRatio;
@@ -98,7 +99,7 @@ class Commande
         $idCommande->vAlign          = Cell::VALIGN_BOTTOM;
         $idCommande->height          = $idCommandeHeight;
         $idCommande->width           = $w;
-        $idCommande->text            = $this->formatIdCommande();
+        $idCommande->text            = Formatter::idCommande($this->commande['IDCommande']);
         $idCommande->fill            = true;
         $idCommande->draw($this->pdf);
 
@@ -112,26 +113,12 @@ class Commande
         $idPlanche->vAlign          = Cell::VALIGN_TOP;
         $idPlanche->height          = $this->layout->cEnteteHeight - $idCommandeHeight;
         $idPlanche->width           = $w;
-        $idPlanche->text            = $this->formatIdPlanche();
+        $idPlanche->text            = Formatter::idPlanche($this->commande['IDPlanche']);
         $idPlanche->fill            = true;
         $idPlanche->draw($this->pdf);
 
     }
 
-    protected function formatIdCommande()
-    {
-        return preg_replace("#([0-9]{3})([0-9]{2})([0-9]{2})#", '$1 $2 $3', (string)$this->commande['IDCommande']);
-    }
-
-    protected function formatIdPlanche()
-    {
-        return number_format($this->commande['IDPlanche'], 0, '.', ' ');
-    }
-
-    protected function formatQuantite()
-    {
-        return number_format($this->commande['Quantite'], 0, '.', ' ');
-    }
 
     protected function quantite()
     {
@@ -140,7 +127,7 @@ class Commande
         $q->font            = new Font('bagc-bold', 28);
         $q->fillColor       = new FillColor(Color::cmyk(100, 100, 0, 0));
         $q->textColor       = new TextColor(Color::greyscale(255));
-        $q->text            = $this->formatQuantite();
+        $q->text            = Formatter::quantite($this->commande['Quantite']);
         $q->position        = new Position($this->_x($this->layout->wBloc() - $q->width), $this->_y());
         $q->height          = $this->layout->cEnteteHeight;
         $q->align           = Cell::ALIGN_CENTER;
@@ -246,10 +233,13 @@ class Commande
 
     protected function visuels()
     {
-        if (count($this->commande['Visuels']) == 0) return;
+        
+        $visuels = $this->commande['Fichiers']['Visuels'];
+        
+        if (count($visuels) == 0) return;
 
-        if (count($this->commande['Visuels']) == 1 || is_null($this->commande['NbCouleursVerso'])) {
-            $recto             = $this->commande['Visuels'][0];
+        if (count($visuels) == 1 || is_null($this->commande['NbCouleursVerso'])) {
+            $recto             = $visuels[0];
             $image             = new ImageInContainer(
                 $recto['href'],
                 new Dimensions($recto['width'], $recto['height']),
@@ -260,7 +250,7 @@ class Commande
             $image->draw($this->pdf);
 
         } else {
-            $recto             = $this->commande['Visuels'][0];
+            $recto             = $visuels[0];
             $image             = new ImageInContainer(
                 $recto['href'],
                 new Dimensions($recto['width'], $recto['height']),
@@ -270,7 +260,7 @@ class Commande
             $image->autoRotate = true;
             $image->draw($this->pdf);
 
-            $recto             = $this->commande['Visuels'][1];
+            $recto             = $visuels[1];
             $image             = new ImageInContainer(
                 $recto['href'],
                 new Dimensions($recto['width'], $recto['height']),

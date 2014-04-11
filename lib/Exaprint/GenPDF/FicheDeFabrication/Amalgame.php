@@ -10,8 +10,10 @@ namespace Exaprint\GenPDF\FicheDeFabrication;
 
 
 use Exaprint\GenPDF\FicheDeFabrication\Amalgame\Commande;
+use Exaprint\GenPDF\FicheDeFabrication\Amalgame\FormeDeDecoupe;
 use Exaprint\GenPDF\FicheDeFabrication\Amalgame\Layout;
 use Exaprint\GenPDF\FicheDeFabrication\Amalgame\Planche;
+use Exaprint\GenPDF\FicheDeFabrication\Amalgame\Planche2;
 use Exaprint\TCPDF\Cell;
 use Exaprint\TCPDF\Color;
 use Exaprint\TCPDF\Font;
@@ -39,16 +41,38 @@ class Amalgame
     public $pdf;
     protected $logger;
     protected $planche;
-    protected $commandes = [];
     protected $currentCommandePosition = 1;
     protected $layout;
     protected $pageNumber = 0;
     protected $_pageCount;
 
+    protected $_formesDeDecoupe = [];
+
     public function __construct($planche)
     {
 
         $this->planche = $planche;
+
+        $nbCommandes = count($this->planche['commandes']);
+
+        foreach ($this->planche['commandes'] as &$c) {
+            if ($c['Fichiers']['FormeDeDecoupe']) {
+                $this->_formesDeDecoupe[] = [
+                    'IDCommande' => $c['IDCommande'],
+                    'Fichier'    => $c['Fichiers']['FormeDeDecoupe']
+                ];
+
+                $i = count($this->_formesDeDecoupe) - 1;
+
+                $numero = (int)ceil(($nbCommandes + $i + 3) / 4);
+                $index = (int)(($nbCommandes + $i + 2) % 4);
+
+                $c['IndicateurFormeDeDecoupe'] = [
+                    'index'  => $index,
+                    'numero' => $numero,
+                ];
+            }
+        }
 
         $this->pdf = new \TCPDF(
             PDF_PAGE_ORIENTATION,
@@ -68,11 +92,18 @@ class Amalgame
         $this->pdf->SetAutoPageBreak(false);
         $this->newPage();
 
-        $planchePdf = new Planche($this->pdf, $planche, $this->layout);
-        $planchePdf->draw();
+        $planchePdf = new Planche2(new \Exaprint\TCPDF\Dimensions(200, $this->layout->hBloc()),
+            $this->pdf,
+            $this->planche,
+            new \Exaprint\TCPDF\Position(5, 12)
+        );
 
         foreach ($this->planche['commandes'] as $commande) {
             $this->commande($commande);
+        }
+
+        foreach ($this->_formesDeDecoupe as $formeDeDecoupe) {
+            $this->formeDecoupe($formeDeDecoupe['IDCommande'], $formeDeDecoupe['Fichier']);
         }
 
         var_dump($this->planche);
@@ -98,14 +129,16 @@ class Amalgame
 
     protected function getPageCount()
     {
-        if(!isset($this->_pageCount))
-            $this->_pageCount = ceil((count($this->planche['commandes']) + 2) / 4);
-
+        if (!isset($this->_pageCount)) {
+            $nbCommandes      = count($this->planche['commandes']);
+            $nbFormesDecoupe  = count($this->_formesDeDecoupe);
+            $this->_pageCount = ceil(($nbCommandes + $nbFormesDecoupe + 2) / 4);
+        }
         return $this->_pageCount;
     }
+
     protected function souche()
     {
-
         $this->pdf->Rect(0, 0, $this->layout->pageWidth, $this->layout->soucheHeight, '', ['ALL' => false]);
     }
 
@@ -121,7 +154,21 @@ class Amalgame
         $x = $this->layout->xBloc($this->currentCommandePosition);
         $y = $this->layout->yBloc($this->currentCommandePosition);
 
-        $commande          = new Commande($commande, $this->pdf, $x, $y, $this->layout);
-        $this->commandes[] = $commande;
+        new Commande($commande, $this->pdf, $x, $y, $this->layout);
+    }
+
+    protected function formeDecoupe($IDCommande, $fichier)
+    {
+        if ($this->currentCommandePosition < 3) {
+            $this->currentCommandePosition++;
+        } else {
+            $this->currentCommandePosition = 0;
+            $this->newPage();
+        }
+
+        $x = $this->layout->xBloc($this->currentCommandePosition);
+        $y = $this->layout->yBloc($this->currentCommandePosition);
+
+        new FormeDeDecoupe($IDCommande, $fichier, $this->pdf, $x, $y, $this->layout);
     }
 } 
