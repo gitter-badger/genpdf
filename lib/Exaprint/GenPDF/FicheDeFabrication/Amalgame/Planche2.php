@@ -19,6 +19,7 @@ use Exaprint\GenPDF\FicheDeFabrication\Amalgame\Planche\Identification;
 use Exaprint\GenPDF\FicheDeFabrication\Amalgame\Planche\Impression;
 use Exaprint\GenPDF\FicheDeFabrication\Amalgame\Planche\IndicationsCommandes;
 use Exaprint\GenPDF\FicheDeFabrication\Amalgame\Planche\Observations;
+use Exaprint\GenPDF\FicheDeFabrication\Amalgame\Planche\Monteur;
 use Exaprint\TCPDF\Dimensions;
 use Exaprint\TCPDF\Position;
 
@@ -48,6 +49,7 @@ class Planche2
         $this->indicationsCommandes();
         $this->compteurs();
         $this->observations();
+        $this->monteur();
     }
 
 
@@ -99,6 +101,12 @@ class Planche2
     {
         $compteurs = new Compteurs($this->planche);
         $compteurs->draw($this->pdf, $this->position->add(new Position(0, 120)));
+    }
+
+    public function monteur()
+    {
+        $monteur = new Monteur($this->planche);
+        $monteur->draw($this->pdf, $this->position->add(new Position(100, 106)));
     }
 
 } 
