@@ -33,7 +33,7 @@ class Monteur
 
         $c = new MultiCell();
         $c->text = $text;
-        $c->font = new Font('bagc-reg', 12, new TextColor(Color::black()));
+        $c->font = new Font('bagc-reg', 10, new TextColor(Color::black()));
         $c->x = $position->x;
         $c->y = $position->y;
         $c->border = 1;
