@@ -27,7 +27,7 @@ class CodeBarre extends Cellule
 
     public function draw(\TCPDF $pdf, Position $position)
     {
-        $margin = 2.5;
+        $margin = 4;
         $pdf->Rect($position->x, $position->y, $this->dimensions->width, $this->dimensions->height, 's');
         $pdf->write1DBarcode(
             $this->id,
