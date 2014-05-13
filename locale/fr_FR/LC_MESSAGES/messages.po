@@ -2,7 +2,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: genPDF\n"
 "POT-Creation-Date: 2014-04-01 10:52+0100\n"
-"PO-Revision-Date: 2014-04-01 10:52+0100\n"
+"PO-Revision-Date: 2014-04-11 11:04+0100\n"
 "Last-Translator: \n"
 "Language-Team: Exaprint <romain@exaprint.fr>\n"
 "Language: fr_FR\n"
@@ -1891,33 +1891,40 @@ msgstr "|||"
 msgid "valeur_249"
 msgstr "Sans"
 
+# 1 prédécoupe
 #: ../../../cache/fiche-fab-keys.php:465
 msgid "valeur_207"
-msgstr "1 prédécoupe"
+msgstr "1…"
 
+# 2 prédécoupes parallèles
 #: ../../../cache/fiche-fab-keys.php:466
 msgid "valeur_208"
-msgstr "2 prédécoupes parallèles"
+msgstr "2…"
 
+# 4 prédécoupes parallèles
 #: ../../../cache/fiche-fab-keys.php:467
 msgid "valeur_526"
-msgstr "4 prédécoupes parallèles"
+msgstr "4…"
 
+# 5 prédécoupes parallèles
 #: ../../../cache/fiche-fab-keys.php:468
 msgid "valeur_527"
-msgstr "5 prédécoupes parallèles"
+msgstr "5…"
 
+# X prédécoupes : outil à créer
 #: ../../../cache/fiche-fab-keys.php:469
 msgid "valeur_529"
-msgstr "X prédécoupes : outil à créer"
+msgstr "X…N"
 
+# X Prédécoupes - Outil existant
 #: ../../../cache/fiche-fab-keys.php:470
 msgid "valeur_530"
-msgstr "X prédécoupes : outil existant"
+msgstr "X…E"
 
+# 1 prédécoupe
 #: ../../../cache/fiche-fab-keys.php:471
 msgid "valeur_1581"
-msgstr "1 prédécoupe"
+msgstr "1…"
 
 # Perpendiculaire
 #: ../../../cache/fiche-fab-keys.php:472
@@ -2645,8 +2652,8 @@ msgstr ""
 msgid "Conditions generales"
 msgstr ""
 "Si une de ces indications ne vous parait pas correcte, merci de nous le "
-"signaler le plus rapidement possible à l'adresse suivante : %link%. Les "
-"commandes sont validées par le pôle Administrations des Ventes jusqu'à 18H "
+"signaler le plus rapidement possible à l'adresse suivante : %link1%. Les "
+"commandes sont validées par le pôle Administration des Ventes jusqu'à 18H "
 "chaque jour ouvré. Après cet horaire, elles sont enregistrées le jour ouvré "
 "suivant. Notre délai catalogue court à compter de la réception de votre "
 "règlement et de votre fichier ou à compter de la validation de votre bon à "
@@ -2654,7 +2661,7 @@ msgstr ""
 "notifiée par le pôle PAO, le délai courra à compter de la date du déblocage "
 "de votre fichier. Pour suivre l'avancée de votre commande, vous pouvez vous "
 "connecter sur notre site extranet onglet « suivi ». Nos conditions générales "
-"de vente sont consultables en ligne à l’adresse : www.exaprint.fr"
+"de vente sont consultables en ligne à l’adresse : %link2%"
 
 #: ../../../lib/Exaprint/GenPDF/FicheDeFabrication/Amalgame/Cellule/Perforation.php:35
 #: ../../../lib/Exaprint/GenPDF/FicheDeFabrication/Amalgame/Cellule/Pliage.php:34
@@ -2667,45 +2674,87 @@ msgstr ""
 msgid "valeur_"
 msgstr "350g Mat Condat Périgord "
 
-#~ msgid "bascule_"
-#~ msgstr "in8 "
+msgid "bascule_1"
+msgstr " "
 
-#~ msgid "bascule_2"
-#~ msgstr "in12"
+msgid "bascule_2"
+msgstr "in8"
 
-# Retiration ou RV8coul
-#~ msgid "bascule_3"
-#~ msgstr "retir"
+msgid "bascule_3"
+msgstr "in12"
 
-#~ msgid "Date de commande"
-#~ msgstr "Date de la commande"
+msgid "bascule_4"
+msgstr "retir"
 
-#~ msgid "SEPA Direct Debit Mandate"
-#~ msgstr "Mandat de prélèvement SEPA"
+# planche_action
+msgid "action_planche_9"
+msgstr "Routage"
 
-#~ msgid "Terms Of Service 1"
-#~ msgstr ""
-#~ "En signant ce formulaire de mandat, vous autorisez (A) {NOM DU CREANCIER} "
-#~ "à envoyer des instructions à votre banque pour débiter votre compte, et "
-#~ "(B) votre banque à débiter votre compte conformément aux instructions  de "
-#~ "{NOM DU CREANCIER}."
+msgid "action_planche_8"
+msgstr "Rainage"
 
-#~ msgid "Terms Of Service 2"
-#~ msgstr ""
-#~ "Vous bénéficiez d’un droit  à remboursement par votre banque selon les "
-#~ "conditions décrites dans la convention que vous avez  passée avec elle. "
-#~ "Toute demande de remboursement doit être présentée dans les 8 semaines "
-#~ "suivant la date de débit de votre compte."
+msgid "action_planche_7"
+msgstr "Pliage"
 
-#~ msgid "Revendeur"
-#~ msgstr "Revendeur"
+msgid "action_planche_6"
+msgstr "Pelliculage"
 
-#, fuzzy
-#~ msgid "currency_span"
-#~ msgstr "<span class=\"currency\">&euro;</span>"
+msgid "action_planche_5"
+msgstr "Découpe outil"
 
-#~ msgid "Releve de factures"
-#~ msgstr "Relevé de factures"
+msgid "action_planche_4"
+msgstr "Encre à gratter"
 
-#~ msgid "hello"
-#~ msgstr "Bonjour"
+msgid "action_planche_3"
+msgstr "Vernis sélectif UV verso"
+
+msgid "action_planche_24"
+msgstr "Découpe laser"
+
+msgid "action_planche_23"
+msgstr "Collage"
+
+msgid "action_planche_22"
+msgstr "Encollage"
+
+msgid "action_planche_21"
+msgstr "Façonnage"
+
+msgid "action_planche_20"
+msgstr "Impression Verso"
+
+msgid "action_planche_2"
+msgstr "Vernis sélectif UV recto"
+
+msgid "action_planche_19"
+msgstr "Impression Recto "
+
+msgid "action_planche_18"
+msgstr "Support"
+
+msgid "action_planche_17"
+msgstr "Dorure"
+
+msgid "action_planche_16"
+msgstr "Predecoupe"
+
+msgid "action_planche_15"
+msgstr "Vernis verso"
+
+msgid "action_planche_14"
+msgstr "Vernis recto"
+
+msgid "action_planche_13"
+msgstr "Pelliculage verso"
+
+msgid "action_planche_12"
+msgstr "Pelliculage recto"
+
+msgid "action_planche_11"
+msgstr "Perforation"
+
+msgid "action_planche_10"
+msgstr "Stockage"
+
+msgid "action_planche_1"
+msgstr "Finition (collange, contre-collage)"

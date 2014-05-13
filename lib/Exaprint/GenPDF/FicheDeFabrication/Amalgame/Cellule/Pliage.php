@@ -22,15 +22,16 @@ class Pliage implements ICellule
 {
     public function draw(Position $position, \TCPDF $pdf, $cellSize, array $commande)
     {
-        $cell           = new Cell();
-        $cell->position = $position;
-        $cell->fill     = false;
-        $cell->width    = $cellSize;
-        $cell->height   = $cellSize;
-        $cell->border   = true;
-        $cell->draw($pdf);
+
 
         if (isset($commande['Pliage']) && ($pliage = $commande['Pliage'])) {
+            $cell           = new Cell();
+            $cell->position = $position;
+            $cell->fill     = false;
+            $cell->width    = $cellSize;
+            $cell->height   = $cellSize;
+            $cell->border   = true;
+            $cell->draw($pdf);
             $v = explode('+', _('valeur_' . $pliage));
 
             $cTxt           = new Cell();
@@ -46,14 +47,16 @@ class Pliage implements ICellule
                 $cTxt->height = $cellSize / 2;
                 $cTxt->draw($pdf);
                 $cTxt->position = $position->add(new Position(0, $cellSize / 2));
-                $cTxt->vAlign = Cell::VALIGN_TOP;
+                $cTxt->vAlign   = Cell::VALIGN_TOP;
                 $cTxt->text     = $v[1];
                 $cTxt->draw($pdf);
             } else {
                 $cTxt->font->size = 16;
-                $cTxt->height = $cellSize;
+                $cTxt->height     = $cellSize;
                 $cTxt->draw($pdf);
             }
+        } else {
+            Helper::drawEmptyCell($position, $pdf, $cellSize);
         }
     }
 }

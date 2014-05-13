@@ -26,7 +26,14 @@ $queries = [
         AND IDProduitOption IN (
             75,78,79,80,81,85,86,87,88,89,90,93,96,98,99,100,104,105,147
         )
-        ORDER BY IDProduitOption"
+        ORDER BY IDProduitOption",
+    "SELECT
+        'action_st_' as label
+        pov.IDProduitOptionValeur as pk,
+        LibelleTraduit as value,
+        IDLangue as lang
+    "
+
 ];
 
 $keys  = [];

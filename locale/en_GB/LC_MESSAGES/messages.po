@@ -1,8 +1,8 @@
 msgid ""
 msgstr ""
 "Project-Id-Version: genPDF\n"
-"POT-Creation-Date: 2014-04-01 09:34+0100\n"
-"PO-Revision-Date: 2014-04-01 10:44+0100\n"
+"POT-Creation-Date: 2014-04-02 15:15+0100\n"
+"PO-Revision-Date: 2014-04-02 15:15+0100\n"
 "Last-Translator: \n"
 "Language-Team: Exaprint <romain@exaprint.fr>\n"
 "Language: en_GB\n"
@@ -2507,161 +2507,164 @@ msgid "Veuillez completer tous les champs du mandat."
 msgstr ""
 
 #: ../../../cache/twig_gettext_keys.php:51
-msgid "Accuse de reception de commande"
-msgstr "Order acknowledgement"
+msgid "merci de votre commande"
+msgstr "Thank you for your order"
 
 #: ../../../cache/twig_gettext_keys.php:52
+msgid "accuse de reception de commande"
+msgstr "Please find attached your order acknowledgement"
+
+#: ../../../cache/twig_gettext_keys.php:53
 msgid "Livraison"
 msgstr "Delivery"
 
-#: ../../../cache/twig_gettext_keys.php:53
+#: ../../../cache/twig_gettext_keys.php:54
 msgid "Client"
 msgstr "Client"
 
-#: ../../../cache/twig_gettext_keys.php:54
+#: ../../../cache/twig_gettext_keys.php:55
 msgid "Raison Sociale"
 msgstr "Company name"
 
-#: ../../../cache/twig_gettext_keys.php:55
+#: ../../../cache/twig_gettext_keys.php:56
 msgid "Contact"
 msgstr "Contact"
 
-#: ../../../cache/twig_gettext_keys.php:56
+#: ../../../cache/twig_gettext_keys.php:57
 msgid "Mlle"
 msgstr "Miss"
 
-#: ../../../cache/twig_gettext_keys.php:57
+#: ../../../cache/twig_gettext_keys.php:58
 msgid "Mme"
 msgstr "Mrs"
 
-#: ../../../cache/twig_gettext_keys.php:58
+#: ../../../cache/twig_gettext_keys.php:59
 msgid "Mr"
 msgstr "Mr"
 
-#: ../../../cache/twig_gettext_keys.php:59
+#: ../../../cache/twig_gettext_keys.php:60
 msgid "Ms"
 msgstr "Ms"
 
-#: ../../../cache/twig_gettext_keys.php:60
+#: ../../../cache/twig_gettext_keys.php:61
 #, fuzzy
 msgid "Numero TVA"
 msgstr " VAT Number"
 
-#: ../../../cache/twig_gettext_keys.php:61
+#: ../../../cache/twig_gettext_keys.php:62
 msgid "Produit"
 msgstr "Product"
 
-#: ../../../cache/twig_gettext_keys.php:62
+#: ../../../cache/twig_gettext_keys.php:63
 msgid "Commande"
 msgstr "Order"
 
-#: ../../../cache/twig_gettext_keys.php:63
+#: ../../../cache/twig_gettext_keys.php:64
 msgid "Numero de commande"
 msgstr "Order number"
 
-#: ../../../cache/twig_gettext_keys.php:64
+#: ../../../cache/twig_gettext_keys.php:65
 msgid "Numero de devis"
 msgstr "Quote number"
 
-#: ../../../cache/twig_gettext_keys.php:65
+#: ../../../cache/twig_gettext_keys.php:66
 msgid "Reference commande"
 msgstr "Order reference"
 
-#: ../../../cache/twig_gettext_keys.php:66
+#: ../../../cache/twig_gettext_keys.php:67
 msgid "Reference devis"
 msgstr "Quote reference"
 
-#: ../../../cache/twig_gettext_keys.php:67
+#: ../../../cache/twig_gettext_keys.php:68
 msgid "Date"
 msgstr "Date"
 
-#: ../../../cache/twig_gettext_keys.php:68
+#: ../../../cache/twig_gettext_keys.php:69
 msgid "Mode de reglement"
 msgstr "Payment method"
 
-#: ../../../cache/twig_gettext_keys.php:69
+#: ../../../cache/twig_gettext_keys.php:70
 msgid "Responsable du dossier"
 msgstr "Project manager"
 
-#: ../../../cache/twig_gettext_keys.php:70
+#: ../../../cache/twig_gettext_keys.php:71
 msgid "HT"
 msgstr "Tax free"
 
-#: ../../../cache/twig_gettext_keys.php:71
+#: ../../../cache/twig_gettext_keys.php:72
 msgid "TVA"
 msgstr "VAT"
 
-#: ../../../cache/twig_gettext_keys.php:72
+#: ../../../cache/twig_gettext_keys.php:73
 msgid "TTC"
 msgstr "Including tax"
 
-#: ../../../cache/twig_gettext_keys.php:73
+#: ../../../cache/twig_gettext_keys.php:74
 msgid "Total"
 msgstr "Total"
 
-#: ../../../cache/twig_gettext_keys.php:74
+#: ../../../cache/twig_gettext_keys.php:75
 msgid "Solde"
 msgstr "Outstanding amount"
 
-#: ../../../cache/twig_gettext_keys.php:75
+#: ../../../cache/twig_gettext_keys.php:76
 msgid "Devis des commandes partenaires"
 msgstr ""
 
-#: ../../../cache/twig_gettext_keys.php:76
+#: ../../../cache/twig_gettext_keys.php:77
 msgid "Email"
 msgstr "Email"
 
-#: ../../../cache/twig_gettext_keys.php:77
+#: ../../../cache/twig_gettext_keys.php:78
 msgid "Conception et fabrication de : "
 msgstr ""
 
-#: ../../../cache/twig_gettext_keys.php:78
+#: ../../../cache/twig_gettext_keys.php:79
 msgid "Tous droits reserves"
 msgstr ""
 
-#: ../../../cache/twig_gettext_keys.php:79
+#: ../../../cache/twig_gettext_keys.php:80
 msgid "Dossier suivi par"
 msgstr ""
 
-#: ../../../cache/twig_gettext_keys.php:80
+#: ../../../cache/twig_gettext_keys.php:81
 msgid "Produit certifie"
 msgstr "Certified product"
 
-#: ../../../cache/twig_gettext_keys.php:81
+#: ../../../cache/twig_gettext_keys.php:82
 msgid "Projet de commande Printbox"
 msgstr "Projet de commande Printbox"
 
-#: ../../../cache/twig_gettext_keys.php:82
+#: ../../../cache/twig_gettext_keys.php:83
 msgid "Printboxer"
 msgstr "Printboxer"
 
-#: ../../../cache/twig_gettext_keys.php:83
+#: ../../../cache/twig_gettext_keys.php:84
 msgid "Client Final Printboxer"
 msgstr "Client Final"
 
-#: ../../../cache/twig_gettext_keys.php:84
+#: ../../../cache/twig_gettext_keys.php:85
 #, fuzzy
 msgid "Accuse de reception de commande Printbox"
 msgstr "Reference"
-
-#: ../../../cache/twig_gettext_keys.php:85
-msgid "En signant ce formulaire"
-msgstr ""
 
 #: ../../../cache/twig_gettext_keys.php:86
 msgid "Conditions generales"
 msgstr ""
 "If any of this information is incorrect, please notify us as soon as "
-"possible at product@exaprint.co.uk. Orders are accepted up until 6pm every "
-"working day, if they arrive with us after that time, they are considered to "
-"have arrived the next day. There will be a delay compared to the timings "
-"indicated in our catalogue if you choose to have a printed proof sent to "
-"you, or if there is a delay receiving your payment or your artwork files. If "
-"we identify issues with your artwork then we will be delayed by the amount "
-"of time it takes to receive print ready files. You can follow the progress "
-"of your order on-line by clicking the \"Tracking\" tab. Our general "
-"conditions of sale are available on the footer of our website www.exaprint."
-"co.uk"
+"possible at %link1%. Orders are accepted up until 6pm every working day, if "
+"they arrive with us after that time, they are considered to have arrived the "
+"next day. There will be a delay compared to the timings indicated in our "
+"catalogue if you choose to have a printed proof sent to you, or if there is "
+"a delay receiving your payment or your artwork files. If we identify issues "
+"with your artwork then we will be delayed by the amount of time it takes to "
+"receive print ready files. You can follow the progress of your order on-line "
+"by clicking the \"Tracking\" tab. Our general conditions of sale are "
+"available on the footer of our website %link2%"
+
+#: ../../../cache/twig_gettext_keys.php:87
+msgid "En signant ce formulaire"
+msgstr ""
 
 #: ../../../lib/Exaprint/GenPDF/FicheDeFabrication/Amalgame/Cellule/Perforation.php:35
 #: ../../../lib/Exaprint/GenPDF/FicheDeFabrication/Amalgame/Cellule/Pliage.php:34

@@ -23,7 +23,7 @@ class Font implements DrawingContext
 
     public $style;
 
-    public $color;
+    public $textColor;
 
     protected $previous = [];
 
@@ -32,7 +32,7 @@ class Font implements DrawingContext
         $this->family = $family;
         $this->size   = $size;
         $this->style  = $style;
-        $this->color  = $color;
+        $this->textColor  = $color;
     }
 
     public function apply(\TCPDF $pdf)
@@ -43,7 +43,7 @@ class Font implements DrawingContext
             "style" => $pdf->getFontStyle(),
         ];
 
-        if ($this->color) $this->color->apply($pdf);
+        if ($this->textColor) $this->textColor->apply($pdf);
 
         $pdf->SetFont($this->family, $this->style, $this->size);
     }

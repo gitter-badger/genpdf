@@ -33,6 +33,7 @@ class Layout
     public $pCodeBarreMargin = 2;
     public $pObservationsWidth = 100;
     public $pObservationsHeight = 20;
+    public $pRowMargin = 0;
     public $pRangs = [
         "support",
         "impression",
@@ -62,6 +63,7 @@ class Layout
     public $cLivraisonCodePaysHeight = 9;
 
     public $cExpeditionDateWidth = 16;
+    public $cTransporteurWidth = 12;
     public $cExpeditionDateHeight = 10;
     public $cExpeditionDateFontSize = 20;
 
@@ -71,9 +73,9 @@ class Layout
         ['BatPapier', 'Justificatif', 'Retirage'],
         ['SousTraitance', 'Groupage', ''],
         ['', '', ''],
-        ['', '', ''],
+        ['Predecoupe', 'CoinsRonds', 'DecoupeALaForme'],
         ['Pliage', 'Rainage', 'Perforation'],
-        ['', 'PorteCarte', 'Societe']
+        ['KitFidelite', 'PorteCarte', 'Societe']
     ];
 
 
@@ -135,7 +137,7 @@ class Layout
 
     public function hBloc()
     {
-        return ($this->pageHeight - $this->soucheHeight - $this->pied- $this->gouttiere) / 2;
+        return ($this->pageHeight - $this->soucheHeight - $this->pied - $this->gouttiere) / 2;
     }
 
 } 

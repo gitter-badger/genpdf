@@ -21,15 +21,17 @@ class Rainage implements ICellule
 {
     public function draw(Position $position, \TCPDF $pdf, $cellSize, array $commande)
     {
-        $cell           = new Cell();
-        $cell->position = $position;
-        $cell->fill     = false;
-        $cell->width    = $cellSize;
-        $cell->height   = $cellSize;
-        $cell->border   = true;
-        $cell->draw($pdf);
+
 
         if (isset($commande['Rainage']) && ($rainage = $commande['Rainage'])) {
+            $cell           = new Cell();
+            $cell->position = $position;
+            $cell->fill     = false;
+            $cell->width    = $cellSize;
+            $cell->height   = $cellSize;
+            $cell->border   = true;
+            $cell->draw($pdf);
+
             $v = explode('+', _('valeur_' . $rainage));
 
             $cTxt           = new Cell();
@@ -53,6 +55,8 @@ class Rainage implements ICellule
                 $cTxt->height = $cellSize;
                 $cTxt->draw($pdf);
             }
+        } else {
+            Helper::drawEmptyCell($position, $pdf, $cellSize);
         }
     }
 }

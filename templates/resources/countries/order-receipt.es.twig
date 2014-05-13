@@ -1,0 +1,8 @@
+{% extends "resources/order-receipt.twig" %}
+
+{% block mentions %}
+    <p>{{ ("Conditions generales"|trans)|replace({
+        '%link1%': '<a href="pedido@exaprint.es">pedido@exaprint.es</a>',
+        '%link2%': '<a href="http://www.exapass.es/page/cgv">http://www.exapass.es/page/cgv</a>'
+    })|raw }}</p>
+{% endblock %}

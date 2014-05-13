@@ -6,11 +6,11 @@ CREATE VIEW dbo.VUE_PDF_PLANCHE AS
     , p.IDPlanchePrincipale                                    AS IDPlanchePrincipale
     , p.IDAtelier                                              AS IDAtelier
     , p.DateVisibleAtelier                                     AS DateVisibleAtelier
-    , Quantité                                                 AS NbFeuilles
+    , p.Quantité                                               AS NbFeuilles
     , dbo.IsZero(p.Largeur, pf.Largeur)                        AS Largeur
     , dbo.IsZero(p.Longueur, pf.Longueur)                      AS Longueur
-    , DateExpeditionUrgente                                    AS ExpeSansFaconnage
-    , DateExpeditionUrgenteFaconnage                           AS ExpeAvecFaconnage
+    , p.DateExpeditionUrgente                                  AS ExpeSansFaconnage
+    , p.DateExpeditionUrgenteFaconnage                         AS ExpeAvecFaconnage
     , dbo.f_nIDProduitOptionValeurPlanche(p.IDPlanche, 75, 1)  AS Support
     , dbo.f_nIDProduitOptionValeurPlanche(p.IDPlanche, 78, 1)  AS PelliculageRecto
     , dbo.f_nIDProduitOptionValeurPlanche(p.IDPlanche, 79, 1)  AS PelliculageVerso
@@ -44,6 +44,17 @@ CREATE VIEW dbo.VUE_PDF_PLANCHE AS
     , p.EstAR
     , p.EstSousTraitance
     , p.IDProduitActiviteProduction
+    , p_soustraitance.IDPlanche                                AS IDPlancheSousTraitance
+    , a_soustraitance.Nom                                      AS NomAtelierSousTraitance
+    , a_principale.Nom                                         AS NomAtelierPlanchePrincipale
+    , monteur.NomUtilisateur                                   AS NomMonteur
+    , monteur.PrenomUtilisateur                                AS PrenomMonteur
+    , monteur.EmailUtilisateur                                 AS EmailMonteur
+    , p.DateAjout
   FROM TBL_PLANCHE p
     LEFT JOIN TBL_PLANCHE_FORMAT pf ON pf.IDPlancheFormat = p.IDProduitPlancheFormat
-
+    LEFT JOIN TBL_PLANCHE p_soustraitance ON p_soustraitance.IDPlanchePrincipale = p.IDPlanche
+    LEFT JOIN TBL_ATELIER a_soustraitance ON p_soustraitance.IDAtelier = a_soustraitance.IDAtelier
+    LEFT JOIN TBL_PLANCHE p_principale ON p_principale.IDPlanche = p.IDPlanchePrincipale
+    LEFT JOIN TBL_ATELIER a_principale ON p_principale.IDAtelier = a_principale.IDAtelier
+    LEFT JOIN TBL_UTILISATEUR monteur ON monteur.IDUtilisateur = p.IDUtilisateurPlancheur
