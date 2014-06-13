@@ -71,7 +71,7 @@
         <tbody>
         <tr>
             <td>{% trans "Produit" %}</td>
-            <td class="number">{{ data.Quantite }}</td>
+            <td class="number">{{ data.Quantite }} X {{ nombre_modeles }} {%  trans "modèle(s)"%}</td>
             <td class="money">{{ data.PrixVente |formatmoney }}</td>
         </tr>
         <tr class="bold theme-color">
