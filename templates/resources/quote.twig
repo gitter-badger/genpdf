@@ -22,17 +22,29 @@
 <div id="product" class="detail">
     <h2>Détail de la demande : </h2>
     <h3>{{ libelle_produit }}</h3>
-    {% for e,element in detail_demande  %}
-        {% for a,attribut in element  %}
-            {% for a,option in attribut  %}
-                {% if option.value %}
+    {% for e,element in detail_demande.element  %}
+        {% if detail_demande.element|length == 3 %}
+            {% for a,attribut in element  %}
+                {% if attribut.value %}
                     <dl id="product-options">
-                        <dt>{{ option.name }} : </dt>
-                        <dd>{{ option.value }} <em>{{ option.unit }}</em></dd>
+                        <dt>{{ attribut.name }} : </dt>
+                        <dd>{{ attribut.value }} <em>{{ option.unit }}</em></dd>
                     </dl>
                 {% endif %}
             {% endfor %}
-        {% endfor %}
+        {% else %}
+            <h4>{{ element.name }}</h4>
+            {% for a,attribut in element  %}
+                {% for a,option in attribut  %}
+                    {% if option.value %}
+                        <dl id="product-options">
+                            <dt>{{ option.name }} : </dt>
+                            <dd>{{ option.value }} <em>{{ option.unit }}</em></dd>
+                        </dl>
+                    {% endif %}
+                {% endfor %}
+            {% endfor %}
+        {% endif %}
     {% endfor %}
     <dl >
         <dt>{% trans "Nombre de modèle : "%}</dt>
@@ -71,7 +83,11 @@
         <tbody>
         <tr>
             <td>{% trans "Produit" %}</td>
-            <td class="number">{{ data.Quantite }} X {{ nombre_modeles }} {%  trans "modèle(s)"%}</td>
+            <td class="number">{{ data.Quantite }}
+                {% if nombre_modeles > 1 %}
+                    X {{ nombre_modeles }} {%  trans "modèle(s)"%}
+                {% endif %}
+            </td>
             <td class="money">{{ data.PrixVente |formatmoney }}</td>
         </tr>
         <tr class="bold theme-color">
@@ -89,20 +105,10 @@
 <div class="clear">
 
 </div>
-<div id="delivery" class="shipment">
-    <h2>Livraison : </h2>
-    {% for s,shipment in livraison  %}
-        <dl>
-        {% if s == "code_postal" %}
-            <dt>code postal</dt>
-            <dd>{{ shipment }}</dd>
-        {% else %}
-            <dt>{{ s }}</dt>
-            <dd>{{ shipment }}</dd>
-        {% endif %}
 
-        </dl>
-    {% endfor %}
+<div id="mentions">
+    <p>{% trans "Les prix mentionnés ci-dessus ne sont valables que pendant les 3 mois suivants leur publication soit jusqu'au " %}
+       {{ date|date_modify("+3 month")|date("d/m/Y") }}
+    </p>
 </div>
-
 {% endblock %}
