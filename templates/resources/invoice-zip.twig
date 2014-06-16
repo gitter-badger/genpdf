@@ -60,7 +60,7 @@
                     <dt>{% trans "Numero de facture" %}</dt>
                     <dd>{{ inv.InvoiceNumber }}</dd>
                     <dt>{% trans "Type" %}</dt>
-                    <dd>{{ inv.Type }}</dd>
+                    <dd>{% if inv.Type == 1 %}{% trans "Facture" %}{% else %}{% trans 'Avoir' %}{% endif %}</dd>
                     <dt>{% trans "Date de facture" %}</dt>
                     <dd>{{ inv.InvoiceDate|date('d/m/Y') }}</dd>
                 </dl>
