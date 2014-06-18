@@ -63,6 +63,9 @@
         <dt>{% trans "Numero de devis" %}</dt>
         <dd>{{ numero }}</dd>
 
+        <dt>{% trans "Référence client" %}</dt>
+        <dd>{{  data.ReferenceClient }}</dd>
+
         {% if order.devis_id %}
             <dt>{% trans "Reference devis" %}</dt>
             <dd>{{ libelle_produit }}</dd>
