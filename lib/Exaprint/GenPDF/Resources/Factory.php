@@ -32,6 +32,7 @@ class Factory {
             case "printbox-rc": return new PrintboxRC();
             case "masterprint-quote": return new MasterprintQuote();
             case "invoice-zip": return new InvoiceZip();
+            case "quote" : return new Quote();
         }
         return null;
     }
