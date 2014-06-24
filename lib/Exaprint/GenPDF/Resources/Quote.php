@@ -10,6 +10,7 @@ namespace Exaprint\GenPDF\Resources;
 
 
 use Curl;
+use Locale\Helper;
 
 class Quote extends Resource implements IResource {
 
@@ -56,7 +57,7 @@ class Quote extends Resource implements IResource {
      */
     public function getHeader()
     {
-        // TODO: Implement getHeader() method.
+        return $this->_imageFolder . Helper::$current . "/header.html";
     }
 
     /**
@@ -64,7 +65,7 @@ class Quote extends Resource implements IResource {
      */
     public function getFooter()
     {
-        // TODO: Implement getFooter() method.
+        return $this->_imageFolder . Helper::$current . "/footer.html";
     }
 
     /**
