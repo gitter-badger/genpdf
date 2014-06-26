@@ -14,8 +14,8 @@ class OrderReceipt extends Resource implements IResource
 
 
     /**
-     * @param $id
-     * @return bool
+     * @param $IDCommande
+     * @return bool|null
      */
     public function fetchFromID($IDCommande)
     {
@@ -45,6 +45,11 @@ class OrderReceipt extends Resource implements IResource
                 TBL_COMMANDE_LIGNE.Prix AS [product.et_amount],
                 TBL_COMMANDE_LIGNE.MontantTVAPrix AS [product.vat_amount],
                 TBL_COMMANDE_LIGNE.MontantTTCPrix AS [product.ati_amount],
+                CASE
+                    WHEN TBL_PRODUIT.idproduitfamilleproduit = 538
+                    THEN 1
+                    ELSE 0
+                END AS [product.estStickersRollers],
                 TBL_PRODUIT_UNITE_TARIF_TRAD.SigleAffichage AS [order.unit.abbr],
                 TBL_PRODUIT_UNITE_TARIF_TRAD.LibelleTraduit AS [order.unit.label],
                 TBL_PRODUIT_LIBELLE_FRONT_TRAD.LibelleTraduit AS [product.name],
@@ -119,7 +124,7 @@ class OrderReceipt extends Resource implements IResource
             $combinator->addGroup("product.options", "id");
             $data = $combinator->process($r->fetchAll(\PDO::FETCH_ASSOC));
 
-            if(isset($data[$IDCommande])){
+            if (isset($data[$IDCommande])) {
                 $this->_data = $data[$IDCommande];
                 return true;
             }
@@ -135,7 +140,7 @@ class OrderReceipt extends Resource implements IResource
      */
     public function getData()
     {
-        return (array) $this->_data;
+        return (array)$this->_data;
     }
 
     /**
@@ -178,7 +183,6 @@ class OrderReceipt extends Resource implements IResource
     {
         return $this->_imageFolder . Helper::$current . "/footer.html";
     }
-
 
 
 }
