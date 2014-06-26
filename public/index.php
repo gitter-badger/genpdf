@@ -185,7 +185,7 @@ function xsltProcess($xml)
     }
 
     unlink("$filename.xml");
-    unlink("$filename.html");
+    //unlink("$filename.html");
 }
 
 $app->run();
