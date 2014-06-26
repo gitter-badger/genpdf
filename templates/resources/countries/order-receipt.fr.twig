@@ -1,5 +1,11 @@
 {% extends "resources/order-receipt.twig" %}
 
+{% block stickersrollers %}
+    {% if product.estStickersRollers %}
+        <div id="stickersrollers">Votre code promo de remboursement : <span class="bold">STICKERROLLS</span> (applicable sur toute commande d'un produit de la gamme étiquettes sur-mesure).</div>
+    {% endif %}
+{% endblock %}
+
 {% block mentions %}
     <p>{{ ("Conditions generales"|trans)|replace({
         '%link1%': '<a href="commande@exaprint.fr">commande@exaprint.fr</a>',
