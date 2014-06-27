@@ -23,16 +23,6 @@
     <h2>Détail de la demande : </h2>
     <h3>{{ libelle_produit }}</h3>
     {% for e,element in detail_demande.element  %}
-        {% if detail_demande.element|length == 3 %}
-            {% for a,attribut in element  %}
-                {% if attribut.value %}
-                    <dl id="product-options">
-                        <dt>{{ attribut.name }} : </dt>
-                        <dd>{{ attribut.value }} <em>{{ option.unit }}</em></dd>
-                    </dl>
-                {% endif %}
-            {% endfor %}
-        {% else %}
             <h4>{{ element.name }}</h4>
             {% for a,attribut in element  %}
                 {% for a,option in attribut  %}
@@ -44,8 +34,19 @@
                     {% endif %}
                 {% endfor %}
             {% endfor %}
-        {% endif %}
     {% endfor %}
+    <br/>
+    <dl id="product-options">
+        {% if detail_demande.attr|length > 0 %}
+            {% for a,attr in detail_demande.attr %}
+                {% if a == "name" %}
+                    <dt>{{ attr }} : </dt>
+                {% else %}
+                    <dd>{{ attr }}</dd>
+                {% endif %}
+            {% endfor %}
+        {% endif %}
+    </dl>
     <dl >
         <dt>{% trans "Nombre de modèle : "%}</dt>
         <dd>{{ nombre_modeles }}</dd>
@@ -57,9 +58,6 @@
 <div id="order">
     <h2>{% trans "Devis" %}</h2>
     <dl>
-        <dt>{% trans "Numéro client" %}</dt>
-        <dd>{{ Id_Client }}</dd>
-
         <dt>{% trans "Numero de devis" %}</dt>
         <dd>{{ numero }}</dd>
 
@@ -100,11 +98,34 @@
         </tr>
         </tbody>
     </table>
-    <dl>
-        <dt>{% trans "Solde" %}</dt>
-        <dd>{{ data.PrixVente|formatmoney }}</dd>
-    </dl>
 </div>
+
+<div id="delivery">
+    <h2>{% trans "Livraison" %}</h2>
+
+    {% for s,shipment in livraison  %}
+        {% if shipment is iterable %}
+            {% for d,delivery in shipment %}
+                <dl>
+                    {% if s == "code_postal" %}
+                        <dt>code postal : </dt> <dd>{{ delivery }}</dd>
+                        <dt>quantité : </dt> <dd>{{ livraison.quantite[d] }}</dd>
+                    {% endif %}
+                </dl>
+            {% endfor %}
+        {% else %}
+            <dl>
+                {% if s == "code_postal" %}
+                    <dt>code postal : </dt>
+                {% else %}
+                    <dt>{{ s }} : </dt>
+                {% endif %}
+                <dd>{{ shipment }}</dd>
+            </dl>
+        {% endif %}
+    {% endfor %}
+</div>
+
 <div class="clear">
 
 </div>

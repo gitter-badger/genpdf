@@ -47,7 +47,15 @@ class Quote extends Resource implements IResource {
 
         $data=json_decode($result,true);
 
+        //$k = array_keys($data['result']['detail_demande']['element']);
+        reset($data['result']['detail_demande']['element']);
+        $k = each($data['result']['detail_demande']['element']);
+        if(!is_numeric($k[0])){
+            $data['result']['detail_demande']['element'] = array($data['result']['detail_demande']['element']);
+        }
+
         $data['result']['data'] = $this->_data;
+
 
         return $data['result'];
     }
