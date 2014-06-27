@@ -85,7 +85,7 @@ class Quote extends Resource implements IResource
                             }
                             $data['result']['city'][$this->_data->Quantite][] = [
                                 'code'        => $zipCode,
-                                'departement' => $dao->getDepartementNameByCode($shipment['code_postal'])->NomDepartement,
+                                'departement' => $dao->getDepartementNameByCode((string)$shipment['code_postal'])->NomDepartement,
                                 'quantite'    => $shipment['quantite']
                             ];
                         }
