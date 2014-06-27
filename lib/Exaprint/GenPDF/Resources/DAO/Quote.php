@@ -29,4 +29,19 @@ class Quote {
 
         return $data;
     }
+
+    /**
+     * @param $code
+     * @return mixed
+     */
+    public function getDepartementNameByCode($code){
+        $select = new Select();
+        $select->setTable(new Table('TBL_DEPARTEMENTS','dbo'));
+        $select->where()
+            ->eq('NumeroDepartement',$code);
+        $stmt = DB::get()->query($select);
+        $data = $stmt->fetch();
+
+        return $data;
+    }
 } 
