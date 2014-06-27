@@ -58,6 +58,7 @@ class Quote extends Resource implements IResource
         $data['result']['data'] = $this->_data;
         $zipCode                = "";
         $dao                    = new DAO\Quote();
+        //Todo Factoriser
         foreach ($data['result']['livraison'] as $delivery) {
             if(isset($delivery['value'])){
                 if ($delivery['value'] == $this->_data->Quantite) {
