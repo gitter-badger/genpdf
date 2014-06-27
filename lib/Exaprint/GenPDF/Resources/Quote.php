@@ -61,19 +61,35 @@ class Quote extends Resource implements IResource
         foreach ($data['result']['livraison'] as $delivery) {
             if(isset($delivery['value'])){
                 if ($delivery['value'] == $this->_data->Quantite) {
-                    foreach($delivery['code_postal'] as $k=>$shipment){
-                        if (strlen($shipment) < 2) {
-                            $zipCode = "0" . $shipment;
+                    //Cas du multi-point de livraison
+                    if(is_array($delivery['code_postal'])){
+                        foreach($delivery['code_postal'] as $k=>$shipment){
+                            if (strlen($shipment) < 2) {
+                                $zipCode = "0" . $shipment;
+                            } else {
+                                $zipCode = $shipment;
+                            }
+                            $data['result']['city'][$this->_data->Quantite][] = [
+                                'code'        => $zipCode,
+                                'departement' => $dao->getDepartementNameByCode((string)$shipment)->NomDepartement,
+                                'quantite'    => $delivery['quantite'][$k]
+                            ];
+                        }
+                    }else{
+                        if (strlen($delivery['code_postal']) < 2) {
+                            $zipCode = "0" . $delivery['code_postal'];
                         } else {
-                            $zipCode = $shipment;
+                            $zipCode = $delivery['code_postal'];
                         }
                         $data['result']['city'][$this->_data->Quantite][] = [
                             'code'        => $zipCode,
-                            'departement' => $dao->getDepartementNameByCode((string)$shipment)->NomDepartement,
-                            'quantite'    => $delivery['quantite'][$k]
+                            'departement' => $dao->getDepartementNameByCode((string)$delivery['code_postal'])->NomDepartement,
+                            'quantite'    => $delivery['quantite']
                         ];
                     }
+
                 }
+                //Cas du multi-quantité
             }else{
                 foreach ($delivery as $shipment) {
                     if(isset($shipment['value'])){
