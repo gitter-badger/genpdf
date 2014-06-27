@@ -51,7 +51,7 @@
         <dt>{% trans "Nombre de modèle : "%}</dt>
         <dd>{{ nombre_modeles }}</dd>
         <dt>{% trans "Poids : "%}</dt>
-        <dd>{{ data.Poids }}</dd>
+        <dd>{{ data.Poids|round(2,'common') }} kg</dd>
     </dl>
 </div>
 
@@ -102,16 +102,30 @@
 
 <div id="delivery">
     <h2>{% trans "Livraison" %}</h2>
+    {{ Quantite_Devis.value }}
 
-    {% for s,shipment in livraison  %}
+    {% for s,shipement in city[data.Quantite]%}
+        <dl>
+            <dt>code postal : </dt> <dd>{{ shipement.departement }} ( {{ shipement.code }} )</dd>
+            <dt>quantité : </dt> <dd>{{ shipement.quantite }}</dd>
+        </dl>
+    {% endfor %}
+
+    {% for s,shipment in city  %}
         {% if shipment is iterable %}
             {% for d,delivery in shipment %}
-                <dl>
-                    {% if s == "code_postal" %}
-                        <dt>code postal : </dt> <dd>{{ delivery }}</dd>
-                        <dt>quantité : </dt> <dd>{{ livraison.quantite[d] }}</dd>
+                {% if delivery.value == data.Quantite %}
+                    {% if delivery is iterable %}
+                        {% for i, item in delivery %}
+                            <dl>
+                                {% if i == "code_postal" %}
+                                    <dt>code postal : </dt> <dd>{{ item }}</dd>
+                                    <dt>quantité : </dt> <dd>{{ delivery.quantite }}</dd>
+                                {% endif %}
+                            </dl>
+                        {% endfor %}
                     {% endif %}
-                </dl>
+                {% endif %}
             {% endfor %}
         {% else %}
             <dl>
