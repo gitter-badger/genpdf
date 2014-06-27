@@ -75,6 +75,7 @@ class Quote extends Resource implements IResource
                                 'quantite'    => $delivery['quantite'][$k]
                             ];
                         }
+                        //Mono point de livraison
                     }else{
                         if (strlen($delivery['code_postal']) < 2) {
                             $zipCode = "0" . $delivery['code_postal'];
@@ -87,23 +88,40 @@ class Quote extends Resource implements IResource
                             'quantite'    => $delivery['quantite']
                         ];
                     }
-
                 }
                 //Cas du multi-quantité
             }else{
                 foreach ($delivery as $shipment) {
                     if(isset($shipment['value'])){
                         if ($shipment['value'] == $this->_data->Quantite) {
-                            if (strlen($shipment['code_postal']) < 2) {
-                                $zipCode = "0" . $shipment['code_postal'];
-                            } else {
-                                $zipCode = $shipment['code_postal'];
+                            //Mono point de livraison
+                            if(!is_array($shipment['code_postal'])){
+                                if (strlen($shipment['code_postal']) < 2) {
+                                    $zipCode = "0" . $shipment['code_postal'];
+                                } else {
+                                    $zipCode = $shipment['code_postal'];
+                                }
+                                $data['result']['city'][$this->_data->Quantite][] = [
+                                    'code'        => $zipCode,
+                                    'departement' => $dao->getDepartementNameByCode((string)$shipment['code_postal'])->NomDepartement,
+                                    'quantite'    => $shipment['quantite']
+                                ];
+                                //Multi points de livraison
+                            }else{
+                                foreach($shipment['code_postal'] as $key=>$dep){
+                                    if (strlen($dep) < 2) {
+                                        $zipCode = "0" . $dep;
+                                    } else {
+                                        $zipCode = $dep;
+                                    }
+                                    $data['result']['city'][$this->_data->Quantite][] = [
+                                        'code'        => $zipCode,
+                                        'departement' => $dao->getDepartementNameByCode((string)$dep)->NomDepartement,
+                                        'quantite'    => $shipment['quantite'][$key]
+                                    ];
+                                }
                             }
-                            $data['result']['city'][$this->_data->Quantite][] = [
-                                'code'        => $zipCode,
-                                'departement' => $dao->getDepartementNameByCode((string)$shipment['code_postal'])->NomDepartement,
-                                'quantite'    => $shipment['quantite']
-                            ];
+
                         }
                     }
                 }
