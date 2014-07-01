@@ -194,9 +194,9 @@ $app->post('/cgf', function () use ($app) {
     //print_r($data);
     $quote = new Exaprint\GenPDF\CGF\Quote($data);
 
+    $app->view()->appendData(['quote' => $quote]);
     $html = $app->view()->fetch(
-        'cgf/quote.twig',
-        ['quote' => $quote]
+        'cgf/quote.twig'
     );
 
     $uid      = uniqid();
