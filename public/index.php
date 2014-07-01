@@ -214,7 +214,7 @@ $app->post('/cgf', function () use ($app) {
 
     if ($r['return'] == '0') {
         $app->contentType('application/pdf');
-        echo file_get_contents("/temp/$filename.pdf");
+        echo file_get_contents(__DIR__ . "/temp/$filename.pdf");
     }
 });
 
