@@ -201,7 +201,7 @@ $app->post('/cgf', function () use ($app) {
 
     $uid      = uniqid();
     $filename = "cgf-quote-$uid";
-    file_put_contents(__DIR__ . "/$filename.html", $html);
+    file_put_contents(__DIR__ . "/temp/$filename.html", $html);
 
     $wkhtml = new \RBM\Wkhtmltopdf\Wkhtmltopdf();
     $wkhtml->setHeaderHtml($_SERVER["SERVER_NAME"] . '/static/assets/header.empty.html');
