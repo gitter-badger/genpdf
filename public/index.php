@@ -199,7 +199,7 @@ $app->post('/cgf', function () use ($app) {
         ['quote' => $quote]
     );
 
-    $uid = uniqid();
+    $uid      = uniqid();
     $filename = "cgf-quote-$uid";
     file_put_contents(__DIR__ . "/$filename.html", $html);
 
@@ -210,7 +210,7 @@ $app->post('/cgf', function () use ($app) {
     $wkhtml->setFooterHtml($_SERVER["SERVER_NAME"] . '/static/assets/header.empty.html');
     $wkhtml->setFooterSpacing(5);
     $wkhtml->setMarginBottom(49);
-    $r = $wkhtml->run($_SERVER["SERVER_NAME"] . "/$filename.html", "$filename.pdf");
+    $r = $wkhtml->run($_SERVER["SERVER_NAME"] . "/temp/$filename.html", __DIR__ . "/temp/$filename.pdf");
 
     if ($r['return'] == '0') {
         $app->contentType('application/pdf');
