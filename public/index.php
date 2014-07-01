@@ -203,11 +203,13 @@ $app->post('/cgf', function () use ($app) {
     $filename = "cgf-quote-$uid";
     file_put_contents(__DIR__ . "/temp/$filename.html", $html);
 
+    $collation = \Locale\Helper::getCollationForIDLangue($quote->getLangId());
+
     $wkhtml = new \RBM\Wkhtmltopdf\Wkhtmltopdf();
-    $wkhtml->setHeaderHtml($_SERVER["SERVER_NAME"] . '/static/assets/header.empty.html');
+    $wkhtml->setHeaderHtml("$_SERVER[SERVER_NAME]/static/assets/$collation/header.html");
     $wkhtml->setMarginTop(40);
     $wkhtml->setHeaderSpacing(5);
-    $wkhtml->setFooterHtml($_SERVER["SERVER_NAME"] . '/static/assets/header.empty.html');
+    $wkhtml->setFooterHtml("$_SERVER[SERVER_NAME]/static/assets/$collation/footer.html");
     $wkhtml->setFooterSpacing(5);
     $wkhtml->setMarginBottom(49);
     $r = $wkhtml->run($_SERVER["SERVER_NAME"] . "/temp/$filename.html", __DIR__ . "/temp/$filename.pdf");

@@ -96,4 +96,9 @@ class Quote
     {
         return ($this->_data->rush);
     }
+
+    public function getLangId()
+    {
+        return $this->_data->lang_id;
+    }
 } 
