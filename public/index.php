@@ -19,15 +19,15 @@ $app->get('/fiche-de-fab/:IDPlanche', function ($IDPlanche) use ($app) {
     }
 
     $cacheSubFolder = round($IDPlanche / 100) * 100;
-    $cachePath = '../cache/fiche-de-fab/' . $cacheSubFolder;
+    $cachePath      = '../cache/fiche-de-fab/' . $cacheSubFolder;
 
-    if(!file_exists($cachePath)){
+    if (!file_exists($cachePath)) {
         mkdir($cachePath, 0777);
     }
 
-    $cacheFilename = $cachePath . '/' . $IDPlanche. '.pdf';
+    $cacheFilename = $cachePath . '/' . $IDPlanche . '.pdf';
 
-    if(file_exists($cacheFilename) && is_null($app->request->get('norender'))){
+    if (file_exists($cacheFilename) && is_null($app->request->get('norender'))) {
         header('Content-Type: application/x-pdf');
         echo file_get_contents($cacheFilename);
     }
@@ -187,5 +187,35 @@ function xsltProcess($xml)
     unlink("$filename.xml");
     unlink("$filename.html");
 }
+
+$app->post('/cgf', function () use ($app) {
+    //header('Content-Type: text/plain;charset=UTF-8');
+    $data = json_decode($app->request()->getBody());
+    //print_r($data);
+    $quote = new Exaprint\GenPDF\CGF\Quote($data);
+
+    $html = $app->view()->fetch(
+        'cgf/quote.twig',
+        ['quote' => $quote]
+    );
+
+    $uid = uniqid();
+    $filename = "cgf-quote-$uid";
+    file_put_contents(__DIR__ . "/$filename.html", $html);
+
+    $wkhtml = new \RBM\Wkhtmltopdf\Wkhtmltopdf();
+    $wkhtml->setHeaderHtml($_SERVER["SERVER_NAME"] . '/static/assets/header.empty.html');
+    $wkhtml->setMarginTop(40);
+    $wkhtml->setHeaderSpacing(5);
+    $wkhtml->setFooterHtml($_SERVER["SERVER_NAME"] . '/static/assets/header.empty.html');
+    $wkhtml->setFooterSpacing(5);
+    $wkhtml->setMarginBottom(49);
+    $r = $wkhtml->run($_SERVER["SERVER_NAME"] . "/$filename.html", "$filename.pdf");
+
+    if ($r['return'] == '0') {
+        $app->contentType('application/pdf');
+        echo file_get_contents("$filename.pdf");
+    }
+});
 
 $app->run();

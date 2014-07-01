@@ -1,0 +1,95 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <base href="http://genpdf.exaprint.localhost"/>
+    <meta charset="UTF-8">
+    <link rel="stylesheet" type="text/css" href="/static/css/reset.css"/>
+    <link rel="stylesheet" type="text/css" href="/static/css/fonts.css"/>
+    <link rel="stylesheet" type="text/css" href="/static/css/common.css"/>
+    <link rel="stylesheet" type="text/css" href="/static/css/invoice.css"/>
+    <title>CGF QUOTE</title>
+</head>
+<body>
+<div id="page">
+    <h1>Devis Calculateur Grand Format</h1>
+
+    {% set client = quote.getClient() %}
+    <div id="client">
+        <div class="company-name">
+            {{ client.RaisonSociale }}
+        </div>
+        <address>
+            {{ client.Adresse1 }}
+            {% if (client.Adresse2) %}<br> {{ client.Adresse2 }}{% endif %}
+            {% if (client.Adresse3) %}<br> {{ client.Adresse3 }}{% endif %}
+            <br>{{ client.CodePostal }}&nbsp;{{ client.Ville }}
+        </address>
+    </div>
+    <h2>Support</h2>
+    <div id="product">
+        <!--<h3>{{ quote.getProduct() }}</h3>-->
+        <dl id="product-options">
+            {% for item in quote.getOptions() %}
+                <dt>{{ item.option }}</dt>
+                <dd>{{ item.value }}</dd>
+            {% endfor %}
+        </dl>
+    </div>
+    <h2>Modèles</h2>
+    <ul id="models">
+        {% for model in quote.getModels() %}
+            <li>
+                <h4>{{ model.title }}</h4>
+
+                <div class="dimensions">
+                    <span class="width">{{ model.width }}</span>&times;
+                    <span class="height">{{ model.height }}</span> cm
+                </div>
+                <div class="quantity">
+                    <span class="value">{{ model.quantity }}</span>
+                    <span class="unit">Ex.</span>
+                </div>
+                <ul class="options">
+                    {% if model.bungee_cords %}
+                        <li>
+                            <span class="value">{{ model.bungee_cords }}</span>
+                            <span class="unit">tendeurs</span>
+                        </li>
+                    {% endif %}
+                    {% if model.eyelets %}
+                        <li>
+                            <span class="value">{{ model.eyelets }}</span>
+                            <span class="unit">œillets</span>
+                        </li>
+                    {% endif %}
+                    {% if model.perforations %}
+                        <li>
+                            <span class="value">{{ model.perforations }}</span>
+                            <span class="unit">perforations</span>
+                        </li>
+                    {% endif %}
+                    {% if model.perforations %}
+                        <li>
+                            <span class="value">{{ model.perforations }}</span>
+                            <span class="unit">perforations</span>
+                        </li>
+                    {% endif %}
+                </ul>
+            </li>
+        {% endfor %}
+    </ul>
+    <dl id="quotation">
+        <dt>Montant H.T.</dt>
+        <dd>
+            {{ quote.getSellingPrice() }}
+            <span class="currency">€</span>
+        </dd>
+        <dt>Poids</dt>
+        <dd>
+            {{ quote.getWeight() }}
+            <span class="unit">g</span>
+        </dd>
+    </dl>
+</div>
+</body>
+</html>
