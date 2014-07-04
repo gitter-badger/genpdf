@@ -10,7 +10,7 @@
 </head>
 <body>
 <div id="page">
-    <h1>Devis Calculateur Grand Format</h1>
+    <h1>{% trans 'cgf.quote.title' %}</h1>
 
     {% set client = quote.getClient() %}
     <div id="client">
@@ -34,7 +34,7 @@
             {% endfor %}
         </dl>
     </div>
-    <h2>Modèles</h2>
+    <h2>{% trans 'cgf.quote.models' %}</h2>
     <ul id="models">
         {% for model in quote.getModels() %}
             <li>
@@ -46,31 +46,25 @@
                 </div>
                 <div class="quantity">
                     <span class="value">{{ model.quantity }}</span>
-                    <span class="unit">Ex.</span>
+                    <span class="unit">{% trans 'cgf.quote.units' %}</span>
                 </div>
                 <ul class="options">
                     {% if model.bungee_cords %}
                         <li>
                             <span class="value">{{ model.bungee_cords }}</span>
-                            <span class="unit">tendeurs</span>
+                            <span class="unit">{% trans 'cgf.quote.bungee_cords' %}</span>
                         </li>
                     {% endif %}
                     {% if model.eyelets %}
                         <li>
                             <span class="value">{{ model.eyelets }}</span>
-                            <span class="unit">œillets</span>
+                            <span class="unit">{% trans 'cgf.quote.eyelets' %}</span>
                         </li>
                     {% endif %}
                     {% if model.perforations %}
                         <li>
                             <span class="value">{{ model.perforations }}</span>
-                            <span class="unit">perforations</span>
-                        </li>
-                    {% endif %}
-                    {% if model.perforations %}
-                        <li>
-                            <span class="value">{{ model.perforations }}</span>
-                            <span class="unit">perforations</span>
+                            <span class="unit">{% trans 'cgf.quote.perforations' %}</span>
                         </li>
                     {% endif %}
                 </ul>
@@ -78,15 +72,10 @@
         {% endfor %}
     </ul>
     <dl id="quotation">
-        <dt>Montant H.T.</dt>
+        <dt>{% trans "HT" %}</dt>
         <dd>
             {{ quote.getSellingPrice() }}
             <span class="currency">€</span>
-        </dd>
-        <dt>Poids</dt>
-        <dd>
-            {{ quote.getWeight() }}
-            <span class="unit">g</span>
         </dd>
     </dl>
 </div>

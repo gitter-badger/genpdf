@@ -206,16 +206,16 @@ $app->post('/cgf', function () use ($app) {
     $collation = \Locale\Helper::getCollationForIDLangue($quote->getLangId());
 
     $wkhtml = new \RBM\Wkhtmltopdf\Wkhtmltopdf();
-    $wkhtml->setHeaderHtml("$_SERVER[SERVER_NAME]/static/assets/$collation/header.html");
+    $wkhtml->setHeaderHtml("http://$_SERVER[SERVER_NAME]/static/assets/$collation/header.html");
     $wkhtml->setMarginTop(40);
     $wkhtml->setHeaderSpacing(5);
-    $wkhtml->setFooterHtml("$_SERVER[SERVER_NAME]/static/assets/$collation/footer.html");
+    $wkhtml->setFooterHtml("http://$_SERVER[SERVER_NAME]/static/assets/$collation/footer.html");
     $wkhtml->setFooterSpacing(5);
     $wkhtml->setMarginBottom(49);
+
     $r = $wkhtml->run($_SERVER["SERVER_NAME"] . "/temp/$filename.html", __DIR__ . "/temp/$filename.pdf");
 
     if ($r['return'] == '0') {
-        $app->contentType('application/pdf');
         echo file_get_contents(__DIR__ . "/temp/$filename.pdf");
     }
 });
