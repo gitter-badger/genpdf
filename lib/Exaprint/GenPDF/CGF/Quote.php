@@ -76,7 +76,7 @@ class Quote
 
         /** @var \Exaprint\DAL\Client\Select $client */
         $client = Factory::select('VUE_INFOS_CLIENT');
-        $client->where()->eq('IDClient', $this->_data->client_id);
+        $client->join('TBL_CLIENT_CONTACT', 'IDClient')->where()->eq('IDClient', $this->_data->client_id);
         $stmt = DB::get()->query($client);
         $this->_client = $stmt->fetchObject();
         return $this->_client;
