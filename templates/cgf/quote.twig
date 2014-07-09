@@ -1,7 +1,6 @@
 {% extends "resources/base.twig" %}
 
 {% block links %}
-    <base href="http://genpdf.exaprint.localhost"/>
     <title></title>
     <link rel="stylesheet" type="text/css" href="/static/css/reset.css"/>
     <link rel="stylesheet" type="text/css" href="/static/css/fonts.css"/>
@@ -90,7 +89,7 @@
             <td colspan="4">
                 <dl>
                     <dt>{% trans 'cgf.area' %}</dt>
-                    <dd>{{ area }} {% trans 'cgf.area.unit' %}</dd>
+                    <dd>{{ area / 1000 }} {% trans 'cgf.area.unit' %}</dd>
                     <dt>{% trans 'cgf.price' %}</dt>
                     <dd>{{ quote.getSellingPrice() }} <span class="currency">€</span></dd>
                 </dl>
