@@ -188,6 +188,7 @@ function xsltProcess($xml)
     unlink("$filename.html");
 }
 
+
 $app->post('/cgf', function () use ($app) {
     //header('Content-Type: text/plain;charset=UTF-8');
     $data = json_decode($app->request()->getBody());
@@ -198,6 +199,7 @@ $app->post('/cgf', function () use ($app) {
     $html = $app->view()->fetch(
         'cgf/quote.twig'
     );
+
 
     $uid      = uniqid();
     $filename = "cgf-quote-$uid";
