@@ -2,7 +2,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: genPDF\n"
 "POT-Creation-Date: 2014-04-02 16:10+0100\n"
-"PO-Revision-Date: 2014-07-04 12:06+0100\n"
+"PO-Revision-Date: 2014-07-09 14:45+0100\n"
 "Last-Translator: \n"
 "Language-Team: Exaprint <romain@exaprint.fr>\n"
 "Language: pt_PT\n"
@@ -2665,13 +2665,23 @@ msgstr "Perfurações"
 msgid "cgf.quote.units"
 msgstr "Und."
 
-#, fuzzy
-#~ msgid "Date de commande"
-#~ msgstr "Date de facture"
+msgid "cgf.area"
+msgstr "Superfície"
 
-#, fuzzy
-#~ msgid "Releve de factures"
-#~ msgstr "Date de facture"
+msgid "cgf.models.title"
+msgstr "Título do modelo?"
 
-#~ msgid "hello"
-#~ msgstr "Bonjour"
+msgid "cgf.models.quantity"
+msgstr "Número de cópias"
+
+msgid "cgf.models.size"
+msgstr "Dimensões"
+
+msgid "cgf.models.options"
+msgstr "Opções"
+
+msgid "cgf.area.unit"
+msgstr "cm²"
+
+msgid "cgf.description"
+msgstr "Descrição"
