@@ -38,16 +38,14 @@ class Quote extends Resource implements IResource
     public function getData()
     {
         if (!isset($_SERVER['masterprint_url'])) {
-            $_SERVER['masterprint_url'] = 'http://masterprint.exaprint.fr';
+            $_SERVER['masterprint_url'] = 'http://new.masterprint.exaprint.fr';
         }
         $url = "$_SERVER[masterprint_url]/quote/" . $this->_idQuote;
 
         $curl = new Curl();
         //Execute la requete GET de récupération de devis
         $result = $curl->get($url);
-
-        $data = json_decode($result, true);
-
+        $data = json_decode($result->body, true);
         //$k = array_keys($data['result']['detail_demande']['element']);
         reset($data['result']['detail_demande']['element']);
         $k = each($data['result']['detail_demande']['element']);
