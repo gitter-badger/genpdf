@@ -23,6 +23,15 @@ class Quote
         $this->_data = $data;
     }
 
+    public function getCollation()
+    {
+        $l      = $this->_data->lang_id;
+        $select = Factory::select('TBL_LANGUE', ['NormeBCP']);
+        $select->where()->eq('IDLangue', $l);
+        $stmt = DB::get()->query($select);
+        return $stmt->fetchColumn();
+    }
+
     public function getProduct()
     {
         $l = $this->_data->lang_id;
@@ -77,7 +86,7 @@ class Quote
         /** @var \Exaprint\DAL\Client\Select $client */
         $client = Factory::select('VUE_INFOS_CLIENT');
         $client->join('TBL_CLIENT_CONTACT', 'IDClient')->where()->eq('IDClientContact', $this->_data->client_id);
-        $stmt = DB::get()->query($client);
+        $stmt          = DB::get()->query($client);
         $this->_client = $stmt->fetchObject();
         return $this->_client;
     }

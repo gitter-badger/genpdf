@@ -194,24 +194,30 @@ $app->post('/cgf', function () use ($app) {
     $data = json_decode($app->request()->getBody());
     //print_r($data);
     $quote = new Exaprint\GenPDF\CGF\Quote($data);
+    $language = $quote->getCollation();
+    // textdomain
+    putenv("LC_MESSAGES=" . $language);
+    setlocale(LC_MESSAGES, $language);
+    if (function_exists('bindtextdomain') && function_exists('textdomain')) {
+        bindtextdomain("messages", APPLICATION_ROOT . "/locale");
+        textdomain("messages");
+        bind_textdomain_codeset("messages", "UTF-8");
+    }
 
     $app->view()->appendData(['quote' => $quote]);
     $html = $app->view()->fetch(
         'cgf/quote.twig'
     );
 
-
     $uid      = uniqid();
     $filename = "cgf-quote-$uid";
     file_put_contents(__DIR__ . "/temp/$filename.html", $html);
 
-    $collation = \Locale\Helper::getCollationForIDLangue($quote->getLangId());
-
     $wkhtml = new \RBM\Wkhtmltopdf\Wkhtmltopdf();
-    $wkhtml->setHeaderHtml("http://$_SERVER[SERVER_NAME]/static/assets/$collation/header.html");
+    $wkhtml->setHeaderHtml("http://$_SERVER[SERVER_NAME]/static/assets/$language/header.html");
     $wkhtml->setMarginTop(40);
     $wkhtml->setHeaderSpacing(5);
-    $wkhtml->setFooterHtml("http://$_SERVER[SERVER_NAME]/static/assets/$collation/footer.html");
+    $wkhtml->setFooterHtml("http://$_SERVER[SERVER_NAME]/static/assets/$language/footer.html");
     $wkhtml->setFooterSpacing(5);
     $wkhtml->setMarginBottom(49);
 
