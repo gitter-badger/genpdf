@@ -16,7 +16,7 @@
 
 {% block page %}
     <div class="quote">
-        <h1>{% trans "Récapitulatif de devis" %}</h1>
+        <h1>{% trans "Numero de devis" %} {{ numero }}</h1>
     </div>
 
     <div id="product" class="detail">
@@ -67,8 +67,6 @@
     <div id="order">
         <h2>{% trans "Devis" %}</h2>
         <dl>
-            <dt>{% trans "Numero de devis" %}</dt>
-            <dd>{{ numero }}</dd>
 
             <dt>{% trans "Référence client" %}</dt>
             <dd>{{ data.ReferenceClient }}</dd>
@@ -110,14 +108,19 @@
     </div>
 
     <div id="delivery">
+        <dl>
+            <dt>Delai :</dt>
+            <dd id="delai">{{ Delai }}j</dd>
+        </dl>
+
         <h2>{% trans "Livraison" %}</h2>
         {{ Quantite_Devis.value }}
 
         {% for s,shipement in city[data.Quantite] %}
             <dl>
-                <dt>code postal :</dt>
-                <dd>{{ shipement.departement }} ( {{ shipement.code }} )</dd>
-                <dt>quantité :</dt>
+                <dt>Code postal :</dt>
+                <dd>{{ shipement.departement }} ({{ shipement.code }})</dd>
+                <dt>Quantité :</dt>
                 <dd>{{ shipement.quantite }}</dd>
             </dl>
         {% endfor %}
@@ -151,10 +154,6 @@
                 </dl>
             {% endif %}
         {% endfor %}
-        <dl>
-            <dt>Delai :</dt>
-            <dd id="delai">{{ Delai }}j</dd>
-        </dl>
     </div>
 
     <div class="clear">
