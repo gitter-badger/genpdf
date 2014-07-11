@@ -1,5 +1,4 @@
 {% extends "resources/base.twig" %}
-
 {% block links %}
     <title></title>
     <link rel="stylesheet" type="text/css" href="/static/css/reset.css"/>
@@ -11,11 +10,9 @@
 
 <div id="main">
     <h1>{% trans 'cgf.quote.title' %}</h1>
-
     {% set client = quote.getClient() %}
     <div id="customer">
         {% block customer_address %}
-
             <address>
                 <div class="company-name">
                     {{ client.RaisonSociale }}
@@ -30,7 +27,6 @@
     </div>
     <h2>{% trans 'cgf.description' %}</h2>
     <div id="product">
-        <!--<h3>{{ quote.getProduct() }}</h3>-->
         <dl id="product-options">
             {% for item in quote.getOptions() %}
                 <dt>{{ item.option }}</dt>

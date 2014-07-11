@@ -189,13 +189,11 @@ function xsltProcess($xml)
 }
 
 
-$app->post('/cgf', function () use ($app) {
-    //header('Content-Type: text/plain;charset=UTF-8');
+$app->post('/cgf', function () use ($app, $twig) {
+    $twig = $twig->getInstance();
     $data = json_decode($app->request()->getBody());
-    //print_r($data);
-    $quote = new Exaprint\GenPDF\CGF\Quote($data);
+    $quote    = new Exaprint\GenPDF\CGF\Quote($data);
     $language = $quote->getCollation();
-    // textdomain
     putenv("LC_MESSAGES=" . $language);
     setlocale(LC_MESSAGES, $language);
     if (function_exists('bindtextdomain') && function_exists('textdomain')) {
@@ -204,11 +202,9 @@ $app->post('/cgf', function () use ($app) {
         bind_textdomain_codeset("messages", "UTF-8");
     }
 
-    $app->view()->appendData(['quote' => $quote]);
-    $html = $app->view()->fetch(
-        'cgf/quote.twig'
-    );
-
+    ob_start();
+    $twig->display('cgf/quote.twig', ['quote' => $quote]);
+    $html = ob_get_clean();
     $uid      = uniqid();
     $filename = "cgf-quote-$uid";
     file_put_contents(__DIR__ . "/temp/$filename.html", $html);
