@@ -3,3 +3,5 @@ composer.lock
 vendor
 logs/*
 cache/*
+public/temp/*.html
+public/temp/*.pdf

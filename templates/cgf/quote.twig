@@ -1,0 +1,107 @@
+{% extends "resources/base.twig" %}
+{% block links %}
+    <title></title>
+    <link rel="stylesheet" type="text/css" href="/static/css/reset.css"/>
+    <link rel="stylesheet" type="text/css" href="/static/css/fonts.css"/>
+    <link rel="stylesheet" type="text/css" href="/static/css/invoice.css"/>
+{% endblock %}
+
+{% block page %}
+
+<div id="main">
+    <h1>{% trans 'cgf.quote.title' %}</h1>
+    {% set client = quote.getClient() %}
+    <div id="customer">
+        {% block customer_address %}
+            <address>
+                <div class="company-name">
+                    {{ client.RaisonSociale }}
+                </div>
+
+                {{ client.Adresse1 }}
+                {% if (client.Adresse2) %}<br> {{ client.Adresse2 }}{% endif %}
+                {% if (client.Adresse3) %}<br> {{ client.Adresse3 }}{% endif %}
+                <br>{{ client.CodePostal }}&nbsp;{{ client.Ville }}
+            </address>
+        {% endblock %}
+    </div>
+    <h2>{% trans 'cgf.description' %}</h2>
+    <div id="product">
+        <dl id="product-options">
+            {% for item in quote.getOptions() %}
+                <dt>{{ item.option }}</dt>
+                <dd>{{ item.value }}</dd>
+            {% endfor %}
+        </dl>
+    </div>
+    <h2>{% trans 'cgf.quote.models' %}</h2>
+    <table id="models" class="table">
+        <thead>
+        <tr>
+            <th>{% trans 'cgf.models.title' %}</th>
+            <th>{% trans 'cgf.models.quantity' %}</th>
+            <th>{% trans 'cgf.models.size' %}</th>
+            <th>{% trans 'cgf.models.options' %}</th>
+        </tr>
+        </thead>
+        <tbody>
+        {% set area = 0 %}
+        {% for model in quote.getModels() %}
+            {% set area = area + model.width * model.height %}
+            <tr>
+                <td>{{ model.title }}</td>
+                <td>{{ model.quantity }}</td>
+                <td>
+                    <span class="width">{{ model.width }}</span>&nbsp;&times;&nbsp;
+                    <span class="height">{{ model.height }}</span> cm
+                </td>
+                <td>
+                    <ul class="options">
+                        {% if model.bungee_cords %}
+                            <li>
+                                <span class="value">{{ model.bungee_cords / model.quantity }}</span>
+                                <span class="unit">{% trans 'cgf.quote.bungee_cords' %}</span>
+                            </li>
+                        {% endif %}
+                        {% if model.eyelets %}
+                            <li>
+                                <span class="value">{{ model.eyelets / model.quantity }}</span>
+                                <span class="unit">{% trans 'cgf.quote.eyelets' %}</span>
+                            </li>
+                        {% endif %}
+                        {% if model.perforations %}
+                            <li>
+                                <span class="value">{{ model.perforations / model.quantity }}</span>
+                                <span class="unit">{% trans 'cgf.quote.perforations' %}</span>
+                            </li>
+                        {% endif %}
+                    </ul>
+                </td>
+            </tr>
+        {% endfor %}
+        </tbody>
+        <tfoot>
+        <tr>
+            <td colspan="4">
+                <dl>
+                    <dt>{% trans 'cgf.area' %}</dt>
+                    <dd>{{ area / 1000 }} {% trans 'cgf.area.unit' %}</dd>
+                    <dt>{% trans 'cgf.price' %}</dt>
+                    <dd>{{ quote.getSellingPrice() }} <span class="currency">€</span></dd>
+                </dl>
+            </td>
+        </tr>
+        </tfoot>
+    </table>
+</div>
+
+    <div class="clear">
+
+    </div>
+
+    <div id="mentions">
+        <p>{% trans "Les prix mentionnés ci-dessus ne sont valables que pendant les 3 mois suivants leur publication soit jusqu'au " %}
+            {{ date|date_modify("+3 month")|date("d/m/Y") }}
+        </p>
+    </div>
+{% endblock %}
