@@ -2,14 +2,14 @@ msgid ""
 msgstr ""
 "Project-Id-Version: GenPDF\n"
 "POT-Creation-Date: 2014-04-03 10:25+0100\n"
-"PO-Revision-Date: 2014-04-03 10:32+0100\n"
+"PO-Revision-Date: 2014-07-09 15:09+0100\n"
 "Last-Translator: \n"
 "Language-Team: Exaprint\n"
 "Language: it_IT\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
-"X-Generator: Poedit 1.6.4\n"
+"X-Generator: Poedit 1.6.5\n"
 "X-Poedit-KeywordsList: _;gettext;gettext_noop\n"
 "X-Poedit-Basepath: .\n"
 "X-Poedit-SearchPath-0: ./../../..\n"
@@ -2675,12 +2675,45 @@ msgstr ""
 msgid "valeur_"
 msgstr "350g opaca Condat Périgord"
 
-#, fuzzy
-#~ msgid "Date de commande"
-#~ msgstr "Data:"
+# calculateur grand format
+msgid "cgf.quote.title"
+msgstr "Preventivi"
 
-#~ msgid "Releve de factures"
-#~ msgstr "Riepilogo delle fatture"
+msgid "cgf.quote.models"
+msgstr "Modellos"
 
-#~ msgid "hello"
-#~ msgstr "Buongiorno"
+msgid "cgf.quote.bungee_cords"
+msgstr "Tensionatori"
+
+msgid "cgf.quote.eyelets"
+msgstr "Occhielli"
+
+msgid "cgf.quote.perforations"
+msgstr "Perforazione"
+
+msgid "cgf.quote.units"
+msgstr "Pz."
+
+msgid "cgf.area"
+msgstr "Superficie"
+
+msgid "cgf.models.title"
+msgstr "Titolo del modello"
+
+msgid "cgf.models.quantity"
+msgstr "Numero di copie"
+
+msgid "cgf.models.size"
+msgstr "Dimensioni"
+
+msgid "cgf.models.options"
+msgstr "opzioni"
+
+msgid "cgf.area.unit"
+msgstr "m²"
+
+msgid "cgf.description"
+msgstr "descrizione"
+
+msgid "cgf.price"
+msgstr "Totale IVA esclusa"

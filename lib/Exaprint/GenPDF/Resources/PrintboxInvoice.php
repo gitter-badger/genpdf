@@ -18,7 +18,7 @@ class PrintboxInvoice extends Invoice
 
     public function getFooter()
     {
-        return $this->_imageFolder . Helper::$current . "/footer.html";
+        return $this->_imageFolder . "printbox/footer.html";
     }
 
 

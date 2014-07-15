@@ -2,14 +2,14 @@ msgid ""
 msgstr ""
 "Project-Id-Version: genPDF\n"
 "POT-Creation-Date: 2014-06-17 11:21+0100\n"
-"PO-Revision-Date: 2014-06-17 11:38+0100\n"
+"PO-Revision-Date: 2014-07-09 15:09+0100\n"
 "Last-Translator: \n"
 "Language-Team: Exaprint <romain@exaprint.fr>\n"
 "Language: fr_FR\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
-"X-Generator: Poedit 1.6.4\n"
+"X-Generator: Poedit 1.6.5\n"
 "X-Poedit-KeywordsList: _;gettext;gettext_noop\n"
 "X-Poedit-Basepath: .\n"
 "X-Poedit-SearchPath-0: ./../../..\n"
@@ -2783,5 +2783,45 @@ msgstr "Stockage"
 msgid "action_planche_1"
 msgstr "Finition (collange, contre-collage)"
 
-#~ msgid "Net a payer"
-#~ msgstr "Net à payer"
+# calculateur grand format
+msgid "cgf.quote.title"
+msgstr "Devis Grand Format"
+
+msgid "cgf.quote.models"
+msgstr "Modèles"
+
+msgid "cgf.quote.bungee_cords"
+msgstr "Tendeurs"
+
+msgid "cgf.quote.eyelets"
+msgstr "Œillets"
+
+msgid "cgf.quote.perforations"
+msgstr "Perforations"
+
+msgid "cgf.quote.units"
+msgstr "Ex."
+
+msgid "cgf.area"
+msgstr "Surface"
+
+msgid "cgf.models.title"
+msgstr "Intitulé du modèle"
+
+msgid "cgf.models.quantity"
+msgstr "Nombre d'ex."
+
+msgid "cgf.models.size"
+msgstr "Dimensions"
+
+msgid "cgf.models.options"
+msgstr "Options"
+
+msgid "cgf.area.unit"
+msgstr "m²"
+
+msgid "cgf.description"
+msgstr "Description"
+
+msgid "cgf.price"
+msgstr "Montant H.T."

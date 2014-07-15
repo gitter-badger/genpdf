@@ -2,7 +2,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: genPDF\n"
 "POT-Creation-Date: 2014-04-02 15:15+0100\n"
-"PO-Revision-Date: 2014-04-02 15:15+0100\n"
+"PO-Revision-Date: 2014-07-15 16:09+0100\n"
 "Last-Translator: \n"
 "Language-Team: Exaprint <romain@exaprint.fr>\n"
 "Language: en_GB\n"
@@ -2338,14 +2338,12 @@ msgid "Reference"
 msgstr "Reference"
 
 #: ../../../cache/twig_gettext_keys.php:11
-#, fuzzy
 msgid "Reference de commande"
-msgstr "Reference"
+msgstr "Order Reference"
 
 #: ../../../cache/twig_gettext_keys.php:12
-#, fuzzy
 msgid "Mode de paiement"
-msgstr "Due date"
+msgstr "Payment method"
 
 #: ../../../cache/twig_gettext_keys.php:13
 msgid "Montant H.T."
@@ -2678,15 +2676,45 @@ msgstr ""
 msgid "valeur_"
 msgstr "350gsm Silk Coated"
 
-#, fuzzy
-#~ msgid "Date de commande"
-#~ msgstr "Date"
+# calculateur grand format
+msgid "cgf.quote.title"
+msgstr "Wide format quote"
 
-#~ msgid "currency_span"
-#~ msgstr "<span class=\"currency\">£</span>"
+msgid "cgf.quote.models"
+msgstr "Models"
 
-#~ msgid "Releve de factures"
-#~ msgstr "Invoice statement - "
+msgid "cgf.quote.bungee_cords"
+msgstr "Bungee cords"
 
-#~ msgid "hello"
-#~ msgstr "Bonjour"
+msgid "cgf.quote.eyelets"
+msgstr "Eyelets"
+
+msgid "cgf.quote.perforations"
+msgstr "Perforations"
+
+msgid "cgf.quote.units"
+msgstr "pc"
+
+msgid "cgf.area"
+msgstr "Area"
+
+msgid "cgf.models.title"
+msgstr "Title"
+
+msgid "cgf.models.quantity"
+msgstr "Number of units"
+
+msgid "cgf.models.size"
+msgstr "Size"
+
+msgid "cgf.models.options"
+msgstr "Options"
+
+msgid "cgf.area.unit"
+msgstr "m²"
+
+msgid "cgf.description"
+msgstr "Description"
+
+msgid "cgf.price"
+msgstr "Net Price"
