@@ -2,14 +2,14 @@ msgid ""
 msgstr ""
 "Project-Id-Version: genPDF\n"
 "POT-Creation-Date: 2014-04-02 15:15+0100\n"
-"PO-Revision-Date: 2014-07-09 15:10+0100\n"
+"PO-Revision-Date: 2014-07-15 16:09+0100\n"
 "Last-Translator: \n"
 "Language-Team: Exaprint <romain@exaprint.fr>\n"
 "Language: en_GB\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
-"X-Generator: Poedit 1.6.5\n"
+"X-Generator: Poedit 1.6.4\n"
 "X-Poedit-KeywordsList: _;gettext;gettext_noop\n"
 "X-Poedit-Basepath: .\n"
 "X-Poedit-SearchPath-0: ./../../..\n"
@@ -2338,14 +2338,12 @@ msgid "Reference"
 msgstr "Reference"
 
 #: ../../../cache/twig_gettext_keys.php:11
-#, fuzzy
 msgid "Reference de commande"
-msgstr "Reference"
+msgstr "Order Reference"
 
 #: ../../../cache/twig_gettext_keys.php:12
-#, fuzzy
 msgid "Mode de paiement"
-msgstr "Due date"
+msgstr "Payment method"
 
 #: ../../../cache/twig_gettext_keys.php:13
 msgid "Montant H.T."
