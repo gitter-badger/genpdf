@@ -44,6 +44,9 @@ class InvoiceStatements extends Resource implements IResource
         $this->_year  = substr($yearAndMonth, 0, 4);
         $this->_month = substr($yearAndMonth, 4, 2);
 
+        $language = array_keys(Helper::$map, Helper::$current);
+        $language = (count($language) > 0) ? $language[0]: 1;
+
         $customerDao     = new Customer();
         $this->_customer = $customerDao->getXML($IDClient);
 
@@ -68,7 +71,7 @@ class InvoiceStatements extends Resource implements IResource
         $payment = $commande->leftJoin('TBL_MODEREGLEMENT_TRAD');
         $payment->joinCondition()
             ->eq('IDModeReglement', new Column('IDModeReglement', new Table('TBL_COMMANDE')))
-            ->eq('IDLANGUE', 1);
+            ->eq('IDLANGUE', $language);
         $payment->cols([
             'payment' => 'LibelleTraduit'
         ]);
