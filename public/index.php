@@ -19,15 +19,15 @@ $app->get('/fiche-de-fab/:IDPlanche', function ($IDPlanche) use ($app) {
     }
 
     $cacheSubFolder = round($IDPlanche / 100) * 100;
-    $cachePath = '../cache/fiche-de-fab/' . $cacheSubFolder;
+    $cachePath      = '../cache/fiche-de-fab/' . $cacheSubFolder;
 
-    if(!file_exists($cachePath)){
+    if (!file_exists($cachePath)) {
         mkdir($cachePath, 0777);
     }
 
-    $cacheFilename = $cachePath . '/' . $IDPlanche. '.pdf';
+    $cacheFilename = $cachePath . '/' . $IDPlanche . '.pdf';
 
-    if(file_exists($cacheFilename) && is_null($app->request->get('norender'))){
+    if (file_exists($cacheFilename) && is_null($app->request->get('norender'))) {
         header('Content-Type: application/x-pdf');
         echo file_get_contents($cacheFilename);
     }
@@ -187,5 +187,41 @@ function xsltProcess($xml)
     unlink("$filename.xml");
     unlink("$filename.html");
 }
+
+
+$app->post('/cgf', function () use ($app, $twig) {
+    $twig = $twig->getInstance();
+    $data = json_decode($app->request()->getBody());
+    $quote    = new Exaprint\GenPDF\CGF\Quote($data);
+    $language = $quote->getCollation();
+    putenv("LC_MESSAGES=" . $language);
+    setlocale(LC_MESSAGES, $language);
+    if (function_exists('bindtextdomain') && function_exists('textdomain')) {
+        bindtextdomain("messages", APPLICATION_ROOT . "/locale");
+        textdomain("messages");
+        bind_textdomain_codeset("messages", "UTF-8");
+    }
+
+    ob_start();
+    $twig->display('cgf/quote.twig', ['quote' => $quote]);
+    $html = ob_get_clean();
+    $uid      = uniqid();
+    $filename = "cgf-quote-$uid";
+    file_put_contents(__DIR__ . "/temp/$filename.html", $html);
+
+    $wkhtml = new \RBM\Wkhtmltopdf\Wkhtmltopdf();
+    $wkhtml->setHeaderHtml("http://$_SERVER[SERVER_NAME]/static/assets/$language/header.html");
+    $wkhtml->setMarginTop(40);
+    $wkhtml->setHeaderSpacing(5);
+    $wkhtml->setFooterHtml("http://$_SERVER[SERVER_NAME]/static/assets/$language/footer.html");
+    $wkhtml->setFooterSpacing(5);
+    $wkhtml->setMarginBottom(49);
+
+    $r = $wkhtml->run($_SERVER["SERVER_NAME"] . "/temp/$filename.html", __DIR__ . "/temp/$filename.pdf");
+
+    if ($r['return'] == '0') {
+        echo file_get_contents(__DIR__ . "/temp/$filename.pdf");
+    }
+});
 
 $app->run();

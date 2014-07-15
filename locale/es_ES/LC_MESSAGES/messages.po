@@ -2,14 +2,14 @@ msgid ""
 msgstr ""
 "Project-Id-Version: genPDF\n"
 "POT-Creation-Date: 2014-04-02 15:17+0100\n"
-"PO-Revision-Date: 2014-04-02 15:20+0100\n"
+"PO-Revision-Date: 2014-07-09 15:09+0100\n"
 "Last-Translator: \n"
 "Language-Team: Exaprint <romain@exaprint.fr>\n"
 "Language: es_ES\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
-"X-Generator: Poedit 1.6.4\n"
+"X-Generator: Poedit 1.6.5\n"
 "X-Poedit-KeywordsList: _;gettext;gettext_noop\n"
 "X-Poedit-Basepath: .\n"
 "X-Poedit-SearchPath-0: ./../../..\n"
@@ -2647,12 +2647,45 @@ msgstr ""
 msgid "valeur_"
 msgstr "350gr mate Condat Perigord"
 
-#, fuzzy
-#~ msgid "Date de commande"
-#~ msgstr "Fecha"
+# calculateur grand format
+msgid "cgf.quote.title"
+msgstr "PRESUPUESTO"
 
-#~ msgid "Releve de factures"
-#~ msgstr "Extracto de facturas"
+msgid "cgf.quote.models"
+msgstr "Modelos"
 
-#~ msgid "hello"
-#~ msgstr "Bonjour"
+msgid "cgf.quote.bungee_cords"
+msgstr "Tensores"
+
+msgid "cgf.quote.eyelets"
+msgstr "Ojales"
+
+msgid "cgf.quote.perforations"
+msgstr "Perforaciones"
+
+msgid "cgf.quote.units"
+msgstr "Ej."
+
+msgid "cgf.area"
+msgstr "Superficie"
+
+msgid "cgf.models.title"
+msgstr "Nombre del modelo"
+
+msgid "cgf.models.quantity"
+msgstr "Número de copias"
+
+msgid "cgf.models.size"
+msgstr "Dimensión"
+
+msgid "cgf.models.options"
+msgstr "Opciones"
+
+msgid "cgf.area.unit"
+msgstr "m²"
+
+msgid "cgf.description"
+msgstr "Descripción"
+
+msgid "cgf.price"
+msgstr "Total Sin IVA"
