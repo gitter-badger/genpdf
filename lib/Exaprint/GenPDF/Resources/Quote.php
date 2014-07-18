@@ -53,6 +53,14 @@ class Quote extends Resource implements IResource
             $data['result']['detail_demande']['element'] = array($data['result']['detail_demande']['element']);
         }
 
+        for ($i = 0; $i < count($data['result']['detail_demande']['element']); $i++) {
+            if (isset($data['result']['detail_demande']['element'][$i]['attr'])) {
+                $keys = each($data['result']['detail_demande']['element'][$i]['attr']);
+                if (!is_numeric($keys[0]))
+                    $data['result']['detail_demande']['element'][$i]['attr'] = array($data['result']['detail_demande']['element'][$i]['attr']);
+            }
+        }
+
         $data['result']['data'] = $this->_data;
         $zipCode                = "";
         $dao                    = new DAO\Quote();
