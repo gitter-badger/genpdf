@@ -111,4 +111,12 @@ class Quote
     {
         return $this->_data->lang_id;
     }
+
+    public function getMentions()
+    {
+        $date = new \DateTime();
+        $date->add(new \DateInterval('P3M'));
+        $date = $date->format('d/m/Y');
+        return sprintf(_('cgf.mentions'), $date);
+    }
 } 

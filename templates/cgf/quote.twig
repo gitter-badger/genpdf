@@ -25,7 +25,7 @@
             </address>
         {% endblock %}
     </div>
-    <h2>{% trans 'cgf.description' %}</h2>
+    <h2 style="margin-top: 5cm">{% trans 'cgf.description' %}</h2>
     <div id="product">
         <dl id="product-options">
             {% for item in quote.getOptions() %}
@@ -98,22 +98,8 @@
     <div class="clear">
 
     </div>
-    <div id="mentions">
-        <p>
-            {% trans "Prix incluant les livraisons en France métropolitaine." %}<br />
-            {% trans "Nos devis sont établis en jours ouvrés et hors transport." %}<br />
-            {% trans "Nos prix s'entendent pour la fourniture des fichiers numériques strictement conformes à notre cahier des charges." %}<br />
-            {% trans "En cas de fourniture de fichiers non conformes, un délai supplémentaire pourra être appliqué." %}
-        </p>
-
-        <p>
-            {% trans "L'option Bon à tirer (BàT) n'est pas compatible avec les produits issus du calculateur sur mesure " %}
-        </p>
-
-        <p>
-            {% trans "Les prix mentionnés ci-dessus ne sont valables que pendant les 3 mois suivants leur publication soit jusqu'au " %}
-            {{ date|date_modify("+3 month")|date("d/m/Y") }}
-        </p>
+    <div id="mentions" style="margin-top:3cm">
+        {{ quote.getMentions()|raw }}
     </div>
 
 {% endblock %}
