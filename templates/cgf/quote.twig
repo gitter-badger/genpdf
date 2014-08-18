@@ -87,7 +87,7 @@
                     <dt>{% trans 'cgf.area' %}</dt>
                     <dd>{{ area / 1000 }} {% trans 'cgf.area.unit' %}</dd>
                     <dt>{% trans 'cgf.price' %}</dt>
-                    <dd>{{ quote.getSellingPrice() }} <span class="currency">€</span></dd>
+                    <dd>{{ quote.getSellingPrice()|formatmoney }}</dd>
                 </dl>
             </td>
         </tr>
