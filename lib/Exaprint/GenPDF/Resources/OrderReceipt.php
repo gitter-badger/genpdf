@@ -165,7 +165,10 @@ class OrderReceipt extends Resource implements IResource
 
             WHERE
               (TBL_COMMANDE.IDCommande = $IDCommande)
-              AND Options.IDProduitOption != 97";
+              AND (
+                    Options.IDProduitOption != 97
+                    OR TBL_PRODUIT_FAMILLE_ARTICLES.IDProduitFamilleArticles NOT IN (126,134,135,136,137)
+                  )";
 
         //echo($select);
 
