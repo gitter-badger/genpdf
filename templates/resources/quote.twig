@@ -1,7 +1,7 @@
 {% extends "resources/base.twig" %}
 
 {% block links %}
-    <link rel="stylesheet" type="text/css" href="/static/css/reset.css"/>
+    <link rel="stylesheet" type="text/css" href="/static/css/reset.css" xmlns="http://www.w3.org/1999/html"/>
     <link rel="stylesheet" type="text/css" href="/static/css/fonts.css"/>
     <link rel="stylesheet/less" type="text/css" href="/static/less/quote.less"/>
     <script type="text/javascript">
@@ -21,26 +21,46 @@
 
     <div id="product" class="detail">
         <h2>Détail de la demande : </h2>
-
         <h3>{{ libelle_produit }}</h3>
         {% for e,element in detail_demande.element %}
-            <h4>{{ element.name }}</h4>
+            {% if element.name != "Global"%}
+                <h4>{{ element.name }}</h4>
+            {% endif %}
             {% for a,attribut in element %}
+                <dl id="product-options">
                 {% for a,option in attribut %}
-                    {% if option.value %}
-                        <dl id="product-options">
-                            <dt>{{ option.name }} :</dt>
-                            <dd>{{ option.value }} <em>{{ option.unit }}</em></dd>
-                        </dl>
+                    {% if option.value and element.name != "Global"%}
+                        <dt>{{ option.name }} :</dt>
+                        <dd>{{ option.value }} <em>{{ option.unit }}</em></dd>
+                    {% else %}
+                        {% if element.name != "Global" %}
+                            {% if option.selectif != "faux" and option.selectif != "Faux" %}
+                                <dt>{{ option.name }}</dt>
+                                {% if option.value %}
+                                    <dd> : {{ option.value }} <em>{{ option.unit }}</em></dd>
+                                {% else %}
+                                    <dd></dd>
+                                {% endif %}
+                            {% endif %}
+                        {% endif %}
+                    {% endif %}
+
+                    {% if element.name == "Global" %}
+                        <dt>{{ option.name }}</dt>
+                        {% if option.value %}
+                            <dd> : {{ option.value }} <em>{{ option.unit }}</em></dd>
+                        {% else %}
+                            <dd></dd>
+                        {% endif %}
                     {% endif %}
                 {% endfor %}
+                </dl>
             {% endfor %}
         {% endfor %}
         <br/>
         <dl id="product-options">
             {% if detail_demande.attr|length > 0 %}
                 {% for a,attr in detail_demande.attr %}
-
                     {% if a == "name" %}
                         <dt>{{ attr }} :</dt>
                     {% else %}
