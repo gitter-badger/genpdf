@@ -90,11 +90,11 @@
             <dd>{{ customer.raisonSociale }}</dd>
             <dt>{% trans "Contact" %}</dt>
             <dd>
-            {% if customer.civiliteContact in ['1','Mlle','mlle']%}
+            {% if customer.civilite in [1,'Mlle','mlle']%}
                 Mlle
-            {% elseif customer.civiliteContact  in ['2','Mme','mme']%}
+            {% elseif customer.civilite in [2,'Mme','mme']%}
                 Mme
-            {% elseif customer.civiliteContact in ['3','M','Mr']%}
+            {% elseif customer.civilite in [3,'M','Mr']%}
                 M
             {% endif %}
             {{ customer.nomContact }}</dd>
