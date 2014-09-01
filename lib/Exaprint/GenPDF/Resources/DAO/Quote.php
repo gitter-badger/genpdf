@@ -44,4 +44,26 @@ class Quote {
 
         return $data;
     }
+
+    public function getCustomerInfos($idCustomer){
+        $result=[];
+        $select = new Select();
+        $select->setTable(new Table('TBL_CLIENT','dbo'));
+        $contact = $select->join(new Table('TBL_CLIENT_CONTACT','dbo'),'IdClient','IdClient');
+        $contact->cols(['NomContact']);
+        $contact->where()
+            ->eq('ContactPrincipal',1);
+        $select->cols(['RaisonSociale']);
+        $select->where()
+            ->eq('IdClient',$idCustomer);
+
+        $stmt = DB::get()->query($select);
+        $data = $stmt->fetch();
+
+        if($data !== false){
+            $result['raisonSociale'] = $data->RaisonSociale;
+            $result['nomContact'] = $data->NomContact;
+        }
+        return $result;
+    }
 } 

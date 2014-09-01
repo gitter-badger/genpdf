@@ -16,7 +16,11 @@
 
 {% block page %}
     <div class="quote">
-        <h1>{% trans "Numero de devis" %} {{ numero }}</h1>
+        <dt>{% trans "Raison sociale" %}</dt>
+        <dd>{{ customer.raisonSociale }}</dd>
+        <dt>{% trans "Nom contact" %}</dt>
+        <dd>{{ customer.nomContact }}</dd>
+        <h1>{% trans "Devis" %} {{ numero }}</h1>
     </div>
 
     <div id="product" class="detail">
@@ -24,7 +28,7 @@
         <h3>{{ libelle_produit }}</h3>
         {% for e,element in detail_demande.element %}
             {% if element.name != "Global"%}
-                <h4>{{ element.name }}</h4>
+                <h3>{{ element.name }}</h3>
             {% endif %}
             {% for a,attribut in element %}
                 <dl id="product-options">
@@ -85,9 +89,7 @@
     </div>
 
     <div id="order">
-        <h2>{% trans "Devis" %}</h2>
         <dl>
-
             <dt>{% trans "Référence client" %}</dt>
             <dd>{{ data.ReferenceClient }}</dd>
 
@@ -128,12 +130,12 @@
             <dd id="delai">{{ Delai }}j</dd>
         </dl>
 
-        <h2>{% trans "Livraison" %}</h2>
+        <h3>{% trans "Livraison prévue" %}</h3>
         {{ Quantite_Devis.value }}
 
         {% for s,shipement in city[data.Quantite] %}
             <dl>
-                <dt>Code postal :</dt>
+                <dt>1 point :</dt>
                 <dd>{{ shipement.departement }} ({{ shipement.code }})</dd>
                 <dt>Quantité :</dt>
                 <dd>{{ shipement.quantite }}</dd>
@@ -148,7 +150,7 @@
                             {% for i, item in delivery %}
                                 <dl>
                                     {% if i == "code_postal" %}
-                                        <dt>code postal :</dt>
+                                        <dt>1 point :</dt>
                                         <dd>{{ item }}</dd>
                                         <dt>quantité :</dt>
                                         <dd>{{ delivery.quantite }}</dd>
@@ -161,7 +163,7 @@
             {% else %}
                 <dl>
                     {% if s == "code_postal" %}
-                        <dt>code postal :</dt>
+                        <dt>1 point :</dt>
                     {% else %}
                         <dt>{{ s }} :</dt>
                     {% endif %}
@@ -177,17 +179,14 @@
 
     <div id="mentions">
         <p>
+            {% trans "Cher client, merci pour votre demande de prix. Pour toute demande relative à un délai de fabrication, écrivez à assistance.planning@exaprint.fr" %}
+        </p>
+        <p>
             {% trans "Prix incluant les livraisons en France métropolitaine." %}<br />
             {% trans "Nos devis sont établis en jours ouvrés et hors transport." %}<br />
             {% trans "Nos prix s'entendent pour la fourniture des fichiers numériques strictement conformes à notre cahier des charges." %}<br />
-            {% trans "En cas de fourniture de fichiers non conformes, un délai supplémentaire pourra être appliqué." %}
-        </p>
-
-        <p>
-            {% trans "L'option Bon à tirer (BàT) n'est pas compatible avec les produits issus du calculateur sur mesure " %}
-        </p>
-
-        <p>
+            {% trans "En cas de fourniture de fichiers non conformes, un délai supplémentaire pourra être appliqué." %}<br />
+            {% trans "L'option Bon à tirer (BàT) n'est pas compatible avec les produits issus du calculateur sur mesure " %}<br />
             {% trans "Les prix mentionnés ci-dessus ne sont valables que pendant les 3 mois suivants leur publication soit jusqu'au " %}
             {{ date|date_modify("+3 month")|date("d/m/Y") }}
         </p>
