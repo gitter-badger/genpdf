@@ -16,10 +16,6 @@
 
 {% block page %}
     <div class="quote">
-        <dt>{% trans "Raison sociale" %}</dt>
-        <dd>{{ customer.raisonSociale }}</dd>
-        <dt>{% trans "Nom contact" %}</dt>
-        <dd>{{ customer.nomContact }}</dd>
         <h1>{% trans "Devis" %} {{ numero }}</h1>
     </div>
 
@@ -90,6 +86,19 @@
 
     <div id="order">
         <dl>
+            <dt>{% trans "Raison sociale" %}</dt>
+            <dd>{{ customer.raisonSociale }}</dd>
+            <dt>{% trans "Contact" %}</dt>
+            <dd>
+            {% if customer.civiliteContact in ['1','Mlle','mlle']%}
+                Mlle
+            {% elseif customer.civiliteContact  in ['2','Mme','mme']%}
+                Mme
+            {% elseif customer.civiliteContact in ['3','M','Mr']%}
+                M
+            {% endif %}
+            {{ customer.nomContact }}</dd>
+
             <dt>{% trans "Référence client" %}</dt>
             <dd>{{ data.ReferenceClient }}</dd>
 
@@ -178,7 +187,7 @@
     </div>
 
     <div id="mentions">
-        <p>
+        <p class="infoDemande">
             {% trans "Cher client, merci pour votre demande de prix. Pour toute demande relative à un délai de fabrication, écrivez à assistance.planning@exaprint.fr" %}
         </p>
         <p>
