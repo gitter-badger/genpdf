@@ -50,7 +50,7 @@ class Quote {
         $select = new Select();
         $select->setTable(new Table('TBL_CLIENT','dbo'));
         $contact = $select->join(new Table('TBL_CLIENT_CONTACT','dbo'),'IdClient','IdClient');
-        $contact->cols(['NomContact']);
+        $contact->cols(['NomContact'],['CiviliteContact']);
         $contact->where()
             ->eq('ContactPrincipal',1);
         $select->cols(['RaisonSociale']);
@@ -63,6 +63,7 @@ class Quote {
         if($data !== false){
             $result['raisonSociale'] = $data->RaisonSociale;
             $result['nomContact'] = $data->NomContact;
+            $result['civilite'] = $data->CiviliteContact;
         }
         return $result;
     }
