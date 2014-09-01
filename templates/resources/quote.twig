@@ -15,10 +15,6 @@
 {% endblock %}
 
 {% block page %}
-    <div class="quote">
-        <h1>{% trans "Devis" %} {{ numero }}</h1>
-    </div>
-
     <div id="product" class="detail">
         <h2>Détail de la demande : </h2>
         <h3>{{ libelle_produit }}</h3>
@@ -86,6 +82,7 @@
 
     <div id="order">
         <dl>
+            <h1>{% trans "Devis" %} {{ numero }}</h1>
             <dt>{% trans "Raison sociale" %}</dt>
             <dd>{{ customer.raisonSociale }}</dd>
             <dt>{% trans "Contact" %}</dt>
@@ -121,7 +118,7 @@
             </thead>
             <tbody>
             <tr>
-                <td>{% trans "Produit" %}</td>
+                <td>{{ libelle_produit }}</td>
                 <td class="number">{{ data.Quantite }}
                     {% if nombre_modeles > 1 %}
                         X {{ nombre_modeles }} {% trans "modèle(s)" %}
@@ -136,7 +133,7 @@
     <div id="delivery">
         <dl>
             <dt>Delai :</dt>
-            <dd id="delai">{{ Delai }}j</dd>
+            <dd id="delai">{{ Delai }}j {% trans "ouvrés" %}</dd>
         </dl>
 
         <h3>{% trans "Livraison prévue" %}</h3>
@@ -188,7 +185,7 @@
 
     <div id="mentions">
         <p class="infoDemande">
-            {% trans "Cher client, merci pour votre demande de prix. Pour toute demande relative à un délai de fabrication, écrivez à assistance.planning@exaprint.fr" %}
+            {% trans "Cher client, merci pour votre demande de prix. Pour toute demande relative à un délai de fabrication, écrivez à" %}  <a href="mailto:assistance.planning@exaprint.fr">assistance.planning@exaprint.fr</a>
         </p>
         <p>
             {% trans "Prix incluant les livraisons en France métropolitaine." %}<br />
