@@ -17,6 +17,24 @@ class Faconnage
     public function __construct($planche)
     {
         $this->_p = $planche;
+
+        foreach($planche['commandes'] as $commande){
+            if($commande['Pliage']){
+                $this->_p['AvecPliage'] = true;
+            }
+
+            if($commande['Rainage']){
+                $this->_p['AvecRainage'] = true;
+            }
+
+            if($commande['Perforation']){
+                $this->_p['AvecPerforation'] = true;
+            }
+
+            if($commande['Decoupe']){
+                $this->_p['AvecDecoupe'] = true;
+            }
+        }
     }
 
     public function draw(\TCPDF $pdf, Position $position)
