@@ -5,4 +5,4 @@ logs/*
 cache/*
 public/temp/*.html
 public/temp/*.pdf
-locale/*.mo
+/**/messages.mo
