@@ -54,6 +54,7 @@ class Quote
         $pov = Factory::select('VUE_PRODUIT_OPTION_VALEUR');
         $pov->cols(['value' => 'LibelleTraduit']);
         $pov->where()->eq('IDProduit', $this->_data->product_id);
+        $pov->where()->notEquals('IDProduitOption', 97);// exclusion délai
         $pov->where()->eq('IDLangue', $this->_data->lang_id)->addBitClause('EstSans', false);
         $po = $pov->join('TBL_PRODUIT_OPTION_TRAD', 'IDProduitOption');
         $po->where()->eq('IDLangue', $this->_data->lang_id);
@@ -109,5 +110,13 @@ class Quote
     public function getLangId()
     {
         return $this->_data->lang_id;
+    }
+
+    public function getMentions()
+    {
+        $date = new \DateTime();
+        $date->add(new \DateInterval('P3M'));
+        $date = $date->format('d/m/Y');
+        return sprintf(_('cgf.mentions'), $date);
     }
 } 

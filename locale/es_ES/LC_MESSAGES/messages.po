@@ -2693,3 +2693,20 @@ msgstr "Descripción"
 
 msgid "cgf.price"
 msgstr "Total Sin IVA"
+
+msgid "cgf.mentions"
+msgstr ""
+"El precio incluye el envío en toda la Península.<br>Nuestros plazos de envío "
+"estan establecidos en dias laborales y sin contar el transporte.<br>Nuestros "
+"precios se ajustan a los ficheros enviados correctamente bajo nuestras "
+"especificaciones.<br>       En caso de que el fichero no sea correcto, el "
+"envío se puede retrasar.<br>Todas nuestras tarjetas impresas en Offset son "
+"protegidas por un barniz acrílico satinado.<br>presupuesto válido por 3 "
+"meses hasta %s, no incluídas las promociones en curso en la fecha de su "
+"demanda de presupuesto."
+
+msgid "Delai production"
+msgstr "Plazo"
+
+msgid "Unite Jours"
+msgstr "dias"

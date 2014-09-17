@@ -2722,3 +2722,12 @@ msgstr "Description"
 
 msgid "cgf.price"
 msgstr "Net Price"
+
+msgid "cgf.mentions"
+msgstr "%s"
+
+msgid "Delai production"
+msgstr "Lead Time"
+
+msgid "Unite Jours"
+msgstr "days"

@@ -105,6 +105,9 @@
                 <dd>{{ order.devis_reference }}</dd>
             {% endif %}
 
+            <dt>{% trans "Delai production" %}</dt>
+            <dd>{{ order.lead_time }} {% trans "Unite Jours" %}</dd>
+
             <dt>{% trans "Date" %}</dt>
             <dd>{{ order.creation_date|date('d/m/Y') }}</dd>
 

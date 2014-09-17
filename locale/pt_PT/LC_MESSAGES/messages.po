@@ -2692,3 +2692,12 @@ msgstr "Descrição"
 
 msgid "cgf.price"
 msgstr "Total Sem IVA"
+
+msgid "cgf.mentions"
+msgstr "%s"
+
+msgid "Delai production"
+msgstr "Prazo"
+
+msgid "Unite Jours"
+msgstr "dias"

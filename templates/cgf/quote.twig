@@ -25,7 +25,7 @@
             </address>
         {% endblock %}
     </div>
-    <h2>{% trans 'cgf.description' %}</h2>
+    <h2 style="margin-top: 5cm">{% trans 'cgf.description' %}</h2>
     <div id="product">
         <dl id="product-options">
             {% for item in quote.getOptions() %}
@@ -87,7 +87,7 @@
                     <dt>{% trans 'cgf.area' %}</dt>
                     <dd>{{ area / 1000 }} {% trans 'cgf.area.unit' %}</dd>
                     <dt>{% trans 'cgf.price' %}</dt>
-                    <dd>{{ quote.getSellingPrice() }} <span class="currency">€</span></dd>
+                    <dd>{{ quote.getSellingPrice()|formatmoney }}</dd>
                 </dl>
             </td>
         </tr>
@@ -98,10 +98,8 @@
     <div class="clear">
 
     </div>
-
-    <div id="mentions">
-        <p>{% trans "Les prix mentionnés ci-dessus ne sont valables que pendant les 3 mois suivants leur publication soit jusqu'au " %}
-            {{ date|date_modify("+3 month")|date("d/m/Y") }}
-        </p>
+    <div id="mentions" style="margin-top:3cm">
+        {{ quote.getMentions()|raw }}
     </div>
+
 {% endblock %}

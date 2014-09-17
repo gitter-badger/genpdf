@@ -2829,3 +2829,20 @@ msgstr "Description"
 
 msgid "cgf.price"
 msgstr "Montant H.T."
+
+msgid "cgf.mentions"
+msgstr ""
+"Prix incluant les livraisons en France métropolitaine.<br>Nos devis sont "
+"établis en jours ouvrés et hors transport.<br>Nos prix s'entendent pour la "
+"fourniture des fichiers numériques strictement conformes à notre cahier des "
+"charges.En cas de fourniture de fichiers non conformes, un délai "
+"supplémentaire pourra être appliqué.<br>L'option Bon à tirer (BàT) n'est pas "
+"compatible avec les produits issus du calculateur sur mesure. Les prix "
+"mentionnés ci-dessus ne sont valables que pendant les 3 mois suivants leur "
+"publication soit jusqu'au %s"
+
+msgid "Delai production"
+msgstr "Délai de production"
+
+msgid "Unite Jours"
+msgstr "jours"
