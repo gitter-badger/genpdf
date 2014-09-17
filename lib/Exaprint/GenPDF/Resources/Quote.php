@@ -64,6 +64,8 @@ class Quote extends Resource implements IResource
         $data['result']['data'] = $this->_data;
         $zipCode                = "";
         $dao                    = new DAO\Quote();
+
+        $data['result']['customer'] = $dao->getCustomerInfos(intval($data['result']['Id_Client']));
         //Todo Factoriser
         foreach ($data['result']['livraison'] as $delivery) {
             if(isset($delivery['value'])){
@@ -134,7 +136,6 @@ class Quote extends Resource implements IResource
                 }
             }
         }
-
         return $data['result'];
     }
 

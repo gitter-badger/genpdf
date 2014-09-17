@@ -395,7 +395,7 @@ class Commande
         $c->width     = $this->layout->cTransporteurWidth;
         $c->height    = $h;
 
-        if ($this->commande['EstImperatif']) {
+        if ($this->commande['EstImperatif'] || substr($this->commande['CodeProduit'], -4) == 'RUSH') {
             $c->textColor->color = Color::cmyk(0, 0, 100, 0);
             $c->fill = true;
             $c->fillColor = new FillColor(Color::cmyk(0, 100, 100, 0));
@@ -422,7 +422,7 @@ class Commande
         $c->width     = $this->layout->cExpeditionDateWidth;
         $c->height    = $h;
 
-        if ($this->commande['EstImperatif']) {
+        if ($this->commande['EstImperatif'] || substr($this->commande['CodeProduit'], -4) == 'RUSH') {
             $c->textColor->color = Color::cmyk(0, 0, 100, 0);
             $c->fillColor->color = Color::cmyk(0, 100, 100, 0);
         }

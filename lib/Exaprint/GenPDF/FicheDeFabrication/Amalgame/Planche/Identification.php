@@ -114,7 +114,7 @@ class Identification extends Rang
     {
         $count = 0;
         foreach ($commandes as $c) {
-            if ($c['EstImperatif']) $count++;
+            if ($c['EstImperatif'] || substr($c['CodeProduit'], -4) == 'RUSH') $count++;
         }
         return $count;
     }
