@@ -2,14 +2,14 @@ msgid ""
 msgstr ""
 "Project-Id-Version: genPDF\n"
 "POT-Creation-Date: 2014-04-02 15:17+0100\n"
-"PO-Revision-Date: 2014-07-31 17:17+0100\n"
+"PO-Revision-Date: 2014-08-29 17:50+0100\n"
 "Last-Translator: \n"
 "Language-Team: Exaprint <romain@exaprint.fr>\n"
 "Language: es_ES\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
-"X-Generator: Poedit 1.6.7\n"
+"X-Generator: Poedit 1.6.8\n"
 "X-Poedit-KeywordsList: _;gettext;gettext_noop\n"
 "X-Poedit-Basepath: .\n"
 "X-Poedit-SearchPath-0: ./../../..\n"
@@ -2634,6 +2634,10 @@ msgstr ""
 "CREANCIER} para enviar la orden a su banco para pagar de su cuenta, y (B) a "
 "su banco para liquidar de su cuenta de acuerdo con la orden de {NOM DU "
 "CREANCIER}."
+
+#: ../../../cache/twig_gettext_keys.php:91
+msgid "Poids"
+msgstr "Peso"
 
 #: ../../../lib/Exaprint/GenPDF/FicheDeFabrication/Amalgame/Cellule/Perforation.php:35
 #: ../../../lib/Exaprint/GenPDF/FicheDeFabrication/Amalgame/Cellule/Pliage.php:34

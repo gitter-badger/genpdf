@@ -97,6 +97,9 @@
             <dt>{% trans "Reference commande" %}</dt>
             <dd>{{ order.reference }}</dd>
 
+            <dt>{% trans "Poids" %}</dt>
+            <dd>{{ product.weight /1000 }} kg</dd>
+
             {% if order.devis_id %}
                 <dt>{% trans "Reference devis" %}</dt>
                 <dd>{{ order.devis_reference }}</dd>

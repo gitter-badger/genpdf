@@ -55,6 +55,7 @@ class OrderReceipt extends Resource implements IResource
               TBL_COMMANDE_LIGNE.Prix                                           AS [product.et_amount],
               TBL_COMMANDE_LIGNE.MontantTVAPrix                                 AS [product.vat_amount],
               TBL_COMMANDE_LIGNE.MontantTTCPrix                                 AS [product.ati_amount],
+                TBL_COMMANDE_LIGNE.PoidsLigne AS [product.weight],
               CASE
               WHEN TBL_PRODUIT.idproduitfamilleproduit = 538
               THEN 1
