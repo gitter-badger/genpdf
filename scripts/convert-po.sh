@@ -1,7 +1,23 @@
 #!/bin/sh
 
-msgfmt ../locale/en_GB/LC_MESSAGES/messages.po
-msgfmt ../locale/es_ES/LC_MESSAGES/messages.po
-msgfmt ../locale/fr_FR/LC_MESSAGES/messages.po
-msgfmt ../locale/it_IT/LC_MESSAGES/messages.po
-msgfmt ../locale/pt_PT/LC_MESSAGES/messages.po
+cd ../locale
+
+cd en_GB/LC_MESSAGES
+msgfmt messages.po
+cd ../..
+
+cd es_ES/LC_MESSAGES
+msgfmt messages.po
+cd ../..
+
+cd fr_FR/LC_MESSAGES
+msgfmt messages.po
+cd ../..
+
+cd it_IT/LC_MESSAGES
+msgfmt messages.po
+cd ../..
+
+cd pt_PT/LC_MESSAGES
+msgfmt messages.po
+cd ../..
