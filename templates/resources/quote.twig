@@ -99,6 +99,11 @@
             <dt>{% trans "Référence client" %}</dt>
             <dd>{{ data.ReferenceClient }}</dd>
 
+            {% if dispatch.commentaires_devis != "" %}
+                <dt>{% trans "Commentaire" %}</dt>
+                <dd>{{ dispatch.commentaires_devis }}</dd>
+            {% endif %}
+
             {% if order.devis_id %}
                 <dt>{% trans "Reference devis" %}</dt>
                 <dd>{{ libelle_produit }}</dd>
