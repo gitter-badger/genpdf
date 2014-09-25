@@ -136,7 +136,6 @@ class Quote extends Resource implements IResource
                 }
             }
         }
-
         return $data['result'];
     }
 

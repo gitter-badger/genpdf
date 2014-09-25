@@ -99,6 +99,16 @@
             <dt>{% trans "Référence client" %}</dt>
             <dd>{{ data.ReferenceClient }}</dd>
 
+            {% set bContinue = 1 %}
+            {% for r,response in dispatch %}
+                {%  if bContinue == 1 and response.statut == 'V' and response.commentaires_devis != '' %}
+                    <dt>{% trans "Commentaire" %}</dt>
+                    <dd>{{ response.commentaires_devis }}</dd>
+                    {% set bContinue = 0 %}
+                {% endif %}
+            {% endfor %}
+
+
             {% if dispatch.commentaires_devis != "" %}
                 <dt>{% trans "Commentaire" %}</dt>
                 <dd>{{ dispatch.commentaires_devis }}</dd>
