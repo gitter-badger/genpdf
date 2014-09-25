@@ -21,3 +21,5 @@ cd ../..
 cd pt_PT/LC_MESSAGES
 msgfmt messages.po
 cd ../..
+
+apachectl restart
