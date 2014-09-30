@@ -28,16 +28,16 @@ class Monteur
     public function draw(\TCPDF $pdf, Position $position)
     {
         $date = New \DateTime($this->_p['DateAjout']);
-        $text = 'Monteur : ' . $this->_p['PrenomMonteur'] . ' ' . $this->_p['NomMonteur'] . ' (' . $this->_p['EmailMonteur'] . ')'."\n";
-        $text .= 'Date : ' . $date->format('Y-m-d H:i:s');
+        $text = 'Monteur : ' . $this->_p['PrenomMonteur'] . ' ' . $this->_p['NomMonteur'] . ' (' . $this->_p['EmailMonteur'] . ')' . "\n";
+        $text .= 'Date : ' . $date->format('Y-m-d H:i:s') . ' - ' . $this->_p['NomAtelier'] . ' : ' . round($this->_p['CoutPlanche'], 2) . ' euros';
 
-        $c = new MultiCell();
-        $c->text = $text;
-        $c->font = new Font('bagc-reg', 10, new TextColor(Color::black()));
-        $c->x = $position->x;
-        $c->y = $position->y;
+        $c         = new MultiCell();
+        $c->text   = $text;
+        $c->font   = new Font('bagc-reg', 10, new TextColor(Color::black()));
+        $c->x      = $position->x;
+        $c->y      = $position->y;
         $c->border = 1;
-        $c->width = 100;
+        $c->width  = 100;
         $c->height = 10;
         $c->draw($pdf);
     }
