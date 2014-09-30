@@ -19,6 +19,9 @@ class OrderReceipt extends Resource implements IResource
      */
     public function fetchFromID($IDCommande)
     {
+        $language = array_keys(Helper::$map, Helper::$current);
+        $language = (count($language) > 0) ? $language[0]: 1;
+
         $select = "
             SELECT
               TBL_COMMANDE.IDCommande                                           AS [order.id],
@@ -87,7 +90,7 @@ class OrderReceipt extends Resource implements IResource
               [delivery].AdresseLivraison2                                      AS [delivery.address.line2],
               [delivery].AdresseLivraison3                                      AS [delivery.address.line3],
               [delivery].Commentaire                                            AS [delivery.comment],
-              TBL_PAYS.LibellePays                                              AS [delivery.country],
+              TBL_PAYS_TRAD.LibelleTraduit                                      AS [delivery.country],
               CASE
               WHEN ([delivery].IDVille IS NULL)
               THEN [delivery].VilleLivraison
@@ -154,6 +157,9 @@ class OrderReceipt extends Resource implements IResource
 
               LEFT JOIN TBL_PAYS
                 ON TBL_PAYS.IDPays = [delivery].IDPays
+
+              LEFT JOIN TBL_PAYS_TRAD
+                ON TBL_PAYS_TRAD.IDPays = TBL_PAYS.IDPays AND TBL_PAYS_TRAD.IDLangue = $language
 
               JOIN TBL_MODEREGLEMENT_TRAD AS [regulation]
                 ON (TBL_COMMANDE.IDModeReglement = [regulation].IDModeReglement AND [regulation].IDLangue = client.IDLangueMailing)
