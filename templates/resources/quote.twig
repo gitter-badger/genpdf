@@ -29,9 +29,10 @@
                         <dt>{{ option.name }} :</dt>
                         <dd>{{ option.value }} <em>{{ option.unit }}</em></dd>
                     {% else %}
+                        <!-- Gestion des vernis sans value => ne rien afficher
                         {% if element.name != "Global" %}
                             {% if option.selectif != "faux" and option.selectif != "Faux" %}
-                                <dt>{{ option.name }}</dt>
+                                <dt>{{ option.name }} </dt>
                                 {% if option.value %}
                                     <dd> : {{ option.value }} <em>{{ option.unit }}</em></dd>
                                 {% else %}
@@ -39,6 +40,7 @@
                                 {% endif %}
                             {% endif %}
                         {% endif %}
+                        -->
                     {% endif %}
 
                     {% if element.name == "Global" %}
