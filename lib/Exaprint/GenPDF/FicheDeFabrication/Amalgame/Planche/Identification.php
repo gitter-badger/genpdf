@@ -55,7 +55,7 @@ class Identification extends Rang
     protected function expeAvecFaconnage($date)
     {
         $c                              = new Cellule();
-        $c->label                       = 'Expé SANS façonnage';
+        $c->label                       = 'Expé AVEC façonnage';
         $c->dimensions->width           = 30;
         $c->dimensions->height          = $this->dimensions->height;
         $c->value                       = $date;
