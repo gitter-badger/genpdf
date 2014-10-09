@@ -179,13 +179,13 @@ function xsltProcess($xml)
     $return = $wkhtml->run("$filename.html", "$filename.pdf");
     if (file_exists("$filename.pdf")) {
         echo file_get_contents("$filename.pdf");
-        unlink("$filename.pdf");
+        //unlink("$filename.pdf");
     } else {
         var_dump($return);
     }
 
-    unlink("$filename.xml");
-    unlink("$filename.html");
+    //unlink("$filename.xml");
+    //unlink("$filename.html");
 }
 
 
