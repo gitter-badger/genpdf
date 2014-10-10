@@ -175,17 +175,28 @@ function xsltProcess($xml)
     $cmd = "xsltproc $filename.xml > $filename.html";
     exec($cmd, $output, $return);
 
+    $html = file_get_contents("$filename.html");
+    $html = str_replace("<script type=\"text/Javascript\">includePageBreak();</script>","</div><div class=\"pageDiv\">",$html);
+    $html = str_replace("document.writeln('</div>');","",$html);
+    $html = str_replace("document.writeln('<div class=\"pagebreak\">');","",$html);
+    $html = str_replace("div { page-break-after : always; }",".pageDiv{height:940px;page-break-inside: avoid;}",$html);
+    $html = str_replace("</body>","</div></body>",$html);
+
+    //Supprime la première occurence de <\div>
+    $html = preg_replace('/\<\/div>/', '', $html, 1 );
+    file_put_contents("$filename.html",$html);
+
     $wkhtml = new \RBM\Wkhtmltopdf\Wkhtmltopdf();
     $return = $wkhtml->run("$filename.html", "$filename.pdf");
     if (file_exists("$filename.pdf")) {
         echo file_get_contents("$filename.pdf");
-        //unlink("$filename.pdf");
+        unlink("$filename.pdf");
     } else {
         var_dump($return);
     }
 
-    //unlink("$filename.xml");
-    //unlink("$filename.html");
+    unlink("$filename.xml");
+    unlink("$filename.html");
 }
 
 
