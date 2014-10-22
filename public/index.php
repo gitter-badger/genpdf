@@ -168,6 +168,44 @@ $app->get('/static/assets/dynamic-footer', function () use ($app) {
     echo '<html><head></head><body><div class="foot">' . $app->request()->get('string') . '</div></body></html>';
 });
 
+$app->get("/tnt-express-connect-test", function () use ($app) {
+    $app->contentType("application/x-pdf");
+    $xml = file_get_contents("/tmp/testUK/genpdf544792487e546.xml");
+    xsltProcessTest($xml);
+});
+
+function xsltProcessTest($xml)
+{
+    $filename = "/tmp/testUK/" . uniqid("genpdf");
+    file_put_contents("$filename.xml", $xml);
+    $cmd = "xsltproc $filename.xml > $filename.html";
+    exec($cmd, $output, $return);
+/*
+    $html = file_get_contents("$filename.html");
+    $html = str_replace("<script type=\"text/Javascript\">includePageBreak();</script>","</div><div class=\"pageDiv\">",$html);
+    $html = str_replace("document.writeln('</div>');","",$html);
+    $html = str_replace("document.writeln('<div class=\"pagebreak\">');","",$html);
+    $html = str_replace("div { page-break-after : always; }",".pageDiv{height:940px;page-break-inside: avoid;}",$html);
+    $html = str_replace("</body>","</div></body>",$html);
+
+
+    //Supprime la première occurence de <\div>
+    $html = preg_replace('/\<\/div>/', '', $html, 1 );
+    file_put_contents("$filename.html",$html);
+*/
+    $wkhtml = new \RBM\Wkhtmltopdf\Wkhtmltopdf();
+    $return = $wkhtml->run("$filename.html", "$filename.pdf");
+    if (file_exists("$filename.pdf")) {
+        echo file_get_contents("$filename.pdf");
+        //unlink("$filename.pdf");
+    } else {
+        var_dump($return);
+    }
+
+    //unlink("$filename.xml");
+    //unlink("$filename.html");
+}
+
 function xsltProcess($xml)
 {
     $filename = "/tmp/" . uniqid("genpdf");
@@ -181,6 +219,7 @@ function xsltProcess($xml)
     $html = str_replace("document.writeln('<div class=\"pagebreak\">');","",$html);
     $html = str_replace("div { page-break-after : always; }",".pageDiv{height:940px;page-break-inside: avoid;}",$html);
     $html = str_replace("</body>","</div></body>",$html);
+
 
     //Supprime la première occurence de <\div>
     $html = preg_replace('/\<\/div>/', '', $html, 1 );
