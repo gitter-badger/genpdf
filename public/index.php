@@ -225,17 +225,17 @@ function xsltProcess($xml)
     $return = $wkhtml->run("$filename.html", "$filename.pdf");
     if (file_exists("$filename.pdf")) {
         echo file_get_contents("$filename.pdf");
-        //unlink("$filename.pdf");
+        unlink("$filename.pdf");
     } else {
         var_dump($return);
     }
 
-    /*foreach($images as $imageName){
+    foreach($images as $imageName){
         unlink("/tmp/".$imageName);
     }
 
     unlink("$filename.xml");
-    unlink("$filename.html");*/
+    unlink("$filename.html");
 }
 
 
