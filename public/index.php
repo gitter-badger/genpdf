@@ -168,7 +168,7 @@ $app->get('/static/assets/dynamic-footer', function () use ($app) {
     echo '<html><head></head><body><div class="foot">' . $app->request()->get('string') . '</div></body></html>';
 });
 
-function htmlReplace($lFile,$directory){
+function htmlReplace($lFile,$directory,&$lImages){
     $lContents = file_get_contents($directory."/".$lFile);
     $lResult = array();
     preg_match_all("/<img.*src=\"([^\"]*)\"[^>]*>/", $lContents, $lResult, PREG_OFFSET_CAPTURE);
@@ -218,8 +218,8 @@ function xsltProcess($xml)
     file_put_contents("$filename.xml", $xml);
     $cmd = "xsltproc $filename.xml > $filename.html";
     exec($cmd, $output, $return);
-
-    htmlReplace(basename($filename).".html","/tmp");
+    $images = array();
+    htmlReplace(basename($filename).".html","/tmp",$images);
 
     $wkhtml = new \RBM\Wkhtmltopdf\Wkhtmltopdf();
     $return = $wkhtml->run("$filename.html", "$filename.pdf");
@@ -228,6 +228,10 @@ function xsltProcess($xml)
         unlink("$filename.pdf");
     } else {
         var_dump($return);
+    }
+
+    foreach($images as $imageName){
+        unlink("/tmp/".$imageName);
     }
 
     unlink("$filename.xml");
