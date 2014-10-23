@@ -177,11 +177,11 @@ function htmlReplace($lFile,$directory,&$lImages){
     $lOffsetOffset = 0;
     foreach($lCaptures as $lCapture) {
         $lUrl = html_entity_decode($lCapture[0]);
-        $lOfsset = $lCapture[1] - $lOffsetOffset;
+        $lOfsset = $lCapture[1] + $lOffsetOffset;
         $lKey = md5($lUrl);
         if(isset($lImages[$lKey])) {
             $lFilename = $lImages[$lKey];
-            $lOffsetOffset = strlen($lCapture[0]) - strlen($lFilename);
+            $lOffsetOffset += strlen($lFilename) - strlen($lCapture[0]);
             $lHtmlStart = substr($lContents, 0, $lOfsset);
             $lHtmlEnd = substr($lContents, $lOfsset + strlen($lCapture[0]));
             $lContents = $lHtmlStart . $lFilename . $lHtmlEnd;
@@ -193,7 +193,7 @@ function htmlReplace($lFile,$directory,&$lImages){
                 $lFilename = sprintf("%s.%s", $lKey, substr(strrchr($lType, "/"),1));
                 file_put_contents($directory."/".$lFilename, $lImgContents);
                 $lImages[$lKey] = $lFilename;
-                $lOffsetOffset = strlen($lCapture[0]) - strlen($lFilename);
+                $lOffsetOffset += strlen($lFilename) - strlen($lCapture[0]);
                 $lHtmlStart = substr($lContents, 0, $lOfsset);
                 $lHtmlEnd = substr($lContents, $lOfsset + strlen($lCapture[0]));
                 $lContents = $lHtmlStart . $lFilename . $lHtmlEnd;
