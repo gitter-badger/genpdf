@@ -168,6 +168,50 @@ $app->get('/static/assets/dynamic-footer', function () use ($app) {
     echo '<html><head></head><body><div class="foot">' . $app->request()->get('string') . '</div></body></html>';
 });
 
+function htmlReplace($lFile,$directory){
+    $lContents = file_get_contents($directory."/".$lFile);
+    $lResult = array();
+    preg_match_all("/<img.*src=\"([^\"]*)\"[^>]*>/", $lContents, $lResult, PREG_OFFSET_CAPTURE);
+    $lCaptures = $lResult[1];
+    $lImages = array();
+    $lOffsetOffset = 0;
+    foreach($lCaptures as $lCapture) {
+        $lUrl = html_entity_decode($lCapture[0]);
+        $lOfsset = $lCapture[1] - $lOffsetOffset;
+        $lKey = md5($lUrl);
+        if(isset($lImages[$lKey])) {
+            $lFilename = $lImages[$lKey];
+            $lOffsetOffset = strlen($lCapture[0]) - strlen($lFilename);
+            $lHtmlStart = substr($lContents, 0, $lOfsset);
+            $lHtmlEnd = substr($lContents, $lOfsset + strlen($lCapture[0]));
+            $lContents = $lHtmlStart . $lFilename . $lHtmlEnd;
+        } else {
+            $lImgContents = @file_get_contents($lUrl);
+            if($lImgContents !== false) {
+                $finfo = new finfo(FILEINFO_MIME_TYPE);
+                $lType =  $finfo->buffer($lImgContents);
+                $lFilename = sprintf("%s.%s", $lKey, substr(strrchr($lType, "/"),1));
+                file_put_contents($directory."/".$lFilename, $lImgContents);
+                $lImages[$lKey] = $lFilename;
+                $lOffsetOffset = strlen($lCapture[0]) - strlen($lFilename);
+                $lHtmlStart = substr($lContents, 0, $lOfsset);
+                $lHtmlEnd = substr($lContents, $lOfsset + strlen($lCapture[0]));
+                $lContents = $lHtmlStart . $lFilename . $lHtmlEnd;
+            }
+        }
+    }
+
+    $lContents = str_replace("<script type=\"text/Javascript\">includePageBreak();</script>","</div><div class=\"pageDiv\">",$lContents);
+    $lContents = str_replace("document.writeln('</div>');","",$lContents);
+    $lContents = str_replace("document.writeln('<div class=\"pagebreak\">');","",$lContents);
+    $lContents = str_replace("div { page-break-after : always; }",".pageDiv{height:940px;page-break-inside: avoid;}",$lContents);
+    $lContents = str_replace("</body>","</div></body>",$lContents);
+
+    //Supprime la première occurence de <\div>
+    $lContents = preg_replace('/\<\/div>/', '', $lContents, 1 );
+    file_put_contents($directory."/".$lFile, $lContents);
+}
+
 function xsltProcess($xml)
 {
     $filename = "/tmp/" . uniqid("genpdf");
@@ -175,28 +219,19 @@ function xsltProcess($xml)
     $cmd = "xsltproc $filename.xml > $filename.html";
     exec($cmd, $output, $return);
 
-    $html = file_get_contents("$filename.html");
-    $html = str_replace("<script type=\"text/Javascript\">includePageBreak();</script>","</div><div class=\"pageDiv\">",$html);
-    $html = str_replace("document.writeln('</div>');","",$html);
-    $html = str_replace("document.writeln('<div class=\"pagebreak\">');","",$html);
-    $html = str_replace("div { page-break-after : always; }",".pageDiv{height:940px;page-break-inside: avoid;}",$html);
-    $html = str_replace("</body>","</div></body>",$html);
-
-    //Supprime la première occurence de <\div>
-    $html = preg_replace('/\<\/div>/', '', $html, 1 );
-    file_put_contents("$filename.html",$html);
+    htmlReplace(basename($filename).".html","/tmp");
 
     $wkhtml = new \RBM\Wkhtmltopdf\Wkhtmltopdf();
     $return = $wkhtml->run("$filename.html", "$filename.pdf");
     if (file_exists("$filename.pdf")) {
         echo file_get_contents("$filename.pdf");
-        //unlink("$filename.pdf");
+        unlink("$filename.pdf");
     } else {
         var_dump($return);
     }
 
-    //unlink("$filename.xml");
-    //unlink("$filename.html");
+    unlink("$filename.xml");
+    unlink("$filename.html");
 }
 
 
