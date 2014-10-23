@@ -168,12 +168,6 @@ $app->get('/static/assets/dynamic-footer', function () use ($app) {
     echo '<html><head></head><body><div class="foot">' . $app->request()->get('string') . '</div></body></html>';
 });
 
-$app->get("/tnt-express-connect-test", function () use ($app) {
-    $app->contentType("application/x-pdf");
-    $xml = file_get_contents("/tmp/testUK/genpdf544792487e546.xml");
-    xsltProcessTest($xml);
-});
-
 function htmlReplace($lFile,$directory){
     $lContents = file_get_contents($directory."/".$lFile);
     $lResult = array();
@@ -218,28 +212,6 @@ function htmlReplace($lFile,$directory){
     file_put_contents($directory."/".$lFile, $lContents);
 }
 
-function xsltProcessTest($xml)
-{
-    $filename = "/tmp/testUK/" . uniqid("genpdf");
-    file_put_contents("$filename.xml", $xml);
-    $cmd = "xsltproc $filename.xml > $filename.html";
-    exec($cmd, $output, $return);
-
-    htmlReplace(basename($filename).".html","/tmp/testUK");
-
-    $wkhtml = new \RBM\Wkhtmltopdf\Wkhtmltopdf();
-    $return = $wkhtml->run("$filename.html", "$filename.pdf");
-    if (file_exists("$filename.pdf")) {
-        echo file_get_contents("$filename.pdf");
-        //unlink("$filename.pdf");
-    } else {
-        var_dump($return);
-    }
-
-    //unlink("$filename.xml");
-    //unlink("$filename.html");
-}
-
 function xsltProcess($xml)
 {
     $filename = "/tmp/" . uniqid("genpdf");
@@ -253,13 +225,13 @@ function xsltProcess($xml)
     $return = $wkhtml->run("$filename.html", "$filename.pdf");
     if (file_exists("$filename.pdf")) {
         echo file_get_contents("$filename.pdf");
-        //unlink("$filename.pdf");
+        unlink("$filename.pdf");
     } else {
         var_dump($return);
     }
 
-    //unlink("$filename.xml");
-    //unlink("$filename.html");
+    unlink("$filename.xml");
+    unlink("$filename.html");
 }
 
 
