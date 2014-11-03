@@ -1,5 +1,11 @@
 {% extends "resources/order-receipt.twig" %}
 
+{% block pefc %}
+    {% if cert.name == 'PEFC™' %}
+        <p>{% trans "Commande certifiee" %} {{ cert.name }}&nbsp;{{ cert.indication }}&nbsp;-&nbsp;{{ cert.number }}</p>
+    {% endif %}
+{% endblock %}
+
 {% block stickersrollers %}
     {% if product.estStickersRollers %}
         <div id="stickersrollers">Votre code promo de remboursement : <span class="bold">STICKERROLLS</span> (applicable sur toute commande d'un produit de la gamme étiquettes sur-mesure).</div>
