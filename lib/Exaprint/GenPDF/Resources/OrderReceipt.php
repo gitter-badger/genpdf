@@ -24,6 +24,7 @@ class OrderReceipt extends Resource implements IResource
 
         $select = "
             SELECT
+              TBL_COMMANDE.*,
               TBL_COMMANDE.IDCommande                                           AS [order.id],
               TBL_COMMANDE.TauxTVA                                              AS [project.tva],
               TBL_COMMANDE.MontantTTC                                           AS [project.ati_amount],
@@ -36,11 +37,12 @@ class OrderReceipt extends Resource implements IResource
                   TBL_COMMANDE_LIGNE.Quantite,
                   client.IDSociete,
                   1) + (
-                        SELECT ValeurParametre
-                        FROM TBL_PARAMETRE_SOCIETE
-                        WHERE TBL_PARAMETRE_SOCIETE.NomParametre = 'DecalageDelai'
-                        AND TBL_PARAMETRE_SOCIETE.IDSociete = client.IDSociete
-                      )                                                         AS [order.lead_time],
+                SELECT
+              ValeurParametre
+                FROM TBL_PARAMETRE_SOCIETE
+                WHERE TBL_PARAMETRE_SOCIETE.NomParametre = 'DecalageDelai'
+                      AND TBL_PARAMETRE_SOCIETE.IDSociete = client.IDSociete
+              )                                                                 AS [order.lead_time],
               TBL_DEVIS.IDDevis                                                 AS [order.devis_id],
               TBL_DEVIS.Intitule                                                AS [order.devis_reference],
               [regulation].LibelleTraduit                                       AS [order.regulation],
@@ -58,7 +60,7 @@ class OrderReceipt extends Resource implements IResource
               TBL_COMMANDE_LIGNE.Prix                                           AS [product.et_amount],
               TBL_COMMANDE_LIGNE.MontantTVAPrix                                 AS [product.vat_amount],
               TBL_COMMANDE_LIGNE.MontantTTCPrix                                 AS [product.ati_amount],
-                TBL_COMMANDE_LIGNE.PoidsLigne AS [product.weight],
+              TBL_COMMANDE_LIGNE.PoidsLigne                                     AS [product.weight],
               CASE
               WHEN TBL_PRODUIT.idproduitfamilleproduit = 538
               THEN 1
@@ -100,7 +102,10 @@ class OrderReceipt extends Resource implements IResource
               WHEN ([delivery].IDVille IS NULL)
               THEN [delivery].CodePostalLivraison
               ELSE [delivery_city].CodePostal
-              END                                                               AS [delivery.address.post_code]
+              END                                                               AS [delivery.address.post_code],
+              cert.Nom                                                          AS [cert.name],
+              ISNULL(cert_societe.NumeroCertification, '')                      AS [cert.number],
+              ISNULL(cert_societe.IndicationCertification, '')                  AS [cert.indication]
             FROM
               TBL_COMMANDE
 
@@ -170,12 +175,21 @@ class OrderReceipt extends Resource implements IResource
               LEFT JOIN TBL_UTILISATEUR AS [agent]
                 ON (TBL_DEVIS.IDUtilisateurAgent = [agent].IDUtilisateur)
 
+              LEFT JOIN TBL_COMMANDE_TL_CERTIFICATION_SOCIETE AS comm_cert_societe
+                ON comm_cert_societe.IDCommande = TBL_COMMANDE.IDCommande
+
+              INNER JOIN TBL_CERTIFICATION_TL_SOCIETE AS cert_societe
+                ON cert_societe.IDCertificationSociete = comm_cert_societe.IDCertificationSociete
+
+              INNER JOIN TBL_CERTIFICATION AS cert
+                ON cert.IDCertification = cert_societe.IDCertification
+
             WHERE
               (TBL_COMMANDE.IDCommande = $IDCommande)
               AND (
-                    Options.IDProduitOption != 97
-                    OR TBL_PRODUIT_FAMILLE_ARTICLES.IDProduitFamilleArticles NOT IN (126,134,135,136,137)
-                  )";
+                Options.IDProduitOption != 97
+                OR TBL_PRODUIT_FAMILLE_ARTICLES.IDProduitFamilleArticles NOT IN (126, 134, 135, 136, 137)
+              )";
 
         //echo($select);
 
