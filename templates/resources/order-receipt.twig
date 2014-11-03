@@ -168,9 +168,7 @@
             <dd>{{ order.balance|formatmoney }}</dd>
         </dl>
 
-        {% if cert.name == 'PEFC™' %}
-            <p>{% trans "Commande certifiee" %} {{ cert.name }}&nbsp;{{ cert.indication }}&nbsp;-&nbsp;{{ cert.number }}</p>
-        {% endif %}
+        {% block pefc %}{% endblock %}
 
         <hr>
 
