@@ -178,10 +178,10 @@ class OrderReceipt extends Resource implements IResource
               LEFT JOIN TBL_COMMANDE_TL_CERTIFICATION_SOCIETE AS comm_cert_societe
                 ON comm_cert_societe.IDCommande = TBL_COMMANDE.IDCommande
 
-              INNER JOIN TBL_CERTIFICATION_TL_SOCIETE AS cert_societe
+              LEFT JOIN TBL_CERTIFICATION_TL_SOCIETE AS cert_societe
                 ON cert_societe.IDCertificationSociete = comm_cert_societe.IDCertificationSociete
 
-              INNER JOIN TBL_CERTIFICATION AS cert
+              LEFT JOIN TBL_CERTIFICATION AS cert
                 ON cert.IDCertification = cert_societe.IDCertification
 
             WHERE
