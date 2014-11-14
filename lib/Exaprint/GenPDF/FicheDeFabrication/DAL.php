@@ -73,7 +73,7 @@ class DAL
     protected static function getActions($IDPlancheSousTraitance)
     {
         $stmt = DB::get()->prepare('
-              SELECT TBL_PLANCHE_ACTION.CodeOption
+              SELECT TBL_PLANCHE_ACTION.IDPlancheAction
               FROM TBL_PLANCHE_ACTION
               LEFT OUTER JOIN TBL_PLANCHE_ACTION_TRAD
               ON TBL_PLANCHE_ACTION.IDPlancheAction = TBL_PLANCHE_ACTION_TRAD.IDPlancheAction
