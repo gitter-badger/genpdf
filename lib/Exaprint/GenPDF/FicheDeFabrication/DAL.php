@@ -53,8 +53,8 @@ class DAL
         if ($stmt->execute(['IDPlanche' => $IDPlanche])) {
             $subcontracts = $stmt->fetchAll(DB::FETCH_ASSOC);
             $dto = $subcontracts[0];
-            self::formatDate($subcontract, 'ExpeSansFaconnage');
-            self::formatDate($subcontract, 'ExpeAvecFaconnage');
+            self::formatDate($dto, 'ExpeSansFaconnage');
+            self::formatDate($dto, 'ExpeAvecFaconnage');
             $dto['commandes']            = self::getCommandes($IDPlanche);
             $dto['ActionsSousTraitance'] = [];
             foreach ($subcontracts as $subcontract) {
