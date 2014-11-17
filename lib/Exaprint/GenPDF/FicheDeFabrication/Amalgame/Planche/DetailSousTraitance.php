@@ -28,16 +28,16 @@ class DetailSousTraitance
 
     public function draw(\TCPDF $pdf, Position $position)
     {
-        $c = new MultiCell();
-        $c->text = $this->getMessage($this->_p);
-        $c->font = new Font('bagc-reg', 13, new TextColor(Color::white()));
-        $c->fill = true;
+        $c            = new MultiCell();
+        $c->text      = $this->getMessage($this->_p);
+        $c->font      = new Font('bagc-reg', 13, new TextColor(Color::white()));
+        $c->fill      = true;
         $c->fillColor = new FillColor(($c->text) ? Color::cmyk(0, 75, 100, 0) : Color::white());
-        $c->width = 100;
-        $c->height = 16.5;
-        $c->x = $position->x;
-        $c->y = $position->y;
-        $c->border = 1;
+        $c->width     = 100;
+        $c->height    = 16.5;
+        $c->x         = $position->x;
+        $c->y         = $position->y;
+        $c->border    = 1;
         $c->draw($pdf);
     }
 
@@ -45,17 +45,17 @@ class DetailSousTraitance
     {
         $message = '';
 
-        if ($this->_p['NomAtelierSousTraitance']) {
-            $message .= $this->_p['NomAtelierSousTraitance'];
-            $message .= ' (' . $this->_p['IDPlancheSousTraitance'] . ') : ';
-        }
-
-        $actions = [];
         foreach ($this->_p['ActionsSousTraitance'] as $action) {
-            $actions[] = _('action_planche_' . $action);
-        }
+            $message .= $action['NomAtelierSousTraitance'];
+            $message .= ' (' . $action['IDPlancheSousTraitance'] . ') : ';
 
-        $message.= implode(' - ', $actions);
+            $actions = [];
+            foreach ($action['actions'] as $a) {
+                $actions[] = _('action_planche_' . $a);
+            }
+            $message .= implode(' - ', $actions);
+            $message .= "\n";
+        }
 
         return $message;
     }
