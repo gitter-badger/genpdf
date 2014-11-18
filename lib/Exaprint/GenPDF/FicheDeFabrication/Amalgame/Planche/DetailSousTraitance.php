@@ -46,13 +46,18 @@ class DetailSousTraitance
         $message = '';
 
         foreach ($this->_p['ActionsSousTraitance'] as $action) {
-            $message .= $action['NomAtelierSousTraitance'];
-            $message .= ' (' . $action['IDPlancheSousTraitance'] . ') : ';
+
+            // on affiche ce bloc si on n'est pas sur une fiche de sous-traitance
+            if ($this->_p['EstSousTraitance'] == 0) {
+                $message .= $action['NomAtelierSousTraitance'];
+                $message .= ' (' . $action['IDPlancheSousTraitance'] . ') : ';
+            }
 
             $actions = [];
             foreach ($action['actions'] as $a) {
                 $actions[] = _('action_planche_' . $a);
             }
+
             $message .= implode(' - ', $actions);
             $message .= "\n";
         }

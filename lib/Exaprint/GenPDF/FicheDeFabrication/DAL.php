@@ -60,7 +60,11 @@ class DAL
             foreach ($subcontracts as $subcontract) {
                 $action['IDPlancheSousTraitance'] = $subcontract['IDPlancheSousTraitance'];
                 $action['NomAtelierSousTraitance'] = $subcontract['NomAtelierSousTraitance'];
-                $action['actions'] = self::getActions($subcontract['IDPlancheSousTraitance']);
+                if ($subcontract['EstSousTraitance'] == 0) {
+                    $action['actions'] = self::getActions($subcontract['IDPlancheSousTraitance']);
+                } else {
+                    $action['actions'] = self::getActions($subcontract['IDPlanche']);
+                }
                 $dto['ActionsSousTraitance'][] = $action;
             }
 
