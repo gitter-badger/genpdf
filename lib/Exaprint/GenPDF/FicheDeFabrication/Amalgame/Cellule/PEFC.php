@@ -14,6 +14,7 @@ use Exaprint\TCPDF\Cell;
 use Exaprint\TCPDF\Color;
 use Exaprint\TCPDF\FillColor;
 use Exaprint\TCPDF\Position;
+use Exaprint\TCPDF\TextColor;
 
 class PEFC implements ICellule
 {
@@ -23,13 +24,16 @@ class PEFC implements ICellule
     public function draw(Position $position, \TCPDF $pdf, $cellSize, array $commande)
     {
         if (isset($commande['Certification']) && $commande['Certification'] == self::CERTIFICATION_PEFC) {
-            $cell            = new Cell();
-            $cell->position  = $position;
-            $cell->fillColor = new FillColor(Color::cmyk(100, 0, 100, 0));
-            $cell->fill      = true;
-            $cell->width     = $cellSize;
-            $cell->height    = $cellSize;
-            $cell->border    = true;
+            $cell             = new Cell();
+            $cell->position   = $position;
+            $cell->fillColor  = new FillColor(Color::cmyk(100, 0, 100, 0));
+            $cell->fill       = true;
+            $cell->width      = $cellSize;
+            $cell->height     = $cellSize;
+            $cell->border     = true;
+            $cell->text       = 'P';
+            $cell->textColor  = new TextColor(Color::white());
+            $cell->align      = Cell::ALIGN_CENTER;
             $cell->draw($pdf);
         } else {
             Helper::drawEmptyCell($position, $pdf, $cellSize);
