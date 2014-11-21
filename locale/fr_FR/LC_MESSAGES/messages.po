@@ -2732,6 +2732,9 @@ msgstr "Encre à gratter"
 msgid "action_planche_3"
 msgstr "Vernis sélectif UV verso"
 
+msgid "action_planche_25"
+msgstr "Encre à gratter"
+
 msgid "action_planche_24"
 msgstr "Découpe laser"
 
