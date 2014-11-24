@@ -59,7 +59,7 @@ class DetailSousTraitance
 
             $actions = [];
             foreach ($action['actions'] as $a) {
-            $actions[] = t('action_planche_' . $action);
+            $actions[] = t('action_planche_' . $a);
             }
 
             $message .= implode(' - ', $actions);
