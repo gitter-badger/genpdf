@@ -66,9 +66,9 @@ class IndicationsCommandes
             }
 
             $tests = [
-                'BAT'                  => 'BAT',
-                'EstImperatif'         => 'Impératif',
-                'IDCommandePrincipale' => 'Retirage',
+                'BAT'                  => t('ffa.indications_commandes.bat'),
+                'EstImperatif'         => t('ffa.indications_commandes.imperatif'),
+                'IDCommandePrincipale' => t('ffa.indications_commandes.retirage'),
             ];
 
             foreach ($tests as $col => $label) {

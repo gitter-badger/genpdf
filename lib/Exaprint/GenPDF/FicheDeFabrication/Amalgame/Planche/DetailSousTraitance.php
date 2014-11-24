@@ -52,7 +52,7 @@ class DetailSousTraitance
 
         $actions = [];
         foreach ($this->_p['ActionsSousTraitance'] as $action) {
-            $actions[] = _('action_planche_' . $action);
+            $actions[] = t('action_planche_' . $action);
         }
 
         $message.= implode(' - ', $actions);

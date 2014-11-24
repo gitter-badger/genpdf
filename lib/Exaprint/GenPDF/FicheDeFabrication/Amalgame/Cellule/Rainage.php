@@ -32,7 +32,7 @@ class Rainage implements ICellule
             $cell->border   = true;
             $cell->draw($pdf);
 
-            $v = explode('+', _('valeur_' . $rainage));
+            $v = explode('+', t('valeur_' . $rainage));
 
             $cTxt           = new Cell();
             $cTxt->position = $position;
