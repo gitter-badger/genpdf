@@ -23,8 +23,7 @@ class Impression extends Rang
         $this->cellules   = [];
         $this->cellules[] = $this->nbFeuilles($planche['NbFeuilles']);
         $this->cellules[] = $this->format($planche['Largeur'], $planche['Longueur']);
-        $this->cellules[] = $this->nbCotes($planche['ImpressionVerso']);
-        $this->cellules[] = $this->couleurs();
+        $this->cellules[] = $this->couleurs($planche['NbCouleursRecto'], $planche['NbCouleursVerso']);
         $this->cellules[] = $this->bascule($planche['Bascule']);
         $this->cellules[] = $this->papier($planche['Support']);
     }
@@ -50,22 +49,15 @@ class Impression extends Rang
         return $c;
     }
 
-    public function couleurs()
+    public function couleurs($nbRecto, $nbVerso)
     {
-        $c                    = new ImageCellule();
-        $c->dimensions->width = $this->dimensions->height;
-        $c->src               = '../assets/Quadri.png';
-        return $c;
-    }
-
-    public function nbCotes($verso)
-    {
-        $c                    = new ImageCellule();
-        $c->dimensions->width = $this->dimensions->height;
-        $c->src               = '../assets/Recto.png';
-        if ($verso) {
-            $c->src = '../assets/RectoVerso.png';
-        }
+        $c                    = new Cellule();
+        $c->label             = 'Couleurs';
+        $c->value             = ($nbRecto ? $nbRecto : 4) . ' + ' . ($nbVerso ? $nbVerso : 4);
+        $c->valueFont->family = 'bagc-light';
+        $c->vAlign            = Cell::VALIGN_CENTER;
+        $c->dimensions->width = 32;
+        $c->valueFont->size   = 22;
         return $c;
     }
 
