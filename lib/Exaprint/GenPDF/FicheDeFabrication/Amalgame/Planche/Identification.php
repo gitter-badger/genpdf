@@ -38,7 +38,7 @@ class Identification extends Rang
     protected function idPlanche($id)
     {
         $c                     = new Cellule();
-        $c->label              = 'N° Planche';
+        $c->label              = t('ffa.id.num_planche');
         $c->dimensions->width  = 40;
         $c->dimensions->height = $this->dimensions->height;
         $c->value              = number_format($id, 0, '', ' ');
@@ -48,7 +48,7 @@ class Identification extends Rang
     protected function expeSansFaconnage($date)
     {
         $c                              = new Cellule();
-        $c->label                       = 'Expé SANS façonnage';
+        $c->label                       = t('ffa.id.date_expe_sans_faco');
         $c->dimensions->width           = 30;
         $c->dimensions->height          = $this->dimensions->height;
         $c->value                       = $date;
@@ -59,7 +59,7 @@ class Identification extends Rang
     protected function expeAvecFaconnage($date)
     {
         $c                              = new Cellule();
-        $c->label                       = 'Expé AVEC façonnage';
+        $c->label                       = t('ffa.id.date_expe_avec_faco');
         $c->dimensions->width           = 30;
         $c->dimensions->height          = $this->dimensions->height;
         $c->value                       = $date;
@@ -80,7 +80,7 @@ class Identification extends Rang
     protected function imperatifs($nb)
     {
         $c                              = new Cellule();
-        $c->label                       = 'Impératifs';
+        $c->label                       = t('ffa.id.imperatifs');
         $c->dimensions->width           = 20;
         $c->dimensions->height          = $this->dimensions->height;
         $c->fillColor                   = new FillColor(Color::red());
@@ -95,7 +95,7 @@ class Identification extends Rang
     protected function sousTraitance($st)
     {
         $c                              = new Cellule();
-        $c->label                       = 'Sous-Traitance';
+        $c->label                       = t('ffa.id.sous_traitance');
         $c->dimensions->width           = 20;
         $c->dimensions->height          = $this->dimensions->height;
         $c->value                       = $st;
@@ -117,7 +117,7 @@ class Identification extends Rang
     protected function nbCommandes($count)
     {
         $c                     = new Cellule();
-        $c->label              = 'Nb commandes';
+        $c->label              = t('ffa.id.nb_commandes');
         $c->dimensions->width  = 20;
         $c->dimensions->height = $this->dimensions->height;
         $c->value              = $count;
@@ -135,8 +135,8 @@ class Identification extends Rang
 
     protected function getTemoinSousTraitance($IDPlancheSousTraitance, $IDPlanchePrincipale)
     {
-        if ($IDPlancheSousTraitance) return 'ST';
-        if ($IDPlanchePrincipale) return 'P';
+        if ($IDPlancheSousTraitance) return t('ffa.abbr.planche_sous_traitance');
+        if ($IDPlanchePrincipale) return t('ffa.abbr.planche_principale');
         return null;
     }
 } 

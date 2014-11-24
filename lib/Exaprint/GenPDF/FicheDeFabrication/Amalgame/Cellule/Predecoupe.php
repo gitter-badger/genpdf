@@ -32,7 +32,7 @@ class Predecoupe implements ICellule
             $cell->border   = true;
             $cell->draw($pdf);
 
-            $v = explode('+', _('valeur_' . $predecoupe));
+            $v = explode('+', t('valeur_' . $predecoupe));
 
             $cTxt            = new Cell();
             $cTxt->position  = $position;

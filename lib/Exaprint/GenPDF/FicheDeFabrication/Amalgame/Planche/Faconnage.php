@@ -59,15 +59,15 @@ class Faconnage
         }
 
         $message = [];
-        if ($planche['AvecRainage']) $message[] = 'Rainage';
-        if ($planche['AvecPliage']) $message[] = 'Pliage';
-        if ($planche['AvecPerforation']) $message[] = 'Perforation';
-        if ($planche['AvecDecoupe']) $message[] = 'Découpe';
+        if ($planche['AvecRainage']) $message[] = t('ffa.planche.faco.avec_rainage');
+        if ($planche['AvecPliage']) $message[] = t('ffa.planche.faco.avec_pliage');
+        if ($planche['AvecPerforation']) $message[] = t('ffa.planche.faco.avec_perfo');
+        if ($planche['AvecDecoupe']) $message[] = t('ffa.planche.faco.avec_decoupe');
 
-        if ($planche['Decoupe']) $message[] = _('valeur_' . $planche['Decoupe']);
-        if ($planche['Rainage']) $message[] = _('valeur_' . $planche['Rainage']);
-        if ($planche['Predecoupe']) $message[] = _('valeur_' . $planche['Predecoupe']);
-        if ($planche['DecoupeALaForme']) $message[] = _('valeur_' . $planche['DecoupeALaForme']);
+        if ($planche['Decoupe']) $message[] = t('valeur_' . $planche['Decoupe']);
+        if ($planche['Rainage']) $message[] = t('valeur_' . $planche['Rainage']);
+        if ($planche['Predecoupe']) $message[] = t('valeur_' . $planche['Predecoupe']);
+        if ($planche['DecoupeALaForme']) $message[] = t('valeur_' . $planche['DecoupeALaForme']);
 
         return implode(' - ', $message);
 
