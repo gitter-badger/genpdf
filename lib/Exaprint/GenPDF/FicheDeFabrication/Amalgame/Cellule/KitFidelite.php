@@ -31,7 +31,7 @@ class KitFidelite implements ICellule
             $cell->align    = Cell::ALIGN_CENTER;
             $cell->vAlign   = Cell::VALIGN_BOTTOM;
             $cell->font     = new Font('bagc-bold', 28, new TextColor(Color::cmyk(80,40,0,60)));
-            $cell->text     = _('ffa.cell.kit_fidelite');
+            $cell->text     = t('ffa.cell.kit_fidelite');
             $cell->draw($pdf);
 
 
