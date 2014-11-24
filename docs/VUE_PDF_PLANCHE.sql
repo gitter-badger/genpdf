@@ -4,14 +4,15 @@ CREATE VIEW dbo.VUE_PDF_PLANCHE AS
   SELECT
       p.IDPlanche                                             AS IDPlanche
     , p.IDPlanchePrincipale                                   AS IDPlanchePrincipale
-    , p.IDAtelier                                             AS IDAtelier
+    , p.IDAtelier                                              AS IDAtelier
     , p.DateVisibleAtelier                                    AS DateVisibleAtelier
     , p.Quantité                                              AS NbFeuilles
-    , dbo.IsZero(p.Largeur, pf.Largeur)                       AS
-                                                                  Largeur
+    , dbo.IsZero(p.Largeur, pf.Largeur)                        AS Largeur
     , dbo.IsZero(p.Longueur, pf.Longueur)                     AS  Longueur
     , p.DateExpeditionUrgente                                 AS  ExpeSansFaconnage
     , p.DateExpeditionUrgenteFaconnage                        AS  ExpeAvecFaconnage
+    , dbo.f_dValeurOptionValeurPlanche(p.IDPlanche, 80, 1)     AS NbCouleursRecto
+    , dbo.f_dValeurOptionValeurPlanche(p.IDPlanche, 81, 1)     AS NbCouleursVerso
     , dbo.f_nIDProduitOptionValeurPlanche(p.IDPlanche, 75, 1) AS  Support
     , dbo.f_nIDProduitOptionValeurPlanche(p.IDPlanche, 78, 1) AS  PelliculageRecto
     , dbo.f_nIDProduitOptionValeurPlanche(p.IDPlanche, 79, 1) AS  PelliculageVerso
@@ -24,8 +25,7 @@ CREATE VIEW dbo.VUE_PDF_PLANCHE AS
     , dbo.f_nIDProduitOptionValeurPlanche(p.IDPlanche, 89, 1) AS  Decoupe
     , dbo.f_nIDProduitOptionValeurPlanche(p.IDPlanche, 90, 1) AS  Perforation
     , dbo.f_nIDProduitOptionValeurPlanche(p.IDPlanche, 93, 1) AS  DorureRecto
-    , dbo.f_nIDProduitOptionValeurPlanche(p.IDPlanche, 96, 1)
-                                                               AS TypeImpression
+    , dbo.f_nIDProduitOptionValeurPlanche(p.IDPlanche, 96, 1)  AS TypeImpression
     , dbo.f_nIDProduitOptionValeurPlanche(p.IDPlanche, 98, 1)  AS Rainage
     , dbo.f_nIDProduitOptionValeurPlanche(p.IDPlanche, 99, 1)  AS Predecoupe
     , dbo.f_nIDProduitOptionValeurPlanche(p.IDPlanche, 100, 1) AS EncreAGratter

@@ -39,6 +39,10 @@ class DAL
         return self::$_cache;
     }
 
+    /**
+     * @param $IDPlanche
+     * @return bool|mixed
+     */
     public static function getPlanche($IDPlanche)
     {
         if ($p = self::_cache()->get("planche_$IDPlanche")) {
@@ -46,23 +50,30 @@ class DAL
         }
 
         $stmt = DB::get()->prepare('SELECT * FROM dbo.VUE_PDF_PLANCHE WHERE IDPlanche = :IDPlanche');
-        $stmt->execute(['IDPlanche' => $IDPlanche]);
-        if ($dto = $stmt->fetch(DB::FETCH_ASSOC)) {
+        if ($stmt->execute(['IDPlanche' => $IDPlanche])) {
+            $subcontracts = $stmt->fetchAll(DB::FETCH_ASSOC);
+            $dto = $subcontracts[0];
             self::formatDate($dto, 'ExpeSansFaconnage');
             self::formatDate($dto, 'ExpeAvecFaconnage');
+            $dto['commandes']            = self::getCommandes($IDPlanche);
             $dto['ActionsSousTraitance'] = [];
-            if ($dto['IDPlancheSousTraitance']) {
-                $dto['ActionsSousTraitance'] = self::getActions($dto['IDPlancheSousTraitance']);
+            foreach ($subcontracts as $subcontract) {
+                $action['IDPlancheSousTraitance'] = $subcontract['IDPlancheSousTraitance'];
+                $action['NomAtelierSousTraitance'] = $subcontract['NomAtelierSousTraitance'];
+                if ($subcontract['EstSousTraitance'] == 0) {
+                    $action['actions'] = self::getActions($subcontract['IDPlancheSousTraitance']);
+                } else {
+                    $action['actions'] = self::getActions($subcontract['IDPlanche']);
+                }
+                $dto['ActionsSousTraitance'][] = $action;
             }
-            $dto['commandes'] = self::getCommandes($IDPlanche);
+
+            self::_cache()->save("planche_$IDPlanche", $dto, Duration::get(2, Duration::MINUTE), ['planche']);
+            return $dto;
         } else {
             var_dump($stmt->errorInfo());
             echo $stmt->queryString;
         }
-
-
-        self::_cache()->save("planche_$IDPlanche", $dto, Duration::get(2, Duration::MINUTE), ['planche']);
-        return $dto;
     }
 
     /**
@@ -73,7 +84,7 @@ class DAL
     protected static function getActions($IDPlancheSousTraitance)
     {
         $stmt = DB::get()->prepare('
-              SELECT TBL_PLANCHE_ACTION.CodeOption
+              SELECT TBL_PLANCHE_ACTION.IDPlancheAction
               FROM TBL_PLANCHE_ACTION
               LEFT OUTER JOIN TBL_PLANCHE_ACTION_TRAD
               ON TBL_PLANCHE_ACTION.IDPlancheAction = TBL_PLANCHE_ACTION_TRAD.IDPlancheAction
@@ -147,9 +158,9 @@ class DAL
     protected static function getFichiers($commande)
     {
 
-        $raw              = file_get_contents("http://fileserver.exaprint.fr/orders/$commande[IDCommande]");
-        $json             = json_decode($raw, true);
-        $visuels          = [];
+        $raw             = file_get_contents("http://fileserver.exaprint.fr/orders/$commande[IDCommande]");
+        $json            = json_decode($raw, true);
+        $visuels         = [];
         $formeDeDecoupes = null;
         foreach ($json as $fichier) {
             if ($fichier['type'] == 'normalized'
@@ -166,7 +177,7 @@ class DAL
         }
 
         return [
-            'Visuels'         => array_values($visuels),
+            'Visuels'        => array_values($visuels),
             'FormeDeDecoupe' => $formeDeDecoupes
         ];
     }
