@@ -22,7 +22,11 @@ class Identification extends Rang
         $this->dimensions = new Dimensions(200, 17);
         $this->cellules[] = $this->idPlanche($planche['IDPlanche']);
         $this->cellules[] = $this->expeSansFaconnage($planche['ExpeSansFaconnage']);
-        $this->cellules[] = $this->expeAvecFaconnage($planche['ExpeAvecFaconnage']);
+        if ($planche['EstSousTraitance'] == 0) {
+            $this->cellules[] = $this->expeAvecFaconnage($planche['ExpeAvecFaconnage']);
+        } else {
+            $this->cellules[] = $this->colisageFinal($planche['NomAtelierPlanchePrincipale'], $planche['ExpeAvecFaconnage'], $planche['IDPlanchePrincipale']);
+        }
         $this->cellules[] = $this->imperatifs($this->countImperatifs($planche['commandes']));
         $this->cellules[] = $this->sousTraitance(
             $this->getTemoinSousTraitance($planche['IDPlancheSousTraitance'], $planche['IDPlanchePrincipale'])
@@ -60,6 +64,16 @@ class Identification extends Rang
         $c->dimensions->height          = $this->dimensions->height;
         $c->value                       = $date;
         $c->valueFont->textColor->color = Color::red();
+        return $c;
+    }
+
+    protected function colisageFinal($nomAtelier, $date, $IDPlanche)
+    {
+        $c                     = new CelluleMultiligne();
+        $c->label              = 'Colisage final chez';
+        $c->dimensions->width  = 30;
+        $c->dimensions->height = $this->dimensions->height;
+        $c->text               = $nomAtelier . "\n" . $date . ' - ' . $IDPlanche;
         return $c;
     }
 

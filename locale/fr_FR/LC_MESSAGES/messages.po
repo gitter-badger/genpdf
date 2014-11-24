@@ -1243,6 +1243,9 @@ msgstr "510g Bâche PVC M1"
 msgid "valeur_1562"
 msgstr "150g Cyclus Print"
 
+msgid "valeur_1566"
+msgstr "250g Bristol blanc"
+
 #: ../../../cache/fiche-fab-keys.php:309
 msgid "valeur_1574"
 msgstr "UK 400gsm Silk Coated"
@@ -1352,24 +1355,20 @@ msgid "valeur_1716"
 msgstr "200g Cyclus Offset"
 
 #: ../../../cache/fiche-fab-keys.php:336
-#, fuzzy
 msgid "valeur_1718"
-msgstr "PVC blanc 19 mm"
+msgstr "400g Bristol blanc"
 
 #: ../../../cache/fiche-fab-keys.php:337
-#, fuzzy
 msgid "valeur_1720"
-msgstr "Gravure blanche"
+msgstr "85µ Adhésif Polyéthylène conformable blanc mat"
 
 #: ../../../cache/fiche-fab-keys.php:338
-#, fuzzy
 msgid "valeur_1724"
-msgstr "PVC blanc 19 mm"
+msgstr "250µ Polycarbonate"
 
 #: ../../../cache/fiche-fab-keys.php:339
-#, fuzzy
 msgid "valeur_1725"
-msgstr "PVC noir 19 mm"
+msgstr "450µ polycarbonate aspect dépoli"
 
 #: ../../../cache/fiche-fab-keys.php:340
 msgid "valeur_1613"
@@ -2093,19 +2092,16 @@ msgid "valeur_1536"
 msgstr "Multi-plis plan"
 
 #: ../../../cache/fiche-fab-keys.php:506
-#, fuzzy
 msgid "valeur_1721"
-msgstr "PVC blanc 19 mm"
+msgstr "Accroche porte grand modèle"
 
 #: ../../../cache/fiche-fab-keys.php:507
-#, fuzzy
 msgid "valeur_1722"
-msgstr "350g offset"
+msgstr "Accroche porte cintre"
 
 #: ../../../cache/fiche-fab-keys.php:508
-#, fuzzy
 msgid "valeur_1723"
-msgstr "90g Kraft Blanc"
+msgstr "Accroche rétroviseur"
 
 #: ../../../cache/fiche-fab-keys.php:509
 msgid "valeur_1392"

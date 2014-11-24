@@ -54,6 +54,10 @@ class Faconnage
 
     public function getMessage($planche)
     {
+        if ($planche['EstSousTraitance'] == 1) {
+            return "";
+        }
+
         $message = [];
         if ($planche['AvecRainage']) $message[] = t('ffa.planche.faco.avec_rainage');
         if ($planche['AvecPliage']) $message[] = t('ffa.planche.faco.avec_pliage');
