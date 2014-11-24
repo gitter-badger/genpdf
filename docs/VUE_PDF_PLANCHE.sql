@@ -11,8 +11,8 @@ CREATE VIEW dbo.VUE_PDF_PLANCHE AS
     , dbo.IsZero(p.Longueur, pf.Longueur)                     AS  Longueur
     , p.DateExpeditionUrgente                                 AS  ExpeSansFaconnage
     , p.DateExpeditionUrgenteFaconnage                        AS  ExpeAvecFaconnage
-    , dbo.f_dValeurOptionValeurPlanche(p.IDPlanche, 80, 1)     AS NbCouleursRecto
-    , dbo.f_dValeurOptionValeurPlanche(p.IDPlanche, 81, 1)     AS NbCouleursVerso
+    , dbo.f_dValeurOptionValeurPlanche(p.IDPlanche, 80)     AS NbCouleursRecto
+    , dbo.f_dValeurOptionValeurPlanche(p.IDPlanche, 81)     AS NbCouleursVerso
     , dbo.f_nIDProduitOptionValeurPlanche(p.IDPlanche, 75, 1) AS  Support
     , dbo.f_nIDProduitOptionValeurPlanche(p.IDPlanche, 78, 1) AS  PelliculageRecto
     , dbo.f_nIDProduitOptionValeurPlanche(p.IDPlanche, 79, 1) AS  PelliculageVerso
