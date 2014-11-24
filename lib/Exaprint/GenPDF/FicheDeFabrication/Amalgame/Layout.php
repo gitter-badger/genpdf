@@ -72,7 +72,7 @@ class Layout
     public $cGrilleCellules = [
         ['BatPapier', 'Justificatif', 'Retirage'],
         ['SousTraitance', 'Groupage', ''],
-        ['Encollage', '', ''],
+        ['Encollage', 'PEFC', ''],
         ['Predecoupe', 'CoinsRonds', 'DecoupeALaForme'],
         ['Pliage', 'Rainage', 'Perforation'],
         ['KitFidelite', 'PorteCarte', 'Societe']

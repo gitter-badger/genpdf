@@ -20,6 +20,7 @@ class Factory
         switch ($planche['IDProduitActiviteProduction']) {
             case 1:
             case 2:
+            case 4:
                 return new Amalgame($planche);
             default:
                 var_dump($planche);
