@@ -15,6 +15,7 @@ use Exaprint\TCPDF\Position;
 
 class Transporteurs
 {
+    const TRANSPORTEUR_EXPRESS = 'EXPRESS';
 
     protected $_p;
 
@@ -51,6 +52,10 @@ class Transporteurs
                 $tab[$commande['CodeTransporteur']] = 1;
             }
         }
+
+        // on enlève le transporteur EXPRESS
+        unset($tab[self::TRANSPORTEUR_EXPRESS]);
+
         return $tab;
     }
 } 

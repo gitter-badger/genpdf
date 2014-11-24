@@ -41,6 +41,7 @@ SELECT
   , dbo.f_nIDProduitOptionValeurProduit(p.IDProduit, 104, 1) AS Pliage
   , dbo.f_nIDProduitOptionValeurProduit(p.IDProduit, 105, 1) AS DecoupeALaForme
   , dbo.f_nIDProduitOptionValeurProduit(p.IDProduit, 147, 1) AS Encollage
+  , cert.Nom                                                 AS Certification
 FROM
   TBL_COMMANDE c
   JOIN TBL_COMMANDE_LIGNE cl ON cl.IDCommande = c.IDCommande
@@ -53,3 +54,6 @@ FROM
   LEFT JOIN TBL_FQUALITE f ON f.IDCommande = c.IDCommandePrincipale AND f.CommentaireAtelier IS NOT NULL
   JOIN TBL_CLIENT client ON client.IDClient = c.IDClient
   LEFT JOIN TBL_TRANSPORTEUR t ON t.IDTransporteur = c.IDTransporteur
+  LEFT JOIN TBL_COMMANDE_TL_CERTIFICATION_SOCIETE AS comm_cert_societe ON comm_cert_societe.IDCommande = c.IDCommande
+  LEFT JOIN TBL_CERTIFICATION_TL_SOCIETE AS cert_societe ON cert_societe.IDCertificationSociete = comm_cert_societe.IDCertificationSociete
+  LEFT JOIN TBL_CERTIFICATION AS cert ON cert.IDCertification = cert_societe.IDCertification
