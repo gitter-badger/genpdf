@@ -47,6 +47,10 @@ class DetailSousTraitance
 
         foreach ($this->_p['ActionsSousTraitance'] as $action) {
 
+            if (empty($action['NomAtelierSousTraitance'])) {
+                continue;
+            }
+
             // on affiche ce bloc si on n'est pas sur une fiche de sous-traitance
             if ($this->_p['EstSousTraitance'] == 0) {
                 $message .= $action['NomAtelierSousTraitance'];
