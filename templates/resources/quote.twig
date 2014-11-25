@@ -139,11 +139,19 @@
 
     {% set bContinue = 1 %}
     {% for r,response in dispatch %}
-        {%  if bContinue == 1 and response.statut == 'V' and response.commentaires_devis != '' %}
+        {%  if bContinue == 1 and response.statut == 'V' and (response.commentaires_devis != '' or response.commentaires_client !='') %}
+            {% if response.commentaires_client != ''  %}
             <dl style="padding-bottom: 40px">
-                <dt>{% trans "Commentaire" %}</dt>
-                <dd>{{ response.commentaires_devis }}</dd>
+                <dt>{% trans "Commentaire devis" %}</dt>
+                <dd>{{ response.commentaires_client }}</dd>
             </dl>
+            {% endif %}
+            {% if response.commentaires_devis != ''  %}
+                <dl style="padding-bottom: 40px">
+                    <dt>{% trans "Commentaire client" %}</dt>
+                    <dd>{{ response.commentaires_devis }}</dd>
+                </dl>
+            {% endif %}
             {% set bContinue = 0 %}
         {% endif %}
     {% endfor %}
