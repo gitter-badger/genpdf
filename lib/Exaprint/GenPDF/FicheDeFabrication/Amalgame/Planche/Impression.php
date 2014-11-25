@@ -53,7 +53,7 @@ class Impression extends Rang
     {
         $c                    = new Cellule();
         $c->label             = 'Couleurs';
-        $c->value             = $nbRecto . ' + ' . $nbVerso;
+        $c->value             = ($nbRecto && $nbVerso) ? $nbRecto . ' + ' . $nbVerso : '';
         $c->valueFont->family = 'bagc-light';
         $c->vAlign            = Cell::VALIGN_CENTER;
         $c->dimensions->width = 32;
