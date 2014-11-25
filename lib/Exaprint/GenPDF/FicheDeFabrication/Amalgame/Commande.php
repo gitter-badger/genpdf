@@ -28,6 +28,8 @@ use Exaprint\TCPDF\TextColor;
 class Commande
 {
 
+    const TRANSPORTEUR_EXPRESS = 'EXPRESS';
+
     /**
      * @var \TCPDF
      */
@@ -59,7 +61,11 @@ class Commande
         $this->codeProduit();
         $this->referenceClient();
         $this->transporteur();
-        $this->codeBarre();
+        if ($this->commande['EstColise']) {
+            $this->codeBarre();
+        } else {
+            $this->colisage($this->commande['NomAtelier']);
+        }
         $this->border();
     }
 
@@ -233,9 +239,9 @@ class Commande
 
     protected function visuels()
     {
-        
+
         $visuels = $this->commande['Fichiers']['Visuels'];
-        
+
         if (count($visuels) == 0) return;
 
         if (count($visuels) == 1 || is_null($this->commande['NbCouleursVerso'])) {
@@ -322,6 +328,19 @@ class Commande
         $c->draw($this->pdf);
     }
 
+    protected function colisage($NomAtelier)
+    {
+        $c                  = new MultiCell();
+        $c->x               = $this->_x();
+        $c->y               = $this->_y($this->layout->hBloc() - 5);
+        $c->cellHeightRatio = new CellHeightRatio(0.9);
+        $c->width           = $this->layout->wBloc() - $this->layout->cellule() * $this->layout->cGrilleColCount;
+        $c->text            = 'Colisage par : ' . $NomAtelier;
+        $c->textColor       = new TextColor(Color::greyscale(0));
+        $c->font            = new Font('bagc-light', 11);
+        $c->draw($this->pdf);
+    }
+
     protected function codeBarre()
     {
         $this->pdf->write1DBarcode(
@@ -354,8 +373,10 @@ class Commande
 
         $x = $this->layout->wBloc() - $this->layout->cellule() * $this->layout->cGrilleColCount;
 
-        $this->livraisonCodePays($x, $h);
-        $this->livraisonCodePostal($x, $h);
+        if ($this->commande['EstColise']) {
+            $this->livraisonCodePays($x, $h);
+            $this->livraisonCodePostal($x, $h);
+        }
         $this->livraisonDateExpe($x, $h);
         $this->livraisonTransporteur($x, $h);
         $lineStyle->revert($this->pdf);
@@ -381,7 +402,7 @@ class Commande
     protected function livraisonTransporteur($x, $h)
     {
         $c            = new Cell();
-        $c->text      = $this->commande['CodeTransporteur'];
+        $c->text      = ($this->commande['CodeTransporteur'] != self::TRANSPORTEUR_EXPRESS) ? $this->commande['CodeTransporteur'] : '';
         $c->font      = new Font('bagc-bold', $this->layout->cExpeditionDateFontSize);
         $c->border    = true;
         $c->fill      = false;
@@ -397,8 +418,8 @@ class Commande
 
         if ($this->commande['EstImperatif'] || substr($this->commande['CodeProduit'], -4) == 'RUSH') {
             $c->textColor->color = Color::cmyk(0, 0, 100, 0);
-            $c->fill = true;
-            $c->fillColor = new FillColor(Color::cmyk(0, 100, 100, 0));
+            $c->fill             = true;
+            $c->fillColor        = new FillColor(Color::cmyk(0, 100, 100, 0));
         }
         $c->draw($this->pdf);
     }
