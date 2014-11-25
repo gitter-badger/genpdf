@@ -64,19 +64,19 @@ class Impression extends Rang
     public function bascule($bascule)
     {
         $c                    = new Cellule();
-        $c->label             = 'Bascule';
+        $c->label             = t('ffa.impression.bascule');
         $c->dimensions->width = 16;
         $c->valueFont->size   = 16;
         $c->valueFont->family = 'bagc-medium';
         $c->vAlign            = Cell::VALIGN_CENTER;
-        $c->value             = ($bascule == 1) ? null : _('bascule_' . $bascule);
+        $c->value             = ($bascule == 1) ? null : t('bascule_' . $bascule);
         return $c;
     }
 
     public function papier($id)
     {
         $c                    = new Cellule();
-        $c->value             = _('valeur_' . $id);
+        $c->value             = t('valeur_' . $id);
         $c->dimensions->width = 80;
         $c->valueFont->family = 'bagc-light';
         $c->valueFont->size   = 22;

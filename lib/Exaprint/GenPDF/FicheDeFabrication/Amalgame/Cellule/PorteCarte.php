@@ -31,7 +31,7 @@ class PorteCarte implements ICellule
             $cell->align    = Cell::ALIGN_CENTER;
             $cell->vAlign   = Cell::VALIGN_CENTER;
             $cell->font     = new Font('bagc-bold', 28, new TextColor(Color::greyscale(190)));
-            $cell->text     = 'PC';
+            $cell->text     = t('ffa.cell.porte_carte');
             $cell->draw($pdf);
 
             $cell->font = new Font('bagc-bold', 16, new TextColor(Color::greyscale(0)));

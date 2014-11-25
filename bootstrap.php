@@ -16,6 +16,8 @@ error_reporting(E_ALL);
 
 date_default_timezone_set("Europe/Paris");
 
+\Locale\Translations::$path = '../locale';
+
 //\Exaprint\DAL\DB::setDefaultEnv(\Exaprint\DAL\DB::ENV_PROD);
 $app = new \Slim\Slim(array(
     'view'           => new \Slim\Views\Twig(),
@@ -35,7 +37,7 @@ $localeDetector = new Menencia\LocaleDetector\LocaleDetector();
 $language = $localeDetector->detect();
 \Locale\Helper::$current = $language;
 
-//$langage = 'fr_FR';
+//$language = 'fr_FR';
 
 
 // textdomain
@@ -91,4 +93,9 @@ function rrmdir($dir)
         if (is_dir($file)) rrmdir($file); else unlink($file);
     }
     rmdir($dir);
+}
+
+function t($key, $language = null)
+{
+    return \Locale\Translations::get()->getEntry($key, $language);
 }
