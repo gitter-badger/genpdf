@@ -24,7 +24,7 @@ class Identification extends Rang
         $this->cellules[] = $this->expeSansFaconnage($planche['ExpeSansFaconnage']);
         $this->cellules[] = $this->expeAvecFaconnage($planche['ExpeAvecFaconnage']);
         $this->cellules[] = $this->imperatifs($this->countImperatifs($planche['commandes']));
-        $this->cellules[] = $this->sousTraitance($planche['EstSousTraitance']);
+        $this->cellules[] = $this->sousTraitance($planche['EstPrincipale'], $planche['EstSousTraitance']);
         $this->cellules[] = $this->codeBarre($planche['IDPlanche']);
         $this->cellules[] = $this->nbCommandes(count($planche['commandes']));
     }
@@ -76,16 +76,25 @@ class Identification extends Rang
         return $c;
     }
 
-    protected function sousTraitance($EstSousTraitance)
+    protected function sousTraitance($EstPrincipale, $EstSousTraitance)
     {
         $c                              = new Cellule();
         $c->label                       = t('ffa.id.sous_traitance');
+        $c->labelFont->textColor->color = Color::white();
         $c->dimensions->width           = 20;
         $c->dimensions->height          = $this->dimensions->height;
-        $c->value                       = ($EstSousTraitance) ? t('ffa.abbr.planche_sous_traitance'): t('ffa.abbr.planche_principale');
+
+        $c->value = '';
+        if ($EstPrincipale) {
+            $c->value = t('ffa.abbr.planche_principale');
+        }
+        if ($EstSousTraitance) {
+            $c->value = t('ffa.abbr.planche_sous_traitance');
+        }
+
         $c->valueFont->textColor->color = Color::white();
         $c->fillColor->color            = Color::cmyk(0, 75, 100, 0);
-        if ($EstSousTraitance) {
+        if ($c->value == '') {
             $c->labelFont->textColor->color = Color::white();
         }
         return $c;
