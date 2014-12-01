@@ -3,6 +3,7 @@ CREATE VIEW dbo.VUE_PDF_COMMANDE AS
 SELECT
   c.IDCommande
   , pc.IDPlanche
+  , pc.EstColise
   , cl.DateExpedition
   , cl.DateImperatif
   , c.ReferenceClient
@@ -42,6 +43,7 @@ SELECT
   , dbo.f_nIDProduitOptionValeurProduit(p.IDProduit, 105, 1) AS DecoupeALaForme
   , dbo.f_nIDProduitOptionValeurProduit(p.IDProduit, 147, 1) AS Encollage
   , cert.Nom                                                 AS Certification
+  , atelier.Nom AS NomAtelier
 FROM
   TBL_COMMANDE c
   JOIN TBL_COMMANDE_LIGNE cl ON cl.IDCommande = c.IDCommande
@@ -57,3 +59,6 @@ FROM
   LEFT JOIN TBL_COMMANDE_TL_CERTIFICATION_SOCIETE AS comm_cert_societe ON comm_cert_societe.IDCommande = c.IDCommande
   LEFT JOIN TBL_CERTIFICATION_TL_SOCIETE AS cert_societe ON cert_societe.IDCertificationSociete = comm_cert_societe.IDCertificationSociete
   LEFT JOIN TBL_CERTIFICATION AS cert ON cert.IDCertification = cert_societe.IDCertification
+  LEFT JOIN TBL_PLANCHE_TL_COMMANDE pc2 ON pc2.IDCommande = c.IDCommande AND pc2.EstColise = 1
+  LEFT JOIN TBL_PLANCHE planche ON planche.IDPlanche = pc2.IDPlanche
+  LEFT JOIN TBL_ATELIER atelier ON atelier.IDAtelier = planche.IDAtelier

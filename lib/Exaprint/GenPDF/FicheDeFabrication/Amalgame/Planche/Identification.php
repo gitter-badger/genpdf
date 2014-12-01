@@ -22,15 +22,9 @@ class Identification extends Rang
         $this->dimensions = new Dimensions(200, 17);
         $this->cellules[] = $this->idPlanche($planche['IDPlanche']);
         $this->cellules[] = $this->expeSansFaconnage($planche['ExpeSansFaconnage']);
-        if ($planche['EstSousTraitance'] == 0) {
-            $this->cellules[] = $this->expeAvecFaconnage($planche['ExpeAvecFaconnage']);
-        } else {
-            $this->cellules[] = $this->colisageFinal($planche['NomAtelierPlanchePrincipale'], $planche['ExpeAvecFaconnage'], $planche['IDPlanchePrincipale']);
-        }
+        $this->cellules[] = $this->expeAvecFaconnage($planche['ExpeAvecFaconnage']);
         $this->cellules[] = $this->imperatifs($this->countImperatifs($planche['commandes']));
-        $this->cellules[] = $this->sousTraitance(
-            $this->getTemoinSousTraitance($planche['IDPlancheSousTraitance'], $planche['IDPlanchePrincipale'])
-        );
+        $this->cellules[] = $this->sousTraitance($planche['EstSousTraitance']);
         $this->cellules[] = $this->codeBarre($planche['IDPlanche']);
         $this->cellules[] = $this->nbCommandes(count($planche['commandes']));
     }
@@ -67,16 +61,6 @@ class Identification extends Rang
         return $c;
     }
 
-    protected function colisageFinal($nomAtelier, $date, $IDPlanche)
-    {
-        $c                     = new CelluleMultiligne();
-        $c->label              = 'Colisage final chez';
-        $c->dimensions->width  = 30;
-        $c->dimensions->height = $this->dimensions->height;
-        $c->text               = $nomAtelier . "\n" . $date . ' - ' . $IDPlanche;
-        return $c;
-    }
-
     protected function imperatifs($nb)
     {
         $c                              = new Cellule();
@@ -92,16 +76,16 @@ class Identification extends Rang
         return $c;
     }
 
-    protected function sousTraitance($st)
+    protected function sousTraitance($EstSousTraitance)
     {
         $c                              = new Cellule();
         $c->label                       = 'Sous-Traitance';
         $c->dimensions->width           = 20;
         $c->dimensions->height          = $this->dimensions->height;
-        $c->value                       = $st;
+        $c->value                       = ($EstSousTraitance) ? t('ffa.abbr.planche_sous_traitance'): t('ffa.abbr.planche_principale');
         $c->valueFont->textColor->color = Color::white();
         $c->fillColor->color            = Color::cmyk(0, 75, 100, 0);
-        if ($st) {
+        if ($EstSousTraitance) {
             $c->labelFont->textColor->color = Color::white();
         }
         return $c;
@@ -131,12 +115,5 @@ class Identification extends Rang
             if ($c['EstImperatif'] || substr($c['CodeProduit'], -4) == 'RUSH') $count++;
         }
         return $count;
-    }
-
-    protected function getTemoinSousTraitance($IDPlancheSousTraitance, $IDPlanchePrincipale)
-    {
-        if ($IDPlancheSousTraitance) return 'ST';
-        if ($IDPlanchePrincipale) return 'P';
-        return null;
     }
 } 
