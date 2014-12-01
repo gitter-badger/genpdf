@@ -46,6 +46,7 @@ CREATE VIEW dbo.VUE_PDF_PLANCHE AS
     , p.EstAR
     , p.EstSousTraitance
     , p.IDProduitActiviteProduction
+    , act.LibelleTraduit                                       AS ActiviteProduction
     , p_soustraitance.IDPlanche                                AS IDPlancheSousTraitance
     , a_soustraitance.Nom                                      AS NomAtelierSousTraitance
     , a_principale.Nom                                         AS NomAtelierPlanchePrincipale
@@ -66,3 +67,4 @@ CREATE VIEW dbo.VUE_PDF_PLANCHE AS
     LEFT JOIN TBL_ATELIER a_principale ON p_principale.IDAtelier = a_principale.IDAtelier
     LEFT JOIN TBL_UTILISATEUR monteur ON monteur.IDUtilisateur = p.IDUtilisateurPlancheur
     INNER JOIN TBL_ATELIER p1 ON p1.IDAtelier = p.IDAtelier
+    LEFT JOIN TBL_PRODUIT_ACTIVITE_PRODUCTION_TRAD act ON act.IDProduitActiviteProduction = p.IDProduitActiviteProduction AND act.IDLangue = 1
