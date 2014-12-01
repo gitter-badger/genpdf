@@ -44,6 +44,14 @@ CREATE VIEW dbo.VUE_PDF_PLANCHE AS
     , p.ObservationsTechnique
     , p.IDProduitPlancheFormat
     , p.EstAR
+    , CASE WHEN p.EstSousTraitance = 0
+THEN CASE WHEN ISNULL(p_soustraitance.IDPlanche, 0) > 0
+THEN 1
+   ELSE 0
+   END
+  ELSE 0
+  END
+AS EstPrincipale
     , p.EstSousTraitance
     , p.IDProduitActiviteProduction
     , act.LibelleTraduit                                       AS ActiviteProduction
