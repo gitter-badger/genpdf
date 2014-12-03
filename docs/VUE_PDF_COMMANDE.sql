@@ -3,6 +3,7 @@ CREATE VIEW dbo.VUE_PDF_COMMANDE AS
 SELECT
   c.IDCommande
   , pc.IDPlanche
+  , pc.EstColise
   , cl.DateExpedition
   , cl.DateImperatif
   , c.ReferenceClient
