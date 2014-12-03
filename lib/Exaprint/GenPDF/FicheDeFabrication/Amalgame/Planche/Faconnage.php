@@ -34,6 +34,10 @@ class Faconnage
             if ($commande['Decoupe']) {
                 $this->_p['AvecDecoupe'] = true;
             }
+
+            if ($commande['DecoupeALaFormeNumerique']) {
+                $this->_p['AvecDecoupeNumerique'] = true;
+            }
         }
     }
 
@@ -59,6 +63,7 @@ class Faconnage
         if ($planche['AvecPliage']) $message[] = 'Pliage';
         if ($planche['AvecPerforation']) $message[] = 'Perforation';
         if ($planche['AvecDecoupe']) $message[] = 'Découpe';
+        if ($planche['AvecDecoupeNumerique']) $message[] = 'Découpe numérique';
 
         if ($planche['Decoupe']) $message[] = _('valeur_' . $planche['Decoupe']);
         if ($planche['Rainage']) $message[] = _('valeur_' . $planche['Rainage']);
