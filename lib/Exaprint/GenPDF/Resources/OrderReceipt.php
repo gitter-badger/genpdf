@@ -113,7 +113,7 @@ class OrderReceipt extends Resource implements IResource
                 ON ([client].IDClient = TBL_COMMANDE.IDClient)
 
               JOIN TBL_CLIENT_CONTACT AS [contact]
-                ON ([contact].IDClient = TBL_COMMANDE.IDClient AND ISNULL([contact].ContactPrincipal, 0) = 1)
+                ON ([contact].IDClientContact = TBL_COMMANDE.IDClientContact)
 
               JOIN TBL_COMMANDE_LIGNE
                 ON (TBL_COMMANDE_LIGNE.IDCommande = TBL_COMMANDE.IDCommande)

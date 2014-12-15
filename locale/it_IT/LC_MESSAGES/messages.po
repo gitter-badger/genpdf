@@ -2507,7 +2507,7 @@ msgid "accuse de reception de commande"
 msgstr "In allegato trova la conferma di ricezione ordine"
 
 #: ../../../cache/twig_gettext_keys.php:55
-msgid "Livraison"
+msgid "Commande livrée à : "
 msgstr "Consegna"
 
 #: ../../../cache/twig_gettext_keys.php:56
@@ -2543,7 +2543,7 @@ msgid "Numero TVA"
 msgstr "Numero P.IVA"
 
 #: ../../../cache/twig_gettext_keys.php:64
-msgid "Produit"
+msgid "Descriptif : "
 msgstr "Prodotto"
 
 #: ../../../cache/twig_gettext_keys.php:65
