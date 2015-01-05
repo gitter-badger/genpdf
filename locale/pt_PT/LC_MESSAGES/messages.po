@@ -2479,7 +2479,7 @@ msgid "accuse de reception de commande"
 msgstr "Aviso de receção do pedido"
 
 #: ../../../cache/twig_gettext_keys.php:53
-msgid "Livraison"
+msgid "Commande livrée à : "
 msgstr "Entrega"
 
 #: ../../../cache/twig_gettext_keys.php:54
@@ -2515,7 +2515,7 @@ msgid "Numero TVA"
 msgstr "Nº de IVA"
 
 #: ../../../cache/twig_gettext_keys.php:62
-msgid "Produit"
+msgid "Descriptif : "
 msgstr "Produto"
 
 #: ../../../cache/twig_gettext_keys.php:63

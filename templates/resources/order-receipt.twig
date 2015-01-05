@@ -19,7 +19,7 @@
     <div id="subtitle">{% trans "accuse de reception de commande" %}</div>
 
     <div id="delivery">
-        <h2>{% trans "Livraison" %}</h2>
+        <h2>{% trans "Commande livrée à : " %}</h2>
 
         <p>{{ delivery.recipient }}</p>
 
@@ -72,7 +72,7 @@
     </div>
     <hr/>
     <div id="product">
-        <h2>{% trans "Produit" %}</h2>
+        <h2>{% trans "Descriptif : " %}</h2>
 
         <h3>{{ product.family }} {{ product.subfamily }} {{ product.name }}</h3>
         <dl id="product-options">
@@ -134,7 +134,7 @@
             </thead>
             <tbody>
             <tr>
-                <td>{% trans "Produit" %}</td>
+                <td></td>
                 <td class="number">{{ order.quantity }} {{ order.unit.abbr }}</td>
                 <td class="money">{{ product.et_amount|formatmoney }}</td>
                 <td class="money">{{ product.vat_amount|formatmoney }}</td>
