@@ -41,9 +41,14 @@ SELECT
   , dbo.f_mValeurOptionCommande(c.IDCommande, 103)           AS LongueurFerme
   , dbo.f_nIDProduitOptionValeurProduit(p.IDProduit, 104, 1) AS Pliage
   , dbo.f_nIDProduitOptionValeurProduit(p.IDProduit, 105, 1) AS DecoupeALaForme
+  , sel.HasFormeDecoupeNumerique                             AS DecoupeALaFormeNumerique
   , dbo.f_nIDProduitOptionValeurProduit(p.IDProduit, 147, 1) AS Encollage
   , cert.Nom                                                 AS Certification
-  , atelier.Nom AS NomAtelier
+  , atelier.Nom                                              AS NomAtelier
+  , fac.HasDecoupeNumeriqueHG
+  , fac.HasDecoupeNumeriqueHD
+  , fac.HasDecoupeNumeriqueBD
+  , fac.HasDecoupeNumeriqueBG
 FROM
   TBL_COMMANDE c
   JOIN TBL_COMMANDE_LIGNE cl ON cl.IDCommande = c.IDCommande
@@ -62,3 +67,6 @@ FROM
   LEFT JOIN TBL_PLANCHE_TL_COMMANDE pc2 ON pc2.IDCommande = c.IDCommande AND pc2.EstColise = 1
   LEFT JOIN TBL_PLANCHE planche ON planche.IDPlanche = pc2.IDPlanche
   LEFT JOIN TBL_ATELIER atelier ON atelier.IDAtelier = planche.IDAtelier
+  LEFT JOIN Sc_Front.EXP_BDC bdc ON bdc.IDCommande = cl.IDCommande
+  LEFT JOIN Sc_Front.EXP_BDC_SELECTION_PRODUIT sel ON sel.IDSelectionProduit = bdc.IDSelectionProduit
+  LEFT JOIN Sc_Front.EXP_BDC_FACONNAGE fac ON fac.IDFaconnage = sel.IDFaconnage
