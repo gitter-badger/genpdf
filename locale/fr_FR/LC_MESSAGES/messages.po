@@ -2525,8 +2525,8 @@ msgid "accuse de reception de commande"
 msgstr "Accusé de réception de commande"
 
 #: ../../../cache/twig_gettext_keys.php:56
-msgid "Livraison"
-msgstr "Livraison"
+msgid "Commande livrée à : "
+msgstr "Commande livrée à : "
 
 #: ../../../cache/twig_gettext_keys.php:57
 msgid "Client"
@@ -2561,8 +2561,8 @@ msgid "Numero TVA"
 msgstr "N° de TVA"
 
 #: ../../../cache/twig_gettext_keys.php:65
-msgid "Produit"
-msgstr "Produit"
+msgid "Descriptif : "
+msgstr "Descriptif : "
 
 #: ../../../cache/twig_gettext_keys.php:66
 msgid "Commande"
