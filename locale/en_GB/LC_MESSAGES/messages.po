@@ -2513,7 +2513,7 @@ msgid "accuse de reception de commande"
 msgstr "Please find attached your order acknowledgement"
 
 #: ../../../cache/twig_gettext_keys.php:53
-msgid "Livraison"
+msgid "Commande livrée à : "
 msgstr "Delivery"
 
 #: ../../../cache/twig_gettext_keys.php:54
@@ -2550,7 +2550,7 @@ msgid "Numero TVA"
 msgstr " VAT Number"
 
 #: ../../../cache/twig_gettext_keys.php:62
-msgid "Produit"
+msgid "Descriptif : "
 msgstr "Product"
 
 #: ../../../cache/twig_gettext_keys.php:63
