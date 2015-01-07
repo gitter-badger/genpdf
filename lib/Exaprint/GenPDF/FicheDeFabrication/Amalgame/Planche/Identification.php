@@ -93,7 +93,7 @@ class Identification extends Rang
 
         $c->valueFont->textColor->color = Color::white();
         $c->fillColor->color            = Color::cmyk(0, 75, 100, 0);
-        if ($c->value == '') {
+        if ($c->value != '') {
             $c->labelFont->textColor->color = Color::white();
         }
         return $c;
