@@ -9,6 +9,7 @@
 namespace Exaprint\GenPDF\FicheDeFabrication\Amalgame;
 
 
+use Exaprint\GenPDF\FicheDeFabrication\Amalgame\Planche\PEFC;
 use Exaprint\GenPDF\FicheDeFabrication\Amalgame\Planche\Compteur;
 use Exaprint\GenPDF\FicheDeFabrication\Amalgame\Planche\Compteurs;
 use Exaprint\GenPDF\FicheDeFabrication\Amalgame\Planche\DetailSousTraitance;
@@ -50,6 +51,7 @@ class Planche2
         $this->indicationsCommandes();
         $this->compteurs();
         $this->observations();
+        $this->pefc();
         $this->transporteurs();
         $this->monteur();
     }
@@ -89,7 +91,7 @@ class Planche2
     public function indicationsCommandes()
     {
         $indications = new IndicationsCommandes($this->planche);
-        $indications ->draw($this->pdf, $this->position->add(new Position(0, 66)));
+        $indications->draw($this->pdf, $this->position->add(new Position(0, 66)));
 
     }
 
@@ -97,6 +99,14 @@ class Planche2
     {
         $observations = new Observations($this->planche);
         $observations->draw($this->pdf, $this->position->add(new Position(100, 66)));
+    }
+
+    public function pefc()
+    {
+        if ($this->planche['estPEFC']) {
+            $compteurs = new PEFC($this->planche);
+            $compteurs->draw($this->pdf, $this->position->add(new Position(82, 118)));
+        }
     }
 
     public function compteurs()
