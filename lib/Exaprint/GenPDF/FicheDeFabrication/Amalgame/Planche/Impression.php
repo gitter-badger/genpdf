@@ -23,7 +23,6 @@ class Impression extends Rang
         $this->cellules   = [];
         $this->cellules[] = $this->nbFeuilles($planche['NbFeuilles'], $planche['EstSousTraitance']);
         $this->cellules[] = $this->format($planche['Largeur'], $planche['Longueur']);
-        $this->cellules[] = $this->nbCotes($planche['ImpressionVerso'], $planche['EstSousTraitance']);
         $this->cellules[] = $this->couleurs($planche['NbCouleursRecto'], $planche['NbCouleursVerso']);
         $this->cellules[] = $this->bascule($planche['Bascule']);
         $this->cellules[] = $this->papier($planche['Support'], $planche['EstSousTraitance']);
@@ -56,32 +55,13 @@ class Impression extends Rang
         return $c;
     }
 
-    public function nbCotes($verso, $EstSousTraitance)
-    {
-
-        if ($EstSousTraitance) {
-            $c                    = new Cellule();
-            $c->dimensions->width = 16;
-            return $c;
-        } else {
-            $c                    = new ImageCellule();
-            $c->dimensions->width = $this->dimensions->height;
-            $c->src               = '../assets/Recto.png';
-            if ($verso) {
-                $c->src = '../assets/RectoVerso.png';
-            }
-            return $c;
-        }
-
-    }
-
     public function couleurs($nbRecto, $nbVerso)
     {
         $c                    = new Cellule();
         $c->value             = $nbRecto . ' + ' . $nbVerso;
         $c->vAlign            = Cell::VALIGN_CENTER;
-        $c->dimensions->width = 16;
-        $c->valueFont->size   = 20;
+        $c->dimensions->width = 32;
+        $c->valueFont->size   = 28;
         return $c;
     }
 
