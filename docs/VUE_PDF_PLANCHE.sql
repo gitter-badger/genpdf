@@ -32,6 +32,13 @@ CREATE VIEW dbo.VUE_PDF_PLANCHE AS
     , dbo.f_nIDProduitOptionValeurPlanche(p.IDPlanche, 104, 1) AS Pliage
     , dbo.f_nIDProduitOptionValeurPlanche(p.IDPlanche, 105, 1) AS DecoupeALaForme
     , dbo.f_nIDProduitOptionValeurPlanche(p.IDPlanche, 147, 1) AS Encollage
+    , dbo.f_nIDProduitOptionValeurPlanche(p.IDPlanchePrincipale, 78, 1) AS PPelliculageRecto
+    , dbo.f_nIDProduitOptionValeurPlanche(p.IDPlanchePrincipale, 79, 1) AS PPelliculageVerso
+    , dbo.f_nIDProduitOptionValeurPlanche(p.IDPlanchePrincipale, 85, 1) AS PVernisRecto
+    , dbo.f_nIDProduitOptionValeurPlanche(p.IDPlanchePrincipale, 86, 1) AS PVernisVerso
+    , dbo.f_nIDProduitOptionValeurPlanche(p.IDPlanchePrincipale, 87, 1) AS PVernisSelectifRecto
+    , dbo.f_nIDProduitOptionValeurPlanche(p.IDPlanchePrincipale, 88, 1) AS PVernisSelectifVerso
+    , dbo.f_nIDProduitOptionValeurPlanche(p.IDPlanchePrincipale, 100, 1) AS PEncreAGratter
     , p.AvecDecoupe
     , p.AvecDorure
     , p.AvecEncollage
