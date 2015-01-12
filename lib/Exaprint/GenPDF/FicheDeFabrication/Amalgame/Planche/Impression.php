@@ -21,21 +21,27 @@ class Impression extends Rang
     {
         $this->dimensions = new Dimensions(200, 16);
         $this->cellules   = [];
-        $this->cellules[] = $this->nbFeuilles($planche['NbFeuilles']);
+        $this->cellules[] = $this->nbFeuilles($planche['NbFeuilles'], $planche['EstSousTraitance']);
         $this->cellules[] = $this->format($planche['Largeur'], $planche['Longueur']);
         $this->cellules[] = $this->couleurs($planche['NbCouleursRecto'], $planche['NbCouleursVerso']);
         $this->cellules[] = $this->bascule($planche['Bascule']);
-        $this->cellules[] = $this->papier($planche['Support']);
+        $this->cellules[] = $this->papier($planche['Support'], $planche['EstSousTraitance']);
     }
 
-    public function nbFeuilles($nb)
+    public function nbFeuilles($nb, $EstSousTraitance)
     {
-        $c                              = new Cellule();
-        $c->fillColor                   = new FillColor(Color::cmyk(100, 100, 0, 0));
-        $c->dimensions->width           = 36;
-        $c->value                       = number_format($nb, 0, '.', ' ');
-        $c->valueFont->textColor->color = Color::white();
-        $c->vAlign                      = Cell::VALIGN_CENTER;
+        $c                    = new Cellule();
+        $c->dimensions->width = 36;
+        $c->value             = number_format($nb, 0, '.', ' ');
+        $c->vAlign            = Cell::VALIGN_CENTER;
+
+        if ($EstSousTraitance) {
+            // fond blanc, texte noir
+        } else {
+            $c->fillColor->color            = Color::cmyk(100, 100, 0, 0);
+            $c->valueFont->textColor->color = Color::white();
+        }
+
         return $c;
     }
 
@@ -73,7 +79,7 @@ class Impression extends Rang
         return $c;
     }
 
-    public function papier($id)
+    public function papier($id, $EstSousTraitance)
     {
         $c                    = new Cellule();
         $c->value             = _('valeur_' . $id);
@@ -81,7 +87,13 @@ class Impression extends Rang
         $c->valueFont->family = 'bagc-light';
         $c->valueFont->size   = 22;
         $c->vAlign            = Cell::VALIGN_CENTER;
-        $c->fillColor         = new FillColor(Color::cmyk(0, 0, 75, 0));
+
+        if ($EstSousTraitance) {
+            // fond blanc, texte noir
+        } else {
+            $c->fillColor->color = Color::cmyk(0, 0, 75, 0);
+        }
+
         return $c;
     }
 } 

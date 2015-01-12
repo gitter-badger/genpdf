@@ -27,7 +27,7 @@ class Identification extends Rang
         } else {
             $this->cellules[] = $this->expeAvecFaconnage($planche['ExpeAvecFaconnage']);
         }
-        $this->cellules[] = $this->imperatifs($this->countImperatifs($planche['commandes']));
+        $this->cellules[] = $this->imperatifs($this->countImperatifs($planche['commandes']), $planche['EstSousTraitance']);
         $this->cellules[] = $this->sousTraitance($planche['EstPrincipale'], $planche['EstSousTraitance']);
         $this->cellules[] = $this->codeBarre($planche['IDPlanche']);
         $this->cellules[] = $this->nbCommandes(count($planche['commandes']));
@@ -84,18 +84,22 @@ class Identification extends Rang
         return $c;
     }
 
-    protected function imperatifs($nb)
+    protected function imperatifs($nb, $EstSousTraitance)
     {
-        $c                              = new Cellule();
-        $c->label                       = 'Impératifs';
-        $c->dimensions->width           = 20;
-        $c->dimensions->height          = $this->dimensions->height;
-        $c->fillColor                   = new FillColor(Color::red());
-        $c->valueFont->textColor->color = Color::white();
-        $c->value                       = $nb;
-        if ($nb) {
+        $c                     = new Cellule();
+        $c->label              = 'Impératifs';
+        $c->dimensions->width  = 20;
+        $c->dimensions->height = $this->dimensions->height;
+        $c->value              = $nb;
+
+        if ($EstSousTraitance) {
+            // fond blanc, texte noir
+        } else {
+            $c->fillColor->color            = Color::red();
+            $c->valueFont->textColor->color = Color::white();
             $c->labelFont->textColor->color = Color::white();
         }
+
         return $c;
     }
 
@@ -108,17 +112,17 @@ class Identification extends Rang
 
         $c->value = '';
         if ($EstPrincipale) {
-            $c->value = 'P';
-        }
-        if ($EstSousTraitance) {
-            $c->value = 'ST';
-        }
-
-        $c->valueFont->textColor->color = Color::white();
-        $c->fillColor->color            = Color::cmyk(0, 75, 100, 0);
-        if ($c->value != '') {
+            $c->value                       = 'P';
+            $c->valueFont->textColor->color = Color::white();
+            $c->fillColor->color            = Color::cmyk(0, 75, 100, 0);
             $c->labelFont->textColor->color = Color::white();
         }
+        if ($EstSousTraitance) {
+            $c->value                       = 'ST';
+            $c->valueFont->textColor->color = Color::cmyk(0, 75, 100, 0);
+        }
+
+
         return $c;
     }
 
