@@ -23,7 +23,7 @@ class Finitions
     {
         $this->finitions[] = $this->getPelliculage($planche);
         $this->finitions[] = $this->getVernis($planche);
-        if ($planche['EncreAGratter']) {
+        if ($planche['EncreAGratter'] || $planche['PEncreAGratter']) {
             $this->finitions[] = $this->getEncreAGratter($planche);
         } else {
             $this->finitions[] = $this->getVernisUV($planche);
@@ -80,8 +80,12 @@ class Finitions
         $finition = new Finition();
         $finition->setLabel('GRAT');
         $finition->setValue($this->getValueEncreAGratter($planche));
-        $finition->setValueFontColor(Color::white());
-        $finition->setValueFillColor(Color::cmyk(40, 80, 0, 0));
+        if ($planche['EstSousTraitance']) {
+            // fond blanc, texte noir
+        } else {
+            $finition->setValueFontColor(Color::white());
+            $finition->setValueFillColor(Color::cmyk(40, 80, 0, 0));
+        }
         return $finition;
     }
 
