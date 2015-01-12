@@ -45,14 +45,15 @@ class DetailSousTraitance
     {
         $message = '';
 
+        // Planche normale
+        if (!$this->_p['EstPrincipale'] && !$this->_p['EstSousTraitance']) {
+            return $message;
+        }
+
         foreach ($this->_p['ActionsSousTraitance'] as $action) {
 
-            if (empty($action['NomAtelierSousTraitance'])) {
-                continue;
-            }
-
             // on affiche ce bloc si on n'est pas sur une fiche de sous-traitance
-            if ($this->_p['EstSousTraitance'] == 0) {
+            if ($this->_p['EstPrincipale']) {
                 $message .= $action['NomAtelierSousTraitance'];
                 $message .= ' (' . $action['IDPlancheSousTraitance'] . ') : ';
             }
