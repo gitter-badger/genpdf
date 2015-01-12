@@ -21,8 +21,12 @@ class Identification extends Rang
 
         $this->dimensions = new Dimensions(200, 17);
         $this->cellules[] = $this->idPlanche($planche['IDPlanche']);
-        $this->cellules[] = $this->expeSansFaconnage($planche['ExpeSansFaconnage']);
-        $this->cellules[] = $this->expeAvecFaconnage($planche['ExpeAvecFaconnage']);
+        $this->cellules[] = $this->expeSansFaconnage($planche['ExpeSansFaconnage'], $planche['EstSousTraitance']);
+        if ($planche['EstSousTraitance']) {
+            $this->cellules[] = $this->colisageFinal($planche['NomAtelier'], $planche['ExpeAvecFaconnage'], $planche['IDPlanche']);
+        } else {
+            $this->cellules[] = $this->expeAvecFaconnage($planche['ExpeAvecFaconnage']);
+        }
         $this->cellules[] = $this->imperatifs($this->countImperatifs($planche['commandes']));
         $this->cellules[] = $this->sousTraitance($planche['EstPrincipale'], $planche['EstSousTraitance']);
         $this->cellules[] = $this->codeBarre($planche['IDPlanche']);
@@ -39,10 +43,30 @@ class Identification extends Rang
         return $c;
     }
 
-    protected function expeSansFaconnage($date)
+    protected function expeSansFaconnage($date, $EstSousTraitance)
     {
+        $c                     = new Cellule();
+        $c->label              = 'Expé SANS façonnage';
+        $c->dimensions->width  = 30;
+        $c->dimensions->height = $this->dimensions->height;
+        $c->value              = $date;
+
+        if ($EstSousTraitance) {
+            $c->fillColor->color            = Color::cmyk(0, 75, 100, 0);
+            $c->valueFont->textColor->color = Color::white();
+            $c->labelFont->textColor->color = Color::white();
+        } else {
+            $c->valueFont->textColor->color = Color::red();
+        }
+
+        return $c;
+    }
+
+    protected function expeAvecFaconnage($date)
+    {
+
         $c                              = new Cellule();
-        $c->label                       = 'Expé SANS façonnage';
+        $c->label                       = 'Expé AVEC façonnage';
         $c->dimensions->width           = 30;
         $c->dimensions->height          = $this->dimensions->height;
         $c->value                       = $date;
@@ -50,14 +74,13 @@ class Identification extends Rang
         return $c;
     }
 
-    protected function expeAvecFaconnage($date)
+    protected function colisageFinal($nomAtelier, $date, $IDPlanche)
     {
-        $c                              = new Cellule();
-        $c->label                       = 'Expé AVEC façonnage';
-        $c->dimensions->width           = 30;
-        $c->dimensions->height          = $this->dimensions->height;
-        $c->value                       = $date;
-        $c->valueFont->textColor->color = Color::red();
+        $c                     = new CelluleMultiligne();
+        $c->label              = 'Colisage final chez';
+        $c->dimensions->width  = 30;
+        $c->dimensions->height = $this->dimensions->height;
+        $c->text               = $nomAtelier . "\n" . $date . ' - ' . $IDPlanche;
         return $c;
     }
 
@@ -78,10 +101,10 @@ class Identification extends Rang
 
     protected function sousTraitance($EstPrincipale, $EstSousTraitance)
     {
-        $c                              = new Cellule();
-        $c->label                       = 'Sous-Traitance';
-        $c->dimensions->width           = 20;
-        $c->dimensions->height          = $this->dimensions->height;
+        $c                     = new Cellule();
+        $c->label              = 'Sous-Traitance';
+        $c->dimensions->width  = 20;
+        $c->dimensions->height = $this->dimensions->height;
 
         $c->value = '';
         if ($EstPrincipale) {
