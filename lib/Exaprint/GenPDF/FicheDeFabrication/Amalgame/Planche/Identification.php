@@ -23,7 +23,7 @@ class Identification extends Rang
         $this->cellules[] = $this->idPlanche($planche['IDPlanche']);
         $this->cellules[] = $this->expeSansFaconnage($planche['ExpeSansFaconnage'], $planche['EstSousTraitance']);
         if ($planche['EstSousTraitance']) {
-            $this->cellules[] = $this->colisageFinal($planche['NomAtelierPlanchePrincipale'], $planche['ExpeAvecFaconnage'], $planche['IDPlanchePrincipale']);
+            $this->cellules[] = $this->colisageFinal($planche['ColiseNomAtelier'], $planche['ColiseDateExpe'], $planche['ColiseIDPlanche']);
         } else {
             $this->cellules[] = $this->expeAvecFaconnage($planche['ExpeAvecFaconnage']);
         }

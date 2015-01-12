@@ -70,6 +70,15 @@ class DAL
                 $dto['ActionsSousTraitance'][] = $action;
             }
 
+            if ($dto['EstSousTraitance']) {
+                $ColiseInfos = self::getColiseInfos($dto['IDPlanchePrincipale'], $dto['IDPlancheSousTraitance']);
+                if (count($ColiseInfos) == 1) {
+                    $dto['ColiseDateExpe']   = date('d/m', strtotime($ColiseInfos[0]['ColiseDateExpe']));
+                    $dto['ColiseIDPlanche']  = $ColiseInfos[0]['ColiseIDPlanche'];
+                    $dto['ColiseNomAtelier'] = $ColiseInfos[0]['ColiseNomAtelier'];
+                }
+            }
+
             self::_cache()->save("planche_$IDPlanche", $dto, Duration::get(2, Duration::MINUTE), ['planche']);
             return $dto;
         } else {
@@ -99,6 +108,38 @@ class DAL
 
         $stmt->execute(['IDPlancheSousTraitance' => $IDPlancheSousTraitance]);
         return $stmt->fetchAll(DB::FETCH_COLUMN);
+    }
+
+    /**
+     * @param $IDPlanchePrincipale
+     * @param $IDPlancheSousTraitance
+     * @return array
+     */
+    protected static function getColiseInfos($IDPlanchePrincipale, $IDPlancheSousTraitance)
+    {
+        $stmt = DB::get()->prepare('
+              SELECT
+                    CASE WHEN p.ExpeAvecFaconnage IS NULL
+                    THEN
+                      p.ExpeSansFaconnage
+                    ELSE (
+                      CASE WHEN p.ExpeSansFaconnage < p.ExpeAvecFaconnage
+                      THEN p.ExpeSansFaconnage
+                      ELSE p.ExpeAvecFaconnage
+                      END) END   AS ColiseDateExpe
+                  , c.IDPlanche  AS ColiseIDPlanche
+                  , p.NomAtelier AS ColiseNomAtelier
+                FROM VUE_PDF_COMMANDE c
+                  LEFT JOIN VUE_PDF_PLANCHE p ON p.IDPlanche = c.IDPlanche
+                WHERE (c.IDPlanche = :IDPlanchePrincipale OR c.IDPlanche = :IDPlancheSousTraitance) AND EstColise = 1
+                GROUP BY c.IDPlanche, p.NomAtelier, p.ExpeSansFaconnage, p.ExpeAvecFaconnage
+        ');
+
+        $stmt->execute([
+            'IDPlanchePrincipale'    => $IDPlanchePrincipale,
+            'IDPlancheSousTraitance' => $IDPlancheSousTraitance
+        ]);
+        return $stmt->fetchAll(DB::FETCH_ASSOC);
     }
 
     protected static function getCommandes($IDPlanche)
