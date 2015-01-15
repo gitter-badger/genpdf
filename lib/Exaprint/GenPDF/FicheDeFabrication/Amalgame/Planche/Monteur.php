@@ -28,10 +28,14 @@ class Monteur
     public function draw(\TCPDF $pdf, Position $position)
     {
         $date = New \DateTime($this->_p['DateAjout']);
-        $text = 'Monteur : ' . $this->_p['PrenomMonteur'] . ' ' . $this->_p['NomMonteur'] . ' (' . $this->_p['EmailMonteur'] . ') - ' . $this->_p['ActiviteProduction'] . "\n";
-        $text .= 'Date : ' . $date->format('Y-m-d H:i:s') . ' - ' . $this->_p['NomAtelier'] . ' : ' . round($this->_p['CoutPlanche'], 2) . ' euros';
+        $text = 'Monteur : ' . $this->_p['PrenomMonteur'] . ' ' . $this->_p['NomMonteur'] . ' (' . $this->_p['EmailMonteur'] . ') - ' . $this->_p['ActiviteProduction'];
+        $text .= "<br />" . 'Date : ' . $date->format('Y-m-d H:i:s') . ' - ' . $this->_p['NomAtelier'] . ' : ' . round($this->_p['CoutPlanche'], 2) . ' euros';
+        if ($this->_p['contientAmalgame']) {
+            $text .= "<br />" . '<span style="color:#ff0000">ATTENTION AMALGAME CLIENT</span>';
+        }
 
         $c         = new MultiCell();
+        $c->isHtml = true;
         $c->text   = $text;
         $c->font   = new Font('bagc-reg', 10, new TextColor(Color::black()));
         $c->x      = $position->x;

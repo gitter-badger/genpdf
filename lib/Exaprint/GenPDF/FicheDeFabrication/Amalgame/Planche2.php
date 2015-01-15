@@ -124,7 +124,7 @@ class Planche2
     public function monteur()
     {
         $monteur = new Monteur($this->planche);
-        $monteur->draw($this->pdf, $this->position->add(new Position(100, 106)));
+        $monteur->draw($this->pdf, $this->position->add(new Position(100, 96)));
     }
 
 } 

@@ -26,6 +26,8 @@ use Monolog\Logger;
 class Amalgame
 {
 
+    const PRODUIT_AMALGAME = 'AMAL';
+
     public static $wPage = 210;
     public static $hPage = 297;
     public static $gouttiere = 4;
@@ -57,6 +59,7 @@ class Amalgame
         $nbCommandes = count($this->planche['commandes']);
 
         $this->planche['estPEFC'] = false;
+        $this->planche['contientAmalgame'] = false;
         foreach ($this->planche['commandes'] as &$c) {
             if ($c['Fichiers']['FormeDeDecoupe']) {
                 $this->_formesDeDecoupe[] = [
@@ -76,6 +79,9 @@ class Amalgame
             }
             if ($c['Certification'] == PEFC::CERTIFICATION_PEFC) {
                 $this->planche['estPEFC'] = true;
+            }
+            if (strpos($c['CodeProduit'], self::PRODUIT_AMALGAME) !== false) {
+                $this->planche['contientAmalgame'] = true;
             }
         }
 
