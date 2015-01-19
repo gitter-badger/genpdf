@@ -42,6 +42,7 @@ SELECT
   , dbo.f_nIDProduitOptionValeurProduit(p.IDProduit, 104, 1) AS Pliage
   , dbo.f_nIDProduitOptionValeurProduit(p.IDProduit, 105, 1) AS DecoupeALaForme
   , sel.HasFormeDecoupeNumerique                             AS DecoupeALaFormeNumerique
+  , pov_feuillet.ValeurNumParticularite                      AS NombreDeFeuillets
   , dbo.f_nIDProduitOptionValeurProduit(p.IDProduit, 147, 1) AS Encollage
   , cert.Nom                                                 AS Certification
   , atelier.Nom                                              AS NomAtelier
@@ -69,6 +70,7 @@ FROM
   LEFT JOIN Sc_Front.EXP_BDC bdc ON bdc.IDCommande = cl.IDCommande
   LEFT JOIN Sc_Front.EXP_BDC_SELECTION_PRODUIT sel ON sel.IDSelectionProduit = bdc.IDSelectionProduit
   LEFT JOIN Sc_Front.EXP_BDC_FACONNAGE fac ON fac.IDFaconnage = sel.IDFaconnage
+  LEFT JOIN TBL_PRODUIT_OPTION_VALEUR pov_feuillet ON pov_feuillet.IDProduitOptionValeur =dbo.f_nIDProduitOptionValeurProduit(p.IDProduit, 146, 1)
   OUTER APPLY(
     SELECT TOP 1 TBL_FQUALITE.CommentaireAtelier FROM TBL_FQUALITE WHERE IDCommande = c.IDCommandePrincipale ORDER BY IDFQualite DESC
   ) f
