@@ -47,7 +47,7 @@
         <tbody>
         {% set area = 0 %}
         {% for model in quote.getModels() %}
-            {% set area = area + model.width * model.height %}
+            {% set area = area + (model.width / 100) * (model.height / 100) * model.quantity %}
             <tr>
                 <td>{{ model.title }}</td>
                 <td>{{ model.quantity }}</td>
@@ -85,7 +85,7 @@
             <td colspan="4">
                 <dl>
                     <dt>{% trans 'cgf.area' %}</dt>
-                    <dd>{{ area / 1000 }} {% trans 'cgf.area.unit' %}</dd>
+                    <dd>{{ area }} {% trans 'cgf.area.unit' %}</dd>
                     <dt>{% trans 'cgf.price' %}</dt>
                     <dd>{{ quote.getSellingPrice()|formatmoney }}</dd>
                 </dl>
