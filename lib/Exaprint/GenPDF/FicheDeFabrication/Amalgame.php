@@ -59,6 +59,7 @@ class Amalgame
         $nbCommandes = count($this->planche['commandes']);
 
         $this->planche['estPEFC'] = false;
+        $this->planche['EstRush'] = false;
         $this->planche['contientAmalgame'] = false;
         foreach ($this->planche['commandes'] as &$c) {
             if ($c['Fichiers']['FormeDeDecoupe']) {
@@ -79,6 +80,9 @@ class Amalgame
             }
             if ($c['Certification'] == PEFC::CERTIFICATION_PEFC) {
                 $this->planche['estPEFC'] = true;
+            }
+            if ($c['EstRush']) {
+                $this->planche['EstRush'] = true;
             }
             if (strpos($c['CodeProduit'], self::PRODUIT_AMALGAME) !== false) {
                 $this->planche['contientAmalgame'] = true;

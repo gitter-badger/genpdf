@@ -50,6 +50,7 @@ SELECT
   , fac.HasDecoupeNumeriqueHD
   , fac.HasDecoupeNumeriqueBD
   , fac.HasDecoupeNumeriqueBG
+  , dbo.f_bCommandeExarush(c.IDCommande)                    as EstRush
 FROM
   TBL_COMMANDE c
   JOIN TBL_COMMANDE_LIGNE cl ON cl.IDCommande = c.IDCommande
