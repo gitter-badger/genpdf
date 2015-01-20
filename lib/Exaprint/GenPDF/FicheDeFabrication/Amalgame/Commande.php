@@ -10,6 +10,7 @@ namespace Exaprint\GenPDF\FicheDeFabrication\Amalgame;
 
 
 use Exaprint\GenPDF\FicheDeFabrication\Amalgame\Cellule\Helper;
+use Exaprint\GenPDF\FicheDeFabrication\Amalgame\Planche\Transporteurs;
 use Exaprint\GenPDF\FicheDeFabrication\Formatter;
 use Exaprint\GenPDF\Resources\PartnersOrder;
 use Exaprint\TCPDF\Cell;
@@ -402,7 +403,7 @@ class Commande
     protected function livraisonTransporteur($x, $h)
     {
         $c            = new Cell();
-        $c->text      = ($this->commande['CodeTransporteur'] != self::TRANSPORTEUR_EXPRESS) ? $this->commande['CodeTransporteur'] : '';
+        $c->text      = ($this->commande['CodeTransporteur'] != self::TRANSPORTEUR_EXPRESS) ? Transporteurs::getTransporteurLabel($this->commande['CodeTransporteur']) : '';
         $c->font      = new Font('bagc-bold', $this->layout->cExpeditionDateFontSize);
         $c->border    = true;
         $c->fill      = false;
