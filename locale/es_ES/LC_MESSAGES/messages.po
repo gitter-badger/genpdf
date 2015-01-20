@@ -2357,7 +2357,7 @@ msgstr "Total no sometido a IVA"
 
 #: ../../../cache/twig_gettext_keys.php:25
 msgid "Facture reglee le "
-msgstr "Facture reglée le : "
+msgstr "Factura pagada el: "
 
 #: ../../../cache/twig_gettext_keys.php:26
 msgid "Echeance de paiement"
