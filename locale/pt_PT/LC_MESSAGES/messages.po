@@ -2358,7 +2358,7 @@ msgstr "Valor total não submetido a IVA"
 
 #: ../../../cache/twig_gettext_keys.php:25
 msgid "Facture reglee le "
-msgstr "Fatura paga a"
+msgstr "Fatura pagada em: "
 
 #: ../../../cache/twig_gettext_keys.php:26
 msgid "Echeance de paiement"
