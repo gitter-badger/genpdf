@@ -71,7 +71,7 @@ class DAL
             }
 
             if ($dto['EstSousTraitance']) {
-                $ColiseInfos = self::getColiseInfos($dto['IDPlanchePrincipale'], $dto['IDPlancheSousTraitance']);
+                $ColiseInfos = self::getColiseInfos($dto['IDPlanche'], $dto['IDPlanchePrincipale']);
                 if (count($ColiseInfos) == 1) {
                     $dto['ColiseDateExpe']   = date('d/m', strtotime($ColiseInfos[0]['ColiseDateExpe']));
                     $dto['ColiseIDPlanche']  = $ColiseInfos[0]['ColiseIDPlanche'];
