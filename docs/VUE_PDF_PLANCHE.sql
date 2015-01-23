@@ -11,8 +11,8 @@ CREATE VIEW dbo.VUE_PDF_PLANCHE AS
     , dbo.IsZero(p.Longueur, pf.Longueur)                      AS Longueur
     , p.DateExpeditionUrgente                                  AS ExpeSansFaconnage
     , p.DateExpeditionUrgenteFaconnage                         AS ExpeAvecFaconnage
-    , CASE WHEN p.EstSousTraitance = '1' THEN dbo.f_dValeurOptionValeurPlanche(p.IDPlanchePrincipale,80) ELSE dbo.f_dValeurOptionValeurPlanche(p.IDPlanche, 80) END AS NbCouleursRecto
-    , CASE WHEN p.EstSousTraitance = '1' THEN dbo.f_dValeurOptionValeurPlanche(p.IDPlanchePrincipale,81) ELSE dbo.f_dValeurOptionValeurPlanche(p.IDPlanche, 81) END AS NbCouleursVerso
+    , CASE WHEN p.EstSousTraitance = '1' THEN dbo.f_idOptionValeurPlanche(p.IDPlanchePrincipale,80) ELSE dbo.f_idOptionValeurPlanche(p.IDPlanche, 80) END AS NbCouleursRecto
+    , CASE WHEN p.EstSousTraitance = '1' THEN dbo.f_idOptionValeurPlanche(p.IDPlanchePrincipale,81) ELSE dbo.f_idOptionValeurPlanche(p.IDPlanche, 81) END AS NbCouleursVerso
     , dbo.f_nIDProduitOptionValeurPlanche(p.IDPlanche, 75, 1)  AS Support
     , dbo.f_nIDProduitOptionValeurPlanche(p.IDPlanche, 78, 1)  AS PelliculageRecto
     , dbo.f_nIDProduitOptionValeurPlanche(p.IDPlanche, 79, 1)  AS PelliculageVerso
