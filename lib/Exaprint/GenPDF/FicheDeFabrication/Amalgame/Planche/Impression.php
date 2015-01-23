@@ -176,6 +176,9 @@ class Impression extends Rang
             case self::RECTO_1_TEINTE:
                 $nbCouleurs = 4;
                 break;
+            case self::VERSO_QUADRI:
+                $nbCouleurs = 4;
+                break;
             case self::VERSO_SANS:
                 $nbCouleurs = 0;
                 break;
