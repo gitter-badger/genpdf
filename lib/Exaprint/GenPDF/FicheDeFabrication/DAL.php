@@ -39,6 +39,10 @@ class DAL
         return self::$_cache;
     }
 
+    /**
+     * @param $IDPlanche
+     * @return bool|mixed
+     */
     public static function getPlanche($IDPlanche)
     {
         if ($p = self::_cache()->get("planche_$IDPlanche")) {
@@ -46,23 +50,41 @@ class DAL
         }
 
         $stmt = DB::get()->prepare('SELECT * FROM dbo.VUE_PDF_PLANCHE WHERE IDPlanche = :IDPlanche');
-        $stmt->execute(['IDPlanche' => $IDPlanche]);
-        if ($dto = $stmt->fetch(DB::FETCH_ASSOC)) {
+        if ($stmt->execute(['IDPlanche' => $IDPlanche])) {
+            $subcontracts = $stmt->fetchAll(DB::FETCH_ASSOC);
+            $dto = $subcontracts[0];
             self::formatDate($dto, 'ExpeSansFaconnage');
             self::formatDate($dto, 'ExpeAvecFaconnage');
+            $dto['commandes']            = self::getCommandes($IDPlanche);
             $dto['ActionsSousTraitance'] = [];
-            if ($dto['IDPlancheSousTraitance']) {
-                $dto['ActionsSousTraitance'] = self::getActions($dto['IDPlancheSousTraitance']);
+            foreach ($subcontracts as $subcontract) {
+                $action['IDPlancheSousTraitance'] = $subcontract['IDPlancheSousTraitance'];
+                $action['NomAtelierSousTraitance'] = $subcontract['NomAtelierSousTraitance'];
+                if ($subcontract['EstPrincipale']) {
+                    $action['actions'] = self::getActions($subcontract['IDPlancheSousTraitance']);
+                } else if ($subcontract['EstSousTraitance']) {
+                    $action['actions'] = self::getActions($subcontract['IDPlanche']);
+                } else {
+                    // planche normale
+                }
+                $dto['ActionsSousTraitance'][] = $action;
             }
-            $dto['commandes'] = self::getCommandes($IDPlanche);
+
+            if ($dto['EstSousTraitance']) {
+                $ColiseInfos = self::getColiseInfos($dto['IDPlanche'], $dto['IDPlanchePrincipale']);
+                if (count($ColiseInfos) == 1) {
+                    $dto['ColiseDateExpe']   = date('d/m', strtotime($ColiseInfos[0]['ColiseDateExpe']));
+                    $dto['ColiseIDPlanche']  = $ColiseInfos[0]['ColiseIDPlanche'];
+                    $dto['ColiseNomAtelier'] = $ColiseInfos[0]['ColiseNomAtelier'];
+                }
+            }
+
+            self::_cache()->save("planche_$IDPlanche", $dto, Duration::get(2, Duration::MINUTE), ['planche']);
+            return $dto;
         } else {
             var_dump($stmt->errorInfo());
             echo $stmt->queryString;
         }
-
-
-        self::_cache()->save("planche_$IDPlanche", $dto, Duration::get(2, Duration::MINUTE), ['planche']);
-        return $dto;
     }
 
     /**
@@ -73,7 +95,7 @@ class DAL
     protected static function getActions($IDPlancheSousTraitance)
     {
         $stmt = DB::get()->prepare('
-              SELECT TBL_PLANCHE_ACTION.CodeOption
+              SELECT TBL_PLANCHE_ACTION.IDPlancheAction
               FROM TBL_PLANCHE_ACTION
               LEFT OUTER JOIN TBL_PLANCHE_ACTION_TRAD
               ON TBL_PLANCHE_ACTION.IDPlancheAction = TBL_PLANCHE_ACTION_TRAD.IDPlancheAction
@@ -86,6 +108,38 @@ class DAL
 
         $stmt->execute(['IDPlancheSousTraitance' => $IDPlancheSousTraitance]);
         return $stmt->fetchAll(DB::FETCH_COLUMN);
+    }
+
+    /**
+     * @param $IDPlanchePrincipale
+     * @param $IDPlancheSousTraitance
+     * @return array
+     */
+    protected static function getColiseInfos($IDPlanchePrincipale, $IDPlancheSousTraitance)
+    {
+        $stmt = DB::get()->prepare('
+              SELECT
+                    CASE WHEN p.ExpeAvecFaconnage IS NULL
+                    THEN
+                      p.ExpeSansFaconnage
+                    ELSE (
+                      CASE WHEN p.ExpeSansFaconnage < p.ExpeAvecFaconnage
+                      THEN p.ExpeSansFaconnage
+                      ELSE p.ExpeAvecFaconnage
+                      END) END   AS ColiseDateExpe
+                  , c.IDPlanche  AS ColiseIDPlanche
+                  , p.NomAtelier AS ColiseNomAtelier
+                FROM VUE_PDF_COMMANDE c
+                  LEFT JOIN VUE_PDF_PLANCHE p ON p.IDPlanche = c.IDPlanche
+                WHERE (c.IDPlanche = :IDPlanchePrincipale OR c.IDPlanche = :IDPlancheSousTraitance) AND EstColise = 1
+                GROUP BY c.IDPlanche, p.NomAtelier, p.ExpeSansFaconnage, p.ExpeAvecFaconnage
+        ');
+
+        $stmt->execute([
+            'IDPlanchePrincipale'    => $IDPlanchePrincipale,
+            'IDPlancheSousTraitance' => $IDPlancheSousTraitance
+        ]);
+        return $stmt->fetchAll(DB::FETCH_ASSOC);
     }
 
     protected static function getCommandes($IDPlanche)
@@ -147,9 +201,9 @@ class DAL
     protected static function getFichiers($commande)
     {
 
-        $raw              = file_get_contents("http://fileserver.exaprint.fr/orders/$commande[IDCommande]");
-        $json             = json_decode($raw, true);
-        $visuels          = [];
+        $raw             = file_get_contents("http://fileserver.exaprint.fr/orders/$commande[IDCommande]");
+        $json            = json_decode($raw, true);
+        $visuels         = [];
         $formeDeDecoupes = null;
         foreach ($json as $fichier) {
             if ($fichier['type'] == 'normalized'
@@ -166,7 +220,7 @@ class DAL
         }
 
         return [
-            'Visuels'         => array_values($visuels),
+            'Visuels'        => array_values($visuels),
             'FormeDeDecoupe' => $formeDeDecoupes
         ];
     }

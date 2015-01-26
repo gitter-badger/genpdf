@@ -35,7 +35,7 @@ $localeDetector = new Menencia\LocaleDetector\LocaleDetector();
 $language = $localeDetector->detect();
 \Locale\Helper::$current = $language;
 
-//$langage = 'fr_FR';
+//$language = 'fr_FR';
 
 
 // textdomain

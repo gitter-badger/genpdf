@@ -34,7 +34,7 @@ class Observations
         $c->y = $position->y;
         $c->border = 1;
         $c->width = 100;
-        $c->height = 40;
+        $c->height = 30;
         $c->draw($pdf);
     }
 } 

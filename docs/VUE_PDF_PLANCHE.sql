@@ -4,14 +4,15 @@ CREATE VIEW dbo.VUE_PDF_PLANCHE AS
   SELECT
       p.IDPlanche                                              AS IDPlanche
     , p.IDPlanchePrincipale                                    AS IDPlanchePrincipale
-    , p.IDAtelier AS IDAtelier
+    , p.IDAtelier                                              AS IDAtelier
     , p.DateVisibleAtelier                                     AS DateVisibleAtelier
     , p.Quantité                                               AS NbFeuilles
-    , dbo.IsZero(p.Largeur, pf.Largeur)                        AS
-                                                                  Largeur
+    , dbo.IsZero(p.Largeur, pf.Largeur)                        AS Largeur
     , dbo.IsZero(p.Longueur, pf.Longueur)                      AS Longueur
     , p.DateExpeditionUrgente                                  AS ExpeSansFaconnage
     , p.DateExpeditionUrgenteFaconnage                         AS ExpeAvecFaconnage
+    , CASE WHEN p.EstSousTraitance = '1' THEN dbo.f_idOptionValeurPlanche(p.IDPlanchePrincipale,80) ELSE dbo.f_idOptionValeurPlanche(p.IDPlanche, 80) END AS NbCouleursRecto
+    , CASE WHEN p.EstSousTraitance = '1' THEN dbo.f_idOptionValeurPlanche(p.IDPlanchePrincipale,81) ELSE dbo.f_idOptionValeurPlanche(p.IDPlanche, 81) END AS NbCouleursVerso
     , dbo.f_nIDProduitOptionValeurPlanche(p.IDPlanche, 75, 1)  AS Support
     , dbo.f_nIDProduitOptionValeurPlanche(p.IDPlanche, 78, 1)  AS PelliculageRecto
     , dbo.f_nIDProduitOptionValeurPlanche(p.IDPlanche, 79, 1)  AS PelliculageVerso
@@ -24,15 +25,20 @@ CREATE VIEW dbo.VUE_PDF_PLANCHE AS
     , dbo.f_nIDProduitOptionValeurPlanche(p.IDPlanche, 89, 1)  AS Decoupe
     , dbo.f_nIDProduitOptionValeurPlanche(p.IDPlanche, 90, 1)  AS Perforation
     , dbo.f_nIDProduitOptionValeurPlanche(p.IDPlanche, 93, 1)  AS DorureRecto
-    , dbo.f_nIDProduitOptionValeurPlanche(p.IDPlanche, 96, 1)
-                                                               AS TypeImpression
+    , dbo.f_nIDProduitOptionValeurPlanche(p.IDPlanche, 96, 1)  AS TypeImpression
     , dbo.f_nIDProduitOptionValeurPlanche(p.IDPlanche, 98, 1)  AS Rainage
     , dbo.f_nIDProduitOptionValeurPlanche(p.IDPlanche, 99, 1)  AS Predecoupe
     , dbo.f_nIDProduitOptionValeurPlanche(p.IDPlanche, 100, 1) AS EncreAGratter
-    ,
-      dbo.f_nIDProduitOptionValeurPlanche(p.IDPlanche, 104, 1) AS Pliage
+    , dbo.f_nIDProduitOptionValeurPlanche(p.IDPlanche, 104, 1) AS Pliage
     , dbo.f_nIDProduitOptionValeurPlanche(p.IDPlanche, 105, 1) AS DecoupeALaForme
     , dbo.f_nIDProduitOptionValeurPlanche(p.IDPlanche, 147, 1) AS Encollage
+    , dbo.f_nIDProduitOptionValeurPlanche(p.IDPlanchePrincipale, 78, 1) AS PPelliculageRecto
+    , dbo.f_nIDProduitOptionValeurPlanche(p.IDPlanchePrincipale, 79, 1) AS PPelliculageVerso
+    , dbo.f_nIDProduitOptionValeurPlanche(p.IDPlanchePrincipale, 85, 1) AS PVernisRecto
+    , dbo.f_nIDProduitOptionValeurPlanche(p.IDPlanchePrincipale, 86, 1) AS PVernisVerso
+    , dbo.f_nIDProduitOptionValeurPlanche(p.IDPlanchePrincipale, 87, 1) AS PVernisSelectifRecto
+    , dbo.f_nIDProduitOptionValeurPlanche(p.IDPlanchePrincipale, 88, 1) AS PVernisSelectifVerso
+    , dbo.f_nIDProduitOptionValeurPlanche(p.IDPlanchePrincipale, 100, 1) AS PEncreAGratter
     , p.AvecDecoupe
     , p.AvecDorure
     , p.AvecEncollage
@@ -45,17 +51,29 @@ CREATE VIEW dbo.VUE_PDF_PLANCHE AS
     , p.ObservationsTechnique
     , p.IDProduitPlancheFormat
     , p.EstAR
+    , CASE WHEN p.EstSousTraitance = 0
+THEN CASE WHEN ISNULL(p_soustraitance.IDPlanche, 0) > 0
+THEN 1
+   ELSE 0
+   END
+  ELSE 0
+  END
+AS EstPrincipale
     , p.EstSousTraitance
     , p.IDProduitActiviteProduction
+    , act.LibelleTraduit                                       AS ActiviteProduction
     , p_soustraitance.IDPlanche                                AS IDPlancheSousTraitance
     , a_soustraitance.Nom                                      AS NomAtelierSousTraitance
-    , a_principale.Nom AS NomAtelierPlanchePrincipale
+    , a_principale.Nom                                         AS NomAtelierPlanchePrincipale
     , monteur.NomUtilisateur                                   AS NomMonteur
     , monteur.PrenomUtilisateur                                AS PrenomMonteur
-    , monteur.EmailUtilisateur AS EmailMonteur
+    , monteur.EmailUtilisateur                                 AS EmailMonteur
     , p.DateAjout
-    , p1.Nom AS NomAtelier
-    , (SELECT SUM(Cout) FROM TBL_COMMANDE_PR WHERE IDPlanche = p.IDPlanche) AS CoutPlanche
+    , p1.Nom                                                   AS NomAtelier
+    , (SELECT
+      SUM(Cout)
+       FROM TBL_COMMANDE_PR
+       WHERE IDPlanche = p.IDPlanche)                          AS CoutPlanche
   FROM TBL_PLANCHE p
     LEFT JOIN TBL_PLANCHE_FORMAT pf ON pf.IDPlancheFormat = p.IDProduitPlancheFormat
     LEFT JOIN TBL_PLANCHE p_soustraitance ON p_soustraitance.IDPlanchePrincipale = p.IDPlanche
@@ -64,3 +82,4 @@ CREATE VIEW dbo.VUE_PDF_PLANCHE AS
     LEFT JOIN TBL_ATELIER a_principale ON p_principale.IDAtelier = a_principale.IDAtelier
     LEFT JOIN TBL_UTILISATEUR monteur ON monteur.IDUtilisateur = p.IDUtilisateurPlancheur
     INNER JOIN TBL_ATELIER p1 ON p1.IDAtelier = p.IDAtelier
+    LEFT JOIN TBL_PRODUIT_ACTIVITE_PRODUCTION_TRAD act ON act.IDProduitActiviteProduction = p.IDProduitActiviteProduction AND act.IDLangue = 1

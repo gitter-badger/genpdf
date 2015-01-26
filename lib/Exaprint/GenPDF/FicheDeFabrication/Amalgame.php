@@ -9,6 +9,7 @@
 namespace Exaprint\GenPDF\FicheDeFabrication;
 
 
+use Exaprint\GenPDF\FicheDeFabrication\Amalgame\Cellule\PEFC;
 use Exaprint\GenPDF\FicheDeFabrication\Amalgame\Commande;
 use Exaprint\GenPDF\FicheDeFabrication\Amalgame\FormeDeDecoupe;
 use Exaprint\GenPDF\FicheDeFabrication\Amalgame\Layout;
@@ -24,6 +25,8 @@ use Monolog\Logger;
 
 class Amalgame
 {
+
+    const PRODUIT_AMALGAME = 'AMAL';
 
     public static $wPage = 210;
     public static $hPage = 297;
@@ -55,6 +58,9 @@ class Amalgame
 
         $nbCommandes = count($this->planche['commandes']);
 
+        $this->planche['estPEFC'] = false;
+        $this->planche['EstRush'] = false;
+        $this->planche['contientAmalgame'] = false;
         foreach ($this->planche['commandes'] as &$c) {
             if ($c['Fichiers']['FormeDeDecoupe']) {
                 $this->_formesDeDecoupe[] = [
@@ -71,6 +77,15 @@ class Amalgame
                     'index'  => $index,
                     'numero' => $numero,
                 ];
+            }
+            if ($c['Certification'] == PEFC::CERTIFICATION_PEFC) {
+                $this->planche['estPEFC'] = true;
+            }
+            if ($c['EstRush']) {
+                $this->planche['EstRush'] = true;
+            }
+            if (strpos($c['CodeProduit'], self::PRODUIT_AMALGAME) !== false) {
+                $this->planche['contientAmalgame'] = true;
             }
         }
 
