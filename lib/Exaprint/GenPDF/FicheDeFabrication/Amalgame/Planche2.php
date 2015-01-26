@@ -9,16 +9,16 @@
 namespace Exaprint\GenPDF\FicheDeFabrication\Amalgame;
 
 
-use Exaprint\GenPDF\FicheDeFabrication\Amalgame\Planche\Compteur;
+use Exaprint\GenPDF\FicheDeFabrication\Amalgame\Planche\PEFC;
 use Exaprint\GenPDF\FicheDeFabrication\Amalgame\Planche\Compteurs;
 use Exaprint\GenPDF\FicheDeFabrication\Amalgame\Planche\DetailSousTraitance;
 use Exaprint\GenPDF\FicheDeFabrication\Amalgame\Planche\Faconnage;
-use Exaprint\GenPDF\FicheDeFabrication\Amalgame\Planche\Finition;
 use Exaprint\GenPDF\FicheDeFabrication\Amalgame\Planche\Finitions;
 use Exaprint\GenPDF\FicheDeFabrication\Amalgame\Planche\Identification;
 use Exaprint\GenPDF\FicheDeFabrication\Amalgame\Planche\Impression;
 use Exaprint\GenPDF\FicheDeFabrication\Amalgame\Planche\IndicationsCommandes;
 use Exaprint\GenPDF\FicheDeFabrication\Amalgame\Planche\Observations;
+use Exaprint\GenPDF\FicheDeFabrication\Amalgame\Planche\Rush;
 use Exaprint\GenPDF\FicheDeFabrication\Amalgame\Planche\Transporteurs;
 use Exaprint\GenPDF\FicheDeFabrication\Amalgame\Planche\Monteur;
 use Exaprint\TCPDF\Dimensions;
@@ -47,9 +47,11 @@ class Planche2
         $this->finitions();
         $this->faconnage();
         $this->detailSousTraitance();
+        $this->rush();
         $this->indicationsCommandes();
         $this->compteurs();
         $this->observations();
+        $this->pefc();
         $this->transporteurs();
         $this->monteur();
     }
@@ -86,17 +88,29 @@ class Planche2
         $detailST->draw($this->pdf, $this->position->add(new Position(100, 49.5)));
     }
 
+    public function rush() {
+        $indications = new Rush($this->planche);
+        $indications->draw($this->pdf, $this->position->add(new Position(87, 67)));
+    }
+
     public function indicationsCommandes()
     {
         $indications = new IndicationsCommandes($this->planche);
-        $indications ->draw($this->pdf, $this->position->add(new Position(0, 66)));
-
+        $indications->draw($this->pdf, $this->position->add(new Position(0, 66)));
     }
 
     public function observations()
     {
         $observations = new Observations($this->planche);
         $observations->draw($this->pdf, $this->position->add(new Position(100, 66)));
+    }
+
+    public function pefc()
+    {
+        if ($this->planche['estPEFC']) {
+            $compteurs = new PEFC($this->planche);
+            $compteurs->draw($this->pdf, $this->position->add(new Position(82, 118)));
+        }
     }
 
     public function compteurs()
@@ -114,7 +128,7 @@ class Planche2
     public function monteur()
     {
         $monteur = new Monteur($this->planche);
-        $monteur->draw($this->pdf, $this->position->add(new Position(100, 106)));
+        $monteur->draw($this->pdf, $this->position->add(new Position(100, 96)));
     }
 
 } 

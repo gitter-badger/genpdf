@@ -23,7 +23,11 @@ class Finitions
     {
         $this->finitions[] = $this->getPelliculage($planche);
         $this->finitions[] = $this->getVernis($planche);
-        $this->finitions[] = $this->getVernisUV($planche);
+        if ($planche['EncreAGratter'] || $planche['PEncreAGratter']) {
+            $this->finitions[] = $this->getEncreAGratter($planche);
+        } else {
+            $this->finitions[] = $this->getVernisUV($planche);
+        }
     }
 
     public function draw(\TCPDF $pdf, Position $position)
@@ -40,14 +44,18 @@ class Finitions
         $finition = new Finition();
         $finition->setLabel('PELL');
         $finition->setValue($this->getValuePelliculage($planche));
-        $finition->setValueFontColor(Color::white());
-        $finition->setValueFillColor(Color::cmyk(0, 100, 80, 0));
+        if ($planche['EstSousTraitance']) {
+            // fond blanc, texte noir
+        } else {
+            $finition->setValueFontColor(Color::white());
+            $finition->setValueFillColor(Color::cmyk(0, 100, 80, 0));
+        }
         return $finition;
     }
 
     protected function getVernis($planche)
     {
-        $finition        = new Finition();
+        $finition = new Finition();
         $finition->setLabel('VERN');
         $finition->setValue($this->getValueVernis($planche));
         return $finition;
@@ -55,16 +63,39 @@ class Finitions
 
     protected function getVernisUV($planche)
     {
-        $finition                 = new Finition();
+        $finition = new Finition();
         $finition->setLabel('UV');
         $finition->setValue($this->getValueVernisUV($planche));
-        $finition->setValueFontColor(Color::white());
-        $finition->setValueFillColor(Color::cmyk(40, 80, 0, 0));
+        if ($planche['EstSousTraitance']) {
+            // fond blanc, texte noir
+        } else {
+            $finition->setValueFontColor(Color::white());
+            $finition->setValueFillColor(Color::cmyk(40, 80, 0, 0));
+        }
+        return $finition;
+    }
+
+    protected function getEncreAGratter($planche)
+    {
+        $finition = new Finition();
+        $finition->setLabel('GRAT');
+        $finition->setValue($this->getValueEncreAGratter($planche));
+        if ($planche['EstSousTraitance']) {
+            // fond blanc, texte noir
+        } else {
+            $finition->setValueFontColor(Color::white());
+            $finition->setValueFillColor(Color::cmyk(40, 80, 0, 0));
+        }
         return $finition;
     }
 
     protected function getValuePelliculage($planche)
     {
+        if ($planche['EstSousTraitance']) {
+            $planche['PelliculageRecto'] = $planche['PPelliculageRecto'];
+            $planche['PelliculageVerso'] = $planche['PPelliculageVerso'];
+        }
+
         if (is_null($planche['PelliculageRecto'])) return null;
 
         $txt = _('valeur_' . $planche['PelliculageRecto']) . ' R°';
@@ -79,6 +110,11 @@ class Finitions
 
     protected function getValueVernis($planche)
     {
+        if ($planche['EstSousTraitance']) {
+            $planche['VernisRecto'] = $planche['PVernisRecto'];
+            $planche['VernisVerso'] = $planche['PVernisVerso'];
+        }
+
         if (is_null($planche['VernisRecto'])) return null;
 
         $txt = _('valeur_' . $planche['VernisRecto']) . ' R°';
@@ -93,6 +129,11 @@ class Finitions
 
     protected function getValueVernisUV($planche)
     {
+        if ($planche['EstSousTraitance']) {
+            $planche['VernisSelectifRecto'] = $planche['PVernisSelectifRecto'];
+            $planche['VernisSelectifVerso'] = $planche['PVernisSelectifVerso'];
+        }
+
         if (is_null($planche['VernisSelectifRecto'])) return null;
 
         $txt = _('valeur_' . $planche['VernisSelectifRecto']) . ' R°';
@@ -104,6 +145,20 @@ class Finitions
         if ($planche['NomAtelierSousTraitance'] && in_array(22, $planche['ActionsSousTraitance'])) {
             $txt .= ' ' . $planche['NomAtelierSousTraitance'];
         }
+
+        return $txt;
+    }
+
+
+    protected function getValueEncreAGratter($planche)
+    {
+        if ($planche['EstSousTraitance']) {
+            $planche['EncreAGratter'] = $planche['PEncreAGratter'];
+        }
+
+        if (is_null($planche['EncreAGratter'])) return null;
+
+        $txt = _('valeur_' . $planche['EncreAGratter']) . ' R°';
 
         return $txt;
     }

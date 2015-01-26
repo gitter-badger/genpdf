@@ -42,6 +42,7 @@ SELECT
   , dbo.f_nIDProduitOptionValeurProduit(p.IDProduit, 104, 1) AS Pliage
   , dbo.f_nIDProduitOptionValeurProduit(p.IDProduit, 105, 1) AS DecoupeALaForme
   , sel.HasFormeDecoupeNumerique                             AS DecoupeALaFormeNumerique
+  , pov_feuillet.ValeurNumParticularite                      AS NombreDeFeuillets
   , dbo.f_nIDProduitOptionValeurProduit(p.IDProduit, 147, 1) AS Encollage
   , cert.Nom                                                 AS Certification
   , atelier.Nom                                              AS NomAtelier
@@ -49,6 +50,7 @@ SELECT
   , fac.HasDecoupeNumeriqueHD
   , fac.HasDecoupeNumeriqueBD
   , fac.HasDecoupeNumeriqueBG
+  , dbo.f_bCommandeExarush(c.IDCommande)                    as EstRush
 FROM
   TBL_COMMANDE c
   JOIN TBL_COMMANDE_LIGNE cl ON cl.IDCommande = c.IDCommande
@@ -58,7 +60,6 @@ FROM
   LEFT JOIN TBL_VILLE v ON v.IDVille = a.IDVille
   LEFT JOIN TBL_PAYS vp ON vp.IDPays = v.IDPaysVille
   LEFT JOIN TBL_PAYS ap ON ap.IDPays = a.IDPays
-  LEFT JOIN TBL_FQUALITE f ON f.IDCommande = c.IDCommandePrincipale AND f.CommentaireAtelier IS NOT NULL
   JOIN TBL_CLIENT client ON client.IDClient = c.IDClient
   LEFT JOIN TBL_TRANSPORTEUR t ON t.IDTransporteur = c.IDTransporteur
   LEFT JOIN TBL_COMMANDE_TL_CERTIFICATION_SOCIETE AS comm_cert_societe ON comm_cert_societe.IDCommande = c.IDCommande
@@ -70,3 +71,7 @@ FROM
   LEFT JOIN Sc_Front.EXP_BDC bdc ON bdc.IDCommande = cl.IDCommande
   LEFT JOIN Sc_Front.EXP_BDC_SELECTION_PRODUIT sel ON sel.IDSelectionProduit = bdc.IDSelectionProduit
   LEFT JOIN Sc_Front.EXP_BDC_FACONNAGE fac ON fac.IDFaconnage = sel.IDFaconnage
+  LEFT JOIN TBL_PRODUIT_OPTION_VALEUR pov_feuillet ON pov_feuillet.IDProduitOptionValeur =dbo.f_nIDProduitOptionValeurProduit(p.IDProduit, 146, 1)
+  OUTER APPLY(
+    SELECT TOP 1 TBL_FQUALITE.CommentaireAtelier FROM TBL_FQUALITE WHERE IDCommande = c.IDCommandePrincipale ORDER BY IDFQualite DESC
+  ) f
