@@ -54,13 +54,12 @@ class Commande
 
         $this->grille();
         $this->visuels();
+        $this->surVisuels();
         $this->ids();
         $this->commentaires();
         $this->formats();
         $this->quantite();
         $this->livraison();
-        $this->codeProduit();
-        $this->referenceClient();
         $this->transporteur();
         if ($this->commande['EstColise']) {
             $this->codeBarre();
@@ -287,31 +286,26 @@ class Commande
 
     }
 
-    protected function codeProduit()
+    protected function surVisuels()
     {
-        $paddingTop         = 1;
-        $c                  = new MultiCell();
-        $c->x               = $this->_x();
-        $c->y               = $this->_y($this->layout->cEnteteHeight + $this->layout->cVisuelsHeight + $paddingTop);
-        $c->cellHeightRatio = new CellHeightRatio(0.9);
-        $c->width           = $this->layout->wBloc() - $this->layout->cellule() * $this->layout->cGrilleColCount;
-        $c->text            = $this->commande['CodeProduit'];
-        $c->textColor       = new TextColor(Color::greyscale(0));
-        $c->font            = new Font('bagc-medium', 11, new TextColor(Color::cmyk(100, 75, 0, 0)));
+        $c            = new Cell();
+        $c->width     = 48;
+        $c->height    = 4;
+        $c->text      = $this->commande['CodeProduit'];
+        $c->font      = new Font('bagc-medium', 7, new TextColor(Color::black()));
+        $c->fill      = true;
+        $c->fillColor = new FillColor(Color::white());
+        $c->position  = new Position($this->_x(0.5), $this->_y($this->layout->cEnteteHeight + $this->layout->hGrille() + 1.5));
         $c->draw($this->pdf);
-    }
 
-    protected function referenceClient()
-    {
-        $paddingTop         = 1;
-        $c                  = new MultiCell();
-        $c->x               = $this->_x();
-        $c->y               = $this->_y($this->layout->cEnteteHeight + $this->layout->cVisuelsHeight + $paddingTop + $this->layout->cCodeProduitHeight);
-        $c->cellHeightRatio = new CellHeightRatio(0.9);
-        $c->width           = $this->layout->wBloc() - $this->layout->cellule() * $this->layout->cGrilleColCount;
-        $c->text            = $this->commande['ReferenceClient'];
-        $c->textColor       = new TextColor(Color::greyscale(0));
-        $c->font            = new Font('bagc-medium', 11);
+        $c            = new Cell();
+        $c->width     = 48;
+        $c->height    = 4;
+        $c->text      = 'Ref : ' . $this->commande['ReferenceClient'];
+        $c->font      = new Font('bagc-medium', 7, new TextColor(Color::black()));
+        $c->fill      = true;
+        $c->fillColor = new FillColor(Color::white());
+        $c->position  = new Position($this->_x(49.5), $this->_y($this->layout->cEnteteHeight + $this->layout->hGrille() + 1.5));
         $c->draw($this->pdf);
     }
 
@@ -320,12 +314,20 @@ class Commande
 
         $c                  = new MultiCell();
         $c->x               = $this->_x();
-        $c->y               = $this->_y($this->layout->cEnteteHeight + $this->layout->cVisuelsHeight + 5 + $this->layout->cCodeProduitHeight);
+        $c->y               = $this->_y($this->layout->cEnteteHeight + $this->layout->cVisuelsHeight + 5);
         $c->cellHeightRatio = new CellHeightRatio(0.9);
         $c->width           = $this->layout->wBloc() - $this->layout->cellule() * $this->layout->cGrilleColCount;
-        $c->text            = $this->commande['CommentairePAO'] . "\n" . $this->commande['CommentaireAtelier'];
-        $c->textColor       = new TextColor(Color::greyscale(0));
-        $c->font            = new Font('bagc-light', 11);
+        $c->isHtml          = true;
+
+        $text = $this->commande['CommentairePAO'] . $this->commande['CommentaireAtelier'];
+        if (strlen($text) < 250) {
+            $c->font = new Font('bagc-light', 15);
+        } else {
+            $c->font = new Font('bagc-light', 13);
+        }
+
+        $c->text      = $this->commande['CommentairePAO'] . "<br />" . '<span style="background-color:#ededb6">' . $this->commande['CommentaireAtelier'] . '</span>';
+        $c->textColor = new TextColor(Color::red());
         $c->draw($this->pdf);
     }
 
