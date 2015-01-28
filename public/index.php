@@ -2,8 +2,8 @@
 
 require '../bootstrap.php';
 
-if (strpos($_SERVER['SERVER_NAME'], 'local')) {
-    \RBM\Wkhtmltopdf\Wkhtmltopdf::$bin = '/usr/local/Cellar/wkhtmltopdf/0.11.0_rc1/bin/wkhtmltopdf';
+if (strpos($_SERVER['SERVER_NAME'], 'local') !== false) {
+    \RBM\Wkhtmltopdf\Wkhtmltopdf::$bin = 'wkhtmltopdf';
 }
 
 $app->get("/", function () {
