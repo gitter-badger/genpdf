@@ -1,0 +1,32 @@
+key,fr_FR,es_ES,en_GB,pt_PT,it_IT
+ffa.planche.compteurs.porte_cartes,PC,PT,CH,PC,PBV
+ffa.planche.compteurs.justificatifs,JUS,JUST,FC,JUST,GIUST
+ffa.planche.compteurs.kit_fidelite,KF,KIN,LK,KIN,KitF
+ffa.planche.faco.avec_rainage,Rainage,Hendido,Creased,Vinco,Cordonato
+ffa.planche.faco.avec_pliage,Pliage,Plegado,Folded,Dobrado,Piegato
+ffa.planche.faco.avec_perfo,Perforation,Perforado,Drilled,Perfurado,Perforazione
+ffa.planche.faco.avec_decoupe,Découpe,Troquelado,Diecut,Cortante,Taglio
+ffa.planche.finitions.pelliculage,PELL,PLAST,Laminated,PLAST,Plastificato
+ffa.planche.finitions.vernis,VERN,BARN,Varnish,VERN,VER
+ffa.planche.finitions.vernis_uv,UV,UV,UV varnish,UV,VERUV
+ffa.abbr.recto,R°,Cara,Front,F,F
+ffa.abbr.verso,V°,Dorso,Reverse,V,R
+ffa.id.num_planche,N° Planche,Nª de plancha,Board Number,Nº de prancha,N°plancia
+ffa.id.date_expe_sans_faco,Expé SANS façonnage,Exp SIN acabados,No special finishing,Exp SEM acabamentos,Sped. senza lavorazione
+ffa.id.date_expe_avec_faco,Expé AVEC façonnage,Exp CON acabados,With special finishing,Exp COM acabamentos,Sped. con lavorazione
+ffa.id.imperatifs,Impératifs,Imperativos,Imperative,Imperativos,Imperativo
+ffa.id.sous_traitance,Sous-Traitance,Bajo tratamiento,Outworking,Sob tratamento,Subfornitura
+ffa.id.nb_commandes,Nb commandes,Nª pedidos,Order number,Nº pedidos,N° ordine
+ffa.abbr.planche_sous_traitance,ST,BT,OW,ST,SubF
+ffa.abbr.planche_principale,P,P,P,P,P
+ffa.impression.bascule,Bascule,Basc,Work and turn,Basc,Basc
+ffa.indications_commandes.bat,BAT,Prueba de color,Digital proof,Prova de cor,ProvaC
+ffa.indications_commandes.imperatif,Impératifs,Imperativos,Imperative,Imperativos,Imperativo
+ffa.indications_commandes.retirage,Retirage,Reimpresión,Reprint,Reimpressão,Ristampa
+ffa.cell.bat,BàT,Prueba de color,Digital proof,Prova de cor,ProvaC
+ffa.cell.coins_ronds,CR,CR,RC,CR,CR
+ffa.cell.justif,JUS,JUST,Files,JUST,GIUS
+ffa.cell.kit_fidelite,KF,KIN,LK,KIN,KitF
+ffa.cell.porte_carte,PC,PT,CH,PC,PVB
+ffa.cell.retirage,Ret,Reimpresión,Reprint,Reimpressão,RIS
+ffa.cell.sous_traitance,ST,BT,OW,ST,SubF

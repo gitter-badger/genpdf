@@ -54,7 +54,7 @@ class CoinsRonds implements ICellule
                     $txt->vAlign   = Cell::VALIGN_CENTER;
                     $txt->font     = new Font('bagc-bold', 18, new TextColor(Color::black()));
                     $txt->fill     = false;
-                    $txt->text     = 'CR';
+                    $txt->text     = t('ffa.cell.coins_ronds');
                     $txt->draw($pdf);
                     break;
                 default:
