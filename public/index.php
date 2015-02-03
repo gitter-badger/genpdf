@@ -88,10 +88,10 @@ $app->get("/:name/:id.pdf", function ($name, $id) use ($app) {
 
     // Création de dossier
     if (!file_exists(APPLICATION_ROOT . "/cache/{$name}")) {
-        mkdir(APPLICATION_ROOT . "/cache/{$name}", 0777);
+        mkdir(APPLICATION_ROOT . "/cache/{$name}", 0777, true);
     }
     if (!file_exists(APPLICATION_ROOT . "/cache/{$name}/{$subfolder}")) {
-        mkdir(APPLICATION_ROOT . "/cache/{$name}/{$subfolder}", 0777);
+        mkdir(APPLICATION_ROOT . "/cache/{$name}/{$subfolder}", 0777, true);
     }
 
     $resource = \Exaprint\GenPDF\Resources\Factory::createFromName($name);
