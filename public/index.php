@@ -2,8 +2,8 @@
 
 require '../bootstrap.php';
 
-if (strpos($_SERVER['SERVER_NAME'], 'local')) {
-    \RBM\Wkhtmltopdf\Wkhtmltopdf::$bin = '/usr/local/Cellar/wkhtmltopdf/0.11.0_rc1/bin/wkhtmltopdf';
+if (strpos($_SERVER['SERVER_NAME'], 'local') !== false) {
+    \RBM\Wkhtmltopdf\Wkhtmltopdf::$bin = 'wkhtmltopdf';
 }
 
 $app->get("/", function () {
@@ -19,7 +19,7 @@ $app->get('/fiche-de-fab/:IDPlanche', function ($IDPlanche) use ($app) {
     }
 
     $cacheSubFolder = round($IDPlanche / 100) * 100;
-    $cachePath      = '../cache/fiche-de-fab/' . $cacheSubFolder;
+    $cachePath      = APPLICATION_ROOT . '/cache/fiche-de-fab/' . $cacheSubFolder;
 
     if (!file_exists($cachePath)) {
         mkdir($cachePath, 0777);
@@ -70,7 +70,7 @@ $app->get("/:name/:id.pdf", function ($name, $id) use ($app) {
     }
 
     // Chemin final
-    $filename = "../cache/{$name}/{$subfolder}/{$name}_{$id}";
+    $filename = APPLICATION_ROOT . "/cache/{$name}/{$subfolder}/{$name}_{$id}";
 
     if ($name != 'mandate' && $name != 'printbox-rc') {
         $filename .= "_{$language}";
@@ -87,11 +87,11 @@ $app->get("/:name/:id.pdf", function ($name, $id) use ($app) {
     deleteTemplateCache();
 
     // Création de dossier
-    if (!file_exists("../cache/{$name}")) {
-        mkdir("../cache/{$name}", 0777);
+    if (!file_exists(APPLICATION_ROOT . "/cache/{$name}")) {
+        mkdir(APPLICATION_ROOT . "/cache/{$name}", 0777);
     }
-    if (!file_exists("../cache/{$name}/{$subfolder}")) {
-        mkdir("../cache/{$name}/{$subfolder}", 0777);
+    if (!file_exists(APPLICATION_ROOT . "/cache/{$name}/{$subfolder}")) {
+        mkdir(APPLICATION_ROOT . "/cache/{$name}/{$subfolder}", 0777);
     }
 
     $resource = \Exaprint\GenPDF\Resources\Factory::createFromName($name);
@@ -168,48 +168,49 @@ $app->get('/static/assets/dynamic-footer', function () use ($app) {
     echo '<html><head></head><body><div class="foot">' . $app->request()->get('string') . '</div></body></html>';
 });
 
-function htmlReplace($lFile,$directory,&$lImages){
-    $lContents = file_get_contents($directory."/".$lFile);
-    $lResult = array();
+function htmlReplace($lFile, $directory, &$lImages)
+{
+    $lContents = file_get_contents($directory . "/" . $lFile);
+    $lResult   = array();
     preg_match_all("/<img.*src=\"([^\"]*)\"[^>]*>/", $lContents, $lResult, PREG_OFFSET_CAPTURE);
-    $lCaptures = $lResult[1];
-    $lImages = array();
+    $lCaptures     = $lResult[1];
+    $lImages       = array();
     $lOffsetOffset = 0;
-    foreach($lCaptures as $lCapture) {
-        $lUrl = html_entity_decode($lCapture[0]);
+    foreach ($lCaptures as $lCapture) {
+        $lUrl    = html_entity_decode($lCapture[0]);
         $lOfsset = $lCapture[1] + $lOffsetOffset;
-        $lKey = md5($lUrl);
-        if(isset($lImages[$lKey])) {
+        $lKey    = md5($lUrl);
+        if (isset($lImages[$lKey])) {
             $lFilename = $lImages[$lKey];
             $lOffsetOffset += strlen($lFilename) - strlen($lCapture[0]);
             $lHtmlStart = substr($lContents, 0, $lOfsset);
-            $lHtmlEnd = substr($lContents, $lOfsset + strlen($lCapture[0]));
-            $lContents = $lHtmlStart . $lFilename . $lHtmlEnd;
+            $lHtmlEnd   = substr($lContents, $lOfsset + strlen($lCapture[0]));
+            $lContents  = $lHtmlStart . $lFilename . $lHtmlEnd;
         } else {
             $lImgContents = @file_get_contents($lUrl);
-            if($lImgContents !== false) {
-                $finfo = new finfo(FILEINFO_MIME_TYPE);
-                $lType =  $finfo->buffer($lImgContents);
-                $lFilename = sprintf("%s.%s", $lKey, substr(strrchr($lType, "/"),1));
-                file_put_contents($directory."/".$lFilename, $lImgContents);
+            if ($lImgContents !== false) {
+                $finfo     = new finfo(FILEINFO_MIME_TYPE);
+                $lType     = $finfo->buffer($lImgContents);
+                $lFilename = sprintf("%s.%s", $lKey, substr(strrchr($lType, "/"), 1));
+                file_put_contents($directory . "/" . $lFilename, $lImgContents);
                 $lImages[$lKey] = $lFilename;
                 $lOffsetOffset += strlen($lFilename) - strlen($lCapture[0]);
                 $lHtmlStart = substr($lContents, 0, $lOfsset);
-                $lHtmlEnd = substr($lContents, $lOfsset + strlen($lCapture[0]));
-                $lContents = $lHtmlStart . $lFilename . $lHtmlEnd;
+                $lHtmlEnd   = substr($lContents, $lOfsset + strlen($lCapture[0]));
+                $lContents  = $lHtmlStart . $lFilename . $lHtmlEnd;
             }
         }
     }
 
-    $lContents = str_replace("<script type=\"text/Javascript\">includePageBreak();</script>","</div><div class=\"pageDiv\">",$lContents);
-    $lContents = str_replace("document.writeln('</div>');","",$lContents);
-    $lContents = str_replace("document.writeln('<div class=\"pagebreak\">');","",$lContents);
-    $lContents = str_replace("div { page-break-after : always; }",".pageDiv{height:940px;page-break-inside: avoid;}",$lContents);
-    $lContents = str_replace("</body>","</div></body>",$lContents);
+    $lContents = str_replace("<script type=\"text/Javascript\">includePageBreak();</script>", "</div><div class=\"pageDiv\">", $lContents);
+    $lContents = str_replace("document.writeln('</div>');", "", $lContents);
+    $lContents = str_replace("document.writeln('<div class=\"pagebreak\">');", "", $lContents);
+    $lContents = str_replace("div { page-break-after : always; }", ".pageDiv{height:940px;page-break-inside: avoid;}", $lContents);
+    $lContents = str_replace("</body>", "</div></body>", $lContents);
 
     //Supprime la première occurence de <\div>
-    $lContents = preg_replace('/\<\/div>/', '', $lContents, 1 );
-    file_put_contents($directory."/".$lFile, $lContents);
+    $lContents = preg_replace('/\<\/div>/', '', $lContents, 1);
+    file_put_contents($directory . "/" . $lFile, $lContents);
 }
 
 function xsltProcess($xml)
@@ -219,7 +220,7 @@ function xsltProcess($xml)
     $cmd = "xsltproc $filename.xml > $filename.html";
     exec($cmd, $output, $return);
     $images = array();
-    htmlReplace(basename($filename).".html","/tmp",$images);
+    htmlReplace(basename($filename) . ".html", "/tmp", $images);
 
     $wkhtml = new \RBM\Wkhtmltopdf\Wkhtmltopdf();
     $return = $wkhtml->run("$filename.html", "$filename.pdf");
@@ -230,8 +231,8 @@ function xsltProcess($xml)
         var_dump($return);
     }
 
-    foreach($images as $imageName){
-        unlink("/tmp/".$imageName);
+    foreach ($images as $imageName) {
+        unlink("/tmp/" . $imageName);
     }
 
     unlink("$filename.xml");
@@ -240,8 +241,8 @@ function xsltProcess($xml)
 
 
 $app->post('/cgf', function () use ($app, $twig) {
-    $twig = $twig->getInstance();
-    $data = json_decode($app->request()->getBody());
+    $twig     = $twig->getInstance();
+    $data     = json_decode($app->request()->getBody());
     $quote    = new Exaprint\GenPDF\CGF\Quote($data);
     $language = $quote->getCollation();
     putenv("LC_MESSAGES=" . $language);
@@ -254,7 +255,7 @@ $app->post('/cgf', function () use ($app, $twig) {
 
     ob_start();
     $twig->display('cgf/quote.twig', ['quote' => $quote]);
-    $html = ob_get_clean();
+    $html     = ob_get_clean();
     $uid      = uniqid();
     $filename = "cgf-quote-$uid";
     file_put_contents(__DIR__ . "/temp/$filename.html", $html);

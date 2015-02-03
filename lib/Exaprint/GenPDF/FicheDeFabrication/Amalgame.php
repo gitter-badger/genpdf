@@ -87,6 +87,9 @@ class Amalgame
             if (strpos($c['CodeProduit'], self::PRODUIT_AMALGAME) !== false) {
                 $this->planche['contientAmalgame'] = true;
             }
+            if ($c['EstModeleCouleur']) {
+                $c['BAT'] = true;
+            }
         }
 
         $this->pdf = new \TCPDF(

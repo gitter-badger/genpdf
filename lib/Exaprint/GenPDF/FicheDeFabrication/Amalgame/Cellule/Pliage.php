@@ -32,7 +32,7 @@ class Pliage implements ICellule
             $cell->height   = $cellSize;
             $cell->border   = true;
             $cell->draw($pdf);
-            $v = explode('+', _('valeur_' . $pliage));
+            $v = explode('+', t('valeur_' . $pliage));
 
             $cTxt           = new Cell();
             $cTxt->position = $position;

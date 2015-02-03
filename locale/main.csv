@@ -1,0 +1,95 @@
+key,fr_FR,es_ES,it_IT,pt_PT,en_GB
+SIRET,SIRET,NIF/CIF,SIRET,NIF,
+Representant legal,Représentant légal,Titular,Titolare,Titular,
+Code fiscal,Code fiscal,Código fiscal,Codice fiscale,Código fiscal,
+Votre Adresse,Votre adresse,Su dirección,Indirizzo,Endereço,Your customer number
+P.IVA,P.IVA,,P.IVA,,
+Releve,Relevé,Extracto,Estratto conto,Extrato ,Statements
+Votre Code Client,Votre Code Client,Su número de cliente,Il vostro codice cliente:,Vosso Código Cliente,Your customer number
+Numero TVA Intracom.,Votre n° de TVA,Su número de IVA intracomunitario,La vostra partita IVA:,N° IVA Intracomunitário,VAT Number
+Factures,Factures,Facturas,Fatture,Faturas,Invoices
+Numero de facture,Numéro,Número,Numero:,N° da fatura,Number
+Date de facture,Date,Fecha,Data:,Data da fatura,Date
+Reference,Référence,Referencia,Riferimento,Referência,Reference
+Reference de commande,Référence de la commande,Referencia,Riferimento ordine,Referência,Order Reference
+Mode de paiement,Mode de règlement,Fecha de vencimiento,Metodo di pagamento,Meio de pagamento,Payment method
+Montant H.T.,Montant H.T.,Total sin IVA,Totale IVA esclusa,Total Sem IVA,Net Amount
+Montant TVA,Montant T.V.A.,Importe IVA,Totale IVA,IVA,VAT Amount
+Montant TTC,Montant T.T.C.,Total,Totale IVA inclusa,Valor total,Amount with taxes
+Avoirs,Avoirs,Abonos,Nota di credito,Créditos,Credits
+Type,Type,Tipo,Tipo,Tipo,Type
+Facture,Facture,Factura,Fattura,Fatura,
+Avoir,Avoir,Abono,,Crédito,
+Designation de ligne de facture,Désignation,Descripción,Descrizione,Descrição,Description
+Quantite,Quantité,Cantitad,quantità,Quantidade,Quantity
+Commande certifiee,Commande certifiée,Producto certificado,Prodotto certificato,Produto certificado,Certified product
+Donations,Dons,Donaciones,,Donações,Dons
+Montant total soumis a la TVA,Montant total soumis à la T.V.A.,Total sometido a IVA,Importo totale soggetto ad IVA,Valor total submetido a IVA,Amount subject to VAT
+Montant total non soumis a la TVA,Montant total non soumis à la T.V.A.,Total no sometido a IVA,Importo totale non soggetto ad IVA,Valor total não submetido a IVA,Amount not subject to VAT
+Facture reglee le,Facture reglée le :,Factura pagada el:,Fattura saldata il,Fatura paga a,Invoice paid on
+Echeance de paiement,Échéance de paiement,Fecha de vencimiento,Data scadenza,Data de vencimento,Due date
+Mentions legales facture,"<p>Aucun escompte n'est accordé pour paiement comptant. En cas de retard, seront exigibles, conformément à l'article L-441-6 du Code de commerce, une indemnité calculée sur la base de trois fois le taux d'intérêt légal en vigueur ainsi qu'une indemnité forfaitaire de recouvrement de 40 <span class=""currency"">euros</span>.</p>","<p>No se aplicará ningún descuento por pago anticipado. En caso de impagado en la fecha prevista, Exaprint facturará intereses por retraso a un valor de 3 veces la tasa legal.</p><p>Los pedidos siguientes no cuentan en el cálculo de su cuenta ExaClub.</p>","Non viene riconosciuto nessuno sconto per il pagamento in contanti. In caso di mancato pagamento alla scadenza, la società si riserva di applicare delle penalità per il ritardo. Gli ordini preceduti da asterisco non rientrano nel calcolo dei vostri sconti Exaclub.","Não se aplicará nenhum desconto por pagamento antecipado. Em caso de não pagamento na data prevista, a Exaprint faturará juros, por atraso, a um valor 3 vezes a taxa legal.","<p>No discount is awarded for cash payment. In case of non-payment, the company reserves the right to charge interest on the late payments to a maximum monthly rate of 1.3%.</p><p> Orders preceded with an * are not included in the calculation of your rebate through ExaClub</p>"
+Mandat de prelevement SEPA,Mandat de prélévement SEPA,Solicitud de domiciliación SEPA,Autorizzazione per addebito diretto SEPA,Autorização de Débito Directo SEPA,
+Vous beneficiez dun droit,Vous bénéficiez d’un droit à remboursement par votre banque selon les conditions décrites dans la convention que vous avez passée avec elle. Toute demande de remboursement doit être présentée dans les 8 semaines suivant la date de débit de votre compte pour un prélèvement autorisé.,Usted tiene derecho a un reembolso por parte de su banco según las condiciones establecidas en su acuerdo. Toda solicitud de reembolso debe hacerse dentro de las 8 semanas siguientes a la fecha de débito en su cuenta con domiciliación autorizada.,"Il sottoscritto ha facoltà di richiedere alla Banca il rimborso di quanto addebitato, secondo quanto previsto nel suddetto contratto. Nel caso di prelevamenti autorizzati tutte le richieste di rimborso devono essere presentate entro le 8 settimane dalla scadenza del vostro debito.","Os seus direitos incluem a possibilidade de exigir do seu Banco o reembolso do montante debitado, nos termos e condições acordados com o mesmo. O reembolso deve ser solicitado até um prazo de oito semanas, a contar da data do débito na sua conta.",
+Reference unique du mandat,Reference unique du mandat,Referencia de autorizado,Riferimento unico del mandato,Referência da autorização,Reference
+Debiteur,Débiteur,Deudor,Debitore,Devedor,
+Votre Nom,Votre nom,Su nombre,Ragione sociale,Nome,
+Code postal,Code postal,Código Postal,Codice postale,Código postal,
+Ville,Ville,Ciudad,Città,Cidade,
+Pays,Pays,País,Paese,País,
+Banque,Banque,Banco,Banca,Banco,
+Identifiant creancier SEPA,Identifiant créancier SEPA,Código de identificador de acreedor,Codice identificativo del creditore SEPA,Código de identificação do credor,
+Creancier,Créancier,Acreedor,Creditore,Credor,
+Siren,Siren,Sire,,,
+IBAN,IBAN,IBAN,IBAN,IBAN,
+BIC,BIC,BIC,BIC/SWIFT,BIC,
+A,A,A,A,A,
+Signature du gerant,Signature du gérant,Firma del gerente,Firma,Assinatura,
+Paiement,Paiement,Pago,Pagamento,Pagamento,
+Recurrent/Repetitif,Récurrent/Répétitif,Recurrente / Repetitivo,Continuativo/Singolo addebito,Recorrente,
+Le,Le,El,Il,O,
+Note,Note : Vos droits concernant le présent mandat sont expliqués dans un document que vous pouvez obtenir auprès de votre banque.,Nota: Sus derechos sobre esta solicitud se explican en un documento que se puede obtener de su banco.,Nota: I diritti del Debitore riguardanti l'autorizzazione sopra risportata sono indicati nella documentazione ottenibile dalla Banca.,"Nota: Os seus direitos, referentes à autorização acima referida, são explicados em declaração que pode obter no seu Banco.",
+Important,"Important : Joindre également un relevé d'identité bancaire (R.I.B), postal (R.I.P) ou de Caisse d'Epargne (R.I.C.E)","Importante: Indique igualmente los datos bancarios, o postales o de Banco de España.",Importante: Allegare codice IBAN,Importante: Indique o código IBAN,
+Veuillez completer tous les champs du mandat.,Veuillez compléter tous les champs du mandat.,Complete todos los campos de la solicitud.,Vogliate compilare tutti i campi del modulo.,Preencha por favor todos os campos assinalados.,
+merci de votre commande,Merci de votre commande,Gracias por su pedido,Grazie per il suo ordine,Obrigado pelo seu pedido,Thank you for your order
+accuse de reception de commande,Accusé de réception de commande,Acuse de recibo del pedido,In allegato trova la conferma di ricezione ordine,Aviso de receção do pedido,Please find attached your order acknowledgement
+Livraison,Livraison,Entrega,Consegna,Entrega,Delivery
+Client,Client,Cliente,Cliente,Cliente,Client
+Raison Sociale,Raison Sociale,Razón social,Ragione Sociale,Razão social,Company name
+Contact,Contact,Contacto,Riferimento,Contacto,Contact
+Mlle,Mlle,Sra.,Sig.na,,Miss
+Mme,Mme,Srta.,Sig.ra,Sra.,Mrs
+Mr,Mr,Sr.,Sig.,Sr.,Mr
+Ms,,Sres.,,Sres.,Ms
+Numero TVA,N° de TVA,IVA,Numero P.IVA,Nº de IVA,VAT Number
+Produit,Produit,Producto,Prodotto,Produto,Product
+Commande,Commande,Pedido,Ordine,Pedido,Order
+Numero de commande,N° de commande,Nº de pedido,N° ordine,Nº de pedido,Order number
+Numero de devis,N° de devis,Nº de presupuesto,N° preventivo,Nº de orçamento,Quote number
+Reference commande,Référence commande,Referencia de pedido,Riferimento ordine,Referência do pedido,Order reference
+Reference devis,Référence devis,Referencia de presupuesto,Riferimento preventivo,Referência do orçamento,Quote reference
+Date,Date,Fecha,Data,Data,Date
+Mode de reglement,Mode de réglement,Modo de pago,Modalità di pagamento,Modo de pagamento,Payment method
+Responsable du dossier,Responsable du dossier,Responsable de la cuenta,Responsabile del lavoro,Responsável da conta,Project manager
+HT,H.T.,IVA no incluído,Imponibile,IVA não incluído,Tax free
+TVA,T.V.A.,IVA,IVA,IVA,VAT
+TTC,T.T.C.,Total IVA incluído,Totale IVA inclusa,Total IVA incluído,Including tax
+Total,Total,Total,Totale,Total,Total
+Solde,Solde,Saldo restante,Residuo da pagare,Saldo pendente,Outstanding amount
+Devis des commandes partenaires,Devis des commandes partenaires,Presupuesto de pedidos ,,Orçamento de pedidos,
+Email,Email,Email,Email,Email,Email
+Conception et fabrication de :,Conception et fabrication de :,Fabricación de:,,Fabricação de:,
+Tous droits reserves,Tous droits réservés,Todos los derechos reservados,,Todos os direitos reservados,
+Dossier suivi par,Dossier suivi par,Carpeta seguida por,,Dossier seguido por,
+Produit certifie,Produit certifié,Producto certificado,Prodotto certificato,Produto certificado,Certified product
+Projet de commande Printbox,Projet de commande Printbox,Projet de commande Printbox,Printbox projetto,,Projet de commande Printbox
+Printboxer,Printboxer,,Printboxer,,Printboxer
+Client Final Printboxer,Client Final,Client Final,Finalo client,Cliente Final,Client Final
+Accuse de reception de commande Printbox,Accusé de réception de commande Printbox,Referencia,Riferimento,Aviso de receção do pedido,Reference
+Conditions generales,"Si une de ces indications ne vous parait pas correcte, merci de nous le signaler le plus rapidement possible à l'adresse suivante : %link1%. Les commandes sont validées par le pôle Administration des Ventes jusqu'à 18H chaque jour ouvré. Après cet horaire, elles sont enregistrées le jour ouvré suivant. Notre délai catalogue court à compter de la réception de votre règlement et de votre fichier ou à compter de la validation de votre bon à tirer si vous avez opté pour cette option. Si une anomalie fichier vous est notifiée par le pôle PAO, le délai courra à compter de la date du déblocage de votre fichier. Pour suivre l'avancée de votre commande, vous pouvez vous connecter sur notre site extranet onglet « suivi ». Nos conditions générales de vente sont consultables en ligne à l’adresse : %link2%","Si alguno de estas indicaciones, no es correcta para usted, notifíquenoslo lo antes posible, en la siguiente dirección:%link1%. Los pedidos son validados por Administración hasta las 18H de cada día hábil. Después de las 18h, se validan al día siguiente hábil. Nuestro tiempo de entrega del catálogo empieza a contar después de la recepción de su pago y su archivo o de la confirmación de su pedido si elige esta opción. Si existe alguna anomalía en el archivo le será notificado por nuestro departamento de Preimpresión, el tiempo de entrega contará a partir de la fecha de validación de su archivo. Para hacer el seguimiento de su pedido, usted puede iniciar sesión en nuestra web e ir a la pestaña de ""seguimiento"". Nuestras condiciones generales de venta están disponibles en: %link2%","Se una di queste indicazioni non vi risulta corretta, vi preghiamo di comunicarcelo il prima possibile al seguente indirizzo: %link1%. Gli ordini vengono convalidati dall’ufficio Amministrativo entro le 18.00h di ogni giorno lavorativo. Oltre quest’orario, gli ordini verranno registrati il giorno seguente. La tempistica si calcola dal momento in cui riceviamo il vostro pagamento e i vostri file, o nel momento di convalida della prova colore, nel caso in cui aveste selezionato questo servizio. Se si verifica un problema con il file, vi verrà comunicato dall’ufficio Prestampa, e i tempi si conteranno a partire dallo sblocco dei vostri file. Potete monitorare lo status del vostro ordine connettendovi sul vostro account nella sezione ORDINI, I VOSTRI ORDINI, DETTAGLIO DEL VOSTRO ORDINE. Troverete le nostre condizioni di vendita all’indirizzo: %link2%","Se algum destes dados não está correto, avise-nos o mais rápido possível para o seguinte endereço: %link1%. Os pedidos são validados pelo departamento administrativo até às 17h de cada dia útil. Depois das 17h, são validados no dia útil seguinte. O nosso tempo de entrega do catálogo começa a contar depois da receção do seu pagamento e ficheiro ou da confirmação da sua prova de papel, se tiver escolhido esta opção. Se existir alguma anomalia no ficheiro será avisado pelo departamento de Pré-impressão, o tempo de entrega contará a partir da data de validação do seu ficheiro. Para fazer o seguimento do seu pedido, deve iniciar sessão na nossa página e escolher a opção ""seguimento"". As nossas condições gerais de venda estão disponíveis em: %link2%","If any of this information is incorrect, please notify us as soon as possible at %link1%. Orders are accepted up until 6pm every working day, if they arrive with us after that time, they are considered to have arrived the next day. There will be a delay compared to the timings indicated in our catalogue if you choose to have a printed proof sent to you, or if there is a delay receiving your payment or your artwork files. If we identify issues with your artwork then we will be delayed by the amount of time it takes to receive print ready files. You can follow the progress of your order on-line by clicking the ""Tracking"" tab. Our general conditions of sale are available on the footer of our website %link2%"
+En signant ce formulaire,"En signant ce formulaire de mandat, vous autorisez (A) {NOM DU CREANCIER} à envoyer des instructions à votre banque pour débiter votre compte, et (B) votre banque à débiter votre compte conformément aux instructions de {NOM DU CREANCIER}.","Al firmar este formulario de domiciliación, usted autoriza a (A) {NOM DU CREANCIER} para enviar la orden a su banco para pagar de su cuenta, y (B) a su banco para liquidar de su cuenta de acuerdo con la orden de {NOM DU CREANCIER}.","Firmando questo modulo, autorizzate (A) {NOM DU CREANCIER} a inviare istruzioni alla vostra banca per l'addebito sul vostro conto, (B) la vostra banca ad eseguire l'addebito secondo le disposizioni impartite dal {NOM DU CREANCIER}.","Ao subscrever esta autorização, está a autorizar (A) (NOME DO CREDOR) a enviar instruções ao seu Banco para debitar a sua conta e (B) o seu Banco a debitar a sua conta, de acordo com as instruções de (NOME DO CREDOR)",
+Poids,Poids,Peso,Peso,Peso,Weight
+valeur_,350g Mat Condat Périgord,350gr mate Condat Perigord,350g opaca Condat Périgord,350g Mate Condat Perigord,350gsm Silk Coated
+Delai production,Délai de production,Plazo,Tempistiche,Prazo,Lead Time
+Unite Jours,jours,dias,giorni,dias,days
+Net a payer,Neto a pagar,Saldo,Netto da pagare,Saldo pendente,

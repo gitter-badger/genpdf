@@ -32,7 +32,7 @@ class BatPapier implements ICellule
             $cell->font = new Font('bagc-bold', 16, new TextColor(Color::greyscale(255)));
             $cell->align = Cell::ALIGN_CENTER;
             $cell->vAlign = Cell::VALIGN_CENTER;
-            $cell->text = 'BàT';
+            $cell->text = t('ffa.indications_commandes.bat');
             $cell->draw($pdf);
         } else {
             Helper::drawEmptyCell($position, $pdf, $cellSize);
