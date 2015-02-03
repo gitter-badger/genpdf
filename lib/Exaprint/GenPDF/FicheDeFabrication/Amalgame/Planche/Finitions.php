@@ -42,7 +42,7 @@ class Finitions
     protected function getPelliculage($planche)
     {
         $finition = new Finition();
-        $finition->setLabel('PELL');
+        $finition->setLabel(t('ffa.planche.finitions.pelliculage'));
         $finition->setValue($this->getValuePelliculage($planche));
         if ($planche['EstSousTraitance']) {
             // fond blanc, texte noir
@@ -56,7 +56,7 @@ class Finitions
     protected function getVernis($planche)
     {
         $finition = new Finition();
-        $finition->setLabel('VERN');
+        $finition->setLabel(t('ffa.planche.finitions.vernis'));
         $finition->setValue($this->getValueVernis($planche));
         return $finition;
     }
@@ -64,7 +64,7 @@ class Finitions
     protected function getVernisUV($planche)
     {
         $finition = new Finition();
-        $finition->setLabel('UV');
+        $finition->setLabel(t('ffa.planche.finitions.vernis_uv'));
         $finition->setValue($this->getValueVernisUV($planche));
         if ($planche['EstSousTraitance']) {
             // fond blanc, texte noir
@@ -98,10 +98,10 @@ class Finitions
 
         if (is_null($planche['PelliculageRecto'])) return null;
 
-        $txt = _('valeur_' . $planche['PelliculageRecto']) . ' R°';
+        $txt = t('valeur_' . $planche['PelliculageRecto']) . ' ' . t('ffa.abbr.recto');
 
         if ($planche['PelliculageVerso']) {
-            $txt .= 'V°';
+            $txt .= t('ffa.abbr.verso');
         }
 
         return $txt;
@@ -117,10 +117,10 @@ class Finitions
 
         if (is_null($planche['VernisRecto'])) return null;
 
-        $txt = _('valeur_' . $planche['VernisRecto']) . ' R°';
+        $txt = t('valeur_' . $planche['VernisRecto']) . ' ' . t('ffa.abbr.recto');
 
         if ($planche['VernisVerso']) {
-            $txt .= 'V°';
+            $txt .= t('ffa.abbr.verso');
         }
 
         return $txt;
@@ -136,10 +136,10 @@ class Finitions
 
         if (is_null($planche['VernisSelectifRecto'])) return null;
 
-        $txt = _('valeur_' . $planche['VernisSelectifRecto']) . ' R°';
+        $txt = t('valeur_' . $planche['VernisSelectifRecto']) . ' ' . t('ffa.abbr.recto');
 
         if ($planche['VernisSelectifVerso']) {
-            $txt .= 'V°';
+            $txt .= t('ffa.abbr.verso');
         }
 
         if ($planche['NomAtelierSousTraitance'] && in_array(22, $planche['ActionsSousTraitance'])) {

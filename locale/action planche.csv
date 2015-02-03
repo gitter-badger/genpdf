@@ -1,0 +1,30 @@
+key,fr_FR,es_ES,it_IT,pt_PT,en_GB
+bascule_1,,,,,
+bascule_2,in8,in8,in8,in8,W&Turn
+bascule_3,in12,in12,in12,in12,W&Tumble
+bascule_4,retir,Reim,Rist,Reim,retir
+action_planche_9,Routage,Envío,Sped,Envio,Mailing
+action_planche_8,Rainage,Hendido,Cordonatura,Vinco,Creasing
+action_planche_7,Pliage,Plegado,Piegato,Dobrado,Folding
+action_planche_6,Pelliculage,Plastificado,Plastificato,Plastificado,Lamination
+action_planche_5,Découpe outil,Troquel ,Taglio,Cortante,Cutting tool
+action_planche_4,Encre à gratter,Tinta rascable,VerniceGratt,Tinta raspadinha,Scratch off
+action_planche_3,Vernis sélectif UV verso,Barniz selectivo UVI 1 cara,Vernice selettiva UV retro,Verniz localizado UVI 1 face,Spot UV varnish reverse
+action_planche_24,Découpe laser,Troquelado láser,Taglio laser,Corte laser,Laser cut
+action_planche_23,Collage,Encuadernación,Rilegato,Encadernação,Taped
+action_planche_22,Encollage,Encolado,Incollato,Colado,Padded
+action_planche_21,Façonnage,Acabados,Lavorazione,Acabamentos,Shaping
+action_planche_20,Impression Verso,Impresión 1 cara,Stampa retro,Impressão 1 face,Printed reverse
+action_planche_2,Vernis sélectif UV recto,Barniz selectivo UVI 1 cara,Vernice selettiva UV fronte,Verniz locallizado UVI 1 face,Spot UV varnish front
+action_planche_19,Impression Recto,Impresión 1 cara,Stampa fronte,Impressão 1 face,Printed front
+action_planche_18,Support,Soporte,Supporto,Suporte,Material
+action_planche_17,Dorure,Stamping,Lamina,Estampagem,Foiling
+action_planche_16,Predecoupe,Pre-troquelado,Pretaglio,Pre-cortado,Perforated
+action_planche_15,Vernis verso,Barniz dorso,Vernice retro,Verniz verso,Varnish reverse
+action_planche_14,Vernis recto,Barniz cara,Vernice fronte,Verniz cara,Varnish front
+action_planche_13,Pelliculage verso,Plastificado dorso,Plastificato retro,Plastificado verso,Laminated reverse
+action_planche_12,Pelliculage recto,"Plastificado cara
+",Plastificato fronte,Plastificado frente,Laminated front
+action_planche_11,Perforation,Perforado,Perforazione,Perfurado,Drilled
+action_planche_10,Stockage,Stock,,Stock,Stock
+action_planche_1,"Finition (collage, contre-collage)","Acabados (encolado, contracolado)","Finitura (incollato, controincollato)","Acabamentos (colado, contracolado)","Finishing (padding, perfect binding)"

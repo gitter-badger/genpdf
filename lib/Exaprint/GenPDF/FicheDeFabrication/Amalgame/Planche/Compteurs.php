@@ -25,21 +25,21 @@ class Compteurs
     {
         $c = new Compteur();
         $c->count = $this->countPortesCartes();
-        $c->label = 'PC';
+        $c->label = t('ffa.planche.compteurs.porte_cartes');
         $c->draw($pdf, $position);
         $position = $position->add(new Position(10,0));
 
 
         $c = new Compteur();
         $c->count = $this->countJustificatifs();
-        $c->label = 'JUS';
+        $c->label = t('ffa.planche.compteurs.justificatifs');
         $c->draw($pdf, $position);
         $position = $position->add(new Position(10,0));
 
 
         $c = new Compteur();
         $c->count = $this->countKitFidelite();
-        $c->label = 'KF';
+        $c->label = t('ffa.planche.compteurs.kit_fidelite');
         $c->draw($pdf, $position);
     }
 
