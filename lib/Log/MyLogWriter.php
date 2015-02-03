@@ -74,7 +74,7 @@ class MyLogWriter
             //Create the folder if any
             $foldername = date($this->settings['folder_format']);
             if (!is_dir("../logs/" . $foldername)) {
-                mkdir("../logs/" . $foldername, 0777);
+                mkdir("../logs/" . $foldername, 0777, true);
             }
 
             // Then create the file
