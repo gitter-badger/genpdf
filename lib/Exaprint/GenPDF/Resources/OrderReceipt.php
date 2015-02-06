@@ -236,7 +236,7 @@ class OrderReceipt extends Resource implements IResource
         } else if (\Locale\Helper::$current == 'pt_PT') {
             $filename .= "countries/order-receipt.pt.twig";
         } else {
-            $filename .= "invoice.twig";
+            $filename .= "countries/order-receipt.fr.twig";
         }
         return $filename;
     }
