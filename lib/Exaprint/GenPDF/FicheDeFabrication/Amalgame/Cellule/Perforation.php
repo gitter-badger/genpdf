@@ -32,7 +32,7 @@ class Perforation implements ICellule
             $cell->vAlign   = Cell::VALIGN_CENTER;
 
             $cell->font = new Font('bagc-bold', 10, new TextColor(Color::greyscale(0)));
-            $cell->text = t('valeur_' . $commande['Perforation']);
+            $cell->text = t('valeur_court_' . $commande['Perforation']);
             $cell->draw($pdf);
 
 
