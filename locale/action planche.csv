@@ -23,8 +23,7 @@ action_planche_16,Predecoupe,Pre-troquelado,Pretaglio,Pre-cortado,Perforated
 action_planche_15,Vernis verso,Barniz dorso,Vernice retro,Verniz verso,Varnish reverse
 action_planche_14,Vernis recto,Barniz cara,Vernice fronte,Verniz cara,Varnish front
 action_planche_13,Pelliculage verso,Plastificado dorso,Plastificato retro,Plastificado verso,Laminated reverse
-action_planche_12,Pelliculage recto,"Plastificado cara
-",Plastificato fronte,Plastificado frente,Laminated front
+action_planche_12,Pelliculage recto,Plastificado cara,Plastificato fronte,Plastificado frente,Laminated front
 action_planche_11,Perforation,Perforado,Perforazione,Perfurado,Drilled
-action_planche_10,Stockage,Stock,,Stock,Stock
+action_planche_10,Stockage,Stock,Stock,Stock,Stock
 action_planche_1,"Finition (collage, contre-collage)","Acabados (encolado, contracolado)","Finitura (incollato, controincollato)","Acabamentos (colado, contracolado)","Finishing (padding, perfect binding)"

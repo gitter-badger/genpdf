@@ -1,4 +1,4 @@
-,,,,,
+,FR,ES,IT,PT,GB
 valeur_142,350g Mat Condat Périgord,350gr mate Condat Perigord,350g opaca Condat Périgord,350g Mate Condat Perigord,350gsm Silk Coated
 valeur_143,350g Cyclus Print,350g Cyclus Print,350g Cyclus Print,350g Cyclus Print,350gsm Cyclus Print
 valeur_145,250g Adhésif 170g + Support 80g,250g Adhesivo 170g + Soporte 80g,250g Adesiva 170g + Support 80g,250g Autocolante,250gsm - Adhesive 170gsm + Support 80gsm
@@ -404,11 +404,11 @@ valeur_553,Découpe vectorielle,Troquelado vectorial,Taglio vettoriale,Cortante 
 valeur_550,Sans,Sin,Senza,Sem,No
 valeur_523,Forme originale : outil existant,Forma original: troquel a crear,Formato personalizzato: fustella esistente,Forma original: cortante a criar,Bespoke shape: new cutting tool
 valeur_524,Forme originale : outil à créer,Forma original: troquel a crear,Formato personalizzato: fustella da creare,Forma original: cortante a criar,Bespoke shape: new cutting tool
-valeur_611,1×4mm,Una,1×4mm,Uma,A 4mm drilled hole
-valeur_432,2×4mm,Dos,2×4mm,Dois,2 hole-punches of 4mm
-valeur_433,2×4+œ,Dos con ojales,2×4+œ,Dois com ilhós,2 hole-punches of 4mm + eyelet
-valeur_434,4×◻,Cuatro (uno en cada ángulo),4×◻,Quatro (um em cada canto),4 holes (1 on each corner)
-valeur_435,4×◻+œ,Cuatro con ojales (uno en cada ángulo),4×◻+œ,Quatro com ilhós (um em cada canto),4 holes + eyelet (1 on each corner)
+valeur_611,1 perforation de 4 mm,Una,,Uma,A 4mm drilled hole
+valeur_432,2 perforations de 4 mm,Dos,,Dois,2 hole-punches of 4mm
+valeur_433,2 perforations de 4 mm + oeillets,Dos con ojales,,Dois com ilhós,2 hole-punches of 4mm + eyelet
+valeur_434,4 perforations (à chaque angle),Cuatro (uno en cada ángulo),,Quatro (um em cada canto),4 holes (1 on each corner)
+valeur_435,4 perforations + oeillets (à chaque angle),Cuatro con ojales (uno en cada ángulo),,Quatro com ilhós (um em cada canto),4 holes + eyelet (1 on each corner)
 valeur_190,Sans,Sin,Senza,Sem,No
 valeur_286,1 perforation de 4 mm + œillet,simple 4 mm con ojal,1 foro da 4 mm + occhiello,simples 4 mm com ilhós,1 4mm hole-punch + eyelet
 valeur_287,2 perforations de 4 mm + œillet + lien d'attache,doble 4 mm con ojal + cinta para colgar,2 fori di 4 mm + occhielli + lien d attache,4 mm duplo com ilhós + fita para pendurar,2 4mm hole-punches + eyelets
@@ -438,63 +438,63 @@ valeur_754,Sans,Sin,Senza,Sem,No
 valeur_1668,Numérique jet d'encre,Oro,Digitale getto d'inchiostro,Ouro,Cold foiled Gold
 valeur_1704,Gravure laser,110g Kraft Rojo,Incisione laser,110g Kraft Vermelho,110gsm Red Kraft
 valeur_1705,Gravure mécanique,110g Kraft Negro,Incisione meccanica,110g Kraft Preto,110gsm Black Kraft
-valeur_1658,7RP,7 plegados paralelos (8 palas),7CP,Sem,No
-valeur_533,5RP,5 hendidos paralelos (6 palas),5CP,5 vincos paralelos (6 laudas),5 parallel perforations (6 flaps)
-valeur_534,6RP,6 hendidos paralelos (7 palas),6CP,6 vincos paralelos (7 laudas),6 parallel perforations (7 flaps)
-valeur_535,xRC,X hendidos en cruz: troquel existente,XCXE,X vincos em cruz: cortante existente,X crossed creasings: existing tool
-valeur_536,*xRC,X hendidos en cruz: troquel a crear,XCXP,X vincos em cruz: cortante a criar,X crossed creasings: new cutting tool
-valeur_241,3RP,tres en portafolio,3CPR,três em portfólio,3 creases (4 panels)
-valeur_242,3RA,tres en acordeón,3CF,três em acordeão,3 concertina creases (4 panels)
-valeur_243,3RR,tres en cartera,3CA,três envolventes,3 roll fold creases (4 panels)
-valeur_244,4RP,cuatro hendidos paralelos,4CP,quatro vincos paralelos,4 parallel creases (5 panels)
-valeur_202,1RC,uno central (2 palas),1CC,um central (2 laudas),1 central creasing (2 panels)
-valeur_203,1RD,uno descentrado (2 palas),1CD,um vinco descentrado (2 laudas),1 off-centered crease (2 panels)
-valeur_204,2RR,dos en cartera (3 palas),2CA,dois envolventes (3 laudas),2 roll fold creases (3 panels)
-valeur_205,2RA,dos en acordeón (3 palas),2CF,dois em acordeão (3 laudas),2 concertina creases (3 panels)
-valeur_206,2RF,dos en ventana,2CFN,dois em janela,2 gate fold creases (3 panels)
+valeur_1658,7 rainages parallèles (8 volets),7 plegados paralelos (8 palas),,Sem,No
+valeur_533,5 rainages parallèles (6 volets),5 hendidos paralelos (6 palas),,5 vincos paralelos (6 laudas),5 parallel perforations (6 flaps)
+valeur_534,6 rainages parallèles (7 volets),6 hendidos paralelos (7 palas),,6 vincos paralelos (7 laudas),6 parallel perforations (7 flaps)
+valeur_535,X rainages croisés : outil existant,X hendidos en cruz: troquel existente,,X vincos em cruz: cortante existente,X crossed creasings: existing tool
+valeur_536,X rainages croisés : outil à créer,X hendidos en cruz: troquel a crear,,X vincos em cruz: cortante a criar,X crossed creasings: new cutting tool
+valeur_241,3 rainages portefeuille (4 volets),tres en portafolio,,três em portfólio,3 creases (4 panels)
+valeur_242,3 rainages accordéon (4 volets),tres en acordeón,,três em acordeão,3 concertina creases (4 panels)
+valeur_243,3 rainages roulés (4 volets),tres en cartera,,três envolventes,3 roll fold creases (4 panels)
+valeur_244,4 rainages parallèles (5 volets),cuatro hendidos paralelos,,quatro vincos paralelos,4 parallel creases (5 panels)
+valeur_202,1 rainage central (2 volets),uno central (2 palas),,um central (2 laudas),1 central creasing (2 panels)
+valeur_203,1 rainage décalé (2 volets),uno descentrado (2 palas),,um vinco descentrado (2 laudas),1 off-centered crease (2 panels)
+valeur_204,2 rainages roulés (3 volets),dos en cartera (3 palas),,dois envolventes (3 laudas),2 roll fold creases (3 panels)
+valeur_205,2 rainages accordéon (3 volets),dos en acordeón (3 palas),,dois em acordeão (3 laudas),2 concertina creases (3 panels)
+valeur_206,2 rainages fenêtre (3 volets),dos en ventana,,dois em janela,2 gate fold creases (3 panels)
 valeur_246,Sans,Sin,Senza,Sem,No
-valeur_255,|||,tres,3pret |||,três,3 parallel perforations
+valeur_255,3 prédécoupes parallèles,tres,,três,3 parallel perforations
 valeur_249,Sans,Sin,Senza,Sem,No
-valeur_207,1…,1 pre-troquel,1pret,uma,1 perforation
-valeur_208,2…,dos paralelos,2pret |||,dois paralelos,2 parallel perforations
-valeur_526,4…,4 pretroquelados paralelos,4pret |||,4 pré-cortados paralelos,4 parallel perforations
-valeur_527,5…,5 pretroquelados paralelos,5pret |||,5 pré-cortados paralelos,5 parallel perforations
-valeur_529,X…N,X pretroquelados cruzados: troquel a crear,XpretP,X pré-cortados cruzados: cortante a criar,X perforations: new cutting tool
-valeur_530,X…E,X pretroquelados cruzados: troquel existente,XpretE,X pré-cortados cruzados: cortante existente,X perforations: existing tool
-valeur_1581,1…,1 pre-troquel,1pret,1 pré-cortado,1 perforated line
-valeur_1551,0,perpendiculares,┴,perpendiculares,250gsm Chromolux Chrome
+valeur_207,1 prédécoupe,1 pre-troquel,,uma,1 perforation
+valeur_208,2 prédécoupes parallèles,dos paralelos,,dois paralelos,2 parallel perforations
+valeur_526,4 prédécoupes parallèles,4 pretroquelados paralelos,,4 pré-cortados paralelos,4 parallel perforations
+valeur_527,5 prédécoupes parallèles,5 pretroquelados paralelos,,5 pré-cortados paralelos,5 parallel perforations
+valeur_529,X prédécoupes : outil à créer,X pretroquelados cruzados: troquel a crear,,X pré-cortados cruzados: cortante a criar,X perforations: new cutting tool
+valeur_530,X prédécoupes : outil existant,X pretroquelados cruzados: troquel existente,,X pré-cortados cruzados: cortante existente,X perforations: existing tool
+valeur_1581,1 prédécoupe,1 pre-troquel,,1 pré-cortado,1 perforated line
+valeur_1551,perpendiculaires,perpendiculares,,perpendiculares,250gsm Chromolux Chrome
 valeur_210,Sans,Sin,Senza,Sem,No
 valeur_211,Avec,Con,Con,Com,Included
-valeur_248,1PC,Un,1PC,Um,4pp
-valeur_258,4PA,cuatro,2PF,quatro,10pp concertina fold
-valeur_259,5PA,cinco,5PF,cinco,12pp concertina fold
-valeur_252,2PR,dos en cartera,2PA,dois envolventes,6pp roll fold
-valeur_254,3PR,tres,3PA,três,8pp roll fold
-valeur_245,Sans,Sin,Senza,Sem,No
-valeur_563,1+2PA,1 pliegue + 2 pliegues acordeón (6 palas),1P+2PF,1 dobra + 2 dobras acordeão (6 laudas),1 fold + 2 concertina folds (12pp)
-valeur_564,1+2PR,1 pliegue + 2 pliegues cartera (6 palas),1P+2PA,1 dobra + 2 dobras envolventes (6 laudas),1 fold + 2 rolled folds (12pp)
-valeur_565,1+3PA,1 pliegue + 3 pliegues acordeón (8 palas),1P+3PF,1 dobra + 3 dobras acordeão (8 laudas),1 fold + 3 concertina folds (16pp)
-valeur_566,1+3PR,1 pliegue + 3 pliegues cartera (8 palas),1P+3PA,1 dobra + 2 dobras acordeão (8 laudas),1 fold + 3 rolled folds (16pp)
-valeur_567,2PA+2PR,2 pliegues acordeón + 2 pliegues cartera (9 palas),2PF+2PA,1 dobra + 2 dobras acordeão (9 laudas),2 concertina folds + 2 rolled folds
-valeur_568,3PA+2PR,3 pliegues acordeón + 2 pliegues cartera (12 palas),3PF+2PA,3 dobras acordeão + 2 dobras envolventes (12 laudas),3 concertina folds + 2 rolled folds
-valeur_503,3PA,3 pliegues acordeón (4 palas),3PF,3 dobras acordeão (4 laudas),8pp concertina fold
-valeur_504,3PA+1PC,3 pliegues acordeón + 1 pliegue en cruz (8 palas),3PF+1PX,3 dobras acordeão + 1 dobra em cruz (8 laudas),3 concertina folds + 1 crossed fold
-valeur_450,2PA,dos acordeón,2PF,dois acordeão,6pp concertina
-valeur_451,2PF,dos ventana,2PFN,dois janela,6pp gate fold
-valeur_511,2PA+1PC,2 pliegues acordeón + 1 pliegue en cruz (6 palas),2PF+1PX,2 dobras acordeão + 1 dobra em cruz (6 laudas),2 concertina folds + 1 crossed fold (12pp)
-valeur_484,3PP,tres en portafolio (4 palas),3PP,três em portfólio (4 laudas),8pp gate fold
-valeur_485,1PD,uno descentrado (2 palas),1PD,uma dobra descentrada(2 laudas),4pp off centred fold
-valeur_486,6PA,seis acordeón (7 palas),6PF,seis acordeão (7 laudas),14pp concertina folds
-valeur_487,4PA+1PC,cuatro acordeón + uno en cruz,4PF+1PX,quatro acordeão + um em cruz,4 concertina folds + 1 crossed fold
-valeur_488,4PA+2PR,cuatro acordeón + 2 en cartera,4PF+2PA,quatro acordeão + 2 envolventes,4 concertina folds + 2 roll folds
-valeur_489,5PA+1PC,cinco acordeón + uno en cruz,5PF+1PX,cinco acordeão + um em cruz,5 concertina folds + 1 cross fold
-valeur_490,5PA+2PR,cinco acordeón + 2 cartera,5PF+2PA,cinco acordeão + 2 envolventes,5 concertina folds + 2 roll folds
-valeur_491,2PECO,dos económicos (4 palas),2PECO,dois económicos (4 laudas),8pp
-valeur_492,2PC,dos en cruz (8 páginas),2PX,dois em cruz (8 páginas),2 crossed folds (8 pages)
-valeur_493,3PC,tres cruzados (16 páginas),3PX,três cruzados (16 páginas),3 crossed folds (16 pages)
-valeur_1264,6PA+2PR,6 pliegues acordeón + 2 pliegues envolventes,6PF+2PA,6 dobras acordeão + 2 dobras envolventes,6 concertina folds + 2 roll folds
-valeur_1657,7PA,7 pliegues acordeón (8 palas),7PF,Sem,No
-valeur_825,6PA+1PC,6 pliegues acordeón + 1 cruz,6PF+1PX,6 dobrs acordeão + 1 cruz,6 concertina folds + 1 cross fold
+valeur_248,1 pli central (2 volets),Un,,Um,4pp
+valeur_258,4 plis accordéon (5 volets),cuatro,,quatro,10pp concertina fold
+valeur_259,5 plis accordéon (6 volets),cinco,,cinco,12pp concertina fold
+valeur_252,2 plis roulés (3 volets),dos en cartera,,dois envolventes,6pp roll fold
+valeur_254,3 plis roulés (4 volets),tres,,três,8pp roll fold
+valeur_245,Sans,Sin,,Sem,No
+valeur_563,1 pli + 2 plis accordéon (6 volets),1 pliegue + 2 pliegues acordeón (6 palas),,1 dobra + 2 dobras acordeão (6 laudas),1 fold + 2 concertina folds (12pp)
+valeur_564,1 pli + 2 plis roulés (6 volets),1 pliegue + 2 pliegues cartera (6 palas),,1 dobra + 2 dobras envolventes (6 laudas),1 fold + 2 rolled folds (12pp)
+valeur_565,1 pli + 3 plis accordéon (8 volets),1 pliegue + 3 pliegues acordeón (8 palas),,1 dobra + 3 dobras acordeão (8 laudas),1 fold + 3 concertina folds (16pp)
+valeur_566,1 pli + 3 plis roulés (8 volets),1 pliegue + 3 pliegues cartera (8 palas),,1 dobra + 2 dobras acordeão (8 laudas),1 fold + 3 rolled folds (16pp)
+valeur_567,2 plis accordéon + 2 plis roulés (9 volets),2 pliegues acordeón + 2 pliegues cartera (9 palas),,1 dobra + 2 dobras acordeão (9 laudas),2 concertina folds + 2 rolled folds
+valeur_568,3 plis accordéon + 2 plis roulés (12 volets),3 pliegues acordeón + 2 pliegues cartera (12 palas),,3 dobras acordeão + 2 dobras envolventes (12 laudas),3 concertina folds + 2 rolled folds
+valeur_503,3 plis accordéon (4 volets),3 pliegues acordeón (4 palas),,3 dobras acordeão (4 laudas),8pp concertina fold
+valeur_504,3 plis accordéon + 1 pli croisé (8 volets),3 pliegues acordeón + 1 pliegue en cruz (8 palas),,3 dobras acordeão + 1 dobra em cruz (8 laudas),3 concertina folds + 1 crossed fold
+valeur_450,2 plis accordéon (3 volets),dos acordeón,,dois acordeão,6pp concertina
+valeur_451,2 plis fenêtre (3 volets),dos ventana,,dois janela,6pp gate fold
+valeur_511,2 plis accordéon + 1 pli croisé (6 volets),2 pliegues acordeón + 1 pliegue en cruz (6 palas),,2 dobras acordeão + 1 dobra em cruz (6 laudas),2 concertina folds + 1 crossed fold (12pp)
+valeur_484,3 plis portefeuille (4 volets),tres en portafolio (4 palas),,três em portfólio (4 laudas),8pp gate fold
+valeur_485,1 pli décalé (2 volets),uno descentrado (2 palas),,uma dobra descentrada(2 laudas),4pp off centred fold
+valeur_486,6 plis accordéon (7 volets),seis acordeón (7 palas),,seis acordeão (7 laudas),14pp concertina folds
+valeur_487,4 plis accordéon + 1 pli croisé,cuatro acordeón + uno en cruz,,quatro acordeão + um em cruz,4 concertina folds + 1 crossed fold
+valeur_488,4 plis accordéon + 2 plis roulés,cuatro acordeón + 2 en cartera,,quatro acordeão + 2 envolventes,4 concertina folds + 2 roll folds
+valeur_489,5 plis accordéon + 1 pli croisé,cinco acordeón + uno en cruz,,cinco acordeão + um em cruz,5 concertina folds + 1 cross fold
+valeur_490,5 plis accordéon + 2 plis roulés,cinco acordeón + 2 cartera,,cinco acordeão + 2 envolventes,5 concertina folds + 2 roll folds
+valeur_491,2 plis économiques (4 volets),dos económicos (4 palas),,dois económicos (4 laudas),8pp
+valeur_492,2 plis croisés (8 pages),dos en cruz (8 páginas),,dois em cruz (8 páginas),2 crossed folds (8 pages)
+valeur_493,3 plis croisés (16 pages),tres cruzados (16 páginas),,três cruzados (16 páginas),3 crossed folds (16 pages)
+valeur_1264,6 plis accordéon + 2 plis roulés,6 pliegues acordeón + 2 pliegues envolventes,,6 dobras acordeão + 2 dobras envolventes,6 concertina folds + 2 roll folds
+valeur_1657,7 plis accordéons (8 volets),7 pliegues acordeón (8 palas),,Sem,No
+valeur_825,6 plis accordéon + 1 croisé,6 pliegues acordeón + 1 cruz,,6 dobrs acordeão + 1 cruz,6 concertina folds + 1 cross fold
 valeur_1536,Multi-plis plan,Multi-plis plano,Multi piega steso,Multi-plis plano,multi folded map
 valeur_1721,PVC blanc 19 mm,100µ Vinilo Blanco Puesta fácil,PVC bianco 19 mm,100µ Vinil Branco Colocação fácil,100µ White Vinyl - easy application
 valeur_1722,350g offset,350g offset,350g offset,350g offset,350gsm Uncoated

@@ -6,6 +6,7 @@ ffa.planche.faco.avec_rainage,Rainage,Hendido,Creased,Vinco,Cordonato
 ffa.planche.faco.avec_pliage,Pliage,Plegado,Folded,Dobrado,Piegato
 ffa.planche.faco.avec_perfo,Perforation,Perforado,Drilled,Perfurado,Perforazione
 ffa.planche.faco.avec_decoupe,Découpe,Troquelado,Diecut,Cortante,Taglio
+ffa.planche.faco.avec_decoupe_numerique,Découpe numérique,Troquelado digital,Digital diecut,Cortante digital,Fustella digitale
 ffa.planche.finitions.pelliculage,PELL,PLAST,Laminated,PLAST,Plastificato
 ffa.planche.finitions.vernis,VERN,BARN,Varnish,VERN,VER
 ffa.planche.finitions.vernis_uv,UV,UV,UV varnish,UV,VERUV
@@ -23,10 +24,10 @@ ffa.impression.bascule,Bascule,Basc,Work and turn,Basc,Basc
 ffa.indications_commandes.bat,BAT,Prueba de color,Digital proof,Prova de cor,ProvaC
 ffa.indications_commandes.imperatif,Impératifs,Imperativos,Imperative,Imperativos,Imperativo
 ffa.indications_commandes.retirage,Retirage,Reimpresión,Reprint,Reimpressão,Ristampa
-ffa.cell.bat,BàT,Prueba de color,Digital proof,Prova de cor,ProvaC
+ffa.cell.bat,BàT,PdC,DP,PdC,PC
 ffa.cell.coins_ronds,CR,CR,RC,CR,CR
 ffa.cell.justif,JUS,JUST,Files,JUST,GIUS
 ffa.cell.kit_fidelite,KF,KIN,LK,KIN,KitF
 ffa.cell.porte_carte,PC,PT,CH,PC,PVB
-ffa.cell.retirage,Ret,Reimpresión,Reprint,Reimpressão,RIS
+ffa.cell.retirage,Ret,Rei,Rpt,Rei,RIS
 ffa.cell.sous_traitance,ST,BT,OW,ST,SubF
