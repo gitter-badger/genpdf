@@ -3,6 +3,7 @@ DROP VIEW dbo.VUE_PDF_PLANCHE;
 CREATE VIEW dbo.VUE_PDF_PLANCHE AS
   SELECT
       p.IDPlanche                                              AS IDPlanche
+    , d.Abreviation                                            AS AbrDevise
     , p.IDPlanchePrincipale                                    AS IDPlanchePrincipale
     , p.IDAtelier                                              AS IDAtelier
     , p.DateVisibleAtelier                                     AS DateVisibleAtelier
@@ -69,7 +70,7 @@ AS EstPrincipale
     , monteur.PrenomUtilisateur                                AS PrenomMonteur
     , monteur.EmailUtilisateur                                 AS EmailMonteur
     , p.DateAjout
-    , p1.Nom                                                   AS NomAtelier
+    , a.Nom                                                    AS NomAtelier
     , (SELECT
       SUM(Cout)
        FROM TBL_COMMANDE_PR
@@ -81,5 +82,6 @@ AS EstPrincipale
     LEFT JOIN TBL_PLANCHE p_principale ON p_principale.IDPlanche = p.IDPlanchePrincipale
     LEFT JOIN TBL_ATELIER a_principale ON p_principale.IDAtelier = a_principale.IDAtelier
     LEFT JOIN TBL_UTILISATEUR monteur ON monteur.IDUtilisateur = p.IDUtilisateurPlancheur
-    INNER JOIN TBL_ATELIER p1 ON p1.IDAtelier = p.IDAtelier
+    INNER JOIN TBL_ATELIER a ON a.IDAtelier = p.IDAtelier
     LEFT JOIN TBL_PRODUIT_ACTIVITE_PRODUCTION_TRAD act ON act.IDProduitActiviteProduction = p.IDProduitActiviteProduction AND act.IDLangue = 1
+    INNER JOIN TBL_DEVISE d ON d.IDDevise = a.IDDevise
