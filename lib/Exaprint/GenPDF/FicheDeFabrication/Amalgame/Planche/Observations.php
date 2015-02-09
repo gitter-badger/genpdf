@@ -27,13 +27,17 @@ class Observations
 
     public function draw(\TCPDF $pdf, Position $position)
     {
-        $c = new MultiCell();
-        $c->text = $this->_p['ObservationsTechnique'];
-        $c->font = new Font('bagc-reg', 12, new TextColor(Color::black()));
-        $c->x = $position->x;
-        $c->y = $position->y;
+        $c         = new MultiCell();
+        $c->isHtml = true;
+        $c->text   = $this->_p['ObservationsTechnique'];
+        if ($this->_p['contientAmalgame']) {
+            $c->text .= "<br />" . '<span style="color:#ff0000">ATTENTION AMALGAME CLIENT</span>';
+        }
+        $c->font   = new Font('bagc-reg', 12, new TextColor(Color::black()));
+        $c->x      = $position->x;
+        $c->y      = $position->y;
         $c->border = 1;
-        $c->width = 100;
+        $c->width  = 100;
         $c->height = 30;
         $c->draw($pdf);
     }
