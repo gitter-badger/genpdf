@@ -29,7 +29,7 @@ class Monteur
     {
         $date = New \DateTime($this->_p['DateAjout']);
         $text = 'Monteur : ' . $this->_p['PrenomMonteur'] . ' ' . $this->_p['NomMonteur'] . ' (' . $this->_p['EmailMonteur'] . ') - ' . $this->_p['ActiviteProduction'];
-        $text .= "<br />" . 'Date : ' . $date->format('Y-m-d H:i:s') . ' - ' . $this->_p['NomAtelier'] . ' : ' . \Locale\Helper::formatMoney($this->_p['CoutPlanche']);
+        $text .= "<br />" . 'Date : ' . $date->format('Y-m-d H:i:s') . ' - ' . $this->_p['NomAtelier'] . ' : ' . round($this->_p['CoutPlanche'], 2) . ' ' . $this->_p['AbrDevise'];
 
         $c         = new MultiCell();
         $c->isHtml = true;
