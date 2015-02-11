@@ -53,10 +53,8 @@ namespace Locale {
         public function getEntry($key, $language = null)
         {
 
-            var_dump($this->translations);
-
             if (is_null($language))
-                $language = getenv('LC_MESSAGES');
+                $language = \Locale\Helper::$current;
 
             if (isset($this->translations[$language][$key]))
                 return $this->translations[$language][$key];

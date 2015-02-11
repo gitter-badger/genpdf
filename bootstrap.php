@@ -2,6 +2,10 @@
 
 require "vendor/autoload.php";
 require "lib/Log/MyLogWriter.php";
+require "lib/Locale/TwigExtension_Format.php";
+require "lib/Locale/TwigExtension_I18n.php";
+require "lib/Locale/TwigExtension_I18nParser.php";
+require "lib/Locale/TwigExtension_I18nNode.php";
 
 define("APPLICATION_NAME", "GenPDF");
 define("APPLICATION_EDITOR", "Exaprint");
@@ -35,19 +39,8 @@ $app->hook('slim.before', function () use ($app) {
 // locale-detector
 $localeDetector = new Menencia\LocaleDetector\LocaleDetector();
 $language = $localeDetector->detect();
-\Locale\Helper::$current = $language;
-
 //$language = 'fr_FR';
-
-
-// textdomain
-putenv("LC_MESSAGES=" . $language);
-setlocale(LC_MESSAGES, $language);
-if (function_exists('bindtextdomain') && function_exists('textdomain')) {
-    bindtextdomain("messages", APPLICATION_ROOT . "/locale");
-    textdomain("messages");
-    bind_textdomain_codeset("messages", "UTF-8");
-}
+\Locale\Helper::$current = $language;
 
 // Prepare view
 $twig                   = $app->view();
@@ -59,10 +52,11 @@ $twig->parserOptions    = array(
     'autoescape'       => true,
     'debug'            => true
 );
+
 $twig->parserExtensions = array(
     new Twig_Extension_Debug(),
-    new Twig_Extensions_Extension_I18n(),
-    new \Locale\TwigExtension()
+    new \Locale\TwigExtension_I18n(),
+    new \Locale\TwigExtension_Format()
 );
 
 $app->get("/version", function () use ($app) {
