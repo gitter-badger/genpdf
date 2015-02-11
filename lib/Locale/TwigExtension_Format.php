@@ -2,7 +2,7 @@
 
 namespace Locale;
 
-class TwigExtension extends \Twig_Extension
+class TwigExtension_Format extends \Twig_Extension
 {
     /**
      * Returns the name of the extension.
@@ -11,7 +11,7 @@ class TwigExtension extends \Twig_Extension
      */
     public function getName()
     {
-        return "Locale";
+        return "Format";
     }
 
     public function getFilters()

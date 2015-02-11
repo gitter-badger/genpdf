@@ -68,7 +68,7 @@ Numero de commande,N° de commande,Nº de pedido,N° ordine,Nº de pedido,Order 
 Numero de devis,N° de devis,Nº de presupuesto,N° preventivo,Nº de orçamento,Quote number
 Reference commande,Référence commande,Referencia de pedido,Riferimento ordine,Referência do pedido,Order reference
 Reference devis,Référence devis,Referencia de presupuesto,Riferimento preventivo,Referência do orçamento,Quote reference
-Date,Date,Fecha,Data,Data,Date
+Date,Date de prise en compte,Fecha,Data,Data,Date
 Mode de reglement,Mode de réglement,Modo de pago,Modalità di pagamento,Modo de pagamento,Payment method
 Responsable du dossier,Responsable du dossier,Responsable de la cuenta,Responsabile del lavoro,Responsável da conta,Project manager
 HT,H.T.,IVA no incluído,Imponibile,IVA não incluído,Tax free
