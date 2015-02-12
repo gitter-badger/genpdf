@@ -158,7 +158,7 @@ class Finitions
 
         if (is_null($planche['EncreAGratter'])) return null;
 
-        $txt = _('valeur_' . $planche['EncreAGratter']) . ' R°';
+        $txt = t('valeur_' . $planche['EncreAGratter']) . ' R°';
 
         return $txt;
     }

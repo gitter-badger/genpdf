@@ -126,12 +126,12 @@ class Planche
                 ],
                 [
                     "label"     => 'Bascule',
-                    "value"     => ($this->planche['Bascule'] == 1) ? null : _('bascule_' . $this->planche['Bascule']),
+                    "value"     => ($this->planche['Bascule'] == 1) ? null : t('bascule_' . $this->planche['Bascule']),
                     "valueFont" => new Font('bagc-light', 26, new TextColor(Color::black())),
                     "width"     => 16,
                 ],
                 [
-                    "value"     => _('valeur_' . $this->planche['Support']),
+                    "value"     => t('valeur_' . $this->planche['Support']),
                     "valueFont" => new Font('bagc-light', 26, new TextColor(Color::black())),
                     "width"     => 92,
                     "fillColor" => new FillColor(Color::cmyk(0, 0, 75, 0)),
@@ -482,7 +482,7 @@ class Planche
     {
         if (is_null($this->planche['PelliculageRecto'])) return null;
 
-        $txt = _('valeur_' . $this->planche['PelliculageRecto']) . ' R°';
+        $txt = t('valeur_' . $this->planche['PelliculageRecto']) . ' R°';
 
         if ($this->planche['PelliculageVerso']) {
             $txt .= 'V°';
@@ -495,7 +495,7 @@ class Planche
     {
         if (is_null($this->planche['VernisRecto'])) return null;
 
-        $txt = _('valeur_' . $this->planche['VernisRecto']) . ' R°';
+        $txt = t('valeur_' . $this->planche['VernisRecto']) . ' R°';
 
         if ($this->planche['VernisVerso']) {
             $txt .= 'V°';
@@ -508,7 +508,7 @@ class Planche
     {
         if (is_null($this->planche['VernisSelectifRecto'])) return null;
 
-        $txt = _('valeur_' . $this->planche['VernisSelectifRecto']) . ' R°';
+        $txt = t('valeur_' . $this->planche['VernisSelectifRecto']) . ' R°';
 
         if ($this->planche['VernisSelectifVerso']) {
             $txt .= 'V°';

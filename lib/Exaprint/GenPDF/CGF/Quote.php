@@ -117,6 +117,6 @@ class Quote
         $date = new \DateTime();
         $date->add(new \DateInterval('P3M'));
         $date = $date->format('d/m/Y');
-        return sprintf(_('cgf.mentions'), $date);
+        return sprintf(t('cgf.mentions'), $date);
     }
 } 
