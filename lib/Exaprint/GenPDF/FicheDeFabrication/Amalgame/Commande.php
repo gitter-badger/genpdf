@@ -292,7 +292,7 @@ class Commande
         $c->width     = 48;
         $c->height    = 4;
         $c->text      = $this->commande['CodeProduit'];
-        $c->font      = new Font('bagc-medium', 7, new TextColor(Color::black()));
+        $c->font      = new Font('bagc-medium', 9, new TextColor(Color::black()));
         $c->fill      = true;
         $c->fillColor = new FillColor(Color::white());
         $c->position  = new Position($this->_x(0.5), $this->_y($this->layout->cEnteteHeight + $this->layout->hGrille() + 1.5));
@@ -302,7 +302,7 @@ class Commande
         $c->width     = 48;
         $c->height    = 4;
         $c->text      = 'Ref : ' . $this->commande['ReferenceClient'];
-        $c->font      = new Font('bagc-medium', 7, new TextColor(Color::black()));
+        $c->font      = new Font('bagc-medium', 9, new TextColor(Color::black()));
         $c->fill      = true;
         $c->fillColor = new FillColor(Color::white());
         $c->position  = new Position($this->_x(49.5), $this->_y($this->layout->cEnteteHeight + $this->layout->hGrille() + 1.5));
