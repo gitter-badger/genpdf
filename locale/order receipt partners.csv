@@ -1,0 +1,23 @@
+key,fr_FR,es_ES,it_IT,pt_PT,en_GB
+receipt.adesa.option.material,Support,Soporte,Suporte,Suporte,Material
+receipt.adesa.option.finishing,Finition,Acabado,Finitura,Acabamento,Finishing
+receipt.adesa.mandrel,Mandrin,Mandrín,,,Mandrel
+receipt.adesa.mandrel.40,40,40,40,40,40
+receipt.adesa.mandrel.76,76,76,76,76,76
+receipt.adesa.mandrel.none,Pas de mandrin,,,,
+receipt.adesa.mandrel.unit,mm,mm,mm,mm,mm
+receipt.adesa.hanging,Pose,,,,Hanging
+receipt.adesa.hanging.manual,Manuelle,,,,Manual
+receipt.adesa.hanging.auto,Automatique,,,,Automatic
+receipt.adesa.orientation,Orientation,,,,Orientation
+receipt.adesa.orientation.0,0,0,0,0,0
+receipt.adesa.orientation.90,90,90,90,90,90
+receipt.adesa.orientation.180,180,180,180,180,180
+receipt.adesa.orientation.270,270,270,270,270,270
+receipt.adesa.orientation.unit,°,°,°,°,°
+receipt.cgf.area,Superficie totale,,,,
+receipt.cgf.area.unit,m²,m²,m²,m²,sq. m.
+receipt.cgf.width.unit,mm,mm,mm,mm,mm
+receipt.cgf.height.unit,mm,mm,mm,mm,mm
+receipt.cgf.eyelets,Œillets,Ojales,Occhielli,Anilhos,Eyelets
+receipt.cgf.bungee_cords,Tendeurs,Tensores,Tensionatori,Tensores,Bungees

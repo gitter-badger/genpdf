@@ -1,0 +1,64 @@
+{% if partner.id == 1 %} <!-- Adesa FR EN ES IT-->
+    <h3>{{ product.family }} {{ product.subfamily }} {{ product.name }}</h3>
+    <ul>
+        {% for i, model in partner.data.models %}
+            <li>{{ model.quantity }} {{ order.unit.abbr }} {{ model.title }}</li>
+        {% endfor %}
+    </ul>
+{% elseif partner.id == 5 %} <!-- Masterprint FR -->
+    <h3>{{ product.subfamily }} {{ product.name }}</h3>
+    <ul>
+        {% for i, model in partner.data.models %}
+            <li>{{ model.title }}</li>
+        {% endfor %}
+    </ul>
+{% elseif partner.id == 6 %} <!-- CGF FR EN ES PT IT -->
+    <h3>{{ product.family }} {{ product.subfamily }} {{ product.name }}</h3>
+    <ul>
+        {% for i, model in partner.data.models %}
+            <li>
+                {{ model.quantity }} {{ order.unit.abbr }} {{ model.title }}
+                - {{ model.width }}<em>{% trans "receipt.cgf.width.unit" %}</em> x {{ model.height }}<em>{% trans "receipt.cgf.height.unit" %}</em>
+                {% if model.options.eyelets > 0 %}
+                    - {{ model.options.eyelets }} {% trans "receipt.cgf.eyelets" %}
+                {% endif %}
+                {% if model.options.bungeeCords > 0 %}
+                    - {{ model.options.bungeeCords }} {% trans "receipt.cgf.bungee_cords" %}
+                {% endif %}
+            </li>
+        {% endfor %}
+    </ul>
+{% endif %}
+<dl id="product-options">
+    {% if partner.id == 1 %} <!-- Adesa FR EN ES IT-->
+        <dt>{%  trans "receipt.adesa.option.material" %}</dt>
+        <dd>{{ attribute(partner.data.material.translations, locale) }}</dd>
+        <dt>{%  trans "receipt.adesa.option.finishing" %}</dt>
+        <dd>{{ attribute(partner.data.option.translations, locale) }}</dd>
+        {% for i, option in partner.data.models[0].options %}
+            <dt>{{ ('receipt.adesa.' ~ option.label) | trans }}</dt>
+            <dd>{{ ('receipt.adesa.' ~ option.value) | trans }} <em>{{ option.unit ? ('receipt.adesa.' ~ option.unit) | trans : null }}</em></dd>
+        {% endfor %}
+    {% elseif partner.id == 5 %} <!-- Masterprint FR -->
+        <dt>Nombre de modèle(s)</dt>
+        <dd>{{ partner.data.models_count }}</dd>
+        <ul>
+            {% for i, option in partner.data.masterprint_options %}
+                <li>{{ option.type }} : {{ option.name }}</li>
+                {% for j, attribute in option.attributes %}
+                    <dt>{{ attribute.name }}</dt>
+                    <dd>{{ attribute.value }} <em>{{ attribute.unit }}</em></dd>
+                {% endfor %}
+            {%  endfor %}
+        </ul>
+    {% elseif partner.id == 6 %} <!-- CGF FR EN ES PT IT -->
+        <dt>{% trans "receipt.cgf.area" %}</dt>
+        <dd>{{ partner.data.area }} <em>{% trans "receipt.cgf.area.unit" %}</em></dd>
+    {% endif %}
+    {% for i, option in product.options %}
+        {% if ((partner.id != 6 or option.id not in [83,84])) and (option.id not in [97]) %}
+            <dt>{{ option.label }}</dt>
+            <dd>{{ option.value }} <em>{{ option.unit }}</em></dd>
+        {% endif %}
+    {% endfor %}
+</dl>
