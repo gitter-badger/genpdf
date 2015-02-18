@@ -1,0 +1,9 @@
+<h3>{{ product.family }} {{ product.subfamily }} {{ product.name }}</h3>
+<dl id="product-options">
+    {% for i, option in product.options %}
+        {% if (option.id not in [97]) %}
+            <dt>{{ option.label }}</dt>
+            <dd>{{ option.value }} <em>{{ option.unit }}</em></dd>
+        {% endif %}
+    {% endfor %}
+</dl>
