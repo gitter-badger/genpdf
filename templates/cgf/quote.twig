@@ -85,7 +85,7 @@
             <td colspan="4">
                 <dl>
                     <dt>{% trans 'cgf.area' %}</dt>
-                    <dd>{{ area }} {% trans 'cgf.area.unit' %}</dd>
+                    <dd>{{ area | round(2) }} {% trans 'cgf.area.unit' %}</dd>
                     <dt>{% trans 'cgf.price' %}</dt>
                     <dd>{{ quote.getSellingPrice()|formatmoney }}</dd>
                 </dl>
