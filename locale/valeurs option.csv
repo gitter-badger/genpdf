@@ -117,8 +117,7 @@ valeur_286,"1 perforation de 4 mm + œillet","simple 4 mm con ojal","1 foro da 4
 valeur_287,"2 perforations de 4 mm + œillet + lien d'attache","doble 4 mm con ojal + cinta para colgar ","2 fori di 4 mm + occhielli + lien d attache","4 mm duplo com ilhós + fita para pendurar","2 4mm hole-punches + eyelets"
 valeur_288,J+10,"11 días","11 Giorni","11 dias",D+10
 valeur_289,"Sans structure",Sin,"Senza struttura",Sem,"Without structure"
-valeur_290,Aluminium,"Aluminio
-",Alluminio,Alumínio,Aluminium
+valeur_290,Aluminium,"Aluminio",Alluminio,Alumínio,Aluminium
 valeur_291,Bambou,Bambú,Bamboo,Bambu,Bamboo
 valeur_293,Sans,Sin,Senza,Sem,No
 valeur_294,Avec,Con,Con,Com,Included
@@ -487,10 +486,10 @@ valeur_1019,"12 feuillets","12 hojas","12 fogli","12 folhas","12 sheets"
 valeur_1091,13,13,13,13,13
 valeur_1092,"Spirale crochet",Espiral,"Spirale crochet",Espiral,"Spiral hook"
 valeur_1093,"13 feuillets","13 hojas","13 fogli","13 folhas","13 sheets"
-valeur_1100,Français,Francés,Francese,Francês,No
-valeur_1101,Espagnol,Español,Spagnolo,Espanhol,No
-valeur_1102,Portugais,Portugués,Portoghese,Português,No
-valeur_1103,Italien,Italiano,Italiano,Italiano,No
+valeur_1100,Français,Francés,Francese,Francês,"Yes"
+valeur_1101,Espagnol,Español,Spagnolo,Espanhol,Yes
+valeur_1102,Portugais,Portugués,Portoghese,Português,Yes
+valeur_1103,Italien,Italiano,Italiano,Italiano,Yes
 valeur_1108,"690g Kapa®plast lisse","690g Kapatex liso","690g Kapatex liscio","690g Kapatex liso","Smooth 690g Kapatex"
 valeur_1111,mat,Mate,opaca,mate,Matt
 valeur_1112,brillant,Brillante,lucida,brilhante,glossy
@@ -499,7 +498,7 @@ valeur_1116,"Motion Card","Motion Card","Motion Card","Motion Card",
 valeur_1137,"260g tissu polyester ignifugé M1","260g Tela Poliester ignifuga M1","260g tessuto poliestere ignifugo M1","260g Tela Poliester anti-fogo M1","260g Polyester Fabric - Fire retardent M1"
 valeur_1151,coche,técnico,clicca,técnico,Included
 valeur_1166,"2 différents","2 diferentes","2 differenti","2 diferentes","2 different"
-valeur_1173,Sans,Sin,Senza,Sem,No
+valeur_1173,Sans,Sin,Senza,Sem,Yes
 valeur_1179,"290g Fedrigoni Lampone rouge","290g Fedrigoni Sirio Color Lampone","290g Fedrigoni Sirio Color Lampone","290g Fedrigoni Lampone vermelho","290gsm Fedrigoni Sirio Color Lampone"
 valeur_1180,"290g Fedrigoni Nero noir","290g Fedrigoni Sirio Color Negro","290g Fedrigoni Sirio Color Nero","290g Fedrigoni Nero Preto","290gsm Fedrigoni Sirio Color Nero"
 valeur_1181,"Mat Soft Touch","Mate soft touch","Opaca Soft Touch","Mate Soft Touch","Matt Soft Touch"
@@ -530,9 +529,9 @@ valeur_1281,Sans,Sin,Senza,Sem,No
 valeur_1288,"350g couché demi-mat","350 gr. estucado semi-mate","350g patinata semi-opaca","350g couché semi-mate","350gsm Silk Coated "
 valeur_1290,Statique,Estático,Statico,Estática,Static
 valeur_1291,Personnalisée,Personalizada,Personalizzato,Personalizado,"Customised "
-valeur_1292,Enrichie,Enriquecida,,Enriquecido,Improved
-valeur_1298,"Souple en nylon","Nylon suave",,"Nylon flexível","Flexible Nylon"
-valeur_1299,"Container à roulettes","Contenedor con ruedas",,"Contentor com rodas","rolling containers "
+valeur_1292,Enrichie,Enriquecida,Arricchito,Enriquecido,Improved
+valeur_1298,"Souple en nylon","Nylon suave","In nylon flessibile","Nylon flexível","Flexible Nylon"
+valeur_1299,"Container à roulettes","Contenedor con ruedas","Contenitore con rotelle","Contentor com rodas","rolling containers "
 valeur_1300,Sans,Sin,Senza,Sem,No
 valeur_1301,Avec,Con,Con,Com,Included
 valeur_1302,"65x250 cm","65x250 cm","62x250 cm","65x250 cm","650 x 2500mm"
@@ -542,7 +541,7 @@ valeur_1305,"65x200 cm","65x200 cm","65x200 cm","65x200 cm","650 x 2000mm"
 valeur_1306,"80x310 cm","80x310 cm","80x310 cm","80x310 cm","800 x 310mm"
 valeur_1307,"Réassort du Visuel","Recambio de visual","Riassortimento della grafica","Recarga da Imagem","Visual refill "
 valeur_1322,Velcro,Velcro,Velcro,Velcro,Velcro
-valeur_1324,"Boutonnières aux angles","Ojales en las esquinas",,"Ilhós nos cantos","Buttonholes on the corners"
+valeur_1324,"Boutonnières aux angles","Ojales en las esquinas","Asole agli angoli","Ilhós nos cantos","Buttonholes on the corners"
 valeur_1326,Sans,Sin,Senza,Sem,No
 valeur_1327,Sans,Sin,Senza,Sem,No
 valeur_1329,"Doming : vinyle autocollant + résine polyuréthane bi-composante + colle ultra forte","Doming con cola Extra Fuerte","Etichette resinate: PVC adesivo + poliuretano bicomponente + colla ultra forte","Autocolante em gota de resina com cola Ultra Forte","Doming with ultra strong adhesive"
@@ -554,8 +553,8 @@ valeur_1335,"250g satiné rouge","50g Dosier satinado Rojo","250g Dossier Satina
 valeur_1340,"250g satiné jaune","250g Dosier satinado Amarillo","250 Dossier Satinato Giallo","250g Capa Amarela Acetinada","250gsm Yellow Satin Folder"
 valeur_1341,"Fibre de Verre Couleur Alu","Fibra de vidrio color aluminio","Fibra di vetro color alluminio","Fibra de vidro cor-de-alumínio","Fiberglass - Aluminium colour"
 valeur_1353,"170g Yupo Tako","170g Yupo Tako","170g Yupo Tako","170g Yupo Tako","170g Yupo Tako"
-valeur_1354,"135g couché brillant + carton compact 20/10","135g EB + carton compacto 20/10 ",,"135g CB + carton compacto 20/10","135gsm Gloss Coated + 2000mic board"
-valeur_1357,"135g encapsulé brillant","135g encapsulado brillante",,"135g encapsulado brilho","135gsm Gloss encapsulated"
+valeur_1354,"135g couché brillant + carton compact 20/10","135g EB + carton compacto 20/10 ","135g patinata lucida + cartoncino compatto 20/10","135g CB + carton compacto 20/10","135gsm Gloss Coated + 2000mic board"
+valeur_1357,"135g encapsulé brillant","135g encapsulado brillante","135g incapsulato lucido ","135g encapsulado brilho","135gsm Gloss encapsulated"
 valeur_1359,"140g polypropylène satiné","140g Polipropileno satinado","140g Polipropilene Satinato","140g Polypropileno Acetinado","140gsm Satin Polypropylene "
 valeur_1362,"Quadri HD","Cuatricromía HD","Quadricromia HD","Quadr. HD","4 colour HD"
 valeur_1366,Champagne,Champagne,Champagne,Champagne,Champagne
@@ -574,7 +573,7 @@ valeur_1378,Pêche,Melocotón,Pesca,Pêssego,Peach
 valeur_1379,"Vert Menthe","Verde menta","Verde menta","Verde hortelã","Mint Green"
 valeur_1380,Lilas,Lila,Lilla,Lilás,Lilas
 valeur_1382,Violet,Violeta,Viola,Violeta,Violet
-valeur_1384,"60µ adhésif indéchirable contrecollé sur carton compact","60µ adhesivo irrompible blanco + contracolado sobre compato",,"60µ autocolante irrompível branco + contracolado sobre compacto","60µ untearable white adhesive + mounted to 2mm carton board"
+valeur_1384,"60µ adhésif indéchirable contrecollé sur carton compact","60µ adhesivo irrompible blanco + contracolado sobre compato","60µ adesivo antistrappo incollato su cartoncino compatto","60µ autocolante irrompível branco + contracolado sobre compacto","60µ untearable white adhesive + mounted to 2mm carton board"
 valeur_1385,"4 pochettes transparentes","4 bolsillos transparentes","4 buste trasparenti","4 bolsos transparentes","4 transparent wallets"
 valeur_1386,"6 pochettes transparentes","6 bolsillos transparentes","6 buste trasparenti","6 bolsos transparentes","6 transparent pockets"
 valeur_1387,"8 pochettes transparentes","8 bolsillos transparentes","8 buste trasparenti","8 bolsos transparentes","8 transparent pockets"
@@ -597,21 +596,21 @@ valeur_1416,Anglais,Inglés,Inglese,Inglês,Yes
 valeur_1419,"Magnet véhicule","Imán para vehículos","Magnete per Veicoli","IMAN VEICULO","0.75mm magnet + 0.1mm white vinyl"
 valeur_1426,"Dos blanc 300g couché mat","Dorso en 300g Estucado Mte","Dorso 300g patinato opaco","Verso branco 300g couché mate","300gsm Matt Coated (backing sheet)"
 valeur_1427,"Dessus blanc 250g couché brillant","Dorso en 250g Estucado Brillante","Dorso 250g patinato lucido","Superior branco 250g couché brilho","250gsm Gloss Coated (cover)"
-valeur_1434,"UK 120gsm Premium Smooth","UK 120gsm Premium Smooth",,"UK 120g Premium Smooth","UK- 120gsm Premium Smooth"
-valeur_1436,"Baguette alu clipante haut et bas","Barra aluminio con clip arriba y abajo",,"Barra alu. clipante sobe e desce","Aluminium Rod (clipped top/bottom)"
+valeur_1434,"UK 120gsm Premium Smooth","UK 120gsm Premium Smooth","UK 120gsm Premium Smooth","UK 120g Premium Smooth","UK- 120gsm Premium Smooth"
+valeur_1436,"Baguette alu clipante haut et bas","Barra aluminio con clip arriba y abajo","Bacchette a pressione in alto e in basso","Barra alu. clipante sobe e desce","Aluminium Rod (clipped top/bottom)"
 valeur_1437,"Baguette PVC clipante haut et bas","Barra PVC con clip arriba y abajo","Bacchette in PVC a pressione sopra e sotto","Barra em PVC clipante superior e inferior  ","PVC Rod (clipped top/bottom)"
 valeur_1438,"Tourillon bois + cordelette","Barra de madera + cuerda","Bacchette di legno + cordino","Suporte madeira + cordel","Wood fixings + cord"
 valeur_1439,"280g satin M1","280g Satin M1","280g Satinato M1","280g M1 Acetinado","280g Satin M1"
 valeur_1442,"Demande initiale","Pedido inicial","Prima richiesta","Pedido inicial","With registration"
 valeur_1443,"2ème demande","Pedido siguiente","Richiesta successiva","Pedido seguinte","Additional copy"
 valeur_1444,Sans,Sin,Senza,Sem,No
-valeur_1445,"172µ : adhésif Aslan translucide M1 62µ + support 110µ","172µ Adhesivo Aslan translúcido 62µ + Soporte 110µ",,"172µ Autocolante Aslan translúcido 62µ + Suporte 110µ"
-valeur_1446,"172µ : adhésif Aslan fluo rouge 62µ + support 110µ","172µ Adhesivo Aslan fluor 62µ + Soporte 110µ",,"172µ Autocolante Aslan fluor 62µ + Suporte 110µ"
-valeur_1447,"172µ : adhésif Aslan dépoli 62µ + support 110µ","172µ Adhesivo Aslan depoli 62µ + Soporte 110µ",,"172µ Autocolante Aslan depoli 62µ + Suporte 110µ"
+valeur_1445,"172µ : adhésif Aslan translucide M1 62µ + support 110µ","172µ Adhesivo Aslan translúcido 62µ + Soporte 110µ","172µ: adesivo Aslan traslucido M1 62µ + supporto 110µ","172µ Autocolante Aslan translúcido 62µ + Suporte 110µ"
+valeur_1446,"172µ : adhésif Aslan fluo rouge 62µ + support 110µ","172µ Adhesivo Aslan fluor 62µ + Soporte 110µ","172µ: adesivo Aslan fluo rosso 62µ + supporto 110µ","172µ Autocolante Aslan fluor 62µ + Suporte 110µ"
+valeur_1447,"172µ : adhésif Aslan dépoli 62µ + support 110µ","172µ Adhesivo Aslan depoli 62µ + Soporte 110µ","172µ: adesivo Aslan effetto sabbiato 62µ + supporto 110µ","172µ Autocolante Aslan depoli 62µ + Suporte 110µ"
 valeur_1450,"Mat Soft Touch","Mate soft touch","Opaca Soft Touch","Mate Soft Touch","Matt Soft Touch"
-valeur_1487,"UK 135gsm Trisolv postart paper","UK 135gsm Trisolv postart paper",,"UK 135gsm Trisolv postart paper","UK- 135gsm Trisolv postart paper"
+valeur_1487,"UK 135gsm Trisolv postart paper","UK 135gsm Trisolv postart paper","UK 135gsm Trisolv postart paper","UK 135gsm Trisolv postart paper","UK- 135gsm Trisolv postart paper"
 valeur_1488,"Vernis UV sélectif 3D","Barniz selectivo UV 3D","Vernice UV selettiva 3D","Verniz UV seletivo 3D","3D spot UV varnish "
-valeur_1492,"UK 234gsm Polyester Lightblock","UK 234gsm Polyester Lightblock",,"UK 234gsm Poliester Lightblock","UK- 234gsm Polyester Lightblock"
+valeur_1492,"UK 234gsm Polyester Lightblock","UK 234gsm Polyester Lightblock","UK 234gsm Polyester Lightblock","UK 234gsm Poliester Lightblock","UK- 234gsm Polyester Lightblock"
 valeur_1495,"80g adhésif papier couché brillant permanent","80g Adhesivo paper Estucado brillante permanente","80g Adesivo carta permanente patinata lucida","80g Autocolante Papel Couché Brilho Permantente","80g Permanent gloss coated paper "
 valeur_1502,Sans,Sin,Senza,Sem,No
 valeur_1503,"Or à chaud page 1","Oro en caliente página 1","Oro a caldo pagina 1","Ouro a quente página 1","Gold Foil (front) "
@@ -619,18 +618,18 @@ valeur_1504,"Argent à chaud page 1","Plata en caliente página 1","Argento a ca
 valeur_1506,Sans,Sin,Senza,Sem,No
 valeur_1507,"Gaufrage page 1","Gofrado página 1","Goffratura pagina 1","Relevo página 1","Embossed (front) "
 valeur_1528,"IT 180g TNT","IT 180g TNT","180g TNT","IT 180g TNT"
-valeur_1529,"172µ : adhésif Aslan fluo Jaune 62µ + support 110µ","172µ Adhesivo Aslan amarillo fluo 62µ + soporte 110µ",,"172µ Autocolante Aslan fluorescente Amarelo 62µ + Suporte 110µ"
-valeur_1535,"75g papier offset blanc","75g Papel Oficina Blanco",,"75g Papel Offset Branco","75gsm Uncoated White"
-valeur_1536,"Multi-plis plan","Multi-plis plano",,"Multi-dobras plano","multi folded map"
-valeur_1537,"UK 430gsm Polyester Lightblock","UK 430gsm Polyester Lightblock",,"UK 430gsm Polyester Lightblock","430gsm Polyester Lightblock"
+valeur_1529,"172µ : adhésif Aslan fluo Jaune 62µ + support 110µ","172µ Adhesivo Aslan amarillo fluo 62µ + soporte 110µ","172µ: adesivo Aslan fluo giallo 62µ + supporto 110µ","172µ Autocolante Aslan fluorescente Amarelo 62µ + Suporte 110µ"
+valeur_1535,"75g papier offset blanc","75g Papel Oficina Blanco","75g carta usomano bianca","75g Papel Offset Branco","75gsm Uncoated White"
+valeur_1536,"Multi-plis plan","Multi-plis plano",Multi-pieghe,"Multi-dobras plano","multi folded map"
+valeur_1537,"UK 430gsm Polyester Lightblock","UK 430gsm Polyester Lightblock","UK 430gsm Polyester Lightblock","UK 430gsm Polyester Lightblock","430gsm Polyester Lightblock"
 valeur_1551,perpendiculaires,perpendiculares,perpendicolare,perpendiculares,Perpendicular
 valeur_1554,"350g bâche PVC micro-perforée","350g Lona microperforada","350g Banner Microperforato","350g lona microperfurada","350gsm Mesh banner"
 valeur_1555,"510g bâche PVC ignifugé M1","510g lona PVC M1","510g banner in PVC ignifugo M1","510g Lona PVC M1","510gsm PVC banner - M1 Fire retardent"
 valeur_1567,"Thé vert","Té verde","The verde","Chá verde","Green tea"
 valeur_1568,"Taurine Pomme","Taurina de manzana",Mela,"Maçã Energética","Taurine Apple"
 valeur_1569,Raisin,Uva,Uva,Uva,Grape
-valeur_1573,Cartonné,Cartón,,"Capa dura",Cardboard
-valeur_1574,"UK 400gsm Silk Coated","UK 400gsm Silk Coated",,"UK 400gsm Silk Coated","UK- 400gsm Silk Coated"
+valeur_1573,Cartonné,Cartón,Cartonato,"Capa dura",Cardboard
+valeur_1574,"UK 400gsm Silk Coated","UK 400gsm Silk Coated","UK 400gsm Silk Coated","UK 400gsm Silk Coated","UK- 400gsm Silk Coated"
 valeur_1576,"1 perforation de 5 mm","1 perforación de 5mm","1 perforazione da 5 mm","1 perfuração de 5mm","5mm drilled hole"
 valeur_1577,"1 perforation oblongue","1 perforación ovalada de 16x3mm","1 perforazione di 16x3 mm","1 perfuração oval de de 16x3mm"
 valeur_1578,"Champ texte et/ou code à barres et/ou numérotation","Campo de texto y/o código de barras y/o numeración","Campo di testo e/o codice a barre e/o numerazione","Campo de texto e/ou código de barras e/ou numeração","Text field and/or bar code and/or numbering"
@@ -707,8 +706,7 @@ valeur_1687,Bronze,Bronce,Bronzo,Bronze,Bronze
 valeur_1688,"Or mat","Oro mate","Oro opaco","Ouro mate","Matt Gold"
 valeur_1689,Doré,Dorado,Dorato,Dourado,Gold
 valeur_1690,"Or brillant","Oro brillante","Oro lucido","Ouro brilhante","Gloss Gold"
-valeur_1691,Aluminium,"Aluminio
-",Alluminio,Alumínio,"Aluminium "
+valeur_1691,Aluminium,"Aluminio",Alluminio,Alumínio,"Aluminium "
 valeur_1692,"Argent mat","Plateado mate","Argento opaco","Prateado mate","Matt Silver"
 valeur_1693,"Argent brillant","Plateado brillante","Argento lucido","Prateado brilhante","Gloss Silver"
 valeur_1694,Transparent,Transparente,Trasparente,Transparente,Transparent
@@ -761,50 +759,50 @@ valeur_1749,"Boîte coffret M","Caja cofre M","Scatola con coperchio alto M","Ca
 valeur_1750,"Boîte coffret L","Caja cofre L","Scatola con coperchio alto L","Caixa box L","Goody box (Large)"
 valeur_1751,"Boîte bouteille avec fenêtre S","Caja botella con ventana S","Scatola portabottiglie con finestra S","Caixa garrafa com janela S","Windowed wine box (Small)"
 valeur_1752,"Boîte bouteille avec fenêtre M","Caja botella con ventana M","Scatola portabottiglie con finestra M","Caixa garrafa com janela M","Windowed wine box (Medium)"
-valeur_1753,"Boîte bouteille avec fenêtre L",,"Scatola portabottiglie con finestra L",,"Windowed wine box (Large)"
-valeur_1754,"Boîte bouteille sans fenêtre S",,"Scatola portabottiglie senza finestra S",,"Non-windowed wine box (Small)"
-valeur_1755,"Boîte bouteille sans fenêtre M",,"Scatola portabottiglie senza finestra M",,"Non-windowed wine box (Medium)"
-valeur_1756,"Boîte bouteille sans fenêtre L",,"Scatola portabottiglie senza finestra L",,"Non-windowed wine box (Large)"
-valeur_1757,"Boîte courrier S",,"Cofanetto portadocumenti S",,"Presentation pack (Small)"
-valeur_1758,"Boîte courrier M",,"Cofanetto portadocumenti M",,"Presentation pack (Medium)"
-valeur_1759,"Boîte courrier L",,"Cofanetto portadocumenti L",,"Presentation pack (Large)"
-valeur_1760,"Boîte d'envoi carré S",,"Cofanetto base quadrata S",,"Durable square box (Small)"
-valeur_1761,"Boîte d'envoi carré M",,"Cofanetto base quadrata M",,"Durable square box (Medium)"
-valeur_1762,"Boîte d'envoi carré L",,"Cofanetto base quadrata L",,"Durable square box (Large)"
-valeur_1763,"Boîte d'envoi rectangle S",,"Cofanetto base rettangolare S",,"Durable rectangular box (Small)"
-valeur_1764,"Boîte d'envoi rectangle M",,"Cofanetto base rettangolare M",,"Durable rectangular box (Medium)"
-valeur_1765,"Boîte d'envoi rectangle L",,"Cofanetto base rettangolare L",,"Durable rectangular box (Large)"
-valeur_1766,"Boîte chocolat S",,"Bauletto chiusura a fiocco S",,"Dome confectionery box (Small)"
-valeur_1767,"Boîte chocolat M",,"Bauletto chiusura a fiocco M",,"Dome confectionery box (Medium)"
-valeur_1768,"Boîte chocolat L",,"Bauletto chiusura a fiocco L",,"Dome confectionery box (Large)"
-valeur_1769,"Lunch Box S",,"Cofanetto chiusura a maniglia S",,"Takeaway box (Small)"
-valeur_1770,"Lunch Box M",,"Cofanetto chiusura a maniglia M",,"Takeaway box (Medium)"
-valeur_1771,"Lunch Box L",,"Cofanetto chiusura a maniglia L",,"Takeaway box (Medium)"
-valeur_1772,"Boîte produit basse S",,"Scatola classica Mod. A S",,"Short product box (Small)"
-valeur_1773,"Boîte produit basse M",,"Scatola classica Mod. A M",,"Short product box (Medium)"
-valeur_1774,"Boîte produit basse L",,"Scatola classica Mod. A L",,"Short product box (Large)"
+valeur_1753,"Boîte bouteille avec fenêtre L","Caja Botella con ventana L","Scatola portabottiglie con finestra L","Caixa garrafa com janela L","Windowed wine box (Large)"
+valeur_1754,"Boîte bouteille sans fenêtre S","Caja Botella sin ventana S","Scatola portabottiglie senza finestra S","Caixa garrafa sem janela S","Non-windowed wine box (Small)"
+valeur_1755,"Boîte bouteille sans fenêtre M","Caja Botella sin ventana M","Scatola portabottiglie senza finestra M","Caixa garrafa sem janela M","Non-windowed wine box (Medium)"
+valeur_1756,"Boîte bouteille sans fenêtre L","Caja Botella sin ventana L","Scatola portabottiglie senza finestra L","Caixa garrafa sem janela L","Non-windowed wine box (Large)"
+valeur_1757,"Boîte courrier S","Caja envío S","Cofanetto portadocumenti S","Caixa envio S","Presentation pack (Small)"
+valeur_1758,"Boîte courrier M","Caja envío M","Cofanetto portadocumenti M","Caixa envio M","Presentation pack (Medium)"
+valeur_1759,"Boîte courrier L","Caja envío L","Cofanetto portadocumenti L","Caixa envio L","Presentation pack (Large)"
+valeur_1760,"Boîte d'envoi carré S","Caja envío cuadrada S","Cofanetto base quadrata S","Caixa envio quadrada S","Durable square box (Small)"
+valeur_1761,"Boîte d'envoi carré M","Caja envío cuadrada M","Cofanetto base quadrata M","Caixa envio quadrada M","Durable square box (Medium)"
+valeur_1762,"Boîte d'envoi carré L","Caja envío cuadrada S","Cofanetto base quadrata L","Caixa envio quadrada L","Durable square box (Large)"
+valeur_1763,"Boîte d'envoi rectangle S","Caja envío rectangular S","Cofanetto base rettangolare S","Caixa envio retangular S","Durable rectangular box (Small)"
+valeur_1764,"Boîte d'envoi rectangle M","Caja envío rectangular M","Cofanetto base rettangolare M","Caixa envio retangular M","Durable rectangular box (Medium)"
+valeur_1765,"Boîte d'envoi rectangle L","Caja envío rectangular L","Cofanetto base rettangolare L","Caixa enivo retangular L","Durable rectangular box (Large)"
+valeur_1766,"Boîte chocolat S","Caja chocolate S","Bauletto chiusura a fiocco S","Caixa chocolate S","Dome confectionery box (Small)"
+valeur_1767,"Boîte chocolat M","Caja chocolate M","Bauletto chiusura a fiocco M","Caixa chocolate M","Dome confectionery box (Medium)"
+valeur_1768,"Boîte chocolat L","Caja chocolate L","Bauletto chiusura a fiocco L","Caixa chocolate L","Dome confectionery box (Large)"
+valeur_1769,"Lunch Box S",,"Cofanetto chiusura a maniglia S","Lunch Box S","Takeaway box (Small)"
+valeur_1770,"Lunch Box M",,"Cofanetto chiusura a maniglia M","Lunch Box M","Takeaway box (Medium)"
+valeur_1771,"Lunch Box L",,"Cofanetto chiusura a maniglia L","Lunch Box L","Takeaway box (Medium)"
+valeur_1772,"Boîte produit basse S","Caja producto baja S","Scatola classica Mod. A S","Caixa produto baixa S","Short product box (Small)"
+valeur_1773,"Boîte produit basse M","Caja producto baja M","Scatola classica Mod. A M","Caixa produto baixa M","Short product box (Medium)"
+valeur_1774,"Boîte produit basse L","Caja producto baja L","Scatola classica Mod. A L","Caixa produto baixa L","Short product box (Large)"
 valeur_1775,"Boîte produit haute S","Caja producto alta S","Scatola classica Mod. B S","Caixa produto alta S","Tall product box (Small)"
-valeur_1776,"Boîte produit haute M",,"Scatola classica Mod. A M",,"Tall product box (Medium)"
-valeur_1777,"Boîte produit haute L",,"Scatola classica Mod. A L",,"Tall product box (Large)"
-valeur_1778,"Boîte mise en rayon S",,"Astuccio appendibile S",,"Hanging retail box (Small)"
-valeur_1779,"Boîte mise en rayon M",,"Astuccio appendibile M",,"Hanging retail box (Medium)"
-valeur_1780,"Boîte mise en rayon L",,"Astuccio appendibile L",,"Hanging retail box (Large)"
+valeur_1776,"Boîte produit haute M","Caja producto alta M","Scatola classica Mod. A M","Caixa produto alta M","Tall product box (Medium)"
+valeur_1777,"Boîte produit haute L","Caja producto alta L","Scatola classica Mod. A L","Caixa produto alta L","Tall product box (Large)"
+valeur_1778,"Boîte mise en rayon S","Caja expositor S","Astuccio appendibile S","Caixa expositor S","Hanging retail box (Small)"
+valeur_1779,"Boîte mise en rayon M","Caja expositor M","Astuccio appendibile M","Caixa expositor M","Hanging retail box (Medium)"
+valeur_1780,"Boîte mise en rayon L","Caja expositor L","Astuccio appendibile L","Caixa expositor L","Hanging retail box (Large)"
 valeur_1781,Urne,Urna,"Astuccio urna",Urna,"Ballot box"
 valeur_1782,"Boîte cartes de visite","Caja tarjeta de visita","Scatola biglietti da visita/card","Caixa cartões de visita","Business card box"
-valeur_1783,"240g papier couleur bleu lagon",,"240g carta colorata blu",,"240gsm Blue lagoon paper"
-valeur_1784,"240g papier couleur fuchsia",,"240g carta colorata fucsia",,"240gsm Fuchsia paper"
-valeur_1785,"240g papier couleur noir",,"240g carta colorata nera",,"240gsm Black paper"
-valeur_1786,"240g papier couleur rouge",,"240g carta colorata rossa",,"240gsm Red paper"
-valeur_1787,"240g papier couleur turquoise",,"240g carta colorata turchese",,"240gsm Turquoise paper"
-valeur_1788,"240g papier couleur vert",,"240g carta colorata verde",,"240gsm Green paper"
-valeur_1789,"250g Chromolux noir",,"250g Chromolux nera",,"250gsm Chromolux black"
-valeur_1790,"250g Chromolux rouge",,"250g Chromolux rossa",,"250gsm Chromolux red"
+valeur_1783,"240g papier couleur bleu lagon","240 gr. papel color azul","240g carta colorata blu","240 gr. papel cor azul","240gsm Blue lagoon paper"
+valeur_1784,"240g papier couleur fuchsia","240 gr. papel color fucsia","240g carta colorata fucsia","240 gr. papel cor fúcsia","240gsm Fuchsia paper"
+valeur_1785,"240g papier couleur noir","240 gr. papel color negro","240g carta colorata nera","240 gr. papel cor preto","240gsm Black paper"
+valeur_1786,"240g papier couleur rouge","240 gr. papel color rojo","240g carta colorata rossa","240 gr. papel cor vermelho","240gsm Red paper"
+valeur_1787,"240g papier couleur turquoise","240 gr. papel color turquesa","240g carta colorata turchese","240 gr. papel cor turquesa","240gsm Turquoise paper"
+valeur_1788,"240g papier couleur vert","240 gr. papel color verde","240g carta colorata verde","240 gr. papel cor verde","240gsm Green paper"
+valeur_1789,"250g Chromolux noir","250 gr. Chromolux negro","250g Chromolux nera","250 gr. Chromolux preto","250gsm Chromolux black"
+valeur_1790,"250g Chromolux rouge","250 gr. Chromolux rojo","250g Chromolux rossa","250 gr. Chromolux vermelho","250gsm Chromolux red"
 valeur_1791,"270g papier blanc","270g papel blanco","270g cartoncino bianco","270g papel branco","270gsm white uncoated"
 valeur_1792,"300g papier kraft brun","300 gr. papel kraft marrón","300g carta kraft marrone","300 gr. papel kraft marrom","300gsm Kraft brown board"
 valeur_1793,"300g PET transparent","300 gr. PET transparente","300g PET trasparente","300 gr. PET transparente","300gsm transparent PET"
 valeur_1794,"300g papier perlé gaufré","300 gr. Papel perlado gofrado","300gr carta perlata e goffrata","300 gr. Papel perolado relevo","300gsm embossed pearlescent board"
-valeur_1795,"336g carton micro cannelure kraft brun",,"336g cartoncino semplice microonda kraft marrone",,"336gsm Brown Kraft corrugated board"
-valeur_1796,"275g carton graphique blanc couché 1 face",,"275g cartoncino monopatinato",,"275gsm white gloss coated cardboard (1 face)"
+valeur_1795,"336g carton micro cannelure kraft brun","336 gr. cartón microcanal kraft marrón","336g cartoncino semplice microonda kraft marrone","336 gr. papel cartão microcanal kraft marrom","336gsm Brown Kraft corrugated board"
+valeur_1796,"275g carton graphique blanc couché 1 face","275 gr. folding blanco estucado 1 cara","275g cartoncino monopatinato","275 gr. cartão gráfico branco couché 1 face","275gsm white gloss coated cardboard (1 face)"
 valeur_1797,"391g carton micro cannelure blanc","391gr. cartón micro canal blanco","391g cartoncino semplice microonda bianco","391gr. Papelão micro canal branco","391gsm White corrugated board"
 valeur_1798,"7 x 11,5 x 3 cm","7 x 11,5 x 3 cm","7 x 11,5 x 3 cm","7 x 11,5 x 3 cm",70x115x30mm
 valeur_1799,"7 x 23 x 4 cm","7 x 23 x 4 cm","7 x 23 x 4 cm","7 x 23 x 4 cm","70x 230x40mm"
@@ -820,7 +818,7 @@ valeur_1808,"31 x 27,2 x 9 cm","31 x 27,2 x 9 cm","31 x 18,1 x 9 cm","31 x 27,2 
 valeur_1809,"Polypropylène sans colle micro-ventouse","Polipropileno sin cola micro-ventosa","Polipropilene senza colla con micro-ventose","Polipropileno sem cola micro-ventosa","Polypropylene micro-suction without glue"
 valeur_1810,"Polyester sans colle micro-ventouse","Poliester sin cola micro-ventosa","Poliestere senza colla con micro-ventose","Poliéster sem cola micro-ventosa","Polyester micro-suction without glue"
 valeur_1811,"Non pré-encollé","No pre-encolado","Non pre-incollato","Não pré-colado","Non glued"
-valeur_1812,Pré-encollé,,Pre-incollato,,"Pre-glued (peel & seal)"
+valeur_1812,Pré-encollé,"Pre encolado",Pre-incollato,Pré-colado,"Pre-glued (peel & seal)"
 valeur_1813,"15,5 x 10,5 x 1 cm",,"15,5 x 10,5 x 1 cm",,155x105x10mm
 valeur_1814,"21,5 x 15,5 x 1 cm","21,5 x 15,5 x 1 cm","21,5 x 15,5 x 1 cm","21,5 x 15,5 x 1 cm","215 x 155 x 10 mm"
 valeur_1815,"30,5 x 21,5 x 1 cm","30,5 x 21,5 x 1 cm","30,5 x 21,5 x 1 cm","30,5 x 21,5 x 1 cm","305 x 215 x 10 mm"
@@ -844,122 +842,120 @@ valeur_1832,"14 x 7 x 5,5 cm","14 x 7 x 5,5 cm","14 x 7 x 5,5 cm","14 x 7 x 5,5 
 valeur_1833,"20 x 10 x 7,8 cm","20 x 10 x 7,8 cm","20 x 10 x 7,8 cm","20 x 10 x 7,8 cm","200 x 100 x 78 mm"
 valeur_1834,"10 x 5 x 3,9 cm","10 x 5 x 3,9 cm","10 x 5 x 3,9 cm","10 x 5 x 3,9 cm","100 x 50 x 39 mm"
 valeur_1835,"15 x 15 x 15 cm","15 x 15 x 15 cm","15 x 15 x 15 cm","15 x 15 x 15 cm",150x150x150mm
-valeur_1836,"3 x 9 x 5,5 cm","3 x 9 x 5,5 cm","3 x 9 x 5,5 cm","3 x 9 x 5,5 cm","30x90x55mm
-"
+valeur_1836,"3 x 9 x 5,5 cm","3 x 9 x 5,5 cm","3 x 9 x 5,5 cm","3 x 9 x 5,5 cm","30x90x55mm"
 valeur_1838,"Vinyle transparent DG Floor Wood Grain 3 mm","Vinilo transparente DG Suelo madera Grano 3mm.","PVC trasparente DG Floor Wood Grain 3 mm","Vinil transparente DC Chão Madeira Grão 3 mm","Transparent vinyl G Floor Wood Grain 3mm"
 valeur_1839,"Revêtement PVC non adhésif","Revestimiento PVC no adhesivo","Rivestimento in PVC non adesivo","Revestimento PVC não adesivo","Non-adhesive PVC coating"
 valeur_1840,"Mât à gauche","Mástil a la izquierda","Montante a sinistra","Mastro à esquerda","To the right of the pole"
 valeur_1841,"Mât à droite","Mástil a la derecha","Montante a destra","Mastro à direita","To the left of the pole"
 valeur_1842,Sans,Sin,Senza,Sem,No
-valeur_1843,"Feutre pour tableau blanc",,"Pennarello per lavagna bianca",
-valeur_1844,Bronze,Bronce,,Bronze
-valeur_1845,Printbox,,,
+valeur_1843,"Feutre pour tableau blanc","Marcador blanco","Pennarello per lavagna bianca","Marcador branco"
+valeur_1844,Bronze,Bronce,Bronzo,Bronze
+valeur_1845,Printbox,,Printbox,
 valeur_1846,"250µ PVC blanc mat","250µ PVC blanco mate","250µ PVC bianco opaco","250µ PVC branco mate","250µ PVC white matt"
-valeur_1847,"Total UV brillant",,,
-valeur_1853,"3ème demande",,,,"3rd order"
-valeur_1854,"240g papier couleur violet",,"240g carta colorata viola",,"240gsm Violet paper"
-valeur_1855,"240g papier couleur bouton d'or",,"240g carta colorata gialla oro",,"240gsm Buttercup yellow paper"
-valeur_1856,"240g papier couleur orange",,"240g carta colorata arancione",,"240gsm Orange paper"
-valeur_1857,"240g papier couleur gris taupe",,"240g carta colorata grigia scuro",,"240gsm Fabric grey paper"
+valeur_1847,"Total UV brillant",,"UV lucida totale ","Total UV brilhante"
+valeur_1853,"3ème demande","3er. pedido","3ª richiesta","3ª encomenda","3rd order"
+valeur_1854,"240g papier couleur violet",,"240g carta colorata viola","240g papel cor violeta","240gsm Violet paper"
+valeur_1855,"240g papier couleur bouton d'or",,"240g carta colorata gialla oro","240g papel cor ouro viejo","240gsm Buttercup yellow paper"
+valeur_1856,"240g papier couleur orange",,"240g carta colorata arancione","240g papel cor laranja","240gsm Orange paper"
+valeur_1857,"240g papier couleur gris taupe",,"240g carta colorata grigia scuro","240g papel cor cinza","240gsm Fabric grey paper"
 valeur_1859,"Chemise 2 volets - Simple Rainage - Petite quantité - Avec encoches carte de visite ","Carpetas dípticas - Hendido Simples - Pequeñas cantidades","Cartelline 2 ante - Cordonatura semplice - Piccole quantità","Pastas dípticas - Vinco Simples - Pequenas quantidades","4pp folder non capacity - small quantities - with b/card slits"
 valeur_1860,"Chemise 2 volets - Double Rainage - Petite quantité - Avec encoches carte de visite ","Carpetas dípticas - Hendido Doble - Pequeñas cantidades","Cartelline 2 ante - Doppia cordonatura - Piccole quantità","Pastas dípticas - Vinco Duplo - Pequenas quantidades","4pp folder with capacity - small quantities - with b/card slits"
-valeur_1862,"500g toile Expolit M2",,"500g tessuto Expolit M2",,"500gsm M2 canvas fabric"
+valeur_1862,"500g toile Expolit M2","500 gr. lienzo Expolit M2","500g tessuto Expolit M2","500g quadro Expolit M2","500gsm M2 canvas fabric"
 valeur_1863,"250g satiné blanc","250 gr. satinado blanco","250g satinata bianca","250 gr. acetinado branco"
-valeur_1865,"1800g papier couché blanc brillant 1 face contrecollé sur carton alvéolaire tranche kraft brun",,"1800g supporto in cartone alveolare kraft 
-accoppiato a carta bianca patinata lucida su un lato",,"1800gsm white gloss coated cardboard mounted onto brown Kraft corrugated cardboard"
-valeur_1866,"2200g papier couché blanc brillant 1 face contrecollé sur carton alvéolaire tranche blanche",,"2200g supporto in cartone alveolare bianco  
-accoppiato a carta bianca patinata lucida su un lato",,"2200gsm white gloss coated cardboard mounted onto brown Kraft corrugated cardboard"
-valeur_1867,"1200g papier couché blanc brillant 1 face contrecollé sur carton alvéolaire tranche kraft brun",,"1200g supporto in cartone alveolare kraft  
-accoppiato a carta bianca patinata lucida su un lato",,"1200gsm white gloss coated cardboard mounted onto brown Kraft corrugated cardboard"
-valeur_1868,"900g carton blanc contrecollé sur carton kraft triple micro cannelure",,"900g supporto in cartone tripla onda kraft
-accoppiato a cartoncino bianco",,"900gsm white cardboard mounted onto corrugated Kraft cardboard"
-valeur_1869,"680g carton blanc contrecollé sur carton cannelure kraft",,"680g supporto in cartone ondulato kraft
-accoppiato ad un cartoncino bianco ",,"680gsm white cardboard mounted onto Kraft corrugated cardboard"
-valeur_1870,"350g carton graphique blanc couché 1 face",,"350g cartoncino monopatinato bianco lucido da un lato",,"350gsm white gloss coated cardboard (1 face)"
-valeur_1871,"Module haut",,"Modulo alto",,"Top Stack"
-valeur_1872,"Module central",,"Modulo centrale",,"Middle Stack"
-valeur_1873,"Module bas",,"Modulo basso",,"Bottom Stack"
-valeur_1874,"Recharge comptoir",,"Riordino banco d'accoglienza",
-valeur_1875,Complète,,Completo,,"Complete set"
+valeur_1865,"1800g papier couché blanc brillant 1 face contrecollé sur carton alvéolaire tranche kraft brun","1800 gr. papel estucado blanco brillante 1 cara cotnracolada sobre cartón alveolar kraft marrón","1800g supporto in cartone alveolare kraft 
+accoppiato a carta bianca patinata lucida su un lato","1800g papel couché branco brilhante 1 face contracolada sobre cartão alveolar kraft marrom","1800gsm white gloss coated cardboard mounted onto brown Kraft corrugated cardboard"
+valeur_1866,"2200g papier couché blanc brillant 1 face contrecollé sur carton alvéolaire tranche blanche","1200 gr. papel estucado blanco brillante 1 cara cotnracolada sobre cartón alveolar blanco","2200g supporto in cartone alveolare bianco  
+accoppiato a carta bianca patinata lucida su un lato","2200g papel couché branco brilhante 1 face contracolada sobre cartão alveolar branco","2200gsm white gloss coated cardboard mounted onto brown Kraft corrugated cardboard"
+valeur_1867,"1200g papier couché blanc brillant 1 face contrecollé sur carton alvéolaire tranche kraft brun","1200 gr. papel estucado blanco brillante 1 cara cotnracolada sobre cartón alveolar kraft marrón","1200g supporto in cartone alveolare kraft  
+accoppiato a carta bianca patinata lucida su un lato","1200g papel couché branco brilhante 1 face contracolado sobre cartão alveolar kraft marrom","1200gsm white gloss coated cardboard mounted onto brown Kraft corrugated cardboard"
+valeur_1868,"900g carton blanc contrecollé sur carton kraft triple micro cannelure","Cartón de 900 gr. blanco contracolado sobre carton triple canal kraft","900g supporto in cartone tripla onda kraft
+accoppiato a cartoncino bianco","900g cartão branco contracolado sobre cartão kraft triplo microcanelado","900gsm white cardboard mounted onto corrugated Kraft cardboard"
+valeur_1869,"680g carton blanc contrecollé sur carton cannelure kraft","Cartón de 680 gr. blanco contracolado sobre carton kraft","680g supporto in cartone ondulato kraft
+accoppiato ad un cartoncino bianco ","680g cartão branco contracolado sobre cartão kraft triplo microcanelado","680gsm white cardboard mounted onto Kraft corrugated cardboard"
+valeur_1870,"350g carton graphique blanc couché 1 face","350 gr. cartón gráfico blanco estucado 1 cara","350g cartoncino monopatinato bianco lucido da un lato","350g cartão gráfico branco couché 1 face","350gsm white gloss coated cardboard (1 face)"
+valeur_1871,"Module haut","Módulo alto","Modulo alto","Módulo alto","Top Stack"
+valeur_1872,"Module central","Módulo central","Modulo centrale","Módulo central","Middle Stack"
+valeur_1873,"Module bas","Módulo bajo","Modulo basso","Módulo baixo","Bottom Stack"
+valeur_1874,"Recharge comptoir",Recarga,"Riordino banco d'accoglienza",Recarga
+valeur_1875,Complète,Completa,Completo,Completo,"Complete set"
 valeur_1876,"Monomère mat colle Ultra enlevable","Monómero mate encolado ultra reposicionable","Monomerico opaco colla ultra removibile","Monómero mate cola ultra removível","Matt monomer, ultra removable"
-valeur_1877,"135g couché brillant HP",,"135g patinata lucida HP",,"135gsm gloss coated HP"
-valeur_1878,"170g couché brillant HP",,"170g patinata lucido HP",,"170gsm gloss coated HP"
-valeur_1879,"170g couché mat HP",,"170g patinata opaca HP",,"170gsm matt coated HP"
+valeur_1877,"135g couché brillant HP","135 gr. estucado brillante HP","135g patinata lucida HP","135g couché brilhante HP","135gsm gloss coated HP"
+valeur_1878,"170g couché brillant HP","170 gr. estucado brillante HP","170g patinata lucido HP","170g couché brilhante HP","170gsm gloss coated HP"
+valeur_1879,"170g couché mat HP","170 gr. estucado mate HP","170g patinata opaca HP","170g couché mate HP","170gsm matt coated HP"
 valeur_1880,"2 plis décalés (accordéon)","2 pliegues desplazados (acordeón)","2 pieghe decentrate (a fisarmonica)","2 dobras desdobrável (acordeão)","2 off centre concertina folds"
 valeur_1881,"2 plis décalés (roulé)","2 pliegues desplazados (envolvente)","2 pieghe decentrate (avvolte)","2 dobras deslocadas (envolvente)","2 off centre roll folds"
 valeur_1882,"2 rainages décalés (accordéon)","2 pliegues desplazados (acordeón)","2 cordonature decentrate (a fisarmonica)","2 dobras deslocadas (acordeão)","2 off centre concertina folds"
 valeur_1883,"2 rainages décalés (roulé)","2 pliegues desplazados (envolvente)","2 cordonature decentrate (avvolte)","2 dobras deslocadas (envolvente)","2 off centre roll folds"
-valeur_1884,"UK 100gsm Premium Smooth",,,,"100gsm Premium Smooth"
+valeur_1884,"UK 100gsm Premium Smooth","UK 100gsm Premium Smooth","UK 100gsm Premium Smooth","UK 100gsm Premium Smooth","100gsm Premium Smooth"
 valeur_1889,"400g couché demi-mat","400g estucado semi-mate","400g patinata opaca","400g couché semi-mate","400gsm Silk Coated"
 valeur_1890,"Lettrage et découpe complexe mi-chair","Letra y troquelado complejo a la forma","Lettere fustellate complesse con mezzo taglio ","Letra cortada meio-corte","Kiss cut (lettering and complex shapes)"
-valeur_1893,"Mousse des bois et lichen des rennes",,"Muschio del legno e lichene delle renne",
+valeur_1893,"Mousse des bois et lichen des rennes","Mouse de madera y líquen de renos","Muschio del legno e lichene delle renne","Musgo dos bosques e líquen de renas"
 valeur_1894,Thermorelief,termorelieve,Termorilievo,Termorelevo,"Thermo printing"
-valeur_1895,"Noir + 1 couleur",,"Nero+1 colore",,"Black + one Pantone colour"
-valeur_1896,Sans,,Senza,,No
-valeur_1897,Thermorelief,,Con,,"Thermo printing"
-valeur_1898,"300g carte graphique couché 1 face",,"300g cartoncino monopatinato",
-valeur_1899,Classique,Clásico,"Classico
-",Clássico,Classic
+valeur_1895,"Noir + 1 couleur","Negro + 1 color ","Nero+1 colore","Negro + 1 cor","Black + one Pantone colour"
+valeur_1896,Sans,Sin,Senza,Sem,No
+valeur_1897,Thermorelief,Termorelieve,Con,Termorelevo,"Thermo printing"
+valeur_1898,"300g carte graphique couché 1 face","300 gr. cartón gráfico estucado 1 cara","300g cartoncino monopatinato","300g cartão gráfico couché 1 face"
+valeur_1899,Classique,Clásico,"Classico",Clássico,Classic
 valeur_1900,Échantillon,Muestra,Campioni,Amostras,Sample
-valeur_1904,"170g pour pelliculage","170 gr. para plastificado",,"170 gr. para plastificado"
-valeur_1905,"Taurine, Taurine Cola, Taurine Pomme, Taurine Lemon, Taurine Orange, Vivifruits, Thé vert, Raisin",,,
+valeur_1904,"170g pour pelliculage","170 gr. para plastificado","170g per plastificazione","170 gr. para plastificado"
+valeur_1905,"Taurine, Taurine Cola, Taurine Pomme, Taurine Lemon, Taurine Orange, Vivifruits, Thé vert, Raisin","Taurina, Cola, Manzana, Limón, Naranja, Multifrutas, Té verde, Uva","Taurina, Cola, Mela, Limone, Arancia, Vivifruits, Thé verde, Uva","Taurina, Cola, Maçã, Limão, Laranja, Multifrutas, Chá Verde, Uva"
 valeur_1906,"Vitrophanie fond blanc","Vitrofanía fondo blanco","Vetrofania su fondo bianco","Vitrofania fundo branco","White window sticker"
 valeur_1907,"Vitrophanie fond transparent","Vitrofania fondo transparente","Vetrofania su fondo trasparente","Vitrofania fundo transparente","Transparent window sticker"
 valeur_1908,"Sans découpe. Coupé au format de l'amalgame","Sin troquelado. Cortado a la forma del pliego","Senza fustella. Taglio al formato del foglio macchina","Sem cortante. Cortado na forma do plano","Cut to the format"
 valeur_1909,Démonstrateur,Demostración,Dimostratore,Demostração,Demo
-valeur_1914,Bleu,Azul,,Azul,Blue
-valeur_1915,Sans,Sin,,Sem
-valeur_1916,"Avec picto P","Con picto P",,"Com picto P"
-valeur_1917,"260g semi-mat BAT Fogra","260 gr. semi-mate Prueba Fogra",,"260 gr. semi-mate Prova Fogra"
-valeur_1918,J+0,"1 día",,"1 dia",Exarush
-valeur_1919,"Forex 3 mm",,"Forex 3 mm",,"Forex 3mm"
-valeur_1920,"1100g carton compact blanc",,"1100g cartoncino compatto bianco",
-valeur_1921,"240g papier couleur bleu lagon, fuchsia, violet, rouge, noir, bouton d'or, gris taupe",,"240g carta colorata blu, fucsia, viola, rossa, nera, gialla, grigia",,"240gsm coloured paper: blue lagoon, fuchsia, violet, red, black, buttercup yellow, fabric grey"
-valeur_1922,"120g papier couleur fuchsia",,"120g carta colorata fucsia",,"120gsm fuschia coloured paper"
-valeur_1923,"120g papier couleur bonton d'or",,"120g carta colorata gialla",,"120gsm buttercup yellow coloured paper"
-valeur_1924,"120g papier couleur gris taupe",,"120g carta colorata grigia",,"120gsm fabric grey coloured paper"
-valeur_1925,"120g papier couleur noir",,"120g carta colorata nera",,"120gsm black coloured paper"
-valeur_1926,"120g papier couleur rouge",,"120g carta colorata rossa",,"120gsm red coloured paper"
-valeur_1927,"120g papier couleur violet",,"120g carta colorata viola",,"120gsm violet coloured paper"
-valeur_1928,"185g tissu polyester",,"185g tessuto poliestere",
-valeur_1929,"Pompe 12V",,,
-valeur_1930,"Sac de transport",,,
-valeur_1931,Sans,,,
-valeur_1932,"1 fauteuil + 1 table basse",,,
-valeur_1933,"2 fauteuils + 1 table basse",,,
-valeur_1934,"2 poufs + 1 table basse",,,
-valeur_1935,"1 transat + 1 table basse",,,
-valeur_1936,"Structure gonflable",,,
-valeur_1937,Brillant,,Lucida,,"Gloss varnished"
-valeur_1938,Sans,,,
-valeur_1939,"De 1 à 4 coins ronds",,,
-valeur_1940,Sans,,Senza,
-valeur_1941,"Or à chaud",,"Oro a caldo",,Gold
-valeur_1942,"Argent à chaud",,"Argento a caldo",,Silver
-valeur_1943,"1 perforation de 4 mm côté piqûre (brochure)",,"1 perforazione di 4 mm lato rilegatura ",
-valeur_1944,"1 perforation de 4 mm côté opposé à la piqûre (brochure)",,"1 perforazione di 4 mm opposta al lato rilegatura ",
-valeur_1945,"Doming : vinyle autocollant + résine polyuréthane bi-composante + colle Thermoscellable",,"Etichette resinate: PVC adesivo + poliuretano bicomponente + colla termotrasferimento",
-valeur_1946,"Doming : vinyle miroir autocollant + résine polyuréthane + colle acqueuse pour usage intérieur",,"Etichette resinate: PVC adesivo sfondo a specchio + resina in poliuretano + colla acquosa per uso in",
-valeur_1947,"Doming : vinyle miroir autocollant + résine polyuréthane + colle acrylique pour usage extérieur",,"Etichette resinate: PVC adesivo sfondo a specchio + resina in poliuretano + colla acrilica per uso e",
-valeur_1949,"270g tissu polyester ignifugé M1","Tejido poliéster 270g ignifugado M1",,"Tecido poliéster 270g Anti-fogo M!"
-valeur_1950,"PETG transparent 2 mm",,"PETG trasparente 2 mm",
-valeur_1951,"760µ PVC blanc",,"760µ PVC bianco",
-valeur_1952,"Thermo sélectif or",,"Lamina oro",
-valeur_1953,"Thermo sélectif argent",,"Lamina argento",
-valeur_1954,Sans,,Senza,
-valeur_1955,LO-CO,,LO-CO,
-valeur_1956,"HI-CO 2750",,"HI-CO 2750",
-valeur_1957,"Texturé tissé recto",,"Effetto tela 3D fronte",
-valeur_1958,"Sur le recto",,"Sul fronte",
-valeur_1959,"Sur le verso",,"Sul retro",
-valeur_1960,"Perlé nacré recto",,"Effetto perlato fronte",
-valeur_1961,"760µ PVC transparent",,"760µ PVC trasparente",
-valeur_1962,"Perlé nacré recto verso",,"Effetto perlato fronte/retro",
-valeur_1963,"Champ texte et/ou code à barres et/ou numérotation recto",,"Dato variabile testo e/o codice a abrre e/o numerazione fronte",
-valeur_1964,"Champ texte et/ou code à barres et/ou numérotation verso",,"Dato variabile testo e/o codice a abrre e/o numerazione retro",
-valeur_1965,"PVC + 1 finition",,,,"PVC + 1 finish"
-valeur_1967,Sans,,,
-valeur_1968,Avec,Con,,
+valeur_1914,Bleu,Azul,Blu,Azul,Blue
+valeur_1915,Sans,Sin,Senza,Sem
+valeur_1916,"Avec picto P","Con picto P","Con picto P","Com picto P"
+valeur_1917,"260g semi-mat BAT Fogra","260 gr. semi-mate Prueba Fogra","260g semi-opaca Prova colore Fogra","260 gr. semi-mate Prova Fogra"
+valeur_1918,J+0,"1 día","1 giorno","1 dia",Exarush
+valeur_1919,"Forex 3 mm","Forex 3mm","Forex 3 mm","Forex 3mm","Forex 3mm"
+valeur_1920,"1100g carton compact blanc",,"1100g cartoncino compatto bianco","1100g cartão compacto branco"
+valeur_1921,"240g papier couleur bleu lagon, fuchsia, violet, rouge, noir, bouton d'or, gris taupe","240 gr. papel color azul, fucsia, violeta, rojo, negro, oro viejo, gris","240g carta colorata blu, fucsia, viola, rossa, nera, gialla, grigia","240g papel cor azul, fúcsia, violeta, vermelho, preto, botão de ouro, cinza","240gsm coloured paper: blue lagoon, fuchsia, violet, red, black, buttercup yellow, fabric grey"
+valeur_1922,"120g papier couleur fuchsia","120 gr. papel color fucsia","120g carta colorata fucsia","120g papel cor fúcsia","120gsm fuschia coloured paper"
+valeur_1923,"120g papier couleur bonton d'or","120 gr. papel color oro viejo","120g carta colorata gialla","120g papel cor botão de ouro","120gsm buttercup yellow coloured paper"
+valeur_1924,"120g papier couleur gris taupe","120 gr. papel color gris","120g carta colorata grigia","120g papel cor cinza","120gsm fabric grey coloured paper"
+valeur_1925,"120g papier couleur noir","120 gr. papel color negro","120g carta colorata nera","120g papel cor preto","120gsm black coloured paper"
+valeur_1926,"120g papier couleur rouge","120 gr. papel color rojo","120g carta colorata rossa","120g papel cor vermelho","120gsm red coloured paper"
+valeur_1927,"120g papier couleur violet","120 gr. papel color violeta","120g carta colorata viola","120g papel cor violeta","120gsm violet coloured paper"
+valeur_1928,"185g tissu polyester","185 gr. tela poliéster","185g tessuto poliestere","185g tecido poliéster"
+valeur_1929,"Pompe 12V","Bomba de 12V","Pompa 12V","Bomba 12V"
+valeur_1930,"Sac de transport","Saco de transporte","Sacca di trasporto","Saco de transporte"
+valeur_1931,Sans,Sin,Senza,Sem
+valeur_1932,"1 fauteuil + 1 table basse","1 sillón + 1 mesa baja","1 poltrona + 1 tavolino basso","1 poltrona + 1 mesa baixa"
+valeur_1933,"2 fauteuils + 1 table basse","2 sillónes + 1 mesa baja","2 poltrone + 1 tavolino basso","2 poltronas + 1 mesa baixa"
+valeur_1934,"2 poufs + 1 table basse","2 pufs + 1 mesa baja","2 pouf + 1 tavolino basso","2 pufs + 1 mesa baixa"
+valeur_1935,"1 transat + 1 table basse","1 hamaca + 1 mesa baja","1 sdraio + 1 tavolino basso","1 espreguiçadeira + 1 mesa baixa"
+valeur_1936,"Structure gonflable","Estructura hinchable","Struttura gonfiabile","Estrutura inflável"
+valeur_1937,Brillant,Brillante,Lucida,Brilhante,"Gloss varnished"
+valeur_1938,Sans,Sin,Senza,Sem
+valeur_1939,"De 1 à 4 coins ronds","De 1 a 4 cantos redondos","Da 1 a 4 angoli arrotondati","De 1 a 4 cantos redondos"
+valeur_1940,Sans,Sin,Senza,Sem
+valeur_1941,"Or à chaud","Oro en caliente","Oro a caldo","Ouro quente",Gold
+valeur_1942,"Argent à chaud","Plata en caliente","Argento a caldo","Prata quente",Silver
+valeur_1943,"1 perforation de 4 mm côté piqûre (brochure)","1 perforación de 4mm lado del grapado","1 perforazione di 4 mm lato rilegatura ","1 perfuração de 4mm lado do agrafado"
+valeur_1944,"1 perforation de 4 mm côté opposé à la piqûre (brochure)","1 perforación de 4mm lado opuesto a el grapado","1 perforazione di 4 mm opposta al lato rilegatura ","1 perfuração de 4mm lado oposto ao agrafado"
+valeur_1945,"Doming : vinyle autocollant + résine polyuréthane bi-composante + colle Thermoscellable","Doming: vinilo autoadhesivo + resina poliuretano bi-compuesta + cola termosellable","Etichette resinate: PVC adesivo + poliuretano bicomponente + colla termotrasferimento","Gota de resina: autocolante + resina poliuretano bicomposta + cola termoselável"
+valeur_1946,"Doming : vinyle miroir autocollant + résine polyuréthane + colle acqueuse pour usage intérieur","Doming: vinilo espejo autoadhesivo + resina poliuretano + cola acrílica para uso interior","Etichette resinate: PVC adesivo sfondo a specchio + resina in poliuretano + colla acquosa per uso in","Gota de resina: autocolante espelhado + resina poliuretano + cola aquosa para uso interior"
+valeur_1947,"Doming : vinyle miroir autocollant + résine polyuréthane + colle acrylique pour usage extérieur","Doming: vinilo espejo autoadhesivo + resina poliuretano + cola acrílica para uso exterior","Etichette resinate: PVC adesivo sfondo a specchio + resina in poliuretano + colla acrilica per uso e","Gota de resina: autocolante espelhado + resina poliuretano + cola acrílica para uso exterior"
+valeur_1949,"270g tissu polyester ignifugé M1","270 gr. tela poliéster ignífuga M1","270g tessuto poliestere ignifugo m1","270g tecido poliéster ignífugo M1"
+valeur_1950,"PETG transparent 2 mm",,"PETG trasparente 2 mm","PETG transparente 2mm"
+valeur_1951,"760µ PVC blanc","760µ PVC blanco","760µ PVC bianco","760µ PVC branco"
+valeur_1952,"Thermo sélectif or","Termo selectivo dorado","Lamina a caldo","Termolocalizado dourado"
+valeur_1953,"Thermo sélectif argent","Termo selectivo plateado","Lamina argento","Termolocalizado prateado"
+valeur_1954,Sans,Sin,Senza,Sem
+valeur_1955,LO-CO,LO-CO,LO-CO,LO-CO
+valeur_1956,"HI-CO 2750","HI-CO 2750","HI-CO 2750","HI-CO 2750"
+valeur_1957,"Texturé tissé recto","Textura tela 1 cara","Effetto tessuto fronte","Textura tecido 1 face"
+valeur_1958,"Sur le recto","Sobre el recto","Sul fronte","Sobre a frente"
+valeur_1959,"Sur le verso","Sobre el dorso","Sul retro","Sobre o verso"
+valeur_1960,"Perlé nacré recto","Perlado nacarado 1 cara","Effetto perlato fronte","Perolado nacarado 1 face"
+valeur_1961,"760µ PVC transparent","760µ PVC trasparente","760µ PVC trasparente","760µ PVC trasparente"
+valeur_1962,"Perlé nacré recto verso","Perlado nacarado 2 caras","Effetto perlato fronte/retro","Perolado nacarado 2 faces"
+valeur_1963,"Champ texte et/ou code à barres et/ou numérotation recto","Campo texto y/o código de barras y/o numeración 1 cara","Dati variabili testi e/o codice a barre e/o numerazione fronte","Campo texto e/ou código de barras e/ou numeração frente"
+valeur_1964,"Champ texte et/ou code à barres et/ou numérotation verso","Campo texto y/o código de barras y/o numeración dorso","Dati variabili testi e/o codice a barre e/o numerazione retro","Campo texto e/ou código de barras e/ou numeração verso"
+valeur_1965,"PVC + 1 finition","PVC + 1 acabado","PVC + 1 finitura","PVC + 1 acabamento","PVC + 1 finish"
+valeur_1967,Sans,Sin,Senza,Sem
+valeur_1968,Avec,Con,Con,Com
 valeur_1978,"80g Offset Recyclé",,,
 valeur_1980,"Bois épicéa 19 mm",,,,"Spruce Wood - 19mm thick"
 valeur_1982,"Plexy opaque couleur 3 mm",,,,"Coloured Plexi - 3mm thick"
@@ -967,3 +963,4 @@ valeur_1983,"Aluminium miroir 3 mm",,,,"Mirror Aluminium - 3mm thick"
 valeur_1984,"Aluminium argent brossé 3 mm",,,,"Brushed Silver Aluminium - 3mm thick"
 valeur_1985,"Aluminium or brossé 3 mm",,,,"Brushed Gold Aluminium - 3mm thick"
 valeur_1986,"1 teinte",,,,"1 Tint"
+valeur_1989,"en données variables",,,
