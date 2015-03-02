@@ -69,7 +69,7 @@ CREATE VIEW dbo.VUE_PDF_COMMANDE AS
     LEFT JOIN TBL_PLANCHE_TL_COMMANDE pc2 ON pc2.IDCommande = c.IDCommande AND pc2.EstColise = 1
     LEFT JOIN TBL_PLANCHE planche ON planche.IDPlanche = pc2.IDPlanche
     JOIN TBL_ATELIER atelier ON atelier.IDAtelier = planche.IDAtelier
-    LEFT JOIN Sc_Front.EXP_BDC bdc ON bdc.IDCommande = cl.IDCommande
+    LEFT JOIN Sc_Front.EXP_BDC bdc ON bdc.IDCommande = ISNULL(c.IDCommandePrincipale, cl.IDCommande)
     LEFT JOIN Sc_Front.EXP_BDC_SELECTION_PRODUIT sel ON sel.IDSelectionProduit = bdc.IDSelectionProduit
     LEFT JOIN Sc_Front.EXP_BDC_FACONNAGE fac ON fac.IDFaconnage = sel.IDFaconnage
     LEFT JOIN TBL_PRODUIT_OPTION_VALEUR pov_feuillet
