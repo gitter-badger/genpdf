@@ -9,6 +9,9 @@
 namespace Exaprint\GenPDF\FicheDeFabrication;
 
 
+use Exaprint\GenPDF\FicheDeFabrication\Amalgame\Amalgame;
+use Exaprint\GenPDF\FicheDeFabrication\Negoce\Negoce;
+
 class Factory
 {
 
@@ -23,6 +26,8 @@ class Factory
             case 4:
             case 7:
                 return new Amalgame($planche);
+            case 3:
+                return new Negoce($planche);
             default:
                 var_dump($planche);
                 return null;
