@@ -9,13 +9,13 @@
 namespace Exaprint\GenPDF\FicheDeFabrication\Negoce;
 
 
+use Exaprint\GenPDF\FicheDeFabrication\Negoce\Planche\NegoceImpression;
 use Exaprint\GenPDF\FicheDeFabrication\Common\Planche\PEFC;
 use Exaprint\GenPDF\FicheDeFabrication\Common\Planche\Compteurs;
 use Exaprint\GenPDF\FicheDeFabrication\Common\Planche\DetailSousTraitance;
 use Exaprint\GenPDF\FicheDeFabrication\Common\Planche\Faconnage;
 use Exaprint\GenPDF\FicheDeFabrication\Negoce\Planche\NegoceFinitions;
 use Exaprint\GenPDF\FicheDeFabrication\Common\Planche\Identification;
-use Exaprint\GenPDF\FicheDeFabrication\Common\Planche\Impression;
 use Exaprint\GenPDF\FicheDeFabrication\Common\Planche\IndicationsCommandes;
 use Exaprint\GenPDF\FicheDeFabrication\Common\Planche\Observations;
 use Exaprint\GenPDF\FicheDeFabrication\Common\Planche\Rush;
@@ -67,7 +67,7 @@ class NegocePlanche extends Planche
 
     public function impression()
     {
-        $impression = new Impression($this->planche);
+        $impression = new NegoceImpression($this->planche);
         $impression->draw($this->pdf, $this->position->add(new Position(0, 17)));
 
     }
