@@ -13,7 +13,7 @@ use Exaprint\GenPDF\FicheDeFabrication\Common\Planche\PEFC;
 use Exaprint\GenPDF\FicheDeFabrication\Common\Planche\Compteurs;
 use Exaprint\GenPDF\FicheDeFabrication\Common\Planche\DetailSousTraitance;
 use Exaprint\GenPDF\FicheDeFabrication\Common\Planche\Faconnage;
-use Exaprint\GenPDF\FicheDeFabrication\Common\Planche\Finitions;
+use Exaprint\GenPDF\FicheDeFabrication\Negoce\Planche\NegoceFinitions;
 use Exaprint\GenPDF\FicheDeFabrication\Common\Planche\Identification;
 use Exaprint\GenPDF\FicheDeFabrication\Common\Planche\Impression;
 use Exaprint\GenPDF\FicheDeFabrication\Common\Planche\IndicationsCommandes;
@@ -38,10 +38,11 @@ class NegocePlanche extends Planche
 
     function __construct($dimensions, $pdf, $planche, $position)
     {
-        $this->dimensions = $dimensions;
-        $this->pdf        = $pdf;
-        $this->planche    = $planche;
-        $this->position   = $position;
+        $this->dimensions                 = $dimensions;
+        $this->pdf                        = $pdf;
+        $this->planche                    = $planche;
+        $this->position                   = $position;
+        $this->heightIndicationsCommandes = 33;
 
         $this->identification();
         $this->impression();
@@ -73,8 +74,9 @@ class NegocePlanche extends Planche
 
     public function finitions()
     {
-        $finitions = new Finitions($this->planche);
+        $finitions = new NegoceFinitions($this->planche);
         $finitions->draw($this->pdf, $this->position->add(new Position(0, 33)));
+        $this->heightIndicationsCommandes = 33 + 11 * $finitions->nbLines;
     }
 
     public function faconnage()
@@ -89,7 +91,8 @@ class NegocePlanche extends Planche
         $detailST->draw($this->pdf, $this->position->add(new Position(100, 49.5)));
     }
 
-    public function rush() {
+    public function rush()
+    {
         $indications = new Rush($this->planche);
         $indications->draw($this->pdf, $this->position->add(new Position(87, 67)));
     }
@@ -97,7 +100,7 @@ class NegocePlanche extends Planche
     public function indicationsCommandes()
     {
         $indications = new IndicationsCommandes($this->planche);
-        $indications->draw($this->pdf, $this->position->add(new Position(0, 66)));
+        $indications->draw($this->pdf, $this->position->add(new Position(0, $this->heightIndicationsCommandes)));
     }
 
     public function observations()
