@@ -21,6 +21,8 @@ use Exaprint\TCPDF\TextColor;
 
 class Finition1 extends Rang
 {
+    public $Type = null;
+
     public function __construct()
     {
         $cellTitle             = new Cellule();
@@ -77,6 +79,11 @@ class Finition1 extends Rang
     public function setA2($label)
     {
         $this->_cellA2->value = $label;
+    }
+
+    public function getA2()
+    {
+        return $this->_cellA2->value;
     }
 
     public function setA3($label)

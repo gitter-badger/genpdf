@@ -20,6 +20,7 @@ use Exaprint\TCPDF\TextColor;
 
 class Finition2 extends Finition
 {
+    public $Type = null;
 
     public function __construct()
     {

@@ -10,6 +10,7 @@ namespace Exaprint\GenPDF\FicheDeFabrication\Negoce\Planche;
 
 
 use Exaprint\GenPDF\FicheDeFabrication\Common\Planche\Finition;
+use Exaprint\GenPDF\FicheDeFabrication\Negoce\NegoceDAL;
 use Exaprint\TCPDF\Position;
 
 class NegoceFinitions
@@ -22,6 +23,92 @@ class NegoceFinitions
     {
         $lines = 0;
 
+        $details = NegoceDAL::getFinitions($planche['IDPlanche']);
+
+        $finition = null;
+
+        $last = null;
+
+        foreach ($details as $n => &$d) {
+
+            $last = ($n > 0) ? $details[$n - 1] : null;
+
+            // si on passe à un nouveau bloc, ou à une nouvelle ligne du bloc
+            if (is_null($last) || $last->Bloc != $d->Bloc || $last->Ligne != $d->Ligne) {
+
+                // Si une finition existe, on la finalise
+                if (isset($finition)) {
+
+                    // on finalise la finition
+                    //print_r("<br /><br />");
+                    //print_r($last);
+                    if ($finition->Type == 1 && $last->Encadre == 2) {
+                        if (1) {
+                            $label = $finition->getA2();
+                            $finition->setA2($label . '0');
+                        }
+                        if ($last->EstVerso) {
+                            $label = $finition->getA2();
+                            $finition->setA2('0+' . $label);
+                        }
+                    }
+
+                    $this->finitions[] = $finition;
+
+                    // nouvelle ligne
+                    $lines++;
+                }
+
+                // on cherche quel genre de finition créer
+                if (in_array($d->Bloc, [1, 2, 3])) {
+                    if ($d->Ligne == 1) {
+                        $finition       = new Finition1();
+                        $finition->Type = 1;
+                    } else {
+                        $finition       = new Finition2();
+                        $finition->Type = 2;
+                    }
+
+                    // titre seulement pour les finitions 1 & 2
+                    $title = ($d->IDProduitOptionNecessairePourTitreAlternatif) ? $d->TitreAlternatif : $d->Titre;
+                    $finition->setTitle($title);
+
+                } else {
+                    $finition       = new Finition3();
+                    $finition->Type = 3;
+                }
+            }
+
+            // gestion de l'encadré
+            switch ($d->Encadre) {
+                case 0:
+                    $title = ($d->IDProduitOptionNecessairePourTitreAlternatif) ? $d->TitreAlternatif : $d->Titre;
+                    $finition->setTitle($title);
+                    break;
+                case 1:
+                    $title = ($d->LibelleValeurPredefinie) ? $d->LibelleValeurPredefinie : $d->LibelleValeur;
+                    $finition->setA1($title);
+                    break;
+                case 2:
+                    $title = ($d->LibelleValeurPredefinie) ? $d->LibelleValeurPredefinie : $d->LibelleValeur;
+                    $finition->setA2($title);
+                    break;
+                case 3:
+                    $title = ($d->LibelleValeurPredefinie) ? $d->LibelleValeurPredefinie : $d->LibelleValeur;
+                    $finition->setA3($title);
+                    break;
+            }
+
+        }
+
+        if (!is_null($finition)) {
+            $this->finitions[] = $finition;
+
+            // nouvelle ligne
+            $lines++;
+        }
+
+        /*
         $finition = new Finition1();
         $finition->setTitle('COUV');
         $finition->setA1('350g Mat Condat Périgord');
@@ -49,6 +136,7 @@ class NegoceFinitions
             $this->finitions[] = $finition;
             $lines++;
         }
+        */
 
         $this->nbLines = $lines;
     }
