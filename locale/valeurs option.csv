@@ -117,7 +117,7 @@ valeur_286,"1 perforation de 4 mm + œillet","simple 4 mm con ojal","1 foro da 4
 valeur_287,"2 perforations de 4 mm + œillet + lien d'attache","doble 4 mm con ojal + cinta para colgar ","2 fori di 4 mm + occhielli + lien d attache","4 mm duplo com ilhós + fita para pendurar","2 4mm hole-punches + eyelets"
 valeur_288,J+10,"11 días","11 Giorni","11 dias",D+10
 valeur_289,"Sans structure",Sin,"Senza struttura",Sem,"Without structure"
-valeur_290,Aluminium,"Aluminio",Alluminio,Alumínio,Aluminium
+valeur_290,Aluminium,Aluminio,Alluminio,Alumínio,Aluminium
 valeur_291,Bambou,Bambú,Bamboo,Bambu,Bamboo
 valeur_293,Sans,Sin,Senza,Sem,No
 valeur_294,Avec,Con,Con,Com,Included
@@ -265,7 +265,7 @@ valeur_502,"380g couché mat","380g Estucado Mate","380g Patinata Opaca","380g C
 valeur_507,"110g tissu maille bloquée ignifugé M1","115g Tela bloqueada Ignífuga M1","tessuto 115g ignifugo M1","115g Tela bloqueada Anti-fogo M1","110gsm M1 fireproof fabric"
 valeur_508,"250g satin blanc ignifugé M1","250g Satinado blanco Ignífugo M1","250g Satinata bianca Ignifuga M1","250g Acetinado Anti-fogo M1","250gsm Satin - Fire retardent M1"
 valeur_509,"200g satin blanc","200g Satinado blanco","200g Satinata bianca","200g Acetinado branco","200gsm satin"
-valeur_510,"200g satin encapsulé","200g Satinado Encapsulado","200g Satinata incapsulata","200g Acetinado Encapsulado","200gsm Encapsulated Satin "
+valeur_510,"200g satin encapsulé","200g Satinado Encapsulado","200g Satinata incapsulata","200g Acetinado Encapsulado","200gsm Gloss Encapsulated"
 valeur_512,Etoile,Estrella,Stella,Estrela,"Star "
 valeur_513,Rond,Círculo,Rotondo,Círculo,Circle
 valeur_514,Nuage,Nube,Nuvola,Nuvem,Cloud
@@ -459,10 +459,9 @@ valeur_802,"Agrafage carnet","Libro grapado","Pinzatura quaderno","Livro agrafad
 valeur_828,Sans,Sin,Senza,Sem,No
 valeur_829,Identique,Idéntico,Identica,Idêntico,"Common copy"
 valeur_830,Différente,Diferente,Diversa,Diferente,Different
-valeur_831,Dépoli,Mate,"Effetto sabbiato",Mate,Frosted
+valeur_831,Dépoli,Mate,"Effetto sabbiato",Fosco,Frosted
 valeur_832,Sans,Sin,Senza,Sem,No
 valeur_833,Sans,Sin,Senza,Sem,No
-valeur_836,"750µ PVC blanc","750 PVC Blanco","750 PVC Bianco","750 PVC Branco","750 White PVC"
 valeur_915,Avec,Con,Con,Com,Included
 valeur_916,Sans,Sin,Senza,Sem,No
 valeur_917,Avec,Con,Con,Com,Included
@@ -486,7 +485,7 @@ valeur_1019,"12 feuillets","12 hojas","12 fogli","12 folhas","12 sheets"
 valeur_1091,13,13,13,13,13
 valeur_1092,"Spirale crochet",Espiral,"Spirale crochet",Espiral,"Spiral hook"
 valeur_1093,"13 feuillets","13 hojas","13 fogli","13 folhas","13 sheets"
-valeur_1100,Français,Francés,Francese,Francês,"Yes"
+valeur_1100,Français,Francés,Francese,Francês,Yes
 valeur_1101,Espagnol,Español,Spagnolo,Espanhol,Yes
 valeur_1102,Portugais,Portugués,Portoghese,Português,Yes
 valeur_1103,Italien,Italiano,Italiano,Italiano,Yes
@@ -501,8 +500,8 @@ valeur_1166,"2 différents","2 diferentes","2 differenti","2 diferentes","2 diff
 valeur_1173,Sans,Sin,Senza,Sem,Yes
 valeur_1179,"290g Fedrigoni Lampone rouge","290g Fedrigoni Sirio Color Lampone","290g Fedrigoni Sirio Color Lampone","290g Fedrigoni Lampone vermelho","290gsm Fedrigoni Sirio Color Lampone"
 valeur_1180,"290g Fedrigoni Nero noir","290g Fedrigoni Sirio Color Negro","290g Fedrigoni Sirio Color Nero","290g Fedrigoni Nero Preto","290gsm Fedrigoni Sirio Color Nero"
-valeur_1181,"Mat Soft Touch","Mate soft touch","Opaca Soft Touch","Mate Soft Touch","Matt Soft Touch"
-valeur_1182,"Mat Soft Touch","Mate soft touch","Opaca Soft Touch","Mate Soft Touch","Matt Soft Touch"
+valeur_1181,"Mat Soft Touch","Mate soft touch","Opaca Soft Touch","Mate Soft Touch","Soft Touch"
+valeur_1182,"Mat Soft Touch","Mate soft touch","Opaca Soft Touch","Mate Soft Touch","Soft Touch"
 valeur_1183,"Vernis UV sélectif 3D","Barniz selectivo UV 3D","Vernice UV selettiva 3D","Verniz UV localizado 3D","3D Spot UV Varnish"
 valeur_1184,"Vernis UV sélectif 3D","Barniz selectivo UV 3D","Vernice UV selettiva 3D","Verniz UV localizado 3D","3D Spot UV Varnish"
 valeur_1185,"350g métallisé or","350g Metalizado dorado","350g Metallizzata Oro","350g Metalizado dourado","350gsm Metallic Gold"
@@ -607,7 +606,7 @@ valeur_1444,Sans,Sin,Senza,Sem,No
 valeur_1445,"172µ : adhésif Aslan translucide M1 62µ + support 110µ","172µ Adhesivo Aslan translúcido 62µ + Soporte 110µ","172µ: adesivo Aslan traslucido M1 62µ + supporto 110µ","172µ Autocolante Aslan translúcido 62µ + Suporte 110µ"
 valeur_1446,"172µ : adhésif Aslan fluo rouge 62µ + support 110µ","172µ Adhesivo Aslan fluor 62µ + Soporte 110µ","172µ: adesivo Aslan fluo rosso 62µ + supporto 110µ","172µ Autocolante Aslan fluor 62µ + Suporte 110µ"
 valeur_1447,"172µ : adhésif Aslan dépoli 62µ + support 110µ","172µ Adhesivo Aslan depoli 62µ + Soporte 110µ","172µ: adesivo Aslan effetto sabbiato 62µ + supporto 110µ","172µ Autocolante Aslan depoli 62µ + Suporte 110µ"
-valeur_1450,"Mat Soft Touch","Mate soft touch","Opaca Soft Touch","Mate Soft Touch","Matt Soft Touch"
+valeur_1450,"Mat Soft Touch","Mate soft touch","Opaca Soft Touch","Mate Soft Touch","Soft Touch"
 valeur_1487,"UK 135gsm Trisolv postart paper","UK 135gsm Trisolv postart paper","UK 135gsm Trisolv postart paper","UK 135gsm Trisolv postart paper","UK- 135gsm Trisolv postart paper"
 valeur_1488,"Vernis UV sélectif 3D","Barniz selectivo UV 3D","Vernice UV selettiva 3D","Verniz UV seletivo 3D","3D spot UV varnish "
 valeur_1492,"UK 234gsm Polyester Lightblock","UK 234gsm Polyester Lightblock","UK 234gsm Polyester Lightblock","UK 234gsm Poliester Lightblock","UK- 234gsm Polyester Lightblock"
@@ -631,7 +630,7 @@ valeur_1569,Raisin,Uva,Uva,Uva,Grape
 valeur_1573,Cartonné,Cartón,Cartonato,"Capa dura",Cardboard
 valeur_1574,"UK 400gsm Silk Coated","UK 400gsm Silk Coated","UK 400gsm Silk Coated","UK 400gsm Silk Coated","UK- 400gsm Silk Coated"
 valeur_1576,"1 perforation de 5 mm","1 perforación de 5mm","1 perforazione da 5 mm","1 perfuração de 5mm","5mm drilled hole"
-valeur_1577,"1 perforation oblongue","1 perforación ovalada de 16x3mm","1 perforazione di 16x3 mm","1 perfuração oval de de 16x3mm"
+valeur_1577,"1 perforation oblongue","1 perforación ovalada de 16x3mm","1 perforazione di 16x3 mm","1 perfuração oval de de 16x3mm","1 Oblong hole"
 valeur_1578,"Champ texte et/ou code à barres et/ou numérotation","Campo de texto y/o código de barras y/o numeración","Campo di testo e/o codice a barre e/o numerazione","Campo de texto e/ou código de barras e/ou numeração","Text field and/or bar code and/or numbering"
 valeur_1589,"230g Curious Translucents","Curious Translúcido 230g","230g Curious Translucents","230g Curious Translucents","230gsm Curious Translucents"
 valeur_1590,"Paillette Or","Purpurina Oro","Paillette Oro","Ouro purpurina"
@@ -646,14 +645,14 @@ valeur_1605,UV,UV,UV,UV,UV
 valeur_1606,Ecosolvant,Ecosolvente,Ecosolvent,Ecosolvente,"Ecosolvent "
 valeur_1607,"Monomère pose facile - Colle structurée","Monómero fácil instalación - Estructura encolada","Monomerico Easy Apply - Colla strutturata","Momómero fácil instalação - cola estruturada","Easy to stick monomer"
 valeur_1608,"Monomère épais colle enlevable","Monómero cola reposicionable","Monomerico colla removibile","Monómero cola removível","Monomer - removable glue"
-valeur_1609,"Coulé blanc pose facile pour surface courbe","Polímero Blanco superficie curva","Polimerico bianco per superfici curve","Polímero branco para superfície curvada","White polymere for curved surfaces"
+valeur_1609,"Coulé blanc pose facile pour surface courbe","Polímero Blanco superficie curva","Polimerico bianco per superfici curve","Polímero branco para superfície curvada","White polymer for curved surfaces"
 valeur_1610,"Polymère blanc diffusant pour enseigne lumineuse","Polímero blanco translúcido para señal luminosa","Polimerico bianco opalino per insegne luminose  ","Polímero branco difundido para um letreiro luminoso","Backlit white polymer"
 valeur_1612,"Coulé conformable avec plastification brillante","PVC adaptable con plastificado brillante","PVC comformabile con plastificazione lucida","PVC conforme com plastificação brilhante","Moldable vinyl - gloss encapsulation"
 valeur_1613,Blanc,Blanco,Bianco,Branco,White
 valeur_1614,"Effaçable à sec","Borrado en seco",Scrivibile,"Apágavel a seco","Dry erasing "
 valeur_1615,"Spécial sol","Especial suelo","Speciale calpestabile ","Especial chão","Floor application "
 valeur_1616,"Blanc sélectif",Blanco,Bianco,Branco,White
-valeur_1617,"Découpe à mi-chair vectorielle","Troquelado a la forma vectorial","Mezzotaglio vettoriale","Meio corte vectorial","Kiss cut (to the vector shape)"
+valeur_1617,"Découpe à mi-chair vectorielle","Troquelado a la forma vectorial","Mezzotaglio vettoriale",Pré-cortado,"Kiss cut (to the vector shape)"
 valeur_1618,"Monomère colle permanente","Monómero cola permanente","Monomerico colla permanente","Monómero cola permanente","Monomer - permanent glue"
 valeur_1619,Blanc,Blanco,Bianco,Branco,White
 valeur_1620,Transparent,Transparente,Trasparente,Transparente,Transparent
@@ -661,7 +660,7 @@ valeur_1622,"600g Gmund crème","600g Gmund Blanco","600g Gmund Bianco","600g Gm
 valeur_1623,Typographie,Tipografia,Tipografia,Tipografia,Letterpress
 valeur_1624,Avec,Con,Con,Com,Yes
 valeur_1625,Sans,Sin,Senza,Sem,No
-valeur_1626,"Polymère transparent pour surface courbe","Polímero transparente para superfície curva","Polimerico trasparente per superfici curve","Polímero transparente para superfície curva","Transparent polymere for curved surfaces"
+valeur_1626,"Polymère transparent pour surface courbe","Polímero transparente para superfície curva","Polimerico trasparente per superfici curve","Polímero transparente para superfície curva","Transparent polymer for curved surfaces"
 valeur_1628,Sans,Sin,Senza,Sem,No
 valeur_1632,"155g tissu diffusant","155g tela difusa","155g tessuto in poliestere","155g tecido difusor"
 valeur_1633,"Aluminium Gris Anodisé","Aluminio anodizado gris","Alluminio grigio anodizzato","Aluminio Cinzento Anodizado"
@@ -706,7 +705,7 @@ valeur_1687,Bronze,Bronce,Bronzo,Bronze,Bronze
 valeur_1688,"Or mat","Oro mate","Oro opaco","Ouro mate","Matt Gold"
 valeur_1689,Doré,Dorado,Dorato,Dourado,Gold
 valeur_1690,"Or brillant","Oro brillante","Oro lucido","Ouro brilhante","Gloss Gold"
-valeur_1691,Aluminium,"Aluminio",Alluminio,Alumínio,"Aluminium "
+valeur_1691,Aluminium,Aluminio,Alluminio,Alumínio,"Aluminium "
 valeur_1692,"Argent mat","Plateado mate","Argento opaco","Prateado mate","Matt Silver"
 valeur_1693,"Argent brillant","Plateado brillante","Argento lucido","Prateado brilhante","Gloss Silver"
 valeur_1694,Transparent,Transparente,Trasparente,Transparente,Transparent
@@ -842,7 +841,7 @@ valeur_1832,"14 x 7 x 5,5 cm","14 x 7 x 5,5 cm","14 x 7 x 5,5 cm","14 x 7 x 5,5 
 valeur_1833,"20 x 10 x 7,8 cm","20 x 10 x 7,8 cm","20 x 10 x 7,8 cm","20 x 10 x 7,8 cm","200 x 100 x 78 mm"
 valeur_1834,"10 x 5 x 3,9 cm","10 x 5 x 3,9 cm","10 x 5 x 3,9 cm","10 x 5 x 3,9 cm","100 x 50 x 39 mm"
 valeur_1835,"15 x 15 x 15 cm","15 x 15 x 15 cm","15 x 15 x 15 cm","15 x 15 x 15 cm",150x150x150mm
-valeur_1836,"3 x 9 x 5,5 cm","3 x 9 x 5,5 cm","3 x 9 x 5,5 cm","3 x 9 x 5,5 cm","30x90x55mm"
+valeur_1836,"3 x 9 x 5,5 cm","3 x 9 x 5,5 cm","3 x 9 x 5,5 cm","3 x 9 x 5,5 cm",30x90x55mm
 valeur_1838,"Vinyle transparent DG Floor Wood Grain 3 mm","Vinilo transparente DG Suelo madera Grano 3mm.","PVC trasparente DG Floor Wood Grain 3 mm","Vinil transparente DC Chão Madeira Grão 3 mm","Transparent vinyl G Floor Wood Grain 3mm"
 valeur_1839,"Revêtement PVC non adhésif","Revestimiento PVC no adhesivo","Rivestimento in PVC non adesivo","Revestimento PVC não adesivo","Non-adhesive PVC coating"
 valeur_1840,"Mât à gauche","Mástil a la izquierda","Montante a sinistra","Mastro à esquerda","To the right of the pole"
@@ -888,19 +887,19 @@ valeur_1882,"2 rainages décalés (accordéon)","2 pliegues desplazados (acorde�
 valeur_1883,"2 rainages décalés (roulé)","2 pliegues desplazados (envolvente)","2 cordonature decentrate (avvolte)","2 dobras deslocadas (envolvente)","2 off centre roll folds"
 valeur_1884,"UK 100gsm Premium Smooth","UK 100gsm Premium Smooth","UK 100gsm Premium Smooth","UK 100gsm Premium Smooth","100gsm Premium Smooth"
 valeur_1889,"400g couché demi-mat","400g estucado semi-mate","400g patinata opaca","400g couché semi-mate","400gsm Silk Coated"
-valeur_1890,"Lettrage et découpe complexe mi-chair","Letra y troquelado complejo a la forma","Lettere fustellate complesse con mezzo taglio ","Letra cortada meio-corte","Kiss cut (lettering and complex shapes)"
+valeur_1890,"Lettrage et découpe complexe mi-chair","Letra y troquelado complejo a la forma","Lettere fustellate complesse con mezzo taglio ","Letra pré-cortada","Kiss cut (lettering and complex shapes)"
 valeur_1893,"Mousse des bois et lichen des rennes","Mouse de madera y líquen de renos","Muschio del legno e lichene delle renne","Musgo dos bosques e líquen de renas"
 valeur_1894,Thermorelief,termorelieve,Termorilievo,Termorelevo,"Thermo printing"
 valeur_1895,"Noir + 1 couleur","Negro + 1 color ","Nero+1 colore","Negro + 1 cor","Black + one Pantone colour"
 valeur_1896,Sans,Sin,Senza,Sem,No
 valeur_1897,Thermorelief,Termorelieve,Con,Termorelevo,"Thermo printing"
 valeur_1898,"300g carte graphique couché 1 face","300 gr. cartón gráfico estucado 1 cara","300g cartoncino monopatinato","300g cartão gráfico couché 1 face"
-valeur_1899,Classique,Clásico,"Classico",Clássico,Classic
+valeur_1899,Classique,Clásico,Classico,Clássico,Classic
 valeur_1900,Échantillon,Muestra,Campioni,Amostras,Sample
 valeur_1904,"170g pour pelliculage","170 gr. para plastificado","170g per plastificazione","170 gr. para plastificado"
 valeur_1905,"Taurine, Taurine Cola, Taurine Pomme, Taurine Lemon, Taurine Orange, Vivifruits, Thé vert, Raisin","Taurina, Cola, Manzana, Limón, Naranja, Multifrutas, Té verde, Uva","Taurina, Cola, Mela, Limone, Arancia, Vivifruits, Thé verde, Uva","Taurina, Cola, Maçã, Limão, Laranja, Multifrutas, Chá Verde, Uva"
-valeur_1906,"Vitrophanie fond blanc","Vitrofanía fondo blanco","Vetrofania su fondo bianco","Vitrofania fundo branco","White window sticker"
-valeur_1907,"Vitrophanie fond transparent","Vitrofania fondo transparente","Vetrofania su fondo trasparente","Vitrofania fundo transparente","Transparent window sticker"
+valeur_1906,"Vitrophanie fond blanc","Vitrofanía fondo blanco","Vetrofania su fondo bianco","Espelhado fundo branco","White window sticker"
+valeur_1907,"Vitrophanie fond transparent","Vitrofania fondo transparente","Vetrofania su fondo trasparente","Espelhado fundo transparente","Transparent window sticker"
 valeur_1908,"Sans découpe. Coupé au format de l'amalgame","Sin troquelado. Cortado a la forma del pliego","Senza fustella. Taglio al formato del foglio macchina","Sem cortante. Cortado na forma do plano","Cut to the format"
 valeur_1909,Démonstrateur,Demostración,Dimostratore,Demostração,Demo
 valeur_1914,Bleu,Azul,Blu,Azul,Blue
@@ -928,7 +927,7 @@ valeur_1935,"1 transat + 1 table basse","1 hamaca + 1 mesa baja","1 sdraio + 1 t
 valeur_1936,"Structure gonflable","Estructura hinchable","Struttura gonfiabile","Estrutura inflável"
 valeur_1937,Brillant,Brillante,Lucida,Brilhante,"Gloss varnished"
 valeur_1938,Sans,Sin,Senza,Sem
-valeur_1939,"De 1 à 4 coins ronds","De 1 a 4 cantos redondos","Da 1 a 4 angoli arrotondati","De 1 a 4 cantos redondos"
+valeur_1939,"De 1 à 4 coins ronds","De 1 a 4 cantos redondos","Da 1 a 4 angoli arrotondati","De 1 a 4 cantos redondos","1-4 round corners"
 valeur_1940,Sans,Sin,Senza,Sem
 valeur_1941,"Or à chaud","Oro en caliente","Oro a caldo","Ouro quente",Gold
 valeur_1942,"Argent à chaud","Plata en caliente","Argento a caldo","Prata quente",Silver
@@ -937,22 +936,22 @@ valeur_1944,"1 perforation de 4 mm côté opposé à la piqûre (brochure)","1 p
 valeur_1945,"Doming : vinyle autocollant + résine polyuréthane bi-composante + colle Thermoscellable","Doming: vinilo autoadhesivo + resina poliuretano bi-compuesta + cola termosellable","Etichette resinate: PVC adesivo + poliuretano bicomponente + colla termotrasferimento","Gota de resina: autocolante + resina poliuretano bicomposta + cola termoselável"
 valeur_1946,"Doming : vinyle miroir autocollant + résine polyuréthane + colle acqueuse pour usage intérieur","Doming: vinilo espejo autoadhesivo + resina poliuretano + cola acrílica para uso interior","Etichette resinate: PVC adesivo sfondo a specchio + resina in poliuretano + colla acquosa per uso in","Gota de resina: autocolante espelhado + resina poliuretano + cola aquosa para uso interior"
 valeur_1947,"Doming : vinyle miroir autocollant + résine polyuréthane + colle acrylique pour usage extérieur","Doming: vinilo espejo autoadhesivo + resina poliuretano + cola acrílica para uso exterior","Etichette resinate: PVC adesivo sfondo a specchio + resina in poliuretano + colla acrilica per uso e","Gota de resina: autocolante espelhado + resina poliuretano + cola acrílica para uso exterior"
-valeur_1949,"270g tissu polyester ignifugé M1","270 gr. tela poliéster ignífuga M1","270g tessuto poliestere ignifugo m1","270g tecido poliéster ignífugo M1"
+valeur_1949,"270g tissu polyester ignifugé M1","270 gr. tela poliéster ignífuga M1","270g tessuto poliestere ignifugo m1","270g tecido poliéster ignífugo M1","270gsm M1 fire retardant polyester"
 valeur_1950,"PETG transparent 2 mm",,"PETG trasparente 2 mm","PETG transparente 2mm"
-valeur_1951,"760µ PVC blanc","760µ PVC blanco","760µ PVC bianco","760µ PVC branco"
+valeur_1951,"760µ PVC blanc","760µ PVC blanco","760µ PVC bianco","760µ PVC branco","760µ White PVC"
 valeur_1952,"Thermo sélectif or","Termo selectivo dorado","Lamina a caldo","Termolocalizado dourado"
 valeur_1953,"Thermo sélectif argent","Termo selectivo plateado","Lamina argento","Termolocalizado prateado"
 valeur_1954,Sans,Sin,Senza,Sem
-valeur_1955,LO-CO,LO-CO,LO-CO,LO-CO
-valeur_1956,"HI-CO 2750","HI-CO 2750","HI-CO 2750","HI-CO 2750"
-valeur_1957,"Texturé tissé recto","Textura tela 1 cara","Effetto tessuto fronte","Textura tecido 1 face"
-valeur_1958,"Sur le recto","Sobre el recto","Sul fronte","Sobre a frente"
-valeur_1959,"Sur le verso","Sobre el dorso","Sul retro","Sobre o verso"
-valeur_1960,"Perlé nacré recto","Perlado nacarado 1 cara","Effetto perlato fronte","Perolado nacarado 1 face"
-valeur_1961,"760µ PVC transparent","760µ PVC trasparente","760µ PVC trasparente","760µ PVC trasparente"
-valeur_1962,"Perlé nacré recto verso","Perlado nacarado 2 caras","Effetto perlato fronte/retro","Perolado nacarado 2 faces"
-valeur_1963,"Champ texte et/ou code à barres et/ou numérotation recto","Campo texto y/o código de barras y/o numeración 1 cara","Dati variabili testi e/o codice a barre e/o numerazione fronte","Campo texto e/ou código de barras e/ou numeração frente"
-valeur_1964,"Champ texte et/ou code à barres et/ou numérotation verso","Campo texto y/o código de barras y/o numeración dorso","Dati variabili testi e/o codice a barre e/o numerazione retro","Campo texto e/ou código de barras e/ou numeração verso"
+valeur_1955,LO-CO,LO-CO,LO-CO,LO-CO,Lo-Co
+valeur_1956,"HI-CO 2750","HI-CO 2750","HI-CO 2750","HI-CO 2750","Hi-Co (2750 Oersted)"
+valeur_1957,"Texturé tissé recto","Textura tela 1 cara","Effetto tessuto fronte","Textura tecido 1 face","Snake skin effect"
+valeur_1958,"Sur le recto","Sobre el recto","Sul fronte","Sobre a frente","On the front"
+valeur_1959,"Sur le verso","Sobre el dorso","Sul retro","Sobre o verso","On the reverse"
+valeur_1960,"Perlé nacré recto","Perlado nacarado 1 cara","Effetto perlato fronte","Perolado nacarado 1 face","Gloss pearlescent - front"
+valeur_1961,"760µ PVC transparent","760µ PVC trasparente","760µ PVC trasparente","760µ PVC trasparente","760µ Transparent PVC"
+valeur_1962,"Perlé nacré recto verso","Perlado nacarado 2 caras","Effetto perlato fronte/retro","Perolado nacarado 2 faces","Gloss pearlescent - both sides"
+valeur_1963,"Champ texte et/ou code à barres et/ou numérotation recto","Campo texto y/o código de barras y/o numeración 1 cara","Dati variabili testi e/o codice a barre e/o numerazione fronte","Campo texto e/ou código de barras e/ou numeração frente","Text / Bar-code / Numbering - front"
+valeur_1964,"Champ texte et/ou code à barres et/ou numérotation verso","Campo texto y/o código de barras y/o numeración dorso","Dati variabili testi e/o codice a barre e/o numerazione retro","Campo texto e/ou código de barras e/ou numeração verso","Text / Bar-code / Numbering - reverse"
 valeur_1965,"PVC + 1 finition","PVC + 1 acabado","PVC + 1 finitura","PVC + 1 acabamento","PVC + 1 finish"
 valeur_1967,Sans,Sin,Senza,Sem
 valeur_1968,Avec,Con,Con,Com
@@ -963,4 +962,18 @@ valeur_1983,"Aluminium miroir 3 mm",,,,"Mirror Aluminium - 3mm thick"
 valeur_1984,"Aluminium argent brossé 3 mm",,,,"Brushed Silver Aluminium - 3mm thick"
 valeur_1985,"Aluminium or brossé 3 mm",,,,"Brushed Gold Aluminium - 3mm thick"
 valeur_1986,"1 teinte",,,,"1 Tint"
-valeur_1989,"en données variables",,,
+valeur_1989,"en données variables",,,,"With variable data"
+valeur_1990,"Adhésif contrecollé sur rouleau PVC gris",,,
+valeur_1993,"Tissu 100% coton - Fil belcoro®",,,
+valeur_1998,Small,,,
+valeur_2000,Medium,,,
+valeur_2001,Large,,,
+valeur_2002,"Extra Large",,,
+valeur_2003,"Extra extra Large",,,
+valeur_2005,"Face avant jusqu'au A5",,,
+valeur_2006,"Face avant jusqu'au A3",,,
+valeur_2007,"Face arrière jusqu'au A3",,,
+valeur_2008,"Face avant jusqu'au A5 / Face arrière jusqu'au A3",,,
+valeur_2009,"Face avant jusqu'au A3 / Face arrière jusqu'au A3",,,
+valeur_2010,"Sans emballage individuel",,,
+valeur_2011,"Avec emballage individuel",,,
