@@ -71,16 +71,21 @@
         </dl>
     </div>
     <hr/>
+    {% set total_quantity = order.quantity %}
     <div id="product">
         <h2>{% trans "Descriptif : " %}</h2>
-
-        <h3>{{ product.family }} {{ product.subfamily }} {{ product.name }}</h3>
-        <dl id="product-options">
-            {% for i, option in product.options %}
-                <dt>{{ option.label }}</dt>
-                <dd>{{ option.value }} <em>{{ option.unit }}</em></dd>
-            {% endfor %}
-        </dl>
+        {% if partner.is_partner != 0 %}
+            {% if partner.id != 5 %}
+                {% set total_quantity = partner.data.quantity %}
+            {% endif %}
+            {% include 'resources/order-receipt-subview/details-partner.twig' %}
+        {% elseif partner.is_timbroshop != 0 %}
+            {% set total_quantity = partner.data.quantity %}
+            {% include 'resources/order-receipt-subview/details-timbroshop.twig' %}
+        {% else %}
+            {% include 'resources/order-receipt-subview/details-base.twig' %}
+        {% endif %}
+        <p>&nbsp;</p>
     </div>
 
     <div id="order">
@@ -135,7 +140,7 @@
             <tbody>
             <tr>
                 <td></td>
-                <td class="number">{{ order.quantity }} {{ order.unit.abbr }}</td>
+                <td class="number">{{ total_quantity }} {{ order.unit.abbr }}</td>
                 <td class="money">{{ product.et_amount|formatmoney }}</td>
                 <td class="money">{{ product.vat_amount|formatmoney }}</td>
                 <td class="money">{{ product.ati_amount|formatmoney }}</td>

@@ -1,49 +1,28 @@
 ,FR,ES,IT,PT,GB
-valeur_court_611,1×4mm,1×4mm,1×4mm,1×4mm,1×4mm
-valeur_court_432,2×4mm,2×4mm,2×4mm,2×4mm,2×4mm
-valeur_court_433,2×4+œ,2×4+œ,2×4+œ,2×4+œ,2×4+œ
-valeur_court_434,4×◻,4×◻,4×◻,4×◻,4×◻
-valeur_court_435,4×◻+œ,4×◻+œ,4×◻+œ,4×◻+œ,4×◻+œ
-valeur_court_1658,7RP,7PP,7CP,7PP,7PP
-valeur_court_533,5RP,5PP,5CP,5PP,5PP
-valeur_court_534,6RP,6PP,6CP,6PP,6PP
-valeur_court_535,xRC,xHC,XCXE,xHC,xRC
-valeur_court_536,*xRC,*xHC,XCXP,*xHC,*xRC
-valeur_court_241,3RP,3TP,3CPR,3TP,3RP
-valeur_court_242,3RA,3TA,3CF,3TA,3RA
-valeur_court_243,3RR,3TC,3CA,3TC,3RR
-valeur_court_244,4RP,4HP,4CP,4HP,4RP
 valeur_court_202,1RC,1HC,1CC,1HC,1RC
 valeur_court_203,1RD,1HD,1CD,1HD,1RD
 valeur_court_204,2RR,2HCR,2CA,2HCR,2RR
 valeur_court_205,2RA,2HA,2CF,2HA,2RA
 valeur_court_206,2RF,2HV,2CFN,2HV,2RF
-valeur_court_255,|||,|||,3pret |||,|||,|||
 valeur_court_207,1…,1pret,1pret,1pret,1…
 valeur_court_208,2…,2pret |||,2pret |||,2pret |||,2…
-valeur_court_526,4…,4pret |||,4pret |||,4pret |||,4…
-valeur_court_527,5…,5pret |||,5pret |||,5pret |||,5…
-valeur_court_529,X…N,XpretP,XpretP,XpretP,X…N
-valeur_court_530,X…E,XpretE,XpretE,XpretE,X…E
-valeur_court_1581,1…,1pret,1pret,1pret,1…
-valeur_court_1551,0,┴,┴,┴,0
+valeur_court_241,3RP,3TP,3CPR,3TP,3RP
+valeur_court_242,3RA,3TA,3CF,3TA,3RA
+valeur_court_243,3RR,3TC,3CA,3TC,3RR
+valeur_court_244,4RP,4HP,4CP,4HP,4RP
+valeur_court_245,Sans,Sans,Senza,Sans,No
 valeur_court_248,1PC,1PC,1PC,1PC,1PC
-valeur_court_258,4PA,4PA,2PF,4PA,4PA
-valeur_court_259,5PA,5PA,5PF,5PA,5PA
 valeur_court_252,2PR,2PR,2PA,2PR,2PR
 valeur_court_254,3PR,3PR,3PA,3PR,3PR
-valeur_court_245,Sans,Sans,Senza,Sans,No
-valeur_court_563,1+2PA,1+2PA,1P+2PF,1+2PA,1+2PA
-valeur_court_564,1+2PR,1+2PC,1P+2PA,1+2PC,1+2PR
-valeur_court_565,1+3PA,1+3PA,1P+3PF,1+3PA,1+3PA
-valeur_court_566,1+3PR,1+3PC,1P+3PA,1+3PC,1+3PR
-valeur_court_567,2PA+2PR,2PA+2PC,2PF+2PA,2PA+2PC,2PA+2PR
-valeur_court_568,3PA+2PR,3PA+2PC,3PF+2PA,3PA+2PC,3PA+2PR
-valeur_court_503,3PA,3PA,3PF,3PA,3PA
-valeur_court_504,3PA+1PC,3PA+1PC,3PF+1PX,3PA+1PC,3PA+1PC
+valeur_court_255,|||,|||,3pret |||,|||,|||
+valeur_court_258,4PA,4PA,2PF,4PA,4PA
+valeur_court_259,5PA,5PA,5PF,5PA,5PA
+valeur_court_432,2×4mm,2×4mm,2×4mm,2×4mm,2×4mm
+valeur_court_433,2×4+œ,2×4+œ,2×4+œ,2×4+œ,2×4+œ
+valeur_court_434,4×◻,4×◻,4×◻,4×◻,4×◻
+valeur_court_435,4×◻+œ,4×◻+œ,4×◻+œ,4×◻+œ,4×◻+œ
 valeur_court_450,2PA,2PA,2PF,2PA,2PA
 valeur_court_451,2PF,2PV,2PFN,2PV,2PF
-valeur_court_511,2PA+1PC,2PA+1PC,2PF+1PX,2PA+1PC,2PA+1PC
 valeur_court_484,3PP,3PP,3PP,3PP,3PP
 valeur_court_485,1PD,1PD,1PD,1PD,1PD
 valeur_court_486,6PA,6PA,6PF,6PA,6PA
@@ -54,6 +33,30 @@ valeur_court_490,5PA+2PR,5PA+2PR,5PF+2PA,5PA+2PR,5PA+2PR
 valeur_court_491,2PECO,2PECO,2PECO,2PECO,2PECO
 valeur_court_492,2PC,2PC,2PX,2PC,2PC
 valeur_court_493,3PC,3PC,3PX,3PC,3PC
-valeur_court_1264,6PA+2PR,6PA+2PE,6PF+2PA,6PA+2PE,6PA+2PR
-valeur_court_1657,7PA,7PA,7PF,7PA,7PA
+valeur_court_503,3PA,3PA,3PF,3PA,3PA
+valeur_court_504,3PA+1PC,3PA+1PC,3PF+1PX,3PA+1PC,3PA+1PC
+valeur_court_511,2PA+1PC,2PA+1PC,2PF+1PX,2PA+1PC,2PA+1PC
+valeur_court_526,4…,4pret |||,4pret |||,4pret |||,4…
+valeur_court_527,5…,5pret |||,5pret |||,5pret |||,5…
+valeur_court_529,X…N,XpretP,XpretP,XpretP,X…N
+valeur_court_530,X…E,XpretE,XpretE,XpretE,X…E
+valeur_court_533,5RP,5PP,5CP,5PP,5PP
+valeur_court_534,6RP,6PP,6CP,6PP,6PP
+valeur_court_535,xRC,xHC,XCXE,xHC,xRC
+valeur_court_536,*xRC,*xHC,XCXP,*xHC,*xRC
+valeur_court_563,1+2PA,1+2PA,1P+2PF,1+2PA,1+2PA
+valeur_court_564,1+2PR,1+2PC,1P+2PA,1+2PC,1+2PR
+valeur_court_565,1+3PA,1+3PA,1P+3PF,1+3PA,1+3PA
+valeur_court_566,1+3PR,1+3PC,1P+3PA,1+3PC,1+3PR
+valeur_court_567,2PA+2PR,2PA+2PC,2PF+2PA,2PA+2PC,2PA+2PR
+valeur_court_568,3PA+2PR,3PA+2PC,3PF+2PA,3PA+2PC,3PA+2PR
+valeur_court_611,1×4mm,1×4mm,1×4mm,1×4mm,1×4mm
 valeur_court_825,6PA+1PC,6PA+1PC,6PF+1PX,6PA+1PC,6PA+1PC
+valeur_court_1264,6PA+2PR,6PA+2PE,6PF+2PA,6PA+2PE,6PA+2PR
+valeur_court_1551,0,┴,┴,┴,0
+valeur_court_1581,1…,1pret,1pret,1pret,1…
+valeur_court_1658,7RP,7PP,7CP,7PP,7PP
+valeur_court_1882,2RDA,,,,
+valeur_court_1883,2RDR,,,,
+valeur_court_1991,5PA+2PR,,,,
+valeur_court_1992,5PA+2PA,,,,

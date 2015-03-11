@@ -53,6 +53,14 @@ $app->get("/:name/:id.xml", function ($name, $id) use ($app) {
     }
 });
 
+$app->get("/:name/:id.json", function ($name, $id) use ($app) {
+    $app->contentType('text/json');
+    $resource = \Exaprint\GenPDF\Resources\Factory::createFromName($name);
+    if ($resource && $resource->fetchFromID($id)) {
+        echo json_encode($resource->getData());
+    }
+});
+
 $app->get("/:name/:id.pdf", function ($name, $id) use ($app) {
 
     $language = \Locale\Helper::$current;

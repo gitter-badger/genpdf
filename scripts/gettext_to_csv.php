@@ -6,47 +6,49 @@
  * Time: 09:45
  */
 
+use Exaprint\DAL\DB;
+
 require '../vendor/autoload.php';
 
-$languages = ['fr_FR', 'es_ES', 'it_IT', 'pt_PT', 'en_GB'];
+$_SERVER['exaprint_env'] = 'prod';
 
-/** @var \Gettext\Translations[] $sources */
-$sources = [];
+$select = "
+    SELECT DISTINCT
+      idproduitoptionvaleur
+      , idlangue
+      , libelletraduit
+    FROM VUE_PRODUIT_OPTION_VALEUR pov
+      JOIN TBL_PRODUIT p ON pov.IDProduit = p.IDProduit
+    WHERE idlangue IN (1, 2, 5, 6, 9)
+          AND p.IDproduitOffre = 1
+          AND ISNULL(p.EstSupp, 0) = 0
+";
+$stmt   = DB::get()->query($select);
+$dto    = $stmt->fetchAll();
 
-$translations = [
-    'header' => [
-        'k' => 'key',
-        'fr_FR' => 'fr_FR',
-        'es_ES' => 'es_ES',
-        'it_IT' => 'it_IT',
-        'pt_PT' => 'pt_PT',
-        'en_GB' => 'en_GB'
-    ],
-];
+$translations = [];
 
+foreach ($dto as $d) {
+    $tab      = [
+        1 => 1,
+        2 => 2,
+        5 => 3,
+        6 => 4,
+        9 => 5,
+    ];
+    $position = $tab[$d->idlangue];
 
-define('TRANSLATIONS_FILENAME', '../locale/%s/LC_MESSAGES/messages.po');
+    $id = 'valeur_' . $d->idproduitoptionvaleur;
 
-foreach($languages as $language){
-    $sources[$language] = Gettext\Extractors\Po::fromFile(sprintf(TRANSLATIONS_FILENAME, $language));
-}
-
-foreach($languages as $language){
-    /** @var $entry \Gettext\Translation */
-    foreach ($sources[$language] as $entry){
-        if(!isset($translations[$entry->getOriginal()]))
-            $translations[$entry->getOriginal()] = ['k' => $entry->getOriginal()];
-
-        $translations[$entry->getOriginal()][$language] = $entry->getTranslation();
+    if (!array_key_exists($id, $translations)) {
+        $translations[$id] = [$id, "", "", "", ""];
     }
+    $translations[$id][$position] = $d->libelletraduit;
 }
 
-\Locale\Translations::$path = '../locale';
+$csv = fopen('output.csv', 'w+');
 
-$csv = fopen(\Locale\Translations::$path . '/main.csv', 'w+');
-
-foreach($translations as $translation){
-    fputcsv($csv, $translation, ";", '"');
+fputcsv($csv, ["", "FR", "ES", "IT", "PT", "UK"], ",", '"');
+foreach ($translations as $translation) {
+    fputcsv($csv, $translation, ",", '"');
 }
-
-chmod(\Locale\Translations::$path . '/main.csv', 0777);

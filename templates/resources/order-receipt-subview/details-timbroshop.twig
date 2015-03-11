@@ -1,0 +1,14 @@
+<h3>{{ product.name }}</h3>
+<ul>
+    {% for i, model in partner.data.models %}
+        <li>{{ model.quantity }} {{ order.unit.abbr }} {{ model.title }} : <span class="money">{{ model.price|formatmoney }}</span></li>
+    {% endfor %}
+</ul>
+<dl id="product-options">
+    {% for i, option in product.options %}
+        {% if (option.id not in [97]) %}
+            <dt>{{ option.label }}</dt>
+            <dd>{{ option.value }} <em>{{ option.unit }}</em></dd>
+        {% endif %}
+    {% endfor %}
+</dl>

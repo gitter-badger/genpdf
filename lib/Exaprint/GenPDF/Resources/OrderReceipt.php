@@ -47,6 +47,18 @@ class OrderReceipt extends Resource implements IResource
               TBL_DEVIS.Intitule                                                AS [order.devis_reference],
               [regulation].LibelleTraduit                                       AS [order.regulation],
               TBL_COMMANDE.Solde                                                AS [order.balance],
+              CASE
+                WHEN ISNULL([partenaire].IDCommandePartenaire, 0) > 0 THEN 1
+                ELSE 0
+              END                                                               AS [partner.is_partner],
+              CASE
+                WHEN ISNULL([partenaire].IDCommandePartenaire, 0) = 0
+                AND ISNULL(TBL_COMMANDE.IDCommandeTimbroShop, 0) > 0 THEN 1
+                ELSE 0
+              END                                                               AS [partner.is_timbroshop],
+              [partenaire].IDPartenaire                                         AS [partner.id],
+              [partenaire].IDCommandePartenaire                                 AS [partner.id_commande],
+              TBL_COMMANDE.IDCommandeTimbroShop                                 AS [partner.id_timbroshop],
               TBL_COMMANDE.IDClient                                             AS [client.id],
               [client].RaisonSociale                                            AS [client.company_name],
               [client].IdTva                                                    AS [client.id_tva],
@@ -105,9 +117,13 @@ class OrderReceipt extends Resource implements IResource
               END                                                               AS [delivery.address.post_code],
               cert.Nom                                                          AS [cert.name],
               ISNULL(cert_societe.NumeroCertification, '')                      AS [cert.number],
-              ISNULL(cert_societe.IndicationCertification, '')                  AS [cert.indication]
+              ISNULL(cert_societe.IndicationCertification, '')                  AS [cert.indication],
+              [language].NormeBCP                                               AS [locale]
             FROM
               TBL_COMMANDE
+
+              LEFT JOIN TBL_COMMANDE_PARTENAIRE as [partenaire]
+                ON ([partenaire].IDCommandePartenaire = TBL_COMMANDE.IDCommandePartenaire)
 
               JOIN TBL_CLIENT AS [client]
                 ON ([client].IDClient = TBL_COMMANDE.IDClient)
@@ -160,6 +176,9 @@ class OrderReceipt extends Resource implements IResource
               LEFT JOIN TBL_VILLE AS [delivery_city]
                 ON [delivery_city].IDVille = [delivery].IDVille
 
+              LEFT JOIN TBL_LANGUE AS [language]
+                ON [language].IDLangue = $language
+
               LEFT JOIN TBL_PAYS
                 ON TBL_PAYS.IDPays = [delivery].IDPays
 
@@ -201,6 +220,28 @@ class OrderReceipt extends Resource implements IResource
             $data = $combinator->process($r->fetchAll(\PDO::FETCH_ASSOC));
 
             if (isset($data[$IDCommande])) {
+                // Call api-partners if necessary
+                if($data[$IDCommande]->partner->is_partner > 0) {
+                    $data[$IDCommande]->partner->data = json_decode(
+                        file_get_contents(
+                            sprintf(
+                                "%s/order-details/%s.json",
+                                $_SERVER["url_api_partners"],
+                                $data[$IDCommande]->partner->id_commande
+                            )
+                        )
+                    );
+                } else if($data[$IDCommande]->partner->is_timbroshop > 0) {
+                    $data[$IDCommande]->partner->data = json_decode(
+                        file_get_contents(
+                            sprintf(
+                                "%s/order-details/timbroshop/%s.json",
+                                $_SERVER["url_api_partners"],
+                                $data[$IDCommande]->partner->id_timbroshop
+                            )
+                        )
+                    );
+                }
                 $this->_data = $data[$IDCommande];
                 return true;
             }
