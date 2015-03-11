@@ -29,7 +29,9 @@ class NegoceFinitions
 
         $last = null;
 
-        foreach ($details as $n => &$d) {
+        for ($n = 0; $n < min(5, count($details)); $n++) {
+
+            $d = $details[$n];
 
             $last = ($n > 0) ? $details[$n - 1] : null;
 
@@ -39,11 +41,9 @@ class NegoceFinitions
                 // Si une finition existe, on la finalise
                 if (isset($finition)) {
 
-                    // on finalise la finition
-                    //print_r("<br /><br />");
-                    //print_r($last);
+                    // on finalise la couleur
                     if ($finition->Type == 1 && $last->Encadre == 2) {
-                        if (1) {
+                        if ($last->EstRecto) {
                             $label = $finition->getA2();
                             $finition->setA2($label . '0');
                         }
