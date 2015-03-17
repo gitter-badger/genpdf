@@ -110,9 +110,13 @@ class NegoceFinitions
                                 $a2    = $finition->getA2();
                                 $finition->setA2($a2 . $title);
                                 break;
-                            case 3:
+                            case 3: // gestion du R/V
                                 $title = (!is_null($nextEntry->LibelleValeurPredefinie)) ? $nextEntry->LibelleValeurPredefinie : $nextEntry->LibelleValeur;
-                                $finition->setA3($title);
+                                $rv = '';
+                                $rv .= ($nextEntry->EstRecto) ? 'R°': '';
+                                $rv .= ($nextEntry->EstVerso) ? 'V°': '';
+                                if (strlen($rv) > 0) $rv = ' ' . $rv;
+                                $finition->setA3($title . $rv);
                                 break;
                         }
                     } // si le bloc de l'entrée est 4
