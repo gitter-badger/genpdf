@@ -485,7 +485,7 @@ class Commande
         $p       = new Position($this->_x($offsetX + $j * $this->layout->cellule()), $this->_y($offsetY + $i * $this->layout->cellule()));
 
         if ($class = $this->layout->cGrilleCellules[$i][$j]) {
-            $class = '\Exaprint\GenPDF\FicheDeFabrication\Amalgame\Cellule\\' . $class;
+            $class = '\Exaprint\GenPDF\FicheDeFabrication\Common\Cellule\\' . $class;
             if (class_exists($class)) {
                 $ref     = new \ReflectionClass($class);
                 $cellule = $ref->newInstance();
