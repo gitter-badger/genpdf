@@ -21,124 +21,137 @@ class NegoceFinitions
 
     public function __construct($planche)
     {
-        $lines = 0;
+        // désigne le tableau des entrées
+        // ces informations proviennent de la base de données et seront "converties" en finitions
+        $entries = NegoceDAL::getFinitions($planche['IDPlanche']);
 
-        $details = NegoceDAL::getFinitions($planche['IDPlanche']);
-
+        // désigne la finition en cours
+        // une finition est un bloc s'étalant sur une seule ligne, et possédant plusieurs colonnes.
         $finition = null;
 
-        $last = null;
+        // désigne le nombre de finitions déjà implémentées
+        $nbLines = 0;
 
-        for ($n = 0; $n < min(5, count($details)); $n++) {
+        // désigne la position du curseur, au niveau du tableau des entrées
+        $currEntry = -1;
 
-            $d = $details[$n];
+        // 2 conditions d'arrêts :
+        // - dès qu'on atteint 5 finitions déjà implémentées
+        // - dès qu'on atteint la fin du tableau des entrées
+        while ($nbLines < 5 && $currEntry + 1 < count($entries)) {
 
-            $last = ($n > 0) ? $details[$n - 1] : null;
+            // on déplace le curseur sur la prochaine entrée
+            $entry = $entries[++$currEntry];
 
-            // si on passe à un nouveau bloc, ou à une nouvelle ligne du bloc
-            if (is_null($last) || $last->Bloc != $d->Bloc || $last->Ligne != $d->Ligne) {
-
-                // Si une finition existe, on la finalise
-                if (isset($finition)) {
-
-                    // on finalise la couleur
-                    if ($finition->Type == 1 && $last->Encadre == 2) {
-                        if ($last->EstRecto) {
-                            $label = $finition->getA2();
-                            $finition->setA2($label . '0');
-                        }
-                        if ($last->EstVerso) {
-                            $label = $finition->getA2();
-                            $finition->setA2('0+' . $label);
-                        }
-                    }
-
-                    $this->finitions[] = $finition;
-
-                    // nouvelle ligne
-                    $lines++;
-                }
-
-                // on cherche quel genre de finition créer
-                if (in_array($d->Bloc, [1, 2, 3])) {
-                    if ($d->Ligne == 1) {
-                        $finition       = new Finition1();
-                        $finition->Type = 1;
-                    } else {
-                        $finition       = new Finition2();
-                        $finition->Type = 2;
-                    }
-
-                    // titre seulement pour les finitions 1 & 2
-                    $title = ($d->IDProduitOptionNecessairePourTitreAlternatif) ? $d->TitreAlternatif : $d->Titre;
-                    $finition->setTitle($title);
-
+            // en fonction du Bloc et de la ligne, on en déduit le type de finition
+            if (in_array($entry->Bloc, [1, 2, 3])) {
+                if ($entry->Ligne == 1) {
+                    $finition       = new Finition1();
+                    $finition->Type = 1;
                 } else {
-                    $finition       = new Finition3();
-                    $finition->Type = 3;
+                    $finition       = new Finition2();
+                    $finition->Type = 2;
+                }
+
+                // pour les finitions de type 1 et 2, on met à jour le titre...
+                $title = (!is_null($entry->IDProduitOptionNecessairePourTitreAlternatif)) ? $entry->TitreAlternatif : $entry->Titre;
+                $finition->setTitle($title);
+
+            } else {
+                $finition       = new Finition3();
+                $finition->Type = 3;
+
+                // pour les finitions de type 3, on met à jour la celulle Option1...
+                $title = (!is_null($entry->IDProduitOptionNecessairePourTitreAlternatif)) ? $entry->TitreAlternatif : $entry->Titre;
+                $finition->setOption1($title);
+
+            }
+
+            // ...et la celulle A1.
+            $title = (!is_null($entry->LibelleValeurPredefinie)) ? $entry->LibelleValeurPredefinie : $entry->LibelleValeur;
+            $finition->setA1($title);
+
+            // désigne le fait qu'on a plus d'autres entrées pour compléter la finition en cours
+            $noOthers = false;
+
+            // 2 conditions d'arrêt :
+            // - lorsqu'on a plus d'autres entrées pour compléter la finition en cours
+            // - lorsqu'on atteint la fin du tableau des entrées
+            while (!$noOthers && $currEntry + 1 < count($entries)) {
+
+                // on déplace le curseur sur la prochaine entrée
+                $nextEntry = $entries[++$currEntry];
+
+                // on regarde que l'entrée ne corresponde pas à une nouvelle finition
+                // si c'est le cas, son n° de Bloc ou de Ligne différent
+                if ($nextEntry->Bloc != $entry->Bloc || $nextEntry->Ligne != $entry->Ligne) {
+
+                    // on déplace le curseur en arrière
+                    $currEntry--;
+
+                    // prêt à finaliser la finition
+                    $noOthers = true;
+                }
+
+                // si l'entrée correspond à la nouvelle finition
+                if (!$noOthers) {
+
+                    // si le Bloc de l'entrée n'est pas 4
+                    if ($nextEntry->Bloc < 4) {
+
+                        // on complète la finition en cours avec les celulles A1, A2 et A3
+                        switch ($nextEntry->Encadre) {
+                            case 1:
+                                $title = (!is_null($nextEntry->LibelleValeurPredefinie)) ? $nextEntry->LibelleValeurPredefinie : $nextEntry->LibelleValeur;
+                                $finition->setA1($title);
+                                break;
+                            case 2: // gestion de la couleur
+                                $title = (!is_null($nextEntry->LibelleValeurPredefinie)) ? $nextEntry->LibelleValeurPredefinie : $nextEntry->LibelleValeur;
+                                $a2    = $finition->getA2();
+                                $finition->setA2($a2 . $title);
+                                break;
+                            case 3:
+                                $title = (!is_null($nextEntry->LibelleValeurPredefinie)) ? $nextEntry->LibelleValeurPredefinie : $nextEntry->LibelleValeur;
+                                $finition->setA3($title);
+                                break;
+                        }
+                    } // si le bloc de l'entrée est 4
+                    else {
+
+                        $title = (!is_null($nextEntry->IDProduitOptionNecessairePourTitreAlternatif)) ? $nextEntry->TitreAlternatif : $nextEntry->Titre;
+                        $finition->setOption2($title);
+
+                        $title = (!is_null($nextEntry->LibelleValeurPredefinie)) ? $nextEntry->LibelleValeurPredefinie : $nextEntry->LibelleValeur;
+                        $finition->setA2($title);
+
+                        // prêt à finaliser la finition
+                        $noOthers = true;
+                    }
                 }
             }
 
-            // gestion de l'encadré
-            switch ($d->Encadre) {
-                case 0:
-                    $title = ($d->IDProduitOptionNecessairePourTitreAlternatif) ? $d->TitreAlternatif : $d->Titre;
-                    $finition->setTitle($title);
-                    break;
-                case 1:
-                    $title = ($d->LibelleValeurPredefinie) ? $d->LibelleValeurPredefinie : $d->LibelleValeur;
-                    $finition->setA1($title);
-                    break;
-                case 2:
-                    $title = ($d->LibelleValeurPredefinie) ? $d->LibelleValeurPredefinie : $d->LibelleValeur;
-                    $finition->setA2($title);
-                    break;
-                case 3:
-                    $title = ($d->LibelleValeurPredefinie) ? $d->LibelleValeurPredefinie : $d->LibelleValeur;
-                    $finition->setA3($title);
-                    break;
+            // si c'est une finition de type 1 ou 2, on compléte la cellule A2 (gestion de la couleur)
+            if (in_array($finition->Type, [1, 2])) {
+                $a2 = $finition->getA2();
+                if (!empty($a2) && strpos($a2, '+') === false) {
+                    $finition->setA2('0+' . $a2);
+                }
+                if (substr($a2, -1) == '+') {
+                    $finition->setA2($a2 . '0');
+                }
             }
 
-        }
-
-        if (!is_null($finition)) {
+            // on finalise la finition
             $this->finitions[] = $finition;
 
-            // nouvelle ligne
-            $lines++;
+            // on incrémente la finition implémentée
+            $nbLines++;
+
         }
 
-        /*
-        $finition = new Finition1();
-        $finition->setTitle('COUV');
-        $finition->setA1('350g Mat Condat Périgord');
-        $finition->setA2('4+0');
-        $finition->setA3('Bril. R°');
-        $this->finitions[] = $finition;
-        $lines++;
-
-        $finition = new Finition2();
-        $finition->setTitle('+');
-        $finition->setA1('Vernis UV sélectif : Vernis UV sélectif 3D');
-        $finition->setA2('R');
-        $this->finitions[] = $finition;
-        $lines++;
-
-        $options = ['Numérotation', 'Découpe', 'Test'];
-        for ($i = 0; $i < count($options); $i += 2) {
-            $finition = new Finition3();
-            $finition->setOption1('+');
-            $finition->setA1($options[$i]);
-            if ($i + 1 < count($options)) {
-                $finition->setOption2('+');
-                $finition->setA2($options[$i + 1]);
-            }
-            $this->finitions[] = $finition;
-            $lines++;
-        }
-        */
-
-        $this->nbLines = $lines;
+        // on retourne le nombre de finitions implémentées
+        // important, car permet de pouvoir placer le prochain bloc directement après
+        $this->nbLines = $nbLines;
     }
 
     public function draw(\TCPDF $pdf, Position $position)
