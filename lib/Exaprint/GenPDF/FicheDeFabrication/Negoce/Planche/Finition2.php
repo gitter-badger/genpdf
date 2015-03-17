@@ -11,6 +11,7 @@ namespace Exaprint\GenPDF\FicheDeFabrication\Negoce\Planche;
 
 use Exaprint\GenPDF\FicheDeFabrication\Common\Planche\Cellule;
 use Exaprint\GenPDF\FicheDeFabrication\Common\Planche\Finition;
+use Exaprint\GenPDF\FicheDeFabrication\Common\Planche\ImageCellule;
 use Exaprint\TCPDF\Cell;
 use Exaprint\TCPDF\Color;
 use Exaprint\TCPDF\Dimensions;
@@ -37,11 +38,8 @@ class Finition2 extends Finition
         $cellA1->align           = Cell::ALIGN_LEFT;
         $cellA1->vAlign          = Cell::VALIGN_CENTER;
 
-        $cellA2                       = new Cellule();
-        $cellA2->dimensions           = new Dimensions(10, 11);
-        $cellA2->fillColor            = new FillColor(Color::white());
-        $cellA2->valueFont            = new Font('bagc-light', 12, new TextColor(Color::black()));
-        $cellA2->vAlign               = Cell::VALIGN_CENTER;
+        $cellA2             = new ImageCellule();
+        $cellA2->dimensions = new Dimensions(10, 11);
 
         $this->_cellTitle = $cellTitle;
         $this->_cellA1    = $cellA1;
@@ -64,9 +62,13 @@ class Finition2 extends Finition
         $this->_cellA1->value = $label;
     }
 
-    public function setA2($label)
+    public function setA2($recto, $verso)
     {
-        $this->_cellA2->value = $label;
+        if ($verso) {
+            $this->_cellA2->src = '../assets/RectoVerso.png';
+        } else if ($recto) {
+            $this->_cellA2->src = '../assets/Recto.png';
+        }
     }
 
 

@@ -71,6 +71,10 @@ class NegoceFinitions
             $title = (!is_null($entry->LibelleValeurPredefinie)) ? $entry->LibelleValeurPredefinie : $entry->LibelleValeur;
             $finition->setA1($title);
 
+            if ($finition->Type == 2) {
+                $finition->setA2($entry->EstRecto, $entry->EstVerso);
+            }
+
             // désigne le fait qu'on a plus d'autres entrées pour compléter la finition en cours
             $noOthers = false;
 
@@ -93,6 +97,14 @@ class NegoceFinitions
                     $noOthers = true;
                 }
 
+                // gestion du recto/verso des finitions de type 2
+                if ($finition->Type == 2) {
+                    $finition->setA2($nextEntry->EstRecto, $nextEntry->EstVerso);
+
+                    // prêt à finaliser la finition
+                    $noOthers = true;
+                }
+
                 // si l'entrée correspond à la nouvelle finition
                 if (!$noOthers) {
 
@@ -105,10 +117,13 @@ class NegoceFinitions
                                 $title = (!is_null($nextEntry->LibelleValeurPredefinie)) ? $nextEntry->LibelleValeurPredefinie : $nextEntry->LibelleValeur;
                                 $finition->setA1($title);
                                 break;
-                            case 2: // gestion de la couleur
-                                $title = (!is_null($nextEntry->LibelleValeurPredefinie)) ? $nextEntry->LibelleValeurPredefinie : $nextEntry->LibelleValeur;
-                                $a2    = $finition->getA2();
-                                $finition->setA2($a2 . $title);
+                            case 2:
+                                // gestion de la couleur seulement pour les finitions de type 1
+                                if ($finition->Type == 1) {
+                                    $title = (!is_null($nextEntry->LibelleValeurPredefinie)) ? $nextEntry->LibelleValeurPredefinie : $nextEntry->LibelleValeur;
+                                    $a2    = $finition->getA2();
+                                    $finition->setA2($a2 . $title);
+                                }
                                 break;
                             case 3: // gestion du R/V
                                 $title = (!is_null($nextEntry->LibelleValeurPredefinie)) ? $nextEntry->LibelleValeurPredefinie : $nextEntry->LibelleValeur;
@@ -134,8 +149,8 @@ class NegoceFinitions
                 }
             }
 
-            // si c'est une finition de type 1 ou 2, on compléte la cellule A2 (gestion de la couleur)
-            if (in_array($finition->Type, [1, 2])) {
+            // si c'est une finition de type 1, on compléte la cellule A2 (gestion de la couleur)
+            if ($finition->Type == 1) {
                 $a2 = $finition->getA2();
                 if (!empty($a2) && strpos($a2, '+') === false) {
                     $finition->setA2('0+' . $a2);
