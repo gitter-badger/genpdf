@@ -74,10 +74,10 @@ class Details extends Commande
         $c->x               = $this->_x();
         $c->y               = $this->_y(5);
         $c->cellHeightRatio = new CellHeightRatio(0.9);
-        $c->width           = $this->layout->wBloc() - $this->layout->cellule() * $this->layout->cGrilleColCount;
+        $c->width           = $this->layout->wBloc();
         $c->isHtml          = true;
         $c->font = new Font('bagc-light', 15);
-        $c->text      = 'TEST';
+        $c->text      = NegoceDAL::displayDetails($this->commande['IDCommande']);
         $c->textColor = new TextColor(Color::black());
         $c->draw($this->pdf);
     }

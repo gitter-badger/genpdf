@@ -41,6 +41,56 @@ class NegoceDAL extends DAL
     }
 
     /**
+     * @param $IDCommande
+     * @return mixed
+     */
+    public static function displayDetails($IDCommande)
+    {
+        $stmt = DB::get()->prepare("
+            SELECT
+                Options.ProduitOption                                    AS label
+              , CASE
+                WHEN (Options.ProduitOptionValeur IS NULL)
+                THEN CAST(Options.Valeur AS VARCHAR)
+                ELSE Options.ProduitOptionValeur
+                END                                                      AS value
+              , Options.Sigle                                            AS unit
+              , dbo.f_RetourneFormatCommande(TBL_COMMANDE.IDCommande, 1) AS format
+              , TBL_PRODUIT_LIBELLE_FRONT_TRAD.LibelleTraduit            AS libelleProduit
+            FROM TBL_COMMANDE
+              JOIN TBL_CLIENT AS [client] ON ([client].IDClient = TBL_COMMANDE.IDClient)
+              JOIN TBL_COMMANDE_LIGNE ON (TBL_COMMANDE_LIGNE.IDCommande = TBL_COMMANDE.IDCommande)
+              CROSS APPLY dbo.f_OptionsCommande(TBL_COMMANDE.IDCommande, client.IDLangueMailing) AS Options
+              JOIN TBL_PRODUIT ON (TBL_PRODUIT.IDProduit = TBL_COMMANDE_LIGNE.IDProduit)
+              JOIN TBL_PRODUIT_FAMILLE_PRODUIT
+                ON (TBL_PRODUIT_FAMILLE_PRODUIT.IDProduitFamilleProduit = TBL_PRODUIT.IDProduitFamilleProduit)
+              JOIN TBL_PRODUIT_FAMILLE_ARTICLES
+                ON (TBL_PRODUIT_FAMILLE_ARTICLES.IDProduitFamilleArticles = TBL_PRODUIT_FAMILLE_PRODUIT.IDProduitFamilleArticles)
+                   AND TBL_PRODUIT_FAMILLE_ARTICLES.IDProduitFamilleArticles NOT IN (126, 134, 135, 136, 137)
+              LEFT JOIN TBL_PRODUIT_LIBELLE_FRONT_TRAD
+                ON TBL_PRODUIT_LIBELLE_FRONT_TRAD.IDProduit = TBL_PRODUIT.IDProduit
+                   AND TBL_PRODUIT_LIBELLE_FRONT_TRAD.IDLangue = 1
+            WHERE
+              (TBL_COMMANDE.IDCommande = 1736825)
+              AND Options.IDProduitOption != 97");
+
+        $stmt->execute(['IDCommande' => $IDCommande]);
+        $options = $stmt->fetchAll();
+
+        $html = [];
+
+        if (count($options) > 0) {
+            $html[] = 'Libellé produit : ' . $options[0]->libelleProduit;
+            $html[] = 'Format commandé : ' . $options[0]->format;
+        }
+
+        foreach ($options as $option) {
+            $html[] = $option->label . ': ' . $option->value . ' ' . $option->unit;
+        }
+        return implode('<br />', $html);
+    }
+
+    /**
      * Récupère la liste des options valeur
      * @param $IDPlanche
      * @return array
