@@ -19,11 +19,19 @@ class NegoceFinitions
     /** @var  Finition[] */
     public $finitions = [];
 
+    /* tableau des entrées */
+    private $entries;
+
+    /* finition actuelle */
+    private $finition = null;
+
     public function __construct($planche)
     {
-        // désigne le tableau des entrées
         // ces informations proviennent de la base de données et seront "converties" en finitions
-        $entries = NegoceDAL::getFinitions($planche['IDPlanche']);
+        $this->entries = NegoceDAL::getFinitions($planche['IDPlanche']);
+
+        $this->_takeLine();
+
 
         // désigne la finition en cours
         // une finition est un bloc s'étalant sur une seule ligne, et possédant plusieurs colonnes.
@@ -198,6 +206,47 @@ class NegoceFinitions
         // on retourne le nombre de finitions implémentées
         // important, car permet de pouvoir placer le prochain bloc directement après
         $this->nbLines = $nbLines;
+    }
+
+    private function _takeLine()
+    {
+        $entry = array_shift($this->entries);
+
+        // Création d'une finition
+        if (is_null($this->finition) || $entry->Bloc != $this->finition->Bloc || $entry->Ligne != $this->finition->Ligne) {
+
+            // en fonction du Bloc et de la ligne, on en déduit le type de finition
+            if (in_array($entry->Bloc, [1, 2, 3])) {
+                if ($entry->Ligne == 1) {
+                    $this->finition       = new Finition1();
+                    $this->finition->Type = 1;
+                } else {
+                    $this->finition       = new Finition2();
+                    $this->finition->Type = 2;
+                }
+
+                // pour les finitions de type 1 et 2, on met à jour le titre...
+                $title = (!is_null($entry->IDProduitOptionNecessairePourTitreAlternatif)) ? $entry->TitreAlternatif : $entry->Titre;
+                $this->finition->setTitle($title);
+
+            } else {
+                $this->finition       = new Finition3();
+                $this->finition->Type = 3;
+
+                // pour les finitions de type 3, on met à jour la celulle Option1...
+                $title = (!is_null($entry->IDProduitOptionNecessairePourTitreAlternatif)) ? $entry->TitreAlternatif : $entry->Titre;
+                $this->finition->setOption1($title);
+
+            }
+
+        }
+
+        // traitement de l'entrée
+
+        // on prend une nouvelle entrée
+        if (!empty($this->entries) && count($this->finitions) < 5) {
+            $this->_takeLine();
+        }
     }
 
     public function draw(\TCPDF $pdf, Position $position)
