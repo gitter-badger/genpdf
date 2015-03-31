@@ -245,7 +245,8 @@ class Commande
         if (count($visuels) == 0) return;
 
         if (count($visuels) == 1 || is_null($this->commande['NbCouleursVerso'])) {
-            $recto             = $visuels[0];
+            $recto = $visuels[0];
+            if (!$recto['width'] || !$recto['height']) return;
             $image             = new ImageInContainer(
                 $recto['href'],
                 new Dimensions($recto['width'], $recto['height']),
@@ -256,7 +257,8 @@ class Commande
             $image->draw($this->pdf);
 
         } else {
-            $recto             = $visuels[0];
+            $recto = $visuels[0];
+            if (!$recto['width'] || !$recto['height']) return;
             $image             = new ImageInContainer(
                 $recto['href'],
                 new Dimensions($recto['width'], $recto['height']),
@@ -266,7 +268,8 @@ class Commande
             $image->autoRotate = true;
             $image->draw($this->pdf);
 
-            $recto             = $visuels[1];
+            $recto = $visuels[1];
+            if (!$recto['width'] || !$recto['height']) return;
             $image             = new ImageInContainer(
                 $recto['href'],
                 new Dimensions($recto['width'], $recto['height']),
