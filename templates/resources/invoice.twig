@@ -42,6 +42,8 @@
                     <dd>{{ Customer.VATId }}</dd>
                 {% endblock %}
 
+                {% block taxcode %}{% endblock %}
+
                 <dt>{% trans "Numero de facture" %}</dt>
                 <dd>{{ InvoiceNumber }}</dd>
                 <dt>{% trans "Date de facture" %}</dt>

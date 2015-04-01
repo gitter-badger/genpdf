@@ -11,3 +11,8 @@
         {% endif %}
     </div>
 {% endblock %}
+
+{% block taxcode %}
+    <dt>{% trans "Code fiscal" %}</dt>
+    <dd>{{ Customer.Siret }}</dd>
+{% endblock %}

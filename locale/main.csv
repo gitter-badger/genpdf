@@ -1,7 +1,7 @@
 key,fr_FR,es_ES,it_IT,pt_PT,en_GB
 SIRET,SIRET,NIF/CIF,SIRET,NIF,Company #
 Representant legal,Représentant légal,Titular,Titolare,Titular,Company Type
-Code fiscal,Code fiscal,Código fiscal,Codice fiscale,Código fiscal,VAT #
+Code fiscal,Code fiscal,Código fiscal,Codice fiscale:,Código fiscal,VAT #
 Votre Adresse,Votre adresse,Su dirección,Indirizzo,Endereço,Your address
 P.IVA,P.IVA,P.IVA,P.IVA,P.IVA,-
 Releve,Relevé,Extracto,Estratto conto,Extrato ,Statements
