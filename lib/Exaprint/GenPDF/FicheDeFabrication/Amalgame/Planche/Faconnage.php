@@ -40,6 +40,10 @@ class Faconnage
             if ($commande['DecoupeALaFormeNumerique']) {
                 $this->_p['AvecDecoupeNumerique'] = true;
             }
+
+            if (strpos($commande['CodeProduit'], 'CRN') !== false) {
+                $this->_p['AvecDecoupeNumerique'] = true;
+            }
         }
     }
 
