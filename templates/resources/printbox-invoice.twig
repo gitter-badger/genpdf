@@ -83,7 +83,7 @@
                                     <article>
                                         {% if (Line.OrderLineID > 0) %}
                                             <div>
-                                            {% trans "Conception et fabrication de : " %}
+                                            {% trans "Conception et fabrication de :" %}
                                             </div>
                                         {% endif %}
                                         <span class="units"></span>
@@ -104,7 +104,7 @@
                                         {% endif %}
                                         {% if (Line.OrderCustomer != '') %}
                                             <div>
-                                            {% trans "Dossier suivi par"%} {{ Line.OrderCustomer }}
+                                            {% trans "Dossier suivi par" %} {{ Line.OrderCustomer }}
                                             </div>
                                         {% endif %}
                                     </article>
@@ -180,7 +180,7 @@
                 <dl>
                     {% for i, Vat in VAT.VATRates %}
                         {% if Vat.Rate > 0 %}
-                            <dt>{% trans "Montant total soumis a la TVA " %}{{ Vat.Rate|number_format(2, ',', ' ') }} %</dt>
+                            <dt>{% trans "Montant total soumis a la TVA" %}{{ Vat.Rate|number_format(2, ',', ' ') }} %</dt>
                             <dd>{{ Vat.ETAmount|number_format(2, ',', ' ') }}<span class="currency">&euro;</span></dd>
                             <dt>{% trans "Montant TVA" %}</dt>
                             <dd>{{ Vat.VATAmount|number_format(2, ',', ' ') }}<span class="currency">&euro;</span></dd>
