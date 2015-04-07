@@ -129,7 +129,7 @@
                 <dl>
                     {% for i, Vat in VAT.VATRates %}
                         {% if Vat.Rate > 0 %}
-                            <dt>{% trans "Montant total soumis a la TVA " %}
+                            <dt>{% trans "Montant total soumis a la TVA" %}
                                 &nbsp;{{ Vat.Rate|formatnumber }} %
                             </dt>
                             <dd>{{ Vat.ETAmount|formatmoney }}</dd>
@@ -149,7 +149,7 @@
             {% if Payment %}
                 <div id="payments">
                 {% if Payment.PaymentDate %}
-                    <h3>{% trans "Facture reglee le " %}{{ Payment.PaymentDate|date('d/m/Y') }}</h3>
+                    <h3>{% trans "Facture reglee le" %}{{ Payment.PaymentDate|date('d/m/Y') }}</h3>
                 {% endif %}
                 <ul>
                     {% for i, PaymentMethod in Payment.PaymentMethodTranslation %}
