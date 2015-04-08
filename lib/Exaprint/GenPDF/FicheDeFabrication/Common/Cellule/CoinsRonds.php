@@ -61,13 +61,13 @@ class CoinsRonds implements ICellule
                     Helper::drawEmptyCell($position, $pdf, $cellSize);
             }
         }
-        if ($commande['DecoupeALaFormeNumerique'] != null) {
+        if ($commande['DecoupeALaFormeNumerique'] || strpos($commande['CodeProduit'], 'CRN') !== false) {
 
             $file = '../assets/coins-ronds/CR_';
-            $file .= $commande['HasDecoupeNumeriqueHG'];
-            $file .= $commande['HasDecoupeNumeriqueHD'];
-            $file .= $commande['HasDecoupeNumeriqueBD'];
-            $file .= $commande['HasDecoupeNumeriqueBG'];
+            $file .= !is_null($commande['HasDecoupeNumeriqueHG']) ? $commande['HasDecoupeNumeriqueHG'] : 0;
+            $file .= !is_null($commande['HasDecoupeNumeriqueHD']) ? $commande['HasDecoupeNumeriqueHD'] : 0;
+            $file .= !is_null($commande['HasDecoupeNumeriqueBD']) ? $commande['HasDecoupeNumeriqueBD'] : 0;
+            $file .= !is_null($commande['HasDecoupeNumeriqueBG']) ? $commande['HasDecoupeNumeriqueBG'] : 0;
             $file .= '.png';
 
             $image = new ImageInContainer(
