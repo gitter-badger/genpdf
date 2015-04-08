@@ -25,6 +25,10 @@ class Faconnage
                 $this->_p['AvecPliage'] = true;
             }
 
+            if ($commande['PliageComplexe']) {
+                $this->_p['AvecPliage'] = true;
+            }
+
             if ($commande['Rainage']) {
                 $this->_p['AvecRainage'] = true;
             }

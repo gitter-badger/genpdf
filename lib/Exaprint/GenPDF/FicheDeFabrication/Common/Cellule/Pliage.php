@@ -22,7 +22,14 @@ class Pliage implements ICellule
     {
 
 
-        if (isset($commande['Pliage']) && ($pliage = $commande['Pliage'])) {
+        if (isset($commande['Pliage']) || isset($commande['PliageComplexe'])) {
+
+            if (isset($commande['Pliage'])) {
+                $pliage = $commande['Pliage'];
+            } else {
+                $pliage = $commande['PliageComplexe'];
+            }
+
             $cell           = new Cell();
             $cell->position = $position;
             $cell->fill     = false;
