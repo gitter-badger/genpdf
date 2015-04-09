@@ -44,7 +44,7 @@ class NegoceDAL extends DAL
      * @param $IDCommande
      * @return mixed
      */
-    public static function displayDetails($IDCommande)
+    public static function displayDetails($commande)
     {
         $stmt = DB::get()->prepare("
             SELECT
@@ -71,23 +71,26 @@ class NegoceDAL extends DAL
                 ON TBL_PRODUIT_LIBELLE_FRONT_TRAD.IDProduit = TBL_PRODUIT.IDProduit
                    AND TBL_PRODUIT_LIBELLE_FRONT_TRAD.IDLangue = 1
             WHERE
-              (TBL_COMMANDE.IDCommande = 1736825)
+              (TBL_COMMANDE.IDCommande = :IDCommande)
               AND Options.IDProduitOption != 97");
 
-        $stmt->execute(['IDCommande' => $IDCommande]);
+        $stmt->execute(['IDCommande' => $commande['IDCommande']]);
         $options = $stmt->fetchAll();
 
         $html = [];
 
         if (count($options) > 0) {
-            $html[] = 'Libellé produit : ' . $options[0]->libelleProduit;
+            if (!empty($options[0]->libelleProduit)) {
+                $html[] = 'Libellé produit : ' . $options[0]->libelleProduit;
+            }
+            $html[] = 'Code produit : ' . $commande['CodeProduit'];
             $html[] = 'Format commandé : ' . $options[0]->format;
         }
 
         foreach ($options as $option) {
             $html[] = $option->label . ': ' . $option->value . ' ' . $option->unit;
         }
-        return implode('<br />', $html);
+        return $html;
     }
 
     /**

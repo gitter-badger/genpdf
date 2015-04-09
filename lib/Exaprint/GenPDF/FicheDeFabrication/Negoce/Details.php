@@ -70,14 +70,21 @@ class Details extends Commande
 
     protected function content()
     {
+        $html = NegoceDAL::displayDetails($this->commande);
+        $fontSize = 14;
+        if (count($html) >= 20) {$fontSize = 13;}
+        if (count($html) >= 25) {$fontSize = 12;}
+        if (count($html) >= 30) {$fontSize = 11;}
+        if (count($html) >= 35) {$fontSize = 10;}
+
         $c                  = new MultiCell();
         $c->x               = $this->_x();
         $c->y               = $this->_y(5);
         $c->cellHeightRatio = new CellHeightRatio(0.9);
         $c->width           = $this->layout->wBloc();
         $c->isHtml          = true;
-        $c->font = new Font('bagc-light', 15);
-        $c->text      = NegoceDAL::displayDetails($this->commande['IDCommande']);
+        $c->font = new Font('bagc-light', $fontSize);
+        $c->text      = implode('<br />', $html);
         $c->textColor = new TextColor(Color::black());
         $c->draw($this->pdf);
     }
