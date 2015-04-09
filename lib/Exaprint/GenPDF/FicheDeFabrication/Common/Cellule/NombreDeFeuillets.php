@@ -6,7 +6,7 @@
  * Time: 21:32
  */
 
-namespace Exaprint\GenPDF\FicheDeFabrication\Amalgame\Cellule;
+namespace Exaprint\GenPDF\FicheDeFabrication\Common\Cellule;
 
 
 use Exaprint\GenPDF\FicheDeFabrication\Common\ICellule;
