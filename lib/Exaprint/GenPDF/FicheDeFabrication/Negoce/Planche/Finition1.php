@@ -19,7 +19,7 @@ use Exaprint\TCPDF\FillColor;
 use Exaprint\TCPDF\Font;
 use Exaprint\TCPDF\TextColor;
 
-class Finition1 extends Rang
+class Finition1 extends NegoceFinition
 {
     public $Type = null;
 
@@ -89,6 +89,43 @@ class Finition1 extends Rang
     public function setA3($label)
     {
         $this->_cellA3->value = $label;
+    }
+
+    public function build() {
+        foreach ($this->entries as $entry) {
+            switch ($entry->Encadre) {
+                case 0:
+                    $this->setTitle($entry->TitreAlternatif ? $entry->TitreAlternatif : $entry->Titre);
+                    break;
+                case 1:
+                    $this->setTitle($entry->TitreAlternatif ? $entry->TitreAlternatif : $entry->Titre);
+                    $this->setA1($entry->LibelleValeurPredefinie ? $entry->LibelleValeurPredefinie : $entry->LibelleValeur);
+                    break;
+                case 2:
+                    $libelle = $this->getA2();
+                    $libelle .= $entry->LibelleValeurPredefinie ? $entry->LibelleValeurPredefinie : $entry->LibelleValeur;
+                    $this->setA2($libelle);
+                    break;
+                case 3:
+                    $libelle = '';
+                    $rv = '';
+                    $rv .= ($entry->EstRecto) ? 'R°': '';
+                    $rv .= ($entry->EstVerso) ? 'V°': '';
+                    if (strlen($rv) > 0) $rv = ' ' . $rv;
+                    $this->setA2($libelle . $rv);
+                    break;
+            }
+        }
+
+        // Complétion couleur
+        $a2 = $this->getA2();
+        if (!empty($a2) && strpos($a2, '+') === false) {
+            $this->setA2('0+' . $a2);
+        }
+        if (substr($a2, -1) == '+') {
+            $this->setA2($a2 . '0');
+        }
+
     }
 
 

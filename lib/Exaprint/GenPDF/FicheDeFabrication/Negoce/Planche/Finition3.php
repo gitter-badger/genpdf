@@ -19,7 +19,7 @@ use Exaprint\TCPDF\Font;
 use Exaprint\TCPDF\Position;
 use Exaprint\TCPDF\TextColor;
 
-class Finition3 extends Finition
+class Finition3 extends NegoceFinition
 {
     public $Type = null;
 
@@ -88,6 +88,25 @@ class Finition3 extends Finition
     {
         $this->_cellA2->value  = $label;
         $this->_cellA2->noDraw = false;
+    }
+
+    public function build()
+    {
+        $ret = [];
+
+        foreach ($this->entries as $entry) {
+            $ret[] = $entry->LibelleValeurPredefinie ? $entry->LibelleValeurPredefinie : $entry->LibelleValeur;
+        }
+
+        foreach ($ret as $n => $libelle) {
+            if ($n % 2 == 0) {
+                $this->setOption1('+');
+                $this->setA1($libelle);
+            } else {
+                $this->setOption2('+');
+                $this->setA2($libelle);
+            }
+        }
     }
 
 

@@ -19,9 +19,13 @@ use Exaprint\TCPDF\FillColor;
 use Exaprint\TCPDF\Font;
 use Exaprint\TCPDF\TextColor;
 
-class Finition2 extends Finition
+class Finition2 extends NegoceFinition
 {
     public $Type = null;
+
+    public $Recto = false;
+
+    public $Verso = false;
 
     public function __construct()
     {
@@ -62,13 +66,45 @@ class Finition2 extends Finition
         $this->_cellA1->value = $label;
     }
 
-    public function setA2($recto, $verso)
+    public function setA2()
     {
-        if ($verso) {
+        if ($this->Recto and $this->Verso) {
             $this->_cellA2->src = '../assets/RectoVerso.png';
-        } else if ($recto) {
+        } else if ($this->Recto) {
             $this->_cellA2->src = '../assets/Recto.png';
+        } else if ($this->Verso) {
+            $this->_cellA2->src = '../assets/Verso.png';
         }
+    }
+
+    public function build()
+    {
+        foreach ($this->entries as $entry) {
+            switch ($entry->Encadre) {
+                case 0:
+                    $this->setTitle($entry->TitreAlternatif ? $entry->TitreAlternatif : $entry->Titre);
+                    break;
+                case 1:
+                    $this->setTitle($entry->TitreAlternatif ? $entry->TitreAlternatif : $entry->Titre);
+                    $libelle = $entry->LibelleValeurPredefinie ? $entry->LibelleValeurPredefinie : $entry->LibelleValeur;
+
+                    $libelle = preg_replace('/R°/', '', $libelle);
+                    $libelle = preg_replace('/V°/', '', $libelle);
+
+                    $this->setA1($libelle);
+                    if (!$this->Recto) {
+                        $this->Recto = $entry->EstRecto;
+                    }
+                    if (!$this->Verso) {
+                        $this->Verso = $entry->EstVerso;
+                    }
+                    break;
+            }
+        }
+
+        // finalisation A2
+        $this->setA2();
+
     }
 
 
