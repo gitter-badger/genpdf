@@ -35,6 +35,9 @@ class NegoceFinitions
         // désigne la position du curseur, au niveau du tableau des entrées
         $currEntry = -1;
 
+        // liste les titres d'option des finitions de type 3 pour évincer les doublons
+        $options = [];
+
         // 2 conditions d'arrêts :
         // - dès qu'on atteint 5 finitions déjà implémentées
         // - dès qu'on atteint la fin du tableau des entrées
@@ -57,19 +60,34 @@ class NegoceFinitions
                 $title = (!is_null($entry->IDProduitOptionNecessairePourTitreAlternatif)) ? $entry->TitreAlternatif : $entry->Titre;
                 $finition->setTitle($title);
 
+                // ...et la celulle A1.
+                $title = (!is_null($entry->LibelleValeurPredefinie)) ? $entry->LibelleValeurPredefinie : $entry->LibelleValeur;
+                $finition->setA1($title);
+
             } else {
                 $finition       = new Finition3();
                 $finition->Type = 3;
 
-                // pour les finitions de type 3, on met à jour la celulle Option1...
-                $title = (!is_null($entry->IDProduitOptionNecessairePourTitreAlternatif)) ? $entry->TitreAlternatif : $entry->Titre;
-                $finition->setOption1($title);
+                $titleA1 = (!is_null($entry->LibelleValeurPredefinie)) ? $entry->LibelleValeurPredefinie : $entry->LibelleValeur;
 
+                $inArray = false;
+                if (!in_array($titleA1, $options)) {
+                    $options[] = $titleA1;
+                    $inArray   = true;
+                }
+
+                if ($inArray) {
+                    // pour les finitions de type 3, on met à jour la celulle Option1...
+                    $title = (!is_null($entry->IDProduitOptionNecessairePourTitreAlternatif)) ? $entry->TitreAlternatif : $entry->Titre;
+                    if (!in_array($title, $options)) {
+                        $finition->setOption1($title);
+                        $options[] = $title;
+                    }
+
+                    // ...et la celulle A1.
+                    $finition->setA1($titleA1);
+                }
             }
-
-            // ...et la celulle A1.
-            $title = (!is_null($entry->LibelleValeurPredefinie)) ? $entry->LibelleValeurPredefinie : $entry->LibelleValeur;
-            $finition->setA1($title);
 
             if ($finition->Type == 2) {
                 $finition->setA2($entry->EstRecto, $entry->EstVerso);
@@ -127,24 +145,33 @@ class NegoceFinitions
                                 break;
                             case 3: // gestion du R/V
                                 $title = (!is_null($nextEntry->LibelleValeurPredefinie)) ? $nextEntry->LibelleValeurPredefinie : $nextEntry->LibelleValeur;
-                                $rv = '';
-                                $rv .= ($nextEntry->EstRecto) ? 'R°': '';
-                                $rv .= ($nextEntry->EstVerso) ? 'V°': '';
+                                $rv    = '';
+                                $rv .= ($nextEntry->EstRecto) ? 'R°' : '';
+                                $rv .= ($nextEntry->EstVerso) ? 'V°' : '';
                                 if (strlen($rv) > 0) $rv = ' ' . $rv;
                                 $finition->setA3($title . $rv);
                                 break;
                         }
                     } // si le bloc de l'entrée est 4
                     else {
+                        $titleA2 = (!is_null($nextEntry->LibelleValeurPredefinie)) ? $nextEntry->LibelleValeurPredefinie : $nextEntry->LibelleValeur;
 
-                        $title = (!is_null($nextEntry->IDProduitOptionNecessairePourTitreAlternatif)) ? $nextEntry->TitreAlternatif : $nextEntry->Titre;
-                        $finition->setOption2($title);
+                        $inArray = false;
+                        if (!in_array($titleA2, $options)) {
+                            $options[] = $titleA2;
+                            $inArray   = true;
+                        }
 
-                        $title = (!is_null($nextEntry->LibelleValeurPredefinie)) ? $nextEntry->LibelleValeurPredefinie : $nextEntry->LibelleValeur;
-                        $finition->setA2($title);
+                        if ($inArray) {
+                            $title = (!is_null($nextEntry->IDProduitOptionNecessairePourTitreAlternatif)) ? $nextEntry->TitreAlternatif : $nextEntry->Titre;
+                            $finition->setOption2($title);
 
-                        // prêt à finaliser la finition
-                        $noOthers = true;
+                            $finition->setA2($titleA2);
+
+                            // prêt à finaliser la finition
+                            $noOthers = true;
+
+                        }
                     }
                 }
             }
