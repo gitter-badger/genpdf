@@ -23,6 +23,7 @@ use Exaprint\TCPDF\LineStyle;
 use Exaprint\TCPDF\MultiCell;
 use Exaprint\TCPDF\Position;
 use Exaprint\TCPDF\TextColor;
+use Exaprint\GenPDF\FicheDeFabrication\Functions;
 
 class Commande
 {
@@ -292,7 +293,7 @@ class Commande
         $c            = new Cell();
         $c->width     = 48;
         $c->height    = 4;
-        $c->text      = $this->commande['CodeProduit'];
+        $c->text      = Functions::short($this->commande['CodeProduit'], 42);
         $c->font      = new Font('bagc-medium', 9, new TextColor(Color::black()));
         $c->fill      = true;
         $c->fillColor = new FillColor(Color::white());
