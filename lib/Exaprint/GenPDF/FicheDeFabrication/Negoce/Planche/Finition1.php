@@ -19,9 +19,13 @@ use Exaprint\TCPDF\FillColor;
 use Exaprint\TCPDF\Font;
 use Exaprint\TCPDF\TextColor;
 
-class Finition1 extends Rang
+class Finition1 extends NegoceFinition
 {
     public $Type = null;
+
+    public $Recto = false;
+
+    public $Verso = false;
 
     public function __construct()
     {
@@ -38,12 +42,12 @@ class Finition1 extends Rang
         $cellA1->align           = Cell::ALIGN_LEFT;
         $cellA1->vAlign          = Cell::VALIGN_CENTER;
 
-        $cellA2                       = new Cellule();
-        $cellA2->dimensions           = new Dimensions(10, 11);
-        $cellA2->fillColor            = new FillColor(Color::white());
-        $cellA2->valueFont            = new Font('bagc-light', 12, new TextColor(Color::black()));
-        $cellA2->vAlign               = Cell::VALIGN_CENTER;
-        $cellA2->label                = 'Coul.';
+        $cellA2             = new Cellule();
+        $cellA2->dimensions = new Dimensions(10, 11);
+        $cellA2->fillColor  = new FillColor(Color::white());
+        $cellA2->valueFont  = new Font('bagc-light', 12, new TextColor(Color::black()));
+        $cellA2->vAlign     = Cell::VALIGN_CENTER;
+        $cellA2->label      = 'Coul.';
 
         $cellA3                       = new Cellule();
         $cellA3->dimensions           = new Dimensions(15, 11);
@@ -89,6 +93,59 @@ class Finition1 extends Rang
     public function setA3($label)
     {
         $this->_cellA3->value = $label;
+    }
+
+    public function getA3()
+    {
+        return $this->_cellA3->value;
+    }
+
+    public function build()
+    {
+        foreach ($this->entries as $entry) {
+            switch ($entry->Encadre) {
+                case 0:
+                    $this->setTitle($entry->TitreAlternatif ? $entry->TitreAlternatif : $entry->Titre);
+                    break;
+                case 1:
+                    $this->setTitle($entry->TitreAlternatif ? $entry->TitreAlternatif : $entry->Titre);
+                    $this->setA1($entry->LibelleValeurPredefinie ? $entry->LibelleValeurPredefinie : $entry->LibelleValeur);
+                    break;
+                case 2:
+                    $libelle = $this->getA2();
+                    $libelle .= $entry->LibelleValeurPredefinie ? $entry->LibelleValeurPredefinie : $entry->LibelleValeur;
+                    $this->setA2($libelle);
+                    break;
+                case 3:
+                    $libelle = $entry->LibelleValeurPredefinie ? $entry->LibelleValeurPredefinie : $entry->LibelleValeur;
+                    $this->setA3($libelle);
+
+                    if (!$this->Recto) {
+                        $this->Recto = $entry->EstRecto;
+                    }
+                    if (!$this->Verso) {
+                        $this->Verso = $entry->EstVerso;
+                    }
+                    break;
+            }
+        }
+
+        // Complétion couleur
+        $a2 = $this->getA2();
+        if (!empty($a2) && strpos($a2, '+') === false) {
+            $this->setA2('0+' . $a2);
+        }
+        if (substr($a2, -1) == '+') {
+            $this->setA2($a2 . '0');
+        }
+
+        // Complétion lamination
+        $a3 = $this->getA3();
+        $rv = ' ';
+        if ($this->Recto) $rv .= 'R°';
+        if ($this->Verso) $rv .= 'V°';
+        $this->setA3($a3 . $rv);
+
     }
 
 

@@ -230,7 +230,6 @@ valeur_432,"2 perforations de 4 mm",Dos,"2 fori di 4 mm",Dois,"2 hole-punches of
 valeur_433,"2 perforations de 4 mm + oeillets","Dos con ojales","2 fori di 4 mm + occhielli","Dois com ilhós","2 hole-punches of 4mm + eyelet"
 valeur_434,"4 perforations (à chaque angle)","Cuatro (uno en cada ángulo)","4 fori (ad ogni angolo)","Quatro (um em cada canto)","4 holes (1 on each corner)"
 valeur_436,"Dibond 3 mm","Dibond espesor 3mm","Dibond 3 mm","Dibond espessura 3mm","Dibond 3mm"
-valeur_437,Sans,Sin,Senza,Sem,No
 valeur_438,Avec,Con,Con,Com,Included
 valeur_439,Avec,Con,Con,Com,Included
 valeur_441,Avec,Con,Con,Com,Included
@@ -458,7 +457,7 @@ valeur_802,"Agrafage carnet","Libro grapado","Pinzatura quaderno","Livro agrafad
 valeur_828,Sans,Sin,Senza,Sem,No
 valeur_829,Identique,Idéntico,Identica,Idêntico,"Common copy"
 valeur_830,Différente,Diferente,Diversa,Diferente,Different
-valeur_831,Dépoli,Mate,"Effetto sabbiato",Fosco,Frosted
+valeur_831,"Dépoli translucide","Mate translúcido","Effetto sabbiato traslucido","Fosco translúcido","Translucent frosted"
 valeur_832,Sans,Sin,Senza,Sem,No
 valeur_833,Sans,Sin,Senza,Sem,No
 valeur_915,Avec,Con,Con,Com,Included
@@ -680,7 +679,7 @@ valeur_1650,Sans,Sin,Senza,Sem,Without
 valeur_1651,Entretoises,Separadores,Tradizionale,Espaçadores,"Screws / spacers"
 valeur_1652,Décofix,Decofix,"Pix Fix",Decofix,Decofix
 valeur_1653,"Alu Panel 3,5 mm","Panel aluminio 3,5mm","Alupanel 3,5 mm","Alu Painel de 3,5 mm","Aluminium Panel 3.5mm"
-valeur_1656,"Polymère blanc colle permanente pose facile","Polímero blanco cola permanente puesta fácil","Polimero bianco colla permanente easy-apply","Polímero branco cola permanente colocação fácil","White polymer - easy application, permanent glue"
+valeur_1656,"Polymère colle permanente pose facile","Polímero cola permanente puesta fácil","Polimero colla permanente easy-apply","Polímero cola permanente colocação fácil","Polymer - easy application, permanent glue"
 valeur_1663,"PVC - Diamètre 9 mm - longueur 110 cm","PVC - Diámetro 9 mm - largo 110cm","PVC - Diametro 9 mm - lunghezza 110 cm","PVC - Diâmetro 9 mm - Altura 110cm"
 valeur_1664,"Bois - Diamètre 10 mm - Longueur 64 cm","Madera - diámetro 10mm - largo 64cm","Legno - Diametro 10 mm - Lunghezza 64 cm","Madeira - diâmetro 10mm - altura 64cm"
 valeur_1665,"PVC - Diamètre 9 mm - longueur 75 cm","PVC - diámetro 9mm - largo 75cm","PVC - Diametro 9 mm - lunghezza 75 cm","PVC - diâmetro 9mm - altura 75cm"
@@ -963,48 +962,52 @@ valeur_1989,"en données variables",,,,"With variable data"
 valeur_1990,"Adhésif contrecollé sur rouleau PVC gris",,,
 valeur_1991,"5 plis accordéon + 2 plis roulés",,,
 valeur_1992,"5 + 2 plis accordéon",,,
-valeur_1993,"Tissu 100% coton - Fil belcoro®",,,
-valeur_1994,"Tissu 100% coton - 130g ",,,
-valeur_1995,"Tissu 65% polyester 35% coton - 190g",,,
-valeur_1997,"Tissu 65% polyester 35% coton",,,
-valeur_1998,Small,,,
-valeur_2000,Medium,,,
-valeur_2001,Large,,,
-valeur_2002,"Extra Large",,,
-valeur_2003,"Extra extra Large",,,
-valeur_2005,"Face avant jusqu'au A5",,,
-valeur_2006,"Face avant jusqu'au A3",,,
-valeur_2007,"Face arrière jusqu'au A3",,,
-valeur_2008,"Face avant jusqu'au A5 / Face arrière jusqu'au A3",,,
-valeur_2009,"Face avant jusqu'au A3 / Face arrière jusqu'au A3",,,
-valeur_2010,"Sans emballage individuel",,,
-valeur_2011,"Avec emballage individuel",,,
-valeur_2012,"Face avant jusqu'au A4",,,
-valeur_2013,"Face arrière jusqu'au A4",,,
-valeur_2014,"Face avant jusqu'au A4 / Face arrière jusqu'au A4",,,
-valeur_2015,"Face avant jusqu'au A5 / Face arrière jusqu'au A4",,,
-valeur_2016,"Transfert sérigraphique",,,
-valeur_2017,"Système de rupture sécuritaire",,,
-valeur_2018,"Système de boucle amovible",,,
-valeur_2019,"Système de rupture sécuritaire + boucle amovible",,,
-valeur_2020,"Ruban 2 cm satin épais",,,
-valeur_2021,"Gobelet 25 cl polypropylène opaque vert",,,
-valeur_2022,"Gobelet 25 cl polypropylène opaque jaune",,,
-valeur_2023,"Gobelet 25 cl polypropylène opaque orange",,,
-valeur_2024,"Gobelet 25 cl polypropylène opaque violet",,,
-valeur_2025,"Gobelet 25 cl polypropylène opaque rouge",,,
-valeur_2026,"Gobelet 25 cl polypropylène opaque bleu",,,
-valeur_2027,"Gobelet 25 cl polypropylène opaque noir",,,
-valeur_2028,"Gobelet 50 cl polypropylène translucide blanc",,,
+valeur_1993,"Tissu 100% coton - Fil belcoro®",,"Tessuto 100% cotone - Filato Belcoro®",
+valeur_1994,"Tissu 100% coton - 130g ",,"Tessuto 100% cotone - 130g ",
+valeur_1995,"Tissu 65% polyester 35% coton - 190g",,"Tessuto 65% poliestere 35% cotone - 190g",
+valeur_1997,"Tissu 65% polyester 35% coton",,"Tessuto 65% poliestere 35% cotone",
+valeur_1998,Small,,Small,
+valeur_2000,Medium,,Medium,
+valeur_2001,Large,,Large,
+valeur_2002,"Extra Large",,"Extra Large",
+valeur_2003,"Extra extra Large",,"Extra extra Large",
+valeur_2005,"Face avant jusqu'au A5",,"Davanti fino al formato A5",
+valeur_2006,"Face avant jusqu'au A3",,"Davanti fino al formato A3",
+valeur_2007,"Face arrière jusqu'au A3",,"Dietro fino al formato A3",
+valeur_2008,"Face avant jusqu'au A5 / Face arrière jusqu'au A3",,"Davanti fino al formato A5 / Dietro fino al formato A3",
+valeur_2009,"Face avant jusqu'au A3 / Face arrière jusqu'au A3",,"Davanti fino al formato A3 / Dietro fino al formato A3",
+valeur_2010,"Sans emballage individuel",,"Senza imballaggio individuale",
+valeur_2011,"Avec emballage individuel",,"Con imballaggio individuale",
+valeur_2012,"Face avant jusqu'au A4",,"Davanti fino al formato A4",
+valeur_2013,"Face arrière jusqu'au A4",,"Dietro fino al formato A4",
+valeur_2014,"Face avant jusqu'au A4 / Face arrière jusqu'au A4",,"Davanti fino al formato A4 / Dietro fino al formato A4",
+valeur_2015,"Face avant jusqu'au A5 / Face arrière jusqu'au A4",,"Davanti fino al formato A5 /Dietro fino al formato A4",
+valeur_2016,"Transfert sérigraphique",,"Stampa serigrafica",
+valeur_2017,"Système de rupture sécuritaire",,"Sistema con apertura di sicurezza",
+valeur_2018,"Système de boucle amovible",,"Sistema con fibbia removibile",
+valeur_2019,"Système de rupture sécuritaire + boucle amovible",,"Sistema con apertura di sicurezza+fibbia removibile",
+valeur_2020,"Ruban 2 cm satin épais",,"Fascetta satinata 2 cm di spessore ",
+valeur_2021,"Gobelet 25 cl polypropylène opaque vert",,"Bicchiere 25 cl polipropilene opaco verde",
+valeur_2022,"Gobelet 25 cl polypropylène opaque jaune",,"Bicchiere 25 cl polipropilene opaco giallo",
+valeur_2023,"Gobelet 25 cl polypropylène opaque orange",,"Bicchiere 25 cl polipropilene opaco arancione",
+valeur_2024,"Gobelet 25 cl polypropylène opaque violet",,"Bicchiere 25 cl polipropilene opaco viola",
+valeur_2025,"Gobelet 25 cl polypropylène opaque rouge",,"Bicchiere 25 cl polipropilene opaco rosso",
+valeur_2026,"Gobelet 25 cl polypropylène opaque bleu",,"Bicchiere 25 cl polipropilene opaco blu",
+valeur_2027,"Gobelet 25 cl polypropylène opaque noir",,"Bicchiere 25 cl polipropilene opaco nero",
+valeur_2028,"Gobelet 50 cl polypropylène translucide blanc",,"Bicchiere 50cl polipropilene traslucido bianco",
 valeur_2029,"Taille unique",,,
-valeur_2030,"Polypropylène rouge",,,
-valeur_2031,"Polypropylène orange",,,
-valeur_2032,"Polypropylène bleu",,,
-valeur_2033,"Polypropylène vert",,,
-valeur_2034,"Pochette couverts",,,
-valeur_2035,"Pochette avant",,,
-valeur_2036,"Pochette avant / Face arrière A4",,,
-valeur_2037,"Face avant",,,
-valeur_2038,"Face arrière",,,
-valeur_2039,"Face avant / Face arrière",,,
-valeur_2040,"160g tissu 100% coton Blanc - Fil belcoro®",,,
+valeur_2030,"Polypropylène rouge",,"Polipropilene rosso",
+valeur_2031,"Polypropylène orange",,"Polipropilene arancione",
+valeur_2032,"Polypropylène bleu",,"Polipropilene blu",
+valeur_2033,"Polypropylène vert",,"Polipropilene verde",
+valeur_2034,"Pochette couverts",,Portaposate,
+valeur_2035,"Pochette avant",,"Taschino fronte",
+valeur_2036,"Pochette avant / Face arrière A4",,"Taschino fronte / Retro A4",
+valeur_2037,"Face avant",,Davanti,
+valeur_2038,"Face arrière",,Dietro,
+valeur_2039,"Face avant / Face arrière",,Davanti/Dietro,
+valeur_2040,"160g tissu 100% coton Blanc - Fil belcoro®",,"160g tessuto 100% cotone bianco - Fiatol Belcoro®",
+valeur_2042," 2 plis croisés",,,
+valeur_2043,sans,,,
+valeur_2045,"Blanche pour pochette blanche",,"Bianco per portaposate bianco",
+valeur_2046,"Blanche pour pochette noire",,"Bianco per portaposate nero",
