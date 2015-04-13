@@ -30,6 +30,7 @@ class Finition3 extends NegoceFinition
         $cellOption1->fillColor  = new FillColor(Color::greyscale(80));
         $cellOption1->valueFont  = new Font('bagc-bold', 28, new TextColor(Color::white()));
         $cellOption1->value      = '+';
+        $cellOption1->vAlign     = Cell::VALIGN_CENTER;
 
         $cellA1                  = new Cellule();
         $cellA1->dimensions      = new Dimensions(39, 11);
@@ -44,6 +45,7 @@ class Finition3 extends NegoceFinition
         $cellOption2->fillColor  = new FillColor(Color::greyscale(80));
         $cellOption2->valueFont  = new Font('bagc-bold', 28, new TextColor(Color::white()));
         $cellOption2->value      = '+';
+        $cellOption2->vAlign     = Cell::VALIGN_CENTER;
         $cellOption2->noDraw     = true;
 
         $cellA2                  = new Cellule();

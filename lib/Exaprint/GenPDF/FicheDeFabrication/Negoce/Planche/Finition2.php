@@ -33,6 +33,7 @@ class Finition2 extends NegoceFinition
         $cellTitle->dimensions = new Dimensions(22, 11);
         $cellTitle->fillColor  = new FillColor(Color::greyscale(80));
         $cellTitle->valueFont  = new Font('bagc-bold', 28, new TextColor(Color::white()));
+        $cellTitle->vAlign     = Cell::VALIGN_CENTER;
 
         $cellA1                  = new Cellule();
         $cellA1->dimensions      = new Dimensions(68, 11);
@@ -63,6 +64,10 @@ class Finition2 extends NegoceFinition
 
     public function setA1($label)
     {
+        $max = 35;
+        if (strlen($label) > $max) {
+            $label = str_split($label, $max)[0] . '...';
+        }
         $this->_cellA1->value = $label;
     }
 
