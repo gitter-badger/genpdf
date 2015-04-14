@@ -59,6 +59,9 @@ class Finition2 extends NegoceFinition
 
     public function setTitle($label)
     {
+        if (strlen($label) > 4) {
+            $this->_cellTitle->valueFont->size = 26;
+        }
         $this->_cellTitle->value = $label;
     }
 

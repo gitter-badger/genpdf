@@ -72,6 +72,9 @@ class Finition3 extends NegoceFinition
 
     public function setOption1($label)
     {
+        if (strlen($label) > 2) {
+            $this->_cellOption1->valueFont->size = 18;
+        }
         $this->_cellOption1->value = $label;
     }
 
