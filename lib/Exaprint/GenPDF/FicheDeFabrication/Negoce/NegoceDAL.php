@@ -105,7 +105,7 @@ class NegoceDAL extends DAL
                   *
                 FROM
                   dbo.ft_FicheFabNegoceAffichageBlocs(:IDPlanche, 1)
-                ORDER BY Bloc, Ligne, Encadre
+                ORDER BY Bloc, Ligne, Encadre, EstRecto DESC
         ');
 
         $stmt->execute(['IDPlanche' => $IDPlanche]);
