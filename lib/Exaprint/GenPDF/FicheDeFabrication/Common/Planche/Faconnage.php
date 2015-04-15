@@ -41,6 +41,10 @@ class Faconnage
                 $this->_p['AvecDecoupe'] = true;
             }
 
+            if ($commande['Predecoupe']) {
+                $this->_p['AvecPredecoupe'] = true;
+            }
+
             if ($commande['DecoupeALaFormeNumerique']) {
                 $this->_p['AvecDecoupeNumerique'] = true;
             }
@@ -77,12 +81,8 @@ class Faconnage
         if ($planche['AvecPliage']) $message[] = t('ffa.planche.faco.avec_pliage');
         if ($planche['AvecPerforation']) $message[] = t('ffa.planche.faco.avec_perfo');
         if ($planche['AvecDecoupe']) $message[] = t('ffa.planche.faco.avec_decoupe');
+        if ($planche['AvecPredecoupe']) $message[] = t('ffa.planche.faco.avec_predecoupe');
         if ($planche['AvecDecoupeNumerique']) $message[] = t('ffa.planche.faco.avec_decoupe_numerique');
-
-        if ($planche['Decoupe']) $message[] = t('valeur_' . $planche['Decoupe']);
-        if ($planche['Rainage']) $message[] = t('valeur_' . $planche['Rainage']);
-        if ($planche['Predecoupe']) $message[] = t('valeur_' . $planche['Predecoupe']);
-        if ($planche['DecoupeALaForme']) $message[] = t('valeur_' . $planche['DecoupeALaForme']);
 
         return implode(' - ', $message);
 
