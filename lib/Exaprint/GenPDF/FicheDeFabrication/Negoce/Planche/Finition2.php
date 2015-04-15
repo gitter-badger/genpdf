@@ -27,8 +27,10 @@ class Finition2 extends NegoceFinition
 
     public $Verso = false;
 
-    public function __construct()
+    public function __construct($planche)
     {
+        parent::__constructor($planche);
+
         $cellTitle             = new Cellule();
         $cellTitle->dimensions = new Dimensions(22, 11);
         $cellTitle->fillColor  = new FillColor(Color::greyscale(80));

@@ -23,8 +23,10 @@ class Finition3 extends NegoceFinition
 {
     public $Type = null;
 
-    public function __construct()
+    public function __construct($planche)
     {
+        parent::__constructor($planche);
+
         $cellOption1             = new Cellule();
         $cellOption1->dimensions = new Dimensions(11, 11);
         $cellOption1->fillColor  = new FillColor(Color::greyscale(80));

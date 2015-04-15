@@ -22,8 +22,12 @@ class NegoceFinitions
 
     public $nbLines = 0;
 
+    public $planche;
+
     public function __construct($planche)
     {
+        $this->planche = $planche;
+
         // ces informations proviennent de la base de données et seront "converties" en finitions
         $this->entries = NegoceDAL::getFinitions($planche['IDPlanche']);
 
@@ -54,7 +58,7 @@ class NegoceFinitions
 //                $ret = array_keys(array_flip($ret));
 
                 for ($i = 0; $i < count($ret); $i += 2) {
-                    $finition       = new Finition3();
+                    $finition       = new Finition3($this->planche);
                     $finition->Type = 3;
                     $finition->setOption1($ret[$i]['Titre']);
                     $finition->setA1($ret[$i]['Valeur']);
@@ -84,14 +88,14 @@ class NegoceFinitions
         // en fonction du Bloc et de la ligne, on en déduit le type de finition
         if (in_array($Bloc, [1, 2, 3])) {
             if ($Ligne == 1) {
-                $finition       = new Finition1();
+                $finition       = new Finition1($this->planche);
                 $finition->Type = 1;
             } else {
-                $finition       = new Finition2();
+                $finition       = new Finition2($this->planche);
                 $finition->Type = 2;
             }
         } else {
-            $finition       = new Finition3();
+            $finition       = new Finition3($this->planche);
             $finition->Type = 3;
         }
 

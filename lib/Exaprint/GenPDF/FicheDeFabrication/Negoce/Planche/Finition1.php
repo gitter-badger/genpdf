@@ -12,6 +12,7 @@ namespace Exaprint\GenPDF\FicheDeFabrication\Negoce\Planche;
 use Exaprint\GenPDF\FicheDeFabrication\Common\Planche\Cellule;
 use Exaprint\GenPDF\FicheDeFabrication\Common\Planche\Finition;
 use Exaprint\GenPDF\FicheDeFabrication\Common\Planche\Rang;
+use Exaprint\GenPDF\FicheDeFabrication\Negoce\NegoceDAL;
 use Exaprint\TCPDF\Cell;
 use Exaprint\TCPDF\Color;
 use Exaprint\TCPDF\Dimensions;
@@ -29,8 +30,10 @@ class Finition1 extends NegoceFinition
 
     public $fontTitle = 28;
 
-    public function __construct()
+    public function __construct($planche)
     {
+        parent::__constructor($planche);
+
         $cellTitle             = new Cellule();
         $cellTitle->dimensions = new Dimensions(22, 11);
         $cellTitle->fillColor  = new FillColor(Color::greyscale(80));
@@ -80,6 +83,11 @@ class Finition1 extends NegoceFinition
         }
 
         $this->_cellTitle->value = $label;
+    }
+
+    public function getA1()
+    {
+        return $this->_cellA1->value;
     }
 
     public function setA1($label)
@@ -139,6 +147,13 @@ class Finition1 extends NegoceFinition
                     }
                     break;
             }
+        }
+
+        // Complétion titre
+        $a1 = $this->getA1();
+        if (empty($a1)) {
+            $code = NegoceDAL::getFamilleCodification($this->planche['IDPlanche']);
+            $this->setA1($code->famille);
         }
 
         // Complétion couleur

@@ -16,7 +16,18 @@ class NegoceFinition extends Rang
 
     public $entries = [];
 
-    public function setEntries($entries) {
+    public $planche;
+
+    /**
+     * @param $planche
+     */
+    public function __constructor($planche)
+    {
+        $this->planche = $planche;
+    }
+
+    public function setEntries($entries)
+    {
         $this->entries = $entries;
     }
 
