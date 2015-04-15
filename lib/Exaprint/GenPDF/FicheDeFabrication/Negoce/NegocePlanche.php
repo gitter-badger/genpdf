@@ -38,11 +38,11 @@ class NegocePlanche extends Planche
 
     function __construct($dimensions, $pdf, $planche, $position)
     {
-        $this->dimensions                 = $dimensions;
-        $this->pdf                        = $pdf;
-        $this->planche                    = $planche;
-        $this->position                   = $position;
-        $this->heightIndicationsCommandes = 33;
+        $this->dimensions       = $dimensions;
+        $this->pdf              = $pdf;
+        $this->planche          = $planche;
+        $this->position         = $position;
+        $this->hauteurFinitions = 33;
 
         $this->identification();
         $this->impression();
@@ -76,7 +76,7 @@ class NegocePlanche extends Planche
     {
         $finitions = new NegoceFinitions($this->planche);
         $finitions->draw($this->pdf, $this->position->add(new Position(0, 33)));
-        $this->heightIndicationsCommandes = 33 + 11 * $finitions->nbLines;
+        $this->hauteurFinitions = 33 + 11 * $finitions->nbLines;
     }
 
     public function faconnage()
@@ -94,13 +94,13 @@ class NegocePlanche extends Planche
     public function rush()
     {
         $indications = new Rush($this->planche);
-        $indications->draw($this->pdf, $this->position->add(new Position(87, 67)));
+        $indications->draw($this->pdf, $this->position->add(new Position(87, $this->hauteurFinitions)));
     }
 
     public function indicationsCommandes()
     {
         $indications = new IndicationsCommandes($this->planche);
-        $indications->draw($this->pdf, $this->position->add(new Position(0, $this->heightIndicationsCommandes)));
+        $indications->draw($this->pdf, $this->position->add(new Position(0, $this->hauteurFinitions)));
     }
 
     public function observations()
