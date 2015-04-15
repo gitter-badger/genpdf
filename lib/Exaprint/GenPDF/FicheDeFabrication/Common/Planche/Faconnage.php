@@ -19,6 +19,7 @@ class Faconnage
         $this->_p = $planche;
 
         $this->_p['AvecDecoupeNumerique'] = false;
+        $this->_p['AvecPredecoupe']       = false;
 
         foreach ($planche['commandes'] as $commande) {
             if ($commande['Pliage']) {
@@ -77,12 +78,12 @@ class Faconnage
         }
 
         $message = [];
-        if (isset($planche['AvecRainage'])) $message[] = t('ffa.planche.faco.avec_rainage');
-        if (isset($planche['AvecPliage'])) $message[] = t('ffa.planche.faco.avec_pliage');
-        if (isset($planche['AvecPerforation'])) $message[] = t('ffa.planche.faco.avec_perfo');
-        if (isset($planche['AvecDecoupe'])) $message[] = t('ffa.planche.faco.avec_decoupe');
-        if (isset($planche['AvecPredecoupe'])) $message[] = t('ffa.planche.faco.avec_predecoupe');
-        if (isset($planche['AvecDecoupeNumerique'])) $message[] = t('ffa.planche.faco.avec_decoupe_numerique');
+        if ($planche['AvecRainage']) $message[] = t('ffa.planche.faco.avec_rainage');
+        if ($planche['AvecPliage']) $message[] = t('ffa.planche.faco.avec_pliage');
+        if ($planche['AvecPerforation']) $message[] = t('ffa.planche.faco.avec_perfo');
+        if ($planche['AvecDecoupe']) $message[] = t('ffa.planche.faco.avec_decoupe');
+        if ($planche['AvecPredecoupe']) $message[] = t('ffa.planche.faco.avec_predecoupe');
+        if ($planche['AvecDecoupeNumerique']) $message[] = t('ffa.planche.faco.avec_decoupe_numerique');
 
         return implode(' - ', $message);
 
