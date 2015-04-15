@@ -32,7 +32,7 @@ class Encollage implements ICellule
             $file  = $this->map[$commande['Encollage']];
             $image = new ImageInContainer(
                 $file,
-                new Dimensions(96, 64),
+                new Dimensions(71, 71),
                 new Dimensions($cellSize, $cellSize),
                 $position
             );
