@@ -37,21 +37,30 @@ class NegoceFinitions
                 $this->finitions[] = $finition;
             } else {
                 $ret = [];
+                $tmp = [];
 
                 foreach ($finition->entries as $entry) {
-                    $ret[] = $entry->LibelleValeurPredefinie ? $entry->LibelleValeurPredefinie : $entry->LibelleValeur;
+                    $value = $entry->LibelleValeurPredefinie ? $entry->LibelleValeurPredefinie : $entry->LibelleValeur;
+
+                    if (!in_array($value, $tmp)) {
+                        $tmp[] = $value;
+                        $ret[] = [
+                            'Titre'  => $entry->TitreAlternatif ? $entry->TitreAlternatif : $entry->Titre,
+                            'Valeur' => $value
+                        ];
+                    }
                 }
 
-                $ret = array_keys(array_flip($ret));
+//                $ret = array_keys(array_flip($ret));
 
                 for ($i = 0; $i < count($ret); $i += 2) {
                     $finition       = new Finition3();
                     $finition->Type = 3;
-                    $finition->setOption1('+');
-                    $finition->setA1($ret[$i]);
+                    $finition->setOption1($ret[$i]['Titre']);
+                    $finition->setA1($ret[$i]['Valeur']);
                     if ($i + 1 < count($ret)) {
-                        $finition->setOption2('+');
-                        $finition->setA2($ret[$i + 1]);
+                        $finition->setOption2($ret[$i + 1]['Titre']);
+                        $finition->setA2($ret[$i + 1]['Valeur']);
                     }
                     $this->finitions[] = $finition;
                 }

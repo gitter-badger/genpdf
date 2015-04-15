@@ -144,18 +144,27 @@ class Commande
 
     protected function formats()
     {
-        $times = '×';;
+        $times = '×';
+        $text  = $this->commande['LargeurOuvert'] . $times . $this->commande['LongueurOuvert'];
+        $fontSize = 28;
+        if ($text == '×') {
+            $text = '';
+        }
+        if (strlen($text) > 10) {
+            $fontSize = 22;
+        }
+
         $cOuvert                  = new Cell();
         $cOuvert->textColor       = new TextColor(Color::greyscale(0));
         $cOuvert->position        = new Position($this->_x($this->layout->cEnteteIdsWidth), $this->_y());
-        $cOuvert->text            = $this->commande['LargeurOuvert'] . $times . $this->commande['LongueurOuvert'];
-        $cOuvert->font            = new Font('bagc-bold', 28);
+        $cOuvert->text            = $text;
+        $cOuvert->font            = new Font('bagc-bold', $fontSize);
         $cOuvert->ignoreMinHeight = true;
         $cOuvert->border          = Cell::BORDER_NO_BORDER;
         $cOuvert->height          = $this->layout->cEnteteHeight;
         $cOuvert->width           = $this->layout->wBloc() - $this->layout->cEnteteQuantiteWidth - $this->layout->cEnteteIdsWidth;
         $cOuvert->align           = Cell::ALIGN_CENTER;
-        $cOuvert->vAlign          = Cell::VALIGN_BOTTOM;
+        $cOuvert->vAlign          = Cell::VALIGN_CENTER;
 
         if ($this->commande['LongueurFerme']) {
 

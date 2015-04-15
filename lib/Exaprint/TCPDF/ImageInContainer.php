@@ -9,7 +9,8 @@
 namespace Exaprint\TCPDF;
 
 
-class ImageInContainer implements Element {
+class ImageInContainer implements Element
+{
 
     public $imageFile;
 
@@ -52,14 +53,14 @@ class ImageInContainer implements Element {
     function draw(\TCPDF $pdf)
     {
         $pdf->setAlpha(1);
-        $imageRatio = $this->imageDimensions->ratio();
-        $containerRatio = $this->containerDimensions->ratio();
-        $containerX = $this->containerPosition->x;
-        $containerY = $this->containerPosition->y;
-        $containerWidth = $this->containerDimensions->width;
+        $imageRatio      = $this->imageDimensions->ratio();
+        $containerRatio  = $this->containerDimensions->ratio();
+        $containerX      = $this->containerPosition->x;
+        $containerY      = $this->containerPosition->y;
+        $containerWidth  = $this->containerDimensions->width;
         $containerHeight = $this->containerDimensions->height;
 
-        $rotate = ($imageRatio > 1 && $containerRatio < 1) || ($imageRatio < 1 && $containerRatio > 1) && $this->autoRotate;
+        $rotate = (($imageRatio > 1 && $containerRatio < 1) || ($imageRatio < 1 && $containerRatio > 1)) && $this->autoRotate;
 
         $image       = new Image();
         $image->file = $this->imageFile;
@@ -72,22 +73,23 @@ class ImageInContainer implements Element {
                 $containerY + $containerHeight / 2
             );
 
-            $image->width  = $containerHeight;
-            $image->height = $containerHeight / $imageRatio;
-
-            if ($image->height > $containerHeight) {
+            if ($containerWidth * $imageRatio <= $containerHeight) {
                 $image->height = $containerWidth;
                 $image->width  = $containerWidth * $imageRatio;
+            } else {
+                $image->height = $containerHeight / $imageRatio;
+                $image->width  = $containerHeight;
             }
 
         } else {
-            $image->width  = $containerWidth;
-            $image->height = $containerWidth / $imageRatio;
-
-            if ($image->height > $containerHeight) {
+            if ($containerWidth / $imageRatio <= $containerHeight) {
+                $image->width  = $containerWidth;
+                $image->height = $containerWidth / $imageRatio;
+            } else {
                 $image->height = $containerHeight;
                 $image->width  = $containerHeight * $imageRatio;
             }
+
         }
 
 

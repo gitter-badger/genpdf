@@ -27,12 +27,15 @@ class Finition1 extends NegoceFinition
 
     public $Verso = false;
 
+    public $fontTitle = 28;
+
     public function __construct()
     {
         $cellTitle             = new Cellule();
         $cellTitle->dimensions = new Dimensions(22, 11);
         $cellTitle->fillColor  = new FillColor(Color::greyscale(80));
         $cellTitle->valueFont  = new Font('bagc-bold', 28, new TextColor(Color::white()));
+        $cellTitle->vAlign     = Cell::VALIGN_CENTER;
 
         $cellA1                  = new Cellule();
         $cellA1->dimensions      = new Dimensions(53, 11);
@@ -72,11 +75,19 @@ class Finition1 extends NegoceFinition
 
     public function setTitle($label)
     {
+        if (strlen($label) > 4) {
+            $this->_cellTitle->valueFont->size = 26;
+        }
+
         $this->_cellTitle->value = $label;
     }
 
     public function setA1($label)
     {
+        $max = 35;
+        if (strlen($label) > $max) {
+            $label = str_split($label, $max)[0] . '...';
+        }
         $this->_cellA1->value = $label;
     }
 
@@ -141,10 +152,12 @@ class Finition1 extends NegoceFinition
 
         // Complétion lamination
         $a3 = $this->getA3();
-        $rv = ' ';
-        if ($this->Recto) $rv .= 'R°';
-        if ($this->Verso) $rv .= 'V°';
-        $this->setA3($a3 . $rv);
+        if (!empty($a3)) {
+            $rv = ' ';
+            if ($this->Recto) $rv .= 'R°';
+            if ($this->Verso) $rv .= 'V°';
+            $this->setA3($a3 . $rv);
+        }
 
     }
 
