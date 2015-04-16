@@ -28,8 +28,31 @@ class NegoceFinitions
     {
         $this->planche = $planche;
 
+        if ($this->planche['Codification'] == 'EXAPROD') {
+            $this->finitions[] = new FinitionMax($this->planche);
+        } else {
+            $this->getFinitions();
+        }
+
+        // afficher un bandeau rouge si plus de 5 lignes
+        $max = 5;
+        if (count($this->finitions) > $max) {
+            $this->finitions   = array_slice($this->finitions, 0, $max - 1);
+            $this->finitions[] = new FinitionMax($this->planche);
+        }
+
+        // on retourne le nombre de finitions implémentées
+        // important, car permet de pouvoir placer le prochain bloc directement après
+        $this->nbLines = count($this->finitions);
+    }
+
+    /**
+     *
+     */
+    public function getFinitions()
+    {
         // ces informations proviennent de la base de données et seront "converties" en finitions
-        $this->entries = NegoceDAL::getFinitions($planche['IDPlanche']);
+        $this->entries = NegoceDAL::getFinitions($this->planche['IDPlanche']);
 
         // on prend une nouvelle entrée
         while (!empty($this->entries)) {
@@ -71,10 +94,6 @@ class NegoceFinitions
 
             }
         }
-
-        // on retourne le nombre de finitions implémentées
-        // important, car permet de pouvoir placer le prochain bloc directement après
-        $this->nbLines = count($this->finitions);
     }
 
     /**

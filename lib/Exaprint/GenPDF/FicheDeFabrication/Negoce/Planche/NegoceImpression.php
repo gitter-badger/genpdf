@@ -24,7 +24,7 @@ class NegoceImpression extends Impression
         $this->dimensions = new Dimensions(200, 16);
         $this->cellules   = [];
         $this->cellules[] = $this->nbFeuilles($planche['NbFeuilles'], $planche['EstSousTraitance']);
-        $this->cellules[] = $this->familleCodification(NegoceDAL::getFamilleCodification($planche['IDPlanche']));
+        $this->cellules[] = $this->familleCodification($planche['Famille'], $planche['Codification']);
     }
 
     public function nbFeuilles($nb, $EstSousTraitance)
@@ -44,10 +44,10 @@ class NegoceImpression extends Impression
         return $c;
     }
 
-    public function familleCodification($code)
+    public function familleCodification($famille, $codification)
     {
         $c                    = new Cellule();
-        $c->value             = $code->famille . ' - ' . $code->codification;
+        $c->value             = $famille . ' - ' . $codification;
         $c->dimensions->width = 80;
         $c->valueFont->family = 'bagc-light';
         $c->valueFont->size   = 22;

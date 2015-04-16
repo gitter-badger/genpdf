@@ -67,6 +67,11 @@ class Negoce extends Common
             }
         }
 
+        // complétion code famille et code produit
+        $code = NegoceDAL::getFamilleCodification($this->planche['IDPlanche']);
+        $this->planche['Famille'] = $code->famille;
+        $this->planche['Codification'] = $code->codification;
+
         $this->pdf = new \TCPDF(
             PDF_PAGE_ORIENTATION,
             PDF_UNIT,

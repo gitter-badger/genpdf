@@ -152,8 +152,7 @@ class Finition1 extends NegoceFinition
         // Complétion titre
         $a1 = $this->getA1();
         if (empty($a1)) {
-            $code = NegoceDAL::getFamilleCodification($this->planche['IDPlanche']);
-            $this->setA1($code->famille);
+            $this->setA1($this->planche['Famille']);
         }
 
         // Complétion couleur
