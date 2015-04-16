@@ -325,16 +325,18 @@ class Commande
 
         $c                  = new MultiCell();
         $c->x               = $this->_x();
-        $c->y               = $this->_y($this->layout->cEnteteHeight + $this->layout->cVisuelsHeight + 5);
+        $c->y               = $this->_y($this->layout->cEnteteHeight + $this->layout->cVisuelsHeight + 1);
         $c->cellHeightRatio = new CellHeightRatio(0.9);
         $c->width           = $this->layout->wBloc() - $this->layout->cellule() * $this->layout->cGrilleColCount;
         $c->isHtml          = true;
 
         $text = $this->commande['CommentairePAO'] . $this->commande['CommentaireAtelier'];
-        if (strlen($text) < 250) {
-            $c->font = new Font('bagc-light', 15);
-        } else {
+        $c->font = new Font('bagc-light', 15);
+        if (strlen($text) > 250) {
             $c->font = new Font('bagc-light', 13);
+        }
+        if (strlen($text) > 500) {
+            $c->font = new Font('bagc-light', 11);
         }
 
         $c->text      = $this->commande['CommentairePAO'] . "<br />" . '<span style="background-color:#ededb6">' . $this->commande['CommentaireAtelier'] . '</span>';
