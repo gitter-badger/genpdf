@@ -29,7 +29,9 @@ class NegoceFinitions
         $this->planche = $planche;
 
         if ($this->planche['Codification'] == 'EXAPROD') {
-            $this->finitions[] = new FinitionMax($this->planche);
+            $finition = new FinitionMax($this->planche);
+            $finition->setValue("Détails dans l'encadré de commande");
+            $this->finitions[] = $finition;
         } else {
             $this->getFinitions();
         }
@@ -38,6 +40,8 @@ class NegoceFinitions
         $max = 5;
         if (count($this->finitions) > $max) {
             $this->finitions   = array_slice($this->finitions, 0, $max - 1);
+            $finition = new FinitionMax($this->planche);
+            $finition->setValue("La suite dans l'encadré de commande");
             $this->finitions[] = new FinitionMax($this->planche);
         }
 

@@ -25,17 +25,16 @@ class FinitionMax extends NegoceFinition
 {
     public $Type = null;
 
+    public $value;
+
     public function __construct($planche)
     {
         parent::__constructor($planche);
-
-        $image = '<img src="../assets/Arrow.png" width="16" height="16" />';
 
         $cell             = new CelluleMultiligne();
         $cell->dimensions = new Dimensions(100, 8);
         $cell->fillColor  = new FillColor(Color::red());
         $cell->textFont   = new Font('bagc-light', 18, new TextColor(Color::white()));
-        $cell->text       = "$image La suite dans l'encadré de commande";
         $cell->isHtml     = true;
         $cell->vAlign     = MultiCell::VALIGN_MIDDLE;
 
@@ -44,6 +43,11 @@ class FinitionMax extends NegoceFinition
         $this->cellules = [
             &$this->_cell,
         ];
+    }
+
+    public function setValue($value) {
+        $image = '<img src="../assets/Arrow.png" width="16" height="16" />';
+        $this->_cell->text = "$image $value";
     }
 
 
