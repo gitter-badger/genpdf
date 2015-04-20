@@ -9,14 +9,12 @@
 namespace Exaprint\GenPDF\FicheDeFabrication\Negoce\Planche;
 
 
-use Exaprint\GenPDF\FicheDeFabrication\Common\Planche\Cellule;
-use Exaprint\GenPDF\FicheDeFabrication\Common\Planche\Finition;
+use Exaprint\GenPDF\FicheDeFabrication\Amalgame\Planche\Cellule;
 use Exaprint\TCPDF\Cell;
 use Exaprint\TCPDF\Color;
 use Exaprint\TCPDF\Dimensions;
 use Exaprint\TCPDF\FillColor;
 use Exaprint\TCPDF\Font;
-use Exaprint\TCPDF\Position;
 use Exaprint\TCPDF\TextColor;
 
 class Finition3 extends NegoceFinition

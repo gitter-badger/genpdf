@@ -9,7 +9,7 @@
 namespace Exaprint\GenPDF\FicheDeFabrication\Negoce\Planche;
 
 
-use Exaprint\GenPDF\FicheDeFabrication\Common\Planche\Rang;
+use Exaprint\GenPDF\FicheDeFabrication\Amalgame\Planche\Rang;
 
 class NegoceFinition extends Rang
 {

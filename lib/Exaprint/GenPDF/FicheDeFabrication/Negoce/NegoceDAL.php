@@ -10,7 +10,7 @@ namespace Exaprint\GenPDF\FicheDeFabrication\Negoce;
 
 
 use Exaprint\DAL\DB;
-use Exaprint\GenPDF\FicheDeFabrication\Common\DAL;
+use Exaprint\GenPDF\FicheDeFabrication\Amalgame\DAL;
 
 class NegoceDAL extends DAL
 {

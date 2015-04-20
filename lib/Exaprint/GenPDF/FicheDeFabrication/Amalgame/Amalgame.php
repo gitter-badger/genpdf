@@ -9,22 +9,41 @@
 namespace Exaprint\GenPDF\FicheDeFabrication\Amalgame;
 
 
-use Exaprint\GenPDF\FicheDeFabrication\Common\Cellule\PEFC;
-use Exaprint\GenPDF\FicheDeFabrication\Common\Commande;
-use Exaprint\GenPDF\FicheDeFabrication\Common\Common;
-use Exaprint\GenPDF\FicheDeFabrication\Common\FormeDeDecoupe;
-use Exaprint\GenPDF\FicheDeFabrication\Common\Layout;
-use Exaprint\GenPDF\FicheDeFabrication\Common\Planche;
+use Exaprint\GenPDF\FicheDeFabrication\Amalgame\Cellule\PEFC;
+use Exaprint\GenPDF\FicheDeFabrication\Amalgame\Planche;
 use Exaprint\TCPDF\Cell;
 use Exaprint\TCPDF\Color;
 use Exaprint\TCPDF\Font;
 use Exaprint\TCPDF\Position;
 use Exaprint\TCPDF\TextColor;
 
-class Amalgame extends Common
+class Amalgame
 {
 
     const PRODUIT_AMALGAME = 'AMAL';
+
+    public static $wPage = 210;
+    public static $hPage = 297;
+    public static $gouttiere = 4;
+    public static $marge = 5;
+    public static $hSouche = 8;
+
+    protected static $commandePositions = [
+        ['x' => 5, 'y' => 8],
+        ['x' => 105, 'y' => 8],
+        ['x' => 5, 'y' => 150],
+        ['x' => 105, 'y' => 150],
+    ];
+
+    public $pdf;
+    protected $logger;
+    protected $planche;
+    protected $currentCommandePosition = 1;
+    protected $layout;
+    protected $pageNumber = 0;
+    protected $_pageCount;
+
+    protected $_formesDeDecoupe = [];
 
     public function __construct($planche)
     {
@@ -67,6 +86,8 @@ class Amalgame extends Common
             }
         }
 
+        $this->build();
+
         $this->pdf = new \TCPDF(
             PDF_PAGE_ORIENTATION,
             PDF_UNIT,
@@ -85,11 +106,7 @@ class Amalgame extends Common
         $this->pdf->SetAutoPageBreak(false);
         $this->newPage();
 
-        $planchePdf = new AmalgamePlanche(new \Exaprint\TCPDF\Dimensions(200, $this->layout->hBloc()),
-            $this->pdf,
-            $this->planche,
-            new \Exaprint\TCPDF\Position(5, 12)
-        );
+        $this->planche();
 
         foreach ($this->planche['commandes'] as $commande) {
             $this->commande($commande);
@@ -100,6 +117,21 @@ class Amalgame extends Common
         }
 
         var_dump($this->planche);
+    }
+
+    /**
+     * @override
+     */
+    public function build() {
+
+    }
+
+    public function planche() {
+        $planchePdf = new Planche(new \Exaprint\TCPDF\Dimensions(200, $this->layout->hBloc()),
+            $this->pdf,
+            $this->planche,
+            new \Exaprint\TCPDF\Position(5, 12)
+        );
     }
 
     protected function newPage()

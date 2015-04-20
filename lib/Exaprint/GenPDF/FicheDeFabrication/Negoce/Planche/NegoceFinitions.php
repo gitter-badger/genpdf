@@ -28,13 +28,7 @@ class NegoceFinitions
     {
         $this->planche = $planche;
 
-        if ($this->planche['Codification'] == 'EXAPROD') {
-            $finition = new FinitionMax($this->planche);
-            $finition->setValue("Détails dans l'encadré de commande");
-            $this->finitions[] = $finition;
-        } else {
-            $this->getFinitions();
-        }
+        $this->getFinitions();
 
         // afficher un bandeau rouge si plus de 5 lignes
         $max = 5;

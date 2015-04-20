@@ -9,9 +9,8 @@
 namespace Exaprint\GenPDF\FicheDeFabrication\Negoce\Planche;
 
 
-use Exaprint\GenPDF\FicheDeFabrication\Common\Planche\Cellule;
-use Exaprint\GenPDF\FicheDeFabrication\Common\Planche\Impression;
-use Exaprint\GenPDF\FicheDeFabrication\Negoce\NegoceDAL;
+use Exaprint\GenPDF\FicheDeFabrication\Amalgame\Planche\Cellule;
+use Exaprint\GenPDF\FicheDeFabrication\Amalgame\Planche\Impression;
 use Exaprint\TCPDF\Cell;
 use Exaprint\TCPDF\Color;
 use Exaprint\TCPDF\Dimensions;
