@@ -9,22 +9,22 @@
 namespace Exaprint\GenPDF\FicheDeFabrication\Negoce\Planche;
 
 
-use Exaprint\GenPDF\FicheDeFabrication\Common\Planche\Cellule;
-use Exaprint\GenPDF\FicheDeFabrication\Common\Planche\Finition;
+use Exaprint\GenPDF\FicheDeFabrication\Amalgame\Planche\Cellule;
 use Exaprint\TCPDF\Cell;
 use Exaprint\TCPDF\Color;
 use Exaprint\TCPDF\Dimensions;
 use Exaprint\TCPDF\FillColor;
 use Exaprint\TCPDF\Font;
-use Exaprint\TCPDF\Position;
 use Exaprint\TCPDF\TextColor;
 
 class Finition3 extends NegoceFinition
 {
     public $Type = null;
 
-    public function __construct()
+    public function __construct($planche)
     {
+        parent::__constructor($planche);
+
         $cellOption1             = new Cellule();
         $cellOption1->dimensions = new Dimensions(11, 11);
         $cellOption1->fillColor  = new FillColor(Color::greyscale(80));

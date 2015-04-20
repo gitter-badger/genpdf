@@ -9,9 +9,8 @@
 namespace Exaprint\GenPDF\FicheDeFabrication\Negoce\Planche;
 
 
-use Exaprint\GenPDF\FicheDeFabrication\Common\Planche\Cellule;
-use Exaprint\GenPDF\FicheDeFabrication\Common\Planche\Finition;
-use Exaprint\GenPDF\FicheDeFabrication\Common\Planche\ImageCellule;
+use Exaprint\GenPDF\FicheDeFabrication\Amalgame\Planche\Cellule;
+use Exaprint\GenPDF\FicheDeFabrication\Amalgame\Planche\ImageCellule;
 use Exaprint\TCPDF\Cell;
 use Exaprint\TCPDF\Color;
 use Exaprint\TCPDF\Dimensions;
@@ -27,8 +26,10 @@ class Finition2 extends NegoceFinition
 
     public $Verso = false;
 
-    public function __construct()
+    public function __construct($planche)
     {
+        parent::__constructor($planche);
+
         $cellTitle             = new Cellule();
         $cellTitle->dimensions = new Dimensions(22, 11);
         $cellTitle->fillColor  = new FillColor(Color::greyscale(80));

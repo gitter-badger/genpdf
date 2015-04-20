@@ -9,14 +9,25 @@
 namespace Exaprint\GenPDF\FicheDeFabrication\Negoce\Planche;
 
 
-use Exaprint\GenPDF\FicheDeFabrication\Common\Planche\Rang;
+use Exaprint\GenPDF\FicheDeFabrication\Amalgame\Planche\Rang;
 
 class NegoceFinition extends Rang
 {
 
     public $entries = [];
 
-    public function setEntries($entries) {
+    public $planche;
+
+    /**
+     * @param $planche
+     */
+    public function __constructor($planche)
+    {
+        $this->planche = $planche;
+    }
+
+    public function setEntries($entries)
+    {
         $this->entries = $entries;
     }
 

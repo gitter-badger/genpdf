@@ -22,10 +22,35 @@ class NegoceFinitions
 
     public $nbLines = 0;
 
+    public $planche;
+
     public function __construct($planche)
     {
+        $this->planche = $planche;
+
+        $this->getFinitions();
+
+        // afficher un bandeau rouge si plus de 5 lignes
+        $max = 5;
+        if (count($this->finitions) > $max) {
+            $this->finitions   = array_slice($this->finitions, 0, $max - 1);
+            $finition = new FinitionMax($this->planche);
+            $finition->setValue("La suite dans l'encadré de commande");
+            $this->finitions[] = new FinitionMax($this->planche);
+        }
+
+        // on retourne le nombre de finitions implémentées
+        // important, car permet de pouvoir placer le prochain bloc directement après
+        $this->nbLines = count($this->finitions);
+    }
+
+    /**
+     *
+     */
+    public function getFinitions()
+    {
         // ces informations proviennent de la base de données et seront "converties" en finitions
-        $this->entries = NegoceDAL::getFinitions($planche['IDPlanche']);
+        $this->entries = NegoceDAL::getFinitions($this->planche['IDPlanche']);
 
         // on prend une nouvelle entrée
         while (!empty($this->entries)) {
@@ -54,7 +79,7 @@ class NegoceFinitions
 //                $ret = array_keys(array_flip($ret));
 
                 for ($i = 0; $i < count($ret); $i += 2) {
-                    $finition       = new Finition3();
+                    $finition       = new Finition3($this->planche);
                     $finition->Type = 3;
                     $finition->setOption1($ret[$i]['Titre']);
                     $finition->setA1($ret[$i]['Valeur']);
@@ -67,10 +92,6 @@ class NegoceFinitions
 
             }
         }
-
-        // on retourne le nombre de finitions implémentées
-        // important, car permet de pouvoir placer le prochain bloc directement après
-        $this->nbLines = count($this->finitions);
     }
 
     /**
@@ -84,14 +105,14 @@ class NegoceFinitions
         // en fonction du Bloc et de la ligne, on en déduit le type de finition
         if (in_array($Bloc, [1, 2, 3])) {
             if ($Ligne == 1) {
-                $finition       = new Finition1();
+                $finition       = new Finition1($this->planche);
                 $finition->Type = 1;
             } else {
-                $finition       = new Finition2();
+                $finition       = new Finition2($this->planche);
                 $finition->Type = 2;
             }
         } else {
-            $finition       = new Finition3();
+            $finition       = new Finition3($this->planche);
             $finition->Type = 3;
         }
 

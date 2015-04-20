@@ -9,8 +9,8 @@
 namespace Exaprint\GenPDF\FicheDeFabrication\Negoce;
 
 
-use Exaprint\GenPDF\FicheDeFabrication\Common\Commande;
-use Exaprint\GenPDF\FicheDeFabrication\Common\Layout;
+use Exaprint\GenPDF\FicheDeFabrication\Amalgame\Commande;
+use Exaprint\GenPDF\FicheDeFabrication\Amalgame\Layout;
 use Exaprint\TCPDF\CellHeightRatio;
 use Exaprint\TCPDF\Color;
 use Exaprint\TCPDF\Font;
