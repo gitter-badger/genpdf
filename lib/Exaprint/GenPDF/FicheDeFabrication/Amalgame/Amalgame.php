@@ -108,14 +108,6 @@ class Amalgame
 
         $this->planche();
 
-        foreach ($this->planche['commandes'] as $commande) {
-            $this->commande($commande);
-        }
-
-        foreach ($this->_formesDeDecoupe as $formeDeDecoupe) {
-            $this->formeDecoupe($formeDeDecoupe['IDCommande'], $formeDeDecoupe['Fichier']);
-        }
-
         var_dump($this->planche);
     }
 
@@ -132,6 +124,14 @@ class Amalgame
             $this->planche,
             new \Exaprint\TCPDF\Position(5, 12)
         );
+
+        foreach ($this->planche['commandes'] as $commande) {
+            $this->commande($commande);
+        }
+
+        foreach ($this->_formesDeDecoupe as $formeDeDecoupe) {
+            $this->formeDecoupe($formeDeDecoupe['IDCommande'], $formeDeDecoupe['Fichier']);
+        }
     }
 
     protected function newPage()

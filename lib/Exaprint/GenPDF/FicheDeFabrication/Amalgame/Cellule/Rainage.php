@@ -55,7 +55,7 @@ class Rainage implements ICellule
                 $cTxt->draw($pdf);
             }
         } else {
-            Helper::drawEmptyCell($position, $pdf, $cellSize);
+            CelluleHelper::drawEmptyCell($position, $pdf, $cellSize);
         }
     }
 }

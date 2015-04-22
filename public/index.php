@@ -2,6 +2,9 @@
 
 require '../bootstrap.php';
 
+error_reporting(E_ALL);
+ini_set("display_errors", 1);
+
 if (strpos($_SERVER['SERVER_NAME'], 'local') !== false) {
     \RBM\Wkhtmltopdf\Wkhtmltopdf::$bin = 'wkhtmltopdf';
 }
@@ -11,12 +14,8 @@ $app->get("/", function () {
 });
 
 $app->get('/fiche-de-fab/:IDPlanche', function ($IDPlanche) use ($app) {
-    $p = \Exaprint\GenPDF\FicheDeFabrication\Amalgame\DAL::getPlanche($IDPlanche);
 
-    if (is_null($p)) {
-        $app->status(404);
-        return;
-    }
+    // Recherche du pdf en cache..
 
     $cacheSubFolder = round($IDPlanche / 100) * 100;
     $cachePath      = APPLICATION_ROOT . '/cache/fiche-de-fab/' . $cacheSubFolder;
@@ -32,7 +31,11 @@ $app->get('/fiche-de-fab/:IDPlanche', function ($IDPlanche) use ($app) {
         echo file_get_contents($cacheFilename);
     }
 
-    if ($ff = \Exaprint\GenPDF\FicheDeFabrication\Factory::createFicheDeFabrication($p)) {
+    // ..ou génération du pdf
+
+    try {
+
+        $ff = \Exaprint\GenPDF\FicheDeFabrication\Factory::createFicheDeFabrication($IDPlanche);
 
         if ($app->request->get('norender')) {
             header('Content-Type: text/html');
@@ -42,7 +45,15 @@ $app->get('/fiche-de-fab/:IDPlanche', function ($IDPlanche) use ($app) {
             header('Content-Type: application/x-pdf');
             $ff->pdf->Output($cacheFilename, 'FI');
         }
+
+    } catch (\Exception $e) {
+
+        var_dump($e->getMessage());
+        $app->status(404);
+        return;
+
     }
+
 });
 
 $app->get("/:name/:id.xml", function ($name, $id) use ($app) {

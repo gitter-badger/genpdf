@@ -13,7 +13,7 @@ use Exaprint\TCPDF\Color;
 use Exaprint\TCPDF\LineStyle;
 use Exaprint\TCPDF\Position;
 
-class Helper
+class CelluleHelper
 {
 
     public static function drawEmptyCell(Position $position, \TCPDF $pdf, $cellSize)

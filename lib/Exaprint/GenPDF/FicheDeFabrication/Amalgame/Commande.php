@@ -9,7 +9,7 @@
 namespace Exaprint\GenPDF\FicheDeFabrication\Amalgame;
 
 
-use Exaprint\GenPDF\FicheDeFabrication\Amalgame\Cellule\Helper;
+use Exaprint\GenPDF\FicheDeFabrication\Amalgame\Cellule\CelluleHelper;
 use Exaprint\GenPDF\FicheDeFabrication\Amalgame\Planche\Transporteurs;
 use Exaprint\TCPDF\Cell;
 use Exaprint\TCPDF\CellHeightRatio;
@@ -23,7 +23,7 @@ use Exaprint\TCPDF\LineStyle;
 use Exaprint\TCPDF\MultiCell;
 use Exaprint\TCPDF\Position;
 use Exaprint\TCPDF\TextColor;
-use Exaprint\GenPDF\FicheDeFabrication\Functions;
+use Exaprint\GenPDF\FicheDeFabrication\Helper;
 
 class Commande
 {
@@ -302,7 +302,7 @@ class Commande
         $c            = new Cell();
         $c->width     = 48;
         $c->height    = 4;
-        $c->text      = Functions::short($this->commande['CodeProduit'], 42);
+        $c->text      = Helper::short($this->commande['CodeProduit'], 42);
         $c->font      = new Font('bagc-medium', 9, new TextColor(Color::black()));
         $c->fill      = true;
         $c->fillColor = new FillColor(Color::white());
@@ -500,7 +500,7 @@ class Commande
         $p       = new Position($this->_x($offsetX + $j * $this->layout->cellule()), $this->_y($offsetY + $i * $this->layout->cellule()));
 
         if ($class = $this->layout->cGrilleCellules[$i][$j]) {
-            $class = '\Exaprint\GenPDF\FicheDeFabrication\Common\Cellule\\' . $class;
+            $class = '\Exaprint\GenPDF\FicheDeFabrication\Amalgame\Cellule\\' . $class;
             if (class_exists($class)) {
                 $ref     = new \ReflectionClass($class);
                 $cellule = $ref->newInstance();
@@ -512,7 +512,7 @@ class Commande
                 );
             }
         } else {
-            Helper::drawEmptyCell($p, $this->pdf, $this->layout->cellule());
+            CelluleHelper::drawEmptyCell($p, $this->pdf, $this->layout->cellule());
         }
     }
 }
