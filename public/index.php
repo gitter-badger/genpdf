@@ -2,9 +2,6 @@
 
 require '../bootstrap.php';
 
-error_reporting(E_ALL);
-ini_set("display_errors", 1);
-
 if (strpos($_SERVER['SERVER_NAME'], 'local') !== false) {
     \RBM\Wkhtmltopdf\Wkhtmltopdf::$bin = 'wkhtmltopdf';
 }
