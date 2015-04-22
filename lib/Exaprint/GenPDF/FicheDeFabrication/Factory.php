@@ -10,15 +10,14 @@ namespace Exaprint\GenPDF\FicheDeFabrication;
 
 
 use Exaprint\GenPDF\FicheDeFabrication\Amalgame\Amalgame;
+use Exaprint\GenPDF\FicheDeFabrication\Amalgame\DAL;
 use Exaprint\GenPDF\FicheDeFabrication\Exaprod\Exaprod;
 use Exaprint\GenPDF\FicheDeFabrication\Negoce\Negoce;
-use Exaprint\GenPDF\FicheDeFabrication\Configurateur\Configurateur;
 
 class Factory
 {
 
     /**
-     *
      * COMMON
      *      AMALGAMME
      *      NEGOCE
@@ -26,36 +25,35 @@ class Factory
      *          CONFIGURATEUR
      *          ETIQ
      *          CALC VINYLE
-     *
-     * @param $planche
-     * @return Amalgame|Configurateur|Exaprod|Negoce|null
+     * @param $IDPlanche
+     * @return Amalgame|Exaprod|Negoce
      * @throws \Exception
      */
-    public static function createFicheDeFabrication($planche)
+    public static function createFicheDeFabrication($IDPlanche)
     {
-        if (!$planche) {
-            throw new \Exception('Planche is null');
-        }
-        switch ($planche['IDProduitActiviteProduction']) {
+        $type = Helper::getTypeFicheFabGenPDF($IDPlanche);
+
+        switch ($type) {
+            case 0:
+                throw new \Exception('Planche invalide');
             case 1:
-            case 2:
-            case 4:
-            case 7:
+                $planche = DAL::getPlanche($IDPlanche);
                 return new Amalgame($planche);
-                break;
+            case 2:
+                $planche = DAL::getPlanche($IDPlanche);
+                return new Negoce($planche);
             case 3:
-                $case = 1;
-                if ($case == 1) {
-                    return new Negoce($planche);
-                } else if ($case == 2) {
-                    return new Exaprod($planche);
-                } else if ($case == 3) {
-                    return new Configurateur($planche);
-                }
-                break;
-            default:
-                var_dump($planche);
-                return null;
+                $planche = DAL::getPlanche($IDPlanche);
+                return new Exaprod($planche);
+            case 4:
+                throw new \Exception('Masterprint non pris en charge encore');
+            //return new Masterprint($planche);
+            case 5:
+                throw new \Exception('Etiquette non pris en charge encore');
+            //return new Etiquette($planche);
+            case 6:
+                throw new \Exception('Grand format numérique non pris en charge encore');
+            //return new GrandFormatNum($planche);
         }
     }
 } 

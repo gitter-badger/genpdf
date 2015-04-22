@@ -58,7 +58,7 @@ class CoinsRonds implements ICellule
                     $txt->draw($pdf);
                     break;
                 default:
-                    Helper::drawEmptyCell($position, $pdf, $cellSize);
+                    CelluleHelper::drawEmptyCell($position, $pdf, $cellSize);
             }
         }
         if ($commande['DecoupeALaFormeNumerique'] || strpos($commande['CodeProduit'], 'CRN') !== false) {

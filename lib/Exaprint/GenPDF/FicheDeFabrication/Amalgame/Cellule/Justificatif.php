@@ -34,7 +34,7 @@ class Justificatif implements ICellule
             $cell->text = t('ffa.cell.justif');;
             $cell->draw($pdf);
         } else {
-            Helper::drawEmptyCell($position, $pdf, $cellSize);
+            CelluleHelper::drawEmptyCell($position, $pdf, $cellSize);
         }
     }
 } 

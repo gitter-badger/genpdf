@@ -25,7 +25,7 @@ class NombreDeFeuillets implements ICellule
             $cell->height  = $cellSize;
             $cell->draw($pdf, $position);
         } else {
-            Helper::drawEmptyCell($position, $pdf, $cellSize);
+            CelluleHelper::drawEmptyCell($position, $pdf, $cellSize);
         }
     }
 }

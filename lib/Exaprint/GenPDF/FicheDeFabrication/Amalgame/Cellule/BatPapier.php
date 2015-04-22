@@ -35,7 +35,7 @@ class BatPapier implements ICellule
             $cell->text = t('ffa.indications_commandes.bat');
             $cell->draw($pdf);
         } else {
-            Helper::drawEmptyCell($position, $pdf, $cellSize);
+            CelluleHelper::drawEmptyCell($position, $pdf, $cellSize);
         }
     }
 } 

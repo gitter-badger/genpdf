@@ -34,7 +34,7 @@ class Retirage implements ICellule
             $cell->text = t('ffa.cell.retirage');
             $cell->draw($pdf);
         } else {
-            Helper::drawEmptyCell($position, $pdf, $cellSize);
+            CelluleHelper::drawEmptyCell($position, $pdf, $cellSize);
         }
     }
 } 

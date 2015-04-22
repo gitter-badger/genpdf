@@ -21,6 +21,15 @@ class Exaprod extends Negoce
             $this->planche,
             new \Exaprint\TCPDF\Position(5, 12)
         );
+
+        foreach ($this->planche['commandes'] as $commande) {
+            $this->commande($commande);
+            $this->details($commande);
+        }
+
+        foreach ($this->_formesDeDecoupe as $formeDeDecoupe) {
+            $this->formeDecoupe($formeDeDecoupe['IDCommande'], $formeDeDecoupe['Fichier']);
+        }
     }
 
 } 

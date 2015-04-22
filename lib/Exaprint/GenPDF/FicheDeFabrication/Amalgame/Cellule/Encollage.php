@@ -39,7 +39,7 @@ class Encollage implements ICellule
 
             $image->draw($pdf);
         } else {
-            Helper::drawEmptyCell($position, $pdf, $cellSize);
+            CelluleHelper::drawEmptyCell($position, $pdf, $cellSize);
         }
     }
 } 

@@ -35,7 +35,7 @@ class Groupage implements ICellule
             $cell->text      = $commande['Groupage'];
             $cell->draw($pdf);
         } else {
-            Helper::drawEmptyCell($position, $pdf, $cellSize);
+            CelluleHelper::drawEmptyCell($position, $pdf, $cellSize);
         }
     }
 }
