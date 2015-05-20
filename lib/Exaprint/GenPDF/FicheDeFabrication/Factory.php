@@ -13,6 +13,7 @@ use Exaprint\GenPDF\FicheDeFabrication\Amalgame\Amalgame;
 use Exaprint\GenPDF\FicheDeFabrication\Amalgame\DAL;
 use Exaprint\GenPDF\FicheDeFabrication\Exaprod\Exaprod;
 use Exaprint\GenPDF\FicheDeFabrication\Negoce\Negoce;
+use Exaprint\GenPDF\FicheDeFabrication\Masterprint\Masterprint;
 
 class Factory
 {
@@ -46,8 +47,8 @@ class Factory
                 $planche = DAL::getPlanche($IDPlanche);
                 return new Exaprod($planche);
             case 4:
-                throw new \Exception('Masterprint non pris en charge encore');
-            //return new Masterprint($planche);
+                $planche = DAL::getPlanche($IDPlanche);
+                return new Masterprint($planche);
             case 5:
                 throw new \Exception('Etiquette non pris en charge encore');
             //return new Etiquette($planche);
