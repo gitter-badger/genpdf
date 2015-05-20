@@ -44,10 +44,13 @@ class InvoiceZip extends Resource implements IResource
             'IDFacture',
         ]);
 
+        $select->leftJoin('TBL_FACTURE_TYPE_PIECE', 'IDFactureTypePiece');
+
         $select->filter()
             ->eq('IDClient', $IDClient)
             ->eq(new Func('YEAR', [new Column('DateFacture', 'TBL_FACTURE')]), $this->_year)
-            ->eq(new Func('MONTH', [new Column('DateFacture', 'TBL_FACTURE')]), $this->_month);
+            ->eq(new Func('MONTH', [new Column('DateFacture', 'TBL_FACTURE')]), $this->_month)
+            ->eq(new Column('EstOD', 'TBL_FACTURE_TYPE_PIECE'), 0);
 
         $stmt = DB::get()->query($select);
         $dataA = [];
