@@ -21,6 +21,45 @@ class Masterprint extends Negoce
             $this->planche,
             new \Exaprint\TCPDF\Position(5, 12)
         );
+
+        foreach ($this->planche['commandes'] as $commande) {
+            $this->commande($commande);
+            $this->details($commande);
+        }
+
+        foreach ($this->_formesDeDecoupe as $formeDeDecoupe) {
+            $this->formeDecoupe($formeDeDecoupe['IDCommande'], $formeDeDecoupe['Fichier']);
+        }
     }
 
-} 
+    protected function commande($commande)
+    {
+        if ($this->currentCommandePosition < 3) {
+            $this->currentCommandePosition++;
+        } else {
+            $this->currentCommandePosition = 0;
+            $this->newPage();
+        }
+
+        $x = $this->layout->xBloc($this->currentCommandePosition);
+        $y = $this->layout->yBloc($this->currentCommandePosition);
+
+        new MasterprintCommande($commande, $this->pdf, $x, $y, $this->layout);
+    }
+
+    protected function details($commande)
+    {
+        if ($this->currentCommandePosition < 3) {
+            $this->currentCommandePosition++;
+        } else {
+            $this->currentCommandePosition = 0;
+            $this->newPage();
+        }
+
+        $x = $this->layout->xBloc($this->currentCommandePosition);
+        $y = $this->layout->yBloc($this->currentCommandePosition);
+
+        new MasterprintDetails($commande, $this->pdf, $x, $y, $this->layout);
+    }
+
+}
