@@ -14,6 +14,10 @@ use Exaprint\GenPDF\FicheDeFabrication\Negoce\Negoce;
 
 class Etiquette extends Negoce
 {
+    public function build() {
+        $data = EtiquetteDAL::getPartnersData($this->planche['commandes'][0]['IDCommande']);
+        $this->planche['partnersData'] = $data;
+    }
 
     public function planche() {
         $planchePdf = new EtiquettePlanche(new \Exaprint\TCPDF\Dimensions(200, $this->layout->hBloc()),
@@ -26,9 +30,9 @@ class Etiquette extends Negoce
             $this->commande($commande);
         }
 
-        //foreach($this->planche['modeles'] as $modele) {
-        //    $this->modele($modele);
-        //}
+        foreach($this->planche['partnersData']['models'] as $modele) {
+            $this->modele($modele);
+        }
     }
 
     protected function commande($commande)
