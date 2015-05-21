@@ -20,13 +20,6 @@ use Exaprint\TCPDF\TextColor;
 
 class Finition1Cell extends NegoceFinition
 {
-    public $Type = null;
-
-    public $Recto = false;
-
-    public $Verso = false;
-
-    public $fontTitle = 18;
 
     public function __construct($planche)
     {
@@ -35,8 +28,9 @@ class Finition1Cell extends NegoceFinition
         $cell             = new Cellule();
         $cell->dimensions = new Dimensions(100, 11);
         $cell->fillColor  = new FillColor(Color::cmyk(100, 0, 0, 0));
-        $cell->valueFont  = new Font('bagc-bold', 28, new TextColor(Color::white()));
+        $cell->valueFont  = new Font('bagc-bold', 18, new TextColor(Color::white()));
         $cell->vAlign     = Cell::VALIGN_CENTER;
+        $cell->align      = Cell::ALIGN_LEFT;
 
         $this->_cell = $cell;
 

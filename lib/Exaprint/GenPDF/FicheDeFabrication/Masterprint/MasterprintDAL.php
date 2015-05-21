@@ -35,4 +35,27 @@ class MasterprintDAL extends DAL
         return $stmt->fetchColumn();
     }
 
+    /**
+     * @param $planche
+     * @return array
+     */
+    public static function getDevis($planche) {
+        preg_match('/#(.*)#/', $planche['commandes'][0]['CommentairePAO'], $infos);
+
+        $stmt = DB::get()->prepare("
+            SELECT
+              NumeroDevisAtelier,
+              Nom AS NomAtelier
+            FROM Sc_Masterprint.TBL_DEVIS d
+              JOIN TBL_ATELIER a ON a.IDAtelier = d.IDAtelier
+            WHERE d.NumeroDevis = :NumeroDevis
+        ");
+
+        $stmt->execute([
+            'NumeroDevis' => $infos[1]
+        ]);
+
+        return $stmt->fetchObject();
+    }
+
 } 

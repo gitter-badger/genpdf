@@ -21,7 +21,7 @@ class MasterprintDetails extends Details
 
     protected function content()
     {
-        $html = MasterprintDAL::cleanOrderComment($this->commande['IDCommande']);
+        $html = str_replace("\n", '<br />', $this->commande['CommentairePAO']);
         $fontSize = 14;
         if (count($html) >= 20) {$fontSize = 13;}
         if (count($html) >= 25) {$fontSize = 12;}

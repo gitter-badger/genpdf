@@ -9,6 +9,7 @@
 namespace Exaprint\GenPDF\FicheDeFabrication\Masterprint\Planche;
 
 
+use Exaprint\GenPDF\FicheDeFabrication\Masterprint\MasterprintDAL;
 use Exaprint\GenPDF\FicheDeFabrication\Negoce\Planche\NegoceFinition;
 use Exaprint\GenPDF\FicheDeFabrication\Negoce\Planche\NegoceFinitions;
 use Exaprint\TCPDF\Position;
@@ -23,7 +24,8 @@ class MasterprintFinitions extends NegoceFinitions
         $this->planche = $planche;
 
         $finition = new Finition1Cell($this->planche);
-        $finition->setValue("MASTERPRINT N°536473647 - ICONES");
+        $devis = MasterprintDAL::getDevis($this->planche);
+        $finition->setValue("MASTERPRINT N°$devis->NumeroDevisAtelier - $devis->NomAtelier");
         $this->finitions[] = $finition;
 
     }
