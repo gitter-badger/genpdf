@@ -6,17 +6,17 @@
  * Time: 16:25
  */
 
-namespace Exaprint\GenPDF\FicheDeFabrication\Masterprint;
+namespace Exaprint\GenPDF\FicheDeFabrication\Etiquette;
 
 
+use Exaprint\GenPDF\FicheDeFabrication\Amalgame\Planche;
 use Exaprint\GenPDF\FicheDeFabrication\Negoce\Negoce;
 
-class Masterprint extends Negoce
+class Etiquette extends Negoce
 {
 
-    public function planche()
-    {
-        $planchePdf = new MasterprintPlanche(new \Exaprint\TCPDF\Dimensions(200, $this->layout->hBloc()),
+    public function planche() {
+        $planchePdf = new EtiquettePlanche(new \Exaprint\TCPDF\Dimensions(200, $this->layout->hBloc()),
             $this->pdf,
             $this->planche,
             new \Exaprint\TCPDF\Position(5, 12)
@@ -24,8 +24,11 @@ class Masterprint extends Negoce
 
         foreach ($this->planche['commandes'] as $commande) {
             $this->commande($commande);
-            $this->details($commande);
         }
+
+        //foreach($this->planche['modeles'] as $modele) {
+        //    $this->modele($modele);
+        //}
     }
 
     protected function commande($commande)
@@ -40,10 +43,10 @@ class Masterprint extends Negoce
         $x = $this->layout->xBloc($this->currentCommandePosition);
         $y = $this->layout->yBloc($this->currentCommandePosition);
 
-        new MasterprintCommande($commande, $this->pdf, $x, $y, $this->layout);
+        new EtiquetteCommande($commande, $this->pdf, $x, $y, $this->layout);
     }
 
-    protected function details($commande)
+    protected function modele($commande)
     {
         if ($this->currentCommandePosition < 3) {
             $this->currentCommandePosition++;
@@ -55,7 +58,7 @@ class Masterprint extends Negoce
         $x = $this->layout->xBloc($this->currentCommandePosition);
         $y = $this->layout->yBloc($this->currentCommandePosition);
 
-        new MasterprintDetails($commande, $this->pdf, $x, $y, $this->layout);
+        new EtiquetteModele($commande, $this->pdf, $x, $y, $this->layout);
     }
 
-}
+} 
