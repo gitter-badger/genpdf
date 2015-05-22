@@ -13,6 +13,7 @@ use Exaprint\GenPDF\FicheDeFabrication\Amalgame\Amalgame;
 use Exaprint\GenPDF\FicheDeFabrication\Amalgame\DAL;
 use Exaprint\GenPDF\FicheDeFabrication\Etiquette\Etiquette;
 use Exaprint\GenPDF\FicheDeFabrication\Exaprod\Exaprod;
+use Exaprint\GenPDF\FicheDeFabrication\GFN\GFN;
 use Exaprint\GenPDF\FicheDeFabrication\Negoce\Negoce;
 use Exaprint\GenPDF\FicheDeFabrication\Masterprint\Masterprint;
 
@@ -35,27 +36,27 @@ class Factory
     {
         $type = Helper::getTypeFicheFabGenPDF($IDPlanche);
 
+        if ($type == 0) {
+            throw new \Exception('Planche invalide');
+        }
+
+        $planche = DAL::getPlanche($IDPlanche);
+
         switch ($type) {
             case 0:
                 throw new \Exception('Planche invalide');
             case 1:
-                $planche = DAL::getPlanche($IDPlanche);
                 return new Amalgame($planche);
             case 2:
-                $planche = DAL::getPlanche($IDPlanche);
                 return new Negoce($planche);
             case 3:
-                $planche = DAL::getPlanche($IDPlanche);
                 return new Exaprod($planche);
             case 4:
-                $planche = DAL::getPlanche($IDPlanche);
                 return new Masterprint($planche);
             case 5:
-                $planche = DAL::getPlanche($IDPlanche);
                 return new Etiquette($planche);
             case 6:
-                throw new \Exception('Grand format numérique non pris en charge encore');
-            //return new GrandFormatNum($planche);
+                return new GFN($planche);
         }
     }
 } 
