@@ -13,6 +13,10 @@ use Exaprint\GenPDF\FicheDeFabrication\Negoce\Negoce;
 
 class Masterprint extends Negoce
 {
+    public function build() {
+        parent::build();
+        $this->planche['devis'] = MasterprintDAL::getDevis($this->planche);
+    }
 
     public function planche()
     {
@@ -55,7 +59,7 @@ class Masterprint extends Negoce
         $x = $this->layout->xBloc($this->currentCommandePosition);
         $y = $this->layout->yBloc($this->currentCommandePosition);
 
-        new MasterprintDetails($commande, $this->pdf, $x, $y, $this->layout);
+        new MasterprintDetails($commande, $this->planche['devis'], $this->pdf, $x, $y, $this->layout);
     }
 
 }

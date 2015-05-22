@@ -9,7 +9,6 @@
 namespace Exaprint\GenPDF\FicheDeFabrication\Masterprint;
 
 
-use Exaprint\GenPDF\FicheDeFabrication\Amalgame\Formatter;
 use Exaprint\GenPDF\FicheDeFabrication\Amalgame\Layout;
 use Exaprint\GenPDF\FicheDeFabrication\Negoce\Details;
 use Exaprint\TCPDF\Cell;
@@ -18,18 +17,18 @@ use Exaprint\TCPDF\Color;
 use Exaprint\TCPDF\FillColor;
 use Exaprint\TCPDF\Font;
 use Exaprint\TCPDF\MultiCell;
-use Exaprint\TCPDF\Position;
 use Exaprint\TCPDF\TextColor;
 
 class MasterprintDetails extends Details
 {
 
-    function __construct($commande, \TCPDF $pdf, $x, $y, Layout $layout)
+    function __construct($commande, $devis, \TCPDF $pdf, $x, $y, Layout $layout)
     {
         $this->pdf      = $pdf;
         $this->x        = $x;
         $this->y        = $y;
         $this->commande = $commande;
+        $this->devis    = $devis;
         $this->layout   = $layout;
 
         $this->content();
@@ -71,19 +70,19 @@ class MasterprintDetails extends Details
 
     protected function footer()
     {
-        $q              = new MultiCell();
-        $q->width       = $this->layout->wBloc();
-        $q->font        = new Font('bagc-bold', 12);
-        $q->fillColor   = new FillColor(Color::cmyk(100, 0, 0, 0));
-        $q->textColor   = new TextColor(Color::white());
-        $q->text        = 'Pour plus de détails, référez-vous à votre devis Masterprint N°XXX AAA';
-        $q->x           = $this->_x();
-        $q->y           = $this->_y($this->layout->hBloc() - 9);
-        $q->border      = true;
-        $q->height      = 9;
-        $q->align       = Cell::ALIGN_LEFT;
-        $q->valign      = Cell::VALIGN_CENTER;
-        $q->fill        = true;
+        $q            = new MultiCell();
+        $q->width     = $this->layout->wBloc();
+        $q->font      = new Font('bagc-bold', 12);
+        $q->fillColor = new FillColor(Color::cmyk(100, 0, 0, 0));
+        $q->textColor = new TextColor(Color::white());
+        $q->text      = "Pour plus de détails, référez-vous à votre devis Masterprint N°{$this->devis->NumeroDevisAtelier} {$this->devis->NomAtelier}";
+        $q->x         = $this->_x();
+        $q->y         = $this->_y($this->layout->hBloc() - 9);
+        $q->border    = true;
+        $q->height    = 9;
+        $q->align     = Cell::ALIGN_LEFT;
+        $q->valign    = Cell::VALIGN_CENTER;
+        $q->fill      = true;
         $q->draw($this->pdf);
     }
 }

@@ -24,7 +24,7 @@ class MasterprintFinitions extends NegoceFinitions
         $this->planche = $planche;
 
         $finition = new Finition1Cell($this->planche);
-        $devis = MasterprintDAL::getDevis($this->planche);
+        $devis    = $this->planche['devis'];
         $finition->setValue("MASTERPRINT N°$devis->NumeroDevisAtelier - $devis->NomAtelier");
         $this->finitions[] = $finition;
 
