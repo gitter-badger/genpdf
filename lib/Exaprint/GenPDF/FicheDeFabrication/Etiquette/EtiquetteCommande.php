@@ -23,8 +23,6 @@ use Exaprint\TCPDF\TextColor;
 class EtiquetteCommande extends Commande
 {
 
-
-
     protected function formats()
     {
         $times = '×';
@@ -121,6 +119,7 @@ class EtiquetteCommande extends Commande
         }
 
         $c->text      = $this->commande['CommentairePAO'] . "<br />" . '<span style="background-color:#ededb6">' . $this->commande['CommentaireAtelier'] . '</span>';
+        $c->text = str_replace("\n", '<br />', $c->text);
         $c->textColor = new TextColor(Color::black());
         $c->draw($this->pdf);
     }

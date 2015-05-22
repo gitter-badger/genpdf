@@ -9,9 +9,9 @@
 namespace Exaprint\GenPDF\FicheDeFabrication\Etiquette;
 
 
-use Exaprint\GenPDF\FicheDeFabrication\Amalgame\Planche\Impression;
 use Exaprint\GenPDF\FicheDeFabrication\Etiquette\Planche\EtiquetteFinitions;
 use Exaprint\GenPDF\FicheDeFabrication\Negoce\NegocePlanche;
+use Exaprint\GenPDF\FicheDeFabrication\Negoce\Planche\NegoceImpression;
 use Exaprint\TCPDF\Position;
 
 class EtiquettePlanche extends NegocePlanche
@@ -19,7 +19,7 @@ class EtiquettePlanche extends NegocePlanche
 
     public function impression()
     {
-        $impression = new Impression($this->planche);
+        $impression = new NegoceImpression($this->planche);
         $impression->draw($this->pdf, $this->position->add(new Position(0, 17)));
 
     }

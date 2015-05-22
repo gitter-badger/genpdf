@@ -11,10 +11,17 @@ namespace Exaprint\GenPDF\FicheDeFabrication\Etiquette;
 
 use Exaprint\GenPDF\FicheDeFabrication\Amalgame\Planche;
 use Exaprint\GenPDF\FicheDeFabrication\Negoce\Negoce;
+use Exaprint\GenPDF\FicheDeFabrication\Negoce\NegoceDAL;
 
 class Etiquette extends Negoce
 {
     public function build() {
+        // complétion code famille et code produit
+        $code = NegoceDAL::getFamilleCodification($this->planche['IDPlanche']);
+        $this->planche['Famille'] = $code->famille;
+        $this->planche['Codification'] = $code->codification;
+
+        // récupérer les données propriétaires
         $data = EtiquetteDAL::getPartnersData($this->planche['commandes'][0]['IDCommande']);
         $this->planche['partnersData'] = $data;
     }
@@ -26,12 +33,11 @@ class Etiquette extends Negoce
             new \Exaprint\TCPDF\Position(5, 12)
         );
 
-        foreach ($this->planche['commandes'] as $commande) {
-            $this->commande($commande);
-        }
+        $commande = $this->planche['commandes'][0];
+        $this->commande($commande);
 
         foreach($this->planche['partnersData']['models'] as $modele) {
-            $this->modele($modele);
+            $this->modele($commande, $modele);
         }
     }
 
@@ -50,7 +56,7 @@ class Etiquette extends Negoce
         new EtiquetteCommande($commande, $this->pdf, $x, $y, $this->layout);
     }
 
-    protected function modele($commande)
+    protected function modele($commande, $modele)
     {
         if ($this->currentCommandePosition < 3) {
             $this->currentCommandePosition++;
@@ -62,7 +68,7 @@ class Etiquette extends Negoce
         $x = $this->layout->xBloc($this->currentCommandePosition);
         $y = $this->layout->yBloc($this->currentCommandePosition);
 
-        new EtiquetteModele($commande, $this->pdf, $x, $y, $this->layout);
+        new EtiquetteModele($commande, $modele, $this->pdf, $x, $y, $this->layout);
     }
 
 } 

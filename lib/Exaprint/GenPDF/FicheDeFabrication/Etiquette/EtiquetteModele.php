@@ -10,7 +10,6 @@ namespace Exaprint\GenPDF\FicheDeFabrication\Etiquette;
 
 
 use Exaprint\GenPDF\FicheDeFabrication\Amalgame\Commande;
-use Exaprint\GenPDF\FicheDeFabrication\Amalgame\Formatter;
 use Exaprint\GenPDF\FicheDeFabrication\Amalgame\Layout;
 use Exaprint\GenPDF\FicheDeFabrication\Helper;
 use Exaprint\TCPDF\Cell;
@@ -25,11 +24,12 @@ use Exaprint\TCPDF\TextColor;
 class EtiquetteModele extends Commande
 {
 
-    function __construct($modele, \TCPDF $pdf, $x, $y, Layout $layout)
+    function __construct($commande, $modele, \TCPDF $pdf, $x, $y, Layout $layout)
     {
         $this->pdf      = $pdf;
         $this->x        = $x;
         $this->y        = $y;
+        $this->commande = $commande;
         $this->modele   = $modele;
         $this->layout   = $layout;
 
@@ -47,18 +47,19 @@ class EtiquetteModele extends Commande
 
         $w = $this->layout->cEnteteIdsWidth;
 
-        $idCommande = new Cell();
-        $idCommande->font = new Font('bagc-bold', 20);
-        $idCommande->fillColor = new FillColor(Color::greyscale(0));
-        $idCommande->position = new Position($this->_x(), $this->_y());
-        $idCommande->textColor = new TextColor(Color::greyscale(255));
+        $idCommande                  = new Cell();
+        $idCommande->font            = new Font('bagc-bold', 20);
+        $idCommande->fillColor       = new FillColor(Color::greyscale(0));
+        $idCommande->position        = new Position($this->_x(), $this->_y());
+        $idCommande->textColor       = new TextColor(Color::greyscale(255));
         $idCommande->ignoreMinHeight = true;
-        $idCommande->align = Cell::ALIGN_CENTER;
-        $idCommande->vAlign = Cell::VALIGN_CENTER;
-        $idCommande->height = $this->layout->cEnteteHeight;
-        $idCommande->width = $w;
-        $idCommande->text = 'Modèle #1';
-        $idCommande->fill = true;
+        $idCommande->align           = Cell::ALIGN_CENTER;
+        $idCommande->vAlign          = Cell::VALIGN_CENTER;
+        $idCommande->height          = $this->layout->cEnteteHeight;
+        $idCommande->width           = $w;
+        $idCommande->text            = $this->modele->attributes()->name;
+        $idCommande->fill            = true;
+        $idCommande->border          = true;
         $idCommande->draw($this->pdf);
 
     }
@@ -78,7 +79,7 @@ class EtiquetteModele extends Commande
         $c            = new Cell();
         $c->width     = 48;
         $c->height    = 4;
-        $c->text      = 'Ref. modèle #1';
+        $c->text      = 'Ref. ' . $this->modele->attributes()->name;
         $c->font      = new Font('bagc-medium', 9, new TextColor(Color::black()));
         $c->fill      = true;
         $c->fillColor = new FillColor(Color::white());
@@ -96,7 +97,7 @@ class EtiquetteModele extends Commande
         $c->width           = $this->layout->wBloc() - $this->layout->cellule() * $this->layout->cGrilleColCount;
         $c->isHtml          = true;
 
-        $text = 'Commentaires PAO : ' . $this->commande['CommentaireAtelier'];
+        $text    = 'Commentaires PAO : ' . $this->commande['CommentaireAtelier'];
         $c->font = new Font('bagc-light', 15);
         if (strlen($text) > 250) {
             $c->font = new Font('bagc-light', 13);
