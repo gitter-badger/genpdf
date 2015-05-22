@@ -36,6 +36,32 @@ class MasterprintDAL extends DAL
     }
 
     /**
+     * @param $pao
+     * @return string
+     */
+    public static function cleanDetails($pao) {
+        $arr = explode("\n", $pao);
+
+        unset($arr[0]);
+        unset($arr[1]);
+        unset($arr[2]);
+        unset($arr[4]);
+        unset($arr[5]);
+        unset($arr[6]);
+        unset($arr[7]);
+        unset($arr[10]);
+        unset($arr[11]);
+        unset($arr[13]);
+        unset($arr[14]);
+        unset($arr[26]);
+        unset($arr[27]);
+        unset($arr[28]);
+        array_pop($arr);
+
+        return implode('<br />', $arr);
+    }
+
+    /**
      * @param $planche
      * @return array
      */

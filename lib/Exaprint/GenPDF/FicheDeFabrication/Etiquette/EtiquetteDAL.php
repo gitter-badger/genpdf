@@ -25,7 +25,7 @@ class EtiquetteDAL extends DAL
             SELECT cp.DonneesProprietaires
             FROM TBL_COMMANDE c
               LEFT JOIN TBL_COMMANDE_PARTENAIRE cp ON cp.IDCommandePartenaire = c.IDCommandePartenaire
-            WHERE c.IDCommande = 2588609
+            WHERE c.IDCommande = :IDCommande
         ");
 
         $stmt->execute([

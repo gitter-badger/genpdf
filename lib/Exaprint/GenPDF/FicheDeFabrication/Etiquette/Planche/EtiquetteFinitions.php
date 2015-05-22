@@ -9,6 +9,7 @@
 namespace Exaprint\GenPDF\FicheDeFabrication\Etiquette\Planche;
 
 
+use Exaprint\GenPDF\FicheDeFabrication\Etiquette\EtiquetteDAL;
 use Exaprint\GenPDF\FicheDeFabrication\Masterprint\Planche\Finition1Cell;
 use Exaprint\GenPDF\FicheDeFabrication\Negoce\Planche\NegoceFinition;
 use Exaprint\GenPDF\FicheDeFabrication\Negoce\Planche\NegoceFinitions;
@@ -24,9 +25,7 @@ class EtiquetteFinitions extends NegoceFinitions
         $this->planche = $planche;
 
         $finition = new Finition1Cell($this->planche);
-        //$devis = EtiquetteDAL::getAdesaNumber($this->planche);
-        //$finition->setValue("REF ADESA : $devis->NumeroAdesa");
-        $finition->setValue("REF ADESA : 783644");
+        $finition->setValue("REF ADESA : " . $this->planche['partnersData']['jobId']);
         $this->finitions[] = $finition;
 
     }
