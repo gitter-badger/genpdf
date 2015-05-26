@@ -62,6 +62,8 @@ class InvoiceStatements extends Resource implements IResource
             'DirectDebitDate' => 'DatePrelevement',
         ]);
 
+        $select->leftJoin('TBL_FACTURE_TYPE_PIECE', 'IDFactureTypePiece');
+
         $commande = $select->leftJoin('TBL_COMMANDE', 'IDFacture')->cols([
             'OrderReference' => 'ReferenceClient',
             'OrderDate' => 'DateCommande',
@@ -79,7 +81,8 @@ class InvoiceStatements extends Resource implements IResource
         $select->filter()
             ->eq('IDClient', $IDClient)
             ->eq(new Func('YEAR', [new Column('DateFacture', 'TBL_FACTURE')]), $this->_year)
-            ->eq(new Func('MONTH', [new Column('DateFacture', 'TBL_FACTURE')]), $this->_month);
+            ->eq(new Func('MONTH', [new Column('DateFacture', 'TBL_FACTURE')]), $this->_month)
+            ->eq(new Column('EstOD', 'TBL_FACTURE_TYPE_PIECE'), 0);
 
         //echo $select;
 
