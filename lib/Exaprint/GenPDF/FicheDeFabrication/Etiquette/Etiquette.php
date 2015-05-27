@@ -34,10 +34,12 @@ class Etiquette extends Negoce
         );
 
         $commande = $this->planche['commandes'][0];
+        $commande['nbModeles'] = is_object($this->planche['partnersData']['models']) ? 1: count($this->planche['partnersData']['models']);
         $this->commande($commande);
 
         foreach($this->planche['partnersData']['models'] as $modele) {
-            $this->modele($commande, $modele);
+            $commande['modele'] = $modele;
+            $this->modele($commande);
         }
     }
 
@@ -56,7 +58,7 @@ class Etiquette extends Negoce
         new EtiquetteCommande($commande, $this->pdf, $x, $y, $this->layout);
     }
 
-    protected function modele($commande, $modele)
+    protected function modele($commande)
     {
         if ($this->currentCommandePosition < 3) {
             $this->currentCommandePosition++;
@@ -68,7 +70,7 @@ class Etiquette extends Negoce
         $x = $this->layout->xBloc($this->currentCommandePosition);
         $y = $this->layout->yBloc($this->currentCommandePosition);
 
-        new EtiquetteModele($commande, $modele, $this->pdf, $x, $y, $this->layout);
+        new EtiquetteModele($commande, $this->pdf, $x, $y, $this->layout);
     }
 
 } 

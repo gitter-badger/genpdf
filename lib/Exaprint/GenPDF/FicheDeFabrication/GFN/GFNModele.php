@@ -25,14 +25,14 @@ use Exaprint\TCPDF\TextColor;
 class GFNModele extends Commande
 {
 
-    function __construct($commande, $modele, \TCPDF $pdf, $x, $y, Layout $layout)
+    function __construct($commande, \TCPDF $pdf, $x, $y, Layout $layout)
     {
         $this->pdf      = $pdf;
         $this->x        = $x;
         $this->y        = $y;
         $this->commande = $commande;
-        $this->modele   = $modele;
-        $this->layout   = $layout;
+
+        $this->layout = $layout;
 
         $this->ids();
         $this->formats();
@@ -58,13 +58,59 @@ class GFNModele extends Commande
         $idCommande->vAlign          = Cell::VALIGN_CENTER;
         $idCommande->height          = $this->layout->cEnteteHeight;
         $idCommande->width           = $w;
-        $idCommande->text            = $this->modele->attributes()->name;
+        $idCommande->text            = $this->commande['modele']->title;
         $idCommande->fill            = true;
         $idCommande->border          = true;
         $idCommande->draw($this->pdf);
 
     }
 
+    protected function formats()
+    {
+        $times    = '×';
+        $text     = $this->commande['modele']->size->width . $times . $this->commande['modele']->size->height;
+        $fontSize = 28;
+        if ($text == '×') {
+            $text = '';
+        }
+        if (strlen($text) > 10) {
+            $fontSize = 22;
+        }
+
+        $cOuvert                  = new Cell();
+        $cOuvert->textColor       = new TextColor(Color::greyscale(0));
+        $cOuvert->position        = new Position($this->_x($this->layout->cEnteteIdsWidth), $this->_y());
+        $cOuvert->text            = $text;
+        $cOuvert->font            = new Font('bagc-bold', $fontSize);
+        $cOuvert->ignoreMinHeight = true;
+        $cOuvert->border          = Cell::BORDER_NO_BORDER;
+        $cOuvert->height          = $this->layout->cEnteteHeight;
+        $cOuvert->width           = $this->layout->wBloc() - $this->layout->cEnteteQuantiteWidth - $this->layout->cEnteteIdsWidth;
+        $cOuvert->align           = Cell::ALIGN_CENTER;
+        $cOuvert->vAlign          = Cell::VALIGN_CENTER;
+
+        if ($this->commande['LongueurFerme']) {
+
+            $cOuvert->font   = new Font('bagc-bold', 18);
+            $cOuvert->height = 6;
+
+            $cFerme                  = new Cell();
+            $cFerme->textColor       = new TextColor(Color::greyscale(0));
+            $cFerme->position        = new Position($this->_x($this->layout->cEnteteIdsWidth), $this->_y(6));
+            $cFerme->text            = $this->commande['LargeurFerme'] . $times . $this->commande['LongueurFerme'];
+            $cFerme->font            = new Font('bagc-mediumital', 12);
+            $cFerme->ignoreMinHeight = true;
+            $cFerme->border          = Cell::BORDER_NO_BORDER;
+            $cFerme->height          = 4;
+            $cFerme->width           = $this->layout->wBloc() - $this->layout->cEnteteQuantiteWidth - $this->layout->cEnteteIdsWidth;
+            $cFerme->align           = Cell::ALIGN_CENTER;
+            $cFerme->vAlign          = Cell::VALIGN_BOTTOM;
+
+            $cFerme->draw($this->pdf);
+        }
+        $cOuvert->draw($this->pdf);
+
+    }
 
     protected function quantite()
     {
@@ -116,11 +162,14 @@ class GFNModele extends Commande
         }
 
         $c->text = '';
-        $c->text .='<span style="font-weight:bold; font-size: 11px;">';
-        $c->text .= $this->modele->attributes()->name . ' : Ref : ';
-        $c->text .= '<br />Surface : ';
+        $c->text .= '<span style="font-weight:bold; font-size: 11px;">';
+        $c->text .= $this->commande['modele']->title;
+        $c->text .= '<br />Surface : ' . ($this->commande['modele']->size->width * $this->commande['modele']->size->height / 1000) . " m2";
         $c->text .= '</span>';
-        $c->text .= '<br />Commentaires PAO : <span style="background-color:#ededb6">' . $this->commande['CommentaireAtelier'] . '</span>';
+        if (!empty($this->commande['CommentaireAtelier'])) {
+            $c->text .= '<br />Commentaires PAO : <span style="background-color:#ededb6">' . $this->commande['CommentaireAtelier'] . '</span>';
+        }
+        $c->textColor = new TextColor(Color::black());
         $c->textColor = new TextColor(Color::black());
         $c->draw($this->pdf);
     }

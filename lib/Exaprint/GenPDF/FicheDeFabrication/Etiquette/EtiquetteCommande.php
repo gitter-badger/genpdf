@@ -73,12 +73,25 @@ class EtiquetteCommande extends Commande
 
     protected function quantite()
     {
+        $text = "";
+        $nbModeles = $this->commande['nbModeles'];
+
+        if ($nbModeles == 0) {
+            $text = "0 modèles";
+        }
+        if ($nbModeles == 1) {
+            $text = "1 modèle";
+        }
+        if ($nbModeles > 1) {
+            $text = "$nbModeles modèles";
+        }
+
         $q                  = new Cell();
         $q->width           = $this->layout->cEnteteQuantiteWidth;
         $q->font            = new Font('bagc-bold', 18);
         $q->fillColor       = new FillColor(Color::cmyk(100, 0, 0, 0));
         $q->textColor       = new TextColor(Color::greyscale(255));
-        $q->text            = '2 modèles';
+        $q->text            = $text;
         $q->position        = new Position($this->_x($this->layout->wBloc() - $q->width), $this->_y());
         $q->height          = $this->layout->cEnteteHeight;
         $q->align           = Cell::ALIGN_CENTER;

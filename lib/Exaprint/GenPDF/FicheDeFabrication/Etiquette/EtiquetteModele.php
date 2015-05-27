@@ -24,13 +24,12 @@ use Exaprint\TCPDF\TextColor;
 class EtiquetteModele extends Commande
 {
 
-    function __construct($commande, $modele, \TCPDF $pdf, $x, $y, Layout $layout)
+    function __construct($commande, \TCPDF $pdf, $x, $y, Layout $layout)
     {
         $this->pdf      = $pdf;
         $this->x        = $x;
         $this->y        = $y;
         $this->commande = $commande;
-        $this->modele   = $modele;
         $this->layout   = $layout;
 
         $this->ids();
@@ -57,7 +56,7 @@ class EtiquetteModele extends Commande
         $idCommande->vAlign          = Cell::VALIGN_CENTER;
         $idCommande->height          = $this->layout->cEnteteHeight;
         $idCommande->width           = $w;
-        $idCommande->text            = $this->modele->attributes()->name;
+        $idCommande->text            = $this->commande['modele']->attributes()->name;
         $idCommande->fill            = true;
         $idCommande->border          = true;
         $idCommande->draw($this->pdf);
@@ -79,7 +78,7 @@ class EtiquetteModele extends Commande
         $c            = new Cell();
         $c->width     = 48;
         $c->height    = 4;
-        $c->text      = 'Ref. ' . $this->modele->attributes()->name;
+        $c->text      = 'Ref. ' . $this->commande['modele']->attributes()->name;
         $c->font      = new Font('bagc-medium', 9, new TextColor(Color::black()));
         $c->fill      = true;
         $c->fillColor = new FillColor(Color::white());
@@ -106,7 +105,9 @@ class EtiquetteModele extends Commande
             $c->font = new Font('bagc-light', 11);
         }
 
-        $c->text      = 'Commentaires PAO : <span style="background-color:#ededb6">' . $this->commande['CommentaireAtelier'] . '</span>';
+        if (!empty($this->commande['CommentaireAtelier'])) {
+            $c->text      = 'Commentaires PAO : <span style="background-color:#ededb6">' . $this->commande['CommentaireAtelier'] . '</span>';
+        }
         $c->textColor = new TextColor(Color::black());
         $c->draw($this->pdf);
     }
