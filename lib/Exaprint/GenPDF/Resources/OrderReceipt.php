@@ -45,6 +45,7 @@ class OrderReceipt extends Resource implements IResource
               )                                                                 AS [order.lead_time],
               TBL_DEVIS.IDDevis                                                 AS [order.devis_id],
               TBL_DEVIS.Intitule                                                AS [order.devis_reference],
+              TBL_DEVIS.CommentaireInternePAO                                   AS [order.comment],
               [regulation].LibelleTraduit                                       AS [order.regulation],
               TBL_COMMANDE.Solde                                                AS [order.balance],
               CASE
