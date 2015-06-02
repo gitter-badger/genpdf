@@ -6,11 +6,8 @@
             <dd>{{ option.value }} <em>{{ option.unit }}</em></dd>
         {% endif %}
     {% endfor %}
-    {% if (order.comment != '') %}
-        <dt>Commentaire PAO</dt>
-        <dd>{{ order.comment }}</dd>
-    {% elseif (CommentairePAO != '') %}
-        <dt>Commentaire PAO</dt>
-        <dd>{{ CommentairePAO }}</dd>
-    {% endif %}
+    {% for libelle, valeur in comments %}
+        <dt>{{ libelle }}</dt>
+        <dd>{{ valeur }}</dd>
+    {% endfor %}
 </dl>

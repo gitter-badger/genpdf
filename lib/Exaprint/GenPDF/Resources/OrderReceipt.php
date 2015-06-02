@@ -45,7 +45,6 @@ class OrderReceipt extends Resource implements IResource
               )                                                                 AS [order.lead_time],
               TBL_DEVIS.IDDevis                                                 AS [order.devis_id],
               TBL_DEVIS.Intitule                                                AS [order.devis_reference],
-              TBL_DEVIS.CommentaireInternePAO                                   AS [order.comment],
               [regulation].LibelleTraduit                                       AS [order.regulation],
               TBL_COMMANDE.Solde                                                AS [order.balance],
               CASE
@@ -243,6 +242,19 @@ class OrderReceipt extends Resource implements IResource
                         )
                     );
                 }
+
+                // Affichage des options PANTONE
+                if (strpos(strtolower($data[$IDCommande]->CommentairePAO), 'pantone') > -1) {
+                    $res = [];
+                    $comments = explode("\n", $data[$IDCommande]->CommentairePAO);
+                    foreach ($comments as $comment) {
+                        if (empty($comment) || strlen($comment) == 1) continue;
+                        $statements = explode(':', $comment);
+                        $res[trim($statements[0])] = str_replace(',', '', trim($statements[1]));
+                    }
+                    $data[$IDCommande]->comments = $res;
+                }
+
                 $this->_data = $data[$IDCommande];
                 return true;
             }
