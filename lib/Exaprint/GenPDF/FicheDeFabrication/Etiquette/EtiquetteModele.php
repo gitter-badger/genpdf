@@ -57,6 +57,12 @@ class EtiquetteModele extends Commande
         $idCommande->height          = $this->layout->cEnteteHeight;
         $idCommande->width           = $w;
         $idCommande->text            = $this->commande['modele']->attributes()->name;
+
+        $idCommande->font = new Font('bagc-bold', 20);
+        if (strlen($idCommande->text) > 6) {
+            $idCommande->font = new Font('bagc-bold', 16);
+        }
+
         $idCommande->fill            = true;
         $idCommande->border          = true;
         $idCommande->draw($this->pdf);

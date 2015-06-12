@@ -374,7 +374,7 @@ class Commande
 
     protected function transporteur()
     {
-
+        //
     }
 
     protected function livraison()
@@ -418,7 +418,7 @@ class Commande
     protected function livraisonTransporteur($x, $h)
     {
         $c            = new Cell();
-        $c->text      = ($this->commande['CodeTransporteur'] != self::TRANSPORTEUR_EXPRESS) ? Transporteurs::getTransporteurLabel($this->commande['CodeTransporteur']) : '';
+        $c->text      = Transporteurs::getTransporteurLabel($this->commande['CodeTransporteur']);
         $c->font      = new Font('bagc-bold', $this->layout->cExpeditionDateFontSize);
         $c->border    = true;
         $c->fill      = false;

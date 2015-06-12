@@ -49,7 +49,6 @@ class GFNModele extends Commande
         $w = $this->layout->cEnteteIdsWidth;
 
         $idCommande                  = new Cell();
-        $idCommande->font            = new Font('bagc-bold', 20);
         $idCommande->fillColor       = new FillColor(Color::greyscale(0));
         $idCommande->position        = new Position($this->_x(), $this->_y());
         $idCommande->textColor       = new TextColor(Color::greyscale(255));
@@ -59,8 +58,15 @@ class GFNModele extends Commande
         $idCommande->height          = $this->layout->cEnteteHeight;
         $idCommande->width           = $w;
         $idCommande->text            = $this->commande['modele']->title;
-        $idCommande->fill            = true;
-        $idCommande->border          = true;
+
+
+        $idCommande->font = new Font('bagc-bold', 20);
+        if (strlen($idCommande->text) >= 10) {
+            $idCommande->font = new Font('bagc-bold', 16);
+        }
+
+        $idCommande->fill   = true;
+        $idCommande->border = true;
         $idCommande->draw($this->pdf);
 
     }
@@ -151,24 +157,14 @@ class GFNModele extends Commande
         $c->cellHeightRatio = new CellHeightRatio(0.9);
         $c->width           = $this->layout->wBloc() - $this->layout->cellule() * $this->layout->cGrilleColCount;
         $c->isHtml          = true;
-
-        $text    = 'Commentaires PAO : ' . $this->commande['CommentaireAtelier'];
-        $c->font = new Font('bagc-light', 15);
-        if (strlen($text) > 250) {
-            $c->font = new Font('bagc-light', 13);
-        }
-        if (strlen($text) > 500) {
-            $c->font = new Font('bagc-light', 11);
-        }
+        $c->font            = new Font('bagc-light', 15);
 
         $c->text = '';
         $c->text .= '<span style="font-weight:bold; font-size: 11px;">';
         $c->text .= $this->commande['modele']->title;
         $c->text .= '<br />Surface : ' . ($this->commande['modele']->size->width * $this->commande['modele']->size->height / 1000) . " m2";
         $c->text .= '</span>';
-        if (!empty($this->commande['CommentaireAtelier'])) {
-            $c->text .= '<br />Commentaires PAO : <span style="background-color:#ededb6">' . $this->commande['CommentaireAtelier'] . '</span>';
-        }
+
         $c->textColor = new TextColor(Color::black());
         $c->textColor = new TextColor(Color::black());
         $c->draw($this->pdf);

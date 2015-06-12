@@ -26,6 +26,12 @@ class GFN extends Etiquette
         // récupérer les données propriétaires
         $data                          = EtiquetteDAL::getPartnersData($this->planche['commandes'][0]['IDCommande']);
         $this->planche['partnersData'] = $data;
+
+        // récupérer surface totale
+        $this->planche['surfaceTotale'] = $this->_getSurfaceTotale($this->planche['partnersData']['models']);
+
+        // récupérer tous les images des modèles
+        $this->planche['imagesModeles'] = GFNDAL::getImagesFichiers($this->planche['commandes'][0]['IDCommande']);
     }
 
     public function planche()
@@ -36,19 +42,21 @@ class GFN extends Etiquette
             new \Exaprint\TCPDF\Position(5, 12)
         );
 
+        $models = $this->planche['partnersData']['models'];
+        $models = (is_array($models)) ? $models: $models->children();
         $commande                  = $this->planche['commandes'][0];
-        $commande['nbModeles']     = is_object($this->planche['partnersData']['models']) ? 1 : count($this->planche['partnersData']['models']);
+        $commande['nbModeles']     = count($models);
         $commande['surfaceTotale'] = $this->_getSurfaceTotale($this->planche['partnersData']['models']);
         $this->commande($commande);
 
-        if (is_object($this->planche['partnersData']['models'])) {
-            $commande['modele'] = $this->planche['partnersData']['models'];
-            $this->modele($commande);
-        } else {
-            foreach ($this->planche['partnersData']['models'] as $modele) {
-                $commande['modele'] = $modele;
-                $this->modele($commande);
+        $n = 0;
+        foreach ($models as $modele) {
+            $commande['modele'] = $modele;
+            if (isset($this->planche['imagesModeles'][$n])) {
+                $commande['Fichiers']['Visuels'] = [$this->planche['imagesModeles'][$n]];
             }
+            $this->modele($commande);
+            $n++;
         }
     }
 

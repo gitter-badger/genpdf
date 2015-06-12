@@ -93,7 +93,8 @@ class GFNCommande extends Commande
         $c->width           = $this->layout->wBloc() - $this->layout->cellule() * $this->layout->cGrilleColCount;
         $c->isHtml          = true;
 
-        $text    = $this->commande['CommentairePAO'] . $this->commande['CommentaireAtelier'];
+        $text = $this->_clean($this->commande['CommentairePAO']);
+        $text .= $this->commande['CommentaireAtelier'];
         $c->font = new Font('bagc-light', 15);
         if (strlen($text) > 250) {
             $c->font = new Font('bagc-light', 13);
@@ -102,10 +103,46 @@ class GFNCommande extends Commande
             $c->font = new Font('bagc-light', 11);
         }
 
-        $c->text      = $this->commande['CommentairePAO'] . "<br />" . '<span style="background-color:#ededb6">' . $this->commande['CommentaireAtelier'] . '</span>';
+        $c->text = $text;
+        //$c->text      = $this->commande['CommentairePAO'] . "<br />" . '<span style="background-color:#ededb6">' . $this->commande['CommentaireAtelier'] . '</span>';
         $c->text      = str_replace("\n", '<br />', $c->text);
         $c->textColor = new TextColor(Color::black());
         $c->draw($this->pdf);
+    }
+
+    private function _clean($text)
+    {
+
+        $res   = [];
+        $lines = explode("\n", $text);
+        $calc = false;
+
+        foreach ($lines as $n => $line) {
+            $put = true;
+            if (strpos($line, 'CALCULATEUR') !== false) {
+                $calc = true;
+                $put = false;
+            }
+            if (!$calc) {
+                $extraLines[] = $line;
+                $put = false;
+            }
+            if (strpos($line, 'Intitulé') !== false) {
+                $put = false;
+            }
+            if (strpos($line, 'Modèle n°5') !== false) {
+                $res[] = '';
+                $res[] = 'Pour de plus amples détails, référez-vous à votre devis.';
+                break;
+            }
+            if ($put) {
+                $res[] = $line;
+            }
+        }
+
+        $res = array_merge($res, $extraLines);
+
+        return implode('<br />', $res);
     }
 
 }

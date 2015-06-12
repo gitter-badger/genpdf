@@ -9,9 +9,9 @@
 namespace Exaprint\GenPDF\FicheDeFabrication\GFN;
 
 
+use Exaprint\GenPDF\FicheDeFabrication\GFN\Planche\GFNImpression;
 use Exaprint\GenPDF\FicheDeFabrication\Negoce\NegocePlanche;
 use Exaprint\GenPDF\FicheDeFabrication\Negoce\Planche\NegoceFinitions;
-use Exaprint\GenPDF\FicheDeFabrication\Negoce\Planche\NegoceImpression;
 use Exaprint\TCPDF\Position;
 
 class GFNPlanche extends NegocePlanche
@@ -19,7 +19,7 @@ class GFNPlanche extends NegocePlanche
 
     public function impression()
     {
-        $impression = new NegoceImpression($this->planche);
+        $impression = new GFNImpression($this->planche);
         $impression->draw($this->pdf, $this->position->add(new Position(0, 17)));
 
     }
