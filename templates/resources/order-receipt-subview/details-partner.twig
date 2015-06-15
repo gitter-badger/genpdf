@@ -18,7 +18,11 @@
         {% for i, model in partner.data.models %}
             <li>
                 {{ model.quantity }} {{ order.unit.abbr }} {{ model.title }}
-                - {{ model.width }}<em>{% trans "receipt.cgf.width.unit" %}</em> x {{ model.height }}<em>{% trans "receipt.cgf.height.unit" %}</em>
+                {% if (lang == 'fr_FR' and receipt.cgf.width.unit == '') %}
+                    - {{ model.width/10 }}<em>cm</em> x {{ model.height/10 }}<em>cm</em>
+                {% else %}
+                    - {{ model.width }}<em>{% trans "receipt.cgf.width.unit" %}</em> x {{ model.height }} <em>{% trans "receipt.cgf.height.unit" %}</em>
+                {% endif %}
                 {% if model.options.eyelets > 0 %}
                     - {{ model.options.eyelets }} {% trans "receipt.cgf.eyelets" %}
                 {% endif %}
