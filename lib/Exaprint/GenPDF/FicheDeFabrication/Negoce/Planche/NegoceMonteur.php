@@ -15,7 +15,7 @@ use Exaprint\TCPDF\MultiCell;
 use Exaprint\TCPDF\Position;
 use Exaprint\TCPDF\TextColor;
 
-class Monteur
+class NegoceMonteur
 {
 
     protected $_p;
@@ -29,7 +29,6 @@ class Monteur
     {
         $date = New \DateTime($this->_p['DateAjout']);
         $text = 'Monteur : ' . $this->_p['PrenomMonteur'] . ' ' . $this->_p['NomMonteur'] . ' (' . $this->_p['EmailMonteur'] . ') - ' . $this->_p['ActiviteProduction'];
-        $text .= "<br />Nb de feuille total : " . $this->_p['NbrFeuilleTotal'];
         $text .= "<br />" . 'Date : ' . $date->format('Y-m-d H:i:s') . ' - ' . $this->_p['NomAtelier'] . ' : ' . round($this->_p['CoutPlanche'], 2) . ' ' . $this->_p['AbrDevise'];
 
         $c         = new MultiCell();

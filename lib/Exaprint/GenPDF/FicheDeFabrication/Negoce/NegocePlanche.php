@@ -131,7 +131,7 @@ class NegocePlanche extends Planche
 
     public function monteur()
     {
-        $monteur = new Monteur($this->planche);
+        $monteur = new NegoceMonteur($this->planche);
         $monteur->draw($this->pdf, $this->position->add(new Position(100, 96)));
     }
 
