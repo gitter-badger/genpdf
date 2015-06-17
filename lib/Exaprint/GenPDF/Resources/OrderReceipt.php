@@ -250,7 +250,12 @@ class OrderReceipt extends Resource implements IResource
                     foreach ($comments as $comment) {
                         if (empty($comment) || strlen($comment) == 1) continue;
                         $statements = explode(':', $comment);
-                        $res[trim($statements[0])] = str_replace(',', '', trim($statements[1]));
+                        $key = trim($statements[0]);
+                        $value = trim($statements[1]);
+                        if (empty($key) && strpos($value, 'PANTONE') !== false) {
+                            $key = "Couleur(s) d'impression";
+                        }
+                        $res[$key] = str_replace(',', '', $value);
                     }
                     $data[$IDCommande]->comments = $res;
                 }
