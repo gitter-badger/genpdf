@@ -32,10 +32,8 @@ class OrderReceipt extends Resource implements IResource
               TBL_COMMANDE.MontantHT                                            AS [project.et_amount],
               TBL_COMMANDE.ReferenceClient                                      AS [order.reference],
               TBL_COMMANDE.DateCommande                                         AS [order.creation_date],
-              dbo.f_nDelaiProduit(
-                  TBL_COMMANDE_LIGNE.IDProduit,
-                  TBL_COMMANDE_LIGNE.Quantite,
-                  client.IDSociete,
+              dbo.f_nDelaiCommande(
+                  TBL_COMMANDE.IDCommande,
                   1) + (
                 SELECT
               ValeurParametre
