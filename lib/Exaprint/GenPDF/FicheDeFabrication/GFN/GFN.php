@@ -26,6 +26,7 @@ class GFN extends Etiquette
         // récupérer les données propriétaires
         $data                          = EtiquetteDAL::getPartnersData($this->planche['commandes'][0]['IDCommande']);
         $this->planche['partnersData'] = $data;
+        $this->planche['nbModeles']    = count($this->_getModels($data));
 
         // récupérer surface totale
         $this->planche['surfaceTotale'] = $this->_getSurfaceTotale($this->planche['partnersData']['models']);
@@ -42,8 +43,7 @@ class GFN extends Etiquette
             new \Exaprint\TCPDF\Position(5, 12)
         );
 
-        $models = $this->planche['partnersData']['models'];
-        $models = (is_array($models)) ? $models: $models->children();
+        $models                    = $this->_getModels($this->planche['partnersData']);
         $commande                  = $this->planche['commandes'][0];
         $commande['nbModeles']     = count($models);
         $commande['surfaceTotale'] = $this->_getSurfaceTotale($this->planche['partnersData']['models']);

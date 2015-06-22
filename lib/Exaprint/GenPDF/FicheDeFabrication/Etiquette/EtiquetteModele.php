@@ -10,6 +10,7 @@ namespace Exaprint\GenPDF\FicheDeFabrication\Etiquette;
 
 
 use Exaprint\GenPDF\FicheDeFabrication\Amalgame\Commande;
+use Exaprint\GenPDF\FicheDeFabrication\Amalgame\Formatter;
 use Exaprint\GenPDF\FicheDeFabrication\Amalgame\Layout;
 use Exaprint\GenPDF\FicheDeFabrication\Helper;
 use Exaprint\TCPDF\Cell;
@@ -69,6 +70,23 @@ class EtiquetteModele extends Commande
 
     }
 
+    protected function quantite()
+    {
+        $q                  = new Cell();
+        $q->width           = $this->layout->cEnteteQuantiteWidth;
+        $q->font            = new Font('bagc-bold', 20);
+        $q->fillColor       = new FillColor(Color::cmyk(100, 100, 0, 0));
+        $q->textColor       = new TextColor(Color::greyscale(255));
+        $q->text            = Formatter::quantite((double)$this->commande['modele']->attributes()->quantity) . ' ex';
+        $q->position        = new Position($this->_x($this->layout->wBloc() - $q->width), $this->_y());
+        $q->height          = $this->layout->cEnteteHeight;
+        $q->align           = Cell::ALIGN_CENTER;
+        $q->ignoreMinHeight = true;
+        $q->vAlign          = Cell::VALIGN_CENTER;
+        $q->fill            = true;
+        $q->draw($this->pdf);
+    }
+
     protected function surVisuels()
     {
         $c            = new Cell();
@@ -102,7 +120,7 @@ class EtiquetteModele extends Commande
         $c->width           = $this->layout->wBloc() - $this->layout->cellule() * $this->layout->cGrilleColCount;
         $c->isHtml          = true;
 
-        $text    = 'Commentaires PAO : ' . $this->commande['CommentaireAtelier'];
+        $text    = $this->commande['CommentaireAtelier'];
         $c->font = new Font('bagc-light', 15);
         if (strlen($text) > 250) {
             $c->font = new Font('bagc-light', 13);
@@ -111,8 +129,13 @@ class EtiquetteModele extends Commande
             $c->font = new Font('bagc-light', 11);
         }
 
+        $c->text = '';
+        $c->text .= '<span style="font-weight:bold; font-size: 11px;">';
+        $c->text .= 'Nombre de rouleau par modèle : ' . ((double)$this->commande['modele']->attributes()->quantity / $this->commande['modele']['EtiquetteparRouleau']);
+        $c->text .= '</span>';
+
         if (!empty($this->commande['CommentaireAtelier'])) {
-            $c->text      = 'Commentaires PAO : <span style="background-color:#ededb6">' . $this->commande['CommentaireAtelier'] . '</span>';
+            $c->text      = '<span style="background-color:#ededb6">' . $this->commande['CommentaireAtelier'] . '</span>';
         }
         $c->textColor = new TextColor(Color::black());
         $c->draw($this->pdf);

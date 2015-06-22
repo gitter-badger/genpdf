@@ -6,7 +6,7 @@
  * Time: 12:11
  */
 
-namespace Exaprint\GenPDF\FicheDeFabrication\Amalgame\Planche;
+namespace Exaprint\GenPDF\FicheDeFabrication\Negoce\Planche;
 
 
 use Exaprint\TCPDF\Color;

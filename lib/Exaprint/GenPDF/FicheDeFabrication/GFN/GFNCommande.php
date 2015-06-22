@@ -38,10 +38,12 @@ class GFNCommande extends Commande
         }
 
         $q                  = new Cell();
-        $q->textColor       = new TextColor(Color::greyscale(0));
         $q->position        = new Position($this->_x($this->layout->cEnteteIdsWidth), $this->_y());
         $q->text            = $text;
         $q->font            = new Font('bagc-bold', 22);
+        $q->fillColor       = new FillColor(Color::cmyk(100, 0, 0, 0));
+        $q->textColor       = new TextColor(Color::greyscale(255));
+        $q->fill            = true;
         $q->ignoreMinHeight = true;
         $q->border          = Cell::BORDER_NO_BORDER;
         $q->height          = $this->layout->cEnteteHeight;
@@ -55,7 +57,7 @@ class GFNCommande extends Commande
 
     protected function quantite()
     {
-        $text = $this->commande['surfaceTotale'] . " m2";
+        $text = ceil($this->commande['surfaceTotale'] * 10) / 10 . " m2";
 
         $q                  = new Cell();
         $q->width           = $this->layout->cEnteteQuantiteWidth;
@@ -103,8 +105,7 @@ class GFNCommande extends Commande
             $c->font = new Font('bagc-light', 11);
         }
 
-        $c->text = $text;
-        //$c->text      = $this->commande['CommentairePAO'] . "<br />" . '<span style="background-color:#ededb6">' . $this->commande['CommentaireAtelier'] . '</span>';
+        $c->text      = $text;
         $c->text      = str_replace("\n", '<br />', $c->text);
         $c->textColor = new TextColor(Color::black());
         $c->draw($this->pdf);
@@ -113,26 +114,28 @@ class GFNCommande extends Commande
     private function _clean($text)
     {
 
-        $res   = [];
-        $lines = explode("\n", $text);
-        $calc = false;
+        $res        = [];
+        $lines      = explode("\n", $text);
+        $calc       = false;
+        $extraLines = [];
 
         foreach ($lines as $n => $line) {
             $put = true;
             if (strpos($line, 'CALCULATEUR') !== false) {
                 $calc = true;
-                $put = false;
+                $put  = false;
             }
             if (!$calc) {
-                $extraLines[] = $line;
-                $put = false;
+                $extraLines[] = '<span style="background-color:#ededb6">' . $line . '</span>';
+                $put          = false;
             }
             if (strpos($line, 'Intitulé') !== false) {
                 $put = false;
             }
-            if (strpos($line, 'Modèle n°5') !== false) {
+            if (strpos($line, 'Modèle n°3') !== false) {
+                $res[] = '...';
+                $res[] = 'Pour de plus amples détails, référez-vous aux encadrés de chaque modèle.';
                 $res[] = '';
-                $res[] = 'Pour de plus amples détails, référez-vous à votre devis.';
                 break;
             }
             if ($put) {

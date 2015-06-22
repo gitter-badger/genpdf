@@ -125,7 +125,7 @@ class GFNModele extends Commande
         $q->font            = new Font('bagc-bold', 28);
         $q->fillColor       = new FillColor(Color::cmyk(100, 100, 0, 0));
         $q->textColor       = new TextColor(Color::greyscale(255));
-        $q->text            = Formatter::quantite($this->commande['Quantite']) . ' ex';
+        $q->text            = Formatter::quantite((double)$this->commande['modele']->quantity) . ' ex';
         $q->position        = new Position($this->_x($this->layout->wBloc() - $q->width), $this->_y());
         $q->height          = $this->layout->cEnteteHeight;
         $q->align           = Cell::ALIGN_CENTER;

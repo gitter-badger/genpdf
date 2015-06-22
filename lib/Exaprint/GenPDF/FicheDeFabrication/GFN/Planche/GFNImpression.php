@@ -30,7 +30,7 @@ class GFNImpression extends NegoceImpression
     {
         $c                    = new Cellule();
         $c->dimensions->width = 36;
-        $c->value             = $surface.' m2';
+        $c->value             = (ceil($surface * 10) / 10) . ' m2';
         $c->vAlign            = Cell::VALIGN_CENTER;
 
         $c->valueFont->size = 36;
