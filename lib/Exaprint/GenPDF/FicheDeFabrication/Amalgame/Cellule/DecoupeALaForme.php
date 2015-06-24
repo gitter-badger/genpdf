@@ -13,10 +13,8 @@ use Exaprint\GenPDF\FicheDeFabrication\Amalgame\ICellule;
 use Exaprint\GenPDF\FicheDeFabrication\Amalgame\Planche\Page;
 use Exaprint\TCPDF\Cell;
 use Exaprint\TCPDF\Color;
-use Exaprint\TCPDF\FillColor;
 use Exaprint\TCPDF\Font;
 use Exaprint\TCPDF\Position;
-use Exaprint\TCPDF\Text;
 use Exaprint\TCPDF\TextColor;
 
 class DecoupeALaForme implements ICellule
@@ -52,7 +50,7 @@ class DecoupeALaForme implements ICellule
                 $cTxt->draw($pdf);
             }
         } else {
-            Helper::drawEmptyCell($position, $pdf, $cellSize);
+            CelluleHelper::drawEmptyCell($position, $pdf, $cellSize);
         }
     }
 }

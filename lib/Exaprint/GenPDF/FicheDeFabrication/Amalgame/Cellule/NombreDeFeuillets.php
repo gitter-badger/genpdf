@@ -10,16 +10,8 @@ namespace Exaprint\GenPDF\FicheDeFabrication\Amalgame\Cellule;
 
 
 use Exaprint\GenPDF\FicheDeFabrication\Amalgame\ICellule;
-use Exaprint\GenPDF\FicheDeFabrication\Amalgame\Planche\Cellule;
-use Exaprint\GenPDF\FicheDeFabrication\Amalgame\Planche\CelluleMultiligne;
 use Exaprint\GenPDF\FicheDeFabrication\Amalgame\Planche\TwoCells;
-use Exaprint\TCPDF\Cell;
-use Exaprint\TCPDF\Color;
-use Exaprint\TCPDF\FillColor;
-use Exaprint\TCPDF\Font;
-use Exaprint\TCPDF\MultiCell;
 use Exaprint\TCPDF\Position;
-use Exaprint\TCPDF\TextColor;
 
 class NombreDeFeuillets implements ICellule
 {
@@ -33,7 +25,7 @@ class NombreDeFeuillets implements ICellule
             $cell->height  = $cellSize;
             $cell->draw($pdf, $position);
         } else {
-            Helper::drawEmptyCell($position, $pdf, $cellSize);
+            CelluleHelper::drawEmptyCell($position, $pdf, $cellSize);
         }
     }
 }

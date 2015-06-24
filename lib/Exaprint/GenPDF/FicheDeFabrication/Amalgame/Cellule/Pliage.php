@@ -12,10 +12,8 @@ namespace Exaprint\GenPDF\FicheDeFabrication\Amalgame\Cellule;
 use Exaprint\GenPDF\FicheDeFabrication\Amalgame\ICellule;
 use Exaprint\TCPDF\Cell;
 use Exaprint\TCPDF\Color;
-use Exaprint\TCPDF\FillColor;
 use Exaprint\TCPDF\Font;
 use Exaprint\TCPDF\Position;
-use Exaprint\TCPDF\Text;
 use Exaprint\TCPDF\TextColor;
 
 class Pliage implements ICellule
@@ -24,7 +22,14 @@ class Pliage implements ICellule
     {
 
 
-        if (isset($commande['Pliage']) && ($pliage = $commande['Pliage'])) {
+        if (isset($commande['Pliage']) || isset($commande['PliageComplexe'])) {
+
+            if (isset($commande['Pliage'])) {
+                $pliage = $commande['Pliage'];
+            } else {
+                $pliage = $commande['PliageComplexe'];
+            }
+
             $cell           = new Cell();
             $cell->position = $position;
             $cell->fill     = false;
@@ -56,7 +61,7 @@ class Pliage implements ICellule
                 $cTxt->draw($pdf);
             }
         } else {
-            Helper::drawEmptyCell($position, $pdf, $cellSize);
+            CelluleHelper::drawEmptyCell($position, $pdf, $cellSize);
         }
     }
 }

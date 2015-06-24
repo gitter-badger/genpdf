@@ -40,6 +40,7 @@ CREATE VIEW dbo.VUE_PDF_COMMANDE AS
     , dbo.f_mValeurOptionCommande(c.IDCommande, 102)           AS LargeurFerme
     , dbo.f_mValeurOptionCommande(c.IDCommande, 103)           AS LongueurFerme
     , dbo.f_nIDProduitOptionValeurProduit(p.IDProduit, 104, 1) AS Pliage
+    , dbo.f_nIDProduitOptionValeurProduit(p.IDProduit, 272, 1) AS PliageComplexe
     , dbo.f_nIDProduitOptionValeurProduit(p.IDProduit, 105, 1) AS DecoupeALaForme
     , sel.HasFormeDecoupeNumerique                             AS DecoupeALaFormeNumerique
     , pov_feuillet.ValeurNumParticularite                      AS NombreDeFeuillets

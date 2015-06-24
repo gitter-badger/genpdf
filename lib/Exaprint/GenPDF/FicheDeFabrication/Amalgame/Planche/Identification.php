@@ -10,7 +10,6 @@ namespace Exaprint\GenPDF\FicheDeFabrication\Amalgame\Planche;
 
 use Exaprint\TCPDF\Color;
 use Exaprint\TCPDF\Dimensions;
-use Exaprint\TCPDF\FillColor;
 
 class Identification extends Rang
 {

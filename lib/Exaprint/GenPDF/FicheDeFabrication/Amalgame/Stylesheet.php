@@ -6,7 +6,7 @@
  * Time: 15:46
  */
 
-namespace Exaprint\GenPDF\FicheDeFabrication;
+namespace Exaprint\GenPDF\FicheDeFabrication\Amalgame;
 
 
 use Exaprint\TCPDF\Color;

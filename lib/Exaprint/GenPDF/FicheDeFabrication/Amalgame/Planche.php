@@ -2,761 +2,133 @@
 /**
  * Created by PhpStorm.
  * User: admin
- * Date: 19/02/2014
- * Time: 11:34
+ * Date: 10/04/2014
+ * Time: 16:48
  */
 
 namespace Exaprint\GenPDF\FicheDeFabrication\Amalgame;
 
-use Exaprint\GenPDF\FicheDeFabrication\Amalgame;
-use Exaprint\TCPDF\Cell;
-use Exaprint\TCPDF\CellHeightRatio;
-use Exaprint\TCPDF\CellPadding;
-use Exaprint\TCPDF\Color;
+
+use Exaprint\GenPDF\FicheDeFabrication\Amalgame\Planche\PEFC;
+use Exaprint\GenPDF\FicheDeFabrication\Amalgame\Planche\Compteurs;
+use Exaprint\GenPDF\FicheDeFabrication\Amalgame\Planche\DetailSousTraitance;
+use Exaprint\GenPDF\FicheDeFabrication\Amalgame\Planche\Faconnage;
+use Exaprint\GenPDF\FicheDeFabrication\Amalgame\Planche\Finitions;
+use Exaprint\GenPDF\FicheDeFabrication\Amalgame\Planche\Identification;
+use Exaprint\GenPDF\FicheDeFabrication\Amalgame\Planche\Impression;
+use Exaprint\GenPDF\FicheDeFabrication\Amalgame\Planche\IndicationsCommandes;
+use Exaprint\GenPDF\FicheDeFabrication\Amalgame\Planche\Observations;
+use Exaprint\GenPDF\FicheDeFabrication\Amalgame\Planche\Rush;
+use Exaprint\GenPDF\FicheDeFabrication\Amalgame\Planche\Transporteurs;
+use Exaprint\GenPDF\FicheDeFabrication\Amalgame\Planche\Monteur;
 use Exaprint\TCPDF\Dimensions;
-use Exaprint\TCPDF\FillColor;
-use Exaprint\TCPDF\Font;
-use Exaprint\TCPDF\Image;
-use Exaprint\TCPDF\LineStyle;
-use Exaprint\TCPDF\MultiCell;
 use Exaprint\TCPDF\Position;
-use Exaprint\TCPDF\Rect;
-use Exaprint\TCPDF\RoundedRect;
-use Exaprint\TCPDF\Text;
-use Exaprint\TCPDF\TextColor;
-use Exaprint\TCPDF\TextShadow;
 
 class Planche
 {
-
-
-    /**
-     * @var \TCPDF
-     */
+    /** @var  array */
+    public $planche;
+    /** @var  Position */
+    public $position;
+    /** @var  \TCPDF */
     public $pdf;
+    /** @var  Dimensions */
+    public $dimensions;
 
-    protected $planche;
-    /**
-     * @var Layout
-     */
-    protected $layout;
-
-    function __construct(\TCPDF $pdf, $planche, Layout $layout)
+    function __construct($dimensions, $pdf, $planche, $position)
     {
-        $this->pdf     = $pdf;
-        $this->planche = $planche;
-        $this->layout  = $layout;
-    }
+        $this->dimensions = $dimensions;
+        $this->pdf        = $pdf;
+        $this->planche    = $planche;
+        $this->position   = $position;
 
-    public function getBlocs()
-    {
-        $lignes = [];
-
-        $lightBlack  = new Font('bagc-light', 36, new TextColor(Color::black()));
-        $mediumWhite = new Font('bagc-medium', 28, new TextColor(Color::white()));
-
-        $lignes[0] = [
-            "height" => 17,
-            "blocs"  => [
-                [
-                    "label" => "N° Planche",
-                    "value" => number_format($this->planche['IDPlanche'], 0, '.', ' '),
-                    "width" => $this->layout->pEnteteIdPlancheWidth
-                ],
-                [
-                    "label"     => "Expé SANS façonnage",
-                    "value"     => $this->planche['ExpeSansFaconnage'],
-                    "valueFont" => new Font('bagc-bold', 36, new TextColor(Color::cmyk(0, 100, 75, 0))),
-                    "width"     => $this->layout->pEnteteExpeSansFaconnageWidth
-                ],
-                [
-                    "label"     => "Expé AVEC façonnage",
-                    "value"     => $this->planche['ExpeAvecFaconnage'],
-                    "valueFont" => new Font('bagc-bold', 36, new TextColor(Color::cmyk(0, 100, 75, 0))),
-                    "width"     => $this->layout->pEnteteExpeAvecFaconnageWidth
-                ],
-                [
-                    "label"     => "Impératifs",
-                    "value"     => $this->countImperatifs(),
-                    "width"     => $this->layout->pEnteteImperatifsWidth,
-                    "valueFont" => new Font('bagc-bold', 36, new TextColor(Color::cmyk(0, 100, 75, 0))),
-                ],
-                [
-                    "label"     => "Sous-traitance",
-                    "value"     => ($this->planche['EstSousTraitance']) ? 'ST' : null,
-                    "width"     => 20,
-                    "valueFont" => new Font('bagc-bold', 36, new TextColor(Color::white())),
-                    "fillColor" => new FillColor(Color::cmyk(0, 50, 80, 0))
-                ],
-                [
-                    "callback" => 'codeBarre',
-                    "width"    => 40
-                ],
-                [
-                    "label" => "Nb commandes",
-                    "value" => $this->countCommandes(),
-                    "width" => $this->layout->pEnteteNbCommandesWidth
-                ],
-            ]
-        ];
-
-        $lignes[1] = [
-            "height" => 16,
-            "blocs"  => [
-                [
-                    "value"     => $this->formatNbFeuilles(),
-                    "width"     => 30,
-                    "valueFont" => new Font('bagc-bold', 36, new TextColor(Color::white())),
-                    "fillColor" => new FillColor(Color::cmyk(100, 100, 0, 0)),
-                    "vAlign"    => Cell::VALIGN_CENTER,
-                ],
-                [
-                    "value"     => $this->getFormat(),
-                    "valueFont" => $lightBlack,
-                    "width"     => 30,
-                    "vAlign"    => Cell::VALIGN_CENTER,
-                ],
-                [
-                    "callback" => "couleurs",
-                    "width"    => 16,
-                ],
-                [
-                    "image" => $this->getImpressionRectoVerso(),
-                    "width" => 16,
-                ],
-                [
-                    "label"     => 'Bascule',
-                    "value"     => ($this->planche['Bascule'] == 1) ? null : t('bascule_' . $this->planche['Bascule']),
-                    "valueFont" => new Font('bagc-light', 26, new TextColor(Color::black())),
-                    "width"     => 16,
-                ],
-                [
-                    "value"     => t('valeur_' . $this->planche['Support']),
-                    "valueFont" => new Font('bagc-light', 26, new TextColor(Color::black())),
-                    "width"     => 92,
-                    "fillColor" => new FillColor(Color::cmyk(0, 0, 75, 0)),
-                    "vAlign"    => Cell::VALIGN_CENTER,
-                ]
-            ],
-
-        ];
-
-        $lignes[2] = [
-            "height" => 11,
-            "blocs"  => [
-                [
-                    "value"     => "PELL",
-                    "width"     => 22,
-                    "fillColor" => new FillColor(Color::greyscale(60)),
-                    "valueFont" => $mediumWhite
-                ],
-                [
-                    "value"     => $this->getPelliculage(),
-                    "width"     => 78,
-                    "valueFont" => new Font('bagc-light', 30, new TextColor(Color::white())),
-                    "fillColor" => new FillColor(Color::cmyk(0, 100, 80, 0)),
-                ],
-
-                [
-                    "value"     => "VERN",
-                    "width"     => 22,
-                    "fillColor" => new FillColor(Color::greyscale(60)),
-                    "valueFont" => $mediumWhite
-                ],
-                [
-                    "value"     => $this->getVernis(),
-                    "width"     => 78,
-                    "valueFont" => new Font('bagc-light', 30, new TextColor(Color::black()))
-                ],
-            ]
-        ];
-
-        $lignes[3] = [
-            "height" => "11",
-            "blocs"  => [
-
-                [
-                    "value"     => "UV",
-                    "width"     => 22,
-                    "fillColor" => new FillColor(Color::greyscale(60)),
-                    "valueFont" => $mediumWhite
-                ],
-                [
-                    "value"     => $this->getVernisUV(),
-                    "width"     => 78,
-                    "valueFont" => new Font('bagc-light', 30, new TextColor(Color::white())),
-                    "fillColor" => new FillColor(Color::cmyk(40, 80, 0, 0)),
-                ],
-            ]
-        ];
-/*
-        $lignes[4] = [
-            "height" => 11,
-            "blocs"  => [
-                [
-                    "value"     => "FAÇO",
-                    "width"     => 22,
-                    "fillColor" => new FillColor(Color::greyscale(60)),
-                    "valueFont" => $mediumWhite
-                ],
-                [
-                    "callback" => "faconnage",
-                    "width"    => 142
-                ],
-                [
-                    "value"     => $this->countPortesCarte(),
-                    "label"     => "P-C",
-                    "width"     => 12,
-                    "valueFont" => new Font('bagc-bold', 23, new TextColor(Color::black())),
-                    "fillColor" => new FillColor(Color::cmyk(0, 50, 75, 0)),
-                ],
-                [
-                    "value"     => $this->countJustificatifs(),
-                    "label"     => "Justifs",
-                    "width"     => 12,
-                    "valueFont" => new Font('bagc-bold', 23, new TextColor(Color::black())),
-                    "fillColor" => new FillColor(Color::cmyk(50, 75, 0, 0)),
-                ],
-                [
-                    "value"     => $this->countKitFidelite(),
-                    "label"     => "Kits fidélité",
-                    "width"     => 12,
-                    "valueFont" => new Font('bagc-bold', 23, new TextColor(Color::black())),
-                    "fillColor" => new FillColor(Color::cmyk(0, 75, 50, 0)),
-                ],
-            ]
-        ];*/
-
-        return $lignes;
+        $this->identification();
+        $this->impression();
+        $this->finitions();
+        $this->faconnage();
+        $this->detailSousTraitance();
+        $this->rush();
+        $this->indicationsCommandes();
+        $this->compteurs();
+        $this->observations();
+        $this->pefc();
+        $this->transporteurs();
+        $this->monteur();
     }
 
 
-    public function draw()
+    public function identification()
     {
-        $y       = $this->layout->soucheHeight;
-        $default = [
-            "label"     => "",
-            "value"     => "",
-            "width"     => 0,
-            "valueFont" => new Font('bagc-bold', 36, new TextColor(Color::black())),
-            "labelFont" => new Font('bagc-light', 10, new TextColor(Color::greyscale(40))),
-            "fillColor" => new FillColor(Color::white()),
-            "vAlign"    => Cell::VALIGN_BOTTOM,
-        ];
-        foreach ($this->getBlocs() as $ligne) {
-            $x = $this->layout->marge;
-            foreach ($ligne['blocs'] as $bloc) {
-                $p = new Position($x, $y);
-                $d = new Dimensions($bloc['width'], $ligne['height']);
-                if (isset($bloc['callback'])) {
-                    call_user_func([$this, $bloc['callback']], $p, $d);
-                } else if (isset($bloc['image'])) {
-                    $this->image(
-                        $p,
-                        $d,
-                        $bloc['image']
-                    );
-                } else {
-                    $bloc = array_merge($default, $bloc);
-                    $this->cell(
-                        $p,
-                        $d,
-                        $bloc['label'],
-                        $bloc['value'],
-                        $bloc['valueFont'],
-                        $bloc['labelFont'],
-                        $bloc['fillColor'],
-                        $bloc['vAlign']
-                    );
-                }
-
-                $x += $bloc['width'];
-            }
-            $y += $ligne['height'] + $this->layout->pRowMargin;
-        }
-
-
-        $this->drawIndicationsCommandes($y);
-        $this->drawObservationsTechniques();
+        $identification = new Identification($this->planche);
+        $identification->draw($this->pdf, $this->position->add(new Position(0, 0)));
     }
 
-    public function drawIndicationsCommandes($y)
+    public function impression()
     {
-        $startY = $y;
-        $startX = $this->layout->marge;
+        $impression = new Impression($this->planche);
+        $impression->draw($this->pdf, $this->position->add(new Position(0, 17)));
 
-        $i = 1;
-        foreach ($this->getIndicationsCommandes() as $type => $pages) {
-            if (count($pages)) {
-                $cell           = new Cell();
-                $cell->border   = 1;
-                $cell->position = new Position($startX, $y);
-                $cell->text     = $type;
-                $cell->width    = 18;
-                $cell->height   = 12;
+    }
 
-                $cell->font = new Font('bagc-medium', 12, new TextColor(Color::black()));
-                $cell->draw($this->pdf);
-            }
-            $x = $startX + 19;
-            foreach ($pages as $numeroDePage => $details) {
-                $this->drawIndicationCommandesPage(
-                    new Position($x, $y),
-                    $numeroDePage,
-                    $details,
-                    Color::cmyk(0, 100, 75, 0)
-                );
-                $x += 7;
-            }
+    public function finitions()
+    {
+        $finitions = new Finitions($this->planche);
+        $finitions->draw($this->pdf, $this->position->add(new Position(0, 33)));
+    }
 
+    public function faconnage()
+    {
+        $faconnage = new Faconnage($this->planche);
+        $faconnage->draw($this->pdf, $this->position->add(new Position(100, 33)));
+    }
 
-            if (count($pages)) {
-                if ($i % 5 == 0) {
-                    $y = $startY;
-                    $startX += 65;
-                } else {
-                    $y += 12;
-                }
-                $i++;
-            }
+    public function detailSousTraitance()
+    {
+        $detailST = new DetailSousTraitance($this->planche);
+        $detailST->draw($this->pdf, $this->position->add(new Position(100, 49.5)));
+    }
+
+    public function rush() {
+        $indications = new Rush($this->planche);
+        $indications->draw($this->pdf, $this->position->add(new Position(87, 67)));
+    }
+
+    public function indicationsCommandes()
+    {
+        $indications = new IndicationsCommandes($this->planche);
+        $indications->draw($this->pdf, $this->position->add(new Position(0, 66)));
+    }
+
+    public function observations()
+    {
+        $observations = new Observations($this->planche);
+        $observations->draw($this->pdf, $this->position->add(new Position(100, 66)));
+    }
+
+    public function pefc()
+    {
+        if ($this->planche['estPEFC']) {
+            $compteurs = new PEFC($this->planche);
+            $compteurs->draw($this->pdf, $this->position->add(new Position(82, 118)));
         }
     }
 
-    public function drawIndicationCommandesPage(
-        Position $p,
-        $numeroDePage,
-        $sections = [],
-        Color $fillColor = null
-    )
+    public function compteurs()
     {
-        $p->y += 0.5;
-        $w = 5.778;
-        $h = 8.172;
-
-        $rect             = new Rect();
-        $rect->position   = $p;
-        $rect->dimensions = new Dimensions($w / 2, $h / 2);
-        $rect->style      = Rect::STYLE_FILL_THEN_STROKE;
-        $rect->fillColor  = new FillColor(isset($sections[0]) ? $fillColor : Color::white());
-        $rect->draw($this->pdf);
-
-        $rect             = new Rect();
-        $rect->position   = $p->add(new Position($w / 2, 0));
-        $rect->dimensions = new Dimensions($w / 2, $h / 2);
-        $rect->style      = Rect::STYLE_FILL_THEN_STROKE;
-        $rect->fillColor  = new FillColor(isset($sections[1]) ? $fillColor : Color::white());
-        $rect->draw($this->pdf);
-
-        $rect             = new Rect();
-        $rect->position   = $p->add(new Position(0, $h / 2));
-        $rect->dimensions = new Dimensions($w / 2, $h / 2);
-        $rect->style      = Rect::STYLE_FILL_THEN_STROKE;
-        $rect->fillColor  = new FillColor(isset($sections[2]) ? $fillColor : Color::white());
-        $rect->draw($this->pdf);
-
-        $rect             = new Rect();
-        $rect->position   = $p->add(new Position($w / 2, $h / 2));
-        $rect->dimensions = new Dimensions($w / 2, $h / 2);
-        $rect->style      = Rect::STYLE_FILL_THEN_STROKE;
-        $rect->fillColor  = new FillColor(isset($sections[3]) ? $fillColor : Color::white());
-        $rect->draw($this->pdf);
-
-        $cell                  = new Cell();
-        $cell->position        = $p->add(new Position(0, $h));
-        $cell->width           = $w;
-        $cell->height          = 4;
-        $cell->align           = Cell::ALIGN_CENTER;
-        $cell->text            = $numeroDePage;
-        $cell->border          = 0;
-        $cell->font            = new Font('bagc-bold', 10, new TextColor(Color::black()));
-        $cell->ignoreMinHeight = true;
-        $cell->draw($this->pdf);
+        $compteurs = new Compteurs($this->planche);
+        $compteurs->draw($this->pdf, $this->position->add(new Position(0, 120)));
     }
 
-    public function image(Position $p, Dimensions $d, $src)
+    public function transporteurs()
     {
-        $rect             = new Rect();
-        $rect->dimensions = $d;
-        $rect->position   = $p;
-        $rect->style      = Rect::STYLE_STROKE;
-        $rect->draw($this->pdf);
-
-        $image         = new Image();
-        $image->height = $d->height - 2;
-        $image->width  = $d->width - 2;
-        $image->file   = $src;
-        $image->x      = $p->x + 1;
-        $image->y      = $p->y + 1;
-        $image->draw($this->pdf);
+        $compteurs = new Transporteurs($this->planche);
+        $compteurs->draw($this->pdf, $this->position->add(new Position(100, 120)));
     }
 
-    public function cell(Position $p, Dimensions $d, $label, $value, $valueFont, $labelFont, $fillColor, $vAlign = Cell::VALIGN_BOTTOM)
+    public function monteur()
     {
-        if (is_numeric($value) && $value == 0)
-            $value = '';
-
-
-        if (!$value) {
-            $lineStyle        = new LineStyle();
-            $lineStyle->color = Color::greyscale(200);
-            $lineStyle->width = 0.2;
-            $lineStyle->apply($this->pdf);
-            $this->pdf->Line($p->x, $p->y, $d->width + $p->x, $d->height + $p->y);
-            $this->pdf->Line($d->width + $p->x, $p->y, $p->x, $d->height + $p->y);
-            $lineStyle->revert($this->pdf);
-        }
-
-        $cell                  = new Cell();
-        $cell->position        = $p;
-        $cell->width           = $d->width;
-        $cell->height          = $d->height;
-        $cell->text            = $value;
-        $cell->align           = Cell::ALIGN_CENTER;
-        $cell->vAlign          = $vAlign;
-        $cell->ignoreMinHeight = true;
-        $cell->font            = $valueFont;
-        $cell->fill            = ($value);
-        $cell->border          = true;
-        $cell->fillColor       = $fillColor;
-        $cell->draw($this->pdf);
-
-
-        if ($label) {
-            $labelText = new Text($p->x, $p->y, $label, $labelFont);
-            $labelText->draw($this->pdf);
-        }
-
+        $monteur = new Monteur($this->planche);
+        $monteur->draw($this->pdf, $this->position->add(new Position(100, 96)));
     }
 
-
-    protected function countImperatifs()
-    {
-        $cnt = 0;
-        foreach ($this->planche['commandes'] as $commande) {
-            if ($commande['EstImperatif']) $cnt++;
-        }
-        return $cnt;
-    }
-
-    protected function countCommandes()
-    {
-        return count($this->planche['commandes']);
-    }
-
-    protected function codeBarre(Position $position, Dimensions $dimensions)
-    {
-        $margin = $this->layout->pCodeBarreMargin;
-        $this->pdf->Rect($position->x, $position->y, $dimensions->width, $dimensions->height, 's');
-        $this->pdf->write1DBarcode(
-            $this->planche['IDPlanche'],
-            'C39',
-            $position->x + $margin / 2,
-            $position->y + $margin / 2,
-            $dimensions->width - $margin,
-            $dimensions->height - $margin,
-            0.4,
-            '',
-            'N'
-        );
-    }
-
-    protected function formatNbFeuilles()
-    {
-        return number_format($this->planche['NbFeuilles'], 0, '.', ' ');
-    }
-
-    protected function getFormat()
-    {
-        return $this->planche['Largeur'] . '×' . $this->planche['Longueur'];
-    }
-
-    protected function getImpressionRectoVerso()
-    {
-        if ($this->planche['ImpressionVerso']) {
-            return '../assets/RectoVerso.png';
-        }
-        return '../assets/Recto.png';
-    }
-
-    protected function getPelliculage()
-    {
-        if (is_null($this->planche['PelliculageRecto'])) return null;
-
-        $txt = t('valeur_' . $this->planche['PelliculageRecto']) . ' R°';
-
-        if ($this->planche['PelliculageVerso']) {
-            $txt .= 'V°';
-        }
-
-        return $txt;
-    }
-
-    protected function getVernis()
-    {
-        if (is_null($this->planche['VernisRecto'])) return null;
-
-        $txt = t('valeur_' . $this->planche['VernisRecto']) . ' R°';
-
-        if ($this->planche['VernisVerso']) {
-            $txt .= 'V°';
-        }
-
-        return $txt;
-    }
-
-    protected function getVernisUV()
-    {
-        if (is_null($this->planche['VernisSelectifRecto'])) return null;
-
-        $txt = t('valeur_' . $this->planche['VernisSelectifRecto']) . ' R°';
-
-        if ($this->planche['VernisSelectifVerso']) {
-            $txt .= 'V°';
-        }
-
-        if($this->planche['NomAtelierSousTraitance'] && in_array(22, $this->planche['ActionsSousTraitance'])){
-            $txt .= ' ' . $this->planche['NomAtelierSousTraitance'];
-        }
-
-        return $txt;
-    }
-
-    protected function couleurs(Position $position, Dimensions $dimensions)
-    {
-
-        $rect             = new Rect();
-        $rect->dimensions = $dimensions;
-        $rect->position   = $position;
-        $rect->style      = Rect::STYLE_STROKE;
-        $rect->draw($this->pdf);
-
-        $image         = new Image();
-        $image->height = $dimensions->height - 2;
-        $image->width  = $dimensions->width - 2;
-        $image->file   = '../assets/Quadri.png';
-        $image->x      = $position->x + 1;
-        $image->y      = $position->y + 1;
-        $image->draw($this->pdf);
-
-
-    }
-
-    protected function faconnage(Position $position, Dimensions $dimensions)
-    {
-        $rect             = new Rect();
-        $rect->dimensions = $dimensions;
-        $rect->position   = $position;
-        $rect->style      = Rect::STYLE_STROKE;
-        $rect->draw($this->pdf);
-
-        $margin  = 1;
-        $pMargin = new Position($margin, $margin);
-
-        if ($this->planche['Pliage'] || $this->planche['AvecPliage']) {
-            $this->tagFaconnage(
-                $position->add($pMargin),
-                new Dimensions(18, $dimensions->height - $margin * 2), // todo width en clé de trad ?
-                'Pliage',
-                Color::cmyk(72, 0, 100, 0)
-            );
-            $position = $position->add(new Position(18 + $margin, 0));
-        }
-
-        if ($this->planche['Rainage'] || $this->planche['AvecRainage']) {
-            $this->tagFaconnage(
-                $position->add($pMargin),
-                new Dimensions(20, $dimensions->height - $margin * 2),
-                'Rainage',
-                Color::cmyk(60, 0, 90, 0)
-            );
-            $position = $position->add(new Position(20 + $margin, 0));
-        }
-
-        if ($this->planche['Decoupe'] || $this->planche['AvecDecoupe']) {
-            $this->tagFaconnage(
-                $position->add($pMargin),
-                new Dimensions(20, $dimensions->height - $margin * 2),
-                'Découpe',
-                Color::cmyk(75, 0, 100, 0)
-            );
-            $position = $position->add(new Position(20 + $margin, 0));
-
-        }
-
-        if ($this->planche['Predecoupe']) {
-            $this->tagFaconnage(
-                $position->add($pMargin),
-                new Dimensions(30, $dimensions->height - $margin * 2),
-                'Prédécoupe',
-                Color::cmyk(70, 0, 100, 20)
-            );
-
-            $position = $position->add(new Position(30 + $margin, 0));
-        }
-
-        if ($this->planche['DecoupeALaForme']) {
-            $this->tagFaconnage(
-                $position->add($pMargin),
-                new Dimensions(42, $dimensions->height - $margin * 2),
-                'Découpe à la forme',
-                Color::cmyk(80, 0, 100, 10)
-            );
-            $position = $position->add(new Position(42 + $margin, 0));
-        }
-
-        if ($this->planche['Perforation'] || $this->planche['AvecPerforation']) {
-            $this->tagFaconnage(
-                $position->add($pMargin),
-                new Dimensions(30, $dimensions->height - $margin * 2),
-                'Perforation',
-                Color::cmyk(0, 30, 10, 80)
-            );
-            $position = $position->add(new Position(30 + $margin, 0));
-        }
-
-        if ($this->planche['Encollage'] || $this->planche['AvecEncollage']) {
-            $this->tagFaconnage(
-                $position->add($pMargin),
-                new Dimensions(30, $dimensions->height - $margin * 2),
-                'Encollage',
-                Color::cmyk(0, 30, 10, 80)
-            );
-            $position = $position->add(new Position(30 + $margin, 0));
-        }
-        if ($this->planche['NbCoinsRonds']) {
-            $this->tagFaconnage(
-                $position->add($pMargin),
-                new Dimensions(40, $dimensions->height - $margin * 2),
-                'Coins Ronds ' . $this->planche['NbCoinsRonds'],
-                Color::cmyk(0, 30, 10, 80)
-            );
-            $position = $position->add(new Position(30 + $margin, 0));
-        }
-        if ($this->planche['Predecoupe']) {
-            $this->tagFaconnage(
-                $position->add($pMargin),
-                new Dimensions(40, $dimensions->height - $margin * 2),
-                'Prédécoupe',
-                Color::cmyk(0, 30, 10, 80)
-            );
-            $position = $position->add(new Position(30 + $margin, 0));
-        }
-    }
-
-    protected function tagFaconnage(Position $position, Dimensions $dimensions, $txt, Color $color)
-    {
-        $rr             = new RoundedRect();
-        $rr->dimensions = $dimensions;
-        $rr->position   = $position;
-        $rr->radius     = 3;
-        $rr->fillColor  = new FillColor($color);
-        $rr->style      = Rect::STYLE_FILL;
-        $rr->draw($this->pdf);
-
-        $cell           = new Cell();
-        $cell->position = $position;
-        $cell->text     = $txt;
-        $cell->width    = $dimensions->width;
-        $cell->align    = Cell::ALIGN_CENTER;
-        $cell->vAlign   = Cell::VALIGN_CENTER;
-        $cell->height   = $dimensions->height;
-        $cell->font     = new Font('bagc-light', 20, new TextColor(Color::white()));
-        $cell->fill     = false;
-        $cell->draw($this->pdf);
-    }
-
-
-    protected function getIndicationsCommandes()
-    {
-        $result = [
-            'BAT'          => [],
-            'Justificatif' => [],
-            'Commentaires' => [],
-            'Retirage'     => [],
-            'Rainage'      => [],
-            'Pliage'       => [],
-            'PEFC'         => []
-        ];
-        foreach ($this->planche['commandes'] as $i => $commande) {
-            $page     = (int)ceil(($i + 3) / 4);
-            $position = (int)(($i + 2) % 4);
-
-            if (trim($commande['CommentairePAO']) != '') {
-                if (!isset($result['Com. PAO'][$page])) $result['Com. PAO'][$page] = [];
-                $result['Com. PAO'][$page][$position] = ['IDCommande' => $commande['IDCommande']];
-            }
-
-            if (strpos($commande['CodeProduit'], 'CCOMF') === 0 || strpos($commande['CodeProduit'], 'CCOMDF')) {
-                if (!isset($result['Kit Fidélité'][$page])) $result['Kit Fidélité'][$page] = [];
-                $result['Kit Fidélité'][$page][$position] = ['IDCommande' => $commande['IDCommande']];
-            }
-
-            $tests = [
-                'BAT'                  => 'BAT',
-                'Justificatif'         => 'Jus',
-                'NbPorteCarte'         => 'Porte-cartes',
-                'Pliage'               => 'Pliage',
-                'Rainage'              => 'Rainage',
-                'Perforation'          => 'Perfo',
-                'Predecoupe'           => 'Pré-déc',
-                'EstImperatif'         => 'Impératif',
-                'IDCommandePrincipale' => 'Retirage',
-            ];
-
-            foreach ($tests as $col => $label) {
-                if ($commande[$col]) {
-                    if (!isset($result[$label][$page])) $result[$label][$page] = [];
-                    $result[$label][$page][$position] = ['IDCommande' => $commande['IDCommande']];
-                }
-            }
-
-        }
-
-        return $result;
-    }
-
-    protected function drawObservationsTechniques()
-    {
-        $cell         = new MultiCell();
-        $cell->text   = trim($this->planche['ObservationsTechnique'], "\n");
-        $cell->width  = 75;
-        $cell->height = 48;
-        $cell->border = 1;
-        $cell->font   = new Font('bagc-light', 11, new TextColor(Color::black()));
-        $cell->x      = 130;
-        $cell->y      = 97;
-        $cell->draw($this->pdf);
-    }
-
-
-    protected function countPortesCarte()
-    {
-        $nbPortesCarte = 0;
-        foreach ($this->planche['commandes'] as $commande) {
-            $nbPortesCarte += $commande['NbPorteCarte'];
-        }
-        return $nbPortesCarte;
-    }
-
-    protected function countJustificatifs()
-    {
-        $justificatifs = 0;
-        foreach ($this->planche['commandes'] as $commande) {
-            if ($commande['Justificatif']) {
-                $justificatifs++;
-            }
-        }
-        return $justificatifs;
-    }
-
-    protected function countKitFidelite()
-    {
-        $kf = 0;
-        foreach ($this->planche['commandes'] as $commande) {
-            if (strpos($commande['CodeProduit'], 'CCOMF') === 0 || strpos($commande['CodeProduit'], 'CCOMDF')) {
-                $kf++;
-            }
-        }
-        return $kf;
-    }
-}
+} 

@@ -6,7 +6,7 @@
  * Time: 09:48
  */
 
-namespace Exaprint\GenPDF\FicheDeFabrication;
+namespace Exaprint\GenPDF\FicheDeFabrication\Amalgame;
 
 
 use Exaprint\DAL\DB;

@@ -12,7 +12,6 @@ namespace Exaprint\GenPDF\FicheDeFabrication\Amalgame\Cellule;
 use Exaprint\GenPDF\FicheDeFabrication\Amalgame\ICellule;
 use Exaprint\TCPDF\Cell;
 use Exaprint\TCPDF\Color;
-use Exaprint\TCPDF\FillColor;
 use Exaprint\TCPDF\Font;
 use Exaprint\TCPDF\Position;
 use Exaprint\TCPDF\TextColor;
@@ -36,7 +35,7 @@ class KitFidelite implements ICellule
 
 
         } else {
-            Helper::drawEmptyCell($position, $pdf, $cellSize);
+            CelluleHelper::drawEmptyCell($position, $pdf, $cellSize);
         }
     }
 }

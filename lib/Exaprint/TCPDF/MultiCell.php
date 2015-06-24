@@ -28,7 +28,7 @@ class MultiCell
     const CALIGN_FONT_BOTTOM   = 'D';
 
     const VALIGN_TOP    = 'T';
-    const VALIGN_CENTER = 'C';
+    const VALIGN_MIDDLE = 'M';
     const VALIGN_BOTTOM = 'B';
 
 

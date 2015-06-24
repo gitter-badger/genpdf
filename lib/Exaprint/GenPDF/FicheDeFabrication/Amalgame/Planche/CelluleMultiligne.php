@@ -36,6 +36,8 @@ class CelluleMultiligne
     public $textFont;
     /** @var string  */
     public $vAlign = MultiCell::VALIGN_BOTTOM;
+    /** @var bool  */
+    public $isHtml = false;
 
     public function __construct()
     {
@@ -82,6 +84,7 @@ class CelluleMultiligne
         $c->x         = $position->x;
         $c->y         = $position->y;
         $c->border    = 1;
+        $c->isHtml    = $this->isHtml;
         $c->draw($pdf);
 
         if ($this->label) {

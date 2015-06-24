@@ -6,22 +6,16 @@
  * Time: 16:25
  */
 
-namespace Exaprint\GenPDF\FicheDeFabrication;
+namespace Exaprint\GenPDF\FicheDeFabrication\Amalgame;
 
 
 use Exaprint\GenPDF\FicheDeFabrication\Amalgame\Cellule\PEFC;
-use Exaprint\GenPDF\FicheDeFabrication\Amalgame\Commande;
-use Exaprint\GenPDF\FicheDeFabrication\Amalgame\FormeDeDecoupe;
-use Exaprint\GenPDF\FicheDeFabrication\Amalgame\Layout;
 use Exaprint\GenPDF\FicheDeFabrication\Amalgame\Planche;
-use Exaprint\GenPDF\FicheDeFabrication\Amalgame\Planche2;
 use Exaprint\TCPDF\Cell;
 use Exaprint\TCPDF\Color;
 use Exaprint\TCPDF\Font;
 use Exaprint\TCPDF\Position;
 use Exaprint\TCPDF\TextColor;
-use Monolog\Handler\RotatingFileHandler;
-use Monolog\Logger;
 
 class Amalgame
 {
@@ -92,6 +86,8 @@ class Amalgame
             }
         }
 
+        $this->build();
+
         $this->pdf = new \TCPDF(
             PDF_PAGE_ORIENTATION,
             PDF_UNIT,
@@ -110,7 +106,20 @@ class Amalgame
         $this->pdf->SetAutoPageBreak(false);
         $this->newPage();
 
-        $planchePdf = new Planche2(new \Exaprint\TCPDF\Dimensions(200, $this->layout->hBloc()),
+        $this->planche();
+
+        var_dump($this->planche);
+    }
+
+    /**
+     * @override
+     */
+    public function build() {
+
+    }
+
+    public function planche() {
+        $planchePdf = new Planche(new \Exaprint\TCPDF\Dimensions(200, $this->layout->hBloc()),
             $this->pdf,
             $this->planche,
             new \Exaprint\TCPDF\Position(5, 12)
@@ -123,8 +132,6 @@ class Amalgame
         foreach ($this->_formesDeDecoupe as $formeDeDecoupe) {
             $this->formeDecoupe($formeDeDecoupe['IDCommande'], $formeDeDecoupe['Fichier']);
         }
-
-        var_dump($this->planche);
     }
 
     protected function newPage()

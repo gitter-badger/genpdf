@@ -10,14 +10,9 @@ namespace Exaprint\GenPDF\FicheDeFabrication\Amalgame\Cellule;
 
 
 use Exaprint\GenPDF\FicheDeFabrication\Amalgame\ICellule;
-use Exaprint\TCPDF\Cell;
-use Exaprint\TCPDF\Color;
 use Exaprint\TCPDF\Dimensions;
-use Exaprint\TCPDF\FillColor;
-use Exaprint\TCPDF\Font;
 use Exaprint\TCPDF\ImageInContainer;
 use Exaprint\TCPDF\Position;
-use Exaprint\TCPDF\TextColor;
 
 class Societe implements ICellule
 {

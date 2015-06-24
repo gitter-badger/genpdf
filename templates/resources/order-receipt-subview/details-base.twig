@@ -6,4 +6,8 @@
             <dd>{{ option.value }} <em>{{ option.unit }}</em></dd>
         {% endif %}
     {% endfor %}
+    {% for libelle, valeur in comments %}
+        <dt>{{ libelle }}</dt>
+        <dd>{{ valeur }}</dd>
+    {% endfor %}
 </dl>

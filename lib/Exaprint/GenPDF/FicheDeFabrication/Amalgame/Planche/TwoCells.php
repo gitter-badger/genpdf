@@ -11,12 +11,9 @@ namespace Exaprint\GenPDF\FicheDeFabrication\Amalgame\Planche;
 
 use Exaprint\TCPDF\Cell;
 use Exaprint\TCPDF\Color;
-use Exaprint\TCPDF\Dimensions;
 use Exaprint\TCPDF\FillColor;
 use Exaprint\TCPDF\Font;
-use Exaprint\TCPDF\LineStyle;
 use Exaprint\TCPDF\Position;
-use Exaprint\TCPDF\Text;
 use Exaprint\TCPDF\TextColor;
 
 class TwoCells

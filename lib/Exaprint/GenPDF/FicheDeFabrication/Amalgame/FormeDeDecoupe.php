@@ -9,7 +9,6 @@
 namespace Exaprint\GenPDF\FicheDeFabrication\Amalgame;
 
 
-use Exaprint\GenPDF\FicheDeFabrication\Formatter;
 use Exaprint\TCPDF\Cell;
 use Exaprint\TCPDF\Color;
 use Exaprint\TCPDF\Dimensions;

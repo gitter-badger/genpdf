@@ -12,7 +12,6 @@ namespace Exaprint\GenPDF\FicheDeFabrication\Amalgame\Planche;
 use Exaprint\TCPDF\Cell;
 use Exaprint\TCPDF\Color;
 use Exaprint\TCPDF\Dimensions;
-use Exaprint\TCPDF\FillColor;
 
 class Impression extends Rang
 {

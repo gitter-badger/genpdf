@@ -40,7 +40,7 @@ class Predecoupe implements ICellule
             $cTxt->fillColor = new FillColor(Color::cmyk(80, 0, 80, 0));
             $cTxt->border    = 0;
             $cTxt->text      = $v[0];
-            $cTxt->font      = new Font('bagc-bold', 14, new TextColor(Color::greyscale(0)));
+            $cTxt->font      = new Font('freeserif', 14, new TextColor(Color::greyscale(0)));
             $cTxt->width     = $cellSize;
 
 
@@ -49,7 +49,7 @@ class Predecoupe implements ICellule
             $cTxt->draw($pdf);
 
         } else {
-            Helper::drawEmptyCell($position, $pdf, $cellSize);
+            CelluleHelper::drawEmptyCell($position, $pdf, $cellSize);
         }
     }
 }

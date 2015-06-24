@@ -10,7 +10,6 @@ namespace Exaprint\GenPDF\FicheDeFabrication\Amalgame\Planche;
 
 
 use Exaprint\TCPDF\Color;
-use Exaprint\TCPDF\FillColor;
 use Exaprint\TCPDF\Position;
 
 class Finitions

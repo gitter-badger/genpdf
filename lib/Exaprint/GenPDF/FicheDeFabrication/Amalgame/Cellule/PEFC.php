@@ -36,7 +36,7 @@ class PEFC implements ICellule
             $cell->align      = Cell::ALIGN_CENTER;
             $cell->draw($pdf);
         } else {
-            Helper::drawEmptyCell($position, $pdf, $cellSize);
+            CelluleHelper::drawEmptyCell($position, $pdf, $cellSize);
         }
     }
 

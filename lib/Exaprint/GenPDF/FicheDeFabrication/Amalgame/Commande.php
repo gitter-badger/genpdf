@@ -9,10 +9,8 @@
 namespace Exaprint\GenPDF\FicheDeFabrication\Amalgame;
 
 
-use Exaprint\GenPDF\FicheDeFabrication\Amalgame\Cellule\Helper;
+use Exaprint\GenPDF\FicheDeFabrication\Amalgame\Cellule\CelluleHelper;
 use Exaprint\GenPDF\FicheDeFabrication\Amalgame\Planche\Transporteurs;
-use Exaprint\GenPDF\FicheDeFabrication\Formatter;
-use Exaprint\GenPDF\Resources\PartnersOrder;
 use Exaprint\TCPDF\Cell;
 use Exaprint\TCPDF\CellHeightRatio;
 use Exaprint\TCPDF\Color;
@@ -25,6 +23,7 @@ use Exaprint\TCPDF\LineStyle;
 use Exaprint\TCPDF\MultiCell;
 use Exaprint\TCPDF\Position;
 use Exaprint\TCPDF\TextColor;
+use Exaprint\GenPDF\FicheDeFabrication\Helper;
 
 class Commande
 {
@@ -145,18 +144,27 @@ class Commande
 
     protected function formats()
     {
-        $times = '×';;
+        $times = '×';
+        $text  = $this->commande['LargeurOuvert'] . $times . $this->commande['LongueurOuvert'];
+        $fontSize = 28;
+        if ($text == '×') {
+            $text = '';
+        }
+        if (strlen($text) > 10) {
+            $fontSize = 22;
+        }
+
         $cOuvert                  = new Cell();
         $cOuvert->textColor       = new TextColor(Color::greyscale(0));
         $cOuvert->position        = new Position($this->_x($this->layout->cEnteteIdsWidth), $this->_y());
-        $cOuvert->text            = $this->commande['LargeurOuvert'] . $times . $this->commande['LongueurOuvert'];
-        $cOuvert->font            = new Font('bagc-bold', 28);
+        $cOuvert->text            = $text;
+        $cOuvert->font            = new Font('bagc-bold', $fontSize);
         $cOuvert->ignoreMinHeight = true;
         $cOuvert->border          = Cell::BORDER_NO_BORDER;
         $cOuvert->height          = $this->layout->cEnteteHeight;
         $cOuvert->width           = $this->layout->wBloc() - $this->layout->cEnteteQuantiteWidth - $this->layout->cEnteteIdsWidth;
         $cOuvert->align           = Cell::ALIGN_CENTER;
-        $cOuvert->vAlign          = Cell::VALIGN_BOTTOM;
+        $cOuvert->vAlign          = Cell::VALIGN_CENTER;
 
         if ($this->commande['LongueurFerme']) {
 
@@ -294,7 +302,7 @@ class Commande
         $c            = new Cell();
         $c->width     = 48;
         $c->height    = 4;
-        $c->text      = $this->commande['CodeProduit'];
+        $c->text      = Helper::short($this->commande['CodeProduit'], 42);
         $c->font      = new Font('bagc-medium', 9, new TextColor(Color::black()));
         $c->fill      = true;
         $c->fillColor = new FillColor(Color::white());
@@ -317,16 +325,18 @@ class Commande
 
         $c                  = new MultiCell();
         $c->x               = $this->_x();
-        $c->y               = $this->_y($this->layout->cEnteteHeight + $this->layout->cVisuelsHeight + 5);
+        $c->y               = $this->_y($this->layout->cEnteteHeight + $this->layout->cVisuelsHeight + 1);
         $c->cellHeightRatio = new CellHeightRatio(0.9);
         $c->width           = $this->layout->wBloc() - $this->layout->cellule() * $this->layout->cGrilleColCount;
         $c->isHtml          = true;
 
         $text = $this->commande['CommentairePAO'] . $this->commande['CommentaireAtelier'];
-        if (strlen($text) < 250) {
-            $c->font = new Font('bagc-light', 15);
-        } else {
+        $c->font = new Font('bagc-light', 15);
+        if (strlen($text) > 250) {
             $c->font = new Font('bagc-light', 13);
+        }
+        if (strlen($text) > 500) {
+            $c->font = new Font('bagc-light', 11);
         }
 
         $c->text      = $this->commande['CommentairePAO'] . "<br />" . '<span style="background-color:#ededb6">' . $this->commande['CommentaireAtelier'] . '</span>';
@@ -502,7 +512,7 @@ class Commande
                 );
             }
         } else {
-            Helper::drawEmptyCell($p, $this->pdf, $this->layout->cellule());
+            CelluleHelper::drawEmptyCell($p, $this->pdf, $this->layout->cellule());
         }
     }
 }

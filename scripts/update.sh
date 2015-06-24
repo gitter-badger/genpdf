@@ -1,0 +1,1 @@
+chown apache locale/not_found.csv

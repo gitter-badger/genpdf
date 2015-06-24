@@ -11,6 +11,11 @@ use Exaprint\DAL\DB;
 require '../vendor/autoload.php';
 
 $_SERVER['exaprint_env'] = 'prod';
+$_SERVER['exaprint_db_prod_host'] = '94.103.141.141';
+$_SERVER['exaprint_db_prod_port'] = '1433';
+$_SERVER['exaprint_db_prod_name'] = 'Exa_Back';
+$_SERVER['exaprint_db_prod_user'] = 'exa';
+$_SERVER['exaprint_db_prod_pass'] = 'exa%2012';
 
 $select = "
     SELECT DISTINCT

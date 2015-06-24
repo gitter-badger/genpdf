@@ -6,25 +6,26 @@
  * Time: 16:48
  */
 
-namespace Exaprint\GenPDF\FicheDeFabrication\Amalgame;
+namespace Exaprint\GenPDF\FicheDeFabrication\Negoce;
 
 
+use Exaprint\GenPDF\FicheDeFabrication\Negoce\Planche\NegoceImpression;
+use Exaprint\GenPDF\FicheDeFabrication\Negoce\Planche\NegoceFinitions;
 use Exaprint\GenPDF\FicheDeFabrication\Amalgame\Planche\PEFC;
 use Exaprint\GenPDF\FicheDeFabrication\Amalgame\Planche\Compteurs;
 use Exaprint\GenPDF\FicheDeFabrication\Amalgame\Planche\DetailSousTraitance;
 use Exaprint\GenPDF\FicheDeFabrication\Amalgame\Planche\Faconnage;
-use Exaprint\GenPDF\FicheDeFabrication\Amalgame\Planche\Finitions;
 use Exaprint\GenPDF\FicheDeFabrication\Amalgame\Planche\Identification;
-use Exaprint\GenPDF\FicheDeFabrication\Amalgame\Planche\Impression;
 use Exaprint\GenPDF\FicheDeFabrication\Amalgame\Planche\IndicationsCommandes;
 use Exaprint\GenPDF\FicheDeFabrication\Amalgame\Planche\Observations;
 use Exaprint\GenPDF\FicheDeFabrication\Amalgame\Planche\Rush;
 use Exaprint\GenPDF\FicheDeFabrication\Amalgame\Planche\Transporteurs;
 use Exaprint\GenPDF\FicheDeFabrication\Amalgame\Planche\Monteur;
+use Exaprint\GenPDF\FicheDeFabrication\Amalgame\Planche;
 use Exaprint\TCPDF\Dimensions;
 use Exaprint\TCPDF\Position;
 
-class Planche2
+class NegocePlanche extends Planche
 {
     /** @var  array */
     public $planche;
@@ -37,10 +38,11 @@ class Planche2
 
     function __construct($dimensions, $pdf, $planche, $position)
     {
-        $this->dimensions = $dimensions;
-        $this->pdf        = $pdf;
-        $this->planche    = $planche;
-        $this->position   = $position;
+        $this->dimensions       = $dimensions;
+        $this->pdf              = $pdf;
+        $this->planche          = $planche;
+        $this->position         = $position;
+        $this->hauteurFinitions = 33;
 
         $this->identification();
         $this->impression();
@@ -65,15 +67,16 @@ class Planche2
 
     public function impression()
     {
-        $impression = new Impression($this->planche);
+        $impression = new NegoceImpression($this->planche);
         $impression->draw($this->pdf, $this->position->add(new Position(0, 17)));
 
     }
 
     public function finitions()
     {
-        $finitions = new Finitions($this->planche);
+        $finitions = new NegoceFinitions($this->planche);
         $finitions->draw($this->pdf, $this->position->add(new Position(0, 33)));
+        $this->hauteurFinitions = 33 + 11 * $finitions->nbLines;
     }
 
     public function faconnage()
@@ -88,15 +91,16 @@ class Planche2
         $detailST->draw($this->pdf, $this->position->add(new Position(100, 49.5)));
     }
 
-    public function rush() {
+    public function rush()
+    {
         $indications = new Rush($this->planche);
-        $indications->draw($this->pdf, $this->position->add(new Position(87, 67)));
+        $indications->draw($this->pdf, $this->position->add(new Position(87, $this->hauteurFinitions)));
     }
 
     public function indicationsCommandes()
     {
         $indications = new IndicationsCommandes($this->planche);
-        $indications->draw($this->pdf, $this->position->add(new Position(0, 66)));
+        $indications->draw($this->pdf, $this->position->add(new Position(0, $this->hauteurFinitions)));
     }
 
     public function observations()

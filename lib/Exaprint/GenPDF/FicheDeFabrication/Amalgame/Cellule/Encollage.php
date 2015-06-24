@@ -32,14 +32,14 @@ class Encollage implements ICellule
             $file  = $this->map[$commande['Encollage']];
             $image = new ImageInContainer(
                 $file,
-                new Dimensions(96, 64),
+                new Dimensions(71, 71),
                 new Dimensions($cellSize, $cellSize),
                 $position
             );
 
             $image->draw($pdf);
         } else {
-            Helper::drawEmptyCell($position, $pdf, $cellSize);
+            CelluleHelper::drawEmptyCell($position, $pdf, $cellSize);
         }
     }
 } 

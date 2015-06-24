@@ -6,7 +6,7 @@
  * Time: 15:14
  */
 
-namespace Exaprint\GenPDF\FicheDeFabrication;
+namespace Exaprint\GenPDF\FicheDeFabrication\Amalgame;
 
 
 class Formatter {

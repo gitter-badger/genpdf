@@ -33,9 +33,13 @@ class Cellule
     /** @var FillColor */
     public $fillColor;
     /** @var string  */
+    public $align = Cell::VALIGN_CENTER;
+    /** @var string  */
     public $vAlign = Cell::VALIGN_BOTTOM;
     /** @var  Dimensions */
     public $dimensions;
+    /** @var  bool */
+    public $noDraw = false;
 
     public function __construct()
     {
@@ -52,6 +56,8 @@ class Cellule
 
     public function draw(\TCPDF $pdf, Position $position)
     {
+        if ($this->noDraw) return;
+
         $value = $this->value;
         $p     = $position;
         $d     = $this->dimensions;
@@ -74,7 +80,7 @@ class Cellule
         $cell->width           = $d->width;
         $cell->height          = $d->height;
         $cell->text            = $value;
-        $cell->align           = Cell::ALIGN_CENTER;
+        $cell->align           = $this->align;
         $cell->vAlign          = $this->vAlign;
         $cell->ignoreMinHeight = true;
         $cell->font            = $this->valueFont;

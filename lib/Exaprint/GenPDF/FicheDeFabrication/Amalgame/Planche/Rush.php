@@ -11,7 +11,6 @@ namespace Exaprint\GenPDF\FicheDeFabrication\Amalgame\Planche;
 
 use Exaprint\TCPDF\Cell;
 use Exaprint\TCPDF\Color;
-use Exaprint\TCPDF\Dimensions;
 use Exaprint\TCPDF\Font;
 use Exaprint\TCPDF\Position;
 use Exaprint\TCPDF\TextColor;
