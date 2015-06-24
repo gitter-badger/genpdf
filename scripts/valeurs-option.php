@@ -4,24 +4,6 @@ require '../vendor/autoload.php';
 
 use Exaprint\DAL\DB;
 
-/*
-$_SERVER['exaprint_env']           = 'stage';
-$_SERVER['exaprint_db_stage_host'] = '94.103.137.83';
-$_SERVER['exaprint_db_stage_port'] = 1433;
-$_SERVER['exaprint_db_stage_name'] = 'Exa_IsoProd';
-$_SERVER['exaprint_db_stage_user'] = 'sa';
-$_SERVER['exaprint_db_stage_pass'] = 'Exaprint%2011';
-*/
-
-/**/
-$_SERVER['exaprint_env'] = 'prod';
-$_SERVER['exaprint_db_prod_host'] = '94.103.141.141';
-$_SERVER['exaprint_db_prod_port'] = 1433;
-$_SERVER['exaprint_db_prod_name'] = 'Exa_Back';
-$_SERVER['exaprint_db_prod_user'] = 'exa';
-$_SERVER['exaprint_db_prod_pass'] = 'exa%2012';
-/**/
-
 $data = [];
 
 // espagnol 2
