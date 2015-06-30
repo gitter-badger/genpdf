@@ -247,6 +247,7 @@ class OrderReceipt extends Resource implements IResource
                 foreach ($comments as $comment) {
                     if (empty($comment) || strlen($comment) == 1) continue;
                     $statements = explode(':', $comment);
+                    if (count($statements) < 2) continue;
                     $key = trim($statements[0]);
                     $value = trim($statements[1]);
                     if (empty($key)) {
