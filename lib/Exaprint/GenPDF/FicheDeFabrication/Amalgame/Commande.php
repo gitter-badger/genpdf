@@ -144,8 +144,8 @@ class Commande
 
     protected function formats()
     {
-        $times = '×';
-        $text  = $this->commande['LargeurOuvert'] . $times . $this->commande['LongueurOuvert'];
+        $times    = '×';
+        $text     = $this->commande['LargeurOuvert'] . $times . $this->commande['LongueurOuvert'];
         $fontSize = 28;
         if ($text == '×') {
             $text = '';
@@ -312,7 +312,7 @@ class Commande
         $c            = new Cell();
         $c->width     = 48;
         $c->height    = 4;
-        $c->text      = 'Ref : ' . $this->commande['ReferenceClient'];
+        $c->text      = Helper::short('Ref : ' . $this->commande['ReferenceClient'], 46);
         $c->font      = new Font('bagc-medium', 9, new TextColor(Color::black()));
         $c->fill      = true;
         $c->fillColor = new FillColor(Color::white());
@@ -330,7 +330,7 @@ class Commande
         $c->width           = $this->layout->wBloc() - $this->layout->cellule() * $this->layout->cGrilleColCount;
         $c->isHtml          = true;
 
-        $text = $this->commande['CommentairePAO'] . $this->commande['CommentaireAtelier'];
+        $text    = $this->commande['CommentairePAO'] . $this->commande['CommentaireAtelier'];
         $c->font = new Font('bagc-light', 15);
         if (strlen($text) > 250) {
             $c->font = new Font('bagc-light', 13);
@@ -374,7 +374,7 @@ class Commande
 
     protected function transporteur()
     {
-
+        //
     }
 
     protected function livraison()
@@ -418,7 +418,7 @@ class Commande
     protected function livraisonTransporteur($x, $h)
     {
         $c            = new Cell();
-        $c->text      = ($this->commande['CodeTransporteur'] != self::TRANSPORTEUR_EXPRESS) ? Transporteurs::getTransporteurLabel($this->commande['CodeTransporteur']) : '';
+        $c->text      = Transporteurs::getTransporteurLabel($this->commande['CodeTransporteur']);
         $c->font      = new Font('bagc-bold', $this->layout->cExpeditionDateFontSize);
         $c->border    = true;
         $c->fill      = false;

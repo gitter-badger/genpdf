@@ -32,10 +32,8 @@ class OrderReceipt extends Resource implements IResource
               TBL_COMMANDE.MontantHT                                            AS [project.et_amount],
               TBL_COMMANDE.ReferenceClient                                      AS [order.reference],
               TBL_COMMANDE.DateCommande                                         AS [order.creation_date],
-              dbo.f_nDelaiProduit(
-                  TBL_COMMANDE_LIGNE.IDProduit,
-                  TBL_COMMANDE_LIGNE.Quantite,
-                  client.IDSociete,
+              dbo.f_nDelaiCommande(
+                  TBL_COMMANDE.IDCommande,
                   1) + (
                 SELECT
               ValeurParametre
@@ -243,17 +241,21 @@ class OrderReceipt extends Resource implements IResource
                     );
                 }
 
-                // Affichage des options PANTONE
-                if (strpos(strtolower($data[$IDCommande]->CommentairePAO), 'pantone') > -1) {
-                    $res = [];
-                    $comments = explode("\n", $data[$IDCommande]->CommentairePAO);
-                    foreach ($comments as $comment) {
-                        if (empty($comment) || strlen($comment) == 1) continue;
-                        $statements = explode(':', $comment);
-                        $res[trim($statements[0])] = str_replace(',', '', trim($statements[1]));
+                // Affichage des options
+                $res = [];
+                $comments = explode("\n", $data[$IDCommande]->CommentairePAO);
+                foreach ($comments as $comment) {
+                    if (empty($comment) || strlen($comment) == 1) continue;
+                    $statements = explode(':', $comment);
+                    if (count($statements) < 2) continue;
+                    $key = trim($statements[0]);
+                    $value = trim($statements[1]);
+                    if (empty($key)) {
+                        $key = "Couleur(s) d'impression";
                     }
-                    $data[$IDCommande]->comments = $res;
+                    $res[$key] = str_replace(',', '', $value);
                 }
+                $data[$IDCommande]->comments = $res;
 
                 $this->_data = $data[$IDCommande];
                 $this->_data->lang = Helper::$current;
