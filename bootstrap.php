@@ -39,7 +39,7 @@ $app->hook('slim.before', function () use ($app) {
 // locale-detector
 $localeDetector = new Menencia\LocaleDetector\LocaleDetector();
 $language = $localeDetector->detect();
-$language = 'fr_FR';
+//$language = 'fr_FR';
 \Locale\Helper::$current = $language;
 
 // Prepare view
