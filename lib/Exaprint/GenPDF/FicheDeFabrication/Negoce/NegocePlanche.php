@@ -20,8 +20,8 @@ use Exaprint\GenPDF\FicheDeFabrication\Amalgame\Planche\IndicationsCommandes;
 use Exaprint\GenPDF\FicheDeFabrication\Amalgame\Planche\Observations;
 use Exaprint\GenPDF\FicheDeFabrication\Amalgame\Planche\Rush;
 use Exaprint\GenPDF\FicheDeFabrication\Amalgame\Planche\Transporteurs;
-use Exaprint\GenPDF\FicheDeFabrication\Amalgame\Planche\Monteur;
 use Exaprint\GenPDF\FicheDeFabrication\Amalgame\Planche;
+use Exaprint\GenPDF\FicheDeFabrication\Negoce\Planche\NegoceMonteur;
 use Exaprint\TCPDF\Dimensions;
 use Exaprint\TCPDF\Position;
 
@@ -131,7 +131,7 @@ class NegocePlanche extends Planche
 
     public function monteur()
     {
-        $monteur = new Monteur($this->planche);
+        $monteur = new NegoceMonteur($this->planche);
         $monteur->draw($this->pdf, $this->position->add(new Position(100, 96)));
     }
 
