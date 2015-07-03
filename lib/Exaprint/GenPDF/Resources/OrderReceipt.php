@@ -258,6 +258,7 @@ class OrderReceipt extends Resource implements IResource
                 $data[$IDCommande]->comments = $res;
 
                 $this->_data = $data[$IDCommande];
+                $this->_data->lang = Helper::$current;
                 return true;
             }
         } else {
