@@ -15,12 +15,12 @@
 
 {% block page %}
     <div id="contract_page">
-        <div id="locate_and_date">{% trans "Fait en deux exemplaires a Montpellier le" %} : {{ InvoiceDate|date('d/m/Y') }}</div>
+        <div id="locate_and_date">{% trans "Fait en deux exemplaires à Montpellier le" %} : {{ InvoiceDate|date('d/m/Y') }}</div>
         <div id="blocs_signatures">
             <div id="bloc_signature_client">{% trans "Le client" %}</div>
-            <div id="bloc_signature_societe">{% trans "La societe" %}</div>
+            <div id="bloc_signature_societe">{% trans "La société" %}</div>
         </div>
-        <div id="code_contrat">{{ InvoiceDate|date('Ymd') }}</div>
+        <div id="code_contrat">{{ InvoiceDate|date('YmdHi') }}</div>
         <div id="footer_contract">
             <div id="left_side">{% trans "Version 1.0 - 10 octobre 2014" %}</div>
             <div id="right_side">{% trans "Page 10 sur 10" %}</div>
