@@ -80,6 +80,9 @@ $app->get("/:name/:id.pdf", function ($name, $id) use ($app) {
         // classer par mois AAAAMMM
         $infos     = explode('-', $id);
         $subfolder = $infos[1];
+    } else if ($name == 'contract') {
+        // classer par 1000
+        $subfolder = date('Ymd');
     } else {
         // classer par 1000
         $subfolder = (floor($id / 1000) + 1) * 1000;
@@ -116,7 +119,7 @@ $app->get("/:name/:id.pdf", function ($name, $id) use ($app) {
 
         $wkhtml = new \RBM\Wkhtmltopdf\Wkhtmltopdf();
 
-        if ($name != 'invoice-zip') {
+        if ($name != 'invoice-zip' && $name != 'contract') {
             $wkhtml->setHeaderHtml($resource->getHeader());
             $wkhtml->setMarginTop(40);
             $wkhtml->setHeaderSpacing(5);

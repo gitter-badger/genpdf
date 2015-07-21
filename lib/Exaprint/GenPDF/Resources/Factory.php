@@ -33,6 +33,7 @@ class Factory {
             case "masterprint-quote": return new MasterprintQuote();
             case "invoice-zip": return new InvoiceZip();
             case "quote" : return new Quote();
+            case "contract" : return new Contract();
         }
         return null;
     }
