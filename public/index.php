@@ -81,8 +81,8 @@ $app->get("/:name/:id.pdf", function ($name, $id) use ($app) {
         $infos     = explode('-', $id);
         $subfolder = $infos[1];
     } else if ($name == 'contract') {
-        // classer par 1000
-        $subfolder = date('Ymd');
+        // classer par AAAAMMJJhhmm
+        $subfolder = date('YmdHi');
     } else {
         // classer par 1000
         $subfolder = (floor($id / 1000) + 1) * 1000;
