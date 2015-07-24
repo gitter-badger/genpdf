@@ -17,7 +17,7 @@ receipt.adesa.orientation.270,270,270,270,270,270
 receipt.adesa.orientation.unit,°,°,°,°,°
 receipt.cgf.area,Superficie totale,Superfície total,Superficie totale,Superfície total,Total area
 receipt.cgf.area.unit,m²,m²,m²,m²,sq. m.
-receipt.cgf.width.unit,mm,mm,mm,mm,mm
-receipt.cgf.height.unit,mm,mm,mm,mm,mm
+receipt.cgf.width.unit,cm,cm,cm,cm,cm
+receipt.cgf.height.unit,cm,cm,cm,cm,cm
 receipt.cgf.eyelets,Œillets,Ojales,Occhielli,Anilhos,Eyelets
 receipt.cgf.bungee_cords,Tendeurs,Tensores,Tensionatori,Tensores,Bungees
