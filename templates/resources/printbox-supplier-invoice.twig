@@ -64,8 +64,6 @@
                 </thead>
                 <tbody>
 
-                {% set total_ht = 0 %}
-
                 {% for i, Line in SupplierInvoiceLines %}
 
                     <tr class="order">
@@ -77,8 +75,6 @@
                         </td>
                         <td class="money">{{ Line.ETAmount|formatmoney }}</td>
                     </tr>
-
-                    {% set total_ht = total_ht + Line.ETAmount %}
                 {% endfor %}
 
                 <tr class="order">

@@ -28,6 +28,19 @@ class PrintboxSupplierInvoice extends SupplierInvoice
     }
 
     /**
+     * @return array
+     */
+    public function getData()
+    {
+        $total = 0;
+        foreach($this->_data['SupplierInvoiceLines'] as $supplierInvoiceLine) {
+            $total += floatval($supplierInvoiceLine->ETAmount);
+        }
+        $this->_data['total_ht'] = $total;
+        return $this->_data;
+    }
+
+    /**
      * @return string
      */
     public function getFooter()
