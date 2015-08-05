@@ -6,33 +6,31 @@
  * Time: 16:00
  */
 
-namespace Exaprint\GenPDF\FicheDeFabrication\Configurateur\Planche;
+namespace Exaprint\GenPDF\FicheDeFabrication\Masterprint\Planche;
 
 
-use Exaprint\GenPDF\FicheDeFabrication\Amalgame\Planche\CelluleMultiligne;
+use Exaprint\GenPDF\FicheDeFabrication\Amalgame\Planche\Cellule;
 use Exaprint\GenPDF\FicheDeFabrication\Negoce\Planche\NegoceFinition;
+use Exaprint\TCPDF\Cell;
 use Exaprint\TCPDF\Color;
 use Exaprint\TCPDF\Dimensions;
 use Exaprint\TCPDF\FillColor;
 use Exaprint\TCPDF\Font;
-use Exaprint\TCPDF\MultiCell;
 use Exaprint\TCPDF\TextColor;
 
-class FinitionMasterprint extends NegoceFinition
+class Finition1Cell extends NegoceFinition
 {
-    public $Type = null;
-
-    public $value;
 
     public function __construct($planche)
     {
         parent::__constructor($planche);
 
-        $cell             = new CelluleMultiligne();
+        $cell             = new Cellule();
         $cell->dimensions = new Dimensions(100, 11);
         $cell->fillColor  = new FillColor(Color::cmyk(100, 0, 0, 0));
-        $cell->textFont   = new Font('bagc-light', 18, new TextColor(Color::white()));
-        $cell->vAlign     = MultiCell::VALIGN_MIDDLE;
+        $cell->valueFont  = new Font('bagc-bold', 18, new TextColor(Color::white()));
+        $cell->vAlign     = Cell::VALIGN_CENTER;
+        $cell->align      = Cell::ALIGN_LEFT;
 
         $this->_cell = $cell;
 
@@ -41,8 +39,13 @@ class FinitionMasterprint extends NegoceFinition
         ];
     }
 
-    public function setValue($value) {
-        $this->_cell->text = $value;
+    public function setValue($label)
+    {
+        if (strlen($label) > 40) {
+            $this->_cell->valueFont->size = 16;
+        }
+
+        $this->_cell->value = $label;
     }
 
 

@@ -65,6 +65,9 @@ class Transporteurs
     public static function getTransporteurLabel($label)
     {
         switch ($label) {
+            case self::TRANSPORTEUR_EXPRESS:
+                $ret = 'EXP';
+                break;
             case self::TRANSPORTEUR_CORREOS:
                 $ret = 'COR';
                 break;
