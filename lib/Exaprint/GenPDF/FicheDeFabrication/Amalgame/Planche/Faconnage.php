@@ -80,10 +80,14 @@ class Faconnage
         $message = [];
         if ($planche['AvecRainage']) $message[] = t('ffa.planche.faco.avec_rainage');
         if ($planche['AvecPliage']) $message[] = t('ffa.planche.faco.avec_pliage');
-        if ($planche['AvecPerforation']) $message[] = t('ffa.planche.faco.avec_perfo');
+        if ($planche['AvecDecoupeOutil']) $message[] = t('ffa.planche.faco.avec_decoupe_outil');
+
         if ($planche['AvecDecoupe']) $message[] = t('ffa.planche.faco.avec_decoupe');
         if ($planche['AvecPredecoupe']) $message[] = t('ffa.planche.faco.avec_predecoupe');
         if ($planche['AvecDecoupeNumerique']) $message[] = t('ffa.planche.faco.avec_decoupe_numerique');
+
+        if ($planche['AvecDecorticage']) $message[] = t('ffa.planche.faco.avec_decorticage');
+        if ($planche['AvecPerforation']) $message[] = t('ffa.planche.faco.avec_perfo');
 
         return implode(' - ', $message);
 

@@ -8,6 +8,8 @@ ffa.planche.faco.avec_perfo,Perforation,Perforado,Drilled,Perfurado,Perforazione
 ffa.planche.faco.avec_decoupe,Découpe,Troquelado,Diecut,Cortante,Taglio
 ffa.planche.faco.avec_predecoupe,Prédécoupe,Precortado,Precut,Pre-troquelado,Pretaglio
 ffa.planche.faco.avec_decoupe_numerique,Découpe numérique,Troquelado digital,Digital diecut,Cortante digital,Fustella digitale
+ffa.planche.faco.avec_decoupe_outil,Découpe outil,Herramienta de corte,Cutting tool,Ferramenta de corte,Utensile da taglio
+ffa.planche.faco.avec_decorticage,Décorticage,Bombardeos,Shelling,Bombardeamentos,Shelling
 ffa.planche.finitions.pelliculage,PELL,PLAST,Laminated,PLAST,Plastificato
 ffa.planche.finitions.vernis,VERN,BARN,Varnish,VERN,VER
 ffa.planche.finitions.vernis_uv,UV,UV,UV varnish,UV,VERUV
