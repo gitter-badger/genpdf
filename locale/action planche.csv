@@ -1,4 +1,5 @@
 key,fr_FR,es_ES,it_IT,pt_PT,en_GB
+bascule_0,,,,,
 bascule_1,,,,,
 bascule_2,in8,in8,in8,in8,W&Turn
 bascule_3,in12,in12,in12,in12,W&Tumble
@@ -19,7 +20,7 @@ action_planche_2,Vernis sélectif UV recto,Barniz selectivo UVI 1 cara,Vernice s
 action_planche_19,Impression Recto,Impresión 1 cara,Stampa fronte,Impressão 1 face,Printed front
 action_planche_18,Support,Soporte,Supporto,Suporte,Material
 action_planche_17,Dorure,Stamping,Lamina,Estampagem,Foiling
-action_planche_16,Predecoupe,Pre-troquelado,Pretaglio,Pre-cortado,Perforated
+action_planche_16,Predecoupe,Pre-troquelado,Pretaglio,Pré-cortado,Perforated
 action_planche_15,Vernis verso,Barniz dorso,Vernice retro,Verniz verso,Varnish reverse
 action_planche_14,Vernis recto,Barniz cara,Vernice fronte,Verniz cara,Varnish front
 action_planche_13,Pelliculage verso,Plastificado dorso,Plastificato retro,Plastificado verso,Laminated reverse
@@ -27,3 +28,6 @@ action_planche_12,Pelliculage recto,Plastificado cara,Plastificato fronte,Plasti
 action_planche_11,Perforation,Perforado,Perforazione,Perfurado,Drilled
 action_planche_10,Stockage,Stock,Stock,Stock,Stock
 action_planche_1,"Finition (collage, contre-collage)","Acabados (encolado, contracolado)","Finitura (incollato, controincollato)","Acabamentos (colado, contracolado)","Finishing (padding, perfect binding)"
+action_planche_27,Décorticage,Bombardeos,Shelling,Bombardeamentos,Shelling
+action_planche_28,Décorticage,Bombardeos,Shelling,Bombardeamentos,Shelling
+action_planche_29,Décorticage,Bombardeos,Shelling,Bombardeamentos,Shelling
