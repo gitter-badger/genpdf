@@ -12,7 +12,9 @@ namespace Exaprint\GenPDF\FicheDeFabrication\Amalgame\Cellule;
 use Exaprint\GenPDF\FicheDeFabrication\Amalgame\ICellule;
 use Exaprint\TCPDF\Cell;
 use Exaprint\TCPDF\Color;
+use Exaprint\TCPDF\Dimensions;
 use Exaprint\TCPDF\Font;
+use Exaprint\TCPDF\ImageInContainer;
 use Exaprint\TCPDF\Position;
 use Exaprint\TCPDF\TextColor;
 
@@ -54,6 +56,19 @@ class Rainage implements ICellule
                 $cTxt->height = $cellSize;
                 $cTxt->draw($pdf);
             }
+
+        } else if ($commande['RainageSaisie']) {
+
+            $file = '../assets/Cellule/rainage.png';
+
+            $image = new ImageInContainer(
+                $file,
+                new Dimensions(71, 71),
+                new Dimensions($cellSize, $cellSize),
+                $position
+            );
+
+            $image->draw($pdf);
         } else {
             CelluleHelper::drawEmptyCell($position, $pdf, $cellSize);
         }

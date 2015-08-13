@@ -18,29 +18,16 @@ class Faconnage
     {
         $this->_p = $planche;
 
-        $this->_p['AvecDecoupeNumerique'] = false;
+        /**
+         * Cas à part :
+         * - prédécoupe
+         * - découpe numérique
+         */
+
         $this->_p['AvecPredecoupe']       = false;
+        $this->_p['AvecDecoupeNumerique'] = false;
 
         foreach ($planche['commandes'] as $commande) {
-            if ($commande['Pliage']) {
-                $this->_p['AvecPliage'] = true;
-            }
-
-            if ($commande['PliageComplexe']) {
-                $this->_p['AvecPliage'] = true;
-            }
-
-            if ($commande['Rainage']) {
-                $this->_p['AvecRainage'] = true;
-            }
-
-            if ($commande['Perforation']) {
-                $this->_p['AvecPerforation'] = true;
-            }
-
-            if ($commande['Decoupe']) {
-                $this->_p['AvecDecoupe'] = true;
-            }
 
             if ($commande['Predecoupe']) {
                 $this->_p['AvecPredecoupe'] = true;
