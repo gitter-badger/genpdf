@@ -330,16 +330,34 @@ class Commande
         $c->width           = $this->layout->wBloc() - $this->layout->cellule() * $this->layout->cGrilleColCount;
         $c->isHtml          = true;
 
-        $text    = $this->commande['CommentairePAO'] . $this->commande['CommentaireAtelier'];
-        $c->font = new Font('bagc-light', 15);
-        if (strlen($text) > 250) {
-            $c->font = new Font('bagc-light', 13);
-        }
-        if (strlen($text) > 500) {
-            $c->font = new Font('bagc-light', 11);
+        // commentaire pao
+        $lines1 = explode(chr(13), $this->commande['CommentairePAO']);
+
+        // commentaire atelier
+        $comments = $this->commande['CommentaireAtelier'];
+        $lines2 = wordwrap($comments, 60, "%%%");
+        $lines2 = explode("%%%", $lines2);
+        $lines2 = array_map(function($value) {
+            return '<span style="background-color: #ededb6">'.$value.'</span>';
+        }, $lines2);
+
+        // fusion des lignes
+        $lines = array_merge($lines1, $lines2);
+
+        // nombre maximal de lignes
+        $max = 10;
+        if (count($lines) > $max) {
+            $lines   = array_slice($lines, 0, $max);
+            $lines[] = '<span style="color: #000">...</span>';
         }
 
-        $c->text      = $this->commande['CommentairePAO'] . "<br />" . '<span style="background-color:#ededb6">' . $this->commande['CommentaireAtelier'] . '</span>';
+        // calcul de la taille de la font en fonction des lignes
+        $c->font = new Font('bagc-light', 11);
+
+        // conversion en string
+        $pao = implode('<br />', $lines);
+
+        $c->text      = $pao;
         $c->textColor = new TextColor(Color::red());
         $c->draw($this->pdf);
     }
