@@ -330,19 +330,32 @@ class Commande
         $c->width           = $this->layout->wBloc() - $this->layout->cellule() * $this->layout->cGrilleColCount;
         $c->isHtml          = true;
 
+        $lines2 = '';
+
         // commentaire pao
         $lines1 = explode(chr(13), $this->commande['CommentairePAO']);
 
+        // commentaire amalgame
+        if (isset($this->commande['AvecCoupeToutesLesPoses']) && $this->commande['AvecCoupeToutesLesPoses']) {
+            $lines2 .= chr(13) . t('ffa.text.coupetoutesposes');
+        }
+
+        if (isset($this->commande['AvecCoupeAuFormat']) && $this->commande['AvecCoupeAuFormat']) {
+            $lines2 .= chr(13) . t('ffa.text.coupeauformat') . $this->commande['LargeurOuvert'] . ' x ' . $this->commande['LargeurFerme'];
+        }
+
+        $lines2 = explode(chr(13), $lines2);
+
         // commentaire atelier
         $comments = $this->commande['CommentaireAtelier'];
-        $lines2 = wordwrap($comments, 60, "%%%");
-        $lines2 = explode("%%%", $lines2);
-        $lines2 = array_map(function($value) {
+        $lines3 = wordwrap($comments, 60, "%%%");
+        $lines3 = explode("%%%", $lines3);
+        $lines3 = array_map(function($value) {
             return '<span style="background-color: #ededb6">'.$value.'</span>';
-        }, $lines2);
+        }, $lines3);
 
         // fusion des lignes
-        $lines = array_merge($lines1, $lines2);
+        $lines = array_merge($lines1, $lines2, $lines3);
 
         // nombre maximal de lignes
         $max = 10;

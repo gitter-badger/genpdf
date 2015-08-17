@@ -1,5 +1,5 @@
 DROP VIEW dbo.VUE_PDF_COMMANDE;
-CREATE VIEW dbo.VUE_PDF_COMMANDE AS
+CREATE VIEW [dbo].[VUE_PDF_COMMANDE] AS
   SELECT DISTINCT
     c.IDCommande
     , pc.IDPlanche
@@ -52,6 +52,15 @@ CREATE VIEW dbo.VUE_PDF_COMMANDE AS
     , fac.HasDecoupeNumeriqueBD
     , fac.HasDecoupeNumeriqueBG
     , dbo.f_bCommandeExarush(c.IDCommande)                     AS EstRush
+--modif CP 13/08/2015 
+    ,COALESCE(dbo.f_nIDProduitOptionValeurProduit(p.IDProduit, 278, 1),dbo.f_nIDProduitOptionValeurProduit(p.IDProduit, 279, 1),dbo.f_nIDProduitOptionValeurProduit(p.IDProduit, 280, 1)) AS Decorticage
+    , dbo.f_bCommandeAvecOptionSaisie(c.IDCommande,'285,302,303') AS PerforationSaisie
+    , dbo.f_bCommandeAvecOptionSaisie(c.IDCommande,'282,300,301') AS RainageSaisie
+    , dbo.f_bCommandeAvecOptionSaisie(c.IDCommande,'284,290,291') AS PliageSaisie
+    , dbo.f_bCommandeAvecOptionSaisie(c.IDCommande,'286,296,297') AS PredecoupeSaisie
+  -- fin modif CP 13/08/2015 
+    , CAST((SELECT count(*) FROM dbo.f_OptionsCommande(c.IDcommande, 1) WHERE IDProduitOptionValeur = 2267) AS bit) AS AvecCoupeToutesLesPoses
+    , CAST((SELECT count(*) FROM dbo.f_OptionsCommande(c.IDcommande, 1) WHERE IDProduitOptionValeur = 2266) AS bit) AS AvecCoupeAuFormat
   FROM
     TBL_COMMANDE c
     JOIN TBL_COMMANDE_LIGNE cl ON cl.IDCommande = c.IDCommande

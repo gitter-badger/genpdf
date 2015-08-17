@@ -34,3 +34,5 @@ ffa.cell.kit_fidelite,KF,KIN,LK,KIN,KitF
 ffa.cell.porte_carte,PC,PT,CH,PC,PVB
 ffa.cell.retirage,Ret,Rei,Rpt,Rei,RIS
 ffa.cell.sous_traitance,ST,BT,OW,ST,SubF
+ffa.text.coupetoutesposes,Coupe de toutes les poses,Cortar todas las poses,Cutting all poses,Cortar todas as poses,Taglio tutte le pose
+ffa.text.coupeauformat,Coupe au format ,Coupe au format ,Cutting format ,Coupe au format ,Coupe au format
