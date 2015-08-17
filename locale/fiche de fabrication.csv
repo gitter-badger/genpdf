@@ -8,6 +8,8 @@ ffa.planche.faco.avec_perfo,Perforation,Perforado,Drilled,Perfurado,Perforazione
 ffa.planche.faco.avec_decoupe,Découpe,Troquelado,Diecut,Cortante,Taglio
 ffa.planche.faco.avec_predecoupe,Prédécoupe,Precortado,Precut,Pre-troquelado,Pretaglio
 ffa.planche.faco.avec_decoupe_numerique,Découpe numérique,Troquelado digital,Digital diecut,Cortante digital,Fustella digitale
+ffa.planche.faco.avec_decoupe_outil,Découpe outil,Herramienta de corte,Cutting tool,Ferramenta de corte,Utensile da taglio
+ffa.planche.faco.avec_decorticage,Décorticage,Bombardeos,Shelling,Bombardeamentos,Shelling
 ffa.planche.finitions.pelliculage,PELL,PLAST,Laminated,PLAST,Plastificato
 ffa.planche.finitions.vernis,VERN,BARN,Varnish,VERN,VER
 ffa.planche.finitions.vernis_uv,UV,UV,UV varnish,UV,VERUV
@@ -32,3 +34,5 @@ ffa.cell.kit_fidelite,KF,KIN,LK,KIN,KitF
 ffa.cell.porte_carte,PC,PT,CH,PC,PVB
 ffa.cell.retirage,Ret,Rei,Rpt,Rei,RIS
 ffa.cell.sous_traitance,ST,BT,OW,ST,SubF
+ffa.text.coupetoutesposes,Coupe de toutes les poses,Cortar todas las poses,Cutting all poses,Cortar todas as poses,Taglio tutte le pose
+ffa.text.coupeauformat,Coupe au format ,Coupe au format ,Cutting format ,Coupe au format ,Coupe au format
