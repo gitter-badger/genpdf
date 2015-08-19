@@ -81,10 +81,14 @@ class IndicationsCommandes
 
             $k = 'Façonnage';
             if ($commande['Pliage'] ||
+                $commande['PliageSaisie'] ||
                 $commande['Rainage'] ||
+                $commande['RainageSaisie'] ||
                 $commande['Perforation'] ||
+                $commande['PerforationSaisie'] ||
                 $commande['Predecoupe'] ||
-                $commande['DecoupeALaForme']) {
+                $commande['DecoupeALaForme'] ||
+                $commande['Decorticage']) {
                 if (!isset($result[$k])) $result[$k] = [];
                 if (!isset($result[$k][$page])) $result[$k][$page] = [];
                 $result[$k][$page][$position] = ['IDCommande' => $commande['IDCommande']];

@@ -27,6 +27,7 @@ class CoinsRonds implements ICellule
     public function draw(Position $position, \TCPDF $pdf, $cellSize, array $commande)
     {
         if ($commande['DecoupeALaForme'] != null) {
+
             switch ($commande['DecoupeALaForme']) {
                 case 522:
                     $cell            = new Cell();
@@ -60,6 +61,7 @@ class CoinsRonds implements ICellule
                 default:
                     CelluleHelper::drawEmptyCell($position, $pdf, $cellSize);
             }
+
         }
         if ($commande['DecoupeALaFormeNumerique'] || strpos($commande['CodeProduit'], 'CRN') !== false) {
 
@@ -69,6 +71,19 @@ class CoinsRonds implements ICellule
             $file .= !is_null($commande['HasDecoupeNumeriqueBD']) ? $commande['HasDecoupeNumeriqueBD'] : 0;
             $file .= !is_null($commande['HasDecoupeNumeriqueBG']) ? $commande['HasDecoupeNumeriqueBG'] : 0;
             $file .= '.png';
+
+            $image = new ImageInContainer(
+                $file,
+                new Dimensions(71, 71),
+                new Dimensions($cellSize, $cellSize),
+                $position
+            );
+
+            $image->draw($pdf);
+
+        } else if ($commande['Decorticage']) {
+
+            $file = '../assets/Cellule/decorticage.png';
 
             $image = new ImageInContainer(
                 $file,

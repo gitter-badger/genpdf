@@ -21,8 +21,7 @@ class Factory
 {
 
     /**
-     * COMMON
-     *      AMALGAMME
+     * AMALGAMME
      *      NEGOCE
      *          EXAPROD
      *          CONFIGURATEUR
